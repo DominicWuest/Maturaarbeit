@@ -9,7 +9,7 @@ var path = require("path");
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended : true});
 
-app.use(express.static("public")); // Directory for static files like css
+app.use(express.static("public/css")); // Directory for static files like css
 app.set('views', path.join(__dirname, 'public/views')); // Static directory for ejs files
 app.set("view engine", "ejs"); // Set the view engine to ejs (res.render)
 

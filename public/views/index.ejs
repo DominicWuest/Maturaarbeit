@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/styles/index.css">
+    <script type="text/javascript" src="js/index.js"></script>
+  </head>
+  <body>
+    <div class="courses">
+      <ul></ul>
+    </div>
+    <div class="logo">
+      <h1>CSAcademy</h1>
+    </div>
+    <div class="search">
+      <input type="text" name="searchInput" placeholder="Search for courses here..." id="searchBar" oninput="showSuggested()">
+      <div id="suggestions"></div>
+    </div>
+    <div class="mostPopular">
+      <ul><ul>
+    </div>
+    <%- include partials/footer.ejs %>
+  </body>
+</html>

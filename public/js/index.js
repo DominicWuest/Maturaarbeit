@@ -1,23 +1,25 @@
-const maxSuggestions = 5;
+const maxSuggestions = 5; // Max amount of suggestions shown
 let suggestions;
 
-function start(sug) {
-  suggestions = sug;
+function start(courses) { // Gets called when accessing the page
+  suggestions = courses; // All available courses from data/courses.csv
 }
 
-function showSuggested() {
+function showSuggested() { // Gets called when the input of the searchbar gets changed
   let div = document.getElementById("suggestions"); // Remove every list element currently inside the div
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
-  let input = document.getElementById("searchBar").value.toLowerCase();
+  let input = document.getElementById("searchBar").value.toLowerCase(); // The current content from the searchbar
   if (input === '') return; // Don't show any recommendations if input is empty
   let suggestionsAmount = 0; // Counter to see how many list element have been created
-  for (let i = 0; i < suggestions[0].length; i++) {
-    for (keyword of suggestions[2][i]) {
-      if (keyword.startsWith(input)) {
-        console.log(suggestions[0][i]);
-      }
+  for (let i = 0; i < suggestions[0].length; i++) { // Iterate over every course
+    if (suggestions[2][i].some((element) => element.startsWith(input))) { // If any of the keywords start with the input
+      var a = document.createElement('a'); // Create new anchor
+      var linkText = document.createTextNode(suggestions[0][i]); // Anchor has the text of the suggestion whose keyword starts with the input
+      a.appendChild(linkText);
+      a.href = suggestions[1][i];
+      div.appendChild(a);
     }
   }
 }

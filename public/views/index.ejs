@@ -11,17 +11,19 @@
   </head>
   <body>
     <div class="courses">
-      <ul></ul>
+      <ul>asdf</ul>
     </div>
-    <div class="logo">
-      <h1>CSAcademy</h1>
-    </div>
-    <div class="search">
-      <input type="text" name="searchInput" placeholder="Search for courses here..." id="searchBar" oninput="showSuggested()">
-      <div id="suggestions"></div>
+    <div class="middle">
+      <div class="domainname">
+        <h1>CSAcademy</h1>
+      </div>
+      <div class="search">
+        <input type="text" name="searchInput" placeholder="Search for courses here..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
+        <div id="suggestions" onmousedown="focused = true;" onblur="hideSuggested();"></div>
+      </div>
     </div>
     <div class="mostPopular">
-      <ul><ul>
+      <ul>asdf<ul>
     </div>
     <%- include partials/footer.ejs %>
   </body>

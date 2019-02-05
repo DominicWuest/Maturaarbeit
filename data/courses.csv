@@ -1,0 +1,4 @@
+$ 0 : Course Name, 1 : Course Path, 2 : Keywords
+Komponenten,Motherboard,Arbeitsspeicher | RAM, Prozessor | CPU,Grafikkarte | GPU
+/components,/components/motherboard,/components/ram,/components/cpu,/components/gpu
+komponenten components,motherboard mainboard,arbeitsspeicher ram,prozessor cpu,grafikkarte gpu

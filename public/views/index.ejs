@@ -12,20 +12,25 @@
   </head>
   <body>
     <div class="courses">
-      <span class="title">All Courses</span>
-      <ul> <!-- TODO -->
+      <span class="title">Alle Kurse</span>
+      <ul>
         <% let index = 0 %>
-        <li><%= courses[0][0]  %>
+        <li><a href="<%= courses[1][0] %>"><%= courses[0][0]  %></a>
         <% for (let i = 1; i < courses[0].length; i++) { %>
           <% if (courses[3][i] > index) { %>
-            <% index = courses[3][i] %>
-            <ul><li><%= courses[0][i] %>
+            <% for (let j = 0; j < courses[3][i] - index; j++) { %>
+              <ul><li>
+            <% } %>
+            <a href="<%= courses[1][i] %>"><%= courses[0][i] %></a>
           <% } else if (courses[3][i] < index) { %>
-            <% index = courses[3][i] %>
-            </li></ul></li><li><%= courses[0][i] %>
+            <% for (let j = 0; j < index - courses[3][i]; j++) { %>
+              </li></ul></li>
+            <% } %>
+            <li><a href="<%= courses[1][i] %>"><%= courses[0][i] %></a>
           <% } else { %>
-            </li><li><%= courses[0][i] %>
+          </li><li><a href="<%= courses[1][i] %>"><%= courses[0][i] %></a>
           <% } %>
+          <% index = courses[3][i] %>
         <% } %>
         </li>
       </ul>
@@ -33,17 +38,17 @@
     <div class="middle">
       <div class="domainname">CSAcademy</div>
       <div class="search">
-        <input type="text" name="searchInput" placeholder="Search for courses here..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
+        <input type="text" name="searchInput" placeholder="Suche hier nach Kursen..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
         <div id="suggestions" onmousedown="focused = true;" onblur="hideSuggested();"></div>
       </div>
     </div>
     <div class="mostPopular">
-      <span class="title">Most Popular Courses</span>
-      <ul>
+      <span class="title">Beliebtesten Kurse</span>
+      <ol>
         <% for (course of mostPopular) { %>
           <li><%= course %></li>
         <% } %>
-      </ul>
+      </ol>
     </div>
     <%- include partials/footer.ejs %>
   </body>

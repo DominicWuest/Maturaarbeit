@@ -16,7 +16,7 @@ var courses = csvParser(fs.readFileSync('data/courses.csv'), {
 });
 
 courses[2] = courses[2].map(function (element) {
-  if (element.includes(" ")) return element.split(' ');
+  if (element.includes(" ")) return element.split(' '); // Return either the splitted string or the string in an array
   else return [element];
 });
 

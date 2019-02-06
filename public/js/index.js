@@ -1,4 +1,4 @@
-const maxSuggestions = 8; // Max amount of suggestions shown
+const maxSuggestions = 7; // Max amount of suggestions shown
 let suggestions;
 let focused = false;
 
@@ -27,7 +27,9 @@ function showSuggested() { // Gets called when the input of the searchbar gets c
       a.href = suggestions[1][i];
       div.appendChild(a);
       suggested = true; // There is at least one suggestion available
+      suggestionsAmount++;
     }
+    if (suggestionsAmount > maxSuggestions) break;
   }
   if (suggested) {
     searchBar.style.borderBottomLeftRadius = "0px";

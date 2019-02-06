@@ -25,11 +25,13 @@ body {
 }
 
 .courses span {
-
+  text-decoration: underline;
+  font-size: 1.7em;
 }
 
 .courses ul {
   padding: 0;
+  padding-left: 5%;
   list-style: none;
 }
 
@@ -37,12 +39,20 @@ body {
   padding-top: 1%;
 }
 
+.courses li:first-child {
+  padding-top: 3%;
+}
+
+.courses li:last-child {
+  padding-bottom: 3%;
+}
+
 .courses ul ul {
   padding-left: 6%;
 }
 
 .courses ul li ul li:before {
-  position: relative;
+  padding: 0;
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -137,7 +147,7 @@ body {
   display: block;
   color: white;
   font-size: 1.7em;
-  background-color: #444;
+  background-color: #333;
   box-sizing: content-box;
   border-top: 1px solid white;
   margin: 0 auto;

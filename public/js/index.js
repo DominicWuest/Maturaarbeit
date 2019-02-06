@@ -1,4 +1,4 @@
-const maxSuggestions = 5; // Max amount of suggestions shown
+const maxSuggestions = 8; // Max amount of suggestions shown
 let suggestions;
 let focused = false;
 

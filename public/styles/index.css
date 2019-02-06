@@ -1,4 +1,5 @@
 html {
+  overflow: hidden;
   margin: 0;
   height: 100%;
 }
@@ -52,7 +53,6 @@ body {
 }
 
 .courses ul li ul li:before {
-  padding: 0;
   display: inline-block;
   width: 10px;
   height: 10px;
@@ -96,6 +96,13 @@ body {
   align-content: center;
   flex-direction: column;
   font-size: 7vw;
+}
+
+.domainname p {
+  box-sizing: border-box;
+  background-image: url(/imgs/circuit.png);
+  padding: 4%;
+  border-radius: 50px;
 }
 
 /*

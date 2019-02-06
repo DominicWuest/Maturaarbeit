@@ -15,7 +15,7 @@ function showSuggested() { // Gets called when the input of the searchbar gets c
   let searchBar = document.getElementById("searchBar");
   let input = searchBar.value.toLowerCase(); // The current content from the searchbar
   if (input === '') { // Don't show any recommendations if input is empty
-    searchBar.style.borderRadius = "10px";
+    searchBar.style.borderRadius = "1vh";
     return;
   }
   let suggestionsAmount = 0; // Counter to see how many list element have been created
@@ -32,9 +32,9 @@ function showSuggested() { // Gets called when the input of the searchbar gets c
     if (suggestionsAmount == maxSuggestions) break;
   }
   if (suggested) {
-    searchBar.style.borderBottomLeftRadius = "0px";
-    searchBar.style.borderBottomRightRadius = "0px";
-  } else searchBar.style.borderRadius = "10px";
+    searchBar.style.borderBottomLeftRadius = "0";
+    searchBar.style.borderBottomRightRadius = "0";
+  } else searchBar.style.borderRadius = "1vh";
 }
 
 function hideSuggested() { // Gets called when the searchbar loses focus
@@ -44,7 +44,7 @@ function hideSuggested() { // Gets called when the searchbar loses focus
       div.removeChild(div.firstChild);
     }
     let searchBar = document.getElementById("searchBar"); // Reset border of searchbar to 10px
-    searchBar.style.borderRadius = "10px";
+    searchBar.style.borderRadius = "1vh";
   }
   focused = false;
 }

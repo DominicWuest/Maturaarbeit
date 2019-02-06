@@ -1,13 +1,14 @@
+html, body {
+  margin: 0;
+  height: 100vh;
+}
+
 html {
   overflow: hidden;
-  margin: 0;
-  height: 100%;
 }
 
 body {
   background-image: linear-gradient(#4519C5, #2441B4);
-  margin: 0;
-  height: 100%;
   display: grid;
   grid-template-columns: 20% 60% 20%;
 }
@@ -17,21 +18,23 @@ body {
 */
 
 .courses {
+  margin-right: 4%;
   height: 100%;
   margin-top: 30%;
   padding-left: 5%;
   grid-column: 1;
   display: inline-block;
-  font-size: 1.4em;
+  font-size: 1.7vh;
 }
 
 .courses > ul {
+  height: 70vh;
   overflow-y: scroll;
 }
 
 .courses span {
   text-decoration: underline;
-  font-size: 1.7em;
+  font-size: 2.7vh;
 }
 
 .courses ul {
@@ -44,10 +47,6 @@ body {
   padding-top: 1%;
 }
 
-.courses li:first-child {
-  padding-top: 3%;
-}
-
 .courses li:last-child {
   padding-bottom: 3%;
 }
@@ -58,8 +57,8 @@ body {
 
 .courses ul li ul li:before {
   display: inline-block;
-  width: 10px;
-  height: 10px;
+  width: 1.5vh;
+  height: 1.5vh;
   content: '';
   background-image: url(/imgs/arrowRight.png);
   background-repeat: no-repeat;
@@ -114,17 +113,13 @@ body {
   Searchbar
 */
 
-.search {
-
-}
-
 #searchBar {
   color: white;
-  font-size: 2em;
+  font-size: 2.5vh;
   box-sizing: content-box;
   padding: 1%;
   border: 0px;
-  border-radius: 10px;
+  border-radius: 1vh;
   display: block;
   margin: 0 auto;
   width: 60%;
@@ -161,15 +156,15 @@ body {
   font-size: 3vh;
   background-color: #333;
   box-sizing: content-box;
-  border-top: 1px solid white;
+  border-top: 0.1vh solid white;
   margin: 0 auto;
   width: 60%;
   padding: 1%;
 }
 
 #suggestions a:last-child {
-  border-bottom-left-radius: 2vh;
-  border-bottom-right-radius: 2vh;
+  border-bottom-left-radius: 1vh;
+  border-bottom-right-radius: 1vh;
 }
 
 #suggestions a:hover {

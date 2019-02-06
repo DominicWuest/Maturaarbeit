@@ -7,9 +7,9 @@ html {
 body {
   background-image: linear-gradient(#4519C5, #2441B4);
   margin: 0;
-  min-height: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 15% 70% 15%;
+  grid-template-columns: 20% 60% 20%;
 }
 
 /*
@@ -17,12 +17,16 @@ body {
 */
 
 .courses {
+  height: 100%;
   margin-top: 30%;
-  overflow-y: auto;
   padding-left: 5%;
   grid-column: 1;
   display: inline-block;
   font-size: 1.4em;
+}
+
+.courses > ul {
+  overflow-y: scroll;
 }
 
 .courses span {
@@ -95,14 +99,14 @@ body {
   justify-content: center;
   align-content: center;
   flex-direction: column;
-  font-size: 7vw;
+  font-size: 6vw;
 }
 
 .domainname p {
   box-sizing: border-box;
   background-image: url(/imgs/circuit.png);
   padding: 4%;
-  border-radius: 50px;
+  border-radius: 5vh;
   background-size: 10%;
 }
 
@@ -154,7 +158,7 @@ body {
   text-decoration: none;
   display: block;
   color: white;
-  font-size: 1.7em;
+  font-size: 3vh;
   background-color: #333;
   box-sizing: content-box;
   border-top: 1px solid white;
@@ -164,8 +168,8 @@ body {
 }
 
 #suggestions a:last-child {
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 2vh;
+  border-bottom-right-radius: 2vh;
 }
 
 #suggestions a:hover {

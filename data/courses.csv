@@ -1,4 +1,5 @@
-$ 0 : Course Name, 1 : Course Path, 2 : Keywords
-Komponenten,Motherboard,Arbeitsspeicher | RAM, Prozessor | CPU,Grafikkarte | GPU
-/components,/components/motherboard,/components/ram,/components/cpu,/components/gpu
-komponenten components,motherboard mainboard,arbeitsspeicher ram,prozessor cpu,grafikkarte gpu
+$ 0 : Course Name, 1 : Course Path, 2 : Keywords, 3 : Index
+Komponenten,Motherboard,Arbeitsspeicher | RAM, Prozessor | CPU,Grafikkarte | GPU, Programmiersprachen, Python, Java
+/components,/components/motherboard,/components/ram,/components/cpu,/components/gpu,/programminglanguages,/programminglanguages/python,/programminglanguages/java
+komponenten components,motherboard mainboard,arbeitsspeicher ram,prozessor cpu,grafikkarte gpu,programminglanguages programming,python,java
+0,1,1,1,1,0,1,0

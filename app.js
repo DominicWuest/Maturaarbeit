@@ -11,6 +11,8 @@ var csvParser = require("csv-parse/lib/sync");
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended : true});
 
+var mostPopular = csvParser(fs.readFileSync('data/mostPopular.csv'), {})[0];
+
 var courses = csvParser(fs.readFileSync('data/courses.csv'), {
   comment : '$'
 });
@@ -25,7 +27,10 @@ app.set('views', path.join(__dirname, 'public/views')); // Static directory for 
 app.set("view engine", "ejs"); // Set the view engine to ejs (res.render)
 
 app.get('/', function(req, res) { // Homepage
-  res.render("index", {"courses" : courses});
+  res.render("index", {
+    "courses" : courses,
+    "mostPopular" : mostPopular
+  });
 });
 
 app.listen(3000); // Listen on port 3000

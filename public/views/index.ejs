@@ -12,7 +12,23 @@
   </head>
   <body>
     <div class="courses">
-      <ul>asdf</ul>
+      <span class="title">All Courses</span>
+      <ul> <!-- TODO -->
+        <% let index = 0 %>
+        <li><%= courses[0][0]  %>
+        <% for (let i = 1; i < courses[0].length; i++) { %>
+          <% if (courses[3][i] > index) { %>
+            <% index = courses[3][i] %>
+            <ul><li><%= courses[0][i] %>
+          <% } else if (courses[3][i] < index) { %>
+            <% index = courses[3][i] %>
+            </li></ul></li><li><%= courses[0][i] %>
+          <% } else { %>
+            </li><li><%= courses[0][i] %>
+          <% } %>
+        <% } %>
+        </li>
+      </ul>
     </div>
     <div class="middle">
       <div class="domainname">CSAcademy</div>
@@ -22,7 +38,12 @@
       </div>
     </div>
     <div class="mostPopular">
-      <ul>asdf<ul>
+      <span class="title">Most Popular Courses</span>
+      <ul>
+        <% for (course of mostPopular) { %>
+          <li><%= course %></li>
+        <% } %>
+      </ul>
     </div>
     <%- include partials/footer.ejs %>
   </body>

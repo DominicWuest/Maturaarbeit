@@ -44,11 +44,15 @@ body {
 }
 
 .courses li {
-  padding-top: 1%;
+  margin-top: 1%;
 }
 
-.courses li:last-child {
-  padding-bottom: 3%;
+.courses > ul > li {
+  padding-top: 3%;
+}
+
+.courses > ul li:first-child {
+  padding-top: 0;
 }
 
 .courses ul ul {
@@ -64,10 +68,6 @@ body {
   background-repeat: no-repeat;
   background-size: contain;
   padding-left: 1%;
-}
-
-.courses li {
-
 }
 
 .courses a {

@@ -1,5 +1,5 @@
 $ 0 : Course Name, 1 : Course Path, 2 : Keywords, 3 : Index
-Komponenten,Motherboard,Arbeitsspeicher | RAM, Prozessor | CPU,Grafikkarte | GPU, Programmiersprachen, Python, Java
-/components,/components/motherboard,/components/ram,/components/cpu,/components/gpu,/programminglanguages,/programminglanguages/python,/programminglanguages/java
-komponenten components,motherboard mainboard,arbeitsspeicher ram,prozessor cpu,grafikkarte gpu,programminglanguages programming,python,java
-0,1,1,1,1,0,1,1
+Komponenten,Motherboard,Arbeitsspeicher | RAM, Prozessor | CPU,Grafikkarte | GPU,Anschlüsse,USB,USB 1.X,USB 2.0,USB 3.X,USB-C,Videoanschlüsse,VGA,HDMI,DVI,DVI-D,DVI-A,DVI-I,PS/2,Programmiersprachen,Python,Java
+/components,/components/motherboard,/components/ram,/components/cpu,/components/gpu,/ports,/ports/usb,/ports/usb/1.x,/ports/usb/2,/ports/usb/3.x,/ports/usb-c,/ports/video,/ports/video/vga,/ports/video/hdmi,/ports/video/dvi,/ports/video/dvi/d,/ports/video/dvi/a,/ports/video/dvi/i,/ports/ps2/,programminglanguages,/programminglanguages/python,/programminglanguages/java
+komponenten components,motherboard mainboard,arbeitsspeicher ram,prozessor cpu,grafikkarte gpu,ports anschlüsse,ports anschlüsse usb,ports anschlüsse usb 1.x 1,ports anschlüsse usb 2,ports anschlüsse usb 3.x 3,ports anschlüsse usb c usbc usb-c,ports anschlüsse video videoanschlüsse,ports anschlüsse video vga,ports anschlüsse video hdmi,ports anschlüsse video dvi,ports anschlüsse video dvi dvid dvi-d,ports anschlüsse video dvi dvia dvi-a,ports anschlüsse video dvi dvii dvi-i,ports anschlüsse,programminglanguages programming,python,java
+0,1,1,1,1,0,1,2,2,2,2,1,2,2,2,3,3,3,1,0,1,1

@@ -2,15 +2,16 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=1333, height=1024">
     <title>Homepage</title>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css">
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
       start(<%- JSON.stringify(courses) %>); // Function of index.js. Declares needed variables.
     </script>
   </head>
-  <body>
+  <body onload="checkDeviceSize()">
     <div class="courses">
       <span class="title">Alle Kurse</span>
       <ul>
@@ -43,12 +44,12 @@
       </div>
     </div>
     <div class="mostPopular">
-      <span class="title">Beliebtesten Kurse</span>
-      <ol>
-        <% for (course of mostPopular) { %>
-          <li><%= course %></li>
+      <span class="title">Beliebteste Kurse</span>
+      <ul>
+        <% for (let i = 0; i < mostPopular[0].length; i++) { %>
+          <li><a href="<%= mostPopular[1][i] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
         <% } %>
-      </ol>
+      </ul>
     </div>
     <%- include partials/footer.ejs %>
   </body>

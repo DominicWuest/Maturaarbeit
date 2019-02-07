@@ -11,7 +11,9 @@ var csvParser = require("csv-parse/lib/sync");
 var app = express();
 var urlencodedParser = bodyParser.urlencoded({extended : true});
 
-var mostPopular = csvParser(fs.readFileSync('data/mostPopular.csv'), {})[0];
+var mostPopular = csvParser(fs.readFileSync('data/mostPopular.csv'), {
+  comment : '$'
+});
 
 var courses = csvParser(fs.readFileSync('data/courses.csv'), {
   comment : '$'

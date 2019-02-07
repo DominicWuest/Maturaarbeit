@@ -30,11 +30,11 @@ body {
 
 .courses > ul {
   padding-left: 1vh;
-  height: 72vh;
+  height: 73vh;
   overflow-y: auto;
 }
 
-.courses span {
+.courses .title {
   font-family: 'Righteous', cursive;
   font-size: 3.5vh;
 }
@@ -179,23 +179,24 @@ body {
 */
 
 .mostPopular {
+  padding: 0;
+  margin: 0;
   height: 100%;
   color: white;
   grid-column: 3;
   display: inline-block;
-  margin-top: 9.6vh;
+  margin-top: 30%;
   margin-left: 4vh;
 }
 
 .mostPopular .title {
-  line-height: 8.3vh;
+  display: block;
   font-family: 'Righteous', cursive;
   color: black;
   font-size: 3.5vh;
 }
 
 .mostPopular ul {
-  position: relative;
   top: -1vh;
   list-style: none;
   padding: 0;
@@ -213,4 +214,8 @@ body {
   color: white;
   text-decoration: none;
   font-size: 1.7vh;
+}
+
+@media only screen and (orientation : portrait) {
+  
 }

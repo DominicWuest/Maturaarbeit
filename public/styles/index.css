@@ -227,7 +227,7 @@ body {
   Media Queries
 */
 
-@media only screen and (orientation : portrait) {
+@media only screen and (max-aspect-ratio : 13 / 9) {
   body {
     grid-gap: 0;
     grid-template-columns: 50vw 50vw;

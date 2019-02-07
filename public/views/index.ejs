@@ -3,7 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Homepage</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico" />
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css">
     <script type="text/javascript" src="js/index.js"></script>
@@ -11,33 +12,35 @@
       start(<%- JSON.stringify(courses) %>); // Function of index.js. Declares needed variables.
     </script>
   </head>
-  <body onload="checkDeviceSize()">
+  <body onload="checkDeviceSize();">
     <div class="courses">
       <span class="title">Alle Kurse</span>
-      <ul>
-        <% let index = 0 %>
-        <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
-        <% for (let i = 1; i < courses[0].length; i++) { %>
-          <% if (courses[3][i] > index) { %>
-            <% for (let j = 0; j < courses[3][i] - index; j++) { %>
-              <ul><li>
+      <div class="coursesListContainer">
+        <ul class="coursesList">
+          <% let index = 0 %>
+          <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
+          <% for (let i = 1; i < courses[0].length; i++) { %>
+            <% if (courses[3][i] > index) { %>
+              <% for (let j = 0; j < courses[3][i] - index; j++) { %>
+                <ul><li>
+              <% } %>
+              <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+            <% } else if (courses[3][i] < index) { %>
+              <% for (let j = 0; j < index - courses[3][i]; j++) { %>
+                </li></ul></li>
+              <% } %>
+              <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+            <% } else { %>
+            </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
             <% } %>
-            <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-          <% } else if (courses[3][i] < index) { %>
-            <% for (let j = 0; j < index - courses[3][i]; j++) { %>
-              </li></ul></li>
-            <% } %>
-            <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-          <% } else { %>
-          </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+            <% index = courses[3][i] %>
           <% } %>
-          <% index = courses[3][i] %>
-        <% } %>
-        </li>
-      </ul>
+          </li>
+        </ul>
+      </div>
     </div>
     <div class="middle" id="sketch-holder">
-      <div class="domainname"><p>CSAcademy</p></div>
+      <div class="domainname"><span>CSAcademy</span></div>
       <div class="search">
         <input type="text" name="searchInput" placeholder="Suche hier nach Kursen..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
         <div id="suggestions" onmousedown="focused = true;" onblur="hideSuggested();"></div>

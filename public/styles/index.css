@@ -1,6 +1,6 @@
 html, body {
   margin: 0;
-  height: 100vh;
+  height: 100%;
 }
 
 html {
@@ -8,9 +8,10 @@ html {
 }
 
 body {
-  background-image: linear-gradient(#4519C5, #2441B4);
+  background : linear-gradient(#2441B4, #31128b) fixed;
+  background-repeat: repeat-x;
   display: grid;
-  grid-template-columns: 20% 60% 20%;
+  grid-template-columns: 20vw 60vw 20vw;
 }
 
 /*
@@ -18,32 +19,33 @@ body {
 */
 
 .courses {
-  margin-right: 4%;
+  margin: 0;
+  margin-left: 3vh;
   height: 100%;
   margin-top: 30%;
-  padding-left: 5%;
   grid-column: 1;
   display: inline-block;
   font-size: 1.7vh;
 }
 
 .courses > ul {
-  height: 70vh;
-  overflow-y: scroll;
+  padding-left: 1vh;
+  height: 72vh;
+  overflow-y: auto;
 }
 
 .courses span {
-  text-decoration: underline;
-  font-size: 2.7vh;
+  font-family: 'Righteous', cursive;
+  font-size: 3.5vh;
 }
 
 .courses ul {
-  padding: 0;
-  padding-left: 5%;
+  margin: 0;
   list-style: none;
 }
 
 .courses li {
+  white-space: nowrap;
   margin-top: 1%;
 }
 
@@ -90,7 +92,7 @@ body {
 
 .domainname {
   display: flex;
-  height: 50%;
+  height: 50vh;
   width: 100%;
   color: white;
   font-family: 'Press Start 2P', cursive;
@@ -102,6 +104,7 @@ body {
 }
 
 .domainname p {
+  text-shadow: 0 0 8vh black;
   box-sizing: border-box;
   background-image: url(/imgs/circuit.png);
   padding: 4%;
@@ -176,10 +179,33 @@ body {
 */
 
 .mostPopular {
+  color: white;
   grid-column: 3;
   display: inline-block;
+  margin-top: 30%;
+  margin-left: 4vh;
 }
 
-@media only screen and (orientation : portrait) {
+.mostPopular .title {
+  font-family: 'Righteous', cursive;
+  color: black;
+  font-size: 3.5vh;
+}
 
+.mostPopular ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 2vh;
+}
+
+.mostPopular li {
+  height: 2vh;
+  margin-top: 1vh;
+}
+
+.mostPopular a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.7vh;
 }

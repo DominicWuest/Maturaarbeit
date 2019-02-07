@@ -35,4 +35,8 @@ app.get('/', function(req, res) { // Homepage
   });
 });
 
+app.use(function(req, res, next) {
+  res.render("404");
+});
+
 app.listen(3000); // Listen on port 3000

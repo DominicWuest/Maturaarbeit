@@ -14,6 +14,10 @@ body {
   grid-template-columns: 20vw 60vw 20vw;
 }
 
+a:hover {
+  text-decoration: underline!important;
+}
+
 /*
   Courses
 */
@@ -227,6 +231,10 @@ body {
   Media Queries
 */
 
+/*
+  Portrait-mode
+*/
+
 @media only screen and (max-aspect-ratio : 13 / 9) {
   body {
     grid-gap: 0;
@@ -253,7 +261,8 @@ body {
   }
 
   .courses {
-    margin-top: 0;
+    width: 40vw;
+    margin: 0 auto;
     grid-column-start: 1;
     grid-column-end: 2;
     grid-row-start: 2;
@@ -265,7 +274,8 @@ body {
   }
 
   .mostPopular {
-    margin-top: 0;
+    width: 40vw;
+    margin: 0 auto;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
@@ -274,6 +284,7 @@ body {
 }
 
 @media only screen and (max-width : 500px) {
+
   #searchBar {
     font-size: 4vw;
   }

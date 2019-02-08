@@ -42,7 +42,7 @@ app.get('/', function(req, res) { // Homepage
 
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res, next) {
-    if (!fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render('inprogress');
+    if (!fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render('underconstruction');
     res.render(pathsToCourses[i]);
   });
 }

@@ -35,7 +35,12 @@ app.get('/', function(req, res) { // Homepage
   });
 });
 
-app.use(function(req, res, next) {
+app.use(function(req, res, next) { // Render underconstruction.ejs if the path is inside the courses path dataset
+  if (courses[1].includes(req.url)) res.render('underconstruction');
+  else next();
+})
+
+app.use(function(req, res, next) { // Render 404.ejs if the page doesn't exist
   res.status(404);
   res.render('404');
 });

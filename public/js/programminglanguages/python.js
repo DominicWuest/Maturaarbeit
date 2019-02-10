@@ -2,7 +2,7 @@
 // to a pre element.
 function outf(text) {
     var myPre = document.getElementById("output");
-    myPre.innerHTML = myPre.innerHTML + text;
+    myPre.innerHTML += text;
 }
 function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles["files"][x] === undefined)
@@ -15,7 +15,7 @@ function builtinRead(x) {
 // configure the output function
 // call Sk.importMainWithBody()
 function runit() {
-   var code = document.getElementById("yourcode").value;
+   var code = document.getElementById("code").value;
    var myPre = document.getElementById("output");
    myPre.innerHTML = '';
    Sk.pre = "output";
@@ -23,7 +23,10 @@ function runit() {
    var myPromise = Sk.misceval.asyncToPromise(function() {
        return Sk.importMainWithBody("<stdin>", false, code, true);
    });
-   myPromise.catch(function(err) {
-       myPre.innerHTML += err.toString();
+   myPromise.catch(function(err) { // Error in code
+     var span = document.createElement("SPAN");
+     span.className = "error";
+     span.appendChild(document.createTextNode(err.toString()));
+     myPre.appendChild(span);
    });
 }

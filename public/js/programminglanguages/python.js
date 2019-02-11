@@ -18,6 +18,7 @@ function runit() {
    var code = document.getElementById("code").value;
    var myPre = document.getElementById("output");
    myPre.innerHTML = '';
+   if (code === '') return;
    Sk.pre = "output";
    Sk.configure({output:outf, read:builtinRead});
    var myPromise = Sk.misceval.asyncToPromise(function() {

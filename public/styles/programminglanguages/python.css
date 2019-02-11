@@ -1,3 +1,82 @@
-.error {
-  color: red;
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  background : linear-gradient(#2441B4, #31128b) fixed;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 33.33vw 33.33vw 33.33vw;
+}
+
+.exercise {
+  font-size: 1.8vh;
+  background-color: white;
+  grid-column: 1;
+}
+
+.input {
+  height: 100%;
+  grid-column: 2;
+}
+
+.input textarea {
+  background-color: #333;
+  color: #AAA;
+  border: none;
+  padding: 1vh;
+  font-size: 1.8vh;
+  resize: none;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 97%;
+}
+
+.input textarea:focus {
+  outline: none;
+}
+
+.input button {
+  background-color: #2441B4;
+  padding: 0;
+  border: 0;
+  border-left: 0.5vh solid #333;
+  border-right: 0.5vh solid #333;
+  overflow: show;
+  line-height: 0;
+  font-size: 1.8vh;
+  float: left;
+  display: block;
+  box-sizing: border-box;
+  height: 3%;
+  width: 33.33%;
+}
+
+.input button:focus {
+  outline: none;
+}
+
+.input button:hover {
+  cursor: pointer;
+  background-color: #2733A0;
+}
+
+.input button:active {
+  background-color: #31128B;
+}
+
+.output {
+  font-size: 1.8vh;
+  background-color: white;
+  grid-column: 3;
+}
+
+#output {
+  margin: 0;
 }

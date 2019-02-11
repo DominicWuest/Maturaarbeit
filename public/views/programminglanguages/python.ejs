@@ -11,10 +11,21 @@
     <title>Python</title>
   </head>
   <body>
-    <form>
-      <textarea id="code" cols="40" rows="10"></textarea><br/>
-      <button type="button" onclick="runit()">Run</button>
-    </form>
-    <pre id="output"></pre>
+    <main>
+      <div class="exercise">
+
+      </div>
+      <div class="inputContainer">
+        <form class="input">
+          <textarea id="code"></textarea>
+          <button type="button" name="run" onclick="runit();">Run Code</button><!--
+          --><button type="button" name="solution" onclick="showSolution();">Solution</button><!--
+          --><button type="reset" name="reset">Reset Code</button>
+        </form>
+      </div>
+      <div class="output">
+        <pre id="output"></pre>
+      </div>
+    </main>
   </body>
 </html>

@@ -42,6 +42,11 @@ function displayExercise(index) {
   var exerciseText = document.createElement("P");
   exerciseText.appendChild(document.createTextNode(pythonCourses["exercises"][index]["description"]));
   textDiv.appendChild(exerciseText);
+  if (index !== 0) document.getElementsByName("solution")[0].style.visibility = "visible";
+}
+
+function showSolution() {
+
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {

@@ -15,7 +15,7 @@
     </script>
     <title>Python</title>
   </head>
-  <body>
+  <body onload="loaded();">
     <main>
       <div class="exercise">
         <h1 class="sectionTitle">Aufgabe</h1>
@@ -24,7 +24,9 @@
       <div class="inputContainer">
         <h1 class="sectionTitle">Code</h1>
         <form class="input">
-          <textarea id="code"></textarea>
+          <div class="textareaContainer">
+            <textarea id="code"></textarea>
+          </div>
           <div class="buttons">
             <button type="button" name="run" onclick="runit();">Run</button><!--
             --><button type="button" name="solution" onclick="showSolution();">Lösung</button><!--

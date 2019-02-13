@@ -36,6 +36,16 @@ main {
   grid-column: 1;
 }
 
+#exerciseText {
+  height: 93.8%;
+  overflow-y: auto;
+  padding: 1vh;
+  padding-top: 0;
+}
+
+#exerciseText h1 {
+  font-size: 3vh;
+}
 
 #exerciseText p {
   white-space: pre-wrap;
@@ -104,6 +114,10 @@ main {
   background-repeat: no-repeat;
   background-size: auto 100%;
   padding-left: 2vh;
+}
+
+.input button[name="solution"] {
+  visibility: hidden;
 }
 
 .input button[name="reset"] {

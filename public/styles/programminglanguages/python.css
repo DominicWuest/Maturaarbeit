@@ -1,0 +1,154 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+body {
+  background : linear-gradient(#2441B4, #31128b) fixed;
+}
+
+main {
+  height: 100vh;
+  display: grid;
+  background-image: linear-gradient(#2441B4, #31128B);
+  grid-template-columns: 32.5vw 32.5vw 32.5vw;
+  grid-template-rows: 97.5vh;
+  padding-top: 1.25vh;
+  justify-content: space-around;
+  box-sizing: border-box;
+}
+
+.sectionTitle {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5%;
+  border-bottom: 0.01vh solid black;
+}
+
+.exercise {
+  font-size: 1.8vh;
+  background-color: white;
+  grid-column: 1;
+}
+
+#exerciseText {
+  height: 93.8%;
+  overflow-y: auto;
+  padding: 1vh;
+  padding-top: 0;
+}
+
+#exerciseText h1 {
+  font-size: 3vh;
+}
+
+#exerciseText p {
+  white-space: pre-wrap;
+}
+
+.inputContainer {
+  height: 100%;
+  background-color: #333;
+}
+
+.inputContainer h1 {
+  color: #BBB;
+  border-bottom: 0.01vh solid #BBB;
+}
+
+.input {
+  background-color: #333;
+  height: 95%;
+  grid-column: 2;
+}
+
+.input textarea {
+  background-color: #333;
+  color: #AAA;
+  border: none;
+  padding: 1vh;
+  font-size: 1.8vh;
+  resize: none;
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: 95%;
+}
+
+.input textarea:focus {
+  outline: none;
+}
+
+.buttons {
+  border-top: 0.01vh solid #BBB;
+  height: 5%;
+  background-color: #333;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 30% 30% 30%;
+  grid-template-rows: 100%;
+  justify-content: space-around;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.input button {
+  padding: 0;
+  border: 0;
+  overflow: show;
+  line-height: 0;
+  font-size: 1.8vh;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+}
+
+.input button[name="run"] {
+  background-image: url(/imgs/programminglanguages/run.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  padding-left: 2vh;
+}
+
+.input button[name="solution"] {
+  visibility: hidden;
+}
+
+.input button[name="reset"] {
+  background-image: url(/imgs/programminglanguages/reset.png);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: auto 90%;
+  padding-right: 2vh;
+}
+
+.input button:focus {
+  outline: none;
+}
+
+.input button:hover {
+  cursor: pointer;
+
+}
+
+.input button:active {
+
+}
+
+.output {
+  font-size: 1.8vh;
+  background-color: white;
+  grid-column: 3;
+}
+
+#output {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 1vh;
+}

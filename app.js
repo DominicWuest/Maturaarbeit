@@ -29,6 +29,8 @@ courses[2] = courses[2].map(function (element) { // Organize the keywords
   else return [element];
 });
 
+var pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
+
 app.use(express.static('public')); // Directory for static files like css
 app.set('views', path.join(__dirname, 'public/views')); // Static directory for ejs files
 app.set('view engine', 'ejs'); // Set the view engine to ejs (res.render)
@@ -40,10 +42,21 @@ app.get('/', function(req, res) { // Homepage
   });
 });
 
-app.use(function(req, res, next) { // Render underconstruction.ejs if the path is inside the courses path dataset
-  if (courses[1].includes(req.url)) res.render('underconstruction');
-  else next();
-})
+app.get('/programminglanguages/python', function(req, res) {
+  res.render('programminglanguages\\python', {
+    'path' : '/programminglanguages/python',
+    'pythonCourses' : pythonCourses
+  });
+});
+
+for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
+  app.get(courses[1][i], function(req, res) {
+    if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
+      'path' : courses[1][i]
+    });
+    else res.render('underconstruction');
+  });
+}
 
 app.use(function(req, res, next) { // Render 404.ejs if the page doesn't exist
   res.status(404);

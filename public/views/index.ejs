@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="/styles/index.css">
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
-      start(<%- JSON.stringify(courses) %>); // Function of index.js. Declares needed variables.
+      const suggestions = <%- JSON.stringify(courses) %>; // Function of index.js. Declares needed variables.
     </script>
   </head>
   <body onload="checkDeviceSize();">

@@ -67,17 +67,25 @@ main {
   grid-column: 2;
 }
 
-.input textarea {
-  background-color: #333;
-  color: #AAA;
-  border: none;
+.textareaContainer {
   padding: 1vh;
-  font-size: 1.8vh;
-  resize: none;
   display: block;
   box-sizing: border-box;
   width: 100%;
   height: 95%;
+}
+
+.input textarea {
+  tab-size: 4;
+  -moz-tab-size: 4;
+  white-space: pre;
+  border: none;
+  background-color: #333;
+  color: #AAA;
+  font-size: 1.8vh;
+  resize: none;
+  height: 100%;
+  width: 100%;
 }
 
 .input textarea:focus {
@@ -148,6 +156,8 @@ main {
 }
 
 #output {
+  height: 94.8%;
+  overflow: auto;
   box-sizing: border-box;
   margin: 0;
   padding: 1vh;

@@ -19,7 +19,7 @@ main {
   box-sizing: border-box;
 }
 
-h1 {
+.sectionTitle {
   font-family: 'Press Start 2P', cursive;
   font-size: 3vh;
   margin: 0;
@@ -34,6 +34,11 @@ h1 {
   font-size: 1.8vh;
   background-color: white;
   grid-column: 1;
+}
+
+
+#exerciseText p {
+  white-space: pre-wrap;
 }
 
 .inputContainer {
@@ -106,6 +111,7 @@ h1 {
   background-repeat: no-repeat;
   background-position: 100%;
   background-size: auto 90%;
+  padding-right: 2vh;
 }
 
 .input button:focus {
@@ -128,5 +134,7 @@ h1 {
 }
 
 #output {
+  box-sizing: border-box;
   margin: 0;
+  padding: 1vh;
 }

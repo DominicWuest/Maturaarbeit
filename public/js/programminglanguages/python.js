@@ -1,3 +1,5 @@
+var courseIndex = 0; // Index of the course to be displayed
+
 // output functions are configurable.  This one just appends some text
 // to a pre element.
 function outf(text) {
@@ -31,3 +33,17 @@ function runit() {
      myPre.appendChild(span);
    });
 }
+
+function displayExercise(index) {
+  var textDiv = document.getElementById("exerciseText");
+  var title = document.createElement("H1");
+  title.appendChild(document.createTextNode(pythonCourses["exercises"][index]["title"]));
+  textDiv.appendChild(title);
+  var exerciseText = document.createElement("P");
+  exerciseText.appendChild(document.createTextNode(pythonCourses["exercises"][index]["description"]));
+  textDiv.appendChild(exerciseText);
+}
+
+document.addEventListener('DOMContentLoaded', function(event) {
+  displayExercise(0);
+})

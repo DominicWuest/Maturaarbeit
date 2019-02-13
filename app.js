@@ -29,6 +29,8 @@ courses[2] = courses[2].map(function (element) { // Organize the keywords
   else return [element];
 });
 
+var pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
+
 app.use(express.static('public')); // Directory for static files like css
 app.set('views', path.join(__dirname, 'public/views')); // Static directory for ejs files
 app.set('view engine', 'ejs'); // Set the view engine to ejs (res.render)
@@ -37,6 +39,13 @@ app.get('/', function(req, res) { // Homepage
   res.render('index', {
     'courses' : courses,
     'mostPopular' : mostPopular
+  });
+});
+
+app.get('/programminglanguages/python', function(req, res) {
+  res.render('programminglanguages\\python', {
+    'path' : '/programminglanguages/python',
+    'pythonCourses' : pythonCourses
   });
 });
 

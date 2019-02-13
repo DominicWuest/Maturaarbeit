@@ -1,10 +1,5 @@
 const maxSuggestions = 5; // Max amount of suggestions shown
-let suggestions;
 let focused = false;
-
-function start(courses) { // Gets called when accessing the page
-  suggestions = courses; // All available courses from data/courses.csv
-}
 
 function showSuggested() { // Gets called when the input of the searchbar gets changed
   let div = document.getElementById("suggestions"); // Remove every list element currently inside the div

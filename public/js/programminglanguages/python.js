@@ -30,7 +30,7 @@ function runit() {
    });
    myPromise.catch(function(err) { // Error in code
      var span = document.createElement('SPAN');
-     span.className = 'error';
+     span.classList.add('error');
      span.appendChild(document.createTextNode(err.toString()));
      myPre.appendChild(span);
    });
@@ -39,7 +39,13 @@ function runit() {
 
 function checkSolution(code) {
   console.log(code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']);
-  if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) subexerciseIndex++;
+  if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
+    document.getElementById(subexerciseIndex).classList.add('finishedSubexercise');
+    document.getElementById(subexerciseIndex).classList.remove('incorrectSubexercise');
+    subexerciseIndex++;
+  } else {
+    document.getElementById(subexerciseIndex).classList.add('incorrectSubexercise');
+  }
 }
 
 function resetSubexercise() {
@@ -56,7 +62,8 @@ function displayExercise(index) {
   textDiv.appendChild(exerciseText);
   for (subexercise of pythonCourses['exercises'][index]['subexercises']) {
     var subexerciseDiv = document.createElement('DIV');
-    subexerciseDiv.className = 'subexercise';
+    subexerciseDiv.classList.add('subexercise');
+    subexerciseDiv.id = subexercise['index'];
     var subexerciseText = document.createElement('P');
     subexerciseText.appendChild(document.createTextNode(subexercise['description']));
     subexerciseDiv.appendChild(subexerciseText);

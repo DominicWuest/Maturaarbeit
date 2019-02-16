@@ -1,4 +1,5 @@
 var courseIndex = 0; // Index of the course to be displayed
+var subexerciseIndex = 0;
 
 // output functions are configurable.  This one just appends some text
 // to a pre element.
@@ -6,6 +7,7 @@ function outf(text) {
     var myPre = document.getElementById('output');
     myPre.innerHTML += text;
 }
+
 function builtinRead(x) {
     if (Sk.builtinFiles === undefined || Sk.builtinFiles['files'][x] === undefined)
             throw "File not found: '" + x + "'";
@@ -32,6 +34,16 @@ function runit() {
      span.appendChild(document.createTextNode(err.toString()));
      myPre.appendChild(span);
    });
+   checkSolution(myPre.innerHTML.trim());
+}
+
+function checkSolution(code) {
+  console.log(code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']);
+  if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) subexerciseIndex++;
+}
+
+function resetSubexercise() {
+  document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
 }
 
 function displayExercise(index) {
@@ -42,11 +54,24 @@ function displayExercise(index) {
   var exerciseText = document.createElement('P');
   exerciseText.appendChild(document.createTextNode(pythonCourses['exercises'][index]['description']));
   textDiv.appendChild(exerciseText);
-  if (index !== 0) document.getElementsByName('solution')[0].style.visibility = 'visible';
+  for (subexercise of pythonCourses['exercises'][index]['subexercises']) {
+    var subexerciseDiv = document.createElement('DIV');
+    subexerciseDiv.className = 'subexercise';
+    var subexerciseText = document.createElement('P');
+    subexerciseText.appendChild(document.createTextNode(subexercise['description']));
+    subexerciseDiv.appendChild(subexerciseText);
+    textDiv.appendChild(subexerciseDiv);
+  }
+  if (index !== -1) {
+    document.getElementsByName('solution')[0].style.visibility = 'visible';
+    document.getElementById('code').value = pythonCourses['exercises'][index]['subexercises'][0]['startingCode'];
+  }
 }
 
 function showSolution() {
-
+  var textArea = document.getElementById('code');
+  textArea.value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
+  if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) subexerciseIndex++;
 }
 
 function loaded() {

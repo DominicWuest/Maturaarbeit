@@ -51,6 +51,14 @@ main {
   white-space: pre-wrap;
 }
 
+.subexercise {
+  background-color: black;
+}
+
+.subexercise p {
+  
+}
+
 .inputContainer {
   height: 100%;
   background-color: #333;

@@ -6,11 +6,11 @@
       "subexercises" : [{
           "index" : 0,
           "description" : "TEST",
-          "startingCode" : "True:",
+          "startingCode" : "print(1)",
           "solution" : "a = 0\nfor i in range(5):\n\tprint(i)",
           "output" : "1"
       }, {
-          "index" : 0,
+          "index" : 1,
           "description" : "Second",
           "startingCode" : "while True:",
           "solution" : "while True:\n\tprint('yeet')\n\tbreak",

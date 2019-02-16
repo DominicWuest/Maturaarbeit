@@ -1,10 +1,20 @@
 {
-  "exercises" : [
-    {
+  "exercises" : [{
       "index" : 0,
       "title" : "Freies Coden",
       "description" : "Dies ist keine Aufgabe. Hier kannst du so viel und frei coden, wie du willst.\nProbier hier doch einige neu gelernte Konzepte aus!\n\nViel Spass!",
-      "subexercises" : []
-    }
-  ]
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "TEST",
+          "startingCode" : "True:",
+          "solution" : "a = 0\nfor i in range(5):\n\tprint(i)",
+          "output" : "1"
+      }, {
+          "index" : 0,
+          "description" : "Second",
+          "startingCode" : "while True:",
+          "solution" : "while True:\n\tprint('yeet')\n\tbreak",
+          "output" : "2"
+      }]
+    }]
 }

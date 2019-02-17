@@ -49,14 +49,16 @@ function checkSolution(code) {
 }
 
 function resetSubexercise() {
-  document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+  if (courseIndex === -1) document.getElementById('code').value = ''
+  else document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
 }
 
 function displayExercise(index) {
-  var textDiv = document.getElementById('exerciseText');
+  var exerciseTitle = document.getElementById('exerciseTitle');
   var title = document.createElement('H1');
   title.appendChild(document.createTextNode(pythonCourses['exercises'][index]['title']));
-  textDiv.appendChild(title);
+  exerciseTitle.appendChild(title);
+  var textDiv = document.getElementById('exerciseText');
   var exerciseText = document.createElement('P');
   exerciseText.appendChild(document.createTextNode(pythonCourses['exercises'][index]['description']));
   textDiv.appendChild(exerciseText);
@@ -78,6 +80,8 @@ function displayExercise(index) {
 function showSolution() {
   var textArea = document.getElementById('code');
   textArea.value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
+  document.getElementById(subexerciseIndex).classList.add('finishedSubexercise');
+  document.getElementById(subexerciseIndex).classList.remove('incorrectSubexercise');
   if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) subexerciseIndex++;
 }
 
@@ -101,8 +105,24 @@ function loaded() {
       event.preventDefault();
     }
   });
+  makeDropdown();
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
   displayExercise(0);
 })
+
+function makeDropdown() {
+  var list = document.getElementById('exercisesDropdownList');
+  while (list.firstChild) {
+    list.removeChild(list.firstChild);
+  }
+  for (course of pythonCourses['exercises']) {
+      if (course['index'] !== -1) {
+      var listElement = document.createElement('LI');
+      var textNode = document.createTextNode(course['title']);
+      listElement.appendChild(textNode);
+      list.appendChild(listElement);
+    }
+  }
+}

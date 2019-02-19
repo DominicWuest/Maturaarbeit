@@ -83,6 +83,8 @@ function displayExercise() {
   if (courseIndex !== 0) {
     document.getElementsByName('solution')[0].style.visibility = 'visible';
     document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][0]['startingCode'];
+  } else {
+    document.getElementsByName('solution')[0].style.visibility = 'hidden';
   }
   makeDropdown();
 }

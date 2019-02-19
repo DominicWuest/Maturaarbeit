@@ -1,4 +1,13 @@
-var courseIndex = 0; // Index of the course to be displayed
+var courseIndex; // Index of the course to be displayed
+
+if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
+  let value = "; " + document.cookie;
+  let parts = value.split("; courseIndex=");
+  courseIndex = parseInt(parts.pop().split(";").shift());
+} else {
+  courseIndex = 0;
+}
+
 var subexerciseIndex = 0;
 
 // output functions are configurable.  This one just appends some text
@@ -38,51 +47,48 @@ function runit() {
 }
 
 function checkSolution(code) {
-  console.log(code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']);
   if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
-    document.getElementById(subexerciseIndex).classList.add('finishedSubexercise');
-    document.getElementById(subexerciseIndex).classList.remove('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     subexerciseIndex++;
+    document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
   } else {
-    document.getElementById(subexerciseIndex).classList.add('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
   }
 }
 
 function resetSubexercise() {
-  if (courseIndex === -1) document.getElementById('code').value = ''
+  if (courseIndex === 0) document.getElementById('code').value = ''
   else document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
 }
 
-function displayExercise(index) {
+function displayExercise() {
+  document.cookie = "courseIndex=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
   var exerciseTitle = document.getElementById('exerciseTitle');
+  exerciseTitle.innerHTML = '';
   var title = document.createElement('H1');
-  title.appendChild(document.createTextNode(pythonCourses['exercises'][index]['title']));
+  title.appendChild(document.createTextNode(pythonCourses['exercises'][courseIndex]['title']));
   exerciseTitle.appendChild(title);
   var textDiv = document.getElementById('exerciseText');
-  var exerciseText = document.createElement('P');
-  exerciseText.appendChild(document.createTextNode(pythonCourses['exercises'][index]['description']));
-  textDiv.appendChild(exerciseText);
-  for (subexercise of pythonCourses['exercises'][index]['subexercises']) {
+  textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
+  for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) {
     var subexerciseDiv = document.createElement('DIV');
     subexerciseDiv.classList.add('subexercise');
-    subexerciseDiv.id = subexercise['index'];
+    subexerciseDiv.id = 'subExercise' + subexercise['index'];
     var subexerciseText = document.createElement('P');
     subexerciseText.appendChild(document.createTextNode(subexercise['description']));
     subexerciseDiv.appendChild(subexerciseText);
     textDiv.appendChild(subexerciseDiv);
   }
-  if (index !== -1) {
+  if (courseIndex !== 0) {
     document.getElementsByName('solution')[0].style.visibility = 'visible';
-    document.getElementById('code').value = pythonCourses['exercises'][index]['subexercises'][0]['startingCode'];
+    document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][0]['startingCode'];
   }
+  makeDropdown();
 }
 
 function showSolution() {
-  var textArea = document.getElementById('code');
-  textArea.value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
-  document.getElementById(subexerciseIndex).classList.add('finishedSubexercise');
-  document.getElementById(subexerciseIndex).classList.remove('incorrectSubexercise');
-  if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) subexerciseIndex++;
+  document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
 }
 
 function loaded() {
@@ -118,11 +124,17 @@ function makeDropdown() {
     list.removeChild(list.firstChild);
   }
   for (course of pythonCourses['exercises']) {
-      if (course['index'] !== -1) {
+    if (course['index'] !== courseIndex) {
       var listElement = document.createElement('LI');
       var textNode = document.createTextNode(course['title']);
       listElement.appendChild(textNode);
+      listElement.id = course['index'];
       list.appendChild(listElement);
+      listElement.addEventListener('click', function() {
+        courseIndex = parseInt(listElement.id);
+        subexerciseIndex = 0;
+        displayExercise();
+      });
     }
   }
 }

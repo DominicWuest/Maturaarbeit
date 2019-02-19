@@ -19,10 +19,6 @@ main {
   box-sizing: border-box;
 }
 
-p {
-  font-family: Arial, sans-serif;
-}
-
 .sectionTitle {
   font-family: 'Press Start 2P', cursive;
   font-size: 3vh;
@@ -50,9 +46,29 @@ p {
   overflow-y: auto;
   padding: 0;
   padding-top: 0;
+  white-space: pre-wrap;
+  margin-top: 2vh;
+  font-family: Arial, sans-serif;
+}
+
+#exerciseText code {
+  box-sizing: border-box;
+  display: block;
+  margin: 1vh auto;
+  width: 75%;
+  background-color: #999;
+  padding: 1vh;
+  font-size: 2vh;
+  tab-size: 4;
+  border-radius: 2vh;
+  border: 0.3vh solid black;
 }
 
 #exerciseTitle h1 {
+  background-image: url(/imgs/programminglanguages/dropdown.png);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: contain;
   font-family: 'Righteous', cursive;
   font-size: 3.2vh;
   font-weight: 400;
@@ -65,7 +81,7 @@ p {
   max-height: 0;
   margin: 0;
   height: auto;
-  overflow: hidden;
+  overflow: auto;
   transition: max-height 1s;
 }
 
@@ -86,18 +102,15 @@ p {
   cursor: pointer;
   border: 0.1vh solid #CCC;
   border-bottom: 0;
+  font-size: 2.5vh;
 }
 
 #exerciseTitle:hover + .exercisesDropdown {
-  max-height: 100vh;
+  max-height: 20vh;
 }
 
 .exercisesDropdown:hover {
-  max-height: 100vh;
-}
-
-#exerciseText p {
-  white-space: pre-wrap;
+  max-height: 20vh;
 }
 
 .subexercise {

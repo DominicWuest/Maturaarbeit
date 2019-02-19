@@ -223,10 +223,6 @@ main {
   padding-left: 2vh;
 }
 
-.input button[name="solution"] {
-  visibility: hidden;
-}
-
 .input button[name="reset"] {
   background-image: url(/imgs/programminglanguages/reset.png);
   background-repeat: no-repeat;

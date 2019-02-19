@@ -36,19 +36,117 @@ main {
   grid-column: 1;
 }
 
+.exerciseMain {
+  padding-left: 1vh;
+  padding-right: 1vh;
+}
+
 #exerciseText {
   height: 93.8%;
   overflow-y: auto;
-  padding: 1vh;
+  padding: 0;
   padding-top: 0;
-}
-
-#exerciseText h1 {
-  font-size: 3vh;
-}
-
-#exerciseText p {
   white-space: pre-wrap;
+  margin-top: 2vh;
+  font-family: Arial, sans-serif;
+}
+
+#exerciseText code {
+  box-sizing: border-box;
+  display: block;
+  margin: 1vh auto;
+  width: 75%;
+  background-color: #999;
+  padding: 1vh;
+  font-size: 2vh;
+  tab-size: 4;
+  border-radius: 2vh;
+  border: 0.3vh solid black;
+}
+
+#exerciseTitle h1 {
+  background-image: url(/imgs/programminglanguages/dropdown.png);
+  background-repeat: no-repeat;
+  background-position: 100%;
+  background-size: contain;
+  font-family: 'Righteous', cursive;
+  font-size: 3.2vh;
+  font-weight: 400;
+  padding-left: 0;
+  margin-bottom: 0;
+  padding-bottom: 0.5vh;
+}
+
+.exercisesDropdown {
+  max-height: 0;
+  margin: 0;
+  height: auto;
+  overflow: auto;
+  transition: max-height 1s;
+}
+
+.exercisesDropdown ul {
+  width: auto;
+  margin: 0;
+  list-style: none;
+  padding: 0;
+}
+
+.exercisesDropdown ul:last-child {
+  border-bottom: 0.1vh solid #CCC;
+}
+
+.exercisesDropdown li {
+  box-sizing: border-box;
+  padding: 0.5vh;
+  cursor: pointer;
+  border: 0.1vh solid #CCC;
+  border-bottom: 0;
+  font-size: 2.5vh;
+}
+
+#exerciseTitle:hover + .exercisesDropdown {
+  max-height: 20vh;
+}
+
+.exercisesDropdown:hover {
+  max-height: 20vh;
+}
+
+.subexercise {
+  box-sizing: border-box;
+  background-color: #333;
+  border: 0.5vh solid #222;
+  padding: 1vh;
+  border-radius: 1vh;
+  margin: 0 auto;
+  margin-top: 2vh;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+.subexercise p {
+  margin: 0;
+  color: #BBB;
+  font-size: 1.8vh;
+  transition: color 0.3s;
+}
+
+.finishedSubexercise {
+  background-color: #6FEE44;
+  border-color: #34D100;
+}
+
+.finishedSubexercise p {
+  color: #222;
+}
+
+.incorrectSubexercise {
+  background-color: #FF3F3F;
+  border-color: red;
+}
+
+.incorrectSubexercise p {
+  color: white;
 }
 
 .inputContainer {
@@ -123,10 +221,6 @@ main {
   background-repeat: no-repeat;
   background-size: auto 100%;
   padding-left: 2vh;
-}
-
-.input button[name="solution"] {
-  visibility: hidden;
 }
 
 .input button[name="reset"] {

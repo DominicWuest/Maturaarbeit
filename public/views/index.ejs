@@ -41,10 +41,7 @@
     </div>
     <div class="middle" id="sketch-holder">
       <div class="domainname"><span>CSAcademy</span></div>
-      <div class="search">
-        <input type="text" name="searchInput" placeholder="Suche hier nach Kursen..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
-        <div id="suggestions" onmousedown="focused = true;" onblur="hideSuggested();"></div>
-      </div>
+      <%- include partials/searchBar.ejs %>
     </div>
     <div class="mostPopular">
       <span class="title">Beliebteste Kurse</span>

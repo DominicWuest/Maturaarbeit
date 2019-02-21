@@ -1,0 +1,5 @@
+<script type="text/javascript" src="js/partials/searchbar.js"></script>
+<div class="search">
+  <input type="text" name="searchInput" placeholder="Suche hier nach Kursen..." id="searchBar" oninput="showSuggested();" onfocus="showSuggested();" onblur="hideSuggested();">
+  <div id="suggestions" onmousedown="focused = true;" onblur="hideSuggested();"></div>
+</div>

@@ -1,0 +1,17 @@
+header {
+  height: 10vh;
+}
+
+.headerlogo {
+  height: 100%;
+}
+
+img {
+  height: 100%;
+  width: auto;
+}
+
+a {
+  height: 100%;
+  display: inline-block;
+}

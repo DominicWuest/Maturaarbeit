@@ -8,13 +8,19 @@ header {
   padding-left: 1vh;
 }
 
+.search {
+  position: fixed;
+  width: 30% !important;
+  top: 1.75vh;
+}
+
 .headerlogo {
   float: left;
   display: inline-block;
   height: 100%;
 }
 
-img {
+.logo {
   height: 100%;
   width: auto;
 }
@@ -50,4 +56,13 @@ img {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.searchbarDiv {
+  float: left;
+}
+
+
+@media only screen and (orientation : portrait) {
+
 }

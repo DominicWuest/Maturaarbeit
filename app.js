@@ -42,6 +42,10 @@ app.get('/', function(req, res) { // Homepage
   });
 });
 
+app.get('/contact', function(req, res) {
+  res.render('contact');
+});
+
 app.get('/programminglanguages/python', function(req, res) {
   res.render('programminglanguages/python', {
     'courses' : courses,

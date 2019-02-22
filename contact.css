@@ -1,0 +1,193 @@
+    html {
+    font-family: 'Righteous', cursive;
+}
+
+body {
+    background-image: linear-gradient(to top, rgba(	69,	25,	197, 100), rgba(36, 65, 180, 100));
+    background-repeat: repeat-x;
+    margin: 0;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+
+h2 {
+    font-size: 140%;
+    line-height: 1%;
+}
+
+h4 {
+    font-size: 90%;
+    line-height: 101%;
+}
+
+#persons {
+    position: absolute;
+    top: 55%;
+    margin-top: 0;
+    margin-left: 20%;
+    margin-right: 20%;
+    margin-bottom: 0;
+    width: 60%;
+    height: 45%;
+}
+
+#person1 {
+    background-color: gainsboro;
+    border-radius: 2vh 2vh;
+    transition-timing-function: ease;
+    transition-duration: .25s;
+    padding: 1.5%;
+    width: 23%;
+    height: 85%;
+    float: left;
+    margin: 3% 0 3% 11%;
+    transform: scale(.8,.8);
+    
+}
+
+#person1:hover {
+    background-color:darkgray;
+    transform: scale(.9,.9);
+    
+}
+
+#person2 {
+    background-color: gainsboro;
+    border-radius: 2vh 2vh;
+    transition-timing-function: ease;
+    transition-duration: .25s;
+    padding: 1.5%;
+    width: 23%;
+    height: 85%;
+    float: left;
+    margin: 3% 0 3% 0%;
+    transform: scale(.8,.8);
+    
+}
+
+#person2:hover {
+    background-color:darkgray;
+    transform: scale(.9,.9);
+    
+}
+
+#person3 {
+    background-color: gainsboro;
+    border-radius: 2vh 2vh;
+    transition-timing-function: ease;
+    transition-duration: .25s;
+    padding: 1.5%;
+    width: 23%;
+    height: 85%;
+    float: left;
+    margin: 3% 11% 3% 0;
+    transform: scale(.8,.8);
+}
+
+#person3:hover {
+    background-color:darkgray;
+    transform: scale(.9,.9);
+    
+}
+
+form {
+    width: 60%;
+    height: 100%;
+    background: rgba(0, 0, 0, .7);
+    position: relative;
+    margin: 0 20% 0 20%;
+    box-shadow: 0 0 100vh 9vh black;
+}
+
+label {
+  display: block;
+  cursor: pointer;
+    color: white;
+    width: 20%;
+    font-size: 170%;
+    font-family: 'Righteous', cursive;
+    position: relative;
+    margin: .1% 59.5% .1% 20.5%;
+}
+
+input,
+textarea {
+    width: 60%;
+    border: 1px solid #8c8c8c;
+    resize: none;
+    border-radius: .5vh .5vh;
+    padding: .3%;
+    outline: none;
+    font-family: "Righteous", cursive;
+    font-size: 110%;
+    color: dimgray;
+    position: relative;
+    margin: .2% 20% 2% 20%;
+}
+
+textarea {
+    height: 7em;
+}
+
+input:focus,
+textarea:focus {
+    background-color: gainsboro;
+    outline: none;
+}
+
+input#submit {
+    position: relative;
+    color: black;
+    border-radius: .5vh;
+    border: 0;
+    background-color: white;
+    font-family: "Righteous", cursive;
+    font-size: 170%;
+    width: 10%;
+    margin: 1% 19% 1% 70%;
+    padding: 0;
+    z-index: 1;
+    
+}
+
+#submit:hover {
+    background-color: darkgray;
+    transition-duration: .25s;
+}
+
+h1 {
+    font-family: "Righteous", cusive;
+    color: white;
+    margin: 0 75% 2% 5%;
+    width: 30%;
+}
+
+header {
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

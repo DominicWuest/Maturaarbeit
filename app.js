@@ -44,6 +44,7 @@ app.get('/', function(req, res) { // Homepage
 
 app.get('/programminglanguages/python', function(req, res) {
   res.render('programminglanguages/python', {
+    'courses' : courses,
     'path' : '/programminglanguages/python',
     'pythonCourses' : pythonCourses
   });

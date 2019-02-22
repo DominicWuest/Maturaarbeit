@@ -19,6 +19,15 @@ a:hover {
 }
 
 /*
+  Needed to resize searchbar correctly
+*/
+
+.search {
+  width: 80%;
+  margin: 0 auto;
+}
+
+/*
   Courses
 */
 

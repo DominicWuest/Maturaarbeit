@@ -12,10 +12,12 @@
     <script type="text/javascript">
       let pythonCourses = <%- JSON.stringify(pythonCourses) %>;
       const exercisesLength = pythonCourses["exercises"].length;
+      const suggestions = <%- JSON.stringify(courses) %>; // Declares needed variables.
     </script>
     <title>Python</title>
   </head>
   <body onload="loaded();">
+    <%- include ../partials/header.ejs %>
     <main>
       <div class="exercise">
         <h1 class="sectionTitle">Aufgabe</h1>

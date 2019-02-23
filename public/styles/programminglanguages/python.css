@@ -214,21 +214,60 @@ main {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  transition: color 0.07s, background-color 0.07s, background-image 0.07s;
 }
 
 .input button[name="run"] {
   background-image: url(/imgs/programminglanguages/run.png);
   background-repeat: no-repeat;
   background-size: auto 100%;
-  padding-left: 2vh;
+  padding-left: 1.7vh;
+}
+
+.input button[name="run"]:active {
+  color: white;
+  background-color: #1ABC9C;
+  background-image: url(/imgs/programminglanguages/runActive.png);
+}
+
+.input button[name="solution"] {
+  background-color: rgba(0, 0, 0, 0);
+  background-image: url(/imgs/programminglanguages/solution.png);
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+}
+
+.solutionButtonDiv {
+  background-color: white;
+  background-image: url(/imgs/programminglanguages/solution.png);
+  background-repeat: no-repeat;
+  background-position: 99%;
+  background-size: auto 100%;
+  transition: color 0.07s, background-color 0.07s, background-image 0.07s;
+}
+
+.solutionButtonDiv:active {
+  background-color: #FE9900;
+  background-image: url(/imgs/programminglanguages/solutionActive.png);
+}
+
+.input button[name="solution"]:active {
+  color: white;
+  background-image: url(/imgs/programminglanguages/solutionActive.png);
 }
 
 .input button[name="reset"] {
   background-image: url(/imgs/programminglanguages/reset.png);
   background-repeat: no-repeat;
-  background-position: 100%;
+  background-position: 99%;
   background-size: auto 90%;
   padding-right: 2vh;
+}
+
+.input button[name="reset"]:active {
+  color: white;
+  background-color: #E74C3C;
+  background-image: url(/imgs/programminglanguages/resetActive.png);
 }
 
 .input button:focus {
@@ -237,7 +276,6 @@ main {
 
 .input button:hover {
   cursor: pointer;
-
 }
 
 .input button:active {

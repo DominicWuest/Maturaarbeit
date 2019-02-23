@@ -81,9 +81,11 @@ function displayExercise() {
     textDiv.appendChild(subexerciseDiv);
   }
   if (courseIndex !== 0) {
+    document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'visible';
     document.getElementsByName('solution')[0].style.visibility = 'visible';
     document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][0]['startingCode'];
   } else {
+    document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
     document.getElementsByName('solution')[0].style.visibility = 'hidden';
   }
   makeDropdown();

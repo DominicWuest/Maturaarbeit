@@ -214,6 +214,7 @@ main {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
+  transition: color 0.07s, background-color 0.07s, background-image 0.07s;
 }
 
 .input button[name="run"] {
@@ -242,6 +243,7 @@ main {
   background-repeat: no-repeat;
   background-position: 99%;
   background-size: auto 100%;
+  transition: color 0.07s, background-color 0.07s, background-image 0.07s;
 }
 
 .solutionButtonDiv:active {

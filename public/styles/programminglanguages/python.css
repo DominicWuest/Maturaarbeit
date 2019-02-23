@@ -231,6 +231,7 @@ main {
 }
 
 .input button[name="solution"] {
+  visibility: visible;
   background-color: rgba(0, 0, 0, 0);
   background-image: url(/imgs/programminglanguages/solution.png);
   background-repeat: no-repeat;

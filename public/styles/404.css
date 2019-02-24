@@ -1,0 +1,31 @@
+body{
+    background-color: black;
+}
+h1{
+    color: white;
+    text-align-last: center;
+}
+h2{
+    color: white;
+    text-align: center;
+}
+/*Link um auf die Hompage zu kommen*/
+#back{
+    background: blue;
+    color: antiquewhite;
+    width: 13%;
+    margin: 0% 43.5%;
+    padding: 0.5% 1%;
+    
+}
+/*Die ganze Seite der Bildschirmgrösse anpassen*/
+#wholepage{
+    width: 100%;
+    margin: 0%;
+}
+/*Bild auch der Seite anpassen, funktioniert aber noch nicht*/
+.emoji{
+    widht: 1000%;
+    align-items: center;
+    margin: 0%;
+}

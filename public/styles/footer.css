@@ -2,13 +2,15 @@ footer{
     width: 494%;
     height: auto;
     background-color: darkgrey;
-    padding: 0% 3%;
+    padding: 0% 3% 3% 3%;
     margin: 0%;
 }
 
+/*Style des Links für die Kontakt Seite*/
 #footercontact{
-    background-color: #555;
+    background-color: #999;
     color: white;
+    text-decoration: none;
     margin: 0%;
     padding: 0.1% 0.5%;
 }

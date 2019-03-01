@@ -61,3 +61,13 @@
 #suggestions a:hover {
   background-color: #555;
 }
+
+@media (orientation : portrait) {
+  #searchBar {
+    font-size: 2.5vw;
+  }
+
+  #suggestions a {
+    font-size: 3vw;
+  }
+}

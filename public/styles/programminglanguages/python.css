@@ -217,6 +217,10 @@ main {
   transition: color 0.07s, background-color 0.07s, background-image 0.07s;
 }
 
+button::-moz-focus-inner {
+  border: none;
+}
+
 .input button[name="run"] {
   background-image: url(/imgs/programminglanguages/run.png);
   background-repeat: no-repeat;

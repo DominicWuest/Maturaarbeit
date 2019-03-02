@@ -8,7 +8,7 @@ h1{
     font-family: 'Monoton', cursive;
     font-size: 100px;
     color: white;
-    text-align-last: center;
+    text-align: center;
 }
 h2{
     background-blend-mode: darken;

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Binarysearch</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script type="text/javascript">
+      const suggestions = <%- JSON.stringify(courses) %>;
+    </script>
+  </head>
+  <body>
+    <%- include ../../partials/header.ejs %>
+    <main>
+      <div class="title">
+        <h1>Binary search</h1>
+      </div>
+      <div class="pageLinks">
+        <ul>
+          <li><a href="#usage">Gebrauch</a></li>
+          <li><a href="#specs">Spezifikationen</a></li>
+          <li><a href="#functionality">Funktionsweise</a></li>
+          <li><a href="#exampleCode">Beispielcode</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <h2 id="usage">Gebrauch</h2>
+        <p>Der Binary Suchalgorithmus wird benutzt, um die Position eines Elements in einer sortierten Liste zu finden.</p>
+        <h2 id="specs">Spezifikationen</h2>
+        <p>Der Binary Suchalgorithmus hat eine worst-case Performance von <span class="bigO">O(log n)</span> und eine best-case Performance von <span class="bigO">O(1)</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(log n)</span>.</p>
+        <p>Da er keine zusätzliche Liste benötigt, ist seine space complexity immer <span class="bigO">O(1)</span>.</p>
+        <h2 id="functionality">Funktionsweise</h2>
+        <h2 id="exampleCode">Beispielcode</h2>
+        <pre class="code"></pre>
+      </div>
+    </main>
+  </body>
+</html>

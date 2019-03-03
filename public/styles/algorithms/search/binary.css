@@ -1,5 +1,5 @@
 html {
-  scroll-behavior: smooth;
+  height: 100vh;
 }
 
 body {
@@ -8,14 +8,49 @@ body {
 }
 
 main {
+  scroll-behavior: smooth;
   box-sizing: border-box;
   margin: 0 auto;
-  padding: 2vh;
   width: 90%;
-  background-color: #CCC;
-  overflow-y: scroll;
+  overflow: auto;
+  height: 92vh;
+  padding-right: 25px;
 }
 
 main h1 {
   margin: 0;
+  font-family: 'Righteous', cursive;
+}
+
+main h2 {
+  font-family: 'Righteous', cursive;
+}
+
+main div {
+  padding: 25px;
+  margin-bottom: 25px;
+  background-color: rgba(255, 255, 255, 0.8);
+  border-radius: 50px;
+}
+
+main div:first-child {
+  margin-top: 25px;
+}
+
+main div:last-child {
+  margin-bottom: 0;
+}
+
+.title {
+  text-align: center;
+  font-size: 3em;
+}
+
+.text {
+  padding: 0;
+  background: none;
+}
+
+.text p {
+  font-family: sans-serif;
 }

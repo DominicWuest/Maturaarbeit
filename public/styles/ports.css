@@ -1,8 +1,69 @@
 body{
-    background-color: linear-gradient(#2441B4, #31128B);
+    background: linear-gradient(#2441B4, #31128B);
 }
 h1{
     text-align: center;
     color: white;
-    background-color. black;
 }
+h2{
+    text-align: center;
+    color: white;
+}
+#USBAPort{
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 25.5%;
+    left: 7%
+}
+#describeportUSB{
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    margin: 0% 73% 0% 6.5%;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: fixed;
+    top: 65%;
+}
+#videoports{
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 27.75%;
+    left: 40%;
+}
+#describeportVIDEO{
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    margin: 0% 40% 0% 39.5%;
+    padding: 0% 4%;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: fixed;
+    top: 63%;  
+}
+#ps2ports{
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 26%;
+    left: 74.5%;   
+}
+#describeportPS2{
+    background-color: aqua;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    font-size: 25px;
+    margin: 0% 5.5% 0% 74%;
+    border-bottom-left-radius: 100px;
+    border-bottom-right-radius: 100px;
+    position: fixed;
+    top: 65%;  
+}    

@@ -54,6 +54,14 @@ app.get('/programminglanguages/python', function(req, res) {
   });
 });
 
+app.get('/ports', function(req, res) {
+  res.render('ports', {
+    'courses' : courses,
+    'path' : '/ports',
+    'pythonCourses' : pythonCourses
+  });
+});
+
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res) {
     if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {

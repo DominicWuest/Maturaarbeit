@@ -1,31 +1,51 @@
 body{
-    background-color: black;
+    background-image: url("/imgs/404/curcuit.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-color: linear-gradient(#2441B4, #31128B);
 }
 h1{
-    color: white;
-    text-align-last: center;
-}
-h2{
+    font-family: 'Monoton', cursive;
+    font-size: 100px;
     color: white;
     text-align: center;
+}
+h2{
+    background-blend-mode: darken;
+    font-family: 'Changa', sans-serif;
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    background: rgba(0,0,0, 0.5);
+    border-radius: 100px;
+}
+#contact{
+    color: aliceblue;
+    background-color: black;
+    padding: 0% 1%;
+    border-radius: 40px;
+    text-decoration: none;
 }
 /*Link um auf die Hompage zu kommen*/
 #back{
     background: blue;
     color: antiquewhite;
+    text-align: center;
     width: 13%;
-    margin: 0% 43.5%;
+    margin: 0% 42.5%;
     padding: 0.5% 1%;
-    
+    border-radius: 20px;
+    position: absolute;
+    top: 75%;
 }
-/*Die ganze Seite der Bildschirmgrösse anpassen*/
-#wholepage{
-    width: 100%;
-    margin: 0%;
-}
-/*Bild auch der Seite anpassen, funktioniert aber noch nicht*/
-.emoji{
-    widht: 1000%;
-    align-items: center;
-    margin: 0%;
+#home{
+    background: blue;
+    color: antiquewhite;
+    text-align: center;
+    width: 13%;
+    margin: 0% 42.5%;
+    padding: 0.5% 1%;
+    border-radius: 20px;
+    position: absolute;
+    top: 80%;
 }

@@ -34,6 +34,7 @@
         <div id="usage">
           <h2>Gebrauch</h2>
           <p>Der Binary Suchalgorithmus wird benutzt, um die Position eines Elements in einer sortierten Liste zu finden.</p>
+          <p>Java enthält eine Funktion, mit welcher man einen Binary Search unternehmen kann, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#binarySearch(byte[],%20byte)" target="_blank">Arrays.binarySearch()</a>.</p>
         </div>
         <div id="specs">
           <h2>Spezifikationen</h2>
@@ -42,9 +43,10 @@
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
-          <p>Bei dem Binary Search beginnt man zuerst, den Wert in der Mitte des Arrays zu überprüfen. Falls dieser mit dem gesuchten Wert übereinstimmt, kann man gleich den überprüften index zurückgeben.</p>
+          <p>Bei dem Binary Search beginnt man zuerst, den Wert in der Mitte des Arrays zu überprüfen. Falls dieser mit dem gesuchten Wert übereinstimmt, kann man gleich den Index des überprüften Wertes zurückgeben.</p>
           <p>Falls dies jedoch nicht der Fall ist, wird überprüft, ob der untersuchte Wert grösser oder kleiner als der Gesuchte ist. Da der Array sortiert ist, weiss man, dass der gesuchte Wert einen kleineren Index hat, falls der überprüfte Wert zu gross ist. Falls er jedoch zu klein ist, ist schlusszufolgern, dass der gesuchte Wert einen grösseren Index hat.</p>
-          <p>Mit diesen Informationen überprüft man nun systematisch den Array, bis der gesuchte Wert gefunden wurde oder bis der minimale Index grösser wird, als der Maximale.</p>
+          <p>Mit diesen Informationen kann man nun den zu überprüfenden Bereich des Arrays minimieren. Somit untersucht man nach der Verkleinerung des Suchbereiches wieder den Wert in der Mitte des neuen Bereiches. Man verkleinert den Suchbereich so lange, bis der gesuchte Wert gefunden wurde oder bis der minimale Wert grösser ist als der maximale.</p>
+          <p>Der minimale Wert wird aufgrund des Algorithmus grösser als der Maximale, falls der Wert nicht in dem Array vorhanden ist.</p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
@@ -52,18 +54,37 @@
           <pre class="code" id="python">
     def binarySearch(arr, val): # arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
       l = 0 # Der minimale Index
-      r = len(arr - 1) # Der maximale Index
-      while l <= r:
+      r = len(arr) - 1 # Der maximale Index
+      while l <= r: # Solange der minimale Wert kleiner oder gleich dem maximalen ist.
         index = (l + r) // 2 # Der zu untersuchende Index
-        if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
-          r = index
-        elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
-          l = index
+        if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
+          l = index + 1
+        elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
+          r = index - 1
         else: # Der untersuchte Wert entspricht dem Gesuchten.
           return index
       return -1 # Der Wert ist nicht in dem Array vorhanden.
           </pre>
-          <pre class="code" id="java"></pre>
+          <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+          <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
+          <pre class="code" id="java">
+    public static int binarySearch(int[] arr, int val) { // arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
+      int l = 0; // Der minimale Index
+      int r = arr.length - 1; // Der maximale Index
+      int index; // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schlaufe berechnet.
+      while (l <= r) { // Solange der minimale Wert kleiner oder gleich dem maximalen ist.
+        index = (l + r) / 2;
+        if (arr[index] < val) { // Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
+          l = index + 1;
+        } else if (arr[index] > val) { // Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
+          r = index - 1;
+        } else { // Der untersuchte Wert entspricht dem Gesuchten.
+          return index;
+        }
+      }
+      return -1; // Der Wert ist nicht in dem Array vorhanden.
+    }
+          </pre>
         </div>
       </div>
     </main>

@@ -18,7 +18,7 @@ footer{
     text-decoration: none;
     margin: 0%;
     padding: 0.1% 0.5%;
-    cursor: grab;
+    cursor: pointer;
     border-radius: 50px;
 }
 #description{
@@ -26,6 +26,7 @@ footer{
     font-size: 100%;
 }
 #copyright{
+    box-sizing: border-box;
     font-family: 'Arapey', serif;
     background-color: #249;
     margin: 0% 37.5%;

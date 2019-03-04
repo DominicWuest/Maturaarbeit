@@ -62,6 +62,14 @@ app.get('/ports', function(req, res) {
   });
 });
 
+app.get('/ports/usb', function(req, res) {
+  res.render('ports/usb', {
+    'courses' : courses,
+    'path' : '/ports/usb',
+    'pythonCourses' : pythonCourses
+  });
+});
+
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res) {
     if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {

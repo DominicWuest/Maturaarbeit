@@ -67,3 +67,15 @@ h2{
     position: fixed;
     top: 65%;  
 }    
+#home{
+    background: blue;
+    color: antiquewhite;
+    text-align: center;
+    text-decoration: none;
+    width: 13%;
+    margin: 0% 42.5%;
+    padding: 0.5% 1%;
+    border-radius: 20px;
+    position: absolute;
+    top: 90%;
+}

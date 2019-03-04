@@ -42,6 +42,15 @@ main div:first-child {
   font-size: 3em;
 }
 
+.pageLinks a {
+  text-decoration: none;
+  color: #005;
+}
+
+.pageLinks a:hover {
+  text-decoration: underline;
+}
+
 .text {
   padding: 0;
   background: none;
@@ -49,6 +58,11 @@ main div:first-child {
 
 .text p {
   font-family: sans-serif;
+}
+
+.text .bigO {
+  color: darkblue;
+  font-weight: 600;
 }
 
 .code {

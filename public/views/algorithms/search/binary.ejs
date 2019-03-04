@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Binarysearch</title>
+    <title>Binary Search</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
@@ -19,22 +19,52 @@
         <h1>Binary search</h1>
       </div>
       <div class="pageLinks">
+        <h2>Page Links</h2>
         <ul>
           <li><a href="#usage">Gebrauch</a></li>
           <li><a href="#specs">Spezifikationen</a></li>
           <li><a href="#functionality">Funktionsweise</a></li>
-          <li><a href="#exampleCode">Beispielcode</a></li>
+          <li><a href="#exampleCode">Beispielcode</a><ul>
+            <li><a href="#python">Python</a></li>
+            <li><a href="#java">Java</a></li>
+          </ul></li>
         </ul>
       </div>
       <div class="text">
-        <h2 id="usage">Gebrauch</h2>
-        <p>Der Binary Suchalgorithmus wird benutzt, um die Position eines Elements in einer sortierten Liste zu finden.</p>
-        <h2 id="specs">Spezifikationen</h2>
-        <p>Der Binary Suchalgorithmus hat eine worst-case Performance von <span class="bigO">O(log n)</span> und eine best-case Performance von <span class="bigO">O(1)</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(log n)</span>.</p>
-        <p>Da er keine zusätzliche Liste benötigt, ist seine space complexity immer <span class="bigO">O(1)</span>.</p>
-        <h2 id="functionality">Funktionsweise</h2>
-        <h2 id="exampleCode">Beispielcode</h2>
-        <pre class="code"></pre>
+        <div id="usage">
+          <h2>Gebrauch</h2>
+          <p>Der Binary Suchalgorithmus wird benutzt, um die Position eines Elements in einer sortierten Liste zu finden.</p>
+        </div>
+        <div id="specs">
+          <h2>Spezifikationen</h2>
+          <p>Der Binary Suchalgorithmus hat eine worst-case Performance von <span class="bigO">O(log n)</span> und eine best-case Performance von <span class="bigO">O(1)</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(log n)</span>.</p>
+          <p>Da er keine zusätzliche Liste benötigt, ist seine space complexity immer <span class="bigO">O(1)</span>.</p>
+        </div>
+        <div id="functionality">
+          <h2>Funktionsweise</h2>
+          <p>Bei dem Binary Search beginnt man zuerst, den Wert in der Mitte des Arrays zu überprüfen. Falls dieser mit dem gesuchten Wert übereinstimmt, kann man gleich den überprüften index zurückgeben.</p>
+          <p>Falls dies jedoch nicht der Fall ist, wird überprüft, ob der untersuchte Wert grösser oder kleiner als der Gesuchte ist. Da der Array sortiert ist, weiss man, dass der gesuchte Wert einen kleineren Index hat, falls der überprüfte Wert zu gross ist. Falls er jedoch zu klein ist, ist schlusszufolgern, dass der gesuchte Wert einen grösseren Index hat.</p>
+          <p>Mit diesen Informationen überprüft man nun systematisch den Array, bis der gesuchte Wert gefunden wurde oder bis der minimale Index grösser wird, als der Maximale.</p>
+        </div>
+        <div id="exampleCode">
+          <h2>Beispielcode</h2>
+          <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+          <pre class="code" id="python">
+    def binarySearch(arr, val): # arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
+      l = 0 # Der minimale Index
+      r = len(arr - 1) # Der maximale Index
+      while l <= r:
+        index = (l + r) // 2 # Der zu untersuchende Index
+        if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
+          r = index
+        elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
+          l = index
+        else: # Der untersuchte Wert entspricht dem Gesuchten.
+          return index
+      return -1 # Der Wert ist nicht in dem Array vorhanden.
+          </pre>
+          <pre class="code" id="java"></pre>
+        </div>
       </div>
     </main>
   </body>

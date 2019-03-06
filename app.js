@@ -20,8 +20,8 @@ var courses = csvParser(fs.readFileSync('data/courses.csv'), {
 });
 
 var pathsToCourses = courses[1].map(function(path) {
-  if (path.length - path.replace(/\//g, '').length != 1) return path.substring(1).replace(/\//g, '\\'); // File isn't the file which the folder is named after
-  else return path.substring(1) + '\\' + path.substring(1); // File is the file which the folder is named after
+  if (path.length - path.replace(/\//g, '').length != 1) return path.substring(1).replace(/\//g, '/'); // File isn't the file which the folder is named after
+  else return path.substring(1) + '/' + path.substring(1); // File is the file which the folder is named after
 });
 
 courses[2] = courses[2].map(function (element) { // Organize the keywords

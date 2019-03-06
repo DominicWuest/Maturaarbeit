@@ -30,6 +30,7 @@ courses[2] = courses[2].map(function (element) { // Organize the keywords
 });
 
 var pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
+var codeHighlighting = JSON.parse(fs.readFileSync('data/codeHighlighting.json', 'utf-8'));
 
 app.use(express.static('public')); // Directory for static files like css
 app.set('views', path.join(__dirname, 'public/views')); // Static directory for ejs files
@@ -57,7 +58,9 @@ app.get('/programminglanguages/python', function(req, res) {
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res) {
     if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
-      'path' : courses[1][i]
+      'path' : courses[1][i],
+      'courses' : courses,
+      'codeHighlighting' : codeHighlighting
     });
     else res.render('underconstruction');
   });

@@ -57,7 +57,7 @@ app.get('/programminglanguages/python', function(req, res) {
 
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res) {
-    if (fs.existsSync('public/views' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
+    if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
       'path' : courses[1][i],
       'courses' : courses,
       'codeHighlighting' : codeHighlighting

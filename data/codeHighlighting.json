@@ -1,0 +1,45 @@
+{
+  "python" : {
+    "syntax" : {
+      "def" : "#00F",
+      "while" : "#C101C1",
+      "for" : "#C101C1",
+      "elif" : "#C101C1",
+      "if" : "#C101C1",
+      "else" : "#C101C1",
+      "return" : "#C101C1"
+    },
+    "comments" : {
+      "character" : "#",
+      "color" : "#555"
+    },
+    "strings" : {
+      "character" : ["\"", "'"],
+      "color" : "#0F0"
+    }
+  },
+  "java" : {
+    "syntax" : {
+      "int" : "#17CAD8",
+      "string" : "#17CAD8",
+      "char" : "#17CAD8",
+      "double" : "#17CAD8",
+      "float" : "#17CAD8",
+      "public" : "#C101C1",
+      "static" : "#C101C1",
+      "while" : "#C101C1",
+      "for" : "#C101C1",
+      "if" : "#C101C1",
+      "else" : "#C101C1",
+      "return" : "#C101C1"
+    },
+    "comments" : {
+      "character" : "//",
+      "color" : "#555"
+    },
+    "strings" : {
+      "character" : ["\"", "'"],
+      "color" : "#0F0"
+    }
+  }
+}

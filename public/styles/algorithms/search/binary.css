@@ -42,13 +42,14 @@ main div:first-child {
   font-size: 3em;
 }
 
-.pageLinks a {
+a {
   text-decoration: none;
-  color: #005;
+  color: #009;
 }
 
-.pageLinks a:hover {
+a:hover {
   text-decoration: underline;
+  color: #005;
 }
 
 .text {
@@ -66,5 +67,12 @@ main div:first-child {
 }
 
 .code {
+  font-family: monospace;
+  width: 95%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 auto;
   overflow-x: auto;
+  background-color: #888;
+  border-radius: 8px;
 }

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Kurse</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/courses.css">
+    <script type="text/javascript" src="js/courses.js"></script>
+    <script type="text/javascript">
+      const suggestions = <%- JSON.stringify(courses) %>; // Declares needed variables.
+    </script>
+  </head>
+  <body>
+    <%- include partials/header.ejs %>
+  </body>
+</html>

@@ -52,6 +52,12 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 });
 
+app.get('/courses', function(req, res) {
+  res.render('courses', {
+    'courses' : courses
+  });
+});
+
 app.get('/programminglanguages/python', function(req, res) {
   res.render('programminglanguages/python', {
     'courses' : courses,

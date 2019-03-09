@@ -43,3 +43,10 @@ function hideSuggested() { // Gets called when the searchbar loses focus
   }
   focused = false;
 }
+
+function sendQuery(event) {
+  if (event.keyCode == 13) {
+    let query = document.getElementById('searchBar').value;
+    window.location.href='/courses?query=' + query;
+  }
+}

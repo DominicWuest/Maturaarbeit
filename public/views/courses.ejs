@@ -11,9 +11,13 @@
     <script type="text/javascript" src="js/courses.js"></script>
     <script type="text/javascript">
       const suggestions = <%- JSON.stringify(courses) %>; // Declares needed variables.
+      const query = "<%- query %>".split(' ');
     </script>
   </head>
-  <body>
+  <body onload="search();">
     <%- include partials/header.ejs %>
+    <main>
+      <div id="results"></div>
+    </main>
   </body>
 </html>

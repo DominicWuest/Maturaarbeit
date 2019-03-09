@@ -6,26 +6,13 @@ function search() {
   for (let i = 0; i < suggestions[0].length; i++) {
     shown.push(false);
   }
-  let starts = [];
-  let included = [];
+  let results = [];
   for (queryKeyword of query) {
     for (let i = 0; i < suggestions[0].length; i++) {
       if (shown[i]) continue;
       for (keyword of suggestions[2][i]) {
-        if (queryKeyword.startsWith(keyword) || keyword.startsWith(queryKeyword)) {
-          starts.push({
-            'name' : suggestions[0][i],
-            'href' : suggestions[1][i],
-            'keywords' : suggestions[2][i].join(', ')
-          });
-          shown[i] = true;
-          break;
-        }
-      }
-      if (shown[i]) continue;
-      for (keyword of suggestions[2][i]) {
-        if (queryKeyword.includes(keyword) || keyword.includes(queryKeyword)) {
-          included.push({
+        if (keyword.startsWith(queryKeyword)) {
+          results.push({
             'name' : suggestions[0][i],
             'href' : suggestions[1][i],
             'keywords' : suggestions[2][i].join(', ')
@@ -36,12 +23,7 @@ function search() {
       }
     }
   }
-  createResults(starts);
-  createResults(included);
-}
-
-function createResults(arr) {
-  for (result of arr) {
+  for (result of results) {
     let newDiv = document.createElement('DIV');
     let title = document.createElement('A');
     title.href = result['href'];

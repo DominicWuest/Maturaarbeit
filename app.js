@@ -9,7 +9,7 @@ var csvParser = require('csv-parse/lib/sync');
 // ----- End of Imports -----
 
 var app = express();
-var urlencodedParser = bodyParser.urlencoded({extended : true});
+var urlencodedParser = bodyParser.urlencoded({extended : false});
 
 var mostPopular = csvParser(fs.readFileSync('data/mostPopular.csv'), {
   comment : '$'
@@ -50,6 +50,13 @@ app.get('/', function(req, res) { // Homepage
 
 app.get('/contact', function(req, res) {
   res.render('contact');
+});
+
+app.get('/courses', urlencodedParser, function(req, res) {
+  res.render('courses', {
+    'courses' : courses,
+    'query' : req.query.query
+  });
 });
 
 app.get('/programminglanguages/python', function(req, res) {

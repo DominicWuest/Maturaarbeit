@@ -57,6 +57,10 @@ a:hover {
   font-size: 3.5vh;
 }
 
+.courses .title a {
+  color: black;
+}
+
 .courses ul {
   margin: 0;
   list-style: none;

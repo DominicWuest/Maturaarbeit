@@ -46,6 +46,15 @@ function search() {
       }
     }
   }
+  if (results.length == 0) {
+    let errorDiv = document.createElement('DIV');
+    errorDiv.classList.add('error');
+    let errorText = document.createElement('P');
+    errorDiv.appendChild(errorText);
+    errorText.innerHTML = 'Deine Suchanfrage: <span class="query">' + query.join(' ') + '</span> scheint keinen Kursen gleichzukommen.\nProbiere doch, den erwünschten Kurs in der <a href="/courses?query=">Liste aller Kurse</a> zu suchen.'
+    resultsDiv.appendChild(errorDiv);
+    return;
+  }
   for (result of results) {
     let newDiv = document.createElement('DIV');
     let title = document.createElement('A');

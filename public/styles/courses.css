@@ -37,3 +37,14 @@ a:hover {
   text-decoration: underline;
   color: #005;
 }
+
+.error p {
+  text-align: center;
+  font-weight: 600;
+  font-size: 30px;
+  font-family: sans-serif;
+}
+
+.error {
+  margin: 150px !important;
+}

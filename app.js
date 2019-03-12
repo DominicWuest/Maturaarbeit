@@ -55,11 +55,13 @@ app.get('/contact', function(req, res) {
 });
 
 app.get('/courses', urlencodedParser, function(req, res) {
-  for (illegalCharacter of illegalCharacters) {
-    if (req.query.query.includes(illegalCharacter)) {
-      res.writeHead(400, {'Content-Type' : 'text/plain'});
-      res.end("Pls No XSS");
-      return;
+  if (req.query.query) {
+    for (illegalCharacter of illegalCharacters) {
+      if (req.query.query.includes(illegalCharacter)) {
+        res.writeHead(400, {'Content-Type' : 'text/plain'});
+        res.end("Pls No XSS");
+        return;
+      }
     }
   }
   res.render('courses', {

@@ -111,9 +111,10 @@ input#submit {
 	justify-content: space-around;
 }
 
-#person1,#person2,#person3 {
+#person {
     background-color: white;
 	border-radius: 2vh;
+	padding: .9vh;
 	margin: auto;
 	text-align: center;
 	font-family: Arial, sans-serif;
@@ -121,13 +122,13 @@ input#submit {
     transition-duration: .25s;
 }
 
-#person1:hover,#person2:hover,#person3:hover {
+#person:hover {
     background-color: gainsboro;
-    transform: scale(1.1,1.1);    
+    transform: scale(1.05,1.05);    
 }
 
 #text {
-	font-size: auto;
+	font-size: .8em;
 	justify-content: space-around;
 }
 

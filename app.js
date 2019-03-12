@@ -36,6 +36,8 @@ courses[2] = courses[2].map(function (element) { // Organize the keywords
 var pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
 var codeHighlighting = JSON.parse(fs.readFileSync('data/codeHighlighting.json', 'utf-8'));
 
+var illegalCharacters = ['"', "'", '>', '<'];
+
 app.use(express.static('public')); // Directory for static files like css
 app.set('views', path.join(__dirname, 'public/views')); // Static directory for ejs files
 app.set('view engine', 'ejs'); // Set the view engine to ejs (res.render)
@@ -53,14 +55,17 @@ app.get('/contact', function(req, res) {
 });
 
 app.get('/courses', urlencodedParser, function(req, res) {
-  if (!(req.query.query.includes('"') || req.query.query.includes("'"))) {
-    res.render('courses', {
-      'courses' : courses,
-      'query' : req.query.query
-    });
-  } else {
-    res.sendStatus(400);
+  for (illegalCharacter of illegalCharacters) {
+    if (req.query.query.includes(illegalCharacter)) {
+      res.writeHead(400, {'Content-Type' : 'text/plain'});
+      res.end("Pls No XSS");
+      return;
+    }
   }
+  res.render('courses', {
+    'courses' : courses,
+    'query' : req.query.query
+  });
 });
 
 app.get('/programminglanguages/python', function(req, res) {

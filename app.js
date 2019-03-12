@@ -53,10 +53,14 @@ app.get('/contact', function(req, res) {
 });
 
 app.get('/courses', urlencodedParser, function(req, res) {
-  res.render('courses', {
-    'courses' : courses,
-    'query' : req.query.query
-  });
+  if (!(req.query.query.includes('"') || req.query.query.includes("'"))) {
+    res.render('courses', {
+      'courses' : courses,
+      'query' : req.query.query
+    });
+  } else {
+    res.sendStatus(400);
+  }
 });
 
 app.get('/programminglanguages/python', function(req, res) {

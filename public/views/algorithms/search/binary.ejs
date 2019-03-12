@@ -14,7 +14,7 @@
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting();" onresize="setup();">
+  <body onload="addHighlighting(); restartAnimation();" onresize="setup();">
     <%- include ../../partials/header.ejs %>
     <main>
       <div class="title">
@@ -88,16 +88,17 @@ public static int binarySearch(int[] arr, int val) { // arr ist der Array, in de
 }</pre>
         </div>
         <div id="animatedExample">
+          <h2>Animiertes Beispiel</h2>
           <div class="legend">
             <h3>Legende</h3>
             <ul>
-              <li style="color: blue;">Untersuchter Wert</li>
-              <li style="color: green;">Noch nicht untersuchter Wert</li>
-              <li style="color: gray;">Ausgeschlossener Wert</li>
+              <li><span style="color: purple">Zu findender Wert</span></li>
+              <li><span style="color: blue;">Untersuchter Wert</span></li>
+              <li><span style="color: green;">Noch nicht untersuchter Wert</span></li>
+              <li><span style="color: gray;">Ausgeschlossener Wert</span></li>
             </ul>
           </div>
-          <input type="range" name="searchValue" min="0" max="30" value="15">
-          <input type="button" name="restartAnimation" onmouseup="setup();" value="Run">
+          <input type="range" id="range" min="0" max="30" value="15" oninput="playing = false; restartAnimation();" onmouseup="restartAnimation(); playing = true;">
           <div id="animation"></div>
         </div>
       </div>

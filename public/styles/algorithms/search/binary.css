@@ -77,6 +77,31 @@ a:hover {
   border-radius: 8px;
 }
 
+input[type="range"] {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+input[type="range"]:hover {
+  cursor: pointer;
+}
+
+input {
+  box-sizing: border-box;
+}
+
+.legend h3 {
+  font-family: 'Righteous', cursive;
+  margin: 0;
+}
+
+.legend span {
+  font-family: sans-serif;
+}
+
 #animation {
+  background: none;
   height: 100px;
+  padding: 0;
+  border: 0;
 }

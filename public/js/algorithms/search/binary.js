@@ -39,3 +39,15 @@ function addHighlighting() {
     document.getElementById(language).innerHTML = code;
   }
 }
+
+function setup() {
+  var canvasDiv = document.getElementById('animation');
+  var width = canvasDiv.offsetWidth - 50;
+  var height = canvasDiv.offsetHeight - 50;
+  var canvas = createCanvas(width, height);
+  canvas.parent('animation');
+}
+
+function draw() {
+  background(0, 0, 255);
+}

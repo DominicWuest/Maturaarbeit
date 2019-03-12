@@ -76,3 +76,7 @@ a:hover {
   background-color: #888;
   border-radius: 8px;
 }
+
+#animation {
+  height: 100px;
+}

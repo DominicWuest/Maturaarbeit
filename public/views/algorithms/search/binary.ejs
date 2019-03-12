@@ -8,12 +8,13 @@
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
     <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script type="text/javascript">
       const suggestions = <%- JSON.stringify(courses) %>;
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting();">
+  <body onload="addHighlighting();" onresize="setup();">
     <%- include ../../partials/header.ejs %>
     <main>
       <div class="title">
@@ -29,6 +30,7 @@
             <li><a href="#python">Python</a></li>
             <li><a href="#java">Java</a></li>
           </ul></li>
+          <li><a href="#animatedExample">Animiertes Beispiel</a></li>
         </ul>
       </div>
       <div class="text">
@@ -84,6 +86,19 @@ public static int binarySearch(int[] arr, int val) { // arr ist der Array, in de
   }
   return -1; // Der Wert ist nicht in dem Array vorhanden.
 }</pre>
+        </div>
+        <div id="animatedExample">
+          <div class="legend">
+            <h3>Legende</h3>
+            <ul>
+              <li style="color: blue;">Untersuchter Wert</li>
+              <li style="color: green;">Noch nicht untersuchter Wert</li>
+              <li style="color: gray;">Ausgeschlossener Wert</li>
+            </ul>
+          </div>
+          <input type="range" name="searchValue" min="0" max="30" value="15">
+          <input type="button" name="restartAnimation" onmouseup="setup();" value="Run">
+          <div id="animation"></div>
         </div>
       </div>
     </main>

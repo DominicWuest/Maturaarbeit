@@ -55,7 +55,9 @@ function restartAnimation() {
   max = elementsLength;
   min = 0;
   focus = elementsLength / 2;
-  range.style.padding = "0" + width / (elementsLength) / 2.5 + "px";
+  range.style.width = width - width / (elementsLength - 1) + "px";
+  range.style.marginLeft = (document.getElementById('animatedExample').offsetWidth - width) / 4 + "px";
+  range.style.marginRight = range.style.marginLeft;
   functionsIndex = 0;
   frames = 0;
 }

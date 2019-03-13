@@ -55,9 +55,6 @@ function restartAnimation() {
   max = elementsLength;
   min = 0;
   focus = elementsLength / 2;
-  range.style.width = width - width / (elementsLength - 1) + "px";
-  range.style.marginLeft = (document.getElementById('animatedExample').offsetWidth - width) / 4 + "px";
-  range.style.marginRight = range.style.marginLeft;
   functionsIndex = 0;
   frames = 0;
 }
@@ -68,6 +65,7 @@ function setup() {
   let height = canvasDiv.offsetHeight;
   let canvas = createCanvas(width, height);
   canvas.parent('animation');
+  document.getElementById('range').style.width = document.getElementById('animation').offsetWidth + "px";
 }
 
 function draw() {
@@ -79,7 +77,7 @@ function draw() {
       if (i === focus) fill(0, 0, 255);
       else if (i === value) fill(128, 0, 128);
       else if (max < i || i < min) fill(128, 128, 128);
-      rect(i * width / (elementsLength + 1) + 1, 1, width / elementsLength - 4, height - 2);
+      rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
     }
   }
   if (playing) {
@@ -108,14 +106,14 @@ function setBounds() {
 function drawFocusValue() {
   fill(0, 0, 255);
   beginShape();
-  vertex(value * width / (elementsLength + 1) + 1, 2);
-  vertex(value * width / (elementsLength + 1) + 1, height - 1);
-  vertex((value + 1) * width / (elementsLength + 1) - 1, height - 1);
+  vertex(value * width / (elementsLength + 1) + 1, 0);
+  vertex(value * width / (elementsLength + 1) + 1, height);
+  vertex((value + 1) * width / (elementsLength + 1) - 1, height);
   endShape(CLOSE);
   fill(128, 0, 128);
   beginShape();
-  vertex((value + 1) * width / (elementsLength + 1) - 1, 2);
-  vertex((value + 1) * width / (elementsLength + 1) - 1, height - 1);
-  vertex(value * width / (elementsLength + 1) + 1, 2);
+  vertex((value + 1) * width / (elementsLength + 1) - 1, 0);
+  vertex((value + 1) * width / (elementsLength + 1) - 1, height);
+  vertex(value * width / (elementsLength + 1) + 1, 0);
   endShape(CLOSE);
 }

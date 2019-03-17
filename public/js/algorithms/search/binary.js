@@ -40,15 +40,14 @@ function addHighlighting() {
   }
 }
 
-let looped, value, elementsLength, max, min;
+let value, elementsLength, max, min;
 let functions = [findTarget, setBounds], functionsIndex;
 let focus;
-let frames, fps = 1;
+let frames, fps = 1.5;
 let playing = false;
 
 function restartAnimation() {
   setup();
-  looped = false;
   let range = document.getElementById('range');
   value = parseInt(range.value);
   elementsLength = range.max - range.min;
@@ -81,7 +80,7 @@ function draw() {
     }
   }
   if (playing) {
-    if (frames % 60 / fps === 0) {
+    if (frames % (60 / fps) === 0) {
       functions[functionsIndex]();
       functionsIndex++;
       functionsIndex %= functions.length;

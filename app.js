@@ -54,6 +54,11 @@ app.get('/contact', function(req, res) {
   res.render('contact');
 });
 
+app.post('/contact', urlencodedParser, function(req, res) {
+  if (req.body !== {}) fs.appendFileSync('data/messages.txt', 'Name: ' + req.body.forename + ' ' + req.body.surname + '\nE-Mail: ' + req.body.email + '\nMessage: ' + req.body.message + '\n\n' + '-'.repeat(50) + '\n\n');
+  res.redirect('/contact')
+});
+
 app.get('/courses', urlencodedParser, function(req, res) {
   if (req.query.query) {
     for (illegalCharacter of illegalCharacters) {

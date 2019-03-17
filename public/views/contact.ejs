@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Dominic Wolf -->
 <html>
 	<head>
         <meta charset="utf-8">
@@ -6,16 +7,16 @@
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico" >
         <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
         <link rel="stylesheet" href="styles/contact.css">
+				<script src="js/contact.js"></script>
 	</head>
     <body id="contactsite" onload="document.contactform.forename.focus();">
-		<!-- Dominic Wolf -->
     	<%- include partials/header.ejs %>
 			<main>
 				<div id="top">
-            		<h1>Kontaktieren Sie uns.</h1>
-            		<hr>
+	    		<h1>Kontaktieren Sie uns.</h1>
+    			<hr>
 				</div>
-				<form id="contactform" name="contactform" action="contact.php" method="post">
+				<form id="contactform" name="contactform" method="post" onsubmit="checkInput(event);">
 					<div>
 						<label for="forename">Vorname:</label>
 						<input class="input" type="text" id="forename" name="forename" placeholder="" />
@@ -30,10 +31,10 @@
 					</div>
 					<div>
 						<label for="message">Ihre Nachricht:</label>
-						<textarea class="input" id="message" name="message" cols="20" rows="15"></textarea> 
+						<textarea class="input" id="message" name="message" cols="20" rows="15"></textarea>
 					</div>
 					<div id="button">
-                	<input type="submit" id="submit" value="Senden" onclick="correct1();correct2();correct3();correct4();return stop();" />
+            <input type="submit" id="submit" value="Senden"/>
 					</div>
 				</form>
 				<div id="persons">
@@ -59,13 +60,12 @@
             			<div id="text">
                 			<img class="picture" src="https://www.fc-hausen.de/images/personen/alias.png" alt="Kontaktbild" >
                 			<h2>Dominic Wüst</h2>
-                			<h4>Adresse</h4>
-                			<h4>Ort</h4>
+
+
                 			<h4>dominic-frederic.wuest@students.ksba.ch</h4>
             			</div>
 					</div>
         		</div>
 			</main>
     	<%- include partials/footer.ejs %>
-		<script href="js/contact.js"></script>
 	</body>

@@ -1,34 +1,24 @@
-var i=0;
-function correct1() {
+function checkInput(event) {
+	let inputStatus = true;
 	if (document.contactform.forename.value == "") {
-		document.getElementById("forename").placeholder = 'Bitte Feld korrekt ausfüllen!';
-		i+=1;
+		document.getElementById("forename").placeholder = 'Bitte geben Sie Ihren Vornamen ein.';
+		inputStatus = false;
 	}
-}
 
-function correct2() {
 	if (document.contactform.surname.value == "") {
-		document.getElementById("surname").placeholder = 'Bitte Feld korrekt ausfüllen!';
-		i+=1;
+		document.getElementById("surname").placeholder = 'Bitte geben Sie Ihren Nachnamen ein.';
+		inputStatus = false;
 	}
-}
 
-function correct3() {
 	if (document.contactform.email.value == "") {
-		document.getElementById("email").placeholder = 'Bitte Feld korrekt ausfüllen!';
-		i+=1;
+		document.getElementById("email").placeholder = 'Bitte geben Sie Ihre E-Mail-Adresse ein.';
+		inputStatus = false;
 	}
-}
 
-function correct4() {
 	if (document.contactform.message.value == "") {
-		document.getElementById("message").placeholder = 'Bitte Feld korrekt ausfüllen!';
-		i+=1;
+		document.getElementById("message").placeholder = 'Bitte geben Sie Ihre Nachricht ein.';
+		inputStatus = false;
 	}
-}
 
-function stop() {
-	if (i > 0) {
-		return false;
-	}
+	if (!inputStatus) event.preventDefault();
 }

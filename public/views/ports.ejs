@@ -8,15 +8,19 @@
         <meta charset="utf-8"/>
     </head>
     <body>
-        <h1>Schnittstellen</h1>
-        <hr>
-        <h2>Die Anschlüsse am Computer, die gebraucht werden um externe Geräte zu verbinden werden in der Fachsprache Schnittstellen genannt. Hier haben wir die wichtigsten davon aufgeführt, um Ihnen deren Amwendung und Funktion näher zu bringen.</h2>
-        <img src="/imgs/Ports/USBPorts/USBA.jpg" alt="USB A Port" id = "USBAPort"/>
-        <a href = "/ports/usb" id = "describeportUSB">Verschiedene USB Anschlüsse</a>
-        <img src = "/imgs/Ports/videoports.jpg" alt = "Video port general" id = "videoports"/>
-        <a href = "/ports/video" id = "describeportVIDEO">Verschiedene Videoanschlüsse</a>
-        <img src = "/imgs/ports/ps2.jpg" alt = "PS/2 port general" id = "ps2ports"/>
-        <a href = "/ports/ps2" id = "describeportPS2">Der PS/2-Anschluss oder Auxiliary Port</a>
-        <a href = "/" id = "home">Zurück zur Startseite</a>
+        <%- include partials/header.ejs %>
+        <main>
+            <h1>Schnittstellen</h1>
+            <hr>
+            <h2>Die Anschlüsse am Computer, die gebraucht werden um externe Geräte zu verbinden werden in der Fachsprache Schnittstellen genannt. Hier haben wir die wichtigsten davon aufgeführt, um Ihnen deren Amwendung und Funktion näher zu bringen.</h2>
+            <div class = "link">
+                <img src="/imgs/Ports/USB/USBA.jpg" alt="USB A Port" id = "USBAPort"/>
+                <a href = "/ports/usb" id = "describeportUSB">Verschiedene USB Anschlüsse</a>
+                <img src = "/imgs/Ports/videoports.jpg" alt = "Video port general" id = "videoports"/>
+                <a href = "/ports/video" id = "describeportVIDEO">Verschiedene Videoanschlüsse</a>
+                <img src = "/imgs/ports/ps2.jpg" alt = "PS/2 port general" id = "ps2ports"/>
+                <a href = "/ports/ps2" id = "describeportPS2">Der PS/2-Anschluss oder Auxiliary Port</a>
+            </div>
+        </main>
     </body>
 </html>

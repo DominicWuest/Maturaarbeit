@@ -1,5 +1,15 @@
+header{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
 body{
     background: linear-gradient(#2441B4, #31128B);
+    clear: both;
+}
+main{
+    position: absolute;
+    top: 5%;
 }
 h1{
     text-align: center;
@@ -9,24 +19,30 @@ h2{
     text-align: center;
     color: white;
 }
-#USBAPort{
+.link img{
     width: 20%;
     height: auto;
-    position: fixed;
+    position: fixed;   
+}
+#USBAPort{
     top: 25.5%;
     left: 7%
 }
-#describeportUSB{
-    background-color: aqua;
+.link a{
+    color: black;
     text-align: center;
     text-decoration: none;
-    color: black;
+    background-color: aqua;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0.5% 0%;
     font-size: 25px;
-    margin: 0% 73% 0% 6.5%;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+}
+#describeportUSB{
+    width: 20%;
     position: fixed;
     top: 65%;
+    left: 6.9%;
 }
 #videoports{
     width: 20%;
@@ -36,15 +52,8 @@ h2{
     left: 40%;
 }
 #describeportVIDEO{
-    background-color: aqua;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
     margin: 0% 40% 0% 39.5%;
     padding: 0% 4%;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
     position: fixed;
     top: 63%;  
 }
@@ -56,26 +65,8 @@ h2{
     left: 74.5%;   
 }
 #describeportPS2{
-    background-color: aqua;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    font-size: 25px;
-    margin: 0% 5.5% 0% 74%;
-    border-bottom-left-radius: 100px;
-    border-bottom-right-radius: 100px;
+    width: 20%;
     position: fixed;
-    top: 65%;  
-}    
-#home{
-    background: blue;
-    color: antiquewhite;
-    text-align: center;
-    text-decoration: none;
-    width: 13%;
-    margin: 0% 42.5%;
-    padding: 0.5% 1%;
-    border-radius: 20px;
-    position: absolute;
-    top: 90%;
-}
+    top: 65%;
+    left: 74.5%;
+} 

@@ -51,7 +51,9 @@ app.get('/', function(req, res) { // Homepage
 });
 
 app.get('/contact', function(req, res) {
-  res.render('contact');
+  res.render('contact', {
+    'courses' : courses
+  });
 });
 
 app.post('/contact', urlencodedParser, function(req, res) {

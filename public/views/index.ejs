@@ -11,54 +11,56 @@
     <script type="text/javascript" src="js/index.js"></script>
   </head>
   <body onload="checkDeviceSize();">
-    <div class="courses">
-      <span class="title"><a href="/courses">Alle Kurse</a></span>
-      <div class="coursesListContainer">
-        <ul class="coursesList">
-          <% let index = 0 %>
-          <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
-          <% for (let i = 1; i < courses[0].length; i++) { %>
-            <% if (courses[3][i] > index) { %>
-              <% for (let j = 0; j < courses[3][i] - index; j++) { %>
-                <ul><li>
+      <main>
+      <div class="courses">
+        <span class="title"><a href="/courses">Alle Kurse</a></span>
+        <div class="coursesListContainer">
+          <ul class="coursesList">
+            <% let index = 0 %>
+            <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
+            <% for (let i = 1; i < courses[0].length; i++) { %>
+              <% if (courses[3][i] > index) { %>
+                <% for (let j = 0; j < courses[3][i] - index; j++) { %>
+                  <ul><li>
+                <% } %>
+                <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+              <% } else if (courses[3][i] < index) { %>
+                <% for (let j = 0; j < index - courses[3][i]; j++) { %>
+                  </li></ul></li>
+                <% } %>
+                <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+              <% } else { %>
+              </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
               <% } %>
-              <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-            <% } else if (courses[3][i] < index) { %>
-              <% for (let j = 0; j < index - courses[3][i]; j++) { %>
-                </li></ul></li>
-              <% } %>
-              <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-            <% } else { %>
-            </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+              <% index = courses[3][i] %>
             <% } %>
-            <% index = courses[3][i] %>
-          <% } %>
-          </li>
-        </ul>
+            </li>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="middle">
-      <div class="domainname"><span>CSAcademy</span></div>
-      <%- include partials/searchbar.ejs %>
-    </div>
-    <div class="right">
-      <div class="mostPopular">
-        <span class="title">Beliebteste Kurse</span>
-        <ul>
-          <% for (let i = 0; i < mostPopular[0].length; i++) { %>
-            <li><a href="<%= courses[1][courses[0].indexOf(mostPopular[0][i])] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
-          <% } %>
-        </ul>
+      <div class="middle">
+        <div class="domainname"><span>CSAcademy</span></div>
+        <%- include partials/searchbar.ejs %>
       </div>
-      <div class="newestCourses">
-        <span class="title">Neuste Kurse</span>
-        <ul>
-          <% for (let i = 0; i < newestCourses[0].length; i++) { %>
-            <li><a href="<%= courses[1][courses[0].indexOf(newestCourses[0][i])] %>"><%= (i + 1) + ". " + newestCourses[0][i] %></a></li>
-          <% } %>
-        </ul>
+      <div class="right">
+        <div class="mostPopular">
+          <span class="title">Beliebteste Kurse</span>
+          <ul>
+            <% for (let i = 0; i < mostPopular[0].length; i++) { %>
+              <li><a href="<%= courses[1][courses[0].indexOf(mostPopular[0][i])] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
+            <% } %>
+          </ul>
+        </div>
+        <div class="newestCourses">
+          <span class="title">Neuste Kurse</span>
+          <ul>
+            <% for (let i = 0; i < newestCourses[0].length; i++) { %>
+              <li><a href="<%= courses[1][courses[0].indexOf(newestCourses[0][i])] %>"><%= (i + 1) + ". " + newestCourses[0][i] %></a></li>
+            <% } %>
+          </ul>
+        </div>
       </div>
-    </div>
+    </main>
     <%- include partials/footer.ejs %>
   </body>
 </html>

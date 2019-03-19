@@ -1,0 +1,74 @@
+header{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+body{
+    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+    clear: both;
+}
+main{
+    position: absolute;
+    top: 5%;
+}
+h1{
+    font-family: 'Righteous', cursive;
+    font-size: 300%;
+    text-align: center;
+    color: white;
+}
+h3{
+    text-align: center;
+    color: white;
+}
+.link img{
+    width: 20%;
+    height: auto;
+    position: fixed;   
+}
+#USBAPort{
+    top: 30.5%;
+    left: 7%
+}
+.link a{
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    background-color: aqua;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    padding: 0.5% 0%;
+    font-size: 25px;
+}
+#describeportUSB{
+    width: 20%;
+    position: fixed;
+    top: 70%;
+    left: 7%;
+}
+#videoports{
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 32.75%;
+    left: 40%;
+}
+#describeportVIDEO{
+    margin: 0% 40% 0% 39.5%;
+    padding: 0% 4%;
+    position: fixed;
+    top: 68%;  
+}
+#ps2ports{
+    width: 20%;
+    height: auto;
+    position: fixed;
+    top: 31%;
+    left: 74.5%;   
+}
+#describeportPS2{
+    width: 20%;
+    position: fixed;
+    top: 70%;
+    left: 74.5%;
+} 

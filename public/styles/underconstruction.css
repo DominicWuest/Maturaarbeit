@@ -1,12 +1,25 @@
+header{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
 body{
     background: linear-gradient(#2441B4, #31128B) fixed;
     background-repeat: repeat-y;
     padding: 0% 3%;
     text-align: center;
 }
-a{
+main{
+    position: relative;
+    top: 20%;
+}
+main a{
     text-decoration: none;
     background: linear-gradient(#2221B4, #31127A) fixed;
     padding: 0.1% 0.5%;
     color: aqua;
+}
+footer{
+    position: relative;
+    top: 65%;
 }

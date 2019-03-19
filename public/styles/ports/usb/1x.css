@@ -1,0 +1,45 @@
+header{
+    position: absolute;
+    top: 0%;
+    left: 0%
+}
+body{
+    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+    clear: both;
+}
+main{
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    padding: 0.5%;
+}
+h2{
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    color: white;
+    font-size: 200%;
+}
+#general{
+    color: white;
+    text-align: center;
+    text-decoration-style: wavy;
+    font-size: 20px;   
+}
+#usblink{
+    text-decoration: none;
+    color: aqua;
+}
+.pic{
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+#usb1ab{
+    width: 100%;
+}

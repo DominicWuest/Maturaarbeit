@@ -1,0 +1,82 @@
+header{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+body{
+    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+    clear: both;
+}
+main{
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    padding: 0.5%;
+}
+h1{
+    font-family: 'Righteous', cursive;
+    font-size: 220%;
+    text-align: center;
+    color: white;
+}
+#usbdescription{
+    color: white;
+    text-align: center;
+    text-decoration-style: wavy;
+    font-size: 20px;
+}
+#fat{
+    font-family: 'Bitter', serif;
+    font-size: 21px;
+    color: aliceblue;
+}
+#contact{
+    text-decoration: none;
+    color: white;
+    background-color: #229;
+    padding: 0% 0.5%;
+    border-radius: 20px;
+}
+.link img{
+    width: 15%;
+    height: 29%;
+    position: fixed;
+    top: 50%;
+}
+.link a{
+    color: black;
+    text-align: center;
+    text-decoration: none;
+    position: fixed;
+    top: 79.3%;
+    background-color: aqua;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    width: 15%;
+    padding: 0.5% 0%;
+    font-size: 20px;
+}
+#usb1{
+    left: 5%;
+}
+#describeUSB1{
+    margin: 0% 4.49%;
+}
+#usb2{
+    left: 30%;
+}
+#describeUSB2{
+    margin: 0% 29.49%;
+}
+#usb3{
+    left: 55%;   
+}
+#describeUSB3{
+    margin: 0% 54.48%;
+}
+#USBC{
+    left: 80%;
+}
+#describeUSBc{
+    margin: 0% 79.48%;
+}

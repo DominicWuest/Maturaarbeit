@@ -7,7 +7,8 @@ html {
   overflow: hidden;
 }
 
-body {
+main {
+  height: 90vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
   background-repeat: repeat-x;
   display: grid;
@@ -156,7 +157,7 @@ a:hover {
   padding: 0;
   margin: 0;
   color: white;
-  display: inline-block;
+  display: block;
   padding-bottom: 1%;
 }
 
@@ -172,7 +173,7 @@ a:hover {
 }
 
 .mostPopular ul, .newestCourses ul {
-  top: -1vh;
+  display: block;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -180,15 +181,22 @@ a:hover {
 }
 
 .mostPopular li, .newestCourses li {
+  display: block;
   height: 2vh;
   margin-top: 1vh;
 }
 
 .mostPopular a, .newestCourses a {
-  position: relative;
+  white-space: nowrap;
+  display: block;
   color: white;
   text-decoration: none;
   font-size: 1.7vh;
+}
+
+footer {
+  box-sizing: border-box;
+  font-size: 1.5vh;
 }
 
 /*
@@ -201,10 +209,10 @@ a:hover {
 
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
-  body {
+  main {
     grid-gap: 0;
     grid-template-columns: 50vw 50vw;
-    grid-template-rows: 50vh 50vh;
+    grid-template-rows: 45vh 45vh;
   }
 
   .middle {
@@ -235,15 +243,25 @@ a:hover {
   }
 
   .coursesListContainer {
-    height: 46vh;
+    height: 90%;
   }
 
   .right {
+    height: 100%;
     width: 40vw;
     margin: 0 auto;
     grid-column-start: 2;
     grid-column-end: 3;
     grid-row-start: 2;
     grid-row-end: 3;
+  }
+
+  .right, .courses {
+    padding-top: 3vh;
+    box-sizing: border-box;
+  }
+
+  footer {
+    font-size: 1vh;
   }
 }

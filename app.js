@@ -51,7 +51,9 @@ app.get('/', function(req, res) { // Homepage
 });
 
 app.get('/contact', function(req, res) {
-  res.render('contact');
+  res.render('contact', {
+    'courses' : courses
+  });
 });
 
 app.post('/contact', urlencodedParser, function(req, res) {
@@ -86,11 +88,13 @@ app.get('/programminglanguages/python', function(req, res) {
 for (let i = 0; i < courses[0].length; i++) { // All the routing for the courses inside data/courses.csv
   app.get(courses[1][i], function(req, res) {
     if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
-      'path' : courses[1][i],
+      'path' : pathsToCourses[i],
       'courses' : courses,
       'codeHighlighting' : codeHighlighting
     });
-    else res.render('underconstruction');
+    else res.render('underconstruction', {
+      'courses' : courses
+    });
   });
 }
 

@@ -10,7 +10,6 @@
     <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script type="text/javascript">
-      const suggestions = <%- JSON.stringify(courses) %>;
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
@@ -29,8 +28,8 @@
           <li><a href="#exampleCode">Beispielcode</a><ul>
             <li><a href="#python">Python</a></li>
             <li><a href="#java">Java</a></li>
-            <li><a href="#animatedExample">Animiertes Beispiel</a></li>
           </ul></li>
+          <li><a href="#animatedExample">Animiertes Beispiel</a></li>
         </ul>
       </div>
       <div class="text">

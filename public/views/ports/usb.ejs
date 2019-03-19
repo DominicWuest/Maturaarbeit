@@ -1,0 +1,29 @@
+<!DOCTYPE html/>
+<!-- Daniel Isler -->
+<html>
+    <head>
+        <title>USB</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/ports/usb.css" type="text/css"/>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include ../partials/header.ejs %>
+        <main>
+            <h1>Die USB-Schnittstelle</h1>
+            <hr>
+            <p id="usbdescription">Da sich die Nutzer der elektronischen Geräten aufgrund der vielzahl an verschiedenen Schnittstellen überfordert fühlten schlossen sich mehrere IT- und Kommunikationsgeräthersteller zusammen, um eine neue Schnittstelle zu konzipieren, die eine vielzahl von Anschlüssen zu ersetzten vermag. So entstand die USB-Schnittstelle. <span id="fat">USB</span> steht für <span id="fat">U</span>niversal <span id="fat">S</span>erial <span id="fat">B</span>us, also ein Universeller Serieller Bus. Der Bus steht dabei natürlich nicht direkt für einen Bus, wie er auf der Strasse fährt, er steht jedoch dafür, dass wir eine Schnittstelle haben, also eine Art Öffentliches Verkehrsmittel in der Datenübertragung und somit passt Bus ganz gt dazu. Universell ist diese Schnittstelle, weil Sie mit USB nicht nur Dateien von Ihrer Festplatte auf einen Datenträger (Zum Beispiel einen Stick) laden können, sondern weil sie auch Beispielsweise eine Tastatur oder eine Maus mit Ihrem Computer verbinden können. Seriell bedeutet hier, dass die Daten bit-seriell übertragen werden, was heisst, dass die einzelnen Bits nacheinander übertragen werden. Haben sie Beispielweise die Zahl 23, so wäre diese in der binären Darstellung 10111, also eine Zahl, für die mindestens fünf Bits benötigt werden. Diese fünf Bits werden nun bei einer Übertragung über die USB-Schnittstelle nacheinander auf das verbundene Gerät übertragen. Das ganze wird über ein sogenanntes differentiell symmetrisches Adernpaar übertragen, welches simpel gesagt zwei Adern hat, bei der einen wird die 0 übertragen, bei der anderen die 1 durch unterschiedliche Spannungspegel. Dadurch werden viele Fehler eliminiert und es ermöglicht eine sehr schnelle Datenübertragung. Wenn sie mehr darüber wissen wollen, kontaktieren sie uns bitte unter <a href="/contact" id="contact">Kontakt</a>.</p>
+            <div class="link">
+                <img src="/imgs/ports/usb/usb1.jpg" id="usb1" alt="USB 1.X"/>
+                <a href="/ports/usb/1x" id="describeUSB1">Der USB 1 Anschluss</a>
+                <img src="/imgs/ports/usb/usb2.jpeg" id="usb2" alt="USB 2.0"/>
+                <a href="/ports/usb/2" id="describeUSB2">Der USB 2 Anschluss</a>
+                <img src="/imgs/ports/usb/usb3.jpg" id="usb3" alt="USB 3.X"/>
+                <a href="/ports/usb/3x" id="describeUSB3">Der USB 3 Anschluss</a>
+                <img src="/imgs/ports/usb/usbc.jpg" id="usbc" alt="USB Typ C"/>
+                <a href="/ports/usb/usb-c" id="describeUSBc">Der USB-C Anschluss</a>
+            </div>
+        </main>
+    </body>
+</html>

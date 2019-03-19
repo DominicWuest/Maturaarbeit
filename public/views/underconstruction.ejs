@@ -1,4 +1,5 @@
-<!DOCTYPE html by Dani I./>
+<!DOCTYPE html>
+<!-- Daniel Isler -->
 <html lang = "de">
     <head>
 <!--        Stylesheet, Logo und Head verlinken-->
@@ -8,16 +9,19 @@
         <meta charset="utf-8"/>
     </head>
     <body>
-        <div id = "wholepage">
+        <%- include partials/header.ejs %>
+        <main>
             <h1>
                 Diese Seite ist leider noch nicht verfügbar, da sie noch in Bearbeitung ist. Bitte haben Sie Geduld, wir tun unser bestes.
             </h1>
             <h2>
-                Für den Fall, dass Sie einen Wunsch für diese Seite haben Kontaktieren sie uns bitte unter <a href = "/contact"/>Kontakt</a> und wir versuchen den Wunsch zu berücksichtigen.
+                Für den Fall, dass Sie einen Wunsch für diese Seite haben Kontaktieren sie uns bitte unter <a href = "/contact">Kontakt</a> und wir versuchen den Wunsch zu berücksichtigen.
             </h2>
-        </div>
+        </main>
     </body>
     <footer>
-        <a href="javascript:history.go(-1)" id="back">Zurück zur letzten Seite</a>
+        <main>
+            <a href="javascript:history.go(-1)" id="back">Zurück zur letzten Seite</a>
+        </main>
     </footer>
 </html>

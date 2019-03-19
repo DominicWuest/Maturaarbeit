@@ -15,7 +15,7 @@
   </head>
   <body onload="checkDeviceSize();">
     <div class="courses">
-      <span class="title">Alle Kurse</span>
+      <span class="title"><a href="/courses">Alle Kurse</a></span>
       <div class="coursesListContainer">
         <ul class="coursesList">
           <% let index = 0 %>
@@ -44,13 +44,23 @@
       <div class="domainname"><span>CSAcademy</span></div>
       <%- include partials/searchbar.ejs %>
     </div>
-    <div class="mostPopular">
-      <span class="title">Beliebteste Kurse</span>
-      <ul>
-        <% for (let i = 0; i < mostPopular[0].length; i++) { %>
-          <li><a href="<%= mostPopular[1][i] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
-        <% } %>
-      </ul>
+    <div class="right">
+      <div class="mostPopular">
+        <span class="title">Beliebteste Kurse</span>
+        <ul>
+          <% for (let i = 0; i < mostPopular[0].length; i++) { %>
+            <li><a href="<%= courses[1][courses[0].indexOf(mostPopular[0][i])] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
+          <% } %>
+        </ul>
+      </div>
+      <div class="newestCourses">
+        <span class="title">Neuste Kurse</span>
+        <ul>
+          <% for (let i = 0; i < newestCourses[0].length; i++) { %>
+            <li><a href="<%= courses[1][courses[0].indexOf(newestCourses[0][i])] %>"><%= (i + 1) + ". " + newestCourses[0][i] %></a></li>
+          <% } %>
+        </ul>
+      </div>
     </div>
     <%- include partials/footer.ejs %>
   </body>

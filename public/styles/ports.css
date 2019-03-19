@@ -4,7 +4,7 @@ header{
     left: 0%;
 }
 body{
-    background: linear-gradient(#2441B4, #31128B);
+    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
     clear: both;
 }
 main{
@@ -12,10 +12,12 @@ main{
     top: 5%;
 }
 h1{
+    font-family: 'Righteous', cursive;
+    font-size: 300%;
     text-align: center;
     color: white;
 }
-h2{
+h3{
     text-align: center;
     color: white;
 }
@@ -25,7 +27,7 @@ h2{
     position: fixed;   
 }
 #USBAPort{
-    top: 25.5%;
+    top: 30.5%;
     left: 7%
 }
 .link a{
@@ -41,32 +43,32 @@ h2{
 #describeportUSB{
     width: 20%;
     position: fixed;
-    top: 65%;
-    left: 6.9%;
+    top: 70%;
+    left: 7%;
 }
 #videoports{
     width: 20%;
     height: auto;
     position: fixed;
-    top: 27.75%;
+    top: 32.75%;
     left: 40%;
 }
 #describeportVIDEO{
     margin: 0% 40% 0% 39.5%;
     padding: 0% 4%;
     position: fixed;
-    top: 63%;  
+    top: 68%;  
 }
 #ps2ports{
     width: 20%;
     height: auto;
     position: fixed;
-    top: 26%;
+    top: 31%;
     left: 74.5%;   
 }
 #describeportPS2{
     width: 20%;
     position: fixed;
-    top: 65%;
+    top: 70%;
     left: 74.5%;
 } 

@@ -57,6 +57,10 @@ a:hover {
   font-size: 3.5vh;
 }
 
+.courses .title a {
+  color: black;
+}
+
 .courses ul {
   margin: 0;
   list-style: none;
@@ -134,26 +138,40 @@ a:hover {
   Most Popular courses
 */
 
-.mostPopular {
-  padding: 0;
-  margin: 0;
-  height: 100%;
-  color: white;
+.right {
   grid-column: 3;
-  display: inline-block;
+  margin: 0;
+  padding: 0;
+  height: 50vh;
   margin-top: 30%;
   margin-right: 1vh;
   margin-left: 4vh;
 }
 
-.mostPopular .title {
+.mostPopular, .newestCourses {
+  overflow: auto;
+  height: auto;
+  max-height: 50%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  color: white;
+  display: inline-block;
+  padding-bottom: 1%;
+}
+
+.newestCourses {
+  margin-top: 3vh;
+}
+
+.mostPopular .title, .newestCourses .title {
   display: block;
   font-family: 'Righteous', cursive;
   color: black;
   font-size: 3.5vh;
 }
 
-.mostPopular ul {
+.mostPopular ul, .newestCourses ul {
   top: -1vh;
   list-style: none;
   padding: 0;
@@ -161,13 +179,13 @@ a:hover {
   margin-left: 1vh;
 }
 
-.mostPopular li {
+.mostPopular li, .newestCourses li {
   height: 2vh;
   margin-top: 1vh;
 }
 
-.mostPopular a {
-  position: absolute;
+.mostPopular a, .newestCourses a {
+  position: relative;
   color: white;
   text-decoration: none;
   font-size: 1.7vh;
@@ -220,7 +238,7 @@ a:hover {
     height: 46vh;
   }
 
-  .mostPopular {
+  .right {
     width: 40vw;
     margin: 0 auto;
     grid-column-start: 2;

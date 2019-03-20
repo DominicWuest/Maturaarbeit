@@ -45,10 +45,9 @@
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
-          <p>Bei dem Binary Search beginnt man zuerst, den Wert in der Mitte des Arrays zu überprüfen. Falls dieser mit dem gesuchten Wert übereinstimmt, kann man gleich den Index des überprüften Wertes zurückgeben.</p>
-          <p>Falls dies jedoch nicht der Fall ist, wird überprüft, ob der untersuchte Wert grösser oder kleiner als der Gesuchte ist. Da der Array sortiert ist, weiss man, dass der gesuchte Wert einen kleineren Index hat, falls der überprüfte Wert zu gross ist. Falls er jedoch zu klein ist, ist schlusszufolgern, dass der gesuchte Wert einen grösseren Index hat.</p>
-          <p>Mit diesen Informationen kann man nun den zu überprüfenden Bereich des Arrays minimieren. Somit untersucht man nach der Verkleinerung des Suchbereiches wieder den Wert in der Mitte des neuen Bereiches. Man verkleinert den Suchbereich so lange, bis der gesuchte Wert gefunden wurde oder bis der minimale Wert grösser ist als der Maximale.</p>
-          <p>Der minimale Wert wird aufgrund des Algorithmus grösser als der Maximale, falls der Wert nicht in dem Array vorhanden ist.</p>
+          <p>Beim Bubblesort Algorithmus beginnt man am Anfang des Arrays und arbeitet sich so hoch.</p>
+          <p>Das Grundprinzip basiert darauf, dass ein Wert, welcher nie kleiner ist als ein anderer im Array am Ende des Arrays stehen soll. Dies kann zu nutzen gemacht werden, indem, dass man den ersten Wert des Arrays untersucht und ihn mit dem Wert vergleicht, dessen Index um eins grösser ist. Falls der untersuchte Wert grösser ist als der Verglichene, dann tauscht man dessen Plätze. Ansonsten fokussiert man sich neu auf den verglichenen Wert und vergleicht ihn mit dem Wert, dessen Index um eines grösser ist als der nun neu fokussierte Wert. Man vergleicht diese dann wieder auf die gleiche Weise, wie die ersten zwei.</p>
+          <p>Dies tut man so lange, bis man am Ende des Arrays angekommen ist. Da wir nun jeden Wert im Array miteinander verglichen und jenachdem ausgetauscht haben, wissen wir, dass der Wert am Ende des Arrays der grösste im Array ist. Nun beginnt man wieder am Anfang des Arrays und führt das Prozedere nochmals durch, jedoch nur bis an den zweitletzten Index.</p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>

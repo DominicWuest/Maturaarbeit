@@ -48,9 +48,6 @@ let playing = false;
 
 function restartAnimation() {
   setup();
-  let range = document.getElementById('range');
-  value = parseInt(range.value);
-  elementsLength = range.max - range.min;
   max = elementsLength;
   min = 0;
   focus = elementsLength / 2;
@@ -64,7 +61,6 @@ function setup() {
   let height = canvasDiv.offsetHeight;
   let canvas = createCanvas(width, height);
   canvas.parent('animation');
-  document.getElementById('range').style.width = document.getElementById('animation').offsetWidth + "px";
 }
 
 function draw() {

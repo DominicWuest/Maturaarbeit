@@ -43,18 +43,26 @@ function addHighlighting() {
 let value, elementsLength, max;
 let objects;
 let frames, fps = 2;
-let playing = false;
 let focusedIndex, comparedIndex;
+let height;
+let elementHeight = 5;
+let needsSwapping;
+let needsScrambling = true;
+let swapped;
 
 function restartAnimation() {
   setup();
-  elementsLength = 30;
+  height = document.getElementById('animation').offsetHeight;
+  elementsLength = Math.floor(height / (elementHeight + 1));
   focusedIndex = 0;
   comparedIndex = 1;
   max = elementsLength;
   functionsIndex = 0;
   frames = 0;
-  objects = scramble(max);
+  swapped = false;
+  if (needsScrambling) objects = scramble(max);
+  needsSwapping = false;
+  loop();
 }
 
 function setup() {
@@ -73,26 +81,44 @@ function draw() {
       fill(0, 255, 0);
       if (i === focusedIndex) fill(0, 0, 255);
       else if (i === comparedIndex) fill(128, 0, 128);
-      else if (i > max) fill(128, 128, 128);
-      rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
+      else if (i >= max) fill(128, 128, 128);
+      rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
     }
   }
-  if (playing) {
-    if (frames % (60 / fps) === 0) compareValues();
-    frames++;
+  if (max === 0) noLoop();
+  else if (max === 1) {
+    max--;
+    focusedIndex = -1;
+    comparedIndex = -1;
   }
+  if (frames > (60 / fps)) continueAnimation();
+  frames++;
 }
 
-function compareValues() {
-  if (objects[focusedIndex] > objects[comparedIndex]) {
+function continueAnimation() {
+  frames = 0;
+  if (needsSwapping) {
     let temp = objects[focusedIndex];
     objects[focusedIndex] = objects[comparedIndex];
-    objects[comparedIndex] = objects[focusedIndex];
+    objects[comparedIndex] = temp;
     focusedIndex++;
-    comparedIndex++;
+    comparedIndex--;
+    needsSwapping = false;
+    swapped = true;
   } else {
-    focusedIndex++;
-    comparedIndex++;
+    if (objects[focusedIndex] > objects[comparedIndex] && !swapped) needsSwapping = true;
+    else if (swapped) {
+      comparedIndex += 2;
+      swapped = false;
+    } else {
+      focusedIndex++;
+      comparedIndex++;
+    }
+  }
+  if (comparedIndex === max) {
+    max--;
+    focusedIndex = 0;
+    comparedIndex = 1;
   }
 }
 
@@ -101,20 +127,10 @@ function scramble(max) {
   for (let i = 0; i < max; i++) {
     arr.push(i);
   }
-  return arr;
-}
-
-function drawFocusValue() {
-  fill(0, 0, 255);
-  beginShape();
-  vertex(value * width / (elementsLength + 1) + 1, 0);
-  vertex(value * width / (elementsLength + 1) + 1, height);
-  vertex((value + 1) * width / (elementsLength + 1) - 1, height);
-  endShape(CLOSE);
-  fill(128, 0, 128);
-  beginShape();
-  vertex((value + 1) * width / (elementsLength + 1) - 1, 0);
-  vertex((value + 1) * width / (elementsLength + 1) - 1, height);
-  vertex(value * width / (elementsLength + 1) + 1, 0);
-  endShape(CLOSE);
+  let scrambled = [];
+  for (let i = 0; i < max; i++) {
+    let randomIndex = Math.floor(Math.random() * arr.length);
+    scrambled.push(arr.splice(randomIndex, 1)[0]);
+  }
+  return scrambled;
 }

@@ -13,7 +13,7 @@
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting(); restartAnimation();" onresize="setup();">
+  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
     <%- include ../../partials/header.ejs %>
     <main>
       <div class="title">
@@ -87,7 +87,6 @@ public static int binarySearch(int[] arr, int val) { // arr ist der Array, in de
         </div>
         <div id="animatedExample">
           <h2>Animiertes Beispiel</h2>
-          <p>Ändere die Position des Sliders, um den gesuchten Wert zu bestimmen und die Animation zu starten.</p>
           <div class="legend">
             <h3>Legende</h3>
             <ul>
@@ -96,6 +95,10 @@ public static int binarySearch(int[] arr, int val) { // arr ist der Array, in de
               <li><span style="color: green;">Momentan nicht beachteter Wert</span></li>
               <li><span style="color: gray;">Wert am korrekten Index</span></li>
             </ul>
+          </div>
+          <div class="animationInput">
+              <input type="button" name="restartAnimation" value="Start" onmouseup="restartAnimation(); needsScrambling = true;" ontouchend="restartAnimation(); needsScrambling = true;">
+              <input type="range" name="fps" min="-1" max="5" step="0.25" oninput="fps = Math.pow(2, this.value);">
           </div>
           <div id="animation"></div>
         </div>

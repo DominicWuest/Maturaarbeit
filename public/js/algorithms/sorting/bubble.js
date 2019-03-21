@@ -40,19 +40,21 @@ function addHighlighting() {
   }
 }
 
-let value, elementsLength, max, min;
-let functions = [findTarget, setBounds], functionsIndex;
-let focus;
-let frames, fps = 1.5;
+let value, elementsLength, max;
+let objects;
+let frames, fps = 2;
 let playing = false;
+let focusedIndex, comparedIndex;
 
 function restartAnimation() {
   setup();
+  elementsLength = 30;
+  focusedIndex = 0;
+  comparedIndex = 1;
   max = elementsLength;
-  min = 0;
-  focus = elementsLength / 2;
   functionsIndex = 0;
   frames = 0;
+  objects = scramble(max);
 }
 
 function setup() {
@@ -69,33 +71,37 @@ function draw() {
     if (i === focus && i === value) drawFocusValue();
     else {
       fill(0, 255, 0);
-      if (i === focus) fill(0, 0, 255);
-      else if (i === value) fill(128, 0, 128);
-      else if (max < i || i < min) fill(128, 128, 128);
+      if (i === focusedIndex) fill(0, 0, 255);
+      else if (i === comparedIndex) fill(128, 0, 128);
+      else if (i > max) fill(128, 128, 128);
       rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
     }
   }
   if (playing) {
-    if (frames % (60 / fps) === 0) {
-      functions[functionsIndex]();
-      functionsIndex++;
-      functionsIndex %= functions.length;
-    }
+    if (frames % (60 / fps) === 0) compareValues();
     frames++;
   }
 }
 
-function findTarget() {
-  focus = (min + max) / 2;
+function compareValues() {
+  if (objects[focusedIndex] > objects[comparedIndex]) {
+    let temp = objects[focusedIndex];
+    objects[focusedIndex] = objects[comparedIndex];
+    objects[comparedIndex] = objects[focusedIndex];
+    focusedIndex++;
+    comparedIndex++;
+  } else {
+    focusedIndex++;
+    comparedIndex++;
+  }
 }
 
-function setBounds() {
-  if (focus === value) {
-    max = -1;
-    playing = false;
+function scramble(max) {
+  let arr = [];
+  for (let i = 0; i < max; i++) {
+    arr.push(i);
   }
-  else if (focus < value) min = focus + 1;
-  else max = focus - 1;
+  return arr;
 }
 
 function drawFocusValue() {

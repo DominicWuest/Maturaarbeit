@@ -110,3 +110,30 @@ a:hover {
 #animatedExample input:focus {
   outline: none;
 }
+
+#animatedExample input[type="range"] {
+  -webkit-appearance: none;
+}
+
+#animatedExample input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #BBB;
+  height: 150%;
+  width: 15px;
+  border-radius: 15px;
+}
+
+#animatedExample input[type=range]::-moz-range-thumb {
+
+}
+
+#animatedExample input[type="range"]::-webkit-slider-runnable-track {
+  height: 50%;
+  background-color: #555;
+  box-sizing: border-box;
+  border-radius: 15px;
+}
+
+#animatedExample input[type=range]::-moz-range-track {
+
+}

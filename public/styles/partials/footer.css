@@ -37,7 +37,8 @@ p{
 }
 @media only screen and (max-width: 600px){
     footer{
-        position: absolute;
-        top: 100%;
+        position: relative;
+        top: -1%;
     }
 }
+

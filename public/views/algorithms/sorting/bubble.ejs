@@ -102,9 +102,10 @@ public static int bubbleSort(int[] arr) { // arr ist der Array, welcher zu sorti
               <li><span style="color: gray;">Wert am korrekten Index</span></li>
             </ul>
           </div>
+          <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
           <div class="animationInput">
               <input type="button" name="restartAnimation" value="Start" onmouseup="restartAnimation(); needsScrambling = true;" ontouchend="restartAnimation(); needsScrambling = true;">
-              <input type="range" name="fps" min="0" max="5" step="0.25" oninput="fps = Math.pow(2, this.value);">
+              <input type="range" name="fps" min="0" max="5" step="0.0001" oninput="fps = Math.pow(2, this.value);">
           </div>
           <div id="animation"></div>
         </div>

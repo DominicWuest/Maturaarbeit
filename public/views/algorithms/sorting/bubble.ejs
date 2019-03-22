@@ -46,43 +46,49 @@
         <div id="functionality">
           <h2>Funktionsweise</h2>
           <p>Beim Bubblesort Algorithmus beginnt man am Anfang des Arrays und arbeitet sich so hoch.</p>
-          <p>Das Grundprinzip basiert darauf, dass ein Wert, welcher nie kleiner ist als ein anderer der Grösste im Array ist. Dies kann zu nutzen gemacht werden, indem, dass man den ersten Wert des Arrays untersucht und ihn mit dem Wert vergleicht, dessen Index um eins grösser ist als sein eigener. Falls der untersuchte Wert grösser ist als der Verglichene, dann tauscht man dessen Plätze. Ansonsten fokussiert man sich neu auf den verglichenen Wert und vergleicht ihn mit dem Wert, dessen Index um eines grösser ist als der des nun neu fokussierten Wertes. Man vergleicht diese dann wieder auf die gleiche Weise, wie die ersten zwei.</p>
-          <p>Dies tut man so lange, bis man am Ende des Arrays angekommen ist. Da wir nun jeden Wert im Array miteinander verglichen und jenachdem ausgetauscht haben, wissen wir, dass der Wert am Ende des Arrays der grösste im Array ist. Nun beginnt man wieder am Anfang des Arrays und führt das Prozedere nochmals durch, jedoch nur bis zum zweitletzten Index. Nach dem Vergleichen bis zum zweitletzten Index weiss man nun, dass der Wert am zweitletzten Index der zweitgrösste Wert im Array, beziehungsweise der Grösste ohne den letzten Wert im Array, ist. Dann wird der Algorithmus bis zum dreitletzten Index weitergeführt. Dies wird alles so lange gemacht, bis der maximal zu untersuchende Index null ist, denn dies bedeutet schlussendlich, dass der ganze Array sortiert wurde.</p>
+          <p>Das Grundprinzip basiert darauf, dass ein Wert, welcher nie kleiner ist als ein anderer, der Grösste im Array ist. Dies kann zu nutzen gemacht werden, indem, dass man den ersten Wert des Arrays untersucht und ihn mit dem Wert vergleicht, dessen Index um eins grösser ist als sein eigener. Falls der untersuchte Wert grösser ist als der Verglichene, dann tauscht man dessen Plätze. Ansonsten fokussiert man sich neu auf den verglichenen Wert und vergleicht ihn mit dem Wert, dessen Index um eines grösser ist als der des nun neu fokussierten Wertes. Man vergleicht diese dann wieder auf die gleiche Weise, wie die ersten zwei.</p>
+          <p>Dies tut man so lange, bis man am Ende des Arrays angekommen ist. Da wir nun jeden Wert im Array miteinander verglichen und jenachdem ausgetauscht haben, wissen wir, dass der Wert am Ende des Arrays der Grösste im Array ist. Nun beginnt man wieder am Anfang des Arrays und führt das Prozedere nochmals durch, jedoch nur bis zum zweitletzten Index. Nach dem Vergleichen bis zum zweitletzten Index weiss man nun, dass der Wert am zweitletzten Index der zweitgrösste Wert im Array, beziehungsweise der Grösste ohne den letzten Wert im Array, ist. Dann wird der Algorithmus bis zum drittletzten Index weitergeführt. Dies wird alles so lange gemacht, bis der maximal zu untersuchende Index eins ist, denn dies bedeutet schlussendlich, dass der ganze Array sortiert wurde.</p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
           <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
           <pre class="code" id="python">
-def binarySearch(arr, val): # arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
-  l = 0 # Der minimale Index
-  r = len(arr) - 1 # Der maximale Index
-  while l <= r: # Solange der minimale Wert kleiner oder gleich dem maximalen ist.
-    index = (l + r) // 2 # Der zu untersuchende Index
-    if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
-      l = index + 1
-    elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
-      r = index - 1
-    else: # Der untersuchte Wert entspricht dem Gesuchten.
-      return index
-  return -1 # Der Wert ist nicht in dem Array vorhanden.</pre>
+def bubbleSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+  max = len(arr) - 1 # Der maximale Index, welcher der fokussierte Wert haben kann
+  focusedIndex = 0 # Der fokussierte Index
+  comparedIndex = 1 # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  while max > 1: # Sobald der maximal zu fokussierende Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+    if focusedIndex == max: # Falls der fokussierte Index dem maximal zu fokussierendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+      max -= 1 # Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      focusedIndex = 0 # Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      comparedIndex = 1 # Der Index, mit dem verglichen wird, ist wieder 1
+    if arr[focusedIndex] > arr[comparedIndex]: # Falls der Wert am fokussierten Index grösser ist als der am Verglichenen
+      arr[focusedIndex], arr[comparedIndex] = arr[comparedIndex], arr[focusedIndex] # Die beiden Werte werden miteinander getauscht
+    focusedIndex += 1 # Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    comparedIndex += 1 # Nach jeder Iteration wird der verglichene Index um eins erhöht
+  return arr # Der sortierte Array wird zurückgegeben</pre>
           <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
           <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
           <pre class="code" id="java">
-public static int binarySearch(int[] arr, int val) { // arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
-  int l = 0; // Der minimale Index
-  int r = arr.length - 1; // Der maximale Index
-  int index; // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schlaufe berechnet.
-  while (l <= r) { // Solange der minimale Wert kleiner oder gleich dem maximalen ist.
-    index = (l + r) / 2;
-    if (arr[index] < val) { // Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
-      l = index + 1;
-    } else if (arr[index] > val) { // Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
-      r = index - 1;
-    } else { // Der untersuchte Wert entspricht dem Gesuchten.
-      return index;
+public static int bubbleSort(int[] arr) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+  int max = arr.length - 1; // Der maximale Index, welcher der fokussierte Wert haben kann
+  int focusedIndex = 0; // Der fokussierte Index
+  int comparedIndex = 1; // Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  while (max > 1) { // Sobald der maximal zu fokussierene Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+    if (focusedIndex == max) { // Falls der fokussierte Index dem maximal zu fokussireendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+      max--; // Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      focusedIndex = 0; // Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      comparedIndex = 1; // Der Index, mit dem verglichen wird, ist wieder 1
     }
+    if (arr[focusedIndex] > arr[comparedIndex]) { // Falls der Wert am fokussierten Index grösser ist als der am Verglichenen, werden die beiden Werte miteinander getauscht
+      int temp = arr[focusedIndex];
+      arr[focusedIndex] = arr[comparedIndex];
+      arr[comparedIndex] = temp;
+    }
+    focusedIndex++; // Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    comparedIndex++; // Nach jeder Iteration wird der verglichene Index um eins erhöht
   }
-  return -1; // Der Wert ist nicht in dem Array vorhanden.
+  return arr; // Der sortierte Array wird zurückgegeben
 }</pre>
         </div>
         <div id="animatedExample">

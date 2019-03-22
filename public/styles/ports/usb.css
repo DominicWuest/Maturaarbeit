@@ -1,36 +1,47 @@
 header{
+/*get the header in the right postiton*/
     position: absolute;
     top: 0%;
     left: 0%;
 }
 body{
+/*get the background and clear potential bugs*/
     background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
     clear: both;
 }
 main{
+/*fit the content under the header*/
     position: absolute;
     top: 5%;
     left: 0%;
     padding: 0.5%;
 }
 h1{
+/*style the title*/
     font-family: 'Righteous', cursive;
     font-size: 220%;
     text-align: center;
     color: white;
 }
 #usbdescription{
+/*style the descrition text*/
     color: white;
     text-align: center;
     text-decoration-style: wavy;
     font-size: 20px;
 }
 #fat{
+/*create the fat span tag for the first letters*/
     font-family: 'Bitter', serif;
     font-size: 21px;
     color: aliceblue;
 }
+a:hover {
+/*underline the link, if it is hovered*/
+  text-decoration: underline!important;
+}
 #contact{
+/*highlight the link to the contact page*/
     text-decoration: none;
     color: white;
     background-color: #229;
@@ -38,12 +49,14 @@ h1{
     border-radius: 20px;
 }
 .link img{
+/*position and resize the images*/
     width: 15%;
     height: 29%;
     position: fixed;
     top: 50%;
 }
 .link a{
+/*style all the links to the next pages*/
     color: black;
     text-align: center;
     text-decoration: none;
@@ -56,6 +69,7 @@ h1{
     padding: 0.5% 0%;
     font-size: 20px;
 }
+/*position all the links*/
 #usb1{
     left: 5%;
 }
@@ -79,4 +93,56 @@ h1{
 }
 #describeusbc{
     margin: 0% 79.48%;
+}
+
+@media only screen and (max-aspect-ratio : 13 / 9){
+/*give a different style for smaller devices like mobile phones*/
+    main {
+/*repositon the content, so there is no conflict with the header*/
+        position: absolute;
+        top: 7%;
+  }
+/*get a squared lineup*/
+    .link a{
+        width: 40%;
+        position: absolute;
+    }
+    .link img{
+        width: 40%;
+        height: 80%;
+        position: absolute;
+    }
+    #topline img{
+        top: 120%;
+    }
+    #usb1{
+        left: 5%;
+    }
+    #usb2{
+        left: 55%;
+    }
+    #topline a{
+        top: 200%;
+    }
+    #describeusb2{
+        margin: 0% 54.49%;
+    }
+    #bottomline img{
+        top: 220%;
+    }
+    #usb3{
+        left: 5%;
+    }
+    #usbc{
+        left: 55%;
+    }
+    #bottomline a{
+        top: 300%;
+    }
+    #describeusb3{
+        margin: 0% 4.48%;
+    }
+    #describeusbc{
+        margin: 0% 54.48%;
+    }
 }

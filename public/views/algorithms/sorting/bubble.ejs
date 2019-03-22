@@ -13,7 +13,7 @@
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
+  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="loop(); setup(); noLoop();">
     <%- include ../../partials/header.ejs %>
     <main>
       <div class="title">

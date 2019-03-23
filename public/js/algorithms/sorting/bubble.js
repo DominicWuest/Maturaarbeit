@@ -74,6 +74,11 @@ function setup() {
 }
 
 function draw() {
+  if (max === 1) {
+    max--;
+    focusedIndex = -1;
+    comparedIndex = -1;
+  }
   clear();
   for (let i = 0; i <= elementsLength; i++) {
     if (i === focus && i === value) drawFocusValue();
@@ -86,12 +91,7 @@ function draw() {
     }
   }
   if (max === 0) noLoop();
-  else if (max === 1) {
-    max--;
-    focusedIndex = -1;
-    comparedIndex = -1;
-  }
-  if (frames > (60 / fps)) continueAnimation();
+  if (frames > 60 / fps) continueAnimation();
   frames++;
 }
 

@@ -120,14 +120,19 @@ a:hover {
   color: #CCC;
   border-radius: 15px;
   border-color: #333;
-  width: 75%;
-  font-size: 20px;
+  width: 85%;
+  font-size: 1.3em;
   margin: auto;
+}
+
+#animatedExample input[type="button"]:hover {
+  background-color: #444;
 }
 
 #animatedExample input[type="button"]:active {
   border-radius: 15px;
-  background-color: #555;
+  background-color: #666;
+  border-color: black;
 }
 
 #animatedExample input[type="range"] {

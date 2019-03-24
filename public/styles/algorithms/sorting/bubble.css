@@ -71,6 +71,8 @@ a:hover {
 }
 
 .code {
+  white-space: pre;
+  display: block;
   font-family: monospace;
   width: 95%;
   box-sizing: border-box;

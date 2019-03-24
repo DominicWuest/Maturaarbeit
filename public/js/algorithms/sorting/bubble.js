@@ -90,8 +90,7 @@ function draw() {
       rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
     }
   }
-  if (max === 0) noLoop();
-  if (frames > 60 / fps) continueAnimation();
+  if (max > 1 && frames > 60 / fps) continueAnimation();
   frames++;
 }
 

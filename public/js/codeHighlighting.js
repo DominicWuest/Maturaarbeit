@@ -2,10 +2,6 @@ function addHighlighting(editor = false) {
   let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
-    console.log(window.getSelection());
-    console.log(window.getSelection()["focusNode"]);
-    let focusNode = window.getSelection()["focusNode"];
-    let focusOffset = window.getSelection()["focusOffset"];
     let elementClass = codeSnippets[i].className;
     let language;
     for (programmingLanguage of languages) {
@@ -46,7 +42,7 @@ function addHighlighting(editor = false) {
       code[i] = line;
     }
     code = code.join('\n');
-    
+
     codeSnippets[i].innerHTML = code;
   }
 }

@@ -1,4 +1,4 @@
-var courseIndex; // Index of the course to be displayed
+let courseIndex; // Index of the course to be displayed
 
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
   let value = "; " + document.cookie;
@@ -8,12 +8,12 @@ if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIn
   courseIndex = 0;
 }
 
-var subexerciseIndex = 0;
+let subexerciseIndex = 0;
 
 // output functions are configurable.  This one just appends some text
 // to a pre element.
 function outf(text) {
-    var myPre = document.getElementById('output');
+    let myPre = document.getElementById('output');
     myPre.innerHTML += text;
 }
 
@@ -28,17 +28,17 @@ function builtinRead(x) {
 // configure the output function
 // call Sk.importMainWithBody()
 function runit() {
-   var code = document.getElementById('textarea').value;
-   var myPre = document.getElementById('output');
+   let code = document.getElementById('textarea').value;
+   let myPre = document.getElementById('output');
    myPre.innerHTML = '';
    if (code === '') return;
    Sk.pre = 'output';
    Sk.configure({output:outf, read:builtinRead});
-   var myPromise = Sk.misceval.asyncToPromise(function() {
+   let myPromise = Sk.misceval.asyncToPromise(function() {
        return Sk.importMainWithBody('<stdin>', false, code, true);
    });
    myPromise.catch(function(err) { // Error in code
-     var span = document.createElement('SPAN');
+     let span = document.createElement('SPAN');
      span.classList.add('error');
      span.appendChild(document.createTextNode(err.toString()));
      myPre.appendChild(span);
@@ -66,18 +66,18 @@ function resetSubexercise() {
 
 function displayExercise() {
   document.cookie = "courseIndex=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
-  var exerciseTitle = document.getElementById('exerciseTitle');
+  let exerciseTitle = document.getElementById('exerciseTitle');
   exerciseTitle.innerHTML = '';
-  var title = document.createElement('H1');
+  let title = document.createElement('H1');
   title.appendChild(document.createTextNode(pythonCourses['exercises'][courseIndex]['title']));
   exerciseTitle.appendChild(title);
-  var textDiv = document.getElementById('exerciseText');
+  let textDiv = document.getElementById('exerciseText');
   textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
   for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) {
-    var subexerciseDiv = document.createElement('DIV');
+    let subexerciseDiv = document.createElement('DIV');
     subexerciseDiv.classList.add('subexercise');
     subexerciseDiv.id = 'subExercise' + subexercise['index'];
-    var subexerciseText = document.createElement('P');
+    let subexerciseText = document.createElement('P');
     subexerciseText.appendChild(document.createTextNode(subexercise['description']));
     subexerciseDiv.appendChild(subexerciseText);
     textDiv.appendChild(subexerciseDiv);
@@ -102,21 +102,38 @@ function showSolution() {
 function loaded() {
   document.getElementById('textarea').addEventListener('keydown', function(event) { // Add event listener for tabs
     if (event.keyCode === 13) {
-      var textArea = document.getElementById('textarea');
-      var cursorIndex = textArea.selectionStart - 1;
-      var code = textArea.value;
+      event.preventDefault();
+      let textArea = document.getElementById('textarea');
+      let cursorIndex = textArea.selectionStart - 1;
+      let code = textArea.value;
       if (code.charAt(cursorIndex) === ':') {
-        var newCode = code.substring(0, cursorIndex + 1) + '\n\t' + code.substring(cursorIndex + 1, code.length);
+        let newCode = code.substring(0, cursorIndex + 1) + '\n\t' + code.substring(cursorIndex + 1, code.length);
         textArea.value = newCode;
-        event.preventDefault();
       }
+      let codeArray = textArea.value.split('\n');
+      let index;
+      let length = cursorIndex;
+      for (let i = 0; i < codeArray.length; i++) {
+        let newLength = length - codeArray[i].length - 2 - (codeArray[i].split('\t').length + 1) * 2;
+        if (newLength < 0) {
+          index = i;
+          break;
+        }
+        length = newLength;
+      }
+      let newLine = '\t'.repeat(codeArray[index].split('\t').length - 1) + codeArray[index].substring(length + index * 2);
+      console.log(length);
+      codeArray.splice(index, 0, newLine);
+      textArea.value = codeArray.join('\n');
+      document.getElementById('textarea').oninput();
     } else if (event.keyCode === 9) {
-      var textArea = document.getElementById('textarea');
-      var cursorIndex = textArea.selectionStart - 1;
-      var code = textArea.value;
-      var newCode = code.substring(0, cursorIndex + 1) + '\t' + code.substring(cursorIndex + 1, code.length);
+      let textArea = document.getElementById('textarea');
+      let cursorIndex = textArea.selectionStart - 1;
+      let code = textArea.value;
+      let newCode = code.substring(0, cursorIndex + 1) + '\t' + code.substring(cursorIndex + 1, code.length);
       textArea.value = newCode;
       event.preventDefault();
+      document.getElementById('textarea').oninput();
     }
   });
   makeDropdown();
@@ -128,14 +145,14 @@ document.addEventListener('DOMContentLoaded', function(event) {
 })
 
 function makeDropdown() {
-  var list = document.getElementById('exercisesDropdownList');
+  let list = document.getElementById('exercisesDropdownList');
   while (list.firstChild) {
     list.removeChild(list.firstChild);
   }
   for (course of pythonCourses['exercises']) {
     if (course['index'] !== courseIndex) {
-      var listElement = document.createElement('LI');
-      var textNode = document.createTextNode(course['title']);
+      let listElement = document.createElement('LI');
+      let textNode = document.createTextNode(course['title']);
       listElement.appendChild(textNode);
       listElement.id = course['index'];
       list.appendChild(listElement);

@@ -180,7 +180,9 @@ main {
 }
 
 .input textarea {
+  overflow: auto;
   box-sizing: border-box;
+  white-space: pre;
   tab-size: 4;
   -moz-tab-size: 4;
   color: transparent;

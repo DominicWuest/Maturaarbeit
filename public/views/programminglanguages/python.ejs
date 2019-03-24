@@ -10,9 +10,11 @@
     <script src="/js/programminglanguages/skulpt.min.js" type="text/javascript"></script>
     <script src="/js/programminglanguages/skulpt-stdlib.js" type="text/javascript"></script>
     <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
     <script type="text/javascript">
       let pythonCourses = <%- JSON.stringify(pythonCourses) %>;
       const exercisesLength = pythonCourses["exercises"].length;
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
     <title>Python</title>
   </head>
@@ -36,8 +38,8 @@
             <textarea id="code" spellcheck="false"></textarea>
           </div>
           <div class="buttons">
-            <button type="button" name="run" onclick="runit();">Run</button><!--
-            --><div class="solutionButtonDiv"><button type="button" name="solution" onclick="showSolution();">Lösung</button></div><!--
+            <button type="button" name="run" onclick="runit();">Run</button><!-- Comment to prevent Whitespace
+            --><div class="solutionButtonDiv"><button type="button" name="solution" onclick="showSolution();">Lösung</button></div><!-- Comment to prevent Whitespace
             --><button type="button" name="reset" onclick="resetSubexercise();">Reset</button>
           </div>
         </form>

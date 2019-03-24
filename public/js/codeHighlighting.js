@@ -1,7 +1,12 @@
 function addHighlighting() {
+  let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
-    let language = codeSnippets[i].id;
+    let elementClass = codeSnippets[i].className;
+    let language;
+    for (programmingLanguage of languages) {
+      if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
+    }
     let code = codeSnippets[i].innerHTML.split('\n');
     let tagIndex = true;
     for (let i = 0; i < code.length; i++) { // Check every line seperately, makes it easier for comments
@@ -37,6 +42,6 @@ function addHighlighting() {
       code[i] = line;
     }
     code = code.join('\n');
-    document.getElementById(language).innerHTML = code;
+    codeSnippets[i].innerHTML = code;
   }
 }

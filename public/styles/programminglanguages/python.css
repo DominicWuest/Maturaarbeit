@@ -170,7 +170,7 @@ main {
   height: 95%;
 }
 
-.input textarea {
+.input code {
   tab-size: 4;
   -moz-tab-size: 4;
   white-space: pre;
@@ -184,7 +184,7 @@ main {
   width: 100%;
 }
 
-.input textarea:focus {
+.input code:focus {
   outline: none;
 }
 

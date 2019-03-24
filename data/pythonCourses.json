@@ -16,7 +16,7 @@
           "output" : "0\n1\n2\n3\n4"
           }, {
             "index" : 1,
-            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Asterisk breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Asterisk, während die Letzte aus vier besteht.",
+            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Stern breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Asterisk, während die Letzte aus vier besteht.",
             "startingCode" : "x = 1\nwhile x < :\n\tprint()\n\tx += 1",
             "solution" : "x = 1\nwhile x < 5:\n\tprint(x * '*')\n\tx += 1",
             "output" : "*\n**\n***\n****"

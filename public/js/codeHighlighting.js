@@ -1,13 +1,17 @@
-function addHighlighting() {
+function addHighlighting(editor = false) {
   let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
+    console.log(window.getSelection());
+    console.log(window.getSelection()["focusNode"]);
+    let focusNode = window.getSelection()["focusNode"];
+    let focusOffset = window.getSelection()["focusOffset"];
     let elementClass = codeSnippets[i].className;
     let language;
     for (programmingLanguage of languages) {
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
-    let code = codeSnippets[i].innerHTML.split('\n');
+    let code = codeSnippets[i].textContent.split('\n');
     let tagIndex = true;
     for (let i = 0; i < code.length; i++) { // Check every line seperately, makes it easier for comments
       let line = code[i];
@@ -19,7 +23,7 @@ function addHighlighting() {
         for (let j = 0; j < splittedLine.length - 1; j++) {
           if (tagIndex) splittedLine[j] += '<span style="color: ' + codeHighlighting[language]["strings"]["color"] + ';">' + stringNotation;
           else splittedLine[j] += stringNotation + '</span>';
-          tagIndex = !tagIndex
+          tagIndex = !tagIndex;
         }
         line = splittedLine.join('');
       }
@@ -42,6 +46,7 @@ function addHighlighting() {
       code[i] = line;
     }
     code = code.join('\n');
+    
     codeSnippets[i].innerHTML = code;
   }
 }

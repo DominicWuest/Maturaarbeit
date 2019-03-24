@@ -28,7 +28,7 @@ function builtinRead(x) {
 // configure the output function
 // call Sk.importMainWithBody()
 function runit() {
-   var code = document.getElementById('code').value;
+   var code = document.getElementById('textarea').value;
    var myPre = document.getElementById('output');
    myPre.innerHTML = '';
    if (code === '') return;
@@ -51,15 +51,17 @@ function checkSolution(code) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     subexerciseIndex++;
-    document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+    document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+    document.getElementById('textarea').oninput();
   } else {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
   }
 }
 
 function resetSubexercise() {
-  if (courseIndex === 0) document.getElementById('code').value = ''
-  else document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+  if (courseIndex === 0) document.getElementById('textarea').value = ''
+  else document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+  document.getElementById('textarea').oninput();
 }
 
 function displayExercise() {
@@ -83,22 +85,24 @@ function displayExercise() {
   if (courseIndex !== 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'visible';
     document.getElementsByName('solution')[0].style.visibility = 'visible';
-    document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][0]['startingCode'];
+    document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][0]['startingCode'];
   } else {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
     document.getElementsByName('solution')[0].style.visibility = 'hidden';
   }
   makeDropdown();
+  document.getElementById('textarea').oninput();
 }
 
 function showSolution() {
-  document.getElementById('code').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
+  document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
+  document.getElementById('textarea').oninput();
 }
 
 function loaded() {
-  document.getElementById('code').addEventListener('keydown', function(event) { // Add event listener for tabs
+  document.getElementById('textarea').addEventListener('keydown', function(event) { // Add event listener for tabs
     if (event.keyCode === 13) {
-      var textArea = document.getElementById('code');
+      var textArea = document.getElementById('textarea');
       var cursorIndex = textArea.selectionStart - 1;
       var code = textArea.value;
       if (code.charAt(cursorIndex) === ':') {
@@ -107,7 +111,7 @@ function loaded() {
         event.preventDefault();
       }
     } else if (event.keyCode === 9) {
-      var textArea = document.getElementById('code');
+      var textArea = document.getElementById('textarea');
       var cursorIndex = textArea.selectionStart - 1;
       var code = textArea.value;
       var newCode = code.substring(0, cursorIndex + 1) + '\t' + code.substring(cursorIndex + 1, code.length);
@@ -143,4 +147,9 @@ function makeDropdown() {
       });
     }
   }
+}
+
+function setTextareaDimensions() {
+  document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
+  document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
 }

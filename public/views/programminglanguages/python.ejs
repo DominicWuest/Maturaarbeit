@@ -18,7 +18,7 @@
     </script>
     <title>Python</title>
   </head>
-  <body onload="loaded();">
+  <body onload="loaded(); setTextareaDimensions();" onresize="setTextareaDimensions();">
     <%- include ../partials/header.ejs %>
     <main>
       <div class="exercise">
@@ -34,9 +34,9 @@
       <div class="inputContainer">
         <h1 class="sectionTitle">Code</h1>
         <form class="input">
-          <div class="textareaContainer">
-            <code id="code" class="python" contenteditable="true"></code>
-          </div>
+          <textarea id="textarea" oninput="document.getElementById('code').textContent = this.value; addHighlighting(true);"></textarea>
+          <code id="code" class="textareaContainer python">
+          </code>
           <div class="buttons">
             <button type="button" name="run" onclick="runit();">Run</button><!-- Comment to prevent Whitespace
             --><div class="solutionButtonDiv"><button type="button" name="solution" onclick="showSolution();">Lösung</button></div><!-- Comment to prevent Whitespace

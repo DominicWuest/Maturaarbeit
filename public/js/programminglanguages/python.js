@@ -116,6 +116,7 @@ function loaded() {
     }
   });
   makeDropdown();
+  addHighlighting();
 }
 
 document.addEventListener('DOMContentLoaded', function(event) {
@@ -138,6 +139,7 @@ function makeDropdown() {
         courseIndex = parseInt(listElement.id);
         subexerciseIndex = 0;
         displayExercise();
+        addHighlighting();
       });
     }
   }

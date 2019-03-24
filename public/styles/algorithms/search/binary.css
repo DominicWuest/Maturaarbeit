@@ -67,6 +67,7 @@ a:hover {
 }
 
 .code {
+  display: block;
   font-family: monospace;
   width: 95%;
   box-sizing: border-box;
@@ -75,6 +76,7 @@ a:hover {
   overflow-x: auto;
   background-color: #888;
   border-radius: 8px;
+  white-space: pre;
 }
 
 #animatedExample p {

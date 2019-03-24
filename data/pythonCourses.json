@@ -7,7 +7,7 @@
     }, {
       "index" : 1,
       "title" : "While-Schlaufen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schlaufen. Eine While-Schlaufe in Python sieht beispielsweise folgendermassen aus: <code>while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schlaufe folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schlaufe abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schlaufen. Eine While-Schlaufe in Python sieht beispielsweise folgendermassen aus: <code id=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schlaufe folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schlaufe abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
           "index" : 0,
           "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
@@ -16,7 +16,7 @@
           "output" : "0\n1\n2\n3\n4"
           }, {
             "index" : 1,
-            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Asterisks aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Asterisk breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Asterisk, während die Letzte aus vier besteht.",
+            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Asterisk breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Asterisk, während die Letzte aus vier besteht.",
             "startingCode" : "x = 1\nwhile x < :\n\tprint()\n\tx += 1",
             "solution" : "x = 1\nwhile x < 5:\n\tprint(x * '*')\n\tx += 1",
             "output" : "*\n**\n***\n****"

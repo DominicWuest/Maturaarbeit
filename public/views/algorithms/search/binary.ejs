@@ -54,36 +54,36 @@
           <h2>Beispielcode</h2>
           <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
           <pre class="code" id="python">
-def binarySearch(arr, val): # arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
+def binarySearch(arr, val): # arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück
   l = 0 # Der minimale Index
   r = len(arr) - 1 # Der maximale Index
-  while l <= r: # Solange der minimale Wert kleiner oder gleich dem maximalen ist.
+  while l <= r: # Solange der minimale Wert kleiner oder gleich dem maximalen ist
     index = (l + r) // 2 # Der zu untersuchende Index
-    if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
+    if arr[index] < val: # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
       l = index + 1
-    elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
+    elif arr[index] > val: # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
       r = index - 1
-    else: # Der untersuchte Wert entspricht dem Gesuchten.
+    else: # Der untersuchte Wert entspricht dem Gesuchten
       return index
-  return -1 # Der Wert ist nicht in dem Array vorhanden.</pre>
+  return -1 # Der Wert ist nicht in dem Array vorhanden</pre>
           <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
           <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
           <pre class="code" id="java">
-public static int binarySearch(int[] arr, int val) { // arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück.
+public static int binarySearch(int[] arr, int val) { // arr ist der Array, in dem der Wert val zu suchen ist. Die Funktion gibt den Index des gesuchten Wertes zurück
   int l = 0; // Der minimale Index
   int r = arr.length - 1; // Der maximale Index
-  int index; // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schlaufe berechnet.
-  while (l <= r) { // Solange der minimale Wert kleiner oder gleich dem maximalen ist.
+  int index; // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schlaufe berechnet
+  while (l <= r) { // Solange der minimale Wert kleiner oder gleich dem maximalen ist
     index = (l + r) / 2;
-    if (arr[index] < val) { // Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index.
+    if (arr[index] < val) { // Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
       l = index + 1;
-    } else if (arr[index] > val) { // Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index.
+    } else if (arr[index] > val) { // Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
       r = index - 1;
-    } else { // Der untersuchte Wert entspricht dem Gesuchten.
+    } else { // Der untersuchte Wert entspricht dem Gesuchten
       return index;
     }
   }
-  return -1; // Der Wert ist nicht in dem Array vorhanden.
+  return -1; // Der Wert ist nicht in dem Array vorhanden
 }</pre>
         </div>
         <div id="animatedExample">

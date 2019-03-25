@@ -35,7 +35,7 @@ function runit() {
    setTimeout(function () {
      if (!finished) {
        worker.terminate();
-       myPre.innerHTML = '<span class="error">Your code timed out. Maybe you created an infinite loop?</span>';
+       myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schlaufe kreiert?</span>';
        document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
      }
    }, timeoutBounds);

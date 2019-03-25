@@ -7,7 +7,9 @@
       "elif" : "#C101C1",
       "if" : "#C101C1",
       "else" : "#C101C1",
-      "return" : "#C101C1"
+      "return" : "#C101C1",
+      "True" : "#FFA500",
+      "False" : "#FFA500"
     },
     "comments" : {
       "character" : "#",

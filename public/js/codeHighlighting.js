@@ -1,8 +1,13 @@
 function addHighlighting() {
+  let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
-    let language = codeSnippets[i].id;
-    let code = codeSnippets[i].innerHTML.split('\n');
+    let elementClass = codeSnippets[i].className;
+    let language;
+    for (programmingLanguage of languages) {
+      if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
+    }
+    let code = codeSnippets[i].textContent.split('\n');
     let tagIndex = true;
     for (let i = 0; i < code.length; i++) { // Check every line seperately, makes it easier for comments
       let line = code[i];
@@ -14,13 +19,17 @@ function addHighlighting() {
         for (let j = 0; j < splittedLine.length - 1; j++) {
           if (tagIndex) splittedLine[j] += '<span style="color: ' + codeHighlighting[language]["strings"]["color"] + ';">' + stringNotation;
           else splittedLine[j] += stringNotation + '</span>';
-          tagIndex = !tagIndex
+          tagIndex = !tagIndex;
         }
         line = splittedLine.join('');
       }
       // Colour all Syntax Elements
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
-        line = line.replace(new RegExp(syntaxElement,'g'), '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>');
+        words = line.split(' ');
+        for (let j = 0; j < words.length; j++) {
+          if (words[j] === syntaxElement) words[j] = '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>';
+        }
+        line = words.join(' ');
       }
       // Colour Comments
       line = line.split(codeHighlighting[language]["comments"]["character"]);
@@ -37,6 +46,6 @@ function addHighlighting() {
       code[i] = line;
     }
     code = code.join('\n');
-    document.getElementById(language).innerHTML = code;
+    codeSnippets[i].innerHTML = code;
   }
 }

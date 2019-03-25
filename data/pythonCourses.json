@@ -2,7 +2,7 @@
   "exercises" : [{
       "index" : 0,
       "title" : "Freies Coden",
-      "description" : "Dies ist keine Aufgabe. Hier kannst du so viel und frei coden, wie du willst.\nProbier hier doch einige neu gelernte Konzepte aus!\n\nHalte deinen Mauszeiger über den Titel der Aufgabe, um alle möglichen Kurse zu sehen.\n\nViel Spass!",
+      "description" : "Dies ist keine Aufgabe. Hier kannst du so viel und frei coden, wie du willst.\nProbier hier doch einige neu gelernte Konzepte aus!\n\nHalte deinen Mauszeiger über den Titel der Aufgabe <b>(Freies Coden)</b>, um alle möglichen Kurse zu sehen.\n\nViel Spass!",
       "subexercises" : []
     }, {
       "index" : 1,

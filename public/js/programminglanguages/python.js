@@ -1,4 +1,5 @@
 let courseIndex; // Index of the course to be displayed
+let timeoutBounds = 5000; // Time in ms until a timeout is declared
 
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
   let value = "; " + document.cookie;
@@ -12,49 +13,47 @@ let subexerciseIndex = 0;
 
 // output functions are configurable.  This one just appends some text
 // to a pre element.
-function outf(text) {
-    let myPre = document.getElementById('output');
-    myPre.innerHTML += text;
-}
 
-function builtinRead(x) {
-    if (Sk.builtinFiles === undefined || Sk.builtinFiles['files'][x] === undefined)
-            throw "File not found: '" + x + "'";
-    return Sk.builtinFiles['files'][x];
-}
 
 // grab the code from your textarea
 // get a reference to your pre element for output
 // configure the output function
 // call Sk.importMainWithBody()
 function runit() {
+  let finished = false;
+  let worker = new Worker('/js/programminglanguages/pythonWorker.js');
    let code = document.getElementById('textarea').value;
    let myPre = document.getElementById('output');
    myPre.innerHTML = '';
-   if (code === '') return;
-   Sk.pre = 'output';
-   Sk.configure({output:outf, read:builtinRead});
-   let myPromise = Sk.misceval.asyncToPromise(function() {
-       return Sk.importMainWithBody('<stdin>', false, code, true);
-   });
-   myPromise.catch(function(err) { // Error in code
-     let span = document.createElement('SPAN');
-     span.classList.add('error');
-     span.appendChild(document.createTextNode(err.toString()));
-     myPre.appendChild(span);
-   });
-   checkSolution(myPre.innerHTML.trim());
+   worker.postMessage(code);
+   worker.onmessage = function(e) {
+     myPre.innerHTML = e["data"];
+     finished = true;
+     worker.terminate();
+     checkSolution(myPre.innerHTML.trim());
+   }
+   setTimeout(function () {
+     if (!finished) {
+       worker.terminate();
+       myPre.innerHTML = '<span class="error">Your code timed out. Maybe you created an infinite loop?</span>';
+       document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+     }
+   }, timeoutBounds);
 }
 
 function checkSolution(code) {
-  if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
-    document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
-    document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
-    subexerciseIndex++;
-    document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
-    document.getElementById('textarea').oninput();
-  } else {
-    document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+  if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length) {
+    if (code === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
+      document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
+      document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
+      if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) {
+        subexerciseIndex++;
+        document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+        document.getElementById('textarea').oninput();
+      }
+    } else {
+      document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+    }
   }
 }
 
@@ -89,6 +88,7 @@ function displayExercise() {
   } else {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
     document.getElementsByName('solution')[0].style.visibility = 'hidden';
+    document.getElementById('textarea').value = '';
   }
   makeDropdown();
   document.getElementById('textarea').oninput();

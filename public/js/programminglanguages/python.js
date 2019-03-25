@@ -121,7 +121,7 @@ function loaded() {
         }
         length = newLength;
       }
-      let newLine = '\t'.repeat((' ' + codeArray[index]).substring(0, length).split('\t').length + (colon ? 0 : -1)) + codeArray[index].substring(length);
+      let newLine = '\t'.repeat((' ' + codeArray[index]).substring(0, length + 1).split('\t').length + (colon ? 0 : -1)) + codeArray[index].substring(length);
       codeArray[index] = codeArray[index].substring(0, length);
       codeArray.splice(index + 1, 0, newLine);
       textArea.value = codeArray.join('\n');

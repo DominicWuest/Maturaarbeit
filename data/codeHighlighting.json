@@ -11,6 +11,7 @@
       "True" : "#FFA500",
       "False" : "#FFA500"
     },
+    "function" : "#09C8E3",
     "comments" : {
       "character" : "#",
       "color" : "#555"
@@ -35,6 +36,7 @@
       "else" : "#C101C1",
       "return" : "#C101C1"
     },
+    "function" : "#09C8E3",
     "comments" : {
       "character" : "//",
       "color" : "#555"

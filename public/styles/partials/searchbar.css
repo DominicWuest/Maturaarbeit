@@ -60,6 +60,7 @@
 
 #suggestions a:hover {
   background-color: #555;
+  text-decoration: underline;
 }
 
 @media (orientation : portrait) {

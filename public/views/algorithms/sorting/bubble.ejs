@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Bubblesort</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script type="text/javascript">
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
+    <%- include ../../partials/header.ejs %>
+    <main>
+      <div class="title">
+        <h1>Bubblesort</h1>
+      </div>
+      <div class="pageShortcuts">
+        <h2>Page Shortcuts</h2>
+        <ul>
+          <li><a href="#usage">Gebrauch</a></li>
+          <li><a href="#specs">Spezifikationen</a></li>
+          <li><a href="#functionality">Funktionsweise</a></li>
+          <li><a href="#exampleCode">Beispielcode</a><ul>
+            <li><a href="#python">Python</a></li>
+            <li><a href="#java">Java</a></li>
+          </ul></li>
+          <li><a href="#animatedExample">Animiertes Beispiel</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="usage">
+          <h2>Gebrauch</h2>
+          <p>Der Bubblesort wird gebraucht, um einen Array zu sortieren.</p>
+          <p>Während er einer der simpleren Sortierungsalgorithmen ist, ist er auch einer der weniger effizienten.</p>
+        </div>
+        <div id="specs">
+          <h2>Spezifikationen</h2>
+          <p>Der Bubblesort Algorithmus hat eine worst-case Performance von <span class="bigO">O(n<sup>2</sup>) Vergleiche, O(n<sup>2</sup>) Tauschungen</span> und eine best-case Performance von <span class="bigO">O(n) Vergleiche, O(1) Tauschungen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n<sup>2</sup>) Vergleiche, O(n<sup>2</sup>) Tauschungen</span>.</p>
+          <p>Der Algorithmus braucht keine weiteren Arrays und hat somit jeweils eine Space-complexity von <span class="bigO">O(1)</span>.</p>
+        </div>
+        <div id="functionality">
+          <h2>Funktionsweise</h2>
+          <p>Beim Bubblesort Algorithmus beginnt man am Anfang des Arrays und arbeitet sich so hoch.</p>
+          <p>Das Grundprinzip basiert darauf, dass ein Wert, welcher nie kleiner ist als ein anderer, der Grösste im Array ist. Dies kann zu nutzen gemacht werden, indem, dass man den ersten Wert des Arrays untersucht und ihn mit dem Wert vergleicht, dessen Index um eins grösser ist als sein eigener. Falls der untersuchte Wert grösser ist als der Verglichene, dann tauscht man dessen Plätze. Ansonsten fokussiert man sich neu auf den verglichenen Wert und vergleicht ihn mit dem Wert, dessen Index um eines grösser ist als der des nun neu fokussierten Wertes. Man vergleicht diese dann wieder auf die gleiche Weise, wie die ersten zwei.</p>
+          <p>Dies tut man so lange, bis man am Ende des Arrays angekommen ist. Da wir nun jeden Wert im Array miteinander verglichen und jenachdem ausgetauscht haben, wissen wir, dass der Wert am Ende des Arrays der Grösste im Array ist. Nun beginnt man wieder am Anfang des Arrays und führt das Prozedere nochmals durch, jedoch nur bis zum zweitletzten Index. Nach dem Vergleichen bis zum zweitletzten Index weiss man nun, dass der Wert am zweitletzten Index der zweitgrösste Wert im Array, beziehungsweise der Grösste ohne den letzten Wert im Array, ist. Dann wird der Algorithmus bis zum drittletzten Index weitergeführt. Dies wird alles so lange gemacht, bis der maximal zu untersuchende Index eins ist, denn dies bedeutet schlussendlich, dass der ganze Array sortiert wurde.</p>
+        </div>
+        <div id="exampleCode">
+          <h2>Beispielcode</h2>
+          <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+          <code class="code python">def bubbleSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+  max = len(arr) - 1 # Der maximale Index, welcher der fokussierte Wert haben kann
+  focusedIndex = 0 # Der fokussierte Index
+  comparedIndex = 1 # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  while max > 1: # Sobald der maximal zu fokussierende Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+    if focusedIndex == max: # Falls der fokussierte Index dem maximal zu fokussierendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+      max -= 1 # Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      focusedIndex = 0 # Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      comparedIndex = 1 # Der Index, mit dem verglichen wird, ist wieder 1
+    if arr[focusedIndex] > arr[comparedIndex]: # Falls der Wert am fokussierten Index grösser ist als der am Verglichenen
+      arr[focusedIndex], arr[comparedIndex] = arr[comparedIndex], arr[focusedIndex] # Die beiden Werte werden miteinander getauscht
+    focusedIndex += 1 # Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    comparedIndex += 1 # Nach jeder Iteration wird der verglichene Index um eins erhöht
+  return arr # Der sortierte Array wird zurückgegeben</code>
+          <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+          <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
+          <code class="code java">public static int bubbleSort(int[] arr) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+  int max = arr.length - 1; // Der maximale Index, welcher der fokussierte Wert haben kann
+  int focusedIndex = 0; // Der fokussierte Index
+  int comparedIndex = 1; // Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  while (max > 1) { // Sobald der maximal zu fokussierene Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+    if (focusedIndex == max) { // Falls der fokussierte Index dem maximal zu fokussireendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+      max--; // Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      focusedIndex = 0; // Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      comparedIndex = 1; // Der Index, mit dem verglichen wird, ist wieder 1
+    }
+    if (arr[focusedIndex] > arr[comparedIndex]) { // Falls der Wert am fokussierten Index grösser ist als der am Verglichenen, werden die beiden Werte miteinander getauscht
+      int temp = arr[focusedIndex];
+      arr[focusedIndex] = arr[comparedIndex];
+      arr[comparedIndex] = temp;
+    }
+    focusedIndex++; // Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    comparedIndex++; // Nach jeder Iteration wird der verglichene Index um eins erhöht
+  }
+  return arr; // Der sortierte Array wird zurückgegeben
+}</code>
+        </div>
+        <div id="animatedExample">
+          <h2>Animiertes Beispiel</h2>
+          <div class="legend">
+            <h3>Legende</h3>
+            <ul>
+              <li><span style="color: blue;">Fokussierter Wert</span></li>
+              <li><span style="color: purple">Wert, mit dem der fokussierte Wert verglichen wird</span></li>
+              <li><span style="color: green;">Momentan nicht beachteter Wert</span></li>
+              <li><span style="color: gray;">Wert am korrekten Index</span></li>
+            </ul>
+          </div>
+          <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
+          <div class="animationInput">
+              <input type="button" name="restartAnimation" value="Start" onmouseup="restartAnimation(); needsScrambling = true;" ontouchend="restartAnimation(); needsScrambling = true;">
+              <input type="range" name="fps" min="0" max="5" step="0.0001" oninput="fps = Math.pow(2, this.value);">
+          </div>
+          <div id="animation"></div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

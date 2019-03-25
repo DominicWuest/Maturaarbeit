@@ -81,7 +81,8 @@ app.get('/programminglanguages/python', function(req, res) {
   res.render('programminglanguages/python', {
     'courses' : courses,
     'path' : '/programminglanguages/python',
-    'pythonCourses' : pythonCourses
+    'pythonCourses' : pythonCourses,
+    'codeHighlighting' : codeHighlighting
   });
 });
 

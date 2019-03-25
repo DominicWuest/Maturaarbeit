@@ -137,6 +137,14 @@ function loaded() {
       document.getElementById('textarea').oninput();
       textArea.selectionEnd = caretPosition + 1;
     }
+    document.getElementById('textarea').blur();
+    document.getElementById('textarea').focus();
+  });
+  document.getElementById('textarea').addEventListener('scroll', function(event) {
+    let element = document.getElementById('code');
+    console.log(event["target"]["scrollTop"])
+    element.scrollLeft = event["target"]["scrollLeft"];
+    element.scrollTop = event["target"]["scrollTop"];
   });
   makeDropdown();
   addHighlighting();

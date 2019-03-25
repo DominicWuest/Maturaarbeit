@@ -25,7 +25,11 @@ function addHighlighting() {
       }
       // Colour all Syntax Elements
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
-        line = line.replace(new RegExp(syntaxElement,'g'), '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>');
+        words = line.split(' ');
+        for (let j = 0; j < words.length; j++) {
+          if (words[j] === syntaxElement) words[j] = '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>';
+        }
+        line = words.join(' ');
       }
       // Colour Comments
       line = line.split(codeHighlighting[language]["comments"]["character"]);

@@ -302,8 +302,13 @@ button::-moz-focus-inner {
 
 #output {
   height: 94.8%;
+  width: 100%;
   overflow: auto;
   box-sizing: border-box;
   margin: 0;
   padding: 1vh;
+}
+
+.error {
+  color: red;
 }

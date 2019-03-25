@@ -1,4 +1,4 @@
-function addHighlighting(editor = false) {
+function addHighlighting() {
   let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
@@ -42,7 +42,6 @@ function addHighlighting(editor = false) {
       code[i] = line;
     }
     code = code.join('\n');
-
     codeSnippets[i].innerHTML = code;
   }
 }

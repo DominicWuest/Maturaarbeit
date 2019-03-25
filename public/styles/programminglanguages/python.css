@@ -180,6 +180,7 @@ main {
 }
 
 .input textarea {
+  height: 80vh;
   overflow: auto;
   box-sizing: border-box;
   white-space: pre;

@@ -101,32 +101,33 @@ function showSolution() {
 
 function loaded() {
   document.getElementById('textarea').addEventListener('keydown', function(event) { // Add event listener for tabs
-    if (event.keyCode === 13) {
+    let caretPosition = event.target.selectionEnd;
+    if (event.keyCode === 13) { // If Enter key gets pressed
       event.preventDefault();
       let textArea = document.getElementById('textarea');
       let cursorIndex = textArea.selectionStart - 1;
       let code = textArea.value;
-      if (code.charAt(cursorIndex) === ':') {
-        let newCode = code.substring(0, cursorIndex + 1) + '\n\t' + code.substring(cursorIndex + 1, code.length);
-        textArea.value = newCode;
-      }
+      let colon = false;
+      if (code.charAt(cursorIndex) === ':') colon = true;
       let codeArray = textArea.value.split('\n');
       let index;
       let length = cursorIndex;
       for (let i = 0; i < codeArray.length; i++) {
-        let newLength = length - codeArray[i].length - 2 - (codeArray[i].split('\t').length + 1) * 2;
+        let newLength = length - codeArray[i].length - 1;
         if (newLength < 0) {
           index = i;
+          length++;
           break;
         }
         length = newLength;
       }
-      let newLine = '\t'.repeat(codeArray[index].split('\t').length - 1) + codeArray[index].substring(length + index * 2);
-      console.log(length);
-      codeArray.splice(index, 0, newLine);
+      let newLine = '\t'.repeat((' ' + codeArray[index]).substring(0, length).split('\t').length + (colon ? 0 : -1)) + codeArray[index].substring(length);
+      codeArray[index] = codeArray[index].substring(0, length);
+      codeArray.splice(index + 1, 0, newLine);
       textArea.value = codeArray.join('\n');
       document.getElementById('textarea').oninput();
-    } else if (event.keyCode === 9) {
+      textArea.selectionEnd = caretPosition + (codeArray[index + 1].substring(0, length).split('\t').length);
+    } else if (event.keyCode === 9) { // If Tab key gets pressed
       let textArea = document.getElementById('textarea');
       let cursorIndex = textArea.selectionStart - 1;
       let code = textArea.value;
@@ -134,6 +135,7 @@ function loaded() {
       textArea.value = newCode;
       event.preventDefault();
       document.getElementById('textarea').oninput();
+      textArea.selectionEnd = caretPosition + 1;
     }
   });
   makeDropdown();

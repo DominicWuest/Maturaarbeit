@@ -27,7 +27,7 @@ function addHighlighting() {
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
         words = line.split(' ');
         for (let j = 0; j < words.length; j++) {
-          if (words[j] === syntaxElement) words[j] = '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>';
+          if (words[j].replace(/\t/g, '') === syntaxElement) words[j] = '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + words[j] + '</span>';
         }
         line = words.join(' ');
       }

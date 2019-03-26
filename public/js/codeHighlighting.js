@@ -1,5 +1,14 @@
+
+/**
+ * addHighlighting - adds code highlighting to code displayed on site
+ */
 function addHighlighting() {
+  /**
+   * All languages of codeHighlighting.json / its first keys
+   * @type {String[]}
+   */
   let languages = Object.keys(codeHighlighting);
+  // Get every code element from the document
   let codeSnippets = document.getElementsByTagName('CODE');
   for (let i = 0; i < codeSnippets.length; i++) {
     let elementClass = codeSnippets[i].className;
@@ -45,7 +54,9 @@ function addHighlighting() {
       line = line.join(codeHighlighting[language]["comments"]["character"]);
       code[i] = line;
     }
+    // Join the code with newlines, making it a one-line string again
     code = code.join('\n');
+    // Set the innerHTML of the code element to the newly generated, styled code
     codeSnippets[i].innerHTML = code;
   }
 }

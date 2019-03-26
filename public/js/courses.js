@@ -1,9 +1,21 @@
-let resultsDiv;
 
+/**
+ * search - Gets the query of /courses and appends search results to resultsDiv
+ */
 function search() {
-  resultsDiv = document.getElementById('results');
+  /**
+   * The div to which the results will be appended to
+   * @type {object}
+  */
+  let resultsDiv = document.getElementById('results');
+  /**
+   * The array containing all results
+   * @type {object[]}
+   */
   let results = [];
+  // If query is empty
   if (query[0] === '' && query.length <= 1) {
+    // Append every course to results and sort them alphabetically
     for (let i = 0; i < suggestions[0].length; i++) {
       results.push({
         'name' : suggestions[0][i],
@@ -12,11 +24,14 @@ function search() {
       });
     }
     results.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
-  } else {
-    let shown = [];
-    for (let i = 0; i < suggestions[0].length; i++) {
-      shown.push(false);
-    }
+  }
+  // The query is not empty
+  else {
+    /**
+     * An array indicating whether a course is already in resultsDiv or not. Filled with false
+     * @type {boolean[]}
+     */
+    let shown = Array(suggestions[0].length).fill(false);
     for (queryKeyword of query) {
       if (queryKeyword === '') continue;
       for (let i = 0; i < suggestions[0].length; i++) {

@@ -163,6 +163,7 @@ main {
 }
 
 .input code {
+  font-family: monospace;
   padding: 1vh;
   display: block;
   box-sizing: border-box;
@@ -180,6 +181,7 @@ main {
 }
 
 .input textarea {
+  font-family: monospace;
   height: 80vh;
   overflow: auto;
   box-sizing: border-box;

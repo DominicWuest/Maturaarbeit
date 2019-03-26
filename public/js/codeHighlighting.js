@@ -10,15 +10,27 @@ function addHighlighting() {
   let languages = Object.keys(codeHighlighting);
   // Get every code element from the document
   let codeSnippets = document.getElementsByTagName('CODE');
+  // Iterate over every code element in the document
   for (let i = 0; i < codeSnippets.length; i++) {
+    /**
+     * String of all classnames of the element
+     * @type {String}
+     */
     let elementClass = codeSnippets[i].className;
+    /**
+     * The language of the code, declared in the following for-loop
+     * @type {String}
+     */
     let language;
+    // Iterate over every programming lanuage inside languages array
     for (programmingLanguage of languages) {
+      // If the programming language is inside the elements classes, declare language to be that programming language
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
     let code = codeSnippets[i].textContent.split('\n');
     let tagIndex = true;
-    for (let i = 0; i < code.length; i++) { // Check every line seperately, makes it easier for comments
+    // Check every line seperately, makes it easier to colour comments
+    for (let i = 0; i < code.length; i++) {
       let line = code[i];
       // Colour Strings
       for (stringNotation of codeHighlighting[language]["strings"]["character"]) {

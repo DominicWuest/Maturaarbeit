@@ -1,5 +1,6 @@
 let courseIndex; // Index of the course to be displayed
 let timeoutBounds = 5000; // Time in ms until a timeout is declared
+let running = false;
 
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
   let value = "; " + document.cookie;
@@ -11,15 +12,14 @@ if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIn
 
 let subexerciseIndex = 0;
 
-// output functions are configurable.  This one just appends some text
-// to a pre element.
-
 
 // grab the code from your textarea
 // get a reference to your pre element for output
 // configure the output function
 // call Sk.importMainWithBody()
 function runit() {
+  if (running) return;
+  running = true;
   let finished = false;
   let worker = new Worker('/js/programminglanguages/pythonWorker.js');
    let code = document.getElementById('textarea').value;
@@ -29,6 +29,7 @@ function runit() {
    worker.onmessage = function(e) {
      myPre.innerHTML = e["data"];
      finished = true;
+     running = false;
      worker.terminate();
      checkSolution(myPre.innerHTML.trim());
    }
@@ -37,6 +38,7 @@ function runit() {
        worker.terminate();
        myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schlaufe kreiert?</span>';
        document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+       running = false;
      }
    }, timeoutBounds);
 }

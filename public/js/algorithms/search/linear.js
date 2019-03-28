@@ -34,18 +34,14 @@ function draw() {
       rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
     }
   }
-  if (playing) {
-    if (frames % (60 / fps) === 0) {
-      if (focus === value) {
-        console.log(width / elementsLength);
-        min = elementsLength;
-        playing = false;
-        focus--;
-      }
-      min++;
-      focus++;
+  if (playing && frames++ % (60 / fps) === 0) {
+    if (focus === value) {
+      min = elementsLength;
+      playing = false;
+      focus--;
     }
-    frames++;
+    min++;
+    focus++;
   }
 }
 

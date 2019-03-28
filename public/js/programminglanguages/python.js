@@ -1,22 +1,18 @@
-let courseIndex; // Index of the course to be displayed
-let timeoutBounds = 5000; // Time in ms until a timeout is declared
+// Index of the course to be displayed
+let courseIndex;
+// Time for Python code to run in ms until a timeout is declared
+let timeoutBounds = 5000;
+// Boolean indicating whether Python code is currently running or not
 let running = false;
 
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
   let value = "; " + document.cookie;
   let parts = value.split("; courseIndex=");
   courseIndex = parseInt(parts.pop().split(";").shift());
-} else {
-  courseIndex = 0;
-}
+} else courseIndex = 0;
 
 let subexerciseIndex = 0;
 
-
-// grab the code from your textarea
-// get a reference to your pre element for output
-// configure the output function
-// call Sk.importMainWithBody()
 function runit() {
   if (running) return;
   running = true;
@@ -53,9 +49,7 @@ function checkSolution(code) {
         document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
         document.getElementById('textarea').oninput();
       }
-    } else {
-      document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
-    }
+    } else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
   }
 }
 
@@ -152,15 +146,9 @@ function loaded() {
   addHighlighting();
 }
 
-document.addEventListener('DOMContentLoaded', function(event) {
-  displayExercise(0);
-})
-
 function makeDropdown() {
   let list = document.getElementById('exercisesDropdownList');
-  while (list.firstChild) {
-    list.removeChild(list.firstChild);
-  }
+  while (list.firstChild) list.removeChild(list.firstChild);
   for (course of pythonCourses['exercises']) {
     if (course['index'] !== courseIndex) {
       let listElement = document.createElement('LI');

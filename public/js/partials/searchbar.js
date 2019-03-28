@@ -1,29 +1,42 @@
-const maxSuggestions = 5; // Max amount of suggestions shown
+// Max amount of suggestions shown
+const maxSuggestions = 5;
+// Boolean indicating whether the searchbar is focused or not
 let focused = false;
 
-function showSuggested() { // Gets called when the input of the searchbar gets changed
-  let div = document.getElementById("suggestions"); // Remove every list element currently inside the div
+// Gets called when the input of the searchbar gets changed
+function showSuggested() {
+  // Remove every list element currently inside the div
+  let div = document.getElementById("suggestions");
   while (div.firstChild) {
     div.removeChild(div.firstChild);
   }
-  let suggested = false; // False -> There are no suggestions available
+  // A boolean indicating whether there are suggestions matching the input
+  let suggested = false;
   let searchBar = document.getElementById("searchBar");
-  let input = searchBar.value.toLowerCase(); // The current content from the searchbar
-  if (input === '') { // Don't show any recommendations if input is empty
+  // The current content from the searchbar
+  let input = searchBar.value.toLowerCase();
+  // Don't show any recommendations if input is empty
+  if (input === '') {
     searchBar.style.borderRadius = "1vh";
     return;
   }
-  let suggestionsAmount = 0; // Counter to see how many list element have been created
-  for (let i = 0; i < suggestions[0].length; i++) { // Iterate over every course
-    if (suggestions[2][i].some((element) => element.startsWith(input))) { // If any of the keywords start with the input
-      var a = document.createElement('a'); // Create new anchor
-      var linkText = document.createTextNode(suggestions[0][i]); // Anchor has the text of the suggestion whose keyword starts with the input
+  // Counter indicating how many list element have been created
+  let suggestionsAmount = 0;
+  // Iterate over every course
+  for (let i = 0; i < suggestions[0].length; i++) {
+    // If any of the keywords start with the input
+    if (suggestions[2][i].some((element) => element.startsWith(input))) {
+      // Create new anchor which contains the title of the suggestion whose keyword starts with the input
+      var a = document.createElement('a');
+      var linkText = document.createTextNode(suggestions[0][i]);
       a.appendChild(linkText);
       a.href = suggestions[1][i];
       div.appendChild(a);
-      suggested = true; // There is at least one suggestion available
+      // There is at least one suggestion matching the input
+      suggested = true;
       suggestionsAmount++;
     }
+    // Stop adding more suggestions
     if (suggestionsAmount == maxSuggestions) break;
   }
   if (suggested) {
@@ -32,20 +45,24 @@ function showSuggested() { // Gets called when the input of the searchbar gets c
   } else searchBar.style.borderRadius = "1vh";
 }
 
-function hideSuggested() { // Gets called when the searchbar loses focus
+// Gets called when the searchbar loses focus
+function hideSuggested() {
   if (!focused) {
-    let div = document.getElementById("suggestions"); // Remove every list element currently inside the div
-    while (div.firstChild) {
-      div.removeChild(div.firstChild);
-    }
-    let searchBar = document.getElementById("searchBar"); // Reset border of searchbar to 10px
+    // Remove every list element currently inside the div
+    let div = document.getElementById("suggestions");
+    while (div.firstChild) div.removeChild(div.firstChild);
+    // Reset border of searchbar to 10px
+    let searchBar = document.getElementById("searchBar");
     searchBar.style.borderRadius = "1vh";
   }
   focused = false;
 }
 
+// Gets called on every keyinput event
 function sendQuery(event) {
+  // If the key pressed is enter
   if (event.keyCode == 13) {
+    // Redirect to /courses with the query
     let query = document.getElementById('searchBar').value;
     window.location.href='/courses?query=' + query;
   }

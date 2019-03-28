@@ -1,43 +1,26 @@
-
-/**
- * search - Gets the query of /courses and appends search results to resultsDiv
- */
+// Gets the query of /courses and appends search results to resultsDiv. The information of the courses comes from the suggestions array, declared in the header.ejs file. It receives the array from app.js.
 function search() {
-  /**
-   * The div to which the results will be appended to
-   * @type {object}
-  */
+  // The div to which the results will be appended to
   let resultsDiv = document.getElementById('results');
-  /**
-   * The array containing all results
-   * @type {object[]}
-   */
+  // The array containing all results
   let results = [];
   // If query is empty
   if (query[0] === '' && query.length <= 1) {
-    // Append every course to results and sort them alphabetically
+    // Append every course to results array and sort it alphabetically
     for (let i = 0; i < suggestions[0].length; i++) {
-      // Append course to results array
       results.push({
-        // The title of the course
         'name' : suggestions[0][i],
-        // The url of the course
         'href' : suggestions[1][i],
-        // The keywords of the course
         'keywords' : suggestions[2][i].join(', ')
       });
     }
-    // Sort the array alphabetically
     results.sort((a, b) => a['name'] > b['name'] ? 1 : -1);
   }
   // The query is not empty
   else {
-    /**
-     * An array indicating whether a course is already in resultsDiv or not. Filled with false at the beginning
-     * @type {boolean[]}
-     */
+    // An array indicating whether a course is already in resultsDiv or not. Filled with false at the beginning
     let shown = Array(suggestions[0].length).fill(false);
-    // Iterate over every keyword of the query (Words in the query are seperated by a space)
+    // Iterate over every word inside the query
     for (queryKeyword of query) {
       // If the keyword is empty, continue with next keyword
       if (queryKeyword === '') continue;
@@ -47,14 +30,10 @@ function search() {
         if (suggestions[0][i].toLowerCase().startsWith(queryKeyword)) {
           // Append course to results array
           results.push({
-            // The title of the course
             'name' : suggestions[0][i],
-            // The url of the course
             'href' : suggestions[1][i],
-            // The keywords of the course
             'keywords' : suggestions[2][i].join(', ')
           });
-          // Since the course is now in the results array, switch the value at index of the course to true in the shown array
           shown[i] = true;
           continue;
         }
@@ -69,14 +48,10 @@ function search() {
           if (keyword.startsWith(queryKeyword)) {
             // Append course to results array
             results.push({
-              // The title of the course
               'name' : suggestions[0][i],
-              // The url of the course
               'href' : suggestions[1][i],
-              // The keywords of the course
               'keywords' : suggestions[2][i].join(', ')
             });
-            // Since the course is now in the results array, switch the value at index of the course to true in the shown array
             shown[i] = true;
             // No need to check other keywords of the course => break loop
             break;

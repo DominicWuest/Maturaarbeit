@@ -37,14 +37,7 @@ function draw() {
       rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
     }
   }
-  if (playing) {
-    if (frames % (60 / fps) === 0) {
-      functions[functionsIndex]();
-      functionsIndex++;
-      functionsIndex %= functions.length;
-    }
-    frames++;
-  }
+  if (playing && frames++ % (60 / fps) === 0) functions[functionsIndex++ % functions.length]();
 }
 
 function findTarget() {

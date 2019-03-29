@@ -25,8 +25,8 @@ function restartAnimation() {
 
 function setup() {
   let canvasDiv = document.getElementById('animation');
-  let width = canvasDiv.offsetWidth;
-  let height = canvasDiv.offsetHeight;
+  width = canvasDiv.offsetWidth;
+  height = canvasDiv.offsetHeight;
   let canvas = createCanvas(width, height);
   canvas.parent('animation');
 }
@@ -55,10 +55,8 @@ function continueAnimation() {
   frames = 0;
   if (needsSwapping) {
     let temp = objects[focusedIndex];
-    objects[focusedIndex] = objects[comparedIndex];
-    objects[comparedIndex] = temp;
-    focusedIndex++;
-    comparedIndex--;
+    objects[focusedIndex++] = objects[comparedIndex];
+    objects[comparedIndex--] = temp;
     needsSwapping = false;
     swapped = true;
   } else {

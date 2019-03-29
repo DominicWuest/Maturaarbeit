@@ -27,8 +27,8 @@ function showSuggested() {
     // If any of the keywords start with the input
     if (suggestions[2][i].some((element) => element.startsWith(input))) {
       // Create new anchor which contains the title of the suggestion whose keyword starts with the input
-      var a = document.createElement('a');
-      var linkText = document.createTextNode(suggestions[0][i]);
+      let a = document.createElement('a');
+      let linkText = document.createTextNode(suggestions[0][i]);
       a.appendChild(linkText);
       a.href = suggestions[1][i];
       div.appendChild(a);
@@ -60,10 +60,9 @@ function hideSuggested() {
 
 // Gets called on every keyinput event
 function sendQuery(event) {
-  // If the key pressed is enter
+  // If the Enter key was pressed
   if (event.keyCode == 13) {
     // Redirect to /courses with the query
-    let query = document.getElementById('searchBar').value;
-    window.location.href='/courses?query=' + query;
+    window.location.href='/courses?query=' + document.getElementById('searchBar').value;
   }
 }

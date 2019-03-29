@@ -34,12 +34,18 @@ function addHighlighting() {
         }
         line = splittedLine.join('');
       }
+      // Characters to be ignored when checking to highlight syntax elements
+      let ignoredCharacters = codeHighlighting[language]["ignoredCharacters"];
       // Colour all Syntax Elements
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
         words = line.split(' ');
         for (let j = 0; j < words.length; j++) {
-          // Strip the word from tabs and check if it equals the syntax element, replace it with span with its corresponding colour
-          if (words[j].replace(/\t/g, '') === syntaxElement) words[j] = '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + words[j] + '</span>';
+          // Ignored characters before the word
+          let precedingCharacters = words[j].match(new RegExp('([' + ignoredCharacters + ']*)?'))[0];
+          // Ignored characters after the word
+          let followingCharacters = words[j].match(new RegExp('([' + ignoredCharacters + ']*)$'))[0];
+          // Strip the word from ignored characters and check if it equals the syntax element, replace it with span with its corresponding colour and encapsulate it with the preceding and following characters
+          if (words[j].replace(precedingCharacters, '').replace(followingCharacters, '') === syntaxElement) words[j] = precedingCharacters + '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>' + followingCharacters;
         }
         line = words.join(' ');
       }

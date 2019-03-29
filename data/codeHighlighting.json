@@ -18,7 +18,8 @@
     "strings" : {
       "character" : ["\"", "'"],
       "color" : "#0F0"
-    }
+    },
+    "ignoredCharacters" : "\"'()[\\]{}:,+\\-*\t "
   },
   "java" : {
     "syntax" : {
@@ -42,6 +43,7 @@
     "strings" : {
       "character" : ["\"", "'"],
       "color" : "#0F0"
-    }
+    },
+    "ignoredCharacters" : "\"'()[\\]{}:,+\\-*\t "
   }
 }

@@ -6,6 +6,8 @@ let timeoutBounds = 5000;
 let running = false;
 // Boolean indicating whether Python code has finished running
 let finished = false;
+// A boolean indicating whether all subexercises of the current exercise have been completed
+let exerciseFinished;
 
 // Parses the cookie of the exercise index, so that the user always sees the exercise he was last on
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
@@ -45,7 +47,7 @@ function runit() {
     if (!finished) {
       worker.terminate();
       myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schlaufe kreiert?</span>';
-      document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+      checkSolution(null);
       running = false;
     }
   }, timeoutBounds);
@@ -53,21 +55,22 @@ function runit() {
 
 // Gets called whenever the users Python code has finished running
 function checkSolution(output) {
-  // If the user hasn't completed all the subexercises yet
-  if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length) {
-    // If the outputmatches the expected output of the subexercise
-    if (output === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
-      document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
-      document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
-      // Only increment the subexerciseIndex if the user hasn't completed all the subexercises yet
-      if (subexerciseIndex < pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) {
-        subexerciseIndex++;
-        resetSubexercise();
-      }
+  // Don't check the solution if the user has completed all subexercises
+  if (exerciseFinished) return;
+  // If the outputmatches the expected output of the subexercise
+  if (output === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
+    // Set exerciseFinished to true if all subexercises have been completed
+    if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
+    // Increment the subexerciseIndex and reset it if the user hasn't finished all subexercises yet
+    else {
+      resetSubexercise();
+      subexerciseIndex++;
     }
-    // The output is incorrect
-    else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
   }
+  // The output is incorrect
+  else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
 }
 
 // Replaces the code in the textarea with the starting code of the subexercise
@@ -105,6 +108,7 @@ function displayExercise() {
   // Make the new dropdown menu for all exercises
   makeDropdown();
   resetSubexercise();
+  exerciseFinished = false;
   document.getElementById('textarea').oninput();
 }
 
@@ -205,6 +209,7 @@ function makeDropdown() {
       listElement.addEventListener('click', function() {
         courseIndex = parseInt(listElement.id);
         subexerciseIndex = 0;
+        exerciseFinished = false;
         displayExercise();
         addHighlighting();
       });

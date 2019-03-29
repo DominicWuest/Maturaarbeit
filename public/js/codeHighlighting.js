@@ -37,18 +37,8 @@ function addHighlighting() {
       // Characters to be ignored when checking to highlight syntax elements
       let ignoredCharacters = codeHighlighting[language]["ignoredCharacters"];
       // Colour all Syntax Elements
-      for (syntaxElement in codeHighlighting[language]["syntax"]) {
-        words = line.split(' ');
-        for (let j = 0; j < words.length; j++) {
-          // Ignored characters before the word
-          let precedingCharacters = words[j].match(new RegExp('([' + ignoredCharacters + ']*)?'))[0];
-          // Ignored characters after the word
-          let followingCharacters = words[j].match(new RegExp('([' + ignoredCharacters + ']*)$'))[0];
-          // Strip the word from ignored characters and check if it equals the syntax element, replace it with span with its corresponding colour and encapsulate it with the preceding and following characters
-          if (words[j].replace(precedingCharacters, '').replace(followingCharacters, '') === syntaxElement) words[j] = precedingCharacters + '<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>' + followingCharacters;
-        }
-        line = words.join(' ');
-      }
+      // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored with the syntax element encapsulated in a span element and the ignored characters 
+      for (syntaxElement in codeHighlighting[language]["syntax"]) line = line.replace(new RegExp('([' + ignoredCharacters + ']*)' + syntaxElement + '([' + ignoredCharacters + ']*)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>$2');
       // Colour Comments
       line = line.split(codeHighlighting[language]["comments"]["character"]);
       // If the length of the splitted line is greater than one, there is a comment character included in the line

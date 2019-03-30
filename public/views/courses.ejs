@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="/styles/courses.css">
     <script type="text/javascript" src="js/courses.js"></script>
     <script type="text/javascript">
-      const query = "<%- query %>".split(' ');
+      const query = "<%- query.replace('\"', '\\\"') %>".split(' ');
     </script>
   </head>
   <body onload="search();">

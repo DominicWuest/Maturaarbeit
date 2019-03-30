@@ -46,8 +46,11 @@ courses[2] = courses[2].map(function (element) {
 let pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
 let codeHighlighting = JSON.parse(fs.readFileSync('data/codeHighlighting.json', 'utf-8'));
 
-// Characters not allowed inside queries
-let illegalCharacters = ['"', "'", '>', '<'];
+// Characters not allowed inside queries : What they should be replaced with
+let illegalCharacters = {'"' : '\\"',
+                         "'" : "\\'",
+                         '>' : '&gt',
+                         '<' : '&lt'};
 
 // Directory for static files
 app.use(express.static('public'));
@@ -82,16 +85,10 @@ app.post('/contact', urlencodedParser, function(req, res) {
 app.get('/courses', urlencodedParser, function(req, res) {
   // If there is a query
   if (req.query.query) {
-    // Check if any illegal character is inside the query
-    for (illegalCharacter of illegalCharacters) {
-      // If there is an illegal character inside the query, send status 400
-      if (req.query.query.includes(illegalCharacter)) {
-        res.writeHead(400, {'Content-Type' : 'text/plain'});
-        res.end('Pls No XSS');
-        return;
-      }
-    }
+    // Escapes illegal characters inside the query
+    for (illegalCharacter in illegalCharacters) req.query.query.replace(new RegExp(illegalCharacter, 'g'), illegalCharacters[illegalCharacter]);
   }
+  console.log(req.query.query)
   res.render('courses', {
     'courses' : courses,
     'query' : req.query.query

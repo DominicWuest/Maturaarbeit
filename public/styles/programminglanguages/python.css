@@ -112,37 +112,27 @@ main {
 
 .subexercise {
   box-sizing: border-box;
+  display: block;
   background-color: #333;
   border: 0.5vh solid #222;
   padding: 1vh;
   border-radius: 1vh;
   margin: 0 auto;
   margin-top: 2vh;
-  transition: background-color 0.3s, border-color 0.3s;
-}
-
-.subexercise p {
-  margin: 0;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   color: #BBB;
   font-size: 1.8vh;
-  transition: color 0.3s;
 }
 
 .finishedSubexercise {
   background-color: #6FEE44;
   border-color: #34D100;
-}
-
-.finishedSubexercise p {
   color: #222;
 }
 
 .incorrectSubexercise {
   background-color: #FF3F3F;
   border-color: red;
-}
-
-.incorrectSubexercise p {
   color: white;
 }
 
@@ -163,7 +153,7 @@ main {
 }
 
 .input code {
-  padding: 1vh;
+  font-family: monospace;
   display: block;
   box-sizing: border-box;
   width: 100%;
@@ -171,7 +161,7 @@ main {
   tab-size: 4;
   -moz-tab-size: 4;
   white-space: pre;
-  border: none;
+  border: 1vh solid #333;
   background-color: #333;
   color: #AAA;
   font-size: 1.8vh;
@@ -180,6 +170,7 @@ main {
 }
 
 .input textarea {
+  font-family: monospace;
   height: 80vh;
   overflow: auto;
   box-sizing: border-box;
@@ -191,7 +182,7 @@ main {
   resize: none;
   border: none;
   outline: none;
-  padding: 1vh;
+  border: 1vh solid transparent;
   position: absolute;
   caret-color: white;
   font-size: 1.8vh;
@@ -302,8 +293,13 @@ button::-moz-focus-inner {
 
 #output {
   height: 94.8%;
+  width: 100%;
   overflow: auto;
   box-sizing: border-box;
   margin: 0;
   padding: 1vh;
+}
+
+.error {
+  color: red;
 }

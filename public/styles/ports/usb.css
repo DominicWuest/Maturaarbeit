@@ -23,8 +23,8 @@ h1{
     text-align: center;
     color: white;
 }
-#usbdescription{
-/*style the descrition text*/
+.usbdescription{
+/*style the descrition texts*/
     color: white;
     text-align: center;
     text-decoration-style: wavy;
@@ -51,17 +51,17 @@ a:hover {
 .link img{
 /*position and resize the images*/
     width: 15%;
-    height: 29%;
-    position: fixed;
-    top: 50%;
+    height: 60%;
+    position: absolute;
+    top: 100%;
 }
 .link a{
 /*style all the links to the next pages*/
     color: black;
     text-align: center;
     text-decoration: none;
-    position: fixed;
-    top: 79.3%;
+    position: absolute;
+    top: 160.5%;
     background-color: aqua;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -94,55 +94,69 @@ a:hover {
 #describeusbc{
     margin: 0% 79.48%;
 }
-
+#usbextra{
+/*moved the second text below the links*/
+    position: absolute;
+    top: 170%;
+}
 @media only screen and (max-aspect-ratio : 13 / 9){
 /*give a different style for smaller devices like mobile phones*/
     main {
 /*repositon the content, so there is no conflict with the header*/
         position: absolute;
         top: 7%;
-  }
+        margin: 0% 2%;
+     }
 /*get a squared lineup*/
+    #content p{
+        font-size: 200%;
+    }
     .link a{
-        width: 40%;
+        width: 42%;
         position: absolute;
     }
     .link img{
-        width: 40%;
-        height: 80%;
+        width: 42%;
+        height: 40%;
         position: absolute;
     }
     #topline img{
-        top: 120%;
+        top: 100%;
     }
     #usb1{
-        left: 5%;
+        left: 4%;
     }
     #usb2{
-        left: 55%;
+        left: 54%;
     }
     #topline a{
-        top: 200%;
+        top: 140%;
+    }
+    #describeusb1{
+        margin: 0% 3.48%;
     }
     #describeusb2{
-        margin: 0% 54.49%;
+        margin: 0% 53.49%;
     }
     #bottomline img{
-        top: 220%;
+        top: 150%;
     }
     #usb3{
-        left: 5%;
+        left: 4%;
     }
     #usbc{
-        left: 55%;
+        left: 54%;
     }
     #bottomline a{
-        top: 300%;
+        top: 190%;
     }
     #describeusb3{
-        margin: 0% 4.48%;
+        margin: 0% 3.48%;
     }
     #describeusbc{
-        margin: 0% 54.48%;
+        margin: 0% 53.48%;
     }
+#usbextra{
+    position: absolute;
+    top: 195%;
 }

@@ -15,7 +15,7 @@ function addHighlighting() {
       // If the programming language is inside the elements classes, declare the variable language to be that programming language
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
-    let code = codeSnippets[i].textContent.split('\n');
+    let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly
     let tagIndex = true;
     // Check every line seperately, simplifies the process of colouring comments
@@ -37,8 +37,8 @@ function addHighlighting() {
       // Characters to be ignored when checking to highlight syntax elements
       let ignoredCharacters = codeHighlighting[language]["ignoredCharacters"];
       // Colour all Syntax Elements
-      // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored with the syntax element encapsulated in a span element and the ignored characters
-      for (syntaxElement in codeHighlighting[language]["syntax"]) line = line.replace(new RegExp('([' + ignoredCharacters + ']+|^)' + syntaxElement + '([' + ignoredCharacters + ']+|$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>$2');
+      // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored or line start/end with the syntax element encapsulated in a span element and the ignored characters
+      for (syntaxElement in codeHighlighting[language]["syntax"]) line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + '";>' + syntaxElement + '</span>$2');
       // Colour Comments
       line = line.split(codeHighlighting[language]["comments"]["character"]);
       // If the length of the splitted line is greater than one, there is a comment character included in the line

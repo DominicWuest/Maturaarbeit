@@ -150,7 +150,6 @@ function loaded() {
       }
       // Set the right amount of tabs at the beginning of the line
       let newLine = '\t'.repeat(codeArray[index].match(/(\t*)?/)[0].length + (colon ? 1 : 0)) + codeArray[index].substring(length);
-      console.log(codeArray[index].match(/(\t*)?/)[0].length);
       // Include the new line in the code
       codeArray[index] = codeArray[index].substring(0, length);
       codeArray.splice(index + 1, 0, newLine);

@@ -35,3 +35,10 @@ p{
     margin: 0% 37.5%;
     border-radius: 100px;
 }
+@media only screen and (max-width: 600px){
+    footer{
+        position: relative;
+        top: -1%;
+    }
+}
+

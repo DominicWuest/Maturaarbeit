@@ -19,6 +19,8 @@
       "character" : ["\"", "'"],
       "color" : "#0F0"
     },
+    "functions" : "#4DDFDC",
+    "fields" : "#F00",
     "ignoredCharacters" : "[\"'()[\\]{}:,;+\\-*=\t ]+|&lt|&gt"
   },
   "java" : {
@@ -44,6 +46,8 @@
       "character" : ["\"", "'"],
       "color" : "#0F0"
     },
+    "functions" : "#4DDFDC",
+    "fields" : "#F00",
     "ignoredCharacters" : "[\"'()[\\]{}:,;+\\-*=\t ]+|&lt|&gt"
   }
 }

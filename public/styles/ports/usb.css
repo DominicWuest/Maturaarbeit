@@ -1,36 +1,47 @@
 header{
+/*get the header in the right postiton*/
     position: absolute;
     top: 0%;
     left: 0%;
 }
 body{
+/*get the background and clear potential bugs*/
     background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
     clear: both;
 }
 main{
+/*fit the content under the header*/
     position: absolute;
     top: 5%;
     left: 0%;
     padding: 0.5%;
 }
 h1{
+/*style the title*/
     font-family: 'Righteous', cursive;
     font-size: 220%;
     text-align: center;
     color: white;
 }
-#usbdescription{
+.usbdescription{
+/*style the descrition texts*/
     color: white;
     text-align: center;
     text-decoration-style: wavy;
     font-size: 20px;
 }
 #fat{
+/*create the fat span tag for the first letters*/
     font-family: 'Bitter', serif;
     font-size: 21px;
     color: aliceblue;
 }
+a:hover {
+/*underline the link, if it is hovered*/
+  text-decoration: underline!important;
+}
 #contact{
+/*highlight the link to the contact page*/
     text-decoration: none;
     color: white;
     background-color: #229;
@@ -38,17 +49,19 @@ h1{
     border-radius: 20px;
 }
 .link img{
+/*position and resize the images*/
     width: 15%;
-    height: 29%;
-    position: fixed;
-    top: 50%;
+    height: 60%;
+    position: absolute;
+    top: 100%;
 }
 .link a{
+/*style all the links to the next pages*/
     color: black;
     text-align: center;
     text-decoration: none;
-    position: fixed;
-    top: 79.3%;
+    position: absolute;
+    top: 160.5%;
     background-color: aqua;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -56,27 +69,94 @@ h1{
     padding: 0.5% 0%;
     font-size: 20px;
 }
+/*position all the links*/
 #usb1{
     left: 5%;
 }
-#describeUSB1{
+#describeusb1{
     margin: 0% 4.49%;
 }
 #usb2{
     left: 30%;
 }
-#describeUSB2{
+#describeusb2{
     margin: 0% 29.49%;
 }
 #usb3{
     left: 55%;   
 }
-#describeUSB3{
+#describeusb3{
     margin: 0% 54.48%;
 }
-#USBC{
+#usbc{
     left: 80%;
 }
-#describeUSBc{
+#describeusbc{
     margin: 0% 79.48%;
+}
+#usbextra{
+/*moved the second text below the links*/
+    position: absolute;
+    top: 170%;
+}
+@media only screen and (max-aspect-ratio : 13 / 9){
+/*give a different style for smaller devices like mobile phones*/
+    main {
+/*repositon the content, so there is no conflict with the header*/
+        position: absolute;
+        top: 7%;
+        margin: 0% 2%;
+     }
+/*get a squared lineup*/
+    #content p{
+        font-size: 200%;
+    }
+    .link a{
+        width: 42%;
+        position: absolute;
+    }
+    .link img{
+        width: 42%;
+        height: 40%;
+        position: absolute;
+    }
+    #topline img{
+        top: 100%;
+    }
+    #usb1{
+        left: 4%;
+    }
+    #usb2{
+        left: 54%;
+    }
+    #topline a{
+        top: 140%;
+    }
+    #describeusb1{
+        margin: 0% 3.48%;
+    }
+    #describeusb2{
+        margin: 0% 53.49%;
+    }
+    #bottomline img{
+        top: 150%;
+    }
+    #usb3{
+        left: 4%;
+    }
+    #usbc{
+        left: 54%;
+    }
+    #bottomline a{
+        top: 190%;
+    }
+    #describeusb3{
+        margin: 0% 3.48%;
+    }
+    #describeusbc{
+        margin: 0% 53.48%;
+    }
+#usbextra{
+    position: absolute;
+    top: 195%;
 }

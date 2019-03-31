@@ -2,12 +2,12 @@
   "python" : {
     "syntax" : {
       "def" : "#00F",
-      "while" : "#C101C1",
-      "for" : "#C101C1",
-      "elif" : "#C101C1",
-      "if" : "#C101C1",
-      "else" : "#C101C1",
-      "return" : "#C101C1",
+      "while" : "#D108D1",
+      "for" : "#D108D1",
+      "elif" : "#D108D1",
+      "if" : "#D108D1",
+      "else" : "#D108D1",
+      "return" : "#D108D1",
       "True" : "#FFA500",
       "False" : "#FFA500"
     },
@@ -19,22 +19,24 @@
       "character" : ["\"", "'"],
       "color" : "#0F0"
     },
+    "functions" : "#4DDFDC",
+    "fields" : "#C00",
     "ignoredCharacters" : "[\"'()[\\]{}:,;+\\-*=\t ]+|&lt|&gt"
   },
   "java" : {
     "syntax" : {
-      "int" : "#17CAD8",
-      "string" : "#17CAD8",
-      "char" : "#17CAD8",
-      "double" : "#17CAD8",
-      "float" : "#17CAD8",
-      "public" : "#C101C1",
-      "static" : "#C101C1",
-      "while" : "#C101C1",
-      "for" : "#C101C1",
-      "if" : "#C101C1",
-      "else" : "#C101C1",
-      "return" : "#C101C1"
+      "int" : "#0C6AF9",
+      "string" : "#0C6AF9",
+      "char" : "#0C6AF9",
+      "double" : "#0C6AF9",
+      "float" : "#0C6AF9",
+      "public" : "#D108D1",
+      "static" : "#D108D1",
+      "while" : "#D108D1",
+      "for" : "#D108D1",
+      "if" : "#D108D1",
+      "else" : "#D108D1",
+      "return" : "#D108D1"
     },
     "comments" : {
       "character" : "//",
@@ -44,6 +46,8 @@
       "character" : ["\"", "'"],
       "color" : "#0F0"
     },
+    "functions" : "#4DDFDC",
+    "fields" : "#C00",
     "ignoredCharacters" : "[\"'()[\\]{}:,;+\\-*=\t ]+|&lt|&gt"
   }
 }

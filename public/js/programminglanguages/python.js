@@ -30,6 +30,7 @@ function runit() {
   // Create the worker and send it data
   let worker = new Worker('/js/programminglanguages/pythonWorker.js');
   let code = document.getElementById('textarea').value;
+  worker.postMessage(code);
   let myPre = document.getElementById('output');
   myPre.innerHTML = '';
   // Set timeout to check after timeoutBounds ms whether the code is still running
@@ -42,7 +43,6 @@ function runit() {
       running = false;
     }
   }, timeoutBounds);
-  worker.postMessage(code);
   // The onmessage event gets triggered by the worker and it sends back the output of the code
   worker.onmessage = function(message) {
     myPre.innerHTML = message["data"];

@@ -32,7 +32,7 @@ function runit() {
   let code = document.getElementById('textarea').value;
   worker.postMessage(code);
   let myPre = document.getElementById('output');
-  myPre.innerHTML = '';
+  myPre.innerHTML = 'Compiling...';
   // Set timeout to check after timeoutBounds ms whether the code is still running
   let timeout = setTimeout(function () {
     // If the code hasn't finished running, declare a timeout and show an error in the output div

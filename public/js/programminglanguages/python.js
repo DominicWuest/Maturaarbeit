@@ -30,19 +30,11 @@ function runit() {
   // Create the worker and send it data
   let worker = new Worker('/js/programminglanguages/pythonWorker.js');
   let code = document.getElementById('textarea').value;
+  worker.postMessage(code);
   let myPre = document.getElementById('output');
   myPre.innerHTML = '';
-  worker.postMessage(code);
-  // The onmessage event gets triggered by the worker and it sends back the output of the code
-  worker.onmessage = function(message) {
-    myPre.innerHTML = message["data"];
-    finished = true;
-    running = false;
-    worker.terminate();
-    checkSolution(myPre.innerHTML.trim());
-  }
   // Set timeout to check after timeoutBounds ms whether the code is still running
-  setTimeout(function () {
+  let timeout = setTimeout(function () {
     // If the code hasn't finished running, declare a timeout and show an error in the output div
     if (!finished) {
       worker.terminate();
@@ -51,6 +43,15 @@ function runit() {
       running = false;
     }
   }, timeoutBounds);
+  // The onmessage event gets triggered by the worker and it sends back the output of the code
+  worker.onmessage = function(message) {
+    myPre.innerHTML = message["data"];
+    finished = true;
+    running = false;
+    clearTimeout(timeout);
+    worker.terminate();
+    checkSolution(myPre.innerHTML.trim());
+  }
 }
 
 // Gets called whenever the users Python code has finished running
@@ -220,5 +221,4 @@ function makeDropdown() {
 // Sets the dimensions of the textarea to the dimensions of the code div, so that they mach up
 function setTextareaDimensions() {
   document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
-  document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
 }

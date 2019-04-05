@@ -107,6 +107,7 @@ a:hover {
 .middle {
   grid-column: 2;
   display: block;
+  padding: 0 2vh;
 }
 
 /*
@@ -216,6 +217,7 @@ footer {
   }
 
   .middle {
+    padding: 0;
     grid-column-start: 1;
     grid-column-end: 3;
     grid-row-start: 1;

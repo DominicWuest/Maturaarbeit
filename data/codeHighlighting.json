@@ -1,7 +1,8 @@
 {
   "python" : {
     "syntax" : {
-      "def" : "#00F",
+      "def" : "#22F",
+      "class" : "#22F",
       "while" : "#D108D1",
       "for" : "#D108D1",
       "elif" : "#D108D1",

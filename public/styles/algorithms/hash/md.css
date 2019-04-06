@@ -1,0 +1,18 @@
+html {
+  height: 100vh;
+}
+
+body {
+  margin: 0;
+  background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+}
+
+main {
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0 auto;
+  width: 90%;
+  overflow: auto;
+  height: 92vh;
+  padding-right: 25px;
+}

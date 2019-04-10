@@ -22,3 +22,49 @@ function checkInput(event) {
 
 	if (!inputStatus) event.preventDefault();
 }
+var person = 1;
+
+function checkwindow() {
+	if (window.innerWidth <= 1350) {
+		document.getElementById("person" + person).style.display = "grid";
+		console.log("person" + person)
+		person += 1;
+		if (person == 4) {
+			person = 1;
+		}
+		document.getElementById("person" + person).style.display = "none";
+		person += 1;
+		if (person == 4) {
+			person = 1;
+		}
+		document.getElementById("person" + person).style.display = "none";
+		}
+		person += 1;
+		if (person == 4) {
+			person = 1;
+		}
+}
+
+function imageswitch() {
+	if (window.innerWidth <= 1350) {
+		document.getElementById("person" + person).style.display = "none";
+		person += 1;
+		if (person == 4) {
+			person = 1;
+		}
+		console.log("person" + person)
+		document.getElementById("person" + person).style.display = "grid";
+	}
+}
+
+function reset() {
+	if (window.innerWidth > 1350) {
+		document.getElementById("person1").style.display = "";
+		document.getElementById("person2").style.display = "";
+		document.getElementById("person3").style.display = "";
+	}
+}
+
+window.addEventListener("resize", checkwindow);
+window.addEventListener("load", checkwindow);
+window.addEventListener("resize", reset);

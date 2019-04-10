@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+   <html>
+	<head>
+        <meta charset="utf-8">
+        <title>CSAcademy Test</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico" >
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="styles/components.css">
+	</head>
+	<body>
+    	<%- include partials/header.ejs %>
+		<main>
+			<div class="title">
+				<h1>Komponenten</h1>
+			</div>
+			<div class="text">
+				<p>Die gesamtheit aller physischen Komponenten wird in der Fachsprache Hardware genannt. Wir werden die Funktionen und Eigenschaften der Hauptbestandteile eines Computers hier genauer beschreiben.</p>
+			</div>
+			<!-- <div class="shortlink">
+				<h2>Shortlinks</h2>
+				<ul>
+					<li><a href="#motherboard">Motherboard</a></li>
+					<li><a href="#ram">Arbeitsspeicher | RAM</a></li>
+					<li><a href="#cpu">Prozessor | CPU</a></li>
+					<li><a href="#gpu">Grafikkarte | GPU</a></li>
+				</ul>
+			</div> -->
+				<div class="components">
+						<div id="motherboard">
+							<a href="components/motherboard.ejs">
+							<h2>Motherboard</h2>
+							<div class="pictures">
+								<img src="https://www.scan.co.uk/images/infopages/motherboard_z390/msi/z390a_pro/topimage.png" alt="motherboard" />
+							</div>
+							</a>
+						</div>
+						<div id="ram">
+							<a href="components/gpu.ejs">
+							<h2>Arbeitsspeicher | RAM</h2>
+							<div class="pictures">
+								<img src="https://www.bilder-upload.eu/upload/95236f-1554845285.png" alt="ram" />
+							</div>
+							</a>
+						</div>
+						<div id="cpu">
+							<a href="components/cpu.ejs">
+							<h2>Prozessor | CPU</h2>
+							<div class="pictures">
+								<img src="http://www.avadirect.com/Pictures/500/11493192_2.png" alt="cpu" />
+							</div>
+							</a>
+						</div>
+						<div id="gpu">
+							<a href="components/gpu.ejs">
+							<h2>Grafikkarte | GPU</h2>
+							<div class="pictures">
+								<img src="
+								https://www.geforce.com/sites/default/files-world/geforce-gtx-titanx-top.png" alt="gpu" />
+							</div>
+							</a>
+						</div>
+				</div>
+		</main>
+			<!--<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop">
+				<div class="fill" draggable="true"></div>
+			</div>
+			<div class="drop"></div>
+			<div class="drop"></div>
+			<div class="drop"></div>
+			<div class="drop"></div>
+			<div class="drop"></div>
+			<div class="drop"></div>-->
+		
+			<script src="js/components.js"></script>
+	</body>
+</html>

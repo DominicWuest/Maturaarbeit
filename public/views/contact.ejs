@@ -13,58 +13,67 @@
     	<%- include partials/header.ejs %>
 			<main>
 				<div id="top">
-	    		<h1>Kontaktieren Sie uns.</h1>
-    			<hr>
+	    			<h1>Kontaktieren Sie uns.</h1>
 				</div>
+				
 				<form id="contactform" name="contactform" method="post" onsubmit="checkInput(event);">
+					
 					<div>
 						<label for="forename">Vorname:</label>
 						<input class="input" type="text" id="forename" name="forename" placeholder="" />
 					</div>
+					
 					<div>
 						<label for="surname">Nachname:</label>
 						<input class="input" type="text" id="surname" name="surname" placeholder="" />
 					</div>
+					
 					<div>
 						<label for="email">Ihre E-Mail:</label>
 						<input class="input" type="text" id="email" name="email" placeholder="" />
 					</div>
+					
 					<div>
 						<label for="message">Ihre Nachricht:</label>
 						<textarea class="input" id="message" name="message" cols="20" rows="15"></textarea>
 					</div>
+					
 					<div id="button">
-            <input type="submit" id="submit" value="Senden"/>
+						<input type="submit" id="submit" value="Senden"/>
 					</div>
 				</form>
+				
 				<div id="persons">
-					<div id="person">
+					<div id="person1" onclick="imageswitch()">	
             			<div id="text">
                 			<img class="picture" src="https://www.fc-hausen.de/images/personen/alias.png" alt="Kontaktbild" >
                 			<h2>Dominic Wolf</h2>
 
 
                 			<h4>dominic.wolf@students.ksba.ch</h4>
-            			</div>
+            			</div>	
 					</div>
-					<div id="person">
+					
+					<div id="person2" onclick="imageswitch()">			
             			<div id="text">
                 			<img class="picture" src="https://www.fc-hausen.de/images/personen/alias.png" alt="Kontaktbild" >
                 			<h2>Daniel Isler</h2>
 
 
                 			<h4>daniel.isler@students.ksba.ch</h4>
-            			</div>
+            			</div>	
 					</div>
-					<div id="person">
+					
+					<div id="person3" onclick="imageswitch()">
             			<div id="text">
                 			<img class="picture" src="https://www.fc-hausen.de/images/personen/alias.png" alt="Kontaktbild" >
                 			<h2>Dominic Wüst</h2>
 
 
                 			<h4>dominic-frederic.wuest@students.ksba.ch</h4>
-            			</div>
+            			</div>	
 					</div>
+					
         		</div>
 			</main>
     	<%- include partials/footer.ejs %>

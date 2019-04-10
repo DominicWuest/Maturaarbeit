@@ -19,7 +19,7 @@ main {
 
 form {
 	display: grid;
-	grid-column: 2;
+	grid-column: 1;
 	grid-row: 2;
 	margin: 0;
 	background-color: white;
@@ -53,14 +53,14 @@ label {
 
 input.input,
 textarea {
-    border: .1vh solid #8c8c8c;
+    border: 1px solid #8c8c8c;
     resize: none;
-	width: 60vh;
+	width: 90%;
     border-radius: .5vh .5vh;
 	padding: .5vh;
     outline: none;
     font-family: Arial, sans-serif;
-    font-size: 2.5vh;
+    font-size: 3vh;
     color: #8c8c8c;
 }
 
@@ -84,7 +84,7 @@ input#submit {
     border: 0;
     background-color: #222;
     font-family: Arial, sans-serif;
-    font-size: 3vh;
+    font-size: 2vh;
 	padding: 1vh;
 	box-shadow: 0 .5vh 0 0 #111;
 }
@@ -93,6 +93,7 @@ input#submit {
     transition-duration: .25s;
     background-color: #3a3a3a;
 	box-shadow: 0 .5vh 0 0 #222;
+	cursor: pointer;
 }
 
 #submit:focus {
@@ -102,37 +103,85 @@ input#submit {
 }
 
 #persons {
-	display: inline-grid;
-	grid-column: 1;
+	display: flex;
+	grid-column: 2;
 	grid-row: 2;
 	background-color: #555;
-	grid-template-columns: repeat(3, 32.5%);
 	margin: 0;
 	justify-content: space-around;
 }
 
-#person {
+#person1, #person2, #person3 {
     background-color: white;
 	border-radius: 2vh;
-	padding: .9vh;
+	height: 55%;
+	width: 30%;
 	margin: auto;
 	text-align: center;
-	font-family: Arial, sans-serif;
     transition-timing-function: ease;
     transition-duration: .25s;
+	font-size: 1.2vh;
+	font-family: Arial, sans-serif;
+	display: grid;
+	justify-content: space-around;
 }
 
-#person:hover {
+#person1:hover, #person2:hover, #person3:hover {
     background-color: gainsboro;
     transform: scale(1.05,1.05);    
 }
 
-#text {
-	font-size: .8em;
-	justify-content: space-around;
+.picture {
+	width: 23vh;
+	height: 23vh;
 }
 
-.picture {
-	max-width: 100%;
-	height: auto;
+@media only screen and (max-width: 1350px) {
+	
+	#person1, #person2, #person3 {
+		height: 70%;
+		width: 70%;
+		font-size: 1.5vh;
+		padding: 1vh;
+		display: "";
+	}
+	
+	.picture {
+		width: 23vh;
+		height: 23vh;
+	}
+	
+	input.input, textarea {
+		margin-left: 1vh;
+	}
+	
+	label {
+		margin-left: 1vh;
+	}
+}
+
+@media only screen and (max-width: 680px) {
+	main {
+		grid-template-columns: repeat(1,97%);
+		grid-template-rows: 10vh 70vh 70vh 5vh;
+	}
+	form {
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+	#persons {
+		grid-row: 3;
+		grid-column-start: 1;
+		grid-column-end: 2;
+	}
+	#person1, #person2, #person3 {
+		height: 70%;
+		width: 65%;
+		font-size: 1.5vh;
+	}
+	
+	.picture {
+		width: 25vh;
+		height: 25vh;
+	}
 }

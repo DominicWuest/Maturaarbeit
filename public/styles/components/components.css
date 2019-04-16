@@ -1,0 +1,114 @@
+html {
+	height: 100vh;
+	scrollbar-base-color: green;
+}
+
+body {
+  	background : linear-gradient(#2441B4, #31128b) no-repeat fixed;
+	margin: 0;
+}
+
+main {
+	scroll-behavior: smooth;
+	overflow: hidden;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 80%;
+	overflow: auto;
+	height: 92vh;
+	padding-right: 25px;
+}
+
+main h1 {
+  	margin: 0;
+  	font-family: 'Righteous', cursive;
+}
+
+main h2 {
+  	font-family: 'Righteous', cursive;
+}
+
+main div {
+  	padding: 25px;
+  	margin-bottom: 25px;
+  	background-color: rgba(255, 255, 255, 0.8);
+  	border-radius: 50px;
+}
+
+main div {
+  	margin-top: 25px;
+}
+
+.title {
+  	text-align: center;
+  	font-size: 3em;
+}
+
+a {
+  	text-decoration: none;
+  	color: black;
+}
+
+a:hover {
+  	text-decoration: underline;
+  	color: black;
+}
+
+.components {
+  	padding: 0;
+  	background: none;
+	justify-content: space-around;
+	width: auto;
+	display: flex;
+}
+
+p {
+  	font-family: sans-serif;
+}
+
+#motherboard, #cpu, #gpu, #ram {
+	width: 22%;
+	text-align: center;
+	padding: 0px;
+}
+
+.pictures {
+	width: auto;
+	margin: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/*
+.fill {
+	background-image: url("http://source.unsplash.com/random/150x150");
+	position: relative;
+	height: 15vh;
+	width: 15vh;
+	cursor: grab;
+}
+
+.drop {
+	height: 15vh;
+	width: 15vh;
+	border: 1vh solid cornflowerblue;
+	margin: 2vh;
+  	background : linear-gradient(#31128b, #2441B4);
+	background-repeat: repeat-x;
+	display: inline-block;
+}
+
+.hold {
+	border: 1px solid cornflowerblue;
+}
+
+.hovered {
+	border: 1vh dashed cornflowerblue;
+	background: linear-gradient(#31128b, #2441B4);
+}
+*/

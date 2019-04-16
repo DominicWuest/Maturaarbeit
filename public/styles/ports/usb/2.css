@@ -36,46 +36,35 @@ h2{
     text-decoration: none;
     color: aqua;
 }
-#typeab{
+#connector{
 /*get textfields in position and styles four times*/
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 3%;
+    left: 15%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
-#colorspec{
+#speed{
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 27%;
+    left: 40%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
-#chargers{
+#color{
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 51%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
-}
-#pins{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 75%;
+    left: 65%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
@@ -95,28 +84,22 @@ h2{
     #content p{
         font-size: 200%;
     }
-    #typeab{
+    #connector{
         width: 80%;
         position: absolute;
         top: 100%;
         left: 9%;
     }
-    #colorspec{
+    #speed{
         width: 80%;
         position: absolute;
-        top: 320%;
+        top: 340%;
         left: 9%;
     }
-        #chargers{
+        #color{
         width: 80%;
         position: absolute;     
-        top: 505%;
-        left: 9%;
-    }
-        #pins{
-        width: 80%;
-        position: absolute;
-        top: 802%;
+        top: 590%;
         left: 9%;
     }
 }

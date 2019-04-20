@@ -46,7 +46,6 @@ function hash(message) {
   let b0 = 0xEFCDAB89;
   let c0 = 0x98BADCFE;
   let d0 = 0x10325476;
-  console.log(words);
   // Declaration of starting values to be changed
   let a = a0, b = b0, c = c0, d = d0;
   // Doing all iterations for the hashing algorithm
@@ -94,14 +93,15 @@ function hash(message) {
   document.getElementById('hash').textContent = hashedArr.reduce((str, cur) => str += cur);
 }
 
-function iterate(a, b, c, d, func, word, shift, constant) {
-  return ((b + leftRotate(a + func(b, c, d) + word + constant, shift)) % 2 ** 32);
-}
+// Iterate the hashing algorithm step once
+let iterate = (a, b, c, d, func, word, shift, constant) => (b + leftRotate(a + func(b, c, d) + word + constant, shift)) % 2 ** 32;
 
+// Circular left rotation
 function leftRotate(num, shift) {
   return (num << shift) | (num >>> (32 - shift));
 }
 
+// Convert number to string of its little endian representation
 function toLittleEndianStr(num) {
   let arr = [];
   for (let i = 0; i < 4; i++) {

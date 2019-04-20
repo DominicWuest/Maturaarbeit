@@ -38,10 +38,15 @@
         <div id="usage">
           <h2>Gebrauch</h2>
           <p>Aufgrund der <a href="#specs">kritischen Schwachstellen</a> des Algorithmus sollte er nie zur Verschlüsselung von Daten verwendet werden.</p>
-          <p>Heutzutage wird der MD-Algorithmus hauptsächlich zur Kreierung von digital Fingerprints benutzt. Diese sind nützlich, um zu überprüfen, dass keine Daten bei Übertragungen verloren gegangen sind, da eine Datei vor und nach der Transmission den gleichen Hash besitzt, falls kein Datenverlust stattgefunden hat.</p>
+          <p>Heutzutage wird der MD-Algorithmus hauptsächlich zur Kreierung von digital Fingerprints benutzt. Diese sind nützlich, um zu überprüfen, ob keine Daten bei Übertragungen verloren gegangen sind, da eine Datei vor und nach der Transmission den gleichen Hash mit sich bringt, falls kein Datenverlust stattgefunden hat.</p>
         </div>
         <div id="specs">
           <h2>Spezifikationen</h2>
+          <p>Der MD-Algorithmus produziert einen 128-Bit Hash.</p>
+          <p>Somit kann er 2<sup>128</sup> (Circa 3.4 ∗ 10<sup>38</sup>) einzigartige Hashes hervorbringen.</p>
+          <p>Trotzdessen ist er heute als unsicher klassifiziert. Manchmal genügt lediglich eine schnelle <a href="https://www.google.com/search?q=276f8db0b86edaa7fc805516c852c889&rlz=1C1CHBF_deCH819CH819&oq=276f8db0b86edaa7fc805516c852c889&aqs=chrome..69i57.411j0j7&sourceid=chrome&ie=UTF-8" target="_blank">Google Suche</a> eines Hashes, um dessen Ursprung herauszufinden.</p>
+          <p>Aufgrund der schnellen Generierung eines MD-Hashes ist es relativ einfach, eine Kollision zu bruteforcen.</p>
+          <p>Eine Kollision eines MD5-Hashes kann durch Anwendung von verschiedenen Tricks in 15-60 Minuten gefunden werden, wobei dies bei einem MD4-Hash weniger als eine Sekunde dauert.</p>
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>

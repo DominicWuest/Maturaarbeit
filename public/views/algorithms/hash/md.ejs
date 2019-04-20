@@ -12,10 +12,51 @@
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body>
+  <body onload="hash(''); addHighlighting();">
     <%- include ../../partials/header.ejs %>
     <main>
-      
+      <div class="title">
+        <h1>Message Digest Hash-Algorithmus</h1>
+      </div>
+      <div class="pageShortcuts">
+        <h2>Page Shortcuts</h2>
+        <ul>
+          <li><a href="#history">Geschichte</a></li>
+          <li><a href="#usage">Gebrauch</a></li>
+          <li><a href="#specs">Spezifikationen</a></li>
+          <li><a href="#functionality">Funktionsweise</a></li>
+          <li><a href="#exampleCode">Beispielcode</a><ul>
+            <li><a href="#java">Java</a></li>
+          </ul></li>
+          <li><a href="#hasher">Text-Hasher</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="history">
+          <h2>Geschichte</h2>
+        </div>
+        <div id="usage">
+          <h2>Gebrauch</h2>
+          <p>Aufgrund der <a href="#specs">kritischen Schwachstellen</a> des Algorithmus sollte er nie zur Verschlüsselung von Daten verwendet werden.</p>
+          <p>Heutzutage wird der MD-Algorithmus hauptsächlich zur Kreierung von digital Fingerprints benutzt. Diese sind nützlich, um zu überprüfen, dass keine Daten bei Übertragungen verloren gegangen sind, da eine Datei vor und nach der Transmission den gleichen Hash besitzt, falls kein Datenverlust stattgefunden hat.</p>
+        </div>
+        <div id="specs">
+          <h2>Spezifikationen</h2>
+        </div>
+        <div id="functionality">
+          <h2>Funktionsweise</h2>
+        </div>
+        <div id="exampleCode">
+          <h2>Beispielcode</h2>
+          <code class="code java"></code>
+        </div>
+        <div id="hasher">
+          <h2>Text-Hasher</h2>
+          <input type="text" name="message" placeholder="Gib hier deine Nachricht ein..." oninput="hash(this.value);">
+          <p>Deine gehashte Nachricht:</p>
+          <p id="hash"></p>
+        </div>
+      </div>
     </main>
   </body>
 </html>

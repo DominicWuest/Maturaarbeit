@@ -111,3 +111,61 @@ function toLittleEndianStr(num) {
   }
   return arr;
 }
+
+/*
+
+import java.util.Scanner;
+
+class a {
+
+  public static void main(String[] args) {
+    Scanner in = new Scanner(System.in);
+    while (true) {
+      System.out.println(Long.toHexString(md5(in.nextLine())));
+    }
+  }
+
+  public static Long md5(String message) {
+    int[] bytes = new int[(message.length() / 512 + 1) * 64];
+    for (int i = 0; i < message.length(); i++) bytes[i] = (int)message.charAt(i);
+    bytes[message.length()] = 1 << 7;
+    for (int i = message.length() + 1; i < bytes.length - 8; i++) bytes[i] = 0;
+    int msgLen = message.length() * 8;
+    for (int i = 0; i < 8; i++) {
+      bytes[bytes.length - 8 + i] = msgLen & 0xFF;
+      msgLen >>= 8;
+    }
+    int[] words = new int[(message.length() / 512 + 1) * 16];
+    for (int i = bytes.length - 1; i > 0; i-= 4) {
+      int word = 0;
+      for (int j = 0; j < 4; j++) {
+        word <<= 8;
+        word |= bytes[i - j];
+      }
+      words[i / 4] = word;
+    }
+    for (int word : words) {
+      System.out.println(Integer.toHexString(word));
+    }
+    return 1L;
+  }
+
+  public static int F(int X, int Y, int Z) {
+    return X & Y | ~X & Z;
+  }
+
+  public static int G(int X, int Y, int Z) {
+    return X & Z | Y & ~Z;
+  }
+
+  public static int H(int X, int Y, int Z) {
+    return X ^ Y ^ Z;
+  }
+
+  public static int I(int X, int Y, int Z) {
+    return Y ^ (X | ~Z);
+  }
+
+}
+
+*/

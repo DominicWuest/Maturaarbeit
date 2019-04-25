@@ -13,7 +13,8 @@
       "False" : "#FFA500",
       "break" : "#C66CAC",
       "continue" : "#C66CAC",
-      "pass" : "#C66CAC"
+      "pass" : "#C66CAC",
+      "lambda" : "#FFA500"
     },
     "comments" : {
       "character" : "#",

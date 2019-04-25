@@ -85,12 +85,7 @@ function hash(message) {
     a0 += a; b0 += b; c0 += c; d0 += d;
   }
   // Creating the hashed string and assigning it to the textContent of the output
-  let hashedArr = [];
-  hashedArr = hashedArr.concat(toLittleEndianStr(a0 % 2 ** 32));
-  hashedArr = hashedArr.concat(toLittleEndianStr(b0 % 2 ** 32));
-  hashedArr = hashedArr.concat(toLittleEndianStr(c0 % 2 ** 32));
-  hashedArr = hashedArr.concat(toLittleEndianStr(d0 % 2 ** 32));
-  document.getElementById('hash').textContent = hashedArr.reduce((str, cur) => str += cur);
+  document.getElementById('hash').textContent = toLittleEndianStr(a0 % 2 ** 32) + toLittleEndianStr(b0 % 2 ** 32) + toLittleEndianStr(c0 % 2 ** 32) + toLittleEndianStr(d0 % 2 ** 32);
 }
 
 // Iterate the hashing algorithm step once
@@ -109,5 +104,5 @@ function toLittleEndianStr(num) {
     part = '0'.repeat(2 - part.length) + part;
     arr.push(part);
   }
-  return arr;
+  return arr.reduce((str, cur) => str += cur);
 }

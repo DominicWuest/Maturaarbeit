@@ -55,7 +55,76 @@
           <h2>Beispielcode</h2>
           <p>Diese Beispielcodes zeigen mögliche Implementierungen des MD5-Algorithmus.</p>
           <p>Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">
+          <code class="code python">import math
+
+def md5(message):
+    constants = []
+    for i in range(64): constants.append(math.floor(abs(math.sin(i + 1)) * 2 ** 32))
+    bytesArr = []
+    for i in message: bytesArr.append(ord(i))
+    bytesArr.append(1 << 7)
+    while len(bytesArr) * 8 % 512 != 448:
+        bytesArr.append(0)
+    msgLen = len(message) * 8
+    for i in range(8):
+        bytesArr.append(msgLen & 0xFF)
+        msgLen >>= 8
+    words = []
+    for i in range(len(bytesArr) - 1, 0, -4):
+        word = 0
+        for j in range(4):
+            word <<= 8
+            word |= bytesArr[i - j]
+        words = [word] + words
+    a0 = 0x67452301
+    b0 = 0xEFCDAB89
+    c0 = 0x98BADCFE
+    d0 = 0x10325476
+    a = 0; b = 0; c = 0; d = 0
+    for startingIndex in range(0, len(words), 16):
+        a = a0; b = b0; c = c0; d = d0
+        for i in range(64):
+            if i < 16:
+                print(hex(a))
+                if i % 4 == 0: a = iterate(a, b, c, d, F, words[startingIndex + i], 7, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, F, words[startingIndex + i], 12, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, F, words[startingIndex + i], 17, constants[i])
+                else: b = iterate(b, c, d, a, F, words[startingIndex + i], 22, constants[i])
+            elif i < 32:
+                if i % 4 == 0: a = iterate(a, b, c, d, G, words[startingIndex + (5 * i + 1) % 16], 5, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, G, words[startingIndex + (5 * i + 1) % 16], 9, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, G, words[startingIndex + (5 * i + 1) % 16], 14, constants[i])
+                else: b = iterate(b, c, d, a, G, words[startingIndex + (5 * i + 1) % 16], 20, constants[i])
+            elif i < 48:
+                if i % 4 == 0: a = iterate(a, b, c, d, H, words[startingIndex + (3 * i + 5) % 16], 4, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, H, words[startingIndex + (3 * i + 5) % 16], 11, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, H, words[startingIndex + (3 * i + 5) % 16], 16, constants[i])
+                else: b = iterate(b, c, d, a, H, words[startingIndex + (3 * i + 5) % 16], 23, constants[i])
+            else:
+                if i % 4 == 0: a = iterate(a, b, c, d, I, words[startingIndex + (7 * i) % 16], 6, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, I, words[startingIndex + (7 * i) % 16], 10, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, I, words[startingIndex + (7 * i) % 16], 15, constants[i])
+                else: b = iterate(b, c, d, a, I, words[startingIndex + (7 * i) % 16], 21, constants[i])
+        a0 += a; b0 += b; c0 += c; d0 += d
+    return toLittleEndianStr(a0 % 2 ** 32) + toLittleEndianStr(b0 % 2 ** 32) + toLittleEndianStr(c0 % 2 ** 32) + toLittleEndianStr(d0 % 2 ** 32)
+
+def toLittleEndianStr(num):
+    arr = []
+    for i in range(4):
+        part = hex(num >> i * 8 & 0xFF)[2:]
+        part = '0' * (2 - len(part)) + part
+        arr.append(part)
+    return "".join(i for i in arr)
+
+def leftRotate(num, shift):
+    num &= 0xFFFFFFFF
+    return ((num << shift) | (num >> (32 - shift))) & 0xFFFFFFFF
+
+iterate = lambda a, b, c, d, func, word, shift, constant: (b + leftRotate(a + func(b, c, d) + word + constant, shift)) % 2 ** 32
+F = lambda X, Y, Z: X & Y | ~X & Z
+G = lambda X, Y, Z: X & Z | Y & ~Z
+H = lambda X, Y, Z: X ^ Y ^ Z
+I = lambda X, Y, Z: Y ^ (X | ~Z)
 </code>
           <p>Dies ist ein in Java geschriebener Beispielcode:</p>
           <code class="code java">import java.lang.Math;

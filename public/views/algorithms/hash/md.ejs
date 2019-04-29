@@ -34,6 +34,8 @@
       <div class="text">
         <div id="history">
           <h2>Geschichte</h2>
+          <p>Die Serie der Message Digest Algorithmen wurde ursprünglich von Ronald Rivest vom MIT entwickelt.</p>
+          <p>Im Jahre 1991 entwickelte er den MD5 Algorithmus, nachdem Analysen gezeigt haben, dass der MD4-Algorithmus höchstwahrscheinlich unsicher ist.</p>
         </div>
         <div id="usage">
           <h2>Gebrauch</h2>
@@ -58,10 +60,8 @@
           <code class="code python">import math
 
 def md5(message):
-    constants = []
-    for i in range(64): constants.append(math.floor(abs(math.sin(i + 1)) * 2 ** 32))
-    bytesArr = []
-    for i in message: bytesArr.append(ord(i))
+    constants = [math.floor(abs(math.sin(i + 1)) * 2 ** 32) for i in range(64)]
+    bytesArr = [ord(i) for i in message]
     bytesArr.append(1 << 7)
     while len(bytesArr) * 8 % 512 != 448:
         bytesArr.append(0)
@@ -85,7 +85,6 @@ def md5(message):
         a = a0; b = b0; c = c0; d = d0
         for i in range(64):
             if i < 16:
-                print(hex(a))
                 if i % 4 == 0: a = iterate(a, b, c, d, F, words[startingIndex + i], 7, constants[i])
                 elif i % 4 == 1: d = iterate(d, a, b, c, F, words[startingIndex + i], 12, constants[i])
                 elif i % 4 == 2: c = iterate(c, d, a, b, F, words[startingIndex + i], 17, constants[i])

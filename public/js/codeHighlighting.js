@@ -11,12 +11,13 @@ function addHighlighting() {
     // String of all classnames of the element
     let elementClass = codeSnippets[i].className;
     // The language of the code, declared in the following for-loop
-    let language;
+    let language = '';
     // Iterate over every programming lanuage inside the languages array
     for (programmingLanguage of languages) {
       // If the programming language is inside the elements classes, declare the variable language to be that programming language
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
+    if (language === '') continue;
     // Escape less than and greater than
     let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly

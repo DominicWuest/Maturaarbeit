@@ -52,6 +52,17 @@
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
+          <p>Als erstes wird die Nachricht in Bits umgewandelt. Anschliessend folgt das Padding. Gepaddet wird, indem ein Bit von eins angefügt wird und dann so lange Bits von null, bis die Länge der Nachricht Modulo 512 448 ergibt. Anschliessend wird eine 64-Bit Repräsentation der originalen Länge der Nachricht angefügt.</p>
+          <p>Nun müssen vier Startwerte deklariert werden. Sie besitzen folgende Startwerte:</p>
+          <code class="code">a0 = 0x67452301
+b0 = 0xEFCDAB89
+c0 = 0x98BADCFE
+d0 = 0x10325476</code>
+          <p>Für den weiteren Prozess basiert auf die vier folgenden Funktionen:</p>
+          <code>F(X, Y, Z) = (X & Y) | (~X & Z)
+G(X, Y, Z) = (X & Z) | (Y & ~Z)
+H(X, Y, Z) = X ^ Y ^ Z
+I(X, Y, Z) = Y ^ (X | ~Z)</code>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>

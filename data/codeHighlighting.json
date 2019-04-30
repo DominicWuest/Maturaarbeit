@@ -9,6 +9,8 @@
       "if" : "#C66CAC",
       "else" : "#C66CAC",
       "return" : "#C66CAC",
+      "in" : "#C66CAC",
+      "is" : "#C66CAC",
       "True" : "#FFA500",
       "False" : "#FFA500",
       "break" : "#C66CAC",

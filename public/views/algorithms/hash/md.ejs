@@ -53,16 +53,25 @@
         <div id="functionality">
           <h2>Funktionsweise</h2>
           <p>Als erstes wird die Nachricht in Bits umgewandelt. Anschliessend folgt das Padding. Gepaddet wird, indem ein Bit von eins angefügt wird und dann so lange Bits von null, bis die Länge der Nachricht Modulo 512 448 ergibt. Anschliessend wird eine 64-Bit Repräsentation der originalen Länge der Nachricht angefügt.</p>
-          <p>Nun müssen vier Startwerte deklariert werden. Sie besitzen folgende Startwerte:</p>
+          <p>Nun müssen vier Variabeln mit folgenden Startwerten deklariert werden:</p>
           <code class="code">a0 = 0x67452301
 b0 = 0xEFCDAB89
 c0 = 0x98BADCFE
 d0 = 0x10325476</code>
-          <p>Für den weiteren Prozess basiert auf die vier folgenden Funktionen:</p>
+          <p>Der weitere Prozess basiert auf die vier folgenden Funktionen:</p>
           <code class="code python">F(X, Y, Z) = (X & Y) | (~X & Z)
 G(X, Y, Z) = (X & Z) | (Y & ~Z)
 H(X, Y, Z) = X ^ Y ^ Z
 I(X, Y, Z) = Y ^ (X | ~Z)</code>
+          <p>Hierbei ist <b>&</b> Bitwise <b>AND</b>, <b>|</b> Bitwise <b>OR</b>, <b>^</b> Bitwise <b>XOR</b> und <b>~</b> Bitwise Negierung.</p>
+          <p>Die gepaddete Nachricht wird nun in Blöcke mit einer Länge von 512 Bits aufgeteilt.</p>
+          <p>Der folgende Prozess wird nun für jeden Block durchgeführt:</p>
+          <ol class="blockprocesses">
+            <li>Der Block wird in 16 32-Bit Wörter aufgeteilt.</li>
+            <li>Die Startwerte werden geklont. In diesem Beispiel wird der Klon von <b>a0</b> <b>a</b> genannt, <b>b0</b> <b>b</b> usw.</li>
+            <li>Die folgenden 64 Operationen werden durchgeführt:</li>
+            <li>Schlussendlich werden die neuen Werte für <b>a</b>, <b>b</b>, <b>c</b> sowie <b>d</b> zu dem Startwert, dessen Klon sie sind, addiert.</li>
+          </ol>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>

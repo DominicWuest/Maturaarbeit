@@ -79,7 +79,8 @@ a:hover {
   padding: 10px;
   margin: 0 auto;
   overflow-x: auto;
-  background-color: #888;
+  background-color: #444;
+  color: #BBB;
   border-radius: 8px;
 }
 

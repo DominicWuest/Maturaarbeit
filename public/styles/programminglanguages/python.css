@@ -53,7 +53,8 @@ main {
   display: block;
   margin: 1vh auto;
   width: 75%;
-  background-color: #999;
+  background-color: #333;
+  color: #AAA;
   padding: 1vh;
   font-size: 2vh;
   tab-size: 4;

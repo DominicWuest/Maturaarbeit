@@ -1,0 +1,37 @@
+<!DOCTYPE html/>
+<!-- Daniel Isler -->
+<html>
+    <head>
+        <title>USB 2.0</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include ../../partials/header.ejs %>
+        <main>
+            <h2>
+                Der USB 2 Anschluss
+            </h2>
+            <hr>
+            <div id = "content">
+                <p id="general">Nachdem der USB 1 Anschluss keinen sehr grossen Erfolg hatte wurde der USB 2.0 Anschluss im April 2000 eingeführt. Mit dem USB 2.0 wurden einige Neuerungen herausgebracht, die auf dieser Seite aufgezeigt werden. Der USB 2.0 Anschluss wird von fast allen Geräten unterstützt und gilt deswegen heute als Standard, jedoch kann auch der alte USB 1 Anschluss immer noch gebraucht werden, aber er kann nicht die Übertragungsgeschwindigkeit eines USB 2.0 Anschlusses erreichten. Erst mit dem USB 2.0 Anschluss wurde die USB Schnittstelle wirklich bekannt und wurde zu einem immer grösserem Erolg.</p>
+                <div class ="pic">
+                    <div id ="connector">
+                        <img src="/imgs/ports/usb/2small.jpg" alt="Micro A and mini B"/>
+                        <p>Mit der zweiten Generation der USB Schnittstelle wurde erstmals ein etwas kleierer Stecker eingeführt, damit kleine Geräte, die Schnittstelle besser in kleine Geräte, wie beispielsweise Kameras eingebaut werden konnte. Es wurde zum einen der Micro-USB Typ A (rechts im Bild), sowie der Mini-USB Typ B (links im Bild) herausgebracht. Es sind beide auch heute noch sehr viel anzutreffen, denn viele Mobiltelefone haben noch einen Micro-USB Anschluss als Ladebuchse und viele Kameras oder kabellose Kopfhöhrer haben eine Mini-USB Anschluss.</p>
+                    </div>
+                    <div id ="speed">
+                        <img src ="/imgs/ports/usb/2speed.jpg" alt ="USB 2.0 speed"/>
+                        <p>Dank der erhöhten Datenübertragungsgeschwindigkeit kann der USB Anschluss der zweiten Generation nun auch für grössere Datenübertragungen verwendet werden. Er eignet sich nun beispielsweise zur Benutzung von Festplatten oder Videogeräten. Die Dantenübertragungsrate vom USB 2.0 beträgt nun 480 Mbit/s, also ganze 40 mal so viel wie der USB 1.1, dessen maximale Datenübertragungsrate lediglich 12 Mbit/s betrug.</p>
+                    </div>
+                    <div id ="color">
+                        <img src = "/imgs/ports/usb/2color.jpg" alt ="Black USB 2.0"/>
+                        <p>Einen USB 2.0 Stecker kann man daran erkennen, dass er auf der Innenseite schwarz ist. Dies wird jedoch meist nur beim Stecker des Typs A befolgt, kleinere Stecker, wie beispielsweise der micro USB können auch schwarz sein, obwohl es sich nicht um einen USB 2.0 Anschluss handelt.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

@@ -11,12 +11,13 @@ function addHighlighting() {
     // String of all classnames of the element
     let elementClass = codeSnippets[i].className;
     // The language of the code, declared in the following for-loop
-    let language;
+    let language = '';
     // Iterate over every programming lanuage inside the languages array
     for (programmingLanguage of languages) {
       // If the programming language is inside the elements classes, declare the variable language to be that programming language
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
+    if (language === '') continue;
     // Escape less than and greater than
     let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly
@@ -43,7 +44,7 @@ function addHighlighting() {
       // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored or line start/end with the syntax element encapsulated in a span element and the ignored characters
       for (syntaxElement in codeHighlighting[language]["syntax"]) line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
       // Colour functions
-      line = line.replace(new RegExp('([ \\.\t;]{1}|^)([^\\W\\d]\\w*)(?=(\\(){1})', 'g'), '$1<span style="color: ' + codeHighlighting[language]["functions"] + ';">$2</span>');
+      line = line.replace(new RegExp('([[ ()\\.\t;]{1}|^)([^\\W\\d]\\w*)(?=(\\(){1})', 'g'), '$1<span style="color: ' + codeHighlighting[language]["functions"] + ';">$2</span>');
       // Colour fields
       line = line.replace(new RegExp('\\.([^\\W\\d]\\w*)(?=(' + ignoredCharacters + '|\\.|$){1})', 'g'), '.<span style="color: ' + codeHighlighting[language]["fields"] + ';">$1</span>');
       // Colour Comments

@@ -3,18 +3,25 @@
     "syntax" : {
       "def" : "#22F",
       "class" : "#22F",
-      "while" : "#D108D1",
-      "for" : "#D108D1",
-      "elif" : "#D108D1",
-      "if" : "#D108D1",
-      "else" : "#D108D1",
-      "return" : "#D108D1",
+      "while" : "#C66CAC",
+      "for" : "#C66CAC",
+      "elif" : "#C66CAC",
+      "if" : "#C66CAC",
+      "else" : "#C66CAC",
+      "return" : "#C66CAC",
+      "in" : "#C66CAC",
+      "is" : "#C66CAC",
       "True" : "#FFA500",
-      "False" : "#FFA500"
+      "False" : "#FFA500",
+      "break" : "#C66CAC",
+      "continue" : "#C66CAC",
+      "pass" : "#C66CAC",
+      "import" : "#C66CAC",
+      "lambda" : "#FFA500"
     },
     "comments" : {
       "character" : "#",
-      "color" : "#555"
+      "color" : "#888"
     },
     "strings" : {
       "character" : ["\"", "'"],
@@ -28,20 +35,25 @@
     "syntax" : {
       "int" : "#0C6AF9",
       "string" : "#0C6AF9",
+      "String" : "#0C6AF9",
       "char" : "#0C6AF9",
       "double" : "#0C6AF9",
       "float" : "#0C6AF9",
-      "public" : "#D108D1",
-      "static" : "#D108D1",
-      "while" : "#D108D1",
-      "for" : "#D108D1",
-      "if" : "#D108D1",
-      "else" : "#D108D1",
-      "return" : "#D108D1"
+      "public" : "#C66CAC",
+      "static" : "#C66CAC",
+      "while" : "#C66CAC",
+      "for" : "#C66CAC",
+      "if" : "#C66CAC",
+      "else" : "#C66CAC",
+      "return" : "#C66CAC",
+      "switch" : "#C66CAC",
+      "case" : "#C66CAC",
+      "break" : "#C66CAC",
+      "import" : "#C66CAC"
     },
     "comments" : {
       "character" : "//",
-      "color" : "#555"
+      "color" : "#888"
     },
     "strings" : {
       "character" : ["\"", "'"],

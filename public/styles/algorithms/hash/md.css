@@ -77,6 +77,16 @@ a:hover {
   max-height: 400px;
 }
 
+.blockprocesses {
+  font-family: sans-serif;
+}
+
+.operationsList {
+  font-family: sans-serif;
+  list-style-type: disc;
+  margin-bottom: 20px;
+}
+
 #hasher input {
   width: 100%;
   height: 2em;

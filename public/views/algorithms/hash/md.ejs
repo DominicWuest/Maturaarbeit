@@ -27,6 +27,7 @@
           <li><a href="#specs">Spezifikationen</a></li>
           <li><a href="#functionality">Funktionsweise</a></li>
           <li><a href="#exampleCode">Beispielcode</a><ul>
+            <li><a href="#python">Python</a></li>
             <li><a href="#java">Java</a></li>
           </ul></li>
           <li><a href="#hasher">Text-Hasher</a></li>
@@ -35,8 +36,8 @@
       <div class="text">
         <div id="history">
           <h2>Geschichte</h2>
-          <p>Die Serie der Message Digest Algorithmen wurde ursprünglich von Ronald Rivest vom MIT entwickelt.</p>
-          <p>Im Jahre 1991 entwickelte er den MD5 Algorithmus, nachdem Analysen gezeigt haben, dass der MD4-Algorithmus höchstwahrscheinlich unsicher ist.</p>
+          <p>Die Serie der Message Digest Algorithmen wurde ursprünglich von Ronald Rivest vom MIT entwickelt. Sie wurden zwischen 1985 bis 2010 entwickelt.</p>
+          <p>Momentan gibt es vier Message Digest Algorithmen, MD2 bis MD6.</p>
         </div>
         <div id="usage">
           <h2>Gebrauch</h2>
@@ -71,19 +72,41 @@ I(X, Y, Z) = Y ^ (X | ~Z)</code>
             <li>Der Block wird in 16 32-Bit Wörter aufgeteilt.</li>
             <li>Die Startwerte werden geklont. In diesem Beispiel wird der Klon von <b>a0</b> <b>a</b> genannt, <b>b0</b> <b>b</b> usw.</li>
             <li>Die folgenden 64 Operationen werden durchgeführt:
-              <p></p>
+              <p><b>[abcd k s i f]</b> verkörpert folgende Operation:</p>
+              <p><b>a = b + ((a + f(b,c,d) + C[k] + W[i]) <<< s)</b></p>
+              <p>Der Array mit Name W beinhaltet alle 32-Bit Wörter des momentan bearbeiteten 512-Bit Blocks.</p>
+              <p>Der Array mit Name C beinhaltet 64 Konstanten, welche wie folgt definiert werden: <b>floor(abs(sin(i + 1)) ∗ 2<sup>32</sup>)</b>, wobei <b>i</b> der Index der Konstante ist.</p>
               <ul class="operationsList">
-                <li></li>
+                <li>[ABCD 0 7 1 F] [DABC 1 12 2 F] [CDAB 2 17 3 F] [BCDA 3 22 4 F]</li>
+                <li>[ABCD 4 7 5 F] [DABC 5 12 6 F] [CDAB 6 17 7 F] [BCDA 7 22 8 F]</li>
+                <li>[ABCD 8 7 9 F] [DABC 9 12 10 F] [CDAB 10 17 11 F] [BCDA 11 22 12 F]</li>
+                <li>[ABCD 12 7 13 F] [DABC 13 12 14 F] [CDAB 14 17 15 F] [BCDA 15 22 16 F]</li>
+                <p></p>
+                <li>[ABCD 1 5 17 G] [DABC 6 9 18 G] [CDAB 11 14 19 G] [BCDA 0 20 20 G]</li>
+                <li>[ABCD 5 5 21 G] [DABC 10 9 22 G] [CDAB 15 14 23 G] [BCDA 4 20 24 G]</li>
+                <li>[ABCD 9 5 25 G] [DABC 14 9 26 G] [CDAB 3 14 27 G] [BCDA 8 20 28 G]</li>
+                <li>[ABCD 13 5 29 G] [DABC 2 9 30 G] [CDAB 7 14 31 G] [BCDA 12 20 32 G]</li>
+                <p></p>
+                <li>[ABCD 5 4 33 H] [DABC 8 11 34 H] [CDAB 11 16 35 H] [BCDA 14 23 36 H]</li>
+                <li>[ABCD 1 4 37 H] [DABC 4 11 38 H] [CDAB 7 16 39 H] [BCDA 10 23 40 H]</li>
+                <li>[ABCD 13 4 41 H] [DABC 0 11 42 H] [CDAB 3 16 43 H] [BCDA 6 23 44 H]</li>
+                <li>[ABCD 9 4 45 H] [DABC 12 11 46 H] [CDAB 15 16 47 H] [BCDA 2 23 48 H]</li>
+                <p></p>
+                <li>[ABCD 0 6 49 I] [DABC 7 10 50 I] [CDAB 14 15 51 I] [BCDA 5 21 52 I]</li>
+                <li>[ABCD 12 6 53 I] [DABC 3 10 54 I] [CDAB 10 15 55 I] [BCDA 1 21 56 I]</li>
+                <li>[ABCD 8 6 57 I] [DABC 15 10 58 I] [CDAB 6 15 59 I] [BCDA 13 21 60 I]</li>
+                <li>[ABCD 4 6 61 I] [DABC 11 10 62 I] [CDAB 2 15 63 I] [BCDA 9 21 64 I]</li>
               </ul>
             </li>
-            <li>Schlussendlich werden die neuen Werte für <b>a</b>, <b>b</b>, <b>c</b> sowie <b>d</b> zu dem Startwert, dessen Klon sie sind, addiert.</li>
+            <li>Die neuen Werte für <b>a</b>, <b>b</b>, <b>c</b> sowie <b>d</b> werden zu dem Startwert, dessen Klon sie sind, addiert.</li>
           </ol>
+          <p>Schlussendlich wird der Hex-String des Hashes produziert, indem man mit dem low-order Byte von <b>a</b> beginnt und mit dem high-order Byte von <b>d</b> endet.</p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
           <p>Diese Beispielcodes zeigen mögliche Implementierungen des MD5-Algorithmus.</p>
           <p>Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">import math
+          <code class="code python" id="python">import math
 
 def md5(message):
     constants = [math.floor(abs(math.sin(i + 1)) * 2 ** 32) for i in range(64)]
@@ -139,7 +162,7 @@ def toLittleEndianStr(num):
         part = hex(num >> i * 8 & 0xFF)[2:]
         part = '0' * (2 - len(part)) + part
         arr.append(part)
-    return "".join(i for i in arr)
+    return ''.join(i for i in arr)
 
 def leftRotate(num, shift):
     num &= 0xFFFFFFFF
@@ -152,7 +175,7 @@ H = lambda X, Y, Z: X ^ Y ^ Z
 I = lambda X, Y, Z: Y ^ (X | ~Z)
 </code>
           <p>Dies ist ein in Java geschriebener Beispielcode:</p>
-          <code class="code java">import java.lang.Math;
+          <code class="code java" id="java">import java.lang.Math;
 .
 .
 .

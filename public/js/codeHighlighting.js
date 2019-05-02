@@ -51,11 +51,11 @@ function addHighlighting() {
       line = line.split(codeHighlighting[language]["comments"]["character"]);
       // If the length of the splitted line is greater than one, there is a comment character included in the line
       if (line.length > 1) {
-        for (let j = 0; j < line.length; j++) {
+        for (let j = 0; j < line.length - 1; j++) {
           // If the comment doesn't come from a span-tag (colour declared with hex-value)
           if (line[j].substring(line[j].length - 14) !== "style=\"color: ") {
             // Create new span-tag and end it at the end of the line
-            line[j] = line[j] += '<span style="color: ' + codeHighlighting[language]["comments"]["color"] + '";>';
+            line[j] += '<span style="color: ' + codeHighlighting[language]["comments"]["color"] + '";>';
             line[line.length - 1] += '</span>';
             // Break loop since comments span until the very end of the line
             break;

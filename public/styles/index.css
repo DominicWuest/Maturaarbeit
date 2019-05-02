@@ -163,7 +163,8 @@ a:hover {
 }
 
 .newestCourses {
-  margin-top: 3vh;
+  box-sizing: border-box;
+  border-top: 1vh solid transparent;
 }
 
 .mostPopular .title, .newestCourses .title {

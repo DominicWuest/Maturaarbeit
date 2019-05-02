@@ -7,6 +7,13 @@ body {
   background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
 }
 
+html,body {
+  text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+}
+
 main {
   scroll-behavior: smooth;
   box-sizing: border-box;
@@ -72,8 +79,8 @@ a:hover {
   overflow: auto;
   background-color: #444;
   color: #BBB;
-  border-radius: 8px;
   white-space: pre;
+  border-radius: 8px;
   max-height: 400px;
 }
 
@@ -82,13 +89,20 @@ a:hover {
 }
 
 .operationsList {
+  background: rgba(200, 200, 200, 0.8);
+  padding: 25px;
+  padding-left: 35px;
+  border-radius: 50px;
   display: block;
   font-family: sans-serif;
   list-style-type: disc;
   margin-bottom: 20px;
   max-height: 400px;
-  white-space: nowrap;
   overflow: auto;
+}
+
+.operationsList li {
+  white-space: nowrap;
 }
 
 #hasher input {
@@ -100,6 +114,7 @@ a:hover {
   border: none;
   padding: 4px 6px;
   background-color: #DDD;
+  font-size: 100%;
 }
 
 #hasher input:focus {
@@ -116,4 +131,10 @@ a:hover {
   color: #DDD;
   background-color: #777;
   padding: 4px 6px;
+}
+
+@media only screen and (max-width : 1000px) {
+  html {
+    font-size: 200%;
+  }
 }

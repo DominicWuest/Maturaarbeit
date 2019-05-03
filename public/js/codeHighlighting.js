@@ -25,6 +25,30 @@ function addHighlighting() {
     // Check every line seperately, simplifies the process of colouring comments
     for (let i = 0; i < code.length; i++) {
       let line = code[i];
+      // Colour Comments
+      line = line.split(codeHighlighting[language]["comments"]["character"]);
+      let commentInLine = false;
+      // If the length of the splitted line is greater than one, there is a comment character included in the line
+      if (line.length > 1) {
+        for (let j = 0; j < line.length - 1; j++) {
+          // If the comment doesn't come from a span-tag (colour declared with hex-value)
+          if (line[j].substring(line[j].length - 14) !== "style=\"color: ") {
+            // Create new span-tag and end it at the end of the line
+            line[j] += '<span style="color: ' + codeHighlighting[language]["comments"]["color"] + '";>';
+            line[line.length - 1] += '</span>';
+            commentInLine = true;
+            // Break loop since comments span until the very end of the line
+            break;
+          }
+        }
+      }
+      // Join the splitted line with the comment character
+      line = line.join(codeHighlighting[language]["comments"]["character"]);
+      // Continue with next Line if there is a comment in the current line
+      if (commentInLine) {
+        code[i] = line;
+        continue;
+      }
       // Colour Strings
       for (stringNotation of codeHighlighting[language]["strings"]["character"]) {
         // If the string notation is not inside the currently checked line, continue with next string notation
@@ -47,23 +71,6 @@ function addHighlighting() {
       line = line.replace(new RegExp('([[ ()\\.\t;]{1}|^)([^\\W\\d]\\w*)(?=(\\(){1})', 'g'), '$1<span style="color: ' + codeHighlighting[language]["functions"] + ';">$2</span>');
       // Colour fields
       line = line.replace(new RegExp('\\.([^\\W\\d]\\w*)(?=(' + ignoredCharacters + '|\\.|$){1})', 'g'), '.<span style="color: ' + codeHighlighting[language]["fields"] + ';">$1</span>');
-      // Colour Comments
-      line = line.split(codeHighlighting[language]["comments"]["character"]);
-      // If the length of the splitted line is greater than one, there is a comment character included in the line
-      if (line.length > 1) {
-        for (let j = 0; j < line.length - 1; j++) {
-          // If the comment doesn't come from a span-tag (colour declared with hex-value)
-          if (line[j].substring(line[j].length - 14) !== "style=\"color: ") {
-            // Create new span-tag and end it at the end of the line
-            line[j] += '<span style="color: ' + codeHighlighting[language]["comments"]["color"] + '";>';
-            line[line.length - 1] += '</span>';
-            // Break loop since comments span until the very end of the line
-            break;
-          }
-        }
-      }
-      // Join the splitted line with the comment character
-      line = line.join(codeHighlighting[language]["comments"]["character"]);
       code[i] = line;
     }
     // Join the code with newlines, making it a one-line string again

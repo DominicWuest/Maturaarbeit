@@ -63,7 +63,7 @@ main {
 }
 
 #exerciseTitle h1 {
-  background-image: url(/imgs/programminglanguages/dropdown.png);
+  background-image: url(/imgs/languages/dropdown.png);
   background-repeat: no-repeat;
   background-position: 100%;
   background-size: contain;
@@ -224,7 +224,7 @@ button::-moz-focus-inner {
 }
 
 .input button[name="run"] {
-  background-image: url(/imgs/programminglanguages/run.png);
+  background-image: url(/imgs/languages/run.png);
   background-repeat: no-repeat;
   background-size: auto 100%;
   padding-left: 1.7vh;
@@ -233,20 +233,20 @@ button::-moz-focus-inner {
 .input button[name="run"]:active {
   color: white;
   background-color: #1ABC9C;
-  background-image: url(/imgs/programminglanguages/runActive.png);
+  background-image: url(/imgs/languages/runActive.png);
 }
 
 .input button[name="solution"] {
   visibility: visible;
   background-color: rgba(0, 0, 0, 0);
-  background-image: url(/imgs/programminglanguages/solution.png);
+  background-image: url(/imgs/languages/solution.png);
   background-repeat: no-repeat;
   background-size: auto 100%;
 }
 
 .solutionButtonDiv {
   background-color: white;
-  background-image: url(/imgs/programminglanguages/solution.png);
+  background-image: url(/imgs/languages/solution.png);
   background-repeat: no-repeat;
   background-position: 99%;
   background-size: auto 100%;
@@ -255,16 +255,16 @@ button::-moz-focus-inner {
 
 .solutionButtonDiv:active {
   background-color: #FE9900;
-  background-image: url(/imgs/programminglanguages/solutionActive.png);
+  background-image: url(/imgs/languages/solutionActive.png);
 }
 
 .input button[name="solution"]:active {
   color: white;
-  background-image: url(/imgs/programminglanguages/solutionActive.png);
+  background-image: url(/imgs/languages/solutionActive.png);
 }
 
 .input button[name="reset"] {
-  background-image: url(/imgs/programminglanguages/reset.png);
+  background-image: url(/imgs/languages/reset.png);
   background-repeat: no-repeat;
   background-position: 99%;
   background-size: auto 90%;
@@ -274,7 +274,7 @@ button::-moz-focus-inner {
 .input button[name="reset"]:active {
   color: white;
   background-color: #E74C3C;
-  background-image: url(/imgs/programminglanguages/resetActive.png);
+  background-image: url(/imgs/languages/resetActive.png);
 }
 
 .input button:focus {

@@ -96,10 +96,10 @@ app.get('/courses', urlencodedParser, function(req, res) {
 });
 
 // Routing for the python programming page. Seperate, since it needs pythonCourses, while other courses don't
-app.get('/programminglanguages/python', function(req, res) {
-  res.render('programminglanguages/python', {
+app.get('/languages/python', function(req, res) {
+  res.render('languages/python', {
     'courses' : courses,
-    'path' : '/programminglanguages/python',
+    'path' : '/languages/python',
     'pythonCourses' : pythonCourses,
     'codeHighlighting' : codeHighlighting
   });

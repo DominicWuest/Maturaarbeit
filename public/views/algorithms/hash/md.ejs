@@ -74,7 +74,7 @@ I(X, Y, Z) = Y ^ (X | ~Z)</code>
             <li>Die folgenden 64 Operationen werden durchgeführt:
               <p><b>[abcd k s i f]</b> verkörpert folgende Operation:</p>
               <p><b>a = b + ((a + f(b,c,d) + C[k] + W[i]) <<< s)</b></p>
-              <p>Der Array mit Name W beinhaltet alle 32-Bit Wörter des momentan bearbeiteten 512-Bit Blocks.</p>
+              <p>Der Array mit Name W beinhaltet alle 32-Bit Wörter des momentan bearbeiteten 512-Bit-Blocks.</p>
               <p>Der Array mit Name C beinhaltet 64 Konstanten, welche wie folgt definiert werden: <b>floor(abs(sin(i + 1)) ∗ 2<sup>32</sup>)</b>, wobei <b>i</b> der Index der Konstante ist.</p>
               <ul class="operationsList">
                 <li>[ABCD 0 7 1 F] [DABC 1 12 2 F] [CDAB 2 17 3 F] [BCDA 3 22 4 F]</li>
@@ -106,32 +106,49 @@ I(X, Y, Z) = Y ^ (X | ~Z)</code>
           <h2>Beispielcode</h2>
           <p>Diese Beispielcodes zeigen mögliche Implementierungen des MD5-Algorithmus.</p>
           <p>Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python" id="python">import math
+          <code class="code python" id="python"># Nötiger Import
+import math
 
+# Diese Funktion nimmt einen String entgegen und gibt dessen MD5-Hash zurück
 def md5(message):
+    # Initialisierung des Konstanten-Arrays
     constants = [math.floor(abs(math.sin(i + 1)) * 2 ** 32) for i in range(64)]
+    # Deklarierung des Byte-Arrays und Hinzufügung der Nachricht in Bytes
     bytesArr = [ord(i) for i in message]
+    # Hinzufügung des paddenden 1-Bits zum Byte-Array
     bytesArr.append(1 << 7)
+    # Hinzufügung der paddenden 0-Bits zum Byte-Array
     while len(bytesArr) * 8 % 512 != 448:
         bytesArr.append(0)
+    # Länge der Nachricht in Bits
     msgLen = len(message) * 8
+    # Hinzufügung einer 64-Bit-Repräsentation der Länge der Nachricht in Bits zum Byte-Array
     for i in range(8):
         bytesArr.append(msgLen & 0xFF)
         msgLen >>= 8
+    # Deklarierung des Arrays, welcher alle 32-Bit-Wörter enthält
     words = []
+    # Konvertierung und Hinzufügung zum Word-Array von 8 Bytes zu einem Wort
     for i in range(len(bytesArr) - 1, 0, -4):
         word = 0
         for j in range(4):
             word <<= 8
             word |= bytesArr[i - j]
         words = [word] + words
+
+    # Deklarierung der Startwerte
     a0 = 0x67452301
     b0 = 0xEFCDAB89
     c0 = 0x98BADCFE
     d0 = 0x10325476
+
+    # Deklarierung der Klone der Startwerte
     a = 0; b = 0; c = 0; d = 0
+    # Iterierung aller 512-Bit-Blöcke
     for startingIndex in range(0, len(words), 16):
+        # Initialisierung der Klone der Startwerte
         a = a0; b = b0; c = c0; d = d0
+        # Durchführung der 64 Operationen
         for i in range(64):
             if i < 16:
                 if i % 4 == 0: a = iterate(a, b, c, d, F, words[startingIndex + i], 7, constants[i])
@@ -153,9 +170,12 @@ def md5(message):
                 elif i % 4 == 1: d = iterate(d, a, b, c, I, words[startingIndex + (7 * i) % 16], 10, constants[i])
                 elif i % 4 == 2: c = iterate(c, d, a, b, I, words[startingIndex + (7 * i) % 16], 15, constants[i])
                 else: b = iterate(b, c, d, a, I, words[startingIndex + (7 * i) % 16], 21, constants[i])
+        # Addierung der neu kalkulierten Werte zu den Startwerten
         a0 += a; b0 += b; c0 += c; d0 += d
+    # Rückgabe des Hash-Strings
     return toLittleEndianStr(a0 % 2 ** 32) + toLittleEndianStr(b0 % 2 ** 32) + toLittleEndianStr(c0 % 2 ** 32) + toLittleEndianStr(d0 % 2 ** 32)
 
+# Diese Funktion nimmt eine Nummer entgegen und gibt dessen Little-Endian String zurück
 def toLittleEndianStr(num):
     arr = []
     for i in range(4):
@@ -164,35 +184,53 @@ def toLittleEndianStr(num):
         arr.append(part)
     return ''.join(i for i in arr)
 
+# Diese Funktion führt eine bitwise circular rotation um shift Bits an der Nummer num aus
 def leftRotate(num, shift):
+    # Konvertierung der Nummer zu einer 32-Bit-Nummer
     num &= 0xFFFFFFFF
     return ((num << shift) | (num >> (32 - shift))) & 0xFFFFFFFF
 
+# Definierung der Funktion, welche einer Iteration der 64 Operationen durchführt
 iterate = lambda a, b, c, d, func, word, shift, constant: (b + leftRotate(a + func(b, c, d) + word + constant, shift)) % 2 ** 32
+
+# Definierung der Funktionen, welche für die 64 Operationen gebraucht werden
 F = lambda X, Y, Z: X & Y | ~X & Z
 G = lambda X, Y, Z: X & Z | Y & ~Z
 H = lambda X, Y, Z: X ^ Y ^ Z
 I = lambda X, Y, Z: Y ^ (X | ~Z)
 </code>
           <p>Dies ist ein in Java geschriebener Beispielcode:</p>
-          <code class="code java" id="java">import java.lang.Math;
+          <code class="code java" id="java">// Nötiger Import
+import java.lang.Math;
 .
 .
 .
+// Diese Funktion nimmt eine Nachricht als String entgegen und gibt dessen MD5-Hash zurück
 public static String md5(String message) {
+  // Der Array mit den Konstanten
   int[] constants = new int[64];
+  // Füllung des Konstanten-Arrays
   for (int i = 1; i <= 64; i++) constants[i - 1] = (int)Math.round(Math.floor(Math.abs(Math.sin(i) * Math.pow(2, 32))));
+  // Der Array, welche die Nachricht und das Padding enthält
   int[] bytes = new int[(message.length() / 57 + 1) * 64];
+  // Hinzufügung der Nachricht in Bytes zum Byte-Array
   for (int i = 0; i < message.length(); i++) bytes[i] = (int)message.charAt(i);
+  // Hinzufügung des paddenden 1-Bits zum Byte-Array
   bytes[message.length()] = 1 << 7;
+  // Hinzufügung der paddenden 0-Bits zum Byte-Array
   for (int i = message.length() + 1; i < bytes.length - 8; i++) bytes[i] = 0;
+  // Länge der Nachricht in Bits
   int msgLen = message.length() * 8;
+  // Hinzufügung einer 64-Bit-Repräsentation der Länge der Nachricht in Bits zum Byte-Array
   for (int i = 0; i < 8; i++) {
     bytes[bytes.length - 8 + i] = msgLen & 0xFF;
     msgLen >>= 8;
   }
+  // Der Array, welche alle 32-Bit-Wörter enthält
   int[] words = new int[(message.length() / 57 + 1) * 16];
+  // Hinzufügung der Wörter des Byte-Arrays
   for (int i = bytes.length - 1; i > 0; i-= 4) {
+    // Konvertierung von 8 Bytes zu einem Wort und Hinzufügung zum Word-Array
     int word = 0;
     for (int j = 0; j < 4; j++) {
       word <<= 8;
@@ -200,14 +238,20 @@ public static String md5(String message) {
     }
     words[i / 4] = word;
   }
+
+  // Deklarierung der Startwerte
   int a0 = 0x67452301;
   int b0 = 0xEFCDAB89;
   int c0 = 0x98BADCFE;
   int d0 = 0x10325476;
 
+  // Initialisierung der Klone der Startwerte
   int a, b, c, d;
+  // Iterierung aller 512-Bit-Blöcke
   for (int startingIndex = 0; startingIndex < words.length; startingIndex += 16) {
+    // Deklarierung der Klone der Startwerte
     a = a0; b = b0; c = c0; d = d0;
+    // Die Iterierung der 64 Operationen
     for (int i = 0; i < 64; i++) {
       if (i < 16) {
         switch (i % 4) {
@@ -239,11 +283,14 @@ public static String md5(String message) {
         }
       }
     }
+    // Addierung der neu kalkulierten Werte zu den Startwerten
     a0 += a; b0 += b; c0 += c; d0 += d;
   }
+  // Rückgabe des Hash-Strings
   return toLittleEndianStr(a0 % (int)Math.pow(2, 32)) + toLittleEndianStr(b0 % (int)Math.pow(2, 32)) + toLittleEndianStr(c0 % (int)Math.pow(2, 32)) + toLittleEndianStr(d0 % (int)Math.pow(2, 32));
 }
 
+// Diese Funktion nimmt eine Nummer entgegen und gibt dessen Little-Endian String zurück
 public static String toLittleEndianStr(int num) {
   String[] arr = new String[4];
   for (int i = 0; i < 4; i++) {
@@ -258,10 +305,13 @@ public static String toLittleEndianStr(int num) {
   return littleEndianStr;
 }
 
+
+// Diese Funktion führt eine bitwise circular rotation um shift Bits an der Nummer num aus
 public static int leftRotate(int num, int shift) {
   return (num << shift) | (num >>> (32 - shift));
 }
 
+// Definierung der Funktionen, welche für die 64 Operationen gebraucht werden
 public static int F(int X, int Y, int Z) {
   return X & Y | ~X & Z;
 }

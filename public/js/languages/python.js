@@ -28,7 +28,7 @@ function runit() {
   running = true;
   finished = false;
   // Create the worker and send it data
-  let worker = new Worker('/js/programminglanguages/pythonWorker.js');
+  let worker = new Worker('/js/languages/pythonWorker.js');
   let code = document.getElementById('textarea').value;
   worker.postMessage(code);
   let myPre = document.getElementById('output');
@@ -57,7 +57,7 @@ function runit() {
 // Gets called whenever the users Python code has finished running
 function checkSolution(output) {
   // Don't check the solution if the user has completed all subexercises
-  if (exerciseFinished) return;
+  if (exerciseFinished || courseIndex === 0) return;
   // If the outputmatches the expected output of the subexercise
   if (output === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');

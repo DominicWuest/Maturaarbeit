@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Message-Digest Algorithmus</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body onload="hash(''); addHighlighting();">
+    <%- include ../../partials/header.ejs %>
+    <main>
+      <div class="title">
+        <h1>Message Digest Hash-Algorithmus</h1>
+      </div>
+      <div class="pageShortcuts">
+        <h2>Page Shortcuts</h2>
+        <ul>
+          <li><a href="#history">Geschichte</a></li>
+          <li><a href="#usage">Gebrauch</a></li>
+          <li><a href="#specs">Spezifikationen</a></li>
+          <li><a href="#functionality">Funktionsweise</a></li>
+          <li><a href="#exampleCode">Beispielcode</a><ul>
+            <li><a href="#python">Python</a></li>
+            <li><a href="#java">Java</a></li>
+          </ul></li>
+          <li><a href="#hasher">Input-Hasher</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="history">
+          <h2>Geschichte</h2>
+          <p>Die Serie der Message Digest Algorithmen wurde ursprünglich von Ronald Rivest vom MIT entwickelt. Sie wurden zwischen 1985 und 2010 entwickelt.</p>
+          <p>Momentan gibt es vier Message Digest Algorithmen, MD2 bis MD6.</p>
+        </div>
+        <div id="usage">
+          <h2>Gebrauch</h2>
+          <p>Aufgrund der <a href="#specs">kritischen Schwachstellen</a> des Algorithmus sollte er nie zur Verschlüsselung von Daten verwendet werden.</p>
+          <p>Heutzutage wird der MD-Algorithmus hauptsächlich zur Kreierung von digital Fingerprints benutzt. Diese sind nützlich, um zu überprüfen, ob keine Daten bei Übertragungen verloren gegangen sind, da eine Datei vor und nach der Transmission den gleichen Hash mit sich bringt, falls kein Datenverlust stattgefunden hat.</p>
+        </div>
+        <div id="specs">
+          <h2>Spezifikationen</h2>
+          <p>Der MD-Algorithmus produziert einen 128-Bit Hash.</p>
+          <p>Somit kann er 2<sup>128</sup> (Circa 3.4 ∗ 10<sup>38</sup>) einzigartige Hashes hervorbringen.</p>
+          <p>Trotzdessen wird er heute als unsicher klassifiziert. Manchmal genügt lediglich eine schnelle <a href="https://www.google.com/search?q=276f8db0b86edaa7fc805516c852c889&rlz=1C1CHBF_deCH819CH819&oq=276f8db0b86edaa7fc805516c852c889&aqs=chrome..69i57.411j0j7&sourceid=chrome&ie=UTF-8" target="_blank">Google Suche</a> eines Hashes, um dessen Ursprung herauszufinden.</p>
+          <p>Aufgrund der schnellen Generierung eines MD-Hashes ist es relativ einfach, eine Kollision zu bruteforcen.</p>
+          <p>Eine Kollision eines MD5-Hashes kann durch Anwendung von verschiedenen Tricks in 15-60 Minuten gefunden werden, wobei dies bei einem MD4-Hash weniger als eine Sekunde dauert.</p>
+        </div>
+        <div id="functionality">
+          <h2>Funktionsweise</h2>
+          <p>Als erstes wird die Nachricht in Bits umgewandelt. Anschliessend folgt das Padding. Gepaddet wird, indem ein Bit von eins angefügt wird und dann so lange Bits von null, bis die Länge der Nachricht Modulo 512 448 ergibt. Anschliessend wird eine 64-Bit Repräsentation der originalen Länge der Nachricht angefügt.</p>
+          <p>Nun müssen vier Variabeln mit folgenden Startwerten deklariert werden:</p>
+          <code class="code">a0 = 0x67452301
+b0 = 0xEFCDAB89
+c0 = 0x98BADCFE
+d0 = 0x10325476</code>
+          <p>Der weitere Prozess basiert auf die vier folgenden Funktionen:</p>
+          <code class="code python">F(X, Y, Z) = (X & Y) | (~X & Z)
+G(X, Y, Z) = (X & Z) | (Y & ~Z)
+H(X, Y, Z) = X ^ Y ^ Z
+I(X, Y, Z) = Y ^ (X | ~Z)</code>
+          <p>Hierbei ist <b>&</b> Bitwise <b>AND</b>, <b>|</b> Bitwise <b>OR</b>, <b>^</b> Bitwise <b>XOR</b> und <b>~</b> Bitwise Negierung.</p>
+          <p>Die gepaddete Nachricht wird nun in Blöcke mit einer Länge von 512 Bits aufgeteilt.</p>
+          <p>Der folgende Prozess wird nun für jeden Block durchgeführt:</p>
+          <ol class="blockprocesses">
+            <li>Der Block wird in 16 32-Bit Wörter aufgeteilt.</li>
+            <li>Die Startwerte werden geklont. In diesem Beispiel wird der Klon von <b>a0</b> <b>a</b> genannt, <b>b0</b> <b>b</b> usw.</li>
+            <li>Die folgenden 64 Operationen werden durchgeführt:
+              <p><b>[abcd k s i f]</b> verkörpert folgende Operation:</p>
+              <p><b>a = b + ((a + f(b,c,d) + C[k] + W[i]) <<< s)</b></p>
+              <p>Der Array mit Name W beinhaltet alle 32-Bit Wörter des momentan bearbeiteten 512-Bit-Blocks.</p>
+              <p>Der Array mit Name C beinhaltet 64 Konstanten, welche wie folgt definiert werden: <b>floor(abs(sin(i + 1)) ∗ 2<sup>32</sup>)</b>, wobei <b>i</b> der Index der Konstante ist.</p>
+              <ul class="operationsList">
+                <li>[ABCD 0 7 1 F] [DABC 1 12 2 F] [CDAB 2 17 3 F] [BCDA 3 22 4 F]</li>
+                <li>[ABCD 4 7 5 F] [DABC 5 12 6 F] [CDAB 6 17 7 F] [BCDA 7 22 8 F]</li>
+                <li>[ABCD 8 7 9 F] [DABC 9 12 10 F] [CDAB 10 17 11 F] [BCDA 11 22 12 F]</li>
+                <li>[ABCD 12 7 13 F] [DABC 13 12 14 F] [CDAB 14 17 15 F] [BCDA 15 22 16 F]</li>
+                <p></p>
+                <li>[ABCD 1 5 17 G] [DABC 6 9 18 G] [CDAB 11 14 19 G] [BCDA 0 20 20 G]</li>
+                <li>[ABCD 5 5 21 G] [DABC 10 9 22 G] [CDAB 15 14 23 G] [BCDA 4 20 24 G]</li>
+                <li>[ABCD 9 5 25 G] [DABC 14 9 26 G] [CDAB 3 14 27 G] [BCDA 8 20 28 G]</li>
+                <li>[ABCD 13 5 29 G] [DABC 2 9 30 G] [CDAB 7 14 31 G] [BCDA 12 20 32 G]</li>
+                <p></p>
+                <li>[ABCD 5 4 33 H] [DABC 8 11 34 H] [CDAB 11 16 35 H] [BCDA 14 23 36 H]</li>
+                <li>[ABCD 1 4 37 H] [DABC 4 11 38 H] [CDAB 7 16 39 H] [BCDA 10 23 40 H]</li>
+                <li>[ABCD 13 4 41 H] [DABC 0 11 42 H] [CDAB 3 16 43 H] [BCDA 6 23 44 H]</li>
+                <li>[ABCD 9 4 45 H] [DABC 12 11 46 H] [CDAB 15 16 47 H] [BCDA 2 23 48 H]</li>
+                <p></p>
+                <li>[ABCD 0 6 49 I] [DABC 7 10 50 I] [CDAB 14 15 51 I] [BCDA 5 21 52 I]</li>
+                <li>[ABCD 12 6 53 I] [DABC 3 10 54 I] [CDAB 10 15 55 I] [BCDA 1 21 56 I]</li>
+                <li>[ABCD 8 6 57 I] [DABC 15 10 58 I] [CDAB 6 15 59 I] [BCDA 13 21 60 I]</li>
+                <li>[ABCD 4 6 61 I] [DABC 11 10 62 I] [CDAB 2 15 63 I] [BCDA 9 21 64 I]</li>
+              </ul>
+            </li>
+            <li>Die neuen Werte für <b>a</b>, <b>b</b>, <b>c</b> sowie <b>d</b> werden zu dem Startwert, dessen Klon sie sind, addiert.</li>
+          </ol>
+          <p>Schlussendlich wird der Hex-String des Hashes produziert, indem man mit dem low-order Byte von <b>a</b> beginnt und mit dem high-order Byte von <b>d</b> endet.</p>
+        </div>
+        <div id="exampleCode">
+          <h2>Beispielcode</h2>
+          <p>Diese Beispielcodes zeigen mögliche Implementierungen des MD5-Algorithmus.</p>
+          <p>Dies ist ein in Python geschriebener Beispielcode:</p>
+          <code class="code python" id="python"># Nötiger Import
+import math
+
+# Diese Funktion nimmt einen String entgegen und gibt dessen MD5-Hash zurück
+def md5(message):
+    # Initialisierung des Konstanten-Arrays
+    constants = [math.floor(abs(math.sin(i + 1)) * 2 ** 32) for i in range(64)]
+    # Deklarierung des Byte-Arrays und Hinzufügung der Nachricht in Bytes
+    bytesArr = [ord(i) for i in message]
+    # Hinzufügung des paddenden 1-Bits zum Byte-Array
+    bytesArr.append(1 << 7)
+    # Hinzufügung der paddenden 0-Bits zum Byte-Array
+    while len(bytesArr) * 8 % 512 != 448:
+        bytesArr.append(0)
+    # Länge der Nachricht in Bits
+    msgLen = len(message) * 8
+    # Hinzufügung einer 64-Bit-Repräsentation der Länge der Nachricht in Bits zum Byte-Array
+    for i in range(8):
+        bytesArr.append(msgLen & 0xFF)
+        msgLen >>= 8
+    # Deklarierung des Arrays, welcher alle 32-Bit-Wörter enthält
+    words = []
+    # Konvertierung und Hinzufügung zum Word-Array von 8 Bytes zu einem Wort
+    for i in range(len(bytesArr) - 1, 0, -4):
+        word = 0
+        for j in range(4):
+            word <<= 8
+            word |= bytesArr[i - j]
+        words = [word] + words
+
+    # Deklarierung der Startwerte
+    a0 = 0x67452301
+    b0 = 0xEFCDAB89
+    c0 = 0x98BADCFE
+    d0 = 0x10325476
+
+    # Deklarierung der Klone der Startwerte
+    a = 0; b = 0; c = 0; d = 0
+    # Iterierung aller 512-Bit-Blöcke
+    for startingIndex in range(0, len(words), 16):
+        # Initialisierung der Klone der Startwerte
+        a = a0; b = b0; c = c0; d = d0
+        # Durchführung der 64 Operationen
+        for i in range(64):
+            if i < 16:
+                if i % 4 == 0: a = iterate(a, b, c, d, F, words[startingIndex + i], 7, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, F, words[startingIndex + i], 12, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, F, words[startingIndex + i], 17, constants[i])
+                else: b = iterate(b, c, d, a, F, words[startingIndex + i], 22, constants[i])
+            elif i < 32:
+                if i % 4 == 0: a = iterate(a, b, c, d, G, words[startingIndex + (5 * i + 1) % 16], 5, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, G, words[startingIndex + (5 * i + 1) % 16], 9, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, G, words[startingIndex + (5 * i + 1) % 16], 14, constants[i])
+                else: b = iterate(b, c, d, a, G, words[startingIndex + (5 * i + 1) % 16], 20, constants[i])
+            elif i < 48:
+                if i % 4 == 0: a = iterate(a, b, c, d, H, words[startingIndex + (3 * i + 5) % 16], 4, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, H, words[startingIndex + (3 * i + 5) % 16], 11, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, H, words[startingIndex + (3 * i + 5) % 16], 16, constants[i])
+                else: b = iterate(b, c, d, a, H, words[startingIndex + (3 * i + 5) % 16], 23, constants[i])
+            else:
+                if i % 4 == 0: a = iterate(a, b, c, d, I, words[startingIndex + (7 * i) % 16], 6, constants[i])
+                elif i % 4 == 1: d = iterate(d, a, b, c, I, words[startingIndex + (7 * i) % 16], 10, constants[i])
+                elif i % 4 == 2: c = iterate(c, d, a, b, I, words[startingIndex + (7 * i) % 16], 15, constants[i])
+                else: b = iterate(b, c, d, a, I, words[startingIndex + (7 * i) % 16], 21, constants[i])
+        # Addierung der neu kalkulierten Werte zu den Startwerten
+        a0 += a; b0 += b; c0 += c; d0 += d
+    # Rückgabe des Hash-Strings
+    return toLittleEndianStr(a0 % 2 ** 32) + toLittleEndianStr(b0 % 2 ** 32) + toLittleEndianStr(c0 % 2 ** 32) + toLittleEndianStr(d0 % 2 ** 32)
+
+# Diese Funktion nimmt eine Nummer entgegen und gibt dessen Little-Endian String zurück
+def toLittleEndianStr(num):
+    arr = []
+    for i in range(4):
+        part = hex(num >> i * 8 & 0xFF)[2:]
+        part = '0' * (2 - len(part)) + part
+        arr.append(part)
+    return ''.join(i for i in arr)
+
+# Diese Funktion führt eine bitwise circular rotation um shift Bits an der Nummer num aus
+def leftRotate(num, shift):
+    # Konvertierung der Nummer zu einer 32-Bit-Nummer
+    num &= 0xFFFFFFFF
+    return ((num << shift) | (num >> (32 - shift))) & 0xFFFFFFFF
+
+# Definierung der Funktion, welche einer Iteration der 64 Operationen durchführt
+iterate = lambda a, b, c, d, func, word, shift, constant: (b + leftRotate(a + func(b, c, d) + word + constant, shift)) % 2 ** 32
+
+# Definierung der Funktionen, welche für die 64 Operationen gebraucht werden
+F = lambda X, Y, Z: X & Y | ~X & Z
+G = lambda X, Y, Z: X & Z | Y & ~Z
+H = lambda X, Y, Z: X ^ Y ^ Z
+I = lambda X, Y, Z: Y ^ (X | ~Z)
+</code>
+          <p>Dies ist ein in Java geschriebener Beispielcode:</p>
+          <code class="code java" id="java">// Nötiger Import
+import java.lang.Math;
+.
+.
+.
+// Diese Funktion nimmt eine Nachricht als String entgegen und gibt dessen MD5-Hash zurück
+public static String md5(String message) {
+  // Der Array mit den Konstanten
+  int[] constants = new int[64];
+  // Füllung des Konstanten-Arrays
+  for (int i = 1; i <= 64; i++) constants[i - 1] = (int)Math.round(Math.floor(Math.abs(Math.sin(i) * Math.pow(2, 32))));
+  // Der Array, welche die Nachricht und das Padding enthält
+  int[] bytes = new int[(message.length() / 57 + 1) * 64];
+  // Hinzufügung der Nachricht in Bytes zum Byte-Array
+  for (int i = 0; i < message.length(); i++) bytes[i] = (int)message.charAt(i);
+  // Hinzufügung des paddenden 1-Bits zum Byte-Array
+  bytes[message.length()] = 1 << 7;
+  // Hinzufügung der paddenden 0-Bits zum Byte-Array
+  for (int i = message.length() + 1; i < bytes.length - 8; i++) bytes[i] = 0;
+  // Länge der Nachricht in Bits
+  int msgLen = message.length() * 8;
+  // Hinzufügung einer 64-Bit-Repräsentation der Länge der Nachricht in Bits zum Byte-Array
+  for (int i = 0; i < 8; i++) {
+    bytes[bytes.length - 8 + i] = msgLen & 0xFF;
+    msgLen >>= 8;
+  }
+  // Der Array, welche alle 32-Bit-Wörter enthält
+  int[] words = new int[(message.length() / 57 + 1) * 16];
+  // Hinzufügung der Wörter des Byte-Arrays
+  for (int i = bytes.length - 1; i > 0; i-= 4) {
+    // Konvertierung von 8 Bytes zu einem Wort und Hinzufügung zum Word-Array
+    int word = 0;
+    for (int j = 0; j < 4; j++) {
+      word <<= 8;
+      word |= bytes[i - j];
+    }
+    words[i / 4] = word;
+  }
+
+  // Deklarierung der Startwerte
+  int a0 = 0x67452301;
+  int b0 = 0xEFCDAB89;
+  int c0 = 0x98BADCFE;
+  int d0 = 0x10325476;
+
+  // Initialisierung der Klone der Startwerte
+  int a, b, c, d;
+  // Iterierung aller 512-Bit-Blöcke
+  for (int startingIndex = 0; startingIndex < words.length; startingIndex += 16) {
+    // Deklarierung der Klone der Startwerte
+    a = a0; b = b0; c = c0; d = d0;
+    // Die Iterierung der 64 Operationen
+    for (int i = 0; i < 64; i++) {
+      if (i < 16) {
+        switch (i % 4) {
+          case 0: a = (b + leftRotate(a + F(b, c, d) + words[startingIndex + i] + constants[i], 7)) % (int)Math.pow(2, 32); break;
+          case 1: d = (a + leftRotate(d + F(a, b, c) + words[startingIndex + i] + constants[i], 12)) % (int)Math.pow(2, 32); break;
+          case 2: c = (d + leftRotate(c + F(d, a, b) + words[startingIndex + i] + constants[i], 17)) % (int)Math.pow(2, 32); break;
+          case 3: b = (c + leftRotate(b + F(c, d, a) + words[startingIndex + i] + constants[i], 22)) % (int)Math.pow(2, 32); break;
+        }
+      } else if (i < 32) {
+        switch (i % 4) {
+          case 0: a = (b + leftRotate(a + G(b, c, d) + words[startingIndex + (5 * i + 1) % 16] + constants[i], 5)) % (int)Math.pow(2, 32); break;
+          case 1: d = (a + leftRotate(d + G(a, b, c) + words[startingIndex + (5 * i + 1) % 16] + constants[i], 9)) % (int)Math.pow(2, 32); break;
+          case 2: c = (d + leftRotate(c + G(d, a, b) + words[startingIndex + (5 * i + 1) % 16] + constants[i], 14)) % (int)Math.pow(2, 32); break;
+          case 3: b = (c + leftRotate(b + G(c, d, a) + words[startingIndex + (5 * i + 1) % 16] + constants[i], 20)) % (int)Math.pow(2, 32); break;
+        }
+      } else if (i < 48) {
+        switch (i % 4) {
+          case 0: a = (b + leftRotate(a + H(b, c, d) + words[startingIndex + (3 * i + 5) % 16] + constants[i], 4)) % (int)Math.pow(2, 32); break;
+          case 1: d = (a + leftRotate(d + H(a, b, c) + words[startingIndex + (3 * i + 5) % 16] + constants[i], 11)) % (int)Math.pow(2, 32); break;
+          case 2: c = (d + leftRotate(c + H(d, a, b) + words[startingIndex + (3 * i + 5) % 16] + constants[i], 16)) % (int)Math.pow(2, 32); break;
+          case 3: b = (c + leftRotate(b + H(c, d, a) + words[startingIndex + (3 * i + 5) % 16] + constants[i], 23)) % (int)Math.pow(2, 32); break;
+        }
+      } else {
+        switch (i % 4) {
+          case 0: a = (b + leftRotate(a + I(b, c, d) + words[startingIndex + (7 * i) % 16] + constants[i], 6)) % (int)Math.pow(2, 32); break;
+          case 1: d = (a + leftRotate(d + I(a, b, c) + words[startingIndex + (7 * i) % 16] + constants[i], 10)) % (int)Math.pow(2, 32); break;
+          case 2: c = (d + leftRotate(c + I(d, a, b) + words[startingIndex + (7 * i) % 16] + constants[i], 15)) % (int)Math.pow(2, 32); break;
+          case 3: b = (c + leftRotate(b + I(c, d, a) + words[startingIndex + (7 * i) % 16] + constants[i], 21)) % (int)Math.pow(2, 32); break;
+        }
+      }
+    }
+    // Addierung der neu kalkulierten Werte zu den Startwerten
+    a0 += a; b0 += b; c0 += c; d0 += d;
+  }
+  // Rückgabe des Hash-Strings
+  return toLittleEndianStr(a0 % (int)Math.pow(2, 32)) + toLittleEndianStr(b0 % (int)Math.pow(2, 32)) + toLittleEndianStr(c0 % (int)Math.pow(2, 32)) + toLittleEndianStr(d0 % (int)Math.pow(2, 32));
+}
+
+// Diese Funktion nimmt eine Nummer entgegen und gibt dessen Little-Endian String zurück
+public static String toLittleEndianStr(int num) {
+  String[] arr = new String[4];
+  for (int i = 0; i < 4; i++) {
+    String part = Integer.toHexString(num >>> i * 8 & 0xFF);
+    part = "0".repeat(2 - part.length()) + part;
+    arr[i] = part;
+  }
+  String littleEndianStr = "";
+  for (String str : arr) {
+    littleEndianStr += str;
+  }
+  return littleEndianStr;
+}
+
+
+// Diese Funktion führt eine bitwise circular rotation um shift Bits an der Nummer num aus
+public static int leftRotate(int num, int shift) {
+  return (num << shift) | (num >>> (32 - shift));
+}
+
+// Definierung der Funktionen, welche für die 64 Operationen gebraucht werden
+public static int F(int X, int Y, int Z) {
+  return X & Y | ~X & Z;
+}
+
+public static int G(int X, int Y, int Z) {
+  return X & Z | Y & ~Z;
+}
+
+public static int H(int X, int Y, int Z) {
+  return X ^ Y ^ Z;
+}
+
+public static int I(int X, int Y, int Z) {
+  return Y ^ (X | ~Z);
+}
+</code>
+        </div>
+        <div id="hasher">
+          <h2>Input-Hasher</h2>
+          <input type="text" name="message" placeholder="Gib hier deine Nachricht ein..." oninput="hash(this.value);">
+          <p>Deine mit dem MD5-Algorithmus gehashte Nachricht:</p>
+          <p id="hash"></p>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

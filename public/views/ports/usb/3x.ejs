@@ -1,0 +1,41 @@
+<!DOCTYPE html/>
+<!-- Daniel Isler -->
+<html>
+    <head>
+        <title>USB 3.X</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include ../../partials/header.ejs %>
+        <main>
+            <h2>
+                Der USB 3.X Anschluss
+            </h2>
+            <hr>
+            <div id = "content">
+                <p id="general">Acht Jahre nachdem der USB 2.0 Anschluss eingeführt wurde, wurde im Jahr 2008 der USB 3.0 Anschluss eingeführt. In der zwischenzeit ist der USB 3.2 Anschluss, der im Jahr 2017 eingeführt wurde der aktuellste (stand April 2019). Es wurde jedoch bereits eine vierte Generation, der USB 4.0 für Mitte 2019 angekündigt. Der USB 3.X ist vollduplex, was bedeutet dass Daten in beide Richtungen gleichzeitig übertragen werden können, wogegen der USB 2.0 nur halbduplex ist und nur Daten in eine Richtung übertragen kann. Dies liegt an den neuen Pins des USB 3.X Steckers.</p>
+                <div class ="pic">
+                    <div id ="lenght">
+                        <img src="/imgs/ports/usb/3xlenght.png" alt="Long USB 3.x cable"/>
+                        <p>Das USB 3.X Kabel hat eine Limitierung in der Länge. Es kann nur bis zu drei Meter lang sein, wobei das USB 2.0 Kabel noch bis zu fünf Meter lang sein durfte. Falls man ein längeres USB 3.X KAbel brauchen sollte kann man mit einem Hub eine Zwischenstation einrichten, welche die Spannung auffrischt. Es sollten aber nicht zu viele solche Verbindungen aneinander geschlossen werden, das sonst Probleme auftreten können.</p>
+                    </div>
+                    <div id ="superspeed">
+                        <img src ="/imgs/ports/usb/superspeed.png" alt ="USB 3.x superspeed"/>
+                        <p>Mit bis zu 20 GBit/s (USB 3.2) weist der USB 3.X eine wesentlich höhere Datenübertragungsrate als der USB 2.0 auf, welcher lediglich eine Datenübertragungsgeschwindigkeit von 480 MBit/s erreichen kann. Dafür erhielt der USB 3.0 die Spezifikation SuperSpeed, die auch im Logo des USB 3.X gezeigt wird, welches oben abgebildet ist.</p>
+                    </div>
+                    <div id ="pins">
+                        <img src = "/imgs/ports/usb/3pins.jpg" alt = "Pins of the USB 3.x connector"/>
+                        <p>Für den USB 3.X gab es neue Pins, mehr als bei den älteren Generationen, dem USB 2.0 oder dem USB 1.X. Es wurden fünf Pins hinzugefügt, um damit die Datenübertragungsrate zu erhöhen. Damit wurde der USB Superspeed gemacht. Zu diesen fünf neuen Pins gehören zwei neue Paare für die Datenübertragung, die im Bild als Recieve -/+, respektive als Transmit -/+ bezeichnet werden. Der fünfte Pin ist dabei noch ein Ground, also eine Anschlussstelle für die Stromverorgung. Die restlichen vier Pins sind genau gleich wie schon im USB 2.0 angeordnet, womit ein USB 2.0 Kabel auch mit einem USB 3.X Stecker verbunden werden kann, sie also miteinander kompatibel bleiben.</p>
+                    </div>
+                    <div id ="colorspec">
+                        <img src = "/imgs/ports/usb/3xblue.jpg" alt ="color USB 3.x"/>
+                        <p>Ein USB 3.X Kabel oder Anschluss ist daran erkennbar, dass er in der Mitte ein blaues Plättchen hat. Dies ist muss jedoch nicht immer blau sein. Will mam sicher gehen, dass man eine USB 3.X Anschluss vor sich hat kann man die Anzahl der Pins zählen. Der USB 3.X Anschluss hat neun Pins, wogegen die USB Anschlüsse der älteren Generationen nur vier Pins haben.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

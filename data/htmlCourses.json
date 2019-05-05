@@ -1,0 +1,19 @@
+{
+  "exercises" : [{
+      "index" : 0,
+      "title" : "Freies Coden",
+      "description" : "Dies ist keine Aufgabe. Hier kannst du so viel und frei coden, wie du willst.\nProbier hier doch einige neu gelernte Konzepte aus!\n\nHalte deinen Mauszeiger über den Titel der Aufgabe <b>(Freies Coden)</b>, um alle möglichen Kurse zu sehen.\n\nViel Spass!",
+      "subexercises" : []
+    }, {
+      "index" : 1,
+      "title" : "Inputs",
+      "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: &ltinput type=\"text\"&gt",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
+          "startingCode" : "x = 0\nwhile x < :\n\tprint(x)\n\tx += 1",
+          "solution" : "x = 0\nwhile x < 5:\n\tprint(x)\n\tx += 1",
+          "solutionCheck" : "0\n1\n2\n3\n4"
+          }]
+  }]
+}

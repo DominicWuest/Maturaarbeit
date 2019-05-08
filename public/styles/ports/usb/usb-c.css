@@ -1,0 +1,123 @@
+header{
+/*positoning header above page*/
+    position: absolute;
+    top: 0%;
+    left: 0%
+}
+body{
+/*set background color and clear unwanted browser settings*/
+    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+    clear: both;
+}
+main{
+/*position content*/
+    width: 100%;
+    position: absolute;
+    top: 5%;
+    left: 0%;
+    padding: 0.5%;
+    margin: 0% 0% 50% 0%;
+}
+h2{
+/*style the title*/
+    font-family: 'Righteous', cursive;
+    text-align: center;
+    color: white;
+    font-size: 200%;
+}
+#general{
+/*modify all texts*/
+    color: white;
+    text-align: center;
+    text-decoration-style: wavy;
+    font-size: 20px;   
+}
+#usblink{
+/*style link to USB-Page*/
+    text-decoration: none;
+    color: aqua;
+}
+#lenght{
+/*get textfields in position and styles four times*/
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 3%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+#superspeed{
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 27%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+#pins{
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 51%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+#colorspec{
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 75%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+.pic img{
+/*fit all images in textfields*/
+    width: 100%;    
+}
+@media only screen and (max-aspect-ratio : 13 / 9){
+/*give a different style for smaller devices like mobile phones*/
+    main {
+/*repositon the content, so there is no conflict with the header*/
+        position: absolute;
+        top: 7%;
+    }
+    #content p{
+        font-size: 200%;
+    }
+    #lenght{
+        width: 80%;
+        position: absolute;
+        top: 100%;
+        left: 9%;
+    }
+    #superspeed{
+        width: 80%;
+        position: absolute;
+        top: 350%;
+        left: 9%;
+    }
+        #pins{
+        width: 80%;
+        position: absolute;     
+        top: 540%;
+        left: 9%;
+    }
+        #colorspec{
+        width: 80%;
+        position: absolute;
+        top: 810%;
+        left: 9%;
+    }
+}

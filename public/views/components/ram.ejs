@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- Dominic Wolf -->
+<html>
+<head>
+        <meta charset="utf-8">
+        <title>Motherboard</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico" >
+        <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="styles/components.css">
+</head>
+<body>
+        <%- include partials/header.ejs %>
+        <main>
+                <div class="title">
+                        <h1>RAM | Arbeitsspeicher</h1>
+                </div>
+                <div class="shortlink">
+                        <h2>Shortlinks</h2>
+                        <ul>
+                                <li><a href="#aufgabe">Aufgabe</a></li>
+                                <li><a href="#funktion">Funktion</a></li>
+                                <li><a href="#aufbau">Aufbau</a></li>
+                        </ul>
+                </div>
+                <div id="aufgabe">
+                        <h2>Aufgabe</h2>
+                        <p>Der Arbeitsspeicher oder auch RAM (Random Access Memory) ist der Speicher, der die gerade ausgeführten Programme und die dabei nötigen Daten enthält. Ohne einen solchen Speicher müsste man zum Beispiel jede Webseite die man öffnet und heruntergeladen wird manuell vom PC löschen.</p>
+                </div>
+                <div id="funktion">
+                        <h2>Funktion</h2>
+                        <p>Sobald man ein Programm oder eine Webseite auf einem Computer öffnet, werden Dateien in einen Zwischenspeicher gelegt. Diese zwischengespeicherten Daten sind so lange verfügbar, bis man die Anwendung schliesst oder den Computer herunterfährt. Dann werden die Daten vom Arbeitsspeicher gelöscht. Anhand eines Beispiels eines Word-Dokumentes sieht man ganz einfach, wie der Arbeitsspeicher funktioniert. Schreibt man einen Text in Word, wird dieser nur im Arbeitsspeicher gespeichert. Würde man das Programm ausversehen schliessen, wird der ganze Text gelöscht. Dies kann man verhindern, wenn man das Dokument vorher speichert. Dabei wird die Datei vom Arbeitsspeicher auf die SSD/Festplatte verschoben, welche Daten nicht beim Herunterfahren des Computers löscht.</p>
+                </div>
+                <div id="aufbau">
+                        <h2>Aufbau</h2>
+                        <p>Die RAM-Steckplätze sind über die Northbridge mit dem Prozessor verbunden. In die RAM-Steckplätze werden RAM-Module eingesetzt. Die schnellsten im Handel erhältlichen sind die DDR4-Module. Bei einem Arbeitsspeicher kommt es aber nicht nur auf die Schnelligkeit drauf an sondern auch auf die Grösse des Speichers. Es gibt Speicher mit einer Kapazität von 1 Gigabyte bis hoch zu 128 Gigabyte. Allerdings überschreiten diese einen Preis von mehreren Tausend Franken. Im Normalfall sollte ein RAM von 8 Gigabyte reichen. Wenn man allerdings Computerspiele spielen sollte sollte man sich doch noch überlegen ein RAM mit 16 Gigabyte zu kaufen. Denn je mehr Speicher die Programme verbrauchen, desto langsamer wird der Computer und überlastet allmählich. Dann hilft nurnoch die Progranmme zu schliessen oder im schlimmsten Fall den Computer neuzustarten.</p>
+                </div>
+        </main>
+        <script src="js/ram.js"></script>
+</body>
+</html>

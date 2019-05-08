@@ -37,35 +37,46 @@ h2{
     text-decoration: none;
     color: aqua;
 }
-#connector{
+#lenght{
 /*get textfields in position and styles four times*/
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 15%;
+    left: 3%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
-#speed{
+#superspeed{
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 40%;
+    left: 27%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
-#color{
+#pins{
     width: 20%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 65%;
+    left: 51%;
+    background-color: aqua;
+    padding: 1%;
+    border-radius: 10px;
+    text-align: center;
+}
+#colorspec{
+    width: 20%;
+    height: auto;
+    position: absolute;
+    top: 100%;
+    left: 75%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
@@ -85,22 +96,28 @@ h2{
     #content p{
         font-size: 200%;
     }
-    #connector{
+    #lenght{
         width: 80%;
         position: absolute;
         top: 100%;
         left: 9%;
     }
-    #speed{
+    #superspeed{
         width: 80%;
         position: absolute;
-        top: 340%;
+        top: 350%;
         left: 9%;
     }
-        #color{
+        #pins{
         width: 80%;
         position: absolute;     
-        top: 590%;
+        top: 540%;
+        left: 9%;
+    }
+        #colorspec{
+        width: 80%;
+        position: absolute;
+        top: 810%;
         left: 9%;
     }
 }

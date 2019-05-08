@@ -93,7 +93,6 @@ app.get('/courses', urlencodedParser, function(req, res) {
     // Escapes illegal characters inside the query
     for (illegalCharacter in illegalCharacters) req.query.query.replace(new RegExp(illegalCharacter, 'g'), illegalCharacters[illegalCharacter]);
   }
-  console.log(req.query.query)
   res.render('courses', {
     'courses' : courses,
     'query' : req.query.query

@@ -68,6 +68,10 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/journal', function(req, res) {
+  res.sendFile('data/journal.html', {root: __dirname })
+});
+
 // Routing for contactpage
 app.get('/contact', function(req, res) {
   res.render('contact', {

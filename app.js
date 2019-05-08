@@ -115,7 +115,7 @@ app.get('/languages/html', function(req, res) {
   res.render('languages/html', {
     'courses' : courses,
     'path' : '/languages/html',
-    'pythonCourses' : htmlCourses,
+    'htmlCourses' : htmlCourses,
     'codeHighlighting' : codeHighlighting
   });
 });

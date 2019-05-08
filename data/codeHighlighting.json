@@ -62,5 +62,23 @@
     "functions" : "#4DDFDC",
     "fields" : "#C00",
     "ignoredCharacters" : "[\"'()[\\]{}:,;+\\-*=\t ]+|&lt|&gt"
+  },
+  "html" : {
+    "syntax" : {
+      "html" : "#C00",
+      "head" : "#C00",
+      "title" : "#C00",
+      "body" : "#C00",
+      "input" : "#C00"
+    },
+    "comments" : {
+      "character" : "<!--",
+      "color" : "#888"
+    },
+    "strings" : {
+      "character" : ["\""],
+      "color" : "#0F0"
+    },
+    "ignoredCharacters" : "[]"
   }
 }

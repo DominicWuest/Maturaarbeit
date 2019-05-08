@@ -7,13 +7,13 @@
     }, {
       "index" : 1,
       "title" : "Inputs",
-      "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: &ltinput type=\"text\"&gt",
+      "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: <code>&ltinput type=\"text\"&gt</code>",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
-          "startingCode" : "x = 0\nwhile x < :\n\tprint(x)\n\tx += 1",
-          "solution" : "x = 0\nwhile x < 5:\n\tprint(x)\n\tx += 1",
-          "solutionCheck" : "0\n1\n2\n3\n4"
+          "description" : "Kreire einen Input des Typs Button mit einem Value-Attribut von \"Input\".",
+          "startingCode" : "<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t\n\t</body>\n</html>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t<input type=\"button\" value=\"Input\">\n\t</body>\n</html>",
+          "solutionCheck" : "return true;"
           }]
   }]
 }

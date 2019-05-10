@@ -11,7 +11,7 @@ body{
 }
 main{
 /*position content*/
-    width: 100%;
+    width: 99%;
     position: absolute;
     top: 5%;
     left: 0%;
@@ -39,33 +39,33 @@ h2{
 }
 #powerdelivery{
 /*get textfields in position and styles four times*/
-    width: 20%;
+    width: 27.5%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 3%;
+    left: 1.6%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
 #ports{
-    width: 20%;
+    width: 27.5%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 27%;
+    left: 35.25%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
 }
 #pins{
-    width: 20%;
+    width: 27.5%;
     height: auto;
     position: absolute;
     top: 100%;
-    left: 51%;
+    left: 68.9%;
     background-color: aqua;
     padding: 1%;
     border-radius: 10px;
@@ -73,17 +73,6 @@ h2{
 }
 #pins img{
     background-color: white;
-}
-#colorspec{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 75%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
 }
 .pic img{
 /*fit all images in textfields*/
@@ -108,19 +97,13 @@ h2{
     #ports{
         width: 80%;
         position: absolute;
-        top: 350%;
+        top: 270%;
         left: 9%;
     }
         #pins{
         width: 80%;
         position: absolute;     
-        top: 540%;
-        left: 9%;
-    }
-        #colorspec{
-        width: 80%;
-        position: absolute;
-        top: 810%;
+        top: 430%;
         left: 9%;
     }
 }

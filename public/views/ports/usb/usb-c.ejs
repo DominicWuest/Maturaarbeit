@@ -1,0 +1,37 @@
+<!DOCTYPE html/>
+<!-- Daniel Isler -->
+<html>
+    <head>
+        <title>USB C</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include ../../partials/header.ejs %>
+        <main>
+            <h2>
+                Der USB C Anschluss
+            </h2>
+            <hr>
+            <div id = "content">
+                <p id="general">Im August 2014 wurde ein neuer USB Stecker veröffentlicht, der USB Typ C. Mit dem USB Typ C wurde es einfacher für Smartphones eine USB 3.X Schnittstelle einzubauen. Diese sind früher aus Platzgründen auf den Micro-B 2.0 ausgewichen, da der Mirco-B 3.0 mit seinen fast 12.5mm Breite zu viel Platz einnahm. Mit dem USB Typ C ist es nun möglich eine USB 3.X Schnittstelle mit wenig Platzverbrauch in ein Smartphone einzubauen. Der USB Typ C ist ausserdem Punktsymmterisch bezüglich des Mittelpunkts, wodurch er auf beide Nöglichkeiten in ein Gerät eingesteckt werden kann. Durch die neue Buchse ist der USB-C Stecker, respektive die USB-C Buchse nicht mit den alten Kabeln kompatiebel. Dieses Problem kann jedoch einfach über einen Adapter gelöst werden.</p>
+                <div class ="pic">
+                    <div id ="powerdelivery">
+                        <img src="/imgs/ports/usb/cpower.jpg" alt="Power Delivery"/>
+                        <p>Der USB Typ C kann gut als Stromkabel verwendet werden und braucht nicht viel Platz. Deswegen wird er von vielen Smartphones, aber auch von Laptops als Stromquelle verwendet. Mit einem USB Typ C der Spezifikation Power Delivery kann ein Gerät mit bis zu 100 Watt mit Strom versorgt werden, was eine Grundlage für eine sehr grosse Ladegeschwindigkeit des Akkus des angeschlossenen Gerätes schafft.</p>
+                    </div>
+                    <div id ="ports">
+                        <img src ="/imgs/ports/usb/cusage.png" alt ="Different uses"/>
+                        <p>Der USB Typ C kann viele andere Schnittstellen ersetzen. Viele Smartphones haben deswegen keinen 3.5 mm Anschluss für beispielsweise Kopfhöhrer mehr eingebaut. Apple ist sogar so weit gegangen, dass sie bei den neuen MacBooks alle anderen Anschlüsse fallen gelassen haben und lediglich noch einen USB Typ C Anschluss verwenden, welcher mit einem USB Hub verbunden werden muss, um andere Stecker als einen USB Typ C damit zu verbinden.</p>
+                    </div>
+                    <div id ="pins">
+                        <img src = "/imgs/ports/usb/cpins.png" alt = "Pins of the USB type c"/>
+                        <p>Der USB Typ C ist von der Datenübertragung kompatibel mit der Superspeed Spezifikation des USB 3.X Anschlusses, ist jedoch Punktsymmetrisch bezüglich des Mittelpunktes und kann somit auf zwei Arten in eine Steckerbuchse eingesteckt werden. Dies wird ermöglicht durch die insgesamt 24 Pins, wobei jeder Pin entweder 2 oder vierfach vorhanden ist. Die D+/D- Paare sind dabei für das USB 2.0 Interface zuständig, also des USB 2.0 Teil des USB C. Die TX+/TX-, respektive RX+/RX- Paare sind für die Highspeed Datenübertragung 1, respektive 2 zuständig. Der CC Pin zeigt dem Gerät, woran es angeschlossen ist und wird beispielsweise für Audiogeräte gebraucht. Die restlichen Pins sind für die Stromversorgung in jeweils vierfacher Ausführung vorhanden.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>

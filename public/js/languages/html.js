@@ -15,9 +15,9 @@ let subexerciseIndex = 0;
 
 // Gets called whenever the user runs their code. Compiles and runs the code. Appends the output to the output div
 function runit() {
-  let output = document.getElementById('textarea').value;
-  document.getElementById('output').innerHTML = purify(output);
-  checkSolution(output);
+  let input = document.getElementById('textarea').value;
+  document.getElementById('output').innerHTML = purify(input);
+  checkSolution(input);
 }
 
 // Gets called whenever the users html code has been displayed
@@ -180,7 +180,13 @@ function makeDropdown() {
 }
 
 function purify(html) {
-
+  let illegalTags = ['script', 'noscript', 'head', 'title', 'link', 'meta'];
+  let template = (new DOMParser()).parseFromString(html, 'text/html');
+  for (illegalTag of illegalTags) {
+    let toRemove = template.getElementsByTagName(illegalTag);
+    for (element of toRemove) element.parentNode.removeChild(element);
+  }
+  return template.getElementsByTagName('body')[0].innerHTML;
 }
 
 // Sets the dimensions of the textarea to the dimensions of the code div, so that they mach up

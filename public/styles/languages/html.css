@@ -300,6 +300,11 @@ button::-moz-focus-inner {
   width: 100%;
   overflow: auto;
   box-sizing: border-box;
+  line-height: normal;
   margin: 0;
   padding: 1vh;
+}
+
+#output > * {
+  margin-top: 0;
 }

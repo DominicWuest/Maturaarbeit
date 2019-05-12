@@ -69,7 +69,8 @@
       "head" : "#C00",
       "title" : "#C00",
       "body" : "#C00",
-      "input" : "#C00"
+      "input" : "#C00",
+      "p" : "#C00"
     },
     "comments" : {
       "character" : "<!--",
@@ -79,6 +80,6 @@
       "character" : ["\""],
       "color" : "#0F0"
     },
-    "ignoredCharacters" : "[]"
+    "ignoredCharacters" : "[/\\t ]+|&lt|&gt"
   }
 }

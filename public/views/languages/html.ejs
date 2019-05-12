@@ -33,7 +33,7 @@
         <h1 class="sectionTitle">Code</h1>
         <form class="input">
           <textarea id="textarea" oninput="document.getElementById('code').textContent = this.value; addHighlighting();" spellcheck="false" ></textarea>
-          <code id="code" class="textareaContainer python">
+          <code id="code" class="textareaContainer html">
           </code>
           <div class="buttons">
             <button type="button" name="run" onclick="runit();">Run</button><!-- Comment to prevent Whitespace
@@ -44,7 +44,7 @@
       </div>
       <div class="output">
         <h1 class="sectionTitle">Output</h1>
-        <pre id="output"></pre>
+        <div id="output"></div>
       </div>
     </main>
   </body>

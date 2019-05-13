@@ -25,7 +25,7 @@ function checkSolution(output) {
   // Don't check the solution if the user has completed all subexercises
   if (exerciseFinished || courseIndex === 0) return;
   // If the output matches the expected output of the subexercise
-  if (eval('(function() {' + htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solutionCheck'] + '})();')) {
+  if (eval('(function(output) {' + htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solutionCheck'] + '})(document.getElementById("output"));')) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     // Set exerciseFinished to true if all subexercises have been completed
@@ -209,7 +209,6 @@ function purify(html) {
     if (attributes) {
       for (attribute of attributes) {
         if (attribute["name"].substring(0, 2) === 'on') elements[i].removeAttribute(attribute["name"]);
-        console.log(elements[i].attributes);
       }
     }
   }

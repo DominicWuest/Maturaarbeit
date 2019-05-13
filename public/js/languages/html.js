@@ -186,6 +186,33 @@ function purify(html) {
     let toRemove = template.getElementsByTagName(illegalTag);
     for (element of toRemove) element.parentNode.removeChild(element);
   }
+  let elements = [template];
+  let newElements = [template];
+  fillElements();
+  function fillElements() {
+    if (newElements.length !== 0) {
+      let children = [];
+      for (let i = 0; i < newElements.length; i++) {
+        let elementChildren = newElements[i].children || [];
+        for (let j = 0; j < elementChildren.length; j++) {
+          children.push(elementChildren[j]);
+        }
+      }
+      // Concat the arrays elements and children while keeping the references
+      elements.push.apply(elements, children);
+      newElements = children;
+      fillElements();
+    }
+  }
+  for (let i = 0; i < elements.length; i++) {
+    let attributes = elements[i].attributes;
+    if (attributes) {
+      for (attribute of attributes) {
+        if (attribute["name"].substring(0, 2) === 'on') elements[i].removeAttribute(attribute["name"]);
+        console.log(elements[i].attributes);
+      }
+    }
+  }
   return template.getElementsByTagName('body')[0].innerHTML;
 }
 

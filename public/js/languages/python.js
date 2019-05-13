@@ -10,9 +10,9 @@ let finished = false;
 let exerciseFinished;
 
 // Parses the cookie of the exercise index, so that the user always sees the exercise he was last on
-if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndex=')).length) {
+if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndexPython=')).length) {
   let value = "; " + document.cookie;
-  let parts = value.split("; courseIndex=");
+  let parts = value.split("; courseIndexPython=");
   courseIndex = parseInt(parts.pop().split(";").shift());
 }
 // If no cookie exists
@@ -87,7 +87,7 @@ function displayExercise() {
   finished = true;
   running = false;
   // Set the cookie for the course index to be the current course index
-  document.cookie = "courseIndex=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  document.cookie = "courseIndexPython=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
   // Set the title of the exercise
   let exerciseTitle = document.getElementById('exerciseTitle');
   exerciseTitle.innerHTML = '<h1>' + pythonCourses['exercises'][courseIndex]['title'] + '</h1>';

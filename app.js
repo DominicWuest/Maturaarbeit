@@ -43,7 +43,12 @@ courses[2] = courses[2].map(function (element) {
   return element.split(' ');
 });
 
+// Necessary files for different usages throughout the site
+// All information about the Python-Courses
 let pythonCourses = JSON.parse(fs.readFileSync('data/pythonCourses.json', 'utf-8'));
+// All information about the HTML-Courses
+let htmlCourses = JSON.parse(fs.readFileSync('data/htmlCourses.json', 'utf-8'));
+// All information about how to colour code
 let codeHighlighting = JSON.parse(fs.readFileSync('data/codeHighlighting.json', 'utf-8'));
 
 // Characters not allowed inside queries : What they should be replaced with
@@ -104,6 +109,16 @@ app.get('/languages/python', function(req, res) {
     'courses' : courses,
     'path' : '/languages/python',
     'pythonCourses' : pythonCourses,
+    'codeHighlighting' : codeHighlighting
+  });
+});
+
+// Routing for the HTML coding page. Serparate, since it needs htmlCourses, while other courses don't
+app.get('/languages/html', function(req, res) {
+  res.render('languages/html', {
+    'courses' : courses,
+    'path' : '/languages/html',
+    'htmlCourses' : htmlCourses,
     'codeHighlighting' : codeHighlighting
   });
 });

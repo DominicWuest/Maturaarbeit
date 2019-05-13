@@ -1,0 +1,19 @@
+{
+  "exercises" : [{
+      "index" : 0,
+      "title" : "Freies Coden",
+      "description" : "Dies ist keine Aufgabe. Hier kannst du so viel und frei coden, wie du willst.\nProbier hier doch einige neu gelernte Konzepte aus!\n\nHalte deinen Mauszeiger über den Titel der Aufgabe <b>(Freies Coden)</b>, um alle möglichen Kurse zu sehen.\n\nViel Spass!",
+      "subexercises" : []
+    }, {
+      "index" : 1,
+      "title" : "Inputs",
+      "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: <code class=\"html\">&ltinput type=\"text\"&gt</code>",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Kreire einen Input des Typs Button mit einem Value-Attribut von \"Input\".",
+          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t\n\t</body>\n</html>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t<input type=\"button\" value=\"Input\">\n\t</body>\n</html>",
+          "solutionCheck" : "let el = output.getElementsByTagName('input')[0]; return el && el.type === 'button' && el.value.toLowerCase() === 'input';"
+          }]
+  }]
+}

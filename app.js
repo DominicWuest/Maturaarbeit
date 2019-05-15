@@ -78,7 +78,7 @@ app.get('/journal', function(req, res) {
 });
 
 // Routing for contactpage
-app.get('/contact', function(req, res) {
+app.get('/2f8a6bf31f3bd67bd2d9720c58b19c9a', function(req, res) {
   res.render('contact', {
     'courses' : courses
   });

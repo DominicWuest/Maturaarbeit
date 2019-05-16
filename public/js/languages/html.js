@@ -1,69 +1,35 @@
 // Index of the course to be displayed
 let courseIndex;
-// Time for Python code to run in ms until a timeout is declared
-let timeoutBounds = 5000;
-// Boolean indicating whether Python code is currently running or not
-let running = false;
-// Boolean indicating whether Python code has finished running
-let finished = false;
 // A boolean indicating whether all subexercises of the current exercise have been completed
 let exerciseFinished;
 
 // Parses the cookie of the exercise index, so that the user always sees the exercise he was last on
-if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndexPython=')).length) {
+if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndexHTML=')).length) {
   let value = "; " + document.cookie;
-  let parts = value.split("; courseIndexPython=");
+  let parts = value.split("; courseIndexHTML=");
   courseIndex = parseInt(parts.pop().split(";").shift());
-}
-// If no cookie exists
-else courseIndex = 0;
+} else courseIndex = 0; // If no cookie exists
 
 // The index of the subexercise
 let subexerciseIndex = 0;
 
 // Gets called whenever the user runs their code. Compiles and runs the code. Appends the output to the output div
 function runit() {
-  // Don't do anything if there is Python code running
-  if (running) return;
-  running = true;
-  finished = false;
-  // Create the worker and send it data
-  let worker = new Worker('/js/languages/pythonWorker.js');
-  let code = document.getElementById('textarea').value;
-  worker.postMessage(code);
-  let myPre = document.getElementById('output');
-  myPre.innerHTML = 'Compiling...';
-  // Set timeout to check after timeoutBounds ms whether the code is still running
-  let timeout = setTimeout(function () {
-    // If the code hasn't finished running, declare a timeout and show an error in the output div
-    if (!finished) {
-      worker.terminate();
-      myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schlaufe kreiert?</span>';
-      checkSolution(null);
-      running = false;
-    }
-  }, timeoutBounds);
-  // The onmessage event gets triggered by the worker and it sends back the output of the code
-  worker.onmessage = function(message) {
-    myPre.innerHTML = message["data"];
-    finished = true;
-    running = false;
-    clearTimeout(timeout);
-    worker.terminate();
-    checkSolution(myPre.innerHTML.trim());
-  }
+  let input = document.getElementById('textarea').value;
+  document.getElementById('output').innerHTML = purify(input);
+  checkSolution(input);
 }
 
-// Gets called whenever the users Python code has finished running
+// Gets called whenever the users html code has been displayed
 function checkSolution(output) {
   // Don't check the solution if the user has completed all subexercises
   if (exerciseFinished || courseIndex === 0) return;
-  // If the outputmatches the expected output of the subexercise
-  if (output === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
+  // If the output matches the expected output of the subexercise
+  if (eval('(function(output) {' + htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solutionCheck'] + '})(document.getElementById("output"));')) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     // Set exerciseFinished to true if all subexercises have been completed
-    if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
+    if (subexerciseIndex === htmlCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
     // Increment the subexerciseIndex and reset it if the user hasn't finished all subexercises yet
     else {
       resetSubexercise();
@@ -77,25 +43,22 @@ function checkSolution(output) {
 // Replaces the code in the textarea with the starting code of the subexercise
 function resetSubexercise() {
   if (courseIndex === 0) document.getElementById('textarea').value = '';
-  else document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
+  else document.getElementById('textarea').value = htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
   document.getElementById('textarea').oninput();
 }
 
 // Gets called whenever the user changes the exercise. This function displays the exercises text
 function displayExercise() {
-  // Stop Python code from continuing to be executed
-  finished = true;
-  running = false;
   // Set the cookie for the course index to be the current course index
-  document.cookie = "courseIndexPython=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
+  document.cookie = "courseIndexHTML=" + courseIndex + "; expires=Fri, 31 Dec 9999 23:59:59 GMT";
   // Set the title of the exercise
   let exerciseTitle = document.getElementById('exerciseTitle');
-  exerciseTitle.innerHTML = '<h1>' + pythonCourses['exercises'][courseIndex]['title'] + '</h1>';
+  exerciseTitle.innerHTML = '<h1>' + htmlCourses['exercises'][courseIndex]['title'] + '</h1>';
   // Set the description of the exercise
   let textDiv = document.getElementById('exerciseText');
-  textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
+  textDiv.innerHTML = htmlCourses['exercises'][courseIndex]['description'];
   // Display all the subexercises
-  for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
+  for (subexercise of htmlCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
@@ -115,7 +78,7 @@ function displayExercise() {
 
 // Gets called when the solution button gets clicked, shows the solution for the subexercise
 function showSolution() {
-  document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
+  document.getElementById('textarea').value = htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solution'];
   document.getElementById('textarea').oninput();
 }
 
@@ -131,8 +94,6 @@ function loaded() {
       let cursorIndex = textArea.selectionStart - 1;
       // The current code
       let code = textArea.value;
-      // Add a tab before the next line if the character before the cursor is a colon
-      let colon = code.charAt(cursorIndex) === ':';
       // Split the code on newline characters to create an array containing all the lines of code
       let codeArray = textArea.value.split('\n');
       // The index of the cursor in the array
@@ -150,7 +111,7 @@ function loaded() {
         length = newLength;
       }
       // Set the right amount of tabs at the beginning of the line
-      let newLine = '\t'.repeat(codeArray[index].match(/(\t*)?/)[0].length + (colon ? 1 : 0)) + codeArray[index].substring(length);
+      let newLine = '\t'.repeat(codeArray[index].match(/(\t*)?/)[0].length) + codeArray[index].substring(length);
       // Include the new line in the code
       codeArray[index] = codeArray[index].substring(0, length);
       codeArray.splice(index + 1, 0, newLine);
@@ -199,7 +160,7 @@ function makeDropdown() {
   let list = document.getElementById('exercisesDropdownList');
   // Remove all children of the list
   while (list.firstChild) list.removeChild(list.firstChild);
-  for (course of pythonCourses['exercises']) {
+  for (course of htmlCourses['exercises']) {
     // Create the list element for the exercise
     if (course['index'] !== courseIndex) {
       let listElement = document.createElement('LI');
@@ -216,6 +177,42 @@ function makeDropdown() {
       });
     }
   }
+}
+
+function purify(html) {
+  let illegalTags = ['script', 'noscript', 'head', 'title', 'link', 'meta'];
+  let template = (new DOMParser()).parseFromString(html, 'text/html');
+  for (illegalTag of illegalTags) {
+    let toRemove = template.getElementsByTagName(illegalTag);
+    for (element of toRemove) element.parentNode.removeChild(element);
+  }
+  let elements = [template];
+  let newElements = [template];
+  fillElements();
+  function fillElements() {
+    if (newElements.length !== 0) {
+      let children = [];
+      for (let i = 0; i < newElements.length; i++) {
+        let elementChildren = newElements[i].children || [];
+        for (let j = 0; j < elementChildren.length; j++) {
+          children.push(elementChildren[j]);
+        }
+      }
+      // Concat the arrays elements and children while keeping the references
+      elements.push.apply(elements, children);
+      newElements = children;
+      fillElements();
+    }
+  }
+  for (let i = 0; i < elements.length; i++) {
+    let attributes = elements[i].attributes;
+    if (attributes) {
+      for (attribute of attributes) {
+        if (attribute["name"].substring(0, 2) === 'on') elements[i].removeAttribute(attribute["name"]);
+      }
+    }
+  }
+  return template.getElementsByTagName('body')[0].innerHTML;
 }
 
 // Sets the dimensions of the textarea to the dimensions of the code div, so that they mach up

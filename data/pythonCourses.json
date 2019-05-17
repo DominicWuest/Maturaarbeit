@@ -6,6 +6,23 @@
       "subexercises" : []
     }, {
       "index" : 1,
+      "title" : "If-else-Verzweigungen",
+      "description" : "Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Modifiziere die if-else-Verzweigung so, dass sie sagt ob x grösser, gleich oder kleiner als 9 ist",
+          "startingCode" : "x = 9\nif x < 9:\n\tprint('x ist groesser als 9')\nelif x = 13:\n\tprint('x ist gleich 9')\n\n\tprint('x ist kleiner als 9')",
+          "solution" : "x = 9\nif x > 9:\n\tprint('x ist groesser als 9')\nelif x == 9:\n\tprint('x ist gleich 9')\nelse:\n\tprint('x ist kleiner als 9')",
+          "output" : "x ist gleich 9"
+          }, {
+          "index" : 1,
+          "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht.",
+          "startingCode" : "x = 5\ny = 7",
+          "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
+          "output" : "x ist kleiner als y"   
+          }]
+    }, {
+      "index" : 2,
       "title" : "While-Schlaufen",
       "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schlaufen. Eine While-Schlaufe in Python sieht beispielsweise folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schlaufe folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schlaufe abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
@@ -16,10 +33,44 @@
           "output" : "0\n1\n2\n3\n4"
           }, {
             "index" : 1,
-            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Stern breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Asterisk, während die Letzte aus vier besteht.",
+            "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Stern breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Stern, während die Letzte aus vier besteht.",
             "startingCode" : "x = 1\nwhile x < :\n\tprint()\n\tx += 1",
             "solution" : "x = 1\nwhile x < 5:\n\tprint(x * '*')\n\tx += 1",
             "output" : "*\n**\n***\n****"
+          }]
+      }, {
+      "index" : 3,
+      "title" : "Listen",
+      "description" : "Dieses Kapitel befasst sich mit Listen. Eine Liste ist eine Sammlung von Elementen, die geordnet sind. Zu jedem Element ist ein Index zugeordnet, der bei 0 startet und in einer Schritten hoch zählt. Für die Listen gibt es verschiedene Operationen, die Sie in diesem Kapitel kennenlernen werden. Eine Liste wird mit eckigen Klammern gekennzeichnet und die Elemente werden mit Kommata getrennt: <code class=\"python\">a = ['Element 1', 'Element 2']</code>Ein Element aus einer Liste kann herausgegeben werden, indem die Liste und das der Index des Elementes in eckigen Klammern geschrieben wird: <code class=\"python\">a[0]</code>",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Schreibe ein Programm, dass eine Liste mit der Zahlen 1 bis und mit 10 erstellt und diese Ausgibt.",
+          "startingCode" : "",
+          "solution" : "a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(a)",
+          "output" : "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+          }, {
+            "index" : 1,
+            "description" : "Mit a.append(Element) wird ein Element ans Ende einer Liste angehängt. Erstelle nun eine Signum Funktion mit If-else-Verzweigungen und einer While-Schleife, die auf die vorgegebene Liste angewendet wird und die Lösung ausgiebt ausgiebt.",
+            "startingCode" : "a = [1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0]\nb = [] ",
+            "solution" : "x = 0\na = [2, 5, -2, -8, 4, 100, -12, 0, 1, -4, 0]\nb = []\nwhile x < len(a):\n\tif a[x] > 0:\n\t\tb.append(1)\n\telif a[x] == 0:\n\t\tb.append(0)\n\telse:\n\t\tb.append(-1)\n\tx += 1\nprint(b) ",
+            "output" : "[1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0]"
+          }]
+      }, {
+      "index" : 4,
+      "title" : "For-Schlaufen",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schlaufen. Eine For-Schlaufe in Python sieht normalerweise so aus: <code class=\"python\">for x in range(0, 3, 1):\n\t</code>Hierbei deklariert das Keyword for, dass eine For-Schlaufe folgt. Die For-Schleife startet dann mit dem Wert x = 0, und zählt in einerschritten bis x = 3, also in diesem Fall bis x = 2. Damit kann eine For-Schleife eine While-Schleife, die lediglich zum zählen da ist gut ersetzen.",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
+          "startingCode" : "for x in range\n\tprint(x)",
+          "solution" : "for x in range(0, 5, 1):\n\tprint(x)",
+          "output" : "0\n1\n2\n3\n4"
+          }, {
+            "index" : 1,
+            "description" : "Setze eine For-Schlaufe ein um jedes zweite Element einer Liste a auszugeben.",
+            "startingCode" : "a = ['erstes Element', 1, 'guter Weg', 4, 2, 'sieben', 'Geschafft!']\nfor in range():\n\ta[]",
+            "solution" : "a = ['erstes Element', 1, 'guter Weg', 4, 2, 'sieben', 'Geschafft!']\nfor i in range(0, len(a), 2):\n\tprint(a[i])",
+            "output" : "erstes Element\nguter Weg\n2\nGeschafft!"  
       }]
-  }]
+    }]
 }

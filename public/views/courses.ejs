@@ -9,11 +9,12 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/courses.css">
     <script type="text/javascript" src="js/courses.js"></script>
+    <script type="text/javascript" src="js/search.js"></script>
     <script type="text/javascript">
       const query = "<%- query.replace('\"', '\\\"') %>".split(' ');
     </script>
   </head>
-  <body onload="search();">
+  <body onload="processQuery();">
     <%- include partials/header.ejs %>
     <main>
       <div id="results"></div>

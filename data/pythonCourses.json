@@ -53,7 +53,7 @@
             "description" : "Mit a.append(Element) wird ein Element ans Ende einer Liste angehängt. Erstelle nun eine Signum Funktion mit If-else-Verzweigungen und einer While-Schleife, die auf die vorgegebene Liste angewendet wird und die Lösung ausgiebt ausgiebt.",
             "startingCode" : "a = [1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0]\nb = [] ",
             "solution" : "x = 0\na = [2, 5, -2, -8, 4, 100, -12, 0, 1, -4, 0]\nb = []\nwhile x < len(a):\n\tif a[x] > 0:\n\t\tb.append(1)\n\telif a[x] == 0:\n\t\tb.append(0)\n\telse:\n\t\tb.append(-1)\n\tx += 1\nprint(b) ",
-            "output" : "[1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0]"
+            "output" : "[1, 1, -1, -1, 1, 1, -1, 0, 1, -1, 0]" 
           }]
       }, {
       "index" : 4,

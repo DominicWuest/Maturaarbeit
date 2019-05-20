@@ -4,7 +4,7 @@ function processQuery() {
   // Get all results of the query
   results = search(query);
   // If there are no courses which match the query, show error message
-  if (results.length == = 0) {
+  if (results.length === 0) {
     let errorDiv = document.createElement('DIV');
     errorDiv.classList.add('error');
     let errorText = document.createElement('P');

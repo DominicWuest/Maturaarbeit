@@ -25,13 +25,16 @@
                 <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
               <% } else if (courses[3][i] < index) { %>
                 <% for (let j = 0; j < index - courses[3][i]; j++) { %>
-                  </li></ul></li>
+                  </li></ul>
                 <% } %>
                 <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
               <% } else { %>
               </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
               <% } %>
               <% index = courses[3][i] %>
+            <% } %>
+            <% for (let i = 0; i < index; i++) { %>
+              </li></ul>
             <% } %>
             </li>
           </ul>

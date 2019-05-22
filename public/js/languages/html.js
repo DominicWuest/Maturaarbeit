@@ -208,7 +208,8 @@ function purify(html) {
     let attributes = elements[i].attributes;
     if (attributes) {
       for (attribute of attributes) {
-        if (attribute["name"].substring(0, 2) === 'on') elements[i].removeAttribute(attribute["name"]);
+        console.log(attribute["value"].substring(0, 11) === 'javascript:');
+        if (attribute["name"].substring(0, 2) === 'on' || attribute["value"].substring(0, 11) === 'javascript:') elements[i].removeAttribute(attribute["name"]);
       }
     }
   }

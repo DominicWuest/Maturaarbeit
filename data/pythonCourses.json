@@ -20,6 +20,12 @@
           "startingCode" : "x = 5\ny = 7",
           "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
           "output" : "x ist kleiner als y"   
+          }, {
+          "index" : 2,
+          "description" : "Erweitere das Programm aus der letzten Aufgabe nun um ein Programm zu estellen, das x mit den beiden vorgegebenen Variablen y und z vergleicht.",
+          "startingCode" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tprint('x ist groesser als y und z')\nelif x == y:\n\tprint('x ist gleich y und groesser als z')\nelse:\n\tprint('x ist kleiner als y und gleich z')",
+          "solution" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tif x > z:\n\t\tprint('x ist groesser als y und z')\n\telif x == z:\n\t\tprint('x ist groesser als y und gleich z')\n\telse:\n\t\tprint('x ist groesser als y und kleiner als z')\nelif x == y:\n\tif x > z:\n\t\tprint('x ist gleich y und groesser als z')\n\telif x == z:\n\t\tprint('x ist gleich y und z')\n\telse:\n\t\tprint('x ist gleich y und kleiner als z')\nelse:\n\tif x > z:\n\t\tprint('x ist kleiner als y und groesser als z')\n\telif x == z:\n\t\tprint('x ist kleiner als y und gleich z')\n\telse:\n\t\tprint('x ist kleiner als y und z')",
+          "output" : "x ist kleiner als y und gleich z"   
           }]
     }, {
       "index" : 2,
@@ -83,6 +89,12 @@
             "startingCode" : "a = ['Element', 'Stuhl', 'Hose', 'anscheinend', 'programmieren']",
             "solution" : "a = ['Element', 'Stuhl', 'Hose', 'anscheinend', 'programmieren']\nfor e in a:\n\tprint(e)\n\tprint(len(e))",
             "output" : "Element\n7\nStuhl\n5\nHose\n4\nanscheinend\n11\nprogrammieren\n13"
+          }, {
+            "index" : 3,
+            "description" : "Eine For-Schlaufe mit einer Range-Funktion kann auch Rückwärts zählen. Erstelle eine For-Schlaufe, die die Zahlen von 7 bis und mit 0 in absteigender Reihenfolge ausgibt.",
+            "startingCode" : "",
+            "solution" : "for i in range(7, -1, -1):\n\tprint(i)",
+            "output" : "7\n6\n5\n4\n3\n2\n1\n0"
           }]
       }, {
       "index" : 5,
@@ -112,6 +124,12 @@
             "startingCode" : "def isprime(p):\n\tb = True\n\tfor i in range(2, p, 1):\n\t\tif p % i == 0:\n\t\t\tprint(str(p) + ' ist keine Primzahl')\n\t\t\tb = False\n\t\t\tbreak\n\tif b == True:\n\t\tprint(str(p) + ' ist eine Primzahl')\nisprime(p)",
             "solution" : "def listprime(x, y):\n\tc = [('Primzahlen zwischen ' + str(x) + ' und ' + str(y))]\n\tfor k in range(x, y, 1):\n\t\tb = True\n\t\tfor i in range(2, k, 1):\n\t\t\tif k % i == 0:\n\t\t\t\tb = False\n\t\t\t\tbreak\n\t\tif b == True:\n\t\t\tc.append(k)\n\treturn c\nprint(listprime(124, 190))",
             "output" : "['Primzahlen zwischen 124 und 190', 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181]" 
+          }, {
+            "index" : 4,
+            "description" : "Definiere eine Funktion mit der vorgegebenen Liste a als Input, die das kleinste Element der Liste ausgibt. Benutze dafür eine For-Schlaufe. Tipp: Die Elemente einer Liste sind als Strings abgespeichert. Um sie zu vergleichen müssen sie erst mit int(a) in Integer umgewandelt werden.",
+            "startingCode" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]",
+            "solution" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]\ndef minimum(a):\n\tx = int(a[0])\n\tfor element in a:\n\t\tif x > int(element):\n\t\t\tx = int(element)\n\treturn x\nprint(minimum(a))",
+            "output" : "-213" 
           }]
       }
     ]

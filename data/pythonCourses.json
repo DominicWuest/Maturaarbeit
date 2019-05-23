@@ -17,7 +17,7 @@
           }, {
           "index" : 1,
           "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht.",
-          "startingCode" : "x = 5\ny = 7",
+          "startingCode" : "x = 5\ny = 7\nprint('x ist groesser als y')\nprint('x ist gleich y')\nprint('x ist kleiner als y')",
           "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
           "output" : "x ist kleiner als y"   
           }, {
@@ -130,6 +130,23 @@
             "startingCode" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]",
             "solution" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]\ndef minimum(a):\n\tx = int(a[0])\n\tfor element in a:\n\t\tif x > int(element):\n\t\t\tx = int(element)\n\treturn x\nprint(minimum(a))",
             "output" : "-213" 
+          }]
+      }, {
+      "index" : 6,
+      "title" : "Module",
+      "description" : "Dieses Kapitel befasst sich mit Modulen. In einem Modul können Variablen und hauptsächlich Funktionen gespeichert werden. ",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+            "index" : 1,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
           }]
       }
     ]

@@ -1,106 +1,103 @@
-header{
-/*position header on top*/
-    position: absolute;
-    top: 0%;
-    left: 0%;
+::-html {
+	height: 100vh;
+	scrollbar-base-color: green;
 }
-body{
-/*setup of background*/
-    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
-    clear: both;
+
+body {
+  	background : linear-gradient(#2441B4, #31128b) no-repeat fixed;
+	margin: 0;
 }
-main{
-/*main content positioned under header*/
-    position: absolute;
-    top: 5%;
+
+main {
+	scroll-behavior: smooth;
+	overflow: hidden;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 80%;
+	overflow: auto;
+	height: 92vh;
+	padding-right: 25px;
 }
-h1{
-/*style of title*/
-    font-family: 'Righteous', cursive;
-    font-size: 300%;
-    text-align: center;
-    color: white;
+
+main h1 {
+  	margin: 0;
+  	font-family: 'Righteous', cursive;
 }
-h3{
-/*description of page styled*/
-    text-align: center;
-    color: white;
+
+main h2 {
+  	font-family: 'Righteous', cursive;
 }
-.link img{
-/*style all images in main content*/
-    width: 20%;
-    height: auto;
-    position: absolute;   
+
+main div {
+  	padding: 25px;
+  	margin-bottom: 25px;
+  	background-color: rgba(255, 255, 255, 0.8);
+  	border-radius: 50px;
 }
-.link a{
-/*style the links to the further pages*/
-    color: black;
-    text-align: center;
-    text-decoration: none;
-    background-color: aqua;
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    padding: 0.5% 0%;
-    font-size: 25px;
+
+main div {
+  	margin-top: 25px;
 }
-#USBAPort{
-/*image usbports position*/
-    top: 100%;
-    left: 20%
+
+.title {
+  	text-align: center;
+  	font-size: 3em;
 }
-#describeportUSB{
-/*position link for usb page*/
-    width: 20%;
-    position: absolute;
-    top: 250%;
-    left: 20%;
+
+a {
+  	text-decoration: none;
+  	color: black;
 }
-#videoports{
-/*position image for videoports*/
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 105%;
-    left: 60%;
+
+a:hover {
+  	text-decoration: underline;
+  	color: black;
 }
-#describeportVIDEO{
-/*position link for videoports*/
-    width: 20%;
-    position: absolute;
-    top: 245%;
-    left: 60%
+
+.ports {
+  	padding: 0;
+	justify-content: space-around;
+    background: none;
+	width: auto;
+	display: flex;
 }
+
+p {
+  	font-family: sans-serif;
+}
+
+#usb, #video {
+	text-align: center;
+    width: 50%
+	padding: 0px;
+    margin: 2%;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
 @media only screen and (max-aspect-ratio : 13 / 9){
 /*give a different style for smaller devices like mobile phones*/
     main {
 /*repositon the content, so there is no conflict with the header*/
-        position: absolute;
-        top: 7%;
-        margin: 0% 2%;
+        margin: 0% 11%;
+        width: 80%;
      }
-/*align the content vertically*/
-    #USBAPort{
-        width: 80%;
+/*align the content vertically*/<
+    #usb{
+        width: 90%;
         position: absolute;
-        left: 10%;
         top: 100%;
+        left: 15%;
+        text-align: center;
     }
-    #describeportUSB{
-        width: 80%;
+    #video{
+        width: 48%;
         position: absolute;
-        top: 430%;
-        left: 10%;
-    }
-    #videoports{
-        width: 80%;
-        position: absolute;
-        left: 10%;
-        top: 500%;
-    }
-    #describeportVIDEO{
-        width: 80%;
-        position: absolute;
-        top: 795%;
-        left: 10%
+        top: 65%;
+        left: 21%;
     }
 }

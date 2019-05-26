@@ -1,6 +1,6 @@
-<!DOCTYPE html/>
+<!DOCTYPE html>
 <!-- Daniel Isler -->
-<html>
+<html lang = "de">
     <head>
         <title>USB 1.X</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
@@ -11,13 +11,13 @@
     <body>
         <%- include ../../partials/header.ejs %>
         <main>
-            <h2>
-                Der USB 1 Anschluss
-            </h2>
-            <hr>
-            <div id = "content">
-                <p id="general">Der USB 1 Anschluss wurde aufgrund der bei <a href="/ports/usb" id="usblink">USB</a> beschriebenen Problematik mit den vielen verschiedenen Anschlüssen im Januar 1996 eingeführt. Jedoch bekam die Schnittstelle kaum Unterstützung der damals vorhandenen Betriebssysteme, wie beispielsweise Windows. Deswegen und wegen seiner geringen Datensatzübertragungsrate, die bei full speed damals bei lediglich 12Mbits/s, also 12 Millionen Bits pro Sekunde, was selbst damals schon gering war, wurde der USB 1 Anschluss vom Firewire-BUS von Apple dominiert und erhielt den Spitznamen "Useless BUS". </p>
-                <div class ="pic">
+            <div class = title>
+                <h1>
+                    Der USB 1 Anschluss
+                </h1>
+                <hr>
+                <p id="general">Der USB 1 Anschluss wurde aufgrund der bei <b><a href="/ports/usb" id="usblink">USB</a></b> beschriebenen Problematik mit den vielen verschiedenen Anschlüssen im Januar 1996 eingeführt. Jedoch bekam die Schnittstelle kaum Unterstützung der damals vorhandenen Betriebssysteme, wie beispielsweise Windows. Deswegen und wegen seiner geringen Datensatzübertragungsrate, die bei full speed damals bei lediglich 12Mbits/s, also 12 Millionen Bits pro Sekunde, was selbst damals schon gering war, wurde der USB 1 Anschluss vom Firewire-BUS von Apple dominiert und erhielt den Spitznamen "Useless BUS". </p>
+            </div>
                     <div id ="typeab">
                         <img src="/imgs/ports/usb/1ab.jpg" alt="USB A/B"/>
                         <p>Zum USB 1 gehörten zwei Stecker, der USB A, der heute sehr häufig verwendet wird, sowie der USB B, der Quadratförmige Stecker, der rechts auf dem Bild zu sehen ist. Beide Stecker haben die gleiche Funktion, jedoch eine unterschiedliche Form, sodass sie für verschiedene Geräte unterschiedlich gut geeignet sind. Zu dieser Zeit waren dies die einzigen Möglichkeiten ein Gerät mit der USB Schnittstelle kompatibel zu machen.</p>
@@ -34,8 +34,6 @@
                         <img src = "/imgs/ports/usb/pins.png" alt = "Pins of the USB connector"/>
                         <p>Der USB Anschluss der ersten Generation hat vier verschiedene Pins, also Kabelverbindungen. Diese sind wie auf dem obigen Bild angeordent, links im USB Typ A und rechts im USB Typ B. Dabei gehören immer jeweils zwei dieser Pins zusammen, da man für einen Stromfluss einen positiven und einen negativen Pol braucht. Die Pins mit der Nummer eins und Nummer vier sind für die Versorgungsspannung des Endgerätes zuständig, sie liefern also beispielsweise die Energie um eine über die USB Schnittstelle verbundene Tastatur zu betreiben. Die Pins Nummer zwei und Nummer drei sind für die Datenübertragung zuständig. Bei diesen Pins ist auch zu beachten, dass der Minus-Pol die Elektronen speist, während der Plus-Pol die Elektronen aufnimmt, die Elektronen fliessen also vom Minus-Pol zum Plus-Pol.</p>
                     </div>
-                </div>
-            </div>
         </main>
     </body>
 </html>

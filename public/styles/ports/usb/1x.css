@@ -1,50 +1,77 @@
-header{
-/*positoning header above page*/
-    position: absolute;
-    top: 0%;
-    left: 0%
+::-html {
+	height: 100vh;
+	scrollbar-base-color: green;
 }
-body{
-/*set background color and clear unwanted browser settings*/
-    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
-    clear: both;
+
+body {
+  	background : linear-gradient(#2441B4, #31128b) no-repeat fixed;
+	margin: 0;
 }
-main{
-/*position content*/
-    width: 99%;
-    position: absolute;
-    top: 5%;
-    left: 0%;
-    padding: 0.5%;
-    margin: 0% 0% 50% 0%;
+
+main {
+	scroll-behavior: smooth;
+	overflow: hidden;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 80%;
+	overflow: auto;
+	height: 92vh;
+	padding-right: 25px;
 }
-h2{
-/*style the title*/
-    font-family: 'Righteous', cursive;
-    text-align: center;
-    color: white;
-    font-size: 200%;
+
+main h1 {
+  	margin: 0;
+  	font-family: 'Righteous', cursive;
+}
+
+main div {
+  	padding: 25px;
+  	margin-bottom: 25px;
+  	background-color: rgba(255, 255, 255, 0.8);
+  	border-radius: 50px;
+}
+
+main div {
+  	margin-top: 25px;
+}
+
+.title {
+  	text-align: center;
+  	font-size: 2em;
+}
+
+a {
+  	text-decoration: none;
+  	color: black;
+}
+
+a:hover {
+  	text-decoration: underline;
+  	color: black;
+}
+
+p {
+  	font-family: sans-serif;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
 }
 #general{
-/*modify all texts*/
-    color: white;
+    color: black;
     text-align: center;
     text-decoration-style: wavy;
     font-size: 20px;   
 }
-#usblink{
-/*style link to USB-Page*/
-    text-decoration: none;
-    color: aqua;
-}
+
 #typeab{
 /*get textfields in position and styles four times*/
     width: 20%;
     height: auto;
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 3%;
-    background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
@@ -53,9 +80,8 @@ h2{
     width: 20%;
     height: auto;
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 27%;
-    background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
@@ -64,9 +90,8 @@ h2{
     width: 20%;
     height: auto;
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 51%;
-    background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
@@ -75,49 +100,46 @@ h2{
     width: 20%;
     height: auto;
     position: absolute;
-    top: 100%;
+    top: 50%;
     left: 75%;
-    background-color: aqua;
     padding: 1%;
     border-radius: 10px;
     text-align: center;
-}
-.pic img{
-/*fit all images in textfields*/
-    width: 100%;    
 }
 @media only screen and (max-aspect-ratio : 13 / 9){
 /*give a different style for smaller devices like mobile phones*/
     main {
 /*repositon the content, so there is no conflict with the header*/
         position: absolute;
+        margin: 10%;
+        width: 80%;
         top: 7%;
     }
-    #content p{
+    main p{
         font-size: 200%;
     }
     #typeab{
         width: 80%;
         position: absolute;
-        top: 100%;
+        top: 40%;
         left: 9%;
     }
     #colorspec{
         width: 80%;
         position: absolute;
-        top: 320%;
+        top: 80%;
         left: 9%;
     }
-        #chargers{
+    #chargers{
         width: 80%;
         position: absolute;     
-        top: 505%;
+        top: 114%;
         left: 9%;
     }
-        #pins{
+    #pins{
         width: 80%;
         position: absolute;
-        top: 802%;
+        top: 157.5%;
         left: 9%;
     }
 }

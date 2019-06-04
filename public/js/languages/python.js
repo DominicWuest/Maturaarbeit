@@ -66,8 +66,8 @@ function checkSolution(output) {
     if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
     // Increment the subexerciseIndex and reset it if the user hasn't finished all subexercises yet
     else {
-      subexerciseIndex++;
       resetSubexercise();
+      subexerciseIndex++;
     }
   }
   // The output is incorrect

@@ -1,10 +1,10 @@
 footer{
     width: 100vw;
-    height: 10vh;
+    height: 13vh;
     background-color: darkblue;
     color: lightgrey;
-    padding: 0% 3%;
-    margin: 0%;
+    padding: 0% 3% 3% 0%;
+    margin: -0.7% 0%;
     position: fixed;
     left: 0;
     bottom: 0;
@@ -12,7 +12,7 @@ footer{
     clear: both;
 }
 p{
-    font-size: 80%;
+    font-size: 120%;
 }
 
 /*Style des Links für die Kontakt Seite*/
@@ -39,6 +39,9 @@ p{
     footer{
         position: relative;
         top: -1%;
+    }
+    p{
+        font-size: 120%;
     }
 }
 

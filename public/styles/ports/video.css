@@ -1,5 +1,6 @@
-html {
+::-html {
 	height: 100vh;
+	scrollbar-base-color: green;
 }
 
 body {
@@ -27,10 +28,6 @@ main h2 {
   	font-family: 'Righteous', cursive;
 }
 
-main h3 {
-  	font-family: sans-serif;
-}
-
 main div {
   	padding: 25px;
   	margin-bottom: 25px;
@@ -47,10 +44,6 @@ main div {
   	font-size: 3em;
 }
 
-#general{
-    font-size: 0.4em;
-}
-
 a {
   	text-decoration: none;
   	color: black;
@@ -61,61 +54,60 @@ a:hover {
   	color: black;
 }
 
+.video {
+  	padding: 0;
+  	background: none;
+	justify-content: space-around;
+	width: auto;
+	display: flex;
+}
+
 p {
   	font-family: sans-serif;
 }
 
-#connector img{
-    width: 20%;
-    margin: 0% 40%;
+#display, #vga, #hdmi, #dvi {
+	text-align: center;
+    width: 90%;
 }
 
-#speed img{
-    width: 30%;
-    margin: 0% 35%;
+img {
+	max-width: 100%;
+	height: auto;
 }
 
-#color img{
-    width: 20%;
-    margin: 0% 40%;
-}
 
 @media only screen and (max-aspect-ratio : 13 / 9){
 /*give a different style for smaller devices like mobile phones*/
     main {
 /*repositon the content, so there is no conflict with the header*/
+        margin: 0% 11%;
+        width: 80%;
+     }
+/*align the content vertically*/<
+    #display{
+        width: 90%;
         position: absolute;
-        margin: 10%;
-        width: 80%;
-        top: 7%;
+        top: 100%;
+        left: 15%;
+        text-align: center;
     }
-    main p{
-        font-size: 200%;
-    }
-    #typeab{
-        width: 80%;
+    #vga{
+        width: 48%;
         position: absolute;
-        top: 40%;
-        left: 9%;
+        top: 65%;
+        left: 21%;
     }
-    #colorspec{
-        width: 80%;
+    #hdmi{
+        width: 48%;
         position: absolute;
-        top: 80%;
-        left: 9%;
+        top: 65%;
+        left: 21%;
     }
-    #chargers{
-        width: 80%;
-        position: absolute;     
-        top: 114%;
-        left: 9%;
-    }
-    #pins{
-        width: 80%;
+    #dvi{
+        width: 48%;
         position: absolute;
-        top: 157.5%;
-        left: 9%;
+        top: 65%;
+        left: 21%;
     }
 }
-
-

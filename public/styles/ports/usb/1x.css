@@ -1,123 +1,86 @@
-header{
-/*positoning header above page*/
-    position: absolute;
-    top: 0%;
-    left: 0%
+html {
+	height: 100vh;
 }
-body{
-/*set background color and clear unwanted browser settings*/
-    background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
-    clear: both;
+
+body {
+  	background : linear-gradient(#2441B4, #31128b) no-repeat fixed;
+	margin: 0;
 }
-main{
-/*position content*/
-    width: 99%;
-    position: absolute;
-    top: 5%;
-    left: 0%;
-    padding: 0.5%;
-    margin: 0% 0% 50% 0%;
+
+main {
+	scroll-behavior: smooth;
+	overflow: hidden;
+	box-sizing: border-box;
+	margin: 0 auto;
+	width: 80%;
+	overflow: auto;
+	height: 92vh;
+	padding-right: 25px;
 }
-h2{
-/*style the title*/
-    font-family: 'Righteous', cursive;
-    text-align: center;
-    color: white;
-    font-size: 200%;
+
+main h1 {
+  	margin: 0;
+  	font-family: 'Righteous', cursive;
 }
+
+main h2 {
+  	font-family: 'Righteous', cursive;
+}
+
+main h3 {
+  	font-family: sans-serif;
+}
+
+main div {
+  	padding: 25px;
+  	margin-bottom: 25px;
+  	background-color: rgba(255, 255, 255, 0.8);
+  	border-radius: 50px;
+}
+
+main div {
+  	margin-top: 25px;
+}
+
+.title {
+  	text-align: center;
+  	font-size: 3em;
+}
+
 #general{
-/*modify all texts*/
-    color: white;
-    text-align: center;
-    text-decoration-style: wavy;
-    font-size: 20px;   
+    font-size: 0.4em;
 }
-#usblink{
-/*style link to USB-Page*/
-    text-decoration: none;
-    color: aqua;
+
+a {
+  	text-decoration: none;
+  	color: black;
 }
-#typeab{
-/*get textfields in position and styles four times*/
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 3%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
+
+a:hover {
+  	text-decoration: underline;
+  	color: black;
 }
-#colorspec{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 27%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
+
+p {
+  	font-family: sans-serif;
 }
-#chargers{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 51%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
+
+#typeab img{
+    max-width: 50%;
+    margin: 0% 25%;
 }
-#pins{
-    width: 20%;
-    height: auto;
-    position: absolute;
-    top: 100%;
-    left: 75%;
-    background-color: aqua;
-    padding: 1%;
-    border-radius: 10px;
-    text-align: center;
+
+#colorspec img{
+    width: 25%;
+    margin: 0% 37.5%;
 }
-.pic img{
-/*fit all images in textfields*/
-    width: 100%;    
+
+#chargers img{
+    width: 5%;
 }
-@media only screen and (max-aspect-ratio : 13 / 9){
-/*give a different style for smaller devices like mobile phones*/
-    main {
-/*repositon the content, so there is no conflict with the header*/
-        position: absolute;
-        top: 7%;
-    }
-    #content p{
-        font-size: 200%;
-    }
-    #typeab{
-        width: 80%;
-        position: absolute;
-        top: 100%;
-        left: 9%;
-    }
-    #colorspec{
-        width: 80%;
-        position: absolute;
-        top: 320%;
-        left: 9%;
-    }
-        #chargers{
-        width: 80%;
-        position: absolute;     
-        top: 505%;
-        left: 9%;
-    }
-        #pins{
-        width: 80%;
-        position: absolute;
-        top: 802%;
-        left: 9%;
-    }
+
+#pins img{
+    max-width: 60%;
+    margin: 0% 20%;
 }
+

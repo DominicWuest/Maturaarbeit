@@ -7,7 +7,7 @@
     }, {
       "index" : 1,
       "title" : "Grundlagen im Rechnen mit Variablen",
-      "description" : "In diesem Kapitel befassen wir und damit Variablen zu definieren und auszugeben. Eine Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, anstelle der ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus.",
+      "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Eine Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus.",
       "subexercises" : [{
           "index" : 0,
           "description" : "Definiere eine Variable a mit dem Wert 7 und gebe diese aus.",
@@ -16,7 +16,7 @@
           "output" : "7"
           }, {
           "index" : 1,
-          "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n also eine beliebige Zahl sein kann und a dann überdefiniert wird. Definiere eine Varbable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Varbiable aus.",
+          "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n also eine beliebige Zahl sein kann und a mit dem Wert a + n neu definiert wird. Definiere eine Varbable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Varbiable aus.",
           "startingCode" : "",
           "solution" : "a = 3\na = a + 4\nprint(a)",
           "output" : "7"   
@@ -42,8 +42,32 @@
           "index" : 5,
           "description" : "Mit a ** b kann eine Variable a hoch eine Variable b gerechnet werden. Definiere eine Variable c mit dem Wert 25 und eine Variable e mit dem Wert 24. Addiere 5 zu c und rechne danach c hoch e und gib das Resultat aus.",
           "startingCode" : "",
-          "solution" : "c = 25\nc += 5\nc = c ** e\nprint(c)",
+          "solution" : "c = 25\ne = 24\nc += 5\nc = c ** e\nprint(c)",
           "output" : "282429536481000000000000000000000000"   
+          }, {
+          "index" : 6,
+          "description" : "Einer Variable kann nicht nur ein Wert zugeorndet werden, sondern auch ein Text. Dieses Datenformat wird dann als String bezeichnet. Der Text kann einer Variable wie folgt definiert und ausgegeben. <code class=\"python\">x = 'String'\nprint(x)</code>Definiere eine Variable text mit dem String von 'Dies ist ein kleiner text' und gib diese aus.",
+          "startingCode" : "",
+          "solution" : "wert = 'Dies ist ein kleiner Text'\nprint(wert)",
+          "output" : "Dies ist ein kleiner Text"   
+          }, {
+          "index" : 7,
+          "description" : "Definiere eine Variable wetter mit dem String 'Heute ist ein schoener Tag' und gib diese aus.",
+          "startingCode" : "",
+          "solution" : "wetter = 'Heute ist ein schoener Tag'\nprint(wetter)",
+          "output" : "Heute ist ein schoener Tag"   
+          }, {
+          "index" : 8,
+          "description" : "Nun können wir auch zwei Datenformate gleichzeitig ausgeben. Dabei werden die Variablen in der Ausgabe durch Kommata voneinander getrennt. Definiere eine Variable temperatur mit dem Wert 30 und eine Variable wetter mit dem String 'Es ist warmes Wetter' und gib diese in einer Zeile aus.",
+          "startingCode" : "",
+          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
+          "output" : "(30, 'Es ist warmes Wetter')"
+          }, {
+          "index" : 9,
+          "description" : "Bei der letzten Aufgabe haben wir gemerkt, dass die Ausgabe mit Klammern und Kommata versehen war, die wir nicht wollen. Man kann mit Python Ausgaben machen, die nur für Strings funktionieren, weshalb wir die nachfolgende Variable y, der ein Integer zugeordnet ist zuerst in einen String umwandeln müssen.<code class=\"python\">x = 'String'\ny = 20\ny = str(y)\nprint(x + y)</code>Verändere nun das Programm aus der letzten Aufgabe, sodass der Output keine Kommata oder Klammern enthält.",
+          "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
+          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
+          "output" : "30Es ist warmes Wetter"
           }]
     }, {
       "index" : 2,

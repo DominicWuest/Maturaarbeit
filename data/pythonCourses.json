@@ -46,7 +46,7 @@
           "output" : "282429536481000000000000000000000000"   
           }, {
           "index" : 6,
-          "description" : "Einer Variable kann nicht nur ein Wert zugeorndet werden, sondern auch ein Text. Dieses Datenformat wird dann als String bezeichnet. Der Text kann einer Variable wie folgt definiert und ausgegeben. <code class=\"python\">x = 'String'\nprint(x)</code>Definiere eine Variable text mit dem String von 'Dies ist ein kleiner text' und gib diese aus.",
+          "description" : "Einer Variable kann nicht nur ein Wert zugeorndet werden, sondern auch ein Text. Dieses Datenformat wird dann als String bezeichnet. Der Text kann einer Variable wie folgt definiert und ausgegeben. <code class=\"python\">x = 'String'\nprint(x)</code>Definiere eine Variable text mit dem String von 'Dies ist ein kleiner Text' und gib diese aus.",
           "startingCode" : "",
           "solution" : "wert = 'Dies ist ein kleiner Text'\nprint(wert)",
           "output" : "Dies ist ein kleiner Text"   
@@ -87,13 +87,13 @@
       "description" : "Da wir gelernt haben wie wir Variablen definieren und ausgeben können, können wir zum nächsten Kapitel überschreiten, welches die erste Möglichkeit ist die Variablen zu verarbeiten. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90, teste mit eine If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
+          "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90 definiert wird, teste mit einer If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
           "startingCode" : "print(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
           "solution" : "a = 90\nif a == 90:\n\tprint(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nelse:\n\tprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
           "output" : "90 ist der Wert 90 zugeordnet"
           }, {
           "index" : 1,
-          "description" : "Modifiziere die if-else-Verzweigung so, dass sie sagt ob x grösser, gleich oder kleiner als 9 ist",
+          "description" : "Modifiziere die if-else-Verzweigung so, dass das Programm im vorgegebenen Format ausgibt, ob x grösser, gleich oder kleiner als 9 ist.",
           "startingCode" : "x = 9\nif x < 9:\n\tprint('x ist groesser als 9')\nelif x = 13:\n\tprint('x ist gleich 9')\n\n\tprint('x ist kleiner als 9')",
           "solution" : "x = 9\nif x > 9:\n\tprint('x ist groesser als 9')\nelif x == 9:\n\tprint('x ist gleich 9')\nelse:\n\tprint('x ist kleiner als 9')",
           "output" : "x ist gleich 9"
@@ -111,10 +111,16 @@
           "output" : "x ist kleiner als y und gleich z"   
           }, {
           "index" : 4,
-          "description" : "Erstelle ein Programm, dass eine Variable x mit dem Wert 13 definiert und danach testet, ob es sich beim Wert dieser Variable um einen String oder um einen Integer handelt. Verwende dafür die in Python vordefinierten Funktionen str(x) und int(x) und gib das Resultat im vorgegebenen Format aus.",
-          "startingCode" : "print(str(x) + ' ' + ist ein Integer)\nprint(str(x) + ' ' + 'ist ein String')",
-          "solution" : "x = 13\nif x == int(13):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nif x == str(13):\n\tprint(str(x) + ' ' + 'ist ein String')",
+          "description" : "Erstelle ein Programm, dass eine Variable x mit dem Wert 13 definiert und danach testet, ob es sich beim Wert dieser Variable um einen String oder um einen Integer handelt. Verwende dafür die in Python vordefinierten Funktionen str(x) und int(x), wobei x die Variable, deren Datentyp getestet werden soll. Gib das Resultat im vorgegebenen Format aus.",
+          "startingCode" : "print(str(x) + ' ' + 'ist ein Integer')\nprint(str(x) + ' ' + 'ist ein String')",
+          "solution" : "x = 13\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')",
           "output" : "13 ist ein Integer"
+          }, {
+          "index" : 5,
+          "description" : "Erstelle ein Programm, welches den vorgegebenen Variablen x, y und z herausfinden kann und das Ergebnis im vorgegebenen Format ausgibt.",
+          "startingCode" : "x = '14'\ny = 41\nz = 123.5\nprint('ist ein Integer')\nprint('ist ein String')\nprint('ist weder ein Integer, noch ein String')",
+          "solution" : "x = '14'\ny = 41\nz = 123.5\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nelif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')\nelse:\n\tprint(str(x) + ' ' + 'ist weder ein Integer, noch ein String')\nif y == int(y):\n\tprint(str(y) + ' ' + 'ist ein Integer')\nelif y == str(y):\n\tprint(str(y) + ' ' + 'ist ein String')\nelse:\n\tprint(str(y) + ' ' + 'ist weder ein Integer, noch ein String')\nif z == int(z):\n\tprint(str(z) + ' ' + 'ist ein Integer')\nelif z == str(z):\n\tprint(str(z) + 'ist ein String')\nelse:\n\tprint(str(z) + ' ' + 'ist weder ein Integer, noch ein String')",
+          "output" : "14 ist ein String\n41 ist ein Integer\n123.5 ist weder ein Integer, noch ein String"
           }]
     }, {
       "index" : 3,
@@ -258,19 +264,19 @@
       }, {
       "index" : 8,
       "title" : "Klassen",
-      "description" : "Dieses Kapitel befasst sich mit Klassen. Falls du mit den Funktionen noch nicht sattelfest bist empfehlen wir dir, zuerst diese Kapitel durchzuarbeiten, bevor du dich an die Klassen wagst.",
+      "description" : "Dieses Kapitel befasst sich mit Klassen. Falls du mit den Funktionen noch nicht sattelfest bist empfehlen wir dir, zuerst diese Kapitel durchzuarbeiten, bevor du dich an die Klassen wagst. Klassen werden in Python folgendermassen definiert.<code class=\"python\">class calculator:\n\tdef __init__(self, x, y):\n\t\tself.x = x\n\t\tself.y = y\n\tdef sum(self):\n\t\tself.sum = self.x + self.y\n\t\treturn self.sum\ninput = calculator(2, 3)\nsumme = calculator.sum(input)\nprint(summe)</code>Am obigen Beispiel ist also erkennbar, dass eine Klasse eine Sammlung von Funktionen sein kann. Immer dabei sein muss ein __init__(self, Argument 1, Argument 2, ...). Durch diese Funktion werden die verschiedenen Eigenschaften einer Variable definiert. Wenn die Klasse nun aufgerufen wird mit n = name(Argument 1, Argument 2, ...) dann kann in der Funktion __init__ der Variable n mit n.eigenschaft = Argument 1, einer Eigenschaft von n ein Wert zugeordnet werden. Dieser kann dann in den weiteren Funktionen der Klasse aufgerufen und verarbeitet werden. Die weiteren Funktionen werden mit name.funktionsname(Argument 1, ...) aufgerufen.",
       "subexercises" : [{
           "index" : 0,
-          "description" : "",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
+          "description" : "Kopiere oder Schreibe das Programm aus der Kapitelbeschreibung ab füge noch ein drittes Argument z = 8 hinzu. Addiere nun die drei Werte und gib das Resultat aus.",
+          "startingCode" : "z = 8",
+          "solution" : "z = 8\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\ninput = calculator(2, 3, z)\nsumme = calculator.sum(input)\nprint(summe)",
+          "output" : "13"
           }, {
             "index" : 1,
-            "description" : "",
-            "startingCode" : "",
-            "solution" : "",
-            "output" : "" 
+            "description" : "Erweitere nun das Programm aus der letzten Aufgabe um zu dem Summenrechner noch einen Produktrechner hinzuzufügen. Addiere diese drei Variablen nun mit der Klasse, gib das Ergebnis aus und Multipliziere die Variablen mit der Klasse und gib das Ergebnis auf einer neuen Zeile aus.",
+            "startingCode" : "x = 15\ny = 25\nz = 23\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\ninput = calculator(2, 3, z)\nsumme = calculator.sum(input)\nprint(summe)",
+            "solution" : "x = 15\ny = 25\nz = 23\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.x * self.y * self.z\n\t\treturn self.product\ninput = calculator(x, y, z)\nsumme = calculator.sum(input)\nprint(summe)\ninput = calculator(x, y, z)\nProdukt = calculator.product(input)\nprint(Produkt)",
+            "output" : "63\n8625" 
           }]
       }
     ]

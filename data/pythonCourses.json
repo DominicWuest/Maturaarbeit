@@ -87,22 +87,34 @@
       "description" : "Da wir gelernt haben wie wir Variablen definieren und ausgeben können, können wir zum nächsten Kapitel überschreiten, welches die erste Möglichkeit ist die Variablen zu verarbeiten. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
       "subexercises" : [{
           "index" : 0,
+          "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90, teste mit eine If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
+          "startingCode" : "print(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
+          "solution" : "a = 90\nif a == 90:\n\tprint(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nelse:\n\tprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
+          "output" : "90 ist der Wert 90 zugeordnet"
+          }, {
+          "index" : 1,
           "description" : "Modifiziere die if-else-Verzweigung so, dass sie sagt ob x grösser, gleich oder kleiner als 9 ist",
           "startingCode" : "x = 9\nif x < 9:\n\tprint('x ist groesser als 9')\nelif x = 13:\n\tprint('x ist gleich 9')\n\n\tprint('x ist kleiner als 9')",
           "solution" : "x = 9\nif x > 9:\n\tprint('x ist groesser als 9')\nelif x == 9:\n\tprint('x ist gleich 9')\nelse:\n\tprint('x ist kleiner als 9')",
           "output" : "x ist gleich 9"
           }, {
-          "index" : 1,
+          "index" : 2,
           "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht und das Ergebnis im vorgegebenen Format ausgibt.",
           "startingCode" : "x = 5\ny = 7\nprint('x ist groesser als y')\nprint('x ist gleich y')\nprint('x ist kleiner als y')",
           "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
           "output" : "x ist kleiner als y"   
           }, {
-          "index" : 2,
+          "index" : 3,
           "description" : "Erweitere das Programm aus der letzten Aufgabe nun um ein Programm zu estellen, das x mit den beiden vorgegebenen Variablen y und z vergleicht.",
           "startingCode" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tprint('x ist groesser als y und z')\nelif x == y:\n\tprint('x ist gleich y und groesser als z')\nelse:\n\tprint('x ist kleiner als y und gleich z')",
           "solution" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tif x > z:\n\t\tprint('x ist groesser als y und z')\n\telif x == z:\n\t\tprint('x ist groesser als y und gleich z')\n\telse:\n\t\tprint('x ist groesser als y und kleiner als z')\nelif x == y:\n\tif x > z:\n\t\tprint('x ist gleich y und groesser als z')\n\telif x == z:\n\t\tprint('x ist gleich y und z')\n\telse:\n\t\tprint('x ist gleich y und kleiner als z')\nelse:\n\tif x > z:\n\t\tprint('x ist kleiner als y und groesser als z')\n\telif x == z:\n\t\tprint('x ist kleiner als y und gleich z')\n\telse:\n\t\tprint('x ist kleiner als y und z')",
           "output" : "x ist kleiner als y und gleich z"   
+          }, {
+          "index" : 4,
+          "description" : "Erstelle ein Programm, dass eine Variable x mit dem Wert 13 definiert und danach testet, ob es sich beim Wert dieser Variable um einen String oder um einen Integer handelt. Verwende dafür die in Python vordefinierten Funktionen str(x) und int(x) und gib das Resultat im vorgegebenen Format aus.",
+          "startingCode" : "print(str(x) + ' ' + ist ein Integer)\nprint(str(x) + ' ' + 'ist ein String')",
+          "solution" : "x = 13\nif x == int(13):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nif x == str(13):\n\tprint(str(x) + ' ' + 'ist ein String')",
+          "output" : "13 ist ein Integer"
           }]
     }, {
       "index" : 3,

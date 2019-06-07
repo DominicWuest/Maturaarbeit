@@ -22,7 +22,7 @@
           "output" : "7"   
           }, {
           "index" : 2,
-          "description" : "Die Addition einer Zahl zu einer Variable a kann auch abgekürzt mit a += n geschrieben werden. Dies hat dabei die gleiche Bedeutung wie a = a + n. Definiere nun eine Variable q mit dem Wert 5, addiere in einem ersten Schritt 18, gib das Zwischenresultat aus und addiere in einem zweiten Schritt 1053 und gib q aus.",
+          "description" : "Die Addition einer Zahl zu einer Variable a kann auch abgekürzt mit a += n geschrieben werden. Dies hat dabei die gleiche Bedeutung wie a = a + n. Definiere nun eine Variable q mit dem Wert 5, addiere in einem ersten Schritt 18, gib das Zwischenresultat aus und addiere dazu in einem zweiten Schritt 1053 und gib q aus.",
           "startingCode" : "",
           "solution" : "q = 5\nq += 18\nprint(q)\nq += 1053\nprint(q)",
           "output" : "23\n1076"   
@@ -36,8 +36,8 @@
           "index" : 4,
           "description" : "Definiere eine Variable z mit dem Wert 5, addiere 7, multipliziere sie mit 9 und addiere 4. Gib jeweils die Zwischenresultate und das Endresultat aus.",
           "startingCode" : "",
-          "solution" : "z = 5\nz += 7\nprint(z)\nz *= 9\nprint(z)\nz += 7\nprint(z)",
-          "output" : "12\n108\n115"   
+          "solution" : "z = 5\nz += 7\nprint(z)\nz *= 9\nprint(z)\nz += 4\nprint(z)",
+          "output" : "12\n108\n112"   
           }, {
           "index" : 5,
           "description" : "Mit a ** b kann eine Variable a hoch eine Variable b gerechnet werden. Definiere eine Variable c mit dem Wert 25 und eine Variable e mit dem Wert 24. Addiere 5 zu c und rechne danach c hoch e und gib das Resultat aus.",

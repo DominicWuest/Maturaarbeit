@@ -68,11 +68,23 @@
           "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
           "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
           "output" : "30Es ist warmes Wetter"
+          }, {
+          "index" : 10,
+          "description" : "Das Problem mit der Ausgabe der letzten Aufgabe war, dass wir mit der Ausgabe der Strings keinen Leerschlag zweischen der Nummer und der Beschreibung haben. Verändere nun den Code der letzten Aufgabe um einen Leerschlag zwischen der Nummer und der Beschreibung zu erhalten.",
+          "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
+          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + ' ' + wetter)",
+          "output" : "30 Es ist warmes Wetter"
+          }, {
+          "index" : 11,
+          "description" : "Benutze nun die vorher gelernten Tools um das Ausgabenformat zu verbessern und schreibe ein Programm, in dem eine Variable windgeschwindigkeit mit dem Wert 120 definiert wird und zweite Variable warnung mit dem String 'Es gibt einen Sturm'. Diese beiden Variablen sollen nun auf einer Zeile ausgegeben werden.",
+          "startingCode" : "",
+          "solution" : "windgeschwindigkeit = 120\nwarnung = 'Es gibt einen Sturm'\nwindgeschwindigkeit = str(windgeschwindigkeit)\nprint(windgeschwindigkeit + ' ' + warnung)",
+          "output" : "120 Es gibt einen Sturm"
           }]
     }, {
       "index" : 2,
       "title" : "If-else-Verzweigungen",
-      "description" : "Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
+      "description" : "Da wir gelernt haben wie wir Variablen definieren und ausgeben können, können wir zum nächsten Kapitel überschreiten, welches die erste Möglichkeit ist die Variablen zu verarbeiten. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
       "subexercises" : [{
           "index" : 0,
           "description" : "Modifiziere die if-else-Verzweigung so, dass sie sagt ob x grösser, gleich oder kleiner als 9 ist",
@@ -81,7 +93,7 @@
           "output" : "x ist gleich 9"
           }, {
           "index" : 1,
-          "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht.",
+          "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht und das Ergebnis im vorgegebenen Format ausgibt.",
           "startingCode" : "x = 5\ny = 7\nprint('x ist groesser als y')\nprint('x ist gleich y')\nprint('x ist kleiner als y')",
           "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
           "output" : "x ist kleiner als y"   
@@ -201,6 +213,12 @@
             "startingCode" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]",
             "solution" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66, -26, 15, 176, -7]\ndef minimum(a):\n\tx = int(a[0])\n\tfor element in a:\n\t\tif x > int(element):\n\t\t\tx = int(element)\n\treturn x\nprint(minimum(a))",
             "output" : "-213" 
+          }, {
+            "index" : 5,
+            "description" : "Definiere eine Funktion, die alle Zahlen aus der vorgegeben Liste x der Grösse nach (vom kleinsten zum grössten) sortiert. Mehrfach vorkommende Zahlen sollen dabei hintereinander aufgelistet werden.",
+            "startingCode" : "x = [1, 2357, 234, 347, 3246, 2132, 23, 7, -23, -32, 7, 26, -26, 236, 26, 272, 27, 237, 3247, 27, -27, 346, 2346, 27, 327, 27, 327, 237, 485, 27, 956, 2457, 245, 38]",
+            "solution" : "x = [1, 2357, 234, 347, 3246, 2132, 23, 7, -23, -32, 7, 26, -26, 236, 26, 272, 27, 237, 3247, 27, -27, 346, 2346, 27, 327, 27, 327, 237, 485, 27, 956, 2457, 245, 38]\ndef sort(x):\n# For Schlaufe um den Algorithmus auf alle Elemente anzuwenden\n\tfor q in range(len(x)):\n# For Schlaufe um das letzte Element mit allen davor zu vergleichen\n\t\tfor i in range(len(x)):\n# Wenn das Element mit dem kleineren Index grösser ist wird es getauscht\n\t\t\tif x[len(x) - q - i - 1] < x[len(x) - q - 1]:\n\t\t\t\ta = x[len(x) - q - i - 1]\n\t\t\t\tx[len(x) - q - i - 1] = x[len(x) - q - 1]\n\t\t\t\tx[len(x) - q - 1] = a\n\treturn x\nprint(sort(x))",
+            "output" : "[-32, -27, -26, -23, 1, 7, 7, 23, 26, 26, 27, 27, 27, 27, 27, 38, 234, 236, 237, 237, 245, 272, 327, 327, 346, 347, 485, 956, 2132, 2346, 2357, 2457, 3246, 3247]" 
           }]
       }, {
       "index" : 7,

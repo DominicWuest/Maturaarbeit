@@ -1,16 +1,19 @@
 footer{
-    width: 99vw;
-    height: 13vh;
+    width: 100vw;
+    height: 12vh;
     background-color: darkblue;
     color: lightgrey;
     padding: 0% 3% 3% 0%;
     margin: -0.7% 0%;
     position: relative;
     left: 0;
-    bottom: 0;
+    top: 0.5%;
     text-align: center;
     clear: both;
+    overflow: scroll;
+    overflow-x: hidden;
 }
+
 p{
     font-size: 120%;
 }

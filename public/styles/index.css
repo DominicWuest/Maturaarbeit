@@ -8,11 +8,12 @@ html {
 }
 
 main {
-  height: 90vh;
+  height: 10 0vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
   background-repeat: repeat-x;
   display: grid;
   grid-template-columns: 20vw 60vw 20vw;
+  overflow: auto;
 }
 
 a:hover {

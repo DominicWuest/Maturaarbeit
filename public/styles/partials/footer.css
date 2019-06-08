@@ -1,11 +1,11 @@
 footer{
     width: 100vw;
-    height: 13vh;
+    height: 10vh;
     background-color: darkblue;
     color: lightgrey;
     padding: 0% 3% 3% 0%;
     margin: -0.7% 0%;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     text-align: center;
@@ -41,7 +41,11 @@ p{
         top: -1%;
     }
     p{
-        font-size: 120%;
+        font-size: 150%;
+    }
+    #copyright{
+        font-size: 110%;
+        border-radius: 10px;
     }
 }
 

@@ -7,10 +7,10 @@
     }, {
       "index" : 1,
       "title" : "Grundlagen im Rechnen mit Variablen",
-      "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Eine Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus.",
+      "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus. Jeder Befehl, der dem Programm gegeben wird steht dabei in einer neuen Zeile. Im Code sieht dies folgendermassen aus.<code class=\"python\">x = 3\nprint(x)</code>",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Definiere eine Variable a mit dem Wert 7 und gebe diese aus.",
+          "description" : "Definiere eine Variable a mit dem Wert 7 und gib diese aus.",
           "startingCode" : "",
           "solution" : "a = 7\nprint(a)",
           "output" : "7"
@@ -117,10 +117,16 @@
           "output" : "13 ist ein Integer"
           }, {
           "index" : 5,
-          "description" : "Erstelle ein Programm, welches den vorgegebenen Variablen x, y und z herausfinden kann und das Ergebnis im vorgegebenen Format ausgibt.",
+          "description" : "Erstelle ein Programm, welches den Datentyp der vorgegebenen Variablen x, y und z herausfinden kann und das Ergebnis im vorgegebenen Format ausgibt.",
           "startingCode" : "x = '14'\ny = 41\nz = 123.5\nprint('ist ein Integer')\nprint('ist ein String')\nprint('ist weder ein Integer, noch ein String')",
           "solution" : "x = '14'\ny = 41\nz = 123.5\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nelif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')\nelse:\n\tprint(str(x) + ' ' + 'ist weder ein Integer, noch ein String')\nif y == int(y):\n\tprint(str(y) + ' ' + 'ist ein Integer')\nelif y == str(y):\n\tprint(str(y) + ' ' + 'ist ein String')\nelse:\n\tprint(str(y) + ' ' + 'ist weder ein Integer, noch ein String')\nif z == int(z):\n\tprint(str(z) + ' ' + 'ist ein Integer')\nelif z == str(z):\n\tprint(str(z) + 'ist ein String')\nelse:\n\tprint(str(z) + ' ' + 'ist weder ein Integer, noch ein String')",
           "output" : "14 ist ein String\n41 ist ein Integer\n123.5 ist weder ein Integer, noch ein String"
+          }, {
+          "index" : 6,
+          "description" : "In der letzten Aufgabe haben wir herausgefunden, dass es auch noch andere Datentyps gibt als nur String und Integer. 123.5 war in diesem Beispiel eine sogenannte Floating Point Zahl. Eine Floating Point Zahl n kann mit int(n) in einen Integer umgewandelt werden. Teste für jede der vorgegebenen Variablen, ob ihnen eine Floating Point Point Zahl zugeordnet ist und gib diese, falls es eine Floating Point Zahl ist im vorgegebenen Format aus. Benutze dafür den Befehl float(n) um eine Zahl beliebigen Datentypes in eine Floating Point Zahl umzuwandeln.",
+          "startingCode" : "a = '112'\nb = 4.3623115\nc = 123.0\nd = 124\nprint(str(a) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(a))\nprint(str(b) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(b))\nprint(str(c) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(c))\nprint(str(d) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(d))",
+          "solution" : "a = '112.235'\nb = 4.3623115\nc = 123.0\nd = 124\nif a == float(a):\n\tprint(str(a) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(a)))\nif b == float(b):\n\tprint(str(b) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(b)))\nif c == float(c):\n\tprint(str(c) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(c)))\nif d == float(d):\n\tprint(str(d) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(d)))",
+          "output" : "4.3623115 ist eine Floating Point Zahl mit dem Integer Wert von 4\n123.0 ist eine Floating Point Zahl mit dem Integer Wert von 123\n124 ist eine Floating Point Zahl mit dem Integer Wert von 124"
           }]
     }, {
       "index" : 3,
@@ -275,8 +281,20 @@
             "index" : 1,
             "description" : "Erweitere nun das Programm aus der letzten Aufgabe um zu dem Summenrechner noch einen Produktrechner hinzuzufügen. Addiere diese drei Variablen nun mit der Klasse, gib das Ergebnis aus und Multipliziere die Variablen mit der Klasse und gib das Ergebnis auf einer neuen Zeile aus.",
             "startingCode" : "x = 15\ny = 25\nz = 23\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\ninput = calculator(2, 3, z)\nsumme = calculator.sum(input)\nprint(summe)",
-            "solution" : "x = 15\ny = 25\nz = 23\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.x * self.y * self.z\n\t\treturn self.product\ninput = calculator(x, y, z)\nsumme = calculator.sum(input)\nprint(summe)\ninput = calculator(x, y, z)\nProdukt = calculator.product(input)\nprint(Produkt)",
+            "solution" : "x = 15\ny = 25\nz = 23\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.x * self.y * self.z\n\t\treturn self.product\ninput = calculator(x, y, z)\nsumme = calculator.sum(input)\nprint(summe)\nProdukt = calculator.product(input)\nprint(Produkt)",
             "output" : "63\n8625" 
+          }, {
+            "index" : 2,
+            "description" :"Erweitere dass Programm der letzzen Aufgabe nun so, dass es eine Liste von mit Zahlen als Input nimmt. Gib die Summe und das Produkt der zwei vorgegebenen Variablen x und y in je einer Zeile aus.",
+            "startingCode" : "x = 155\ny = 162\nclass calculator:\n\tdef __init__(self, x, y, z):\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.x * self.y * self.z\n\t\treturn self.product\ninput = calculator(x, y, z)\nsumme = calculator.sum(input)\nprint(summe)\ninput = calculator(x, y, z)\nProdukt = calculator.product(input)\nprint(Produkt)",
+            "solution" : "x = 15\ny = 25\nlist = [x, y]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = self.a[0] + self.a[1]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.a[0] * self.a[1]\n\t\treturn self.product\ninput = calculator(list)\nsumme = calculator.sum(input)\nprint(summe)\nProdukt = calculator.product(input)\nprint(Produkt)",
+            "output" : "40\n375" 
+          }, {
+            "index" : 3,
+            "description" :"Erweitere dass Programm der letzten Aufgabe jetzt so, dass es eine Liste aus egal wie vielen Elementen als Input nehmen kann. Berechne damit die Summe und die Produkte aller Zahlen aus den zwei vorgegebenen Liste. Gibt die Ergebnisse in je einer Zeile und der Reihenfolge: Summe 1, Produkt 1, Summe 2, Produkt 2 aus.",
+            "startingCode" : "x = [1, 164, 126, 1246, 62, 62, 168, 690, 951]\ny = [399, 6, 27, 2, 7, 1, 2, 36, 6, 25]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = self.a[0] + self.a[1]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.a[0] * self.a[1]\n\t\treturn self.product\ninput = calculator(list)\nsumme = calculator.sum(input)\nprint(summe)\nProdukt = calculator.product(input)\nprint(Produkt)",
+            "solution" : "x = [1, 164, 126, 1246, 62, 62, 168, 690, 951]\ny = [399, 6, 27, 2, 7, 1, 2, 36, 6, 25]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\ninput_1 = calculator(x)\nsumme_1 = calculator.sum(input_1)\nprint(summe_1)\nProdukt_1 = calculator.product(input_1)\nprint(Produkt_1)\ninput_2 = calculator(y)\nsumme_2 = calculator.sum(input_2)\nprint(summe_2)\nProdukt_2 = calculator.product(input_2)\nprint(Produkt_2)",
+            "output" : "3470\n10910752488817413120\n511\n9773265600" 
           }]
       }
     ]

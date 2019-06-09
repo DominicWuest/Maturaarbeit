@@ -12,6 +12,12 @@ footer{
     clear: both;
     overflow: scroll;
     overflow-x: hidden;
+    overflow: -moz-scrollbars-none; 
+    -ms-overflow-style: none; 
+}
+
+footer::-webkit-scrollbar{ 
+    width: 0 !important
 }
 
 p{

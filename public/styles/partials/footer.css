@@ -5,9 +5,9 @@ footer{
     color: lightgrey;
     padding: 0% 3% 3% 0%;
     margin: -0.7% 0%;
-    position: relative;
+    position: absolute;
     left: 0;
-    top: 0.5%;
+    top: 90%;
     text-align: center;
     clear: both;
     overflow: scroll;

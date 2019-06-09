@@ -269,7 +269,7 @@
           }]
       }, {
       "index" : 8,
-      "title" : "Klassen",
+      "title" : "Klassen Einführung",
       "description" : "Dieses Kapitel befasst sich mit Klassen. Falls du mit den Funktionen noch nicht sattelfest bist empfehlen wir dir, zuerst diese Kapitel durchzuarbeiten, bevor du dich an die Klassen wagst. Klassen werden in Python folgendermassen definiert.<code class=\"python\">class calculator:\n\tdef __init__(self, x, y):\n\t\tself.x = x\n\t\tself.y = y\n\tdef sum(self):\n\t\tself.sum = self.x + self.y\n\t\treturn self.sum\ninput = calculator(2, 3)\nsumme = calculator.sum(input)\nprint(summe)</code>Am obigen Beispiel ist also erkennbar, dass eine Klasse eine Sammlung von Funktionen sein kann. Immer dabei sein muss ein __init__(self, Argument 1, Argument 2, ...). Durch diese Funktion werden die verschiedenen Eigenschaften einer Variable definiert. Wenn die Klasse nun aufgerufen wird mit n = name(Argument 1, Argument 2, ...) dann kann in der Funktion __init__ der Variable n mit n.eigenschaft = Argument 1, einer Eigenschaft von n ein Wert zugeordnet werden. Dieser kann dann in den weiteren Funktionen der Klasse aufgerufen und verarbeitet werden. Die weiteren Funktionen werden mit name.funktionsname(Argument 1, ...) aufgerufen.",
       "subexercises" : [{
           "index" : 0,
@@ -295,6 +295,12 @@
             "startingCode" : "x = [1, 164, 126, 1246, 62, 62, 168, 690, 951]\ny = [399, 6, 27, 2, 7, 1, 2, 36, 6, 25]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = self.a[0] + self.a[1]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = self.a[0] * self.a[1]\n\t\treturn self.product\ninput = calculator(list)\nsumme = calculator.sum(input)\nprint(summe)\nProdukt = calculator.product(input)\nprint(Produkt)",
             "solution" : "x = [1, 164, 126, 1246, 62, 62, 168, 690, 951]\ny = [399, 6, 27, 2, 7, 1, 2, 36, 6, 25]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\ninput_1 = calculator(x)\nsumme_1 = calculator.sum(input_1)\nprint(summe_1)\nProdukt_1 = calculator.product(input_1)\nprint(Produkt_1)\ninput_2 = calculator(y)\nsumme_2 = calculator.sum(input_2)\nprint(summe_2)\nProdukt_2 = calculator.product(input_2)\nprint(Produkt_2)",
             "output" : "3470\n10910752488817413120\n511\n9773265600" 
+          }, {
+            "index" : 4,
+            "description" :"Nun wollen wir den Taschenrechner mit einer Funktion erweitern, die ihn die Fakultät eines Inputs rechnen lässt. Gib die Fakultäten der Elemente der vorgegebenen Liste x in je einer Zeile aus. Beachte dafür dass die Fakultät von 0 per Definition 1 ist.",
+            "startingCode" : "x = [22, 0, 12]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\ninput_1 = calculator(x)\nsumme_1 = calculator.sum(input_1)\nprint(summe_1)\nProdukt_1 = calculator.product(input_1)\nprint(Produkt_1)\ninput_2 = calculator(y)\nsumme_2 = calculator.sum(input_2)\nprint(summe_2)\nProdukt_2 = calculator.product(input_2)\nprint(Produkt_2)",
+            "solution" : "x = [22, 0, 12]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\n\tdef factorial(self):\n\t\tself.factorial = 1\n\t\tfor i in range(self.a):\n\t\t\tself.factorial *= self.a - i\n\t\treturn self.factorial\nfor i in range(len(x)):\n\tprint(calculator.factorial(calculator(x[i])))",
+            "output" : "1124000727777607680000\n1\n479001600" 
           }]
       }
     ]

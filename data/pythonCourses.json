@@ -250,22 +250,22 @@
       "description" : "Dieses Kapitel befasst sich mit Modulen. In einem Modul können Variablen und hauptsächlich Funktionen gespeichert werden. In python gibt es auch Module, die bereits definiert sind, jedoch noch importiert werden müssen. Dies kann man mit import time machen, wobei time der Name des Modules ist. Um eine Funktion aus dem Modul aufzurufen muss man time.time(), also den Namen des Modules . den Namen der Funktion. In diesem Kapitel geht es hauptsächlich um die Module math und time.",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Importiere das Modul math und gib den Sinus von 45 Grad aus. Beachte, dass der Winkel im Bogenmass werden muss. Mit math.sin(a) kannst du den Sinus eines Winkels ausgeben und mit math.asin() kannst du den Arcussinus einer Zahl ausgeben.",
+          "description" : "Importiere das Modul math und gib den Sinus von 45 Grad aus. Beachte, dass der Winkel im Bogenmass werden muss. Mit math.sin(a) kannst du den Sinus eines Winkels ausgeben und mit math.asin() kannst du den Arcussinus einer Zahl ausgeben. Runde das Resultat mit round(x, 5) auf fünf Stellen nach dem Komma und gib es aus",
           "startingCode" : "",
-          "solution" : "import math\n# Die Variable pi wird mit der Kreiszahl definiert\npi = math.asin(1) * 2\na = math.sin(45 * 2 * pi / 360)\nprint(a)",
-          "output" : "0.707106781187"
+          "solution" : "import math\n# Die Variable pi wird mit der Kreiszahl definiert\npi = math.asin(1) * 2\na = math.sin(45 * 2 * pi / 360)\nprint(round(a, 5))",
+          "output" : "0.70711"
           }, {
             "index" : 1,
-            "description" : "Importiere das Modul time. Mit time.time() kannst du nun eine Zeit in Sekunden ausgeben. Finde nun heraus, in welchem Jahr diese Zeit ihren Ursprung (also 0 war) hatte. Tipp: mit int(a) wir eine floating point Zahl in einen Integer umgewandelt, also eine Dezimalzahl zu einer ganzen Zahl abgerundet",
+            "description" : "Importiere das Modul time. Mit time.time() kannst du nun eine Zeit in Sekunden ausgeben. Finde nun heraus, in welchem Jahr diese Zeit ihren Ursprung (also 0 war) hatte. Tipp: mit int(a) wir eine floating point Zahl in einen Integer umgewandelt, also eine Dezimalzahl zu einer ganzen Zahl abgerundet.",
             "startingCode" : "",
             "solution" : "import time\n# Die Zeit wird von Sekunden in Jahre konvertiert\nnow = time.time() / (60 * 60 * 24 * 365.24)\n# Die Zeit wird von 2020 (Ende 2019) abgezogen, um das Ursprungsjahr zu erhalten\nzero = 2020 - now\nyear = int(zero)\nprint(year)",
             "output" : "1970" 
           }, {
             "index" : 2,
-            "description" : "Importiere das Modul time und messe damit die Zeit, die Pyton brauch, um 10000 Mal eine For-Schlaufe, in der jedes mal a = 10 * 10 gerechnet wird zu durchlaufen und gebe diese aus.",
+            "description" : "Importiere das Modul time und messe damit die Zeit, die Pyton brauch, um 10000 Mal eine For-Schlaufe, in der jedes mal a = 10 * 10 gerechnet wird zu durchlaufen. Runde das Ergebnis mit round(x, 2) auf zwei Stellen nach dem Komma und gib es aus.",
             "startingCode" : "",
-            "solution" : "import time\nt0 = time.time()\nfor i in range(10000):\n\ta = 10 * 10\nprint(time.time() - t0)",
-            "output" : "time" 
+            "solution" : "import time\nt0 = time.time()\nfor i in range(10000):\n\ta = 10 * 10\nprint(round(time.time() - t0, 2))",
+            "output" : "0.04" 
           }]
       }, {
       "index" : 8,

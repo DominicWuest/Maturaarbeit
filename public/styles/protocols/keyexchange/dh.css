@@ -1,4 +1,4 @@
-tml {
+html {
   height: 100vh;
 }
 
@@ -82,4 +82,12 @@ a:hover {
   white-space: pre;
   border-radius: 8px;
   max-height: 400px;
+}
+
+.math {
+    background-color: #444;
+    color: #BBB;
+    padding: 8px;
+    border-radius: 8px;
+    font-weight: 750;
 }

@@ -32,18 +32,22 @@
       <div class="text">
         <div id="history">
           <h2>Geschichte</h2>
-          <p>Die Diffie Hellman Methode, entiwckelt von Whitfield Diffie und Martin Hellman im Jahre 1976, ist eine der ersten praktischen Beispiele eines public key exchanges.</p>
+          <p>Die Diffie Hellman Methode, entiwckelt von Whitfield Diffie und Martin Hellman im Jahre 1976, ist eine der ersten praktischen Beispiele eines public key exchanges (Schlüsselübergabe über ein öffentliches Netzwerk).</p>
+          <p>Früher wurden physische Schlüsselübergaben (beispielsweise per Post) unternommen, damit niemand den Schlüssel kennt.</p>
         </div>
         <div id="usage">
           <h2>Gebrauch</h2>
-          <p>Das Diffie Hellman Schlüsselübergabeprotokoll wird gebraucht, um Keys auszutauschen, mit denen Nachrichten verschlüsselt werden.</p>
-          <p>Hierbei liegt das Problem darin, dass zwei Clients den gleichen Schlüssel zum ver- und entschlüsseln brauchen, diesen aber nicht öffentlich</p>
+          <p>Das Diffie Hellman Schlüsselübergabeprotokoll wird gebraucht, um Keys auszutauschen, mit denen Nachrichten ver- und entschlüsselt werden.</p>
+          <p>Hierbei liegt das Hauptproblem darin, dass zwei Clients den gleichen Schlüssel zum ver- und entschlüsseln brauchen, diesen aber nicht öffentlich verfügbar machen wollen, da ansonsten andere Personen im Netzwerk dessen Nachrichten entschlüsseln könnten.</p>
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
+          <p>Das Grundkonzept basiert darauf, dass es keinen Unterschied macht, um welche Pozent eine Zahl zuerst erhebt wird, da <span class="math">(n<sup>a</sup>)<sup><sup>b</sup></sup> = (n<sup>b</sup>)<sup><sup>a</sup></sup> = n<sup>ab</sup> = n<sup>ba</sup></span></p>
+          <p>Zu Beginn wird eine Konstante p und g bestummen, wobei p eine grosse Nummer (meist 512 Bit) ist und g eine Primitivwurzel Modulo p. Diese zwei Nummern müssen nicht geheim gehalten werden.</p>
         </div>
         <div id="weaknesses">
           <h2>Schwachpunkte</h2>
+          <p>Das Diffie Hellman Protokoll ist anfällig für ein MITM-Attacke (Man in the Middle). Hierbei fängt der Angreifer die beiden Übergaben der beiden Clients ab und gibt sich als Server aus, welcher die Anfragen bearbeitet. Somit erhält der Man in the Middle alle Nachrichten der Clients und da er deren Schlüssel kennt, kann er die Nachrichten auch entschlüsseln.</p>
         </div>
         <div id="demonstration">
           <h2>Demonstration</h2>

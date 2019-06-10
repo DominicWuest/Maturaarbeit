@@ -43,14 +43,57 @@
         <div id="functionality">
           <h2>Funktionsweise</h2>
           <p>Das Grundkonzept basiert darauf, dass es keinen Unterschied macht, um welche Pozent eine Zahl zuerst erhebt wird, da <span class="math">(n<sup>a</sup>)<sup><sup>b</sup></sup> = (n<sup>b</sup>)<sup><sup>a</sup></sup> = n<sup>ab</sup> = n<sup>ba</sup></span></p>
+          <p>Die Situation ist folgende: Zwei Partien, Alice und Bob möchten einen gemeinsamen Schlüssel generieren und ihn über das Internet versenden, ohne dass jemand anderes ihn kennt.</p>
           <p>Zu Beginn wird eine Konstante p und g bestummen, wobei p eine grosse Nummer (meist 512 Bit) ist und g eine Primitivwurzel Modulo p. Diese zwei Nummern müssen nicht geheim gehalten werden.</p>
+          <p>Als Nächstes generieren Alice und Bob je eine Konstante, a und b, wobei <span class="math">1 &#8804; a &#8804; p - 1</span> und <span class="math">1 &#8804; b &#8804; p - 1</span>.</p>
+          <p>Nun sendet Alice Bob <span class="math">g<sup>a</sup> % p</span> und Bob Alice <span class="math">g<sup>b</sup> % p</span>.</p>
+          <p>Alice berechnet nun <span class="math">(g<sup>b</sup> % p)<sup>a</sup> % p</span> und Bob <span class="math">(g<sup>a</sup> % p)<sup>b</sup> % p</span>.</p>
+          <p>Da <span class="math">(a<sup>b</sup> % n)<sup>c</sup> % n = a<sup>bc</sup> % n</span>, haben nun beide die gleiche Zahl <span class="math">g<sup>ab</sup> % p</span> bzw <span class="math">g<sup>ba</sup> % p</span>.</p>
+          <p>Lediglich <span class="math">g</span>, <span class="math">p</span>, <span class="math">g<sup>a</sup> % p</span> und <span class="math">g<sup>b</sup> % p</span> wurden über das Internet versendet. Mit diesen Informationen ist es unmöglich, <span class="math">g<sup>ab</sup> % p</span> zu berechnen.</p>
         </div>
         <div id="weaknesses">
           <h2>Schwachpunkte</h2>
-          <p>Das Diffie Hellman Protokoll ist anfällig für ein MITM-Attacke (Man in the Middle). Hierbei fängt der Angreifer die beiden Übergaben der beiden Clients ab und gibt sich als Server aus, welcher die Anfragen bearbeitet. Somit erhält der Man in the Middle alle Nachrichten der Clients und da er deren Schlüssel kennt, kann er die Nachrichten auch entschlüsseln.</p>
+          <p>Das Diffie Hellman Protokoll ist anfällig für eine Man-In-The-Middle-Attacke.</p>
+          <p>Hierbei gibt sich ein Angreifer für Alice als Bob und für Bob als Alice aus. Somit kann der Angreifer ein gemeinsamer Schlüssel mit Alice und Bob generieren, Alice und Bob jedoch wissen nicht, dass ihre Schlüsselübergaben mit einem Angreifer, anstatt Alice bzw. Bob stattgefunden haben.</p>
+          <p>Der Angreifer kann nun die Nachrichten von Alice mit dem Schlüssel, welche der Angreifer mit ihr teilt, entschlüsseln. So sieht er die entschlüsselte Nachricht von Alice. Diese verschlüsselt der Angreifer wieder mit dem Schlüssel, welcher er mit Bob teilt. Die verschlüsselte Nachricht sendet der Angreifer dann an Bob weiter.</p>
+          <p>Somit hat der Angreifer gerade eine eigentlich geheime Nachricht von Alice an Bob lesen können und keiner der zwei Partien hat etwas davon mitbekommen.</p>
+          <p>Diese Vorgehensweise kann auch in die andere Richtung gehen, so, dass der Angreifer die Nachricht von Bob abfängt, entschlüsselt und dann wieder verschlüsselt an Alice sendet.</p>
         </div>
         <div id="demonstration">
           <h2>Demonstration</h2>
+          <button type="button" onclick="keyExchange();">Starte Schlüsselübergabe</button>
+          <div id="factions">
+            <div id="alice">
+              <h3>Alice</h3>
+              <span id="alicep"></span>
+              <span id="aliceg"></span>
+              <span id="alicea"></span>
+              <span id="aliceb"></span>
+              <span id="alicega"></span>
+              <span id="alicegb"></span>
+              <span id="alicegab"></span>
+            </div>
+            <div id="public">
+              <h3>Öffentlich</h3>
+              <span id="publicp"></span>
+              <span id="publicg"></span>
+              <span id="publica"></span>
+              <span id="publicb"></span>
+              <span id="publicga"></span>
+              <span id="publicgb"></span>
+              <span id="publicgab"></span>
+            </div>
+            <div id="bob">
+              <h3>Bob</h3>
+              <span id="bobp"></span>
+              <span id="bobg"></span>
+              <span id="boba"></span>
+              <span id="bobb"></span>
+              <span id="bobga"></span>
+              <span id="bobgb"></span>
+              <span id="bobgab"></span>
+            </div>
+          </div>
         </div>
       </div>
     </main>

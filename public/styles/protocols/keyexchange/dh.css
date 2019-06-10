@@ -89,5 +89,47 @@ a:hover {
     color: #BBB;
     padding: 8px;
     border-radius: 8px;
-    font-weight: 750;
+    font-weight: 700;
+}
+
+#factions {
+  display: grid;
+  grid-column-gap: 10px;
+  grid-template-columns: repeat(3, 1fr);
+  height: 300px;
+}
+
+#factions span {
+  font-family: sans-serif;
+  display: inline-block;
+  width: 100%;
+  font-size: 1.2em;
+  font-weight: 600;
+  text-align: center;
+  color: rgba(0, 0, 0, 0);
+  transition: color 0.5s;
+}
+
+#factions div {
+  margin: 0;
+  padding: 0;
+}
+
+#factions h3 {
+  font-family: 'Righteous', cursive;
+  text-align: center;
+  margin: 20px auto;
+  font-size: 2em;
+}
+
+#alice {
+  background-color: rgba(100, 0, 0, 0.3);
+}
+
+#public {
+  background-color: rgba(0, 100, 0, 0.3);
+}
+
+#bob {
+  background-color: rgba(0, 0, 100, 0.3);
 }

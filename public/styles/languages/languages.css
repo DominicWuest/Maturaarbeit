@@ -1,5 +1,6 @@
 html {
 	height: 100vh;
+	scrollbar-base-color: green;
 }
 
 body {
@@ -27,15 +28,11 @@ main h2 {
   	font-family: 'Righteous', cursive;
 }
 
-main h3 {
-  	font-family: sans-serif;
-}
-
 main div {
   	padding: 25px;
   	margin-bottom: 25px;
   	background-color: rgba(255, 255, 255, 0.8);
-  	border-radius: 50px;
+  	border-radius: 25px;
 }
 
 main div {
@@ -45,10 +42,6 @@ main div {
 .title {
   	text-align: center;
   	font-size: 3em;
-}
-
-#general{
-    font-size: 0.4em;
 }
 
 a {
@@ -61,22 +54,32 @@ a:hover {
   	color: black;
 }
 
+.languages {
+  	padding: 0;
+  	background: none;
+	justify-content: space-around;
+	width: auto;
+	display: flex;
+}
+
 p {
   	font-family: sans-serif;
 }
 
-#superspeed img{
-    width: 25%;
-    margin: 0% 37.5%;
+#python, #java, #html{
+	width: 22%;
+	text-align: center;
+	padding: 0px;
 }
 
-#pins img{
-    width: 40%;
-    margin: 0% 30%;
+.pictures {
+	width: auto;
+	margin: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
-#colorspec img{
-    max-width: 25%;
-    margin: 0% 37.5%;
+img {
+	max-width: 100%;
+	height: auto;
 }
-

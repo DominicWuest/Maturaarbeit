@@ -1,18 +1,27 @@
 footer{
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
     background-color: darkblue;
     color: lightgrey;
-    padding: 0% 3%;
-    margin: 0%;
-    position: fixed;
+    padding: 0% 3% 3% 0%;
+    margin: -0.7% 0%;
+    position: absolute;
     left: 0;
-    bottom: 0;
+    top: 90%;
     text-align: center;
     clear: both;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow: -moz-scrollbars-none; 
+    -ms-overflow-style: none; 
 }
+
+footer::-webkit-scrollbar{ 
+    width: 0 !important
+}
+
 p{
-    font-size: 80%;
+    font-size: 120%;
 }
 
 /*Style des Links für die Kontakt Seite*/
@@ -39,6 +48,13 @@ p{
     footer{
         position: relative;
         top: -1%;
+    }
+    p{
+        font-size: 150%;
+    }
+    #copyright{
+        font-size: 110%;
+        border-radius: 10px;
     }
 }
 

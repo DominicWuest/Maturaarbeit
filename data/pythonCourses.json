@@ -301,6 +301,53 @@
             "startingCode" : "x = [22, 0, 12]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\ninput_1 = calculator(x)\nsumme_1 = calculator.sum(input_1)\nprint(summe_1)\nProdukt_1 = calculator.product(input_1)\nprint(Produkt_1)\ninput_2 = calculator(y)\nsumme_2 = calculator.sum(input_2)\nprint(summe_2)\nProdukt_2 = calculator.product(input_2)\nprint(Produkt_2)",
             "solution" : "x = [22, 0, 12]\nclass calculator:\n\tdef __init__(self, a):\n\t\tself.a = a\n\tdef sum(self):\n\t\tself.sum = 0\n\t\tfor i in range(len(self.a)):\n\t\t\tself.sum += self.a[i]\n\t\treturn self.sum\n\tdef product(self):\n\t\tself.product = 1\n\t\tfor i in range(len(self.a)):\n\t\t\tself.product *= self.a[i]\n\t\treturn self.product\n\tdef factorial(self):\n\t\tself.factorial = 1\n\t\tfor i in range(self.a):\n\t\t\tself.factorial *= self.a - i\n\t\treturn self.factorial\nfor i in range(len(x)):\n\tprint(calculator.factorial(calculator(x[i])))",
             "output" : "1124000727777607680000\n1\n479001600" 
+          }, {
+            "index" : 5,
+            "description" :"",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }]
+      }, {
+      "index" : 9,
+      "title" : "Klassen Fortgeschritten",
+      "description" : "Wenn dir die Einführung in die Klassen zu leicht ist, du dich aber trotzdem mit Klassen beschäftigen willst, dann empfehlen wir dir dieses Kapitel. Wenn du dich jedoch noch nie mit Klassen befasst hast empfehlen wir dir das letzte Kapitel, die Einführung in die Klassen.",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Definiere eine Klasse, die in der Lage ist die Gravitationskraft zwischen zwei Objekten nach dem Newtonschen Gravitationsgesetz zu berechenen. Benutze dafür die vorgegebenen Konstanten und gib die Kraft auf die Masse_1 zuerst und in der darauffolgenden Zeile die Kraft auf die Masse_2 aus.",
+          "startingCode" : "mass_1 = 15 # Masse in kg\nmass_2 = 375 # Masse in kg\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.1 # Distanz (m)",
+          "solution" : "mass_1 = 15 # Masse in kg\nmass_2 = 375 # Masse in kg\nglobal G\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.1 # Distanz (m)\nclass gravitation:\n\tdef __init__(self, mass, distance):\n\t\tself.mass = mass\n\t\tself.distance = distance\n\tdef force(self, interactor_mass):\n\t\tforce = G * self.mass * interactor_mass / self.distance ** 2\n\t\treturn force\nobject_1 = gravitation(mass_1, distance)\nobject_2 = gravitation(mass_2, distance)\nforce_1 = gravitation.force(object_1, object_2.mass)\nforce_2 = gravitation.force(object_2, object_1.mass)\nprint(force_1)\nprint(force_2)",
+          "output" : "3.754125e-05\n3.754125e-05"
+          }, {
+            "index" : 1,
+            "description" : "Definiere eine Klasse, die folgende Operationen mit n-dimensionalen Vektoren durchführen kann: Addition mit einem Vektor, Multiplikation mit einer Konstante, Länge des Vektors (magnitude), Einheitsvektor (norm). Gib die Länge des Vektor_1, die Norm des Vektor_2, das Produkt von 3 und dem Vektor_3 und die Addition von Vektor_2 und Vektor_4 in je einer Zeile aus. Runde die Zahlen mit der bereits implementierten Funktion round(x). Beachte dabei, dass du nur skalare Werte addieren, runden oder multiplizieren kannst.",
+            "startingCode" : "vector_1 = [1, 7, 156]\nvector_2 = [6, 262, 2]\nvector_3 = [1, 0, 25]nvector_4 = [6, 26, 291]",
+            "solution" : "vector_1 = [1, 7, 156]\nvector_2 = [6, 262, 2]\nvector_3 = [1, 0, 25]\nvector_4 = [6, 26, 291]\nclass vectorcalculator:\n\tdef __init__(self, vector_1):\n\t\tself.vec1 = vector_1\n\tdef addition(self, vec2):\n\t\tself.vecadded = []\n\t\tfor i in range(len(self.vec1)):\n\t\t\tself.vecadded.append(round(self.vec1[i] +\n\t\t\t  vec2[i], 4))\n\t\treturn self.vecadded\n\tdef multiplication(self, factor):\n\t\tself.vecmultiplied = []\n\t\tfor i in range(len(self.vec1)):\n\t\t\tself.vecmultiplied.append(round(self.vec1[i] *\n\t\t\t  factor, 4))\n\t\treturn self.vecmultiplied\n\tdef magnitude(self):\n\t\tself.magnitude = 0\n\t\tfor i in range(len(self.vec1)):\n\t\t\tself.magnitude += self.vec1[i] ** 2\n\t\tself.magnitude = self.magnitude ** 0.5\n\t\treturn self.magnitude\n\tdef norm(self):\n\t\tself.norm = []\n\t\tfor i in range(len(self.vec1)):\n\t\t\tself.norm.append(round(self.vec1[i] * 1 /\n\t\t\t  vectorcalculator.magnitude(self), 4))\n\t\treturn self.norm\nvec1 = vectorcalculator(vector_1)\nvec2 = vectorcalculator(vector_2)\nvec3 = vectorcalculator(vector_3)\nvec4 = vectorcalculator(vector_4)\nprint(round(vectorcalculator.magnitude(vec1), 4))\nprint(vectorcalculator.norm(vec2))\nprint(vectorcalculator.multiplication(vec3, 3))\nprint(vectorcalculator.addition(vec2, vector_4))",
+            "output" : "156.1602\n[0.0229, 0.9997, 0.0076]\n[3, 0, 75]\n[12, 288, 293]" 
+          }, {
+            "index" : 2,
+            "description" : "Im letzten Programm waren es nur zwei Objekte. Wir wollen der Klasse nun beliebig viele Objekte als Input geben. Deswegen können wir auch nicht mehr eine skalare Zahl als Distanz Input nehmen, sondern wir brauchen Vektorielle Positionen. Diese werden mit einer Liste [x, y, z] gegeben. Tipp: alle Objekte wirken Gravitationskräfte auf alle Objekte aus, verwende also eine Liste für interactors.mass. Gib die Kräfte auf die einzelnen Objekte der Indexe nach geordnet in je einer Zeile aus.",
+            "startingCode" : "mass_1 = 236 # Masse in kg\nmass_2 = 339 # Masse in kg\nmass_3 = 3079 # Masse in kg\nmass_4 = 306 # Masse in kg\nposition_1 = [1, 5, 2] # Position [x, y, z] (m)\nposition_2 = [6, 26, 2] # Position [x, y, z] (m)\nposition_3 = [1, 0, 0] # Position [x, y, z] (m)\nposition_4 = [6, 1, 2] # Position [x, y, z] (m)\nglobal G\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.1 # Distanz (m)\nclass gravitation:\n\tdef __init__(self, mass, distance):\n\t\tself.mass = mass\n\t\tself.distance = distance\n\tdef force(self, interactor_mass):\n\t\tforce = G * self.mass * interactor_mass / self.distance ** 2\n\t\treturn force\nobject_1 = gravitation(mass_1, distance)\nobject_2 = gravitation(mass_2, distance)\nforce_1 = gravitation.force(object_1, object_2.mass)\nforce_2 = gravitation.force(object_2, object_1.mass)\nprint(force_1)\nprint(force_2)",
+            "solution" : "mass_1 = 236 # Masse in kg\nmass_2 = 339 # Masse in kg\nmass_3 = 3079 # Masse in kg\nmass_4 = 306 # Masse in kg\nposition_1 = [1, 5, 2] # Position [x, y, z] (m)\nposition_2 = [6, 26, 2] # Position [x, y, z] (m)\nposition_3 = [1, 0, 0] # Position [x, y, z] (m)\nposition_4 = [6, 1, 2] # Position [x, y, z] (m)\nglobal G\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.1 # Distanz (m)\nclass gravitation:\n\tdef __init__(self, mass, distance):\n\t\tself.mass = mass\n\t\tself.distance = distance\n\tdef force(self, interactor_mass):\n\t\tforce = G * self.mass * interactor_mass / self.distance ** 2\n\t\treturn force\nobject_1 = gravitation(mass_1, distance)\nobject_2 = gravitation(mass_2, distance)\nforce_1 = gravitation.force(object_1, object_2.mass)\nforce_2 = gravitation.force(object_2, object_1.mass)\nprint(force_1)\nprint(force_2)",
+            "output" : "" 
+          }, {
+            "index" : 3,
+            "description" :"",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 4,
+            "description" :"",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 5,
+            "description" :"",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
           }]
       }
     ]

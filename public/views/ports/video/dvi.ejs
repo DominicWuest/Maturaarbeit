@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+    <head>
+        <title>DVI</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include ../../partials/header.ejs %>
+        <main>
+            <div class = title>
+                <h1>
+                    DVI
+                </h1>
+                <hr>
+                <p id="general">Der <b>DVI</b> (<b>D</b>igital <b>V</b>isual <b>I</b>nterface) Anschluss ist der erste weit verbreitete Videoanschluss, der ein digitales Videosignal übertragen kann und es nicht erst in ein analoges Signal umwandeln muss. Mit dem DVI Anschluss kann sowohl eine digitale, als auch eine analoge Übertragung möglich sein.</p>
+            </div>
+            <div class="shortlink">
+                <h2>Shortlinks</h2>
+                <ul>
+                    <li><a href="#pins">Pins</a></li>
+                    <li><a href="#D">DVI-D</a></li>
+                    <li><a href="#A">DVI-A</a></li>
+                    <li><a href="#I">DVI-I</a></li>
+                
+                </ul>
+            </div>
+                <div id ="pins">
+                    <h2>Pins</h2>
+                    <img src = "/imgs/ports/video/dvipins.png" alt ="Pins"/>
+                    <p>Bei den Pins des DVI Anschlusses können wir die einzelnen Pins ihren verschiedenen Aufgaben zuordnen, wobei sich die Farben auf das oben stehende Bild beziehen. Die grünen, sowie die blau-violetten Pins sind für die Datenübertragung zuständig. Die gelben Pins sind für die TMDS Abschirmung, die verhindert, dass das Signal zwischen Sender und Empfänger abgefangen werden kann. Die hellblauen Pins sind die sogenannten Plug and Play Pins, die dafür sorgen, dass ohne Konfiguration des Benutzers direkt ein Signal übertragen werden kann. Die rosafarbenen Pins sind für die Taktfrequenz zuständig. Die roten Pins werden für das analoge Signal gebraucht.</p>
+               </div>
+                <div id ="D">
+                    <h2>DVI-D</h2>
+                    <p>Mit dem DVI-D Anschluss kann ein digitales Videosignal übertragen werden. Es kann also mit nur mit Monitoren benutzt werden, die ein digitales Signal verarbeiten können. Es lässt sich zwischen zwei DVI-D Anschlusstypen unterscheiden, wobei der eine, Dual Link genannt, in der Mitte sechs Pins mehr besitzt als der Single Link, wodurch er ein besseres Signal übertragen können. Beim DVI-D fehlen die im Bild rot dargestellten Pins, da diese für das analoge Signal zuständig sind.</p>
+                </div>
+                <div id ="A">
+                    <h2>DVI-A</h2>
+                    <p>Der DVI-A Anschluss kann man als Gegenteil des DVI-D bezeichnen. Der DVI-A unterstützt im Gegensatz zum DVI-D nur ein analoges und kein digitales Signal. Beim DVI-A Anschluss fehlen die im Bild gelb Dargestellten Pins, sowie zwei der grünen Pins in der mittleren Zeile. Beim DVI-A gibt es keinen Dual oder Single Link, nur dem Single Link.</p>
+                </div>
+                <div id ="I">
+                    <h2>DVI-I</h2>
+                    <p>Der DVI-I Anschluss ist die kombination zwischen dem DVI-D und dem DVI-A. Er besitzt also alle der im Bild dargestellten Pins und kann somit ein digitales als auch ein analoges Signal übertragen. Der DVI-I kann auch Dual oder Single Link sein, was wie auch beim DVI-D im Vorhandensein der blauen Pins bestimmt wird und für eine bessere Qualität der Übertragung sorgen kann.</p>
+                </div>
+        </main>
+    </body>
+</html>

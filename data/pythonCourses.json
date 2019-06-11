@@ -262,22 +262,28 @@
             "output" : "1970" 
           }, {
             "index" : 2,
-            "description" : "Importiere das Modul time und messe damit die Zeit, die Pyton brauch, um 10000 Mal eine For-Schlaufe, in der jedes mal a = 10 * 10 gerechnet wird zu durchlaufen. Runde das Ergebnis mit round(x, 2) auf zwei Stellen nach dem Komma und gib es aus. Du musst das Programm möglicherweise mehrere Male laufen lassen, da es nicht immer gleich lange dauert.",
-            "startingCode" : "",
-            "solution" : "import time\nt0 = time.time()\nfor i in range(10000):\n\ta = 10 * 10\nprint(round(time.time() - t0, 2))\n# Wenn es nicht funktioniert, dann gib einfach 0.04 aus",
-            "output" : "0.04" 
-          }, {
-            "index" : 3,
             "description" : "Ein Modul kann auch mit<code class=\"python\">from time import *</code>importiert werden. Dabei kann anstelle von time ein beliebiges Modul importiert werden. Der Vorteil davon ist, dass nun die Funktionen des Moduls nicht mehr mit time.time(), sondern nur noch mit time() aufgerufen werden können. Importiere das Modul math und gib mithilfe der Funktionen log(x, Basis) und e (Eulersche Zahl) den natürlichen Logarithmus von 3.5 aus. Runde diesen mit round(x, 4) auf vier Stellen nach dem Komma.",
             "startingCode" : "",
             "solution" : "from math import *\na = log(3.5, e)\na_rounded = round(a, 4)\nprint(a_rounded)",
             "output" : "1.2528" 
           }, {
-            "index" : 4,
+            "index" : 3,
             "description" : "Teste mithilfe des Moduls time, ob in Python 20 multipliziert 20 oder ob 20 hoch 2 schneller gerechnet wird. Tipp: Lass die Rechnung einige Male laufen, da das Ergebnis sonst zu ungenau ist. Gib das Resultat im vorgegebenen Format aus.",
             "startingCode" : "print('20 mal 20 mal 20 mal 20 wird schneller gerechnet als 20 hoch 4')\nprint('20 hoch 4 wird schneller gerechnet als 20 mal 20 mal 20 mal 20')",
             "solution" : "from time import *\nt0 = time()\nfor i in range(100000):\n\t20 * 20 * 20 * 20\nt_multiply = time() - t0\nt0 = time()\nfor i in range(100000):\n\t20 ** 4\nt_power = time() - t0\nif t_multiply < t_power:\n\tprint('20 mal 20 mal 20 mal 20 wird schneller gerechnet als 20 hoch 4')\nelse:\n\tprint('20 hoch 4 wird schneller gerechnet als 20 mal 20 mal 20 mal 20')",
             "output" : "20 hoch 4 wird schneller gerechnet als 20 mal 20 mal 20 mal 20" 
+          }, {
+            "index" : 4,
+            "description" : "Teste in diesem Programm, ob es einen Unterschied in der gebrauchten Zeit zwischen den beiden Möglichkeiten eine Addition durchzuführen: x = x + n oder x += n. Denke daran mehrere Durchläufe zu machen um ein vertrauliches Ergebnis zu erhalten und gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "print('Die Operation x = x + n ist schneller')\nprint('Es sind beide Operationen etwa gleich schnell')\nprint('Die Operation x += n ist schneller')",
+            "solution" : "from time import *\nx = 0\nt0 = time()\nfor i in range(1500000):\n\tx = x + 10\nt_fullwritten = time() - t0\nx = 0\nt0 = time()\nx = 0\nfor i in range(1500000):\n\tx += 10\nt_shortwritten = time() - t0\nif abs(t_fullwritten - t_shortwritten) < t_fullwritten / 100:\n\tprint('Es sind beide Operationen etwa gleich schnell')\nelif t_fullwritten < t_shortwritten:\n\tprint('Die Operation x = x + n ist schneller')\nelse:\n\tprint('Die Operation x += n ist schneller')",
+            "output" : "Die Operation x = x + n ist schneller" 
+          }, {
+            "index" : 5,
+            "description" : "Teste nach dem gleichen Prinzip wie vorher, ob eine While-Schlaufe oder eine For-Schlaufe schneller durchlaufen wird. Denke wieder daran, dies mit genug vielen Durchlaufen zu testen und gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "print('Eine For-Schlaufe ist schneller als eine While-Schlaufe')\nprint('Eine While-Schlaufe ist schneller als eine For-Schlaufe')",
+            "solution" : "from time import *\nt0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_for = time() - t0\nt0 = time()\nx = 0\nwhile x < 1000000:\n\t1000 * 1000\n\tx = x + 1\nt_while = time() - t0\nif t_for < t_while:\n\tprint('Eine For-Schlaufe ist schneller als eine While-Schlaufe')\nelse:\n\tprint('Eine While-Schlaufe ist schneller als eine For-Schlaufe')",
+            "output" : "Eine For-Schlaufe ist schneller als eine While-Schlaufe" 
           }]
       }, {
       "index" : 8,

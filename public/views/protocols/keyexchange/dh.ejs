@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Message-Digest Algorithmus</title>
+    <title>Diffie Hellman Schlüsselübergabeprotokoll</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
@@ -62,36 +62,37 @@
         <div id="demonstration">
           <h2>Demonstration</h2>
           <button type="button" onclick="keyExchange();">Starte Schlüsselübergabe</button>
+          <h2 id="factionsProcess">Gerade laufender Prozess</h2>
           <div id="factions">
             <div id="alice">
               <h3>Alice</h3>
-              <span id="alicep"></span>
-              <span id="aliceg"></span>
-              <span id="alicea"></span>
-              <span id="aliceb"></span>
-              <span id="alicega"></span>
-              <span id="alicegb"></span>
-              <span id="alicegab"></span>
+              <p class="demonstrationTitle">p: <span id="alicep"></span></p>
+              <p class="demonstrationTitle">g: <span id="aliceg"></span></p>
+              <p class="demonstrationTitle">a: <span id="alicea"></span></p>
+              <p class="demonstrationTitle">b: <span id="aliceb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="alicega"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="alicegb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="alicegab"></span></p>
             </div>
             <div id="public">
               <h3>Öffentlich</h3>
-              <span id="publicp"></span>
-              <span id="publicg"></span>
-              <span id="publica"></span>
-              <span id="publicb"></span>
-              <span id="publicga"></span>
-              <span id="publicgb"></span>
-              <span id="publicgab"></span>
+              <p class="demonstrationTitle">p: <span id="publicp"></span></p>
+              <p class="demonstrationTitle">g: <span id="publicg"></span></p>
+              <p class="demonstrationTitle">a: <span id="publica"></span></p>
+              <p class="demonstrationTitle">b: <span id="publicb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="publicga"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="publicgb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="publicgab"></span></p>
             </div>
             <div id="bob">
               <h3>Bob</h3>
-              <span id="bobp"></span>
-              <span id="bobg"></span>
-              <span id="boba"></span>
-              <span id="bobb"></span>
-              <span id="bobga"></span>
-              <span id="bobgb"></span>
-              <span id="bobgab"></span>
+              <p class="demonstrationTitle">p: <span id="bobp"></span></p>
+              <p class="demonstrationTitle">g: <span id="bobg"></span></p>
+              <p class="demonstrationTitle">a: <span id="boba"></span></p>
+              <p class="demonstrationTitle">b: <span id="bobb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="bobga"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="bobgb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="bobgab"></span></p>
             </div>
           </div>
         </div>

@@ -85,11 +85,9 @@ a:hover {
 }
 
 .math {
-    background-color: #444;
-    color: #BBB;
-    padding: 8px;
-    border-radius: 8px;
-    font-weight: 700;
+  display: inline-block;
+  height: auto;
+  font-weight: 800;
 }
 
 #factions {

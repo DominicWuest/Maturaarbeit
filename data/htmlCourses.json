@@ -6,14 +6,70 @@
       "subexercises" : []
     }, {
       "index" : 1,
-      "title" : "Inputs",
-      "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: <code class=\"html\">&ltinput type=\"text\"&gt</code>",
+      "title" : "Grundgerüst",
+      "description" : "Dieses Kapitel befasst sich mit dem Grundgerüst einer HTML-Seite. In der ersten Zeile deines HTML-Codes solltest du dem Browser sagen, in welchem Dokument-Typ du schreibst. \nDies machst du mit folgendem Code: <code class=\"html\">&lt!DOCTYPE html&gt</code>\nIn den nächsten Zeilen verwenden wir sogenannte Tags. Es gibt öffnende und schliessende Tags: <code class=\"html\">&lthtml&gt &lt/html&gt</code>\nWie du siehst, hat ein schliessender Tag ein \"/\". Eine HTML-Seite braucht immer mindestens einen html-Tag, einen head-Tag und einen body-Tag. Dies sieht dann folgendermassen aus: <code class=\"html\">\t\t&lt!DOCTYPE html&gt\n&lthtml&gt\n\t\t&lthead&gt\n\t\t\n\t\t&lt/head&gt\n\t\t&ltbody&gt\n\t\t\n\t\t&lt/body&gt\n&lt/html&gt</code>\nIm Head kann man verschiedene Angaben wie zum Beispiel den Schriftsatz festlegen, während im Body der im Browser sichtbare Teil geschrieben wird. Um den Code übersichtlicher zu machen, rückt man neue Tags immer ein.",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Kreire einen Input des Typs Button mit einem Value-Attribut von \"Input\".",
-          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t\n\t</body>\n</html>",
-          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t<input type=\"button\" value=\"Input\">\n\t</body>\n</html>",
-          "solutionCheck" : "let el = output.getElementsByTagName('input')[0]; return el && el.type === 'button' && el.value.toLowerCase() === 'input';"
+          "description" : "Korrigiere das fehlerhafte Grundgerüst.",
+          "startingCode" : "<DOCTYPE html>\n<html>\n\t</head>\n\n\t<head>\n\t<body>\n\n\t</html>\n</body>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+          "solutionCheck" : "let el = output.getElementsByTagName('html')[0]; return el;"
           }]
-  }]
+  }, {
+    "index" : 2,
+    "title" : "Paragraph",
+    "description" : "Jetzt, da du weisst, wie eine HTML-Seite aufgebaut ist, lassen wir sie doch etwas ausgeben. Einen einfachen Paragraph können wir hinzufügen, indem wir einen p-Tag in den Body schreiben.",
+    "subexercises" : [{
+        "index" : 0,
+        "description" : "Füge einen p-Tag, der \"Hallo Welt.\" ausgibt dem Code hinzu.",
+        "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+        "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\t\t<p>Hallo Welt.</p>\n\t</body>\n</html>",
+        "solutionCheck" : "let el = output.getElementsByTagName('p')[0]; return el  && el.innerHTML === 'Hallo Welt.';"
+        }]
+}, {
+  "index" : 3,
+  "title" : "Überschrift",
+  "description" : "Für Überschriften gibt es in HTML einen eigenen Tag. Nämlich den h-Tag, diese gehen von &lth1&gt bis zu &lth6&gt. Je kleiner die Zahl, desto grösser ist die Priorität und somit auch die Schriftgrösse der Überschrift.",
+  "subexercises" : [{
+      "index" : 0,
+      "description" : "Füge die zweitgrösste Überschrift, mit einem Text deiner Wahl dem HTML-Dokument hinzu. Darunter schreibst du einen Paragraph, mit dem Text \"Das ist meine erste Überschrift.\"",
+      "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+      "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\t\t<h2>Eigene Überschrift</h2>\n\t\t<p>Das ist meine erste Überschrift.</p>\n\t</body>\n</html>",
+      "solutionCheck" : "let el = output.getElementsByTagName('h2')[0]; let el1 = output.getElementsByTagName('p')[0]; return el && el1 && el1.innerHTML === 'Das ist meine erste Überschrift.';"
+      }, {
+          "index" : 1,
+          "description" : "Variiere die Überschriftgrösse, indem du die Zahl nach dem h im h-Tag veränderst.",
+          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\t\t<h2>Eigene Überschrift</h2>\n\t\t<p>Das ist meine erste Überschrift.</p>\n\t</body>\n</html>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\t\t<h3>Eigene Überschrift</h3>\n\t\t<p>Das ist meine erste Überschrift.</p>\n\t</body>\n</html>",
+          "solutionCheck" : "let el1 = output.getElementsByTagName('h1')[0]; let el2 = output.getElementsByTagName('h3')[0]; let el3 = output.getElementsByTagName('h4')[0]; let el4 = output.getElementsByTagName('h5')[0]; let el5 = output.getElementsByTagName('h6')[0]; return el1 || el2 || el3 || el4 || el5;"
+          }]
+}, {
+  "index" : 4,
+  "title" : "Head",
+  "description" : "Im Head kann man verschiedene Angaben über das HTML-Dokument machen. Mit dem title-Tag kannst du deiner Webseite einen Titel geben, der im Browser in der Tab-Leiste angezeigt. Im Fall von unserer Webseite siehst du oben in der Leiste \"CSAcademy\" stehen. Man kann auch den Schriftsatz der Webseite festlegen, indem man den meta-Tag benutzt. Man braucht allerdings noch ein Attribut im Tag. Ein Attribut kann einem Tag zusätzliche Informationen geben. Der Standartschriftsatz, den wir benutzen ist der \"utf-8\". Du kannst diesen mit folgender Zeile festlegen: <code class=\"html\">&ltmeta charset=\"utf-8\"&gt</code>\nBeachte, dass der meta-Tag kein schliessenden Tag braucht!",
+  "subexercises" : [{
+      "index" : 0,
+      "description" : "Gebe deiner Webseite einen Titel deiner Wahl.",
+      "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+      "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Eigener Titel</title>\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+      "solutionCheck" : "let el = output.getElementsByTagName('title')[0]; return el;"
+      }, {
+          "index" : 1,
+          "description" : "Füge deinem Code den UTF-8-Schriftsatz hinzu.",
+          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+          "solutionCheck" : "let el = output.getElementsByTagName('meta')[0]; return el && el.charset === 'utf-8';"
+          }]
+}, {
+    "index" : 5,
+    "title" : "Inputs",
+    "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: <code class=\"html\">&ltinput type=\"text\"&gt</code>",
+    "subexercises" : [{
+        "index" : 0,
+        "description" : "Kreire einen Input des Typs Button mit einem Value-Attribut von \"Input\".",
+        "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t\n\t</body>\n</html>",
+        "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t<input type=\"button\" value=\"Input\">\n\t</body>\n</html>",
+        "solutionCheck" : "let el = output.getElementsByTagName('input')[0]; return el && el.type === 'button' && el.value.toLowerCase() === 'input';"
+        }]
+}]
 }

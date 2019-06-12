@@ -44,24 +44,7 @@
           "solutionCheck" : "let el1 = output.getElementsByTagName('h1')[0]; let el2 = output.getElementsByTagName('h3')[0]; let el3 = output.getElementsByTagName('h4')[0]; let el4 = output.getElementsByTagName('h5')[0]; let el5 = output.getElementsByTagName('h6')[0]; return el1 || el2 || el3 || el4 || el5;"
           }]
 }, {
-  "index" : 4,
-  "title" : "Head",
-  "description" : "Im Head kann man verschiedene Angaben über das HTML-Dokument machen. Mit dem title-Tag kannst du deiner Webseite einen Titel geben, der im Browser in der Tab-Leiste angezeigt. Im Fall von unserer Webseite siehst du oben in der Leiste \"CSAcademy\" stehen. Man kann auch den Schriftsatz der Webseite festlegen, indem man den meta-Tag benutzt. Man braucht allerdings noch ein Attribut im Tag. Ein Attribut kann einem Tag zusätzliche Informationen geben. Der Standartschriftsatz, den wir benutzen ist der \"utf-8\". Du kannst diesen mit folgender Zeile festlegen: <code class=\"html\">&ltmeta charset=\"utf-8\"&gt</code>\nBeachte, dass der meta-Tag kein schliessenden Tag braucht!",
-  "subexercises" : [{
-      "index" : 0,
-      "description" : "Gebe deiner Webseite einen Titel deiner Wahl.",
-      "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
-      "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Eigener Titel</title>\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
-      "solutionCheck" : "let el = output.getElementsByTagName('title')[0]; return el;"
-      }, {
-          "index" : 1,
-          "description" : "Füge deinem Code den UTF-8-Schriftsatz hinzu.",
-          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
-          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
-          "solutionCheck" : "let el = output.getElementsByTagName('meta')[0]; return el && el.charset === 'utf-8';"
-          }]
-}, {
-    "index" : 5,
+    "index" : 4,
     "title" : "Inputs",
     "description" : "Dieses Kapitel befasst sich mit Inputs. Inputs sind immer wichtig auf einer Website, damit der Benutzer überhaupt etwas darauf machen kann. Es gibt viele verschiedene Arten, wie ein Benutzer irgendwelche Daten auf einer Website eingeben kann.Man kreiert in HTML ein Input-Element mit dem &ltinput&gt Tag.\nEs ist wichtig, danach den Typ dieses Inputs zu definieren. Hier werden die meist gebrauchten behandelt.\nEinen Textinput definiert man beispielsweise so: <code class=\"html\">&ltinput type=\"text\"&gt</code>",
     "subexercises" : [{

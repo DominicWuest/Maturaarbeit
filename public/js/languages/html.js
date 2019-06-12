@@ -180,7 +180,7 @@ function makeDropdown() {
 }
 
 function purify(html) {
-  let illegalTags = ['script', 'noscript', 'head', 'title', 'link', 'meta'];
+  let illegalTags = ['script', 'noscript', 'head', 'link', 'meta'];
   let template = (new DOMParser()).parseFromString(html, 'text/html');
   for (illegalTag of illegalTags) {
     let toRemove = template.getElementsByTagName(illegalTag);

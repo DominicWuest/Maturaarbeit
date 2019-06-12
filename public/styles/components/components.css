@@ -9,7 +9,6 @@ body {
 }
 
 main {
-	scroll-behavior: smooth;
 	overflow: hidden;
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -70,10 +69,12 @@ p {
 	width: 22%;
 	text-align: center;
 	padding: 0px;
+	height: auto;
 }
 
 .pictures {
 	width: auto;
+	height: 230px;
 	margin: 0;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;

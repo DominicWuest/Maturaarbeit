@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Diffie Hellman Schlüsselübergabeprotokoll</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
+    <script type="text/javascript">
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body>
+    <%- include ../../partials/header.ejs %>
+    <main>
+      <div class="title">
+        <h1>Diffie Hellman Schlüsselübergabeprotokoll</h1>
+      </div>
+      <div class="pageShortcuts">
+        <h2>Page Shortcuts</h2>
+        <ul>
+          <li><a href="#history">Geschichte</a></li>
+          <li><a href="#usage">Gebrauch</a></li>
+          <li><a href="#functionality">Funktionsweise</a></li>
+          <li><a href="#weaknesses">Schwachpunkte</a></li>
+          <li><a href="#demonstration">Demonstration</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="history">
+          <h2>Geschichte</h2>
+          <p>Die Diffie Hellman Methode, entiwckelt von Whitfield Diffie und Martin Hellman im Jahre 1976, ist eine der ersten praktischen Beispiele eines public key exchanges (Schlüsselübergabe über ein öffentliches Netzwerk).</p>
+          <p>Früher wurden physische Schlüsselübergaben (beispielsweise per Post) unternommen, damit niemand den Schlüssel kennt.</p>
+        </div>
+        <div id="usage">
+          <h2>Gebrauch</h2>
+          <p>Das Diffie Hellman Schlüsselübergabeprotokoll wird gebraucht, um Keys auszutauschen, mit denen Nachrichten ver- und entschlüsselt werden.</p>
+          <p>Hierbei liegt das Hauptproblem darin, dass zwei Clients den gleichen Schlüssel zum ver- und entschlüsseln brauchen, diesen aber nicht öffentlich verfügbar machen wollen, da ansonsten andere Personen im Netzwerk dessen Nachrichten entschlüsseln könnten.</p>
+        </div>
+        <div id="functionality">
+          <h2>Funktionsweise</h2>
+          <p>Das Grundkonzept basiert darauf, dass es keinen Unterschied macht, um welche Pozent eine Zahl zuerst erhebt wird, da <span class="math">(n<sup>a</sup>)<sup><sup>b</sup></sup> = (n<sup>b</sup>)<sup><sup>a</sup></sup> = n<sup>ab</sup> = n<sup>ba</sup></span></p>
+          <p>Die Situation ist folgende: Zwei Partien, Alice und Bob möchten einen gemeinsamen Schlüssel generieren und ihn über das Internet versenden, ohne dass jemand anderes ihn kennt.</p>
+          <p>Zu Beginn wird eine Konstante p und g bestummen, wobei p eine grosse Nummer (meist 512 Bit) ist und g eine Primitivwurzel Modulo p. Diese zwei Nummern müssen nicht geheim gehalten werden.</p>
+          <p>Als Nächstes generieren Alice und Bob je eine Konstante, a und b, wobei <span class="math">1 &#8804; a &#8804; p - 1</span> und <span class="math">1 &#8804; b &#8804; p - 1</span>.</p>
+          <p>Nun sendet Alice Bob <span class="math">g<sup>a</sup> % p</span> und Bob Alice <span class="math">g<sup>b</sup> % p</span>.</p>
+          <p>Alice berechnet nun <span class="math">(g<sup>b</sup> % p)<sup>a</sup> % p</span> und Bob <span class="math">(g<sup>a</sup> % p)<sup>b</sup> % p</span>.</p>
+          <p>Da <span class="math">(a<sup>b</sup> % n)<sup>c</sup> % n = a<sup>bc</sup> % n</span>, haben nun beide die gleiche Zahl <span class="math">g<sup>ab</sup> % p</span> bzw <span class="math">g<sup>ba</sup> % p</span>.</p>
+          <p>Lediglich <span class="math">g</span>, <span class="math">p</span>, <span class="math">g<sup>a</sup> % p</span> und <span class="math">g<sup>b</sup> % p</span> wurden über das Internet versendet. Mit diesen Informationen ist es unmöglich, <span class="math">g<sup>ab</sup> % p</span> zu berechnen.</p>
+        </div>
+        <div id="weaknesses">
+          <h2>Schwachpunkte</h2>
+          <p>Das Diffie Hellman Protokoll ist anfällig für eine Man-In-The-Middle-Attacke.</p>
+          <p>Hierbei gibt sich ein Angreifer für Alice als Bob und für Bob als Alice aus. Somit kann der Angreifer ein gemeinsamer Schlüssel mit Alice und Bob generieren, Alice und Bob jedoch wissen nicht, dass ihre Schlüsselübergaben mit einem Angreifer, anstatt Alice bzw. Bob stattgefunden haben.</p>
+          <p>Der Angreifer kann nun die Nachrichten von Alice mit dem Schlüssel, welche der Angreifer mit ihr teilt, entschlüsseln. So sieht er die entschlüsselte Nachricht von Alice. Diese verschlüsselt der Angreifer wieder mit dem Schlüssel, welcher er mit Bob teilt. Die verschlüsselte Nachricht sendet der Angreifer dann an Bob weiter.</p>
+          <p>Somit hat der Angreifer gerade eine eigentlich geheime Nachricht von Alice an Bob lesen können und keiner der zwei Partien hat etwas davon mitbekommen.</p>
+          <p>Diese Vorgehensweise kann auch in die andere Richtung gehen, so, dass der Angreifer die Nachricht von Bob abfängt, entschlüsselt und dann wieder verschlüsselt an Alice sendet.</p>
+        </div>
+        <div id="demonstration">
+          <h2>Demonstration</h2>
+          <button type="button" onclick="keyExchange();">Starte Schlüsselübergabe</button>
+          <div id="factionsProcessWrapper">
+            <h2 id="factionsProcess">Gerade  laufender Prozess</h2>
+          </div>
+          <div id="factions">
+            <div id="alice">
+              <h3>Alice</h3>
+              <p class="demonstrationTitle">p: <span id="alicep"></span></p>
+              <p class="demonstrationTitle">g: <span id="aliceg"></span></p>
+              <p class="demonstrationTitle">a: <span id="alicea"></span></p>
+              <p class="demonstrationTitle">b: <span id="aliceb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="alicega"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="alicegb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="alicegab"></span></p>
+            </div>
+            <div id="public">
+              <h3>Öffentlich</h3>
+              <p class="demonstrationTitle">p: <span id="publicp"></span></p>
+              <p class="demonstrationTitle">g: <span id="publicg"></span></p>
+              <p class="demonstrationTitle">a: <span id="publica"></span></p>
+              <p class="demonstrationTitle">b: <span id="publicb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="publicga"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="publicgb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="publicgab"></span></p>
+            </div>
+            <div id="bob">
+              <h3>Bob</h3>
+              <p class="demonstrationTitle">p: <span id="bobp"></span></p>
+              <p class="demonstrationTitle">g: <span id="bobg"></span></p>
+              <p class="demonstrationTitle">a: <span id="boba"></span></p>
+              <p class="demonstrationTitle">b: <span id="bobb"></span></p>
+              <p class="demonstrationTitle">g<sup>a</sup>: <span id="bobga"></span></p>
+              <p class="demonstrationTitle">g<sup>b</sup>: <span id="bobgb"></span></p>
+              <p class="demonstrationTitle">g<sup>ab</sup>: <span id="bobgab"></span></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

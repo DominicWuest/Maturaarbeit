@@ -67,9 +67,10 @@ p {
 }
 
 #usb1, #usb2, #usb3, #usbc {
-	width: 90%;
+	width: 98%;
 	text-align: center;
 	padding: 0px;
+    margin: 0% 1%;
 }
 
 img {

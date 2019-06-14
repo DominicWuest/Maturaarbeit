@@ -15,7 +15,7 @@ let high;
 // The Pivot element of the QuickSort algorithm
 let pivot;
 // The index of the value that is focused
-let low_index
+let low_index;
 // The height of the div containing the animation
 let height;
 // The displayed height difference between values in the scrambled array
@@ -39,7 +39,6 @@ function restartAnimation() {
   frames = 0;
   swapped = false;
   if (needsScrambling) objects = scramble(max);
-  needsSwapping = false;
   loop();
 }
 
@@ -66,13 +65,17 @@ function draw() {
   // Draws the elements
   for (let i = 0; i <= elementsLength; i++) {
     fill(0, 255, 0);
-    if (i === focusedIndex) fill(0, 0, 255);
-    else if (i === comparedIndex) fill(128, 0, 128);
-    else if (i >= max) fill(128, 128, 128);
+    if (i === low_index) fill(0, 0, 255);
+    else if (i === high) fill(128, 0, 128);
+    else if (i === pivot) fill(128, 128, 128);
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
   }
   // Continue the animation if the array isn't sorted and 60 / fps frames have passed
-  if (max > 1 && frames++ > 60 / fps) quickSort(objects, 0, max);
+  quickSort(objects, 0, max);
+  if (max > 1 && frames++ > 60 / fps) {
+      quickSort(objects, low_index + 1, high);
+      quickSort(objects, low, low_index - 1);   
+  }
 }
 
 // Executes the sorting of the array
@@ -92,8 +95,6 @@ function quickSort(objects, low, high) {
       let temp = objects[low_index];
       objects[low_index] = objects[high];
       objects[high] = temp;
-      quickSort(objects, low_index + 1, high);
-      quickSort(objects, low, low_index - 1);
   }
   else {
     max--;

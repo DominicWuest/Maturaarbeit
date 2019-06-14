@@ -48,47 +48,26 @@
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
           <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-elem</p>
+          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-Element definiert (Das Pivot-Element kann beliebig gewählt werden, wird aber häufig am Ende gewählt). Danach wird das Element links vom Pivot als das vermeintlich grösste Element definiert und das Element am Anfang des Arrays als das vermeintlich kleinste. Nun  </p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
           <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">def quickSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
-  max = len(arr) - 1 # Der maximale Index, welcher der fokussierte Wert haben kann
-  focusedIndex = 0 # Der fokussierte Index
-  comparedIndex = 1 # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
-  while max > 1: # Sobald der maximal zu fokussierende Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
-    if focusedIndex == max: # Falls der fokussierte Index dem maximal zu fokussierendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
-      max -= 1 # Der maximal zu fokussierende Index muss nun um eins kleiner sein
-      focusedIndex = 0 # Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
-      comparedIndex = 1 # Der Index, mit dem verglichen wird, ist wieder 1
-    if arr[focusedIndex] > arr[comparedIndex]: # Falls der Wert am fokussierten Index grösser ist als der am Verglichenen
-      arr[focusedIndex], arr[comparedIndex] = arr[comparedIndex], arr[focusedIndex] # Die beiden Werte werden miteinander getauscht
-    focusedIndex += 1 # Nach jeder Iteration wird der fokussierte Index um eins erhöht
-    comparedIndex += 1 # Nach jeder Iteration wird der verglichene Index um eins erhöht
+          <code class="code python">def quickSort(arr, low, high): # arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
+  if low < high: # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+    low_index = low # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    pivot = arr[high] # Das Pivot-Element, rechts davon sind alle grösser oder gleich, links davon sind alle kleiner oder gleich   
+    for high_index in range(low, high, 1): # Es wird von low bis (und ohne) high jedes Element mit dem Pivot-Element verglichen
+      if arr[high_index] < pivot: # Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+        arr[low_index], arr[high_index] = arr[high_index], arr[low_index] # Die beiden Werte werden miteinander getauscht
+        low_index += 1 # Der Index wird erhöht um das nächste Element des Arrays zu untersuchen
+    arr[low_index], arr[high] = arr[high], arr[low_index] # Falls nicht alle Elemente des Arrays kleiner als das Pivot-Element waren wird das letzte Element getauscht
+    quickSort(arr, low_index + 1, high) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low, low_index - 1) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert    
   return arr # Der sortierte Array wird zurückgegeben</code>
           <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
           <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
-          <code class="code java">public static int bubbleSort(int[] arr) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
-  int max = arr.length - 1; // Der maximale Index, welcher der fokussierte Wert haben kann
-  int focusedIndex = 0; // Der fokussierte Index
-  int comparedIndex = 1; // Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
-  while (max > 1) { // Sobald der maximal zu fokussierene Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
-    if (focusedIndex == max) { // Falls der fokussierte Index dem maximal zu fokussireendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
-      max--; // Der maximal zu fokussierende Index muss nun um eins kleiner sein
-      focusedIndex = 0; // Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
-      comparedIndex = 1; // Der Index, mit dem verglichen wird, ist wieder 1
-    }
-    if (arr[focusedIndex] > arr[comparedIndex]) { // Falls der Wert am fokussierten Index grösser ist als der am Verglichenen, werden die beiden Werte miteinander getauscht
-      int temp = arr[focusedIndex];
-      arr[focusedIndex] = arr[comparedIndex];
-      arr[comparedIndex] = temp;
-    }
-    focusedIndex++; // Nach jeder Iteration wird der fokussierte Index um eins erhöht
-    comparedIndex++; // Nach jeder Iteration wird der verglichene Index um eins erhöht
-  }
-  return arr; // Der sortierte Array wird zurückgegeben
-}</code>
+          <code class="code java"></code>
         </div>
         <div id="animatedExample">
           <h2>Animiertes Beispiel</h2>

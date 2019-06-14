@@ -42,18 +42,18 @@
         <div id="specs">
           <h2>Spezifikationen</h2>
           <p>Beim Quicksort werden im schlechtesten Fall, der aber nur sehr selten vorkommt <span class="bigO">O(n<sup>2</sup>) Vergleichen</span> durcheführt. Die best-case Performance besteht aus <span class="bigO">O(n * log(n)) Vergleichen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n * log(n)) Vergleiche.</p>
-          <p>Der Algorithmus funktioniert als In-place-Algorithmus, da er nur Elemente innerhalb einer Liste vertauscht und damit keinen zusätzlichen Speicher benötigt hat er eine Space-complexity von <span class="bigO">O(1)</span>.</p>
+          <p>Der Algorithmus funktioniert als In-place-Algorithmus, da er nur Elemente innerhalb einer Liste vertauscht. Jedoch braucht er für jede Rekursionsebene neuen Speicherplazt und hat damit eine durchschnittliche Space-complexity von <span class="bigO">O(log(n))</span> und im schlechtesten Fall eine Space-complexity von <span class="bigO">O(n)</span>.</p>
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
           <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Beim Quicksort wird der Array in den linken und den rechten Teil unterteilt. </p>
+          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-elem</p>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
           <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">def bubbleSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+          <code class="code python">def quickSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
   max = len(arr) - 1 # Der maximale Index, welcher der fokussierte Wert haben kann
   focusedIndex = 0 # Der fokussierte Index
   comparedIndex = 1 # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird

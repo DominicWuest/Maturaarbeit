@@ -16,16 +16,14 @@ let high;
 let pivot;
 // The index of the value that is focused
 let low_index;
+// A boolean indicating whether we call quicksort for the first time or not
+let start = true;
 // The height of the div containing the animation
 let height;
 // The displayed height difference between values in the scrambled array
 let elementHeight = 5;
-// A boolean indicating whether the focused and compared value need to be swapped
-let needsSwapping;
 // A boolean indicating whether the array needs to be scrambled or not
 let needsScrambling = true;
-// A boolean indicating whether the focused and compared value has been swapped
-let swapped;
 
 // Restarts the animation completely
 function restartAnimation() {
@@ -55,12 +53,6 @@ function setup() {
 
 // Gets called 60 times per second
 function draw() {
-  // If the array is sorted
-  if (max === 1) {
-    max--;
-    focusedIndex = -1;
-    comparedIndex = -1;
-  }
   clear();
   // Draws the elements
   for (let i = 0; i <= elementsLength; i++) {
@@ -71,7 +63,10 @@ function draw() {
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
   }
   // Continue the animation if the array isn't sorted and 60 / fps frames have passed
-  quickSort(objects, 0, max);
+  if (start) {
+    quickSort(objects, 0, max);
+    start = false;
+  }
   if (max > 1 && frames++ > 60 / fps) {
       quickSort(objects, low_index + 1, high);
       quickSort(objects, low, low_index - 1);   
@@ -89,7 +84,7 @@ function quickSort(objects, low, high) {
           let temp = objects[low_index];
           objects[low_index] = objects[high_index];
           objects[high_index] = temp;
-          low_index += 1;
+          low_index++;
         }
       }
       let temp = objects[low_index];
@@ -97,9 +92,7 @@ function quickSort(objects, low, high) {
       objects[high] = temp;
   }
   else {
-    max--;
-    focusedIndex = 0;
-    comparedIndex = 1;
+    max = 0;
   }
 }
 

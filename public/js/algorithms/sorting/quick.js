@@ -25,6 +25,7 @@ let elementHeight = 5;
 // A boolean indicating whether the array needs to be scrambled or not
 let needsScrambling = true;
 let a;
+let b;
 // Restarts the animation completely
 function restartAnimation() {
   setup();
@@ -46,7 +47,6 @@ function setup() {
   let canvas = createCanvas(width, height);
   // Declares the parent div of the canvas
   canvas.parent('animation');
-  a = 0;
 }
 
 // Gets called 60 times per second
@@ -54,25 +54,26 @@ function draw() {
   clear();
   // Draws the elements 
   for (let i = 0; i <= elementsLength; i++) {
-    fill(0, 255, 0);
-    if (i === 10) fill(0, 0, 255);
+    if (i === low_index) fill(0, 0, 255);
     else if (i === high) fill(128, 0, 128);
-    else if (i === Math.round(a * 9)) fill(128, 128, 128);
+    else if (i === pivot) fill(128, 128, 128);
+    else fill(0, 255, 0);
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
   }
   // Continue the animation if the array isn't sorted and 60 / fps frames have passed
-  if (max > 1 && frames++ > 60 / fps) {
+
+  if (max > 0 && frames++ > 60 / fps) {
     quickSort(objects, 0, max);
-    a++;
   }
 }
 
 // Executes the sorting of the array
 function quickSort(objects, low, high) {
   if (low < high) {
+    a = high;
     low_index = low;
     pivot = objects[high];
-    for (let high_index = low;high_index <= high; high_index++) {
+    for (let high_index = low; high_index <= high; high_index++) {
       if (objects[high_index] < pivot) {
         // Swap the focused and compared value
         let temp = objects[low_index];
@@ -84,11 +85,19 @@ function quickSort(objects, low, high) {
     let temp = objects[low_index];
     objects[low_index] = objects[high];
     objects[high] = temp;
-    quickSort(objects, low_index + 1, high);
-    quickSort(objects, low, low_index - 1); 
+    setTimeout(function(){ 
+
+        quickSort(objects, low_index + 1, high);
+    }, 10000)
+    setTimeout(function(){ 
+
+        quickSort(objects, low, low_index - 1);
+    }, 1000)
+    return;
   }
   else {
     max = 0;
+    return;
   }
 }
 

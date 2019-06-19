@@ -58,10 +58,11 @@ function draw() {
     else fill(0, 255, 0);
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
   }
-  // Continue the animation if the array isn't sorted and 60 / fps frames have passed
+  // Start the quickSort function the first time draw is called
 
-  if (max > 0 && frames++ > 60 / fps) {
+  if (start) {
     quickSort(objects, 0, max);
+    start = false;
   }
 }
 

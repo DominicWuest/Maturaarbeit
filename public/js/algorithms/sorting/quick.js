@@ -55,7 +55,7 @@ function draw() {
   // Draws the elements 
   for (let i = 0; i <= elementsLength; i++) {
     if (i === low_index) fill(0, 0, 255);
-    else if (i === high) fill(128, 0, 128);
+    else if (i === max) fill(128, 0, 128);
     else if (i === pivot) fill(128, 128, 128);
     else fill(0, 255, 0);
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
@@ -70,6 +70,7 @@ function draw() {
 // Executes the sorting of the array
 function quickSort(objects, low, high) {
   if (low < high) {
+    max = 0;
     a = high;
     low_index = low;
     pivot = objects[high];
@@ -92,8 +93,7 @@ function quickSort(objects, low, high) {
     setTimeout(function(){ 
 
         quickSort(objects, low, low_index - 1);
-    }, 1000)
-    return;
+    }, 10000)
   }
   else {
     max = 0;

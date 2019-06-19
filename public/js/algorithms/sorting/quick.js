@@ -24,8 +24,6 @@ let height;
 let elementHeight = 5;
 // A boolean indicating whether the array needs to be scrambled or not
 let needsScrambling = true;
-let a;
-let b;
 // Restarts the animation completely
 function restartAnimation() {
   setup();
@@ -89,11 +87,11 @@ function quickSort(objects, low, high) {
     setTimeout(function(){ 
 
         quickSort(objects, low_index + 1, high);
-    }, 10000)
+    }, 10000 / speed)
     setTimeout(function(){ 
 
         quickSort(objects, low, low_index - 1);
-    }, 10000)
+    }, 10000 / speed)
   }
   else {
     max = 0;

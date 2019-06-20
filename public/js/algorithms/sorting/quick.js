@@ -22,7 +22,7 @@ function setup() {
   arr = new Array(floor(width / w));
   for (let i = 0; i < arr.length; i++) {
     arr[i] = random(height);
-    states[i] = -1;
+    color[i] = -1;
   }
 }
 
@@ -31,23 +31,22 @@ function restartAnimation() {
   quickSort(arr, 0, arr.length - 1);  
 }
 
-// Function that does the sorting
+// Does all the sorting
 async function quickSort(arr, low, pivot) {
+  // Otherwise the array is sorted
   if (low < pivot) {
-    for (let i = low; i < pivot; i++) {
-      states[i] = 1;
-    }
     let pivotIndex = low;
-    states[pivotIndex] = 0;
+    color[pivotIndex] = 0;
     for (let i = low; i < pivot; i++) {
+      color[i] = 1;
       if (arr[i] < arr[pivot]) {
         await waitfor(50);
         let temp = arr[i];
         arr[pivotIndex] = arr[i];
         arr[pivotIndex] = temp;
-        states[pivotIndex] = -1;
+        color[pivotIndex] = -1;
         pivotIndex++;
-        states[pivotIndex] = 0;
+        color[pivotIndex] = 0;
       }
     }
     await waitfor(50);
@@ -56,10 +55,10 @@ async function quickSort(arr, low, pivot) {
     arr[pivot] = temp;
     for (let i = low; i < pivot; i++) {
       if (i != pivotIndex) {
-        states[i] = -1;
+        color[i] = -1;
       }
     }
-    states[pivotIndex] = -1;
+    color[pivotIndex] = -1;
     // Waits until everything else has finished before recalling the function
     await Promise.all([
       quickSort(arr, low, pivotIndex - 1),
@@ -77,10 +76,10 @@ function draw() {
   for (let i = 0; i < arr.length; i++) {
     // Do not draw a outline so there is nothing left after the swapping
     noStroke();
-    if (states[i] === 0) {
+    if (color[i] === 0) {
       fill(128, 0, 128);
     } 
-    else if (states[i] === 1) {
+    else if (color[i] === 1) {
       fill(0, 0, 128);
     } 
     else {

@@ -17,6 +17,7 @@
   <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
     <%- include ../../partials/header.ejs %>
     <main>
+      <!--
       <div class="title">
         <h1>Quicksort</h1>
       </div>
@@ -52,8 +53,9 @@
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>
-          <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">def quickSort(arr, low, high): # arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
+          <div id = "python">
+            <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+            <code class="code python">def quickSort(arr, low, high): # arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
   if low < high: # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
     low_index = low # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
     pivot = arr[high] # Das Pivot-Element, rechts davon sind alle grösser oder gleich, links davon sind alle kleiner oder gleich   
@@ -65,10 +67,33 @@
     quickSort(arr, low_index + 1, high) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
     quickSort(arr, low, low_index - 1) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert    
   return arr # Der sortierte Array wird zurückgegeben</code>
-          <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
-          <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
-          <code class="code java"></code>
-        </div>
+          </div>
+          <div id = "java">
+            <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+            <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
+            <code class="code java">public static int quicksort(int[] arr, int low, int high) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+  if (low < high) { // Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+    int low_index = low; // Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    int pivot = arr[high]; // Das Pivot-Element, rechts davon sind alle grösser oder gleich, links davon sind alle kleiner oder gleich
+    for (int high_index = low; high_index < high; high_index++) { // Es wird von low bis (und ohne) high jedes Element mit dem Pivot-Element verglichen
+      if (arr[high_index] < pivot) { // Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+        int temp = arr[high_index];
+        arr[high_index] = arr[low_index] ; // Die beiden Werte werden miteinander getauscht
+        arr[low_index] = temp;
+        low_index++; // 
+        }
+    }
+    int temp = arr[low_index];
+    arr[low_index] = arr[high];
+    arr[high] = temp;
+    quickSort(arr, low_index + 1, high); // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low, low_index - 1); // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert   
+  }
+  return arr; // Der sortierte Array wird zurückgegeben
+}
+</code>
+          </div>
+        </div> -->
         <div id="animatedExample">
           <h2>Animiertes Beispiel</h2>
           <div class="legend">

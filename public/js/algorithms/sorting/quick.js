@@ -4,10 +4,12 @@ let arr = [];
 let color = [];
 // Index of the compare value to the left
 let low;
-// Index of the pivot value
+// Number of elements to be displayed
+let elements = 15;
+// The index of the pivot value
 let pivot;
-// Width of one element
-let w = 100;
+// Number of milliseconds to wait before continue animation
+let speed = 500;
 
 // Sets the size and position of the canvas
 function setup() {
@@ -19,58 +21,62 @@ function setup() {
   let canvas = createCanvas(width, height);
   // Declares the parent div of the canvas
   canvas.parent('animation');
-  arr = new Array(floor(width / w));
+  arr = new Array(floor(elements));
   for (let i = 0; i < arr.length; i++) {
-    arr[i] = random(height);
+    arr[i] = random() * (height - 1) + 1;
     color[i] = -1;
   }
   quickSort(arr, 0, arr.length - 1);
 }
 
 // Starts or restarts the animation when start input is given
+//restartAnimation() {
+//  setup();
 //  quickSort(arr, 0, arr.length - 1);  
 //}
 
 // Does all the sorting
-async function quickSort(arr, low, end) {
-  if (low < end) {
-    for (let i = low; i < end; i++) {
+async function quickSort(arr, low, pivot) {
+  if (low < pivot) {
+    for (let i = low; i < pivot; i++) {
       color[i] = 1;
     }
 
-    let pivotIndex = low;
-    color[pivotIndex] = 0;
-    for (let i = low; i < end; i++) {
-      if (arr[i] < arr[end]) {
-        await waitfor(50);
+    let low_index = low;
+    color[low_index] = 0;
+    for (let i = low; i < pivot; i++) {
+      if (arr[i] < arr[pivot]) {
+        await waitfor(speed);
         let temp = arr[i];
-        arr[i] = arr[pivotIndex];
-        arr[pivotIndex] = temp;
-        color[pivotIndex] = -1;
-        pivotIndex++;
-        color[pivotIndex] = 0;
+        arr[i] = arr[low_index];
+        arr[low_index] = temp;
+        color[low_index] = -1;
+        low_index++;
+        color[low_index] = 0;
       }
     }
-    await waitfor(50);
-    let temp = arr[pivotIndex];
-    arr[pivotIndex] = arr[end];
-    arr[end] = temp;
+    await waitfor(speed);
+    let temp = arr[low_index];
+    arr[low_index] = arr[pivot];
+    arr[pivot] = temp;
 
-    for (let i = low; i < end; i++) {
-      if (i != pivotIndex) {
+    for (let i = low; i < pivot; i++) {
+      if (i != low_index) {
         color[i] = -1;
       }
     }
-    color[pivotIndex] = -1;
+    color[low_index] = -1;
 
     await Promise.all([
-      quickSort(arr, low, pivotIndex - 1),
-      quickSort(arr, pivotIndex + 1, end)
+      // Sort the left subarray
+      quickSort(arr, low, low_index - 1),
+      // Sort the right subarray
+      quickSort(arr, low_index + 1, pivot)
     ]);
   }
 }
 
-// Function that draws the elements of the array
+// Function that draws the elements of the array, gets called 60 times per second
 function draw() {
   background(255, 255, 255);
 
@@ -85,7 +91,7 @@ function draw() {
     else {
       fill(0, 255, 0);
     }
-    rect(i * w, height - arr[i], w, arr[i]);
+    rect(i * (width / elements), height - arr[i], (width / elements), arr[i]);
   }
 }
 

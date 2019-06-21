@@ -113,7 +113,7 @@
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
           <div class = "animationInput">
               <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "restartAnimation();" ontouchend = "restartAnimation();">
-              <input type = "range" name = "speed" min = "10" max = "5000" step = "1" oninput = "speed = this.value">
+              <input type = "range" name = "speed" min = "0.0001" max = "0.01" step = "0.00001" oninput = "speed = this.value">
           </div>
           <div id = "animation"></div>
         </div>

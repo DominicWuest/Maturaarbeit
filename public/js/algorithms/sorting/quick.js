@@ -9,7 +9,7 @@ let elements = 15;
 // The index of the pivot value
 let pivot;
 // Number of milliseconds to wait before continue animation
-let speed = 500;
+let speed = 0.001;
 
 // Sets the size and position of the canvas
 function setup() {
@@ -46,7 +46,7 @@ async function quickSort(arr, low, pivot) {
     color[low_index] = 0;
     for (let i = low; i < pivot; i++) {
       if (arr[i] < arr[pivot]) {
-        await waitfor(speed);
+        await waitfor(1 / speed);
         let temp = arr[i];
         arr[i] = arr[low_index];
         arr[low_index] = temp;
@@ -55,7 +55,7 @@ async function quickSort(arr, low, pivot) {
         color[low_index] = 0;
       }
     }
-    await waitfor(speed);
+    await waitfor(1 / speed);
     let temp = arr[low_index];
     arr[low_index] = arr[pivot];
     arr[pivot] = temp;
@@ -81,8 +81,7 @@ function draw() {
   background(255, 255, 255);
 
   for (let i = 0; i < arr.length; i++) {
-    noStroke();
-    if (color[i] === 0) {
+    if (color[i] === 1) {
       fill(128, 0, 128);
     } 
     else if (color[i] === 1) {

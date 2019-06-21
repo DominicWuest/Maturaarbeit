@@ -5,7 +5,7 @@ let color = [];
 // Index of the compare value to the left
 let low;
 // Number of elements to be displayed
-let elements = 15;
+let elements = 50;
 // The index of the pivot value
 let pivot;
 // Number of milliseconds to wait before continue animation
@@ -24,48 +24,42 @@ function setup() {
   arr = new Array(floor(elements));
   for (let i = 0; i < arr.length; i++) {
     arr[i] = random() * (height - 1) + 1;
-    color[i] = -1;
+    color[i] = 'green';
   }
-  quickSort(arr, 0, arr.length - 1);
 }
 
-// Starts or restarts the animation when start input is given
-//restartAnimation() {
-//  setup();
-//  quickSort(arr, 0, arr.length - 1);  
-//}
+function startamination() {
+  quickSort(arr, 0, arr.length - 1);
+}
 
 // Does all the sorting
 async function quickSort(arr, low, pivot) {
   if (low < pivot) {
-    for (let i = low; i < pivot; i++) {
-      color[i] = 1;
-    }
-
+    color[pivot] = 'purple';
     let low_index = low;
-    color[low_index] = 0;
     for (let i = low; i < pivot; i++) {
       if (arr[i] < arr[pivot]) {
+        color[low_index] = 'blue';
+        color[i] = 'grey';
         await waitfor(1 / speed);
         let temp = arr[i];
         arr[i] = arr[low_index];
         arr[low_index] = temp;
-        color[low_index] = -1;
+        color[i] = 'green';
+        color[low_index] = 'green';
         low_index++;
-        color[low_index] = 0;
       }
     }
+    color[low_index] = 'blue';
     await waitfor(1 / speed);
     let temp = arr[low_index];
     arr[low_index] = arr[pivot];
     arr[pivot] = temp;
-
     for (let i = low; i < pivot; i++) {
       if (i != low_index) {
-        color[i] = -1;
+        color[i] = 'green';
       }
     }
-    color[low_index] = -1;
 
     await Promise.all([
       // Sort the left subarray
@@ -81,11 +75,14 @@ function draw() {
   background(255, 255, 255);
 
   for (let i = 0; i < arr.length; i++) {
-    if (color[i] === 1) {
-      fill(128, 0, 128);
+    if (color[i] === 'grey') {
+      fill(128, 128, 128);
     } 
-    else if (color[i] === 1) {
-      fill(0, 0, 128);
+    else if (color[i] === 'blue') {
+      fill(0, 0, 255);
+    }
+    else if (color[i] === 'purple') {
+      fill(128, 0, 128);
     } 
     else {
       fill(0, 255, 0);

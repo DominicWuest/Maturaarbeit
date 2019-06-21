@@ -17,7 +17,7 @@
   <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize = "setup();">
     <%- include ../../partials/header.ejs %>
     <main>
-      <!---->
+      <!--
       <div class="title">
         <h1>Quicksort</h1>
       </div>
@@ -98,7 +98,7 @@
           </div>
         </div>
 
-<!---->
+-->
         <div id="animatedExample">
           <h2>Animiertes Beispiel</h2>
           <div class="legend">
@@ -113,7 +113,7 @@
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
           <div class = "animationInput">
               <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "restartAnimation();" ontouchend = "restartAnimation();">
-              <input type = "range" name = "speed" min = "0.01" max = "10" step = "0.01" oninput = "speed = Math.pow(2, this.value);">
+              <input type = "range" name = "speed" min = "10" max = "5000" step = "1" oninput = "speed = this.value">
           </div>
           <div id = "animation"></div>
         </div>

@@ -1,48 +1,17 @@
-// The amount of elements to be displayed
-let elementsLength;
-// The max index to iterate to while sorting (gets decremented whenever a value reaches this index)
-let max;
-// The scrambled array
-let objects;
-// The amount of frames which have been displayed
-let frames;
-// The frames per second to be displayed
-let fps = 2;
-// The index of the value that is more to the left
+// Array to be sorted
+let arr = [];
+// Width of one element of the array
+let w = 100;
+// Indicator of what color the elements should have
+let states = [];
+// Index of the compare value to the left
 let low;
-// The index of the value that is more to the right
-let high;
-// The Pivot element of the QuickSort algorithm
+// Index of the pivot value
 let pivot;
-// The index of the value that is focused
-let low_index;
-// A boolean indicating whether we call quicksort for the first time or not
-let start = true;
-// The height of the div containing the animation
-let height;
-// The displayed height difference between values in the scrambled array
-let elementHeight = 5;
-// A boolean indicating whether the array needs to be scrambled or not
-let needsScrambling = true;
-
-// Restarts the animation completely
-function restartAnimation() {
-  setup();
-  height = document.getElementById('animation').offsetHeight;
-  elementsLength = Math.floor(height / (elementHeight + 1));
-  focusedIndex = 0;
-  comparedIndex = 1;
-  max = elementsLength;
-  functionsIndex = 0;
-  frames = 0;
-  swapped = false;
-  if (needsScrambling) objects = scramble(max);
-  needsSwapping = false;
-  loop();
-}
 
 // Sets the size and position of the canvas
 function setup() {
+  // Defines position and size of the canvas
   let canvasDiv = document.getElementById('animation');
   let width = canvasDiv.offsetWidth;
   let height = canvasDiv.offsetHeight;
@@ -50,60 +19,82 @@ function setup() {
   let canvas = createCanvas(width, height);
   // Declares the parent div of the canvas
   canvas.parent('animation');
+  arr = new Array(floor(width / w));
+  for (let i = 0; i < arr.length; i++) {
+    arr[i] = random(height);
+    color[i] = -1;
+  }
 }
 
-// Gets called 60 times per second
-function draw() {
-  // If the array is sorted
-  if (max === 1) {
-    max--;
-    focusedIndex = -1;
-    comparedIndex = -1;
-  }
-  clear();
-  // Draws the elements
-  for (let i = 0; i <= elementsLength; i++) {
-    fill(0, 255, 0);
-    if (i === low_index) fill(0, 0, 255);
-    else if (i === high_index) fill(128, 0, 128);
-    else if (i === max - 1) fill(128, 128, 128);
-    rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
-  }
-  // Continue the animation if the array isn't sorted and 60 / fps frames have passed
-  if (max > 1 && frames++ > 60 / fps) quickSort(objects, 0, max - 2);
+// Starts or restarts the animation when start input is given
+function restartAnimation() {
+  quickSort(arr, 0, arr.length - 1);  
 }
 
-// Continues the animation / Executes the next step required to sort the array
-function quickSort(objects, low, high) {
-  if (low < high) {
-    low_index = low;
-    pivot = arr[high];
-    for (let high_index = low; high_index < high; high_index++) {
-      if (arr[high_index] < pivot) {
-        arr[low_index], arr[high_index] = arr[high_index], arr[low_index];
-        low_index++;
+// Does all the sorting
+async function quickSort(arr, low, pivot) {
+  // Otherwise the array is sorted
+  if (low < pivot) {
+    let pivotIndex = low;
+    color[pivotIndex] = 0;
+    for (let i = low; i < pivot; i++) {
+      color[i] = 1;
+      if (arr[i] < arr[pivot]) {
+        await waitfor(50);
+        let temp = arr[i];
+        arr[pivotIndex] = arr[i];
+        arr[pivotIndex] = temp;
+        color[pivotIndex] = -1;
+        pivotIndex++;
+        color[pivotIndex] = 0;
       }
     }
-    arr[low_index], arr[high] = arr[high], arr[low_index];
-    quickSort(arr, low_index + 1, high);
-    quickSort(arr, low, low_index - 1);
+    await waitfor(50);
+    let temp = arr[pivotIndex];
+    arr[pivotIndex] = arr[pivot];
+    arr[pivot] = temp;
+    for (let i = low; i < pivot; i++) {
+      if (i != pivotIndex) {
+        color[i] = -1;
+      }
+    }
+    color[pivotIndex] = -1;
+    // Waits until everything else has finished before recalling the function
+    await Promise.all([
+      quickSort(arr, low, pivotIndex - 1),
+      quickSort(arr, pivotIndex + 1, pivot)
+    ]);
   }
   else {
-    max = 0;
+    return;
   }
 }
 
-// Returns an array with scrambled values with max elements
-function scramble(max) {
-  let arr = [];
-  for (let i = 0; i < max; i++) {
-    arr.push(i);
+// Function that draws the elements of the array
+function draw() {
+  background(0);
+  for (let i = 0; i < arr.length; i++) {
+    // Do not draw a outline so there is nothing left after the swapping
+    noStroke();
+    if (color[i] === 0) {
+      fill(128, 0, 128);
+    } 
+    else if (color[i] === 1) {
+      fill(0, 0, 128);
+    } 
+    else {
+      fill(0, 255, 0);
+    }
+    // Draws the rectangulars at the defined position and size
+    rect(i * w, height - arr[i], w, arr[i]);
   }
-  let scrambled = [];
-  for (let i = 0; i < max; i++) {
-    // Appends the value at a random index in arr to the scrambled array and deletes it from arr
-    let randomIndex = Math.floor(Math.random() * arr.length);
-    scrambled.push(arr.splice(randomIndex, 1)[0]);
-  }
-  return scrambled;
+}
+
+// Function to break down the speed of the animation
+function waitfor(time) { 
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve(time);
+    }, time);
+  });
 }

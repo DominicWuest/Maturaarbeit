@@ -52,6 +52,7 @@ async function quickSort(arr, low, pivot) {
     }
     color[low_index] = 'blue';
     await waitfor(1 / speed);
+    color[low_index] = 'green';
     let temp = arr[low_index];
     arr[low_index] = arr[pivot];
     arr[pivot] = temp;

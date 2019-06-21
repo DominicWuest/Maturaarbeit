@@ -101,15 +101,15 @@
           <div class="legend">
             <h3>Legende</h3>
             <ul>
-              <li><span style = "color: blue;">Fokussierter Wert</span></li>
-              <li><span style = "color: purple">Wert, mit dem der fokussierte Wert verglichen wird</span></li>
+              <li><span style = "color: blue;">Wird mit Pivot verglichen und mit dem <span style = "color: grey;">grauen</span> Element getauscht, falls es grösser als das Pivot-Element ist</span></li>
+              <li><span style = "color: purple">Das Pivot-Element, mit dem verglichen wird und das die einzelnen Teilarrays abtrennt</span></li>
               <li><span style = "color: green;">Momentan nicht beachteter Wert</span></li>
-              <li><span style = "color: gray;">Wert am korrekten Index</span></li>
+              <li><span style = "color: gray;">Wird mit dem <span style = "color: blue">blauen</span> Element getauscht, falls dies verlangt wird.</span></li>
             </ul>
           </div>
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
           <div class = "animationInput">
-              <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "restartAnimation();" ontouchend = "restartAnimation();">
+              <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "setup(); startamination();" ontouchend = "setup(); startanimation();">
               <input type = "range" name = "speed" min = "0.0001" max = "0.01" step = "0.00001" oninput = "speed = this.value">
           </div>
           <div id = "animation"></div>

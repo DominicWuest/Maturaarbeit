@@ -1,13 +1,13 @@
 // Array to be sorted
 let arr = [];
-// Width of one element of the array
-let w = 100;
 // Indicator of what color the elements should have
-let states = [];
+let color = [];
 // Index of the compare value to the left
 let low;
 // Index of the pivot value
 let pivot;
+// Index of the pivot value for the next iteration
+let pivotIndex;
 
 // Sets the size and position of the canvas
 function setup() {
@@ -19,23 +19,23 @@ function setup() {
   let canvas = createCanvas(width, height);
   // Declares the parent div of the canvas
   canvas.parent('animation');
-  arr = new Array(floor(width / w));
+  arr = new Array(floor(15));
   for (let i = 0; i < arr.length; i++) {
     arr[i] = random(height);
     color[i] = -1;
+  quickSort(arr, 0, arr.lenght - 1);
   }
 }
 
 // Starts or restarts the animation when start input is given
-function restartAnimation() {
-  quickSort(arr, 0, arr.length - 1);  
-}
+//  quickSort(arr, 0, arr.length - 1);  
+//}
 
 // Does all the sorting
 async function quickSort(arr, low, pivot) {
   // Otherwise the array is sorted
   if (low < pivot) {
-    let pivotIndex = low;
+    pivotIndex = low;
     color[pivotIndex] = 0;
     for (let i = low; i < pivot; i++) {
       color[i] = 1;
@@ -86,7 +86,7 @@ function draw() {
       fill(0, 255, 0);
     }
     // Draws the rectangulars at the defined position and size
-    rect(i * w, height - arr[i], w, arr[i]);
+    rect(i * (width / 15), height - arr[i], width / 15, arr[i]);
   }
 }
 

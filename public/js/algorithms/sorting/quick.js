@@ -37,6 +37,7 @@ function restartAnimation() {
   frames = 0;
   swapped = false;
   if (needsScrambling) objects = scramble(max);
+  needsSwapping = false;
   loop();
 }
 
@@ -53,43 +54,39 @@ function setup() {
 
 // Gets called 60 times per second
 function draw() {
+  // If the array is sorted
+  if (max === 1) {
+    max--;
+    focusedIndex = -1;
+    comparedIndex = -1;
+  }
   clear();
   // Draws the elements
   for (let i = 0; i <= elementsLength; i++) {
     fill(0, 255, 0);
     if (i === low_index) fill(0, 0, 255);
-    else if (i === high) fill(128, 0, 128);
-    else if (i === pivot) fill(128, 128, 128);
+    else if (i === high_index) fill(128, 0, 128);
+    else if (i === max - 1) fill(128, 128, 128);
     rect(i * width / elementsLength + 1, (elementsLength - objects[i]) * elementHeight + 1, width / elementsLength - 4, (objects[i] + 1) * elementHeight - 1);
   }
   // Continue the animation if the array isn't sorted and 60 / fps frames have passed
-  if (start) {
-    quickSort(objects, 0, max);
-    start = false;
-  }
-  if (max > 1 && frames++ > 60 / fps) {
-      quickSort(objects, low_index + 1, high);
-      quickSort(objects, low, low_index - 1);   
-  }
+  if (max > 1 && frames++ > 60 / fps) quickSort(objects, 0, max - 2);
 }
 
-// Executes the sorting of the array
+// Continues the animation / Executes the next step required to sort the array
 function quickSort(objects, low, high) {
   if (low < high) {
     low_index = low;
-      pivot = objects[high];
-      for (let high_index = low;high_index <= high; high_index++) {
-        if (objects[high_index] < pivot) {
-          // Swap the focused and compared value
-          let temp = objects[low_index];
-          objects[low_index] = objects[high_index];
-          objects[high_index] = temp;
-          low_index++;
-        }
+    pivot = arr[high];
+    for (let high_index = low; high_index < high; high_index++) {
+      if (arr[high_index] < pivot) {
+        arr[low_index], arr[high_index] = arr[high_index], arr[low_index];
+        low_index++;
       }
-      let temp = objects[low_index];
-      objects[low_index] = objects[high];
-      objects[high] = temp;
+    }
+    arr[low_index], arr[high] = arr[high], arr[low_index];
+    quickSort(arr, low_index + 1, high);
+    quickSort(arr, low, low_index - 1);
   }
   else {
     max = 0;

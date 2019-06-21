@@ -4,54 +4,57 @@
   <head>
     <meta charset="utf-8">
     <title>Quicksort</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
-    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
-    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-    <script type="text/javascript">
+    <link rel="shortcut icon" type = "image/x-icon" href = "/imgs/favicon.ico"/>
+    <link rel="stylesheet" href =<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel = "stylesheet">
+    <script src =<%= "/js/" + path + ".js" %>></script>
+    <script src = "/js/codeHighlighting.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script>
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
+  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize = "setup();">
     <%- include ../../partials/header.ejs %>
     <main>
-      <!--
+      
       <div class="title">
         <h1>Quicksort</h1>
       </div>
       <div class="pageShortcuts">
         <h2>Page Shortcuts</h2>
         <ul>
-          <li><a href="#usage">Gebrauch</a></li>
-          <li><a href="#specs">Spezifikationen</a></li>
-          <li><a href="#functionality">Funktionsweise</a></li>
-          <li><a href="#exampleCode">Beispielcode</a><ul>
-            <li><a href="#python">Python</a></li>
-            <li><a href="#java">Java</a></li>
-          </ul></li>
-          <li><a href="#animatedExample">Animiertes Beispiel</a></li>
+          <li><a href = "#usage">Gebrauch</a></li>
+          <li><a href = "#specs">Spezifikationen</a></li>
+          <li><a href = "#functionality">Funktionsweise</a></li>
+          <li>
+            <a href = "#exampleCode">Beispielcode</a>
+            <ul>
+              <li><a href = "#python">Python</a></li>
+              <li><a href = "#java">Java</a></li>
+            </ul>
+          </li>
+          <li><a href = "#animatedExample">Animiertes Beispiel</a></li>
         </ul>
       </div>
-      <div class="text">
-        <div id="usage">
+      <div class = "text">
+        <div id = "usage">
           <h2>Gebrauch</h2>
           <p>Der Quicksort wird gebraucht, um einen Array zu sortieren.</p>
           <p>Der Quicksort kann sehr effizient sein, er kann jedoch im schlechtesten Fall genauso ineffizient wie die einfacheren Sortieralgorithmen sein.</p>
         </div>
-        <div id="specs">
+        <div id = "specs">
           <h2>Spezifikationen</h2>
           <p>Beim Quicksort werden im schlechtesten Fall, der aber nur sehr selten vorkommt <span class="bigO">O(n<sup>2</sup>) Vergleichen</span> durcheführt. Die best-case Performance besteht aus <span class="bigO">O(n * log(n)) Vergleichen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n * log(n)) Vergleiche.</p>
           <p>Der Algorithmus funktioniert als In-place-Algorithmus, da er nur Elemente innerhalb einer Liste vertauscht. Jedoch braucht er für jede Rekursionsebene neuen Speicherplazt und hat damit eine durchschnittliche Space-complexity von <span class="bigO">O(log(n))</span> und im schlechtesten Fall eine Space-complexity von <span class="bigO">O(n)</span>.</p>
         </div>
-        <div id="functionality">
+        <div id = "functionality">
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
           <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-Element definiert (Das Pivot-Element kann beliebig gewählt werden, wird aber häufig am Ende gewählt). Danach wird das Element links vom Pivot als das vermeintlich grösste Element definiert und das Element am Anfang des Arrays als das vermeintlich kleinste. Nun wird das Element links mit dem Pivot-Element verglichen</p>
+          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-Element definiert (Das Pivot-Element kann beliebig gewählt werden, wird aber häufig am Ende gewählt). Danach wird das Element links vom Pivot als das vermeintlich grösste Element definiert und das Element am Anfang des Arrays als das vermeintlich kleinste. Nun wird das Element links mit dem Pivot-Element verglichen und, wenn es grösser als das Pivot-Element ist mit dem Element rechts getauscht. Wenn dieses Verfahren an allen Elementen links vom Pivot-Element durchgeführt wird, wird das Pivot-Element dorthin gesetzt, wo alle rechts davon grösser als das Pivot-Element sind und alle links davon kleiner. SO haben wir also unseren Array in zwei unsortierte Teilarrays geteilt. Dies wird nun solange durchgeführt, bis der Array sortiert ist.</p>
         </div>
-        <div id="exampleCode">
+        <div id = "exampleCode">
           <h2>Beispielcode</h2>
           <div id = "python">
             <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
@@ -80,8 +83,8 @@
         int temp = arr[high_index];
         arr[high_index] = arr[low_index] ; // Die beiden Werte werden miteinander getauscht
         arr[low_index] = temp;
-        low_index++; // 
-        }
+        low_index++;
+      }
     }
     int temp = arr[low_index];
     arr[low_index] = arr[high];
@@ -91,26 +94,30 @@
   }
   return arr; // Der sortierte Array wird zurückgegeben
 }
-</code>
+              </code>
           </div>
-        </div> -->
+        </div>
+          <p class = "codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+          <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
+          <code class = "code java"></code>
+        </div>
         <div id="animatedExample">
           <h2>Animiertes Beispiel</h2>
           <div class="legend">
             <h3>Legende</h3>
             <ul>
-              <li><span style="color: blue;">Fokussierter Wert</span></li>
-              <li><span style="color: purple">Wert, mit dem der fokussierte Wert verglichen wird</span></li>
-              <li><span style="color: green;">Momentan nicht beachteter Wert</span></li>
-              <li><span style="color: gray;">Wert am korrekten Index</span></li>
+              <li><span style = "color: blue;">Fokussierter Wert</span></li>
+              <li><span style = "color: purple">Wert, mit dem der fokussierte Wert verglichen wird</span></li>
+              <li><span style = "color: green;">Momentan nicht beachteter Wert</span></li>
+              <li><span style = "color: gray;">Wert am korrekten Index</span></li>
             </ul>
           </div>
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
-          <div class="animationInput">
-              <input type="button" name="restartAnimation" value="Start" onmouseup="restartAnimation(); needsScrambling = true;" ontouchend="restartAnimation(); needsScrambling = true;">
-              <input type="range" name="fps" min="0" max="5" step="0.0001" oninput="fps = Math.pow(2, this.value);">
+          <div class = "animationInput">
+              <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "restartAnimation();" ontouchend = "restartAnimation();">
+              <input type = "range" name = "speed" min = "0.01" max = "10" step = "0.01" oninput = "speed = Math.pow(2, this.value);">
           </div>
-          <div id="animation"></div>
+          <div id = "animation"></div>
         </div>
       </div>
     </main>

@@ -106,8 +106,9 @@ app.get('/courses', urlencodedParser, function(req, res) {
 // Routing for the python programming page. Seperate, since it needs pythonCourses, while other courses don't
 app.get('/languages/python', function(req, res) {
   res.render('languages/python', {
-    'courses' : courses,
     'path' : '/languages/python',
+    'partialsPath' : '../partials/',
+    'courses' : courses,
     'pythonCourses' : pythonCourses,
     'codeHighlighting' : codeHighlighting
   });
@@ -116,8 +117,9 @@ app.get('/languages/python', function(req, res) {
 // Routing for the HTML coding page. Serparate, since it needs htmlCourses, while other courses don't
 app.get('/languages/html', function(req, res) {
   res.render('languages/html', {
-    'courses' : courses,
     'path' : '/languages/html',
+    'partialsPath' : '../partials/',
+    'courses' : courses,
     'htmlCourses' : htmlCourses,
     'codeHighlighting' : codeHighlighting
   });
@@ -129,6 +131,7 @@ for (let i = 0; i < courses[0].length; i++) {
     // If the .ejs file for the site exists, render it
     if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
       'path' : pathsToCourses[i],
+      'partialsPath' : '../'.repeat(pathsToCourses[i].match(/\//g).length) + 'partials/',
       'courses' : courses,
       'codeHighlighting' : codeHighlighting
     });

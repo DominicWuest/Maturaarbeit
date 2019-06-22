@@ -9,7 +9,7 @@
         <meta charset="utf-8"/>
     </head>
     <body>
-        <%- include ../partials/header.ejs %>
+        <%- include(partialsPath + 'header.ejs') %>
         <main>
             <div class = "title">
                 <h1>Die USB-Schnittstelle</h1>
@@ -24,13 +24,13 @@
                         <div class = "pictures">
                             <img src="/imgs/ports/usb/usb1.jpg" id="usb1" alt="USB 1.X"/>
                         </div>
-                    </a>                    
+                    </a>
                 </div>
                 <div id = "usb2">
                     <a href="/ports/usb/2" id="describeUSB2">
                         <h2>Der USB 2 Anschluss</h2>
                         <div class = "pictures">
-                            <img src="/imgs/ports/usb/usb2.jpg" id="usb2" alt="USB 2.0"/>   
+                            <img src="/imgs/ports/usb/usb2.jpg" id="usb2" alt="USB 2.0"/>
                         </div>
                     </a>
                 </div>

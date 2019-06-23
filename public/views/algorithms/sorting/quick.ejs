@@ -4,23 +4,23 @@
   <head>
     <meta charset="utf-8">
     <title>Quicksort</title>
-    <link rel="shortcut icon" type = "image/x-icon" href = "/imgs/favicon.ico"/>
-    <link rel="stylesheet" href =<%= "/styles/" + path + ".css" %>>
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel = "stylesheet">
-    <script src =<%= "/js/" + path + ".js" %>></script>
+    <link rel = "shortcut icon" type = "image/x-icon" href = "/imgs/favicon.ico"/>
+    <link rel = "stylesheet" href =<%= "/styles/" + path + ".css" %>>
+    <link href = "https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel = "stylesheet">
+    <script src = <%= "/js/" + path + ".js" %>></script>
     <script src = "/js/codeHighlighting.js"></script>
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <script>
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
-  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize = "setup();">
+  <body onload = "addHighlighting();" onresize = "setup();">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
-      <div class="title">
+      <div class = "title">
         <h1>Quicksort</h1>
       </div>
-      <div class="pageShortcuts">
+      <div class = "pageShortcuts">
         <h2>Page Shortcuts</h2>
         <ul>
           <li><a href = "#usage">Gebrauch</a></li>

@@ -51,7 +51,7 @@
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
           <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index gewählt werden.</p>
+          <p>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index innerhalb des zu sortierenden Teilarrays gewählt werden. Der Algorithmus vertauscht die Elemente des Arrays nun so dass zwei neue Teilarrays entstehen, einer mit Elementen, die alle kleiner oder gleich wie das gewählte Pivot-Element sind und der andere mit Elementen, die alle grösser oder gleich dem Pivot-Element sind. Dies kann dadurch gemacht werden, dass für jedes Element getestet wird, ob es kleiner als das Pivot-Element ist oder nicht. Ist es kleiner, dann wird es mit dem ersten Element getauscht, das diese Bedingung nicht erfüllt hat und somit grösser oder gleich dem Pivot-Element sein muss. Wurde der Array in die zwei Teilarrays unterteilt wird das Pivot-Element dazwischen gesetzt und befindet sich somit an seiner endgültigen Position. Dieses Verfahren wird nun durch Rekursion auf jeden Teilarray andgewandt, bis alle Teilarrays aus lediglich noch einem Element bestehen. Wenn dies der Fall ist, dann ist der Array sortiert.</p>
         </div>
         <div id = "exampleCode">
           <h2>Beispielcode</h2>
@@ -64,7 +64,7 @@
     for high_index in range(low, high, 1): # Es wird von low bis (und ohne) dem Pivot Element jedes Element mit dem Pivot-Element verglichen
       if arr[high_index] < pivot: # Falls der untersuchte Wert kleiner als das Pivot-Element ist 
         arr[low_index], arr[high_index] = arr[high_index], arr[low_index] # Die beiden Werte werden miteinander getauscht
-        low_index += 1 # Der Index wird erhöht um das nächste Element des Arrays zu untersuchen
+        low_index += 1 # Low_index wird erhöht, da dieses Element nun kleiner ist als das Pivot Element
     arr[low_index], arr[high] = arr[high], arr[low_index] # Das Pivot-Element wird dorthin gesetzt wo rechts alle grösser und links alle kleiner sind
     quickSort(arr, low_index + 1, high) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
     quickSort(arr, low, low_index - 1) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert    
@@ -82,7 +82,7 @@
         int temp = arr[high_index];
         arr[high_index] = arr[low_index] ; // Die beiden Werte werden miteinander getauscht
         arr[low_index] = temp;
-        low_index++;
+        low_index++; // Low_index wird erhöht, da dieses Element nun kleiner als das Pivot-Element ist
       }
     }
     int temp = arr[low_index];
@@ -100,10 +100,10 @@
           <div class="legend">
             <h3>Legende</h3>
             <ul>
-              <li><span style = "color: blue;">Wird mit Pivot verglichen und mit dem <span style = "color: grey;">grauen</span> Element getauscht, falls es grösser als das Pivot-Element ist</span></li>
               <li><span style = "color: purple">Das Pivot-Element, mit dem verglichen wird und das die einzelnen Teilarrays abtrennt</span></li>
               <li><span style = "color: green;">Momentan nicht beachteter Wert</span></li>
-              <li><span style = "color: gray;">Wird mit dem <span style = "color: blue">blauen</span> Element getauscht, falls dies verlangt wird.</span></li>
+              <li><span style = "color: gray;">Wird mit Pivot verglichen und mit dem <span style = "color: grey;">grauen</span> Element getauscht, falls es kleiner als das Pivot-Element ist</span></li>
+              <li><span style = "color: blue;">Wird mit dem <span style = "color: blue">blauen</span> Element getauscht, falls dies verlangt wird.</span></li>
             </ul>
           </div>
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>

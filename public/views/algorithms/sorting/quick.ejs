@@ -51,7 +51,7 @@
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
           <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Beim Quicksort wird das Element am Ende des Arrays als sogenanntes Pivot-Element definiert (Das Pivot-Element kann beliebig gewählt werden, wird aber häufig am Ende gewählt). Danach wird jedes Element des Arrays mit dem Pivot Element verglichen und mit dem Element am Anfang getauscht, wenn es kleiner als das Pivot-Element ist. Wenn dieses Verfahren an allen Elementen links vom Pivot-Element durchgeführt wird, wird das Pivot-Element dorthin gesetzt, wo alle rechts davon grösser als das Pivot-Element sind und alle links davon kleiner als das Pivot-Element sind. So haben wir also unseren Array in zwei unsortierte Teilarrays geteilt. Dies wird nun solange durchgeführt, bis der Array sortiert ist.</p>
+          <p>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index gewählt werden.</p>
         </div>
         <div id = "exampleCode">
           <h2>Beispielcode</h2>

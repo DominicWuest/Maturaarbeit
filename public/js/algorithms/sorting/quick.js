@@ -13,7 +13,6 @@ let speed = 0.001;
 
 // Sets the size and position of the canvas
 function setup() {
-  // Defines position and size of the canvas
   let canvasDiv = document.getElementById('animation');
   let width = canvasDiv.offsetWidth;
   let height = canvasDiv.offsetHeight;
@@ -28,53 +27,52 @@ function setup() {
   }
 }
 
+// Start of the animation if input start button is pressed
 function startamination() {
   quickSort(arr, 0, arr.length - 1);
 }
 
-// Does all the sorting
+// Does all the sorting, swapping and defines the color of each element
 async function quickSort(arr, low, pivot) {
   if (low < pivot) {
     color[pivot] = 'purple';
     let low_index = low;
     for (let i = low; i < pivot; i++) {
+      color[i] = 'grey';
       if (arr[i] < arr[pivot]) {
-        color[low_index] = 'blue';
-        color[i] = 'grey';
+        color[low_index] = 'blue';       
         await waitfor(1 / speed);
         let temp = arr[i];
         arr[i] = arr[low_index];
         arr[low_index] = temp;
-        color[i] = 'green';
+        await waitfor(1 / (2 * speed));
         color[low_index] = 'green';
         low_index++;
       }
+      else await waitfor(1 / (3 * speed));
+      color[i] = 'green';
     }
-    color[low_index] = 'blue';
+    if (low_index != pivot) color[low_index] = 'blue';
     await waitfor(1 / speed);
     color[low_index] = 'green';
     let temp = arr[low_index];
     arr[low_index] = arr[pivot];
     arr[pivot] = temp;
-    for (let i = low; i < pivot; i++) {
+    for (let i = low; i < pivot + 1; i++) {
       if (i != low_index) {
         color[i] = 'green';
       }
     }
-
     await Promise.all([
-      // Sort the left subarray
       quickSort(arr, low, low_index - 1),
-      // Sort the right subarray
       quickSort(arr, low_index + 1, pivot)
     ]);
   }
 }
 
-// Function that draws the elements of the array, gets called 60 times per second
+// Gets called 60 times per second and draws the elements
 function draw() {
   background(255, 255, 255);
-
   for (let i = 0; i < arr.length; i++) {
     if (color[i] === 'grey') {
       fill(128, 128, 128);

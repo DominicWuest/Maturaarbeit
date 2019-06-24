@@ -22,11 +22,13 @@ function setup() {
   canvas.parent('animation');
   // Creates a new array with a given number of elements
   arr = new Array(floor(elements));
-  // Gives each element a random height and defines a green color
+  // Gives each element a fixed height and defines a green color, but keeps array in order
   for (let i = 0; i < arr.length; i++) {
-    arr[i] = random() * (height - 1) + 1;
+    arr[i] = ((i + 1) * height) / elements;
     color[i] = 'green';
   }
+  // Shuffles the ordered array (predifined function)
+  arr = shuffle(arr);
 }
 
 // Start of the animation when input start button is pressed
@@ -100,10 +102,9 @@ function draw() {
     else {
       fill(0, 255, 0);
     }
-    rect(i * (width / elements), height - arr[i], (width / elements), arr[i]);
+    rect(i * ((width - 1) / elements), height - arr[i], (width / elements), arr[i]);
   }
 }
-
 
 /**
  * Buffer to brake down the speed of the animation

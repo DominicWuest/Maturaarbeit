@@ -57,41 +57,65 @@
           <h2>Beispielcode</h2>
           <div id = "python">
             <p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-            <code class = "code python">def quickSort(arr, low, high): # arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
-  if low < high: # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
-    low_index = low # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
-    pivot = arr[high] # Element, mit dem verglichen wird hat den höchsten Index im Teilarray 
-    for high_index in range(low, high, 1): # Es wird von low bis (und ohne) dem Pivot Element jedes Element mit dem Pivot-Element verglichen
-      if arr[high_index] < pivot: # Falls der untersuchte Wert kleiner als das Pivot-Element ist 
-        arr[low_index], arr[high_index] = arr[high_index], arr[low_index] # Die beiden Werte werden miteinander getauscht
-        low_index += 1 # Low_index wird erhöht, da dieses Element nun kleiner ist als das Pivot Element
-    arr[low_index], arr[high] = arr[high], arr[low_index] # Das Pivot-Element wird dorthin gesetzt wo rechts alle grösser und links alle kleiner sind
-    quickSort(arr, low_index + 1, high) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
-    quickSort(arr, low, low_index - 1) # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert    
-  return arr # Der sortierte Array wird zurückgegeben</code>
+            <code class = "code python"># arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
+def quickSort(arr, low, high): 
+  # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  if low &lt; high:
+    # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    low_index = low 
+    # Element, mit dem verglichen wird hat den höchsten Index im Teilarray 
+    pivot = arr[high] 
+    # Es wird von low bis (und ohne) dem Pivot Element jedes Element mit dem Pivot-Element verglichen
+    for high_index in range(low, high, 1): 
+      # Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+      if arr[high_index] &lt; pivot: 
+        # Die beiden Werte werden miteinander getauscht
+        arr[low_index], arr[high_index] = arr[high_index], arr[low_index] 
+        # Low_index wird erhöht, da dieses Element nun kleiner ist als das Pivot Element
+        low_index += 1 
+    # Das Pivot-Element wird dorthin gesetzt wo rechts alle grösser und links alle kleiner sind
+    arr[low_index], arr[high] = arr[high], arr[low_index] 
+    # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low_index + 1, high) 
+    # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert  
+    quickSort(arr, low, low_index - 1) 
+  # Der sortierte Array wird zurückgegeben
+  return arr</code>
           </div>
           <div id = "java">
             <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
             <p>Es können selbstverständlich auch andere Datentypen gebraucht werden.</p>
-            <code class = "code java">public static int quicksort(int[] arr, int low, int high) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
-  if (low < high) { // Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
-    int low_index = low; // Der Index des Elementes auf dem unsortierten linken Teil des Arrays
-    int pivot = arr[high]; // Das Pivot-Element des Teilarrays wird an dessen Ende gewählt
-    for (int high_index = low; high_index < high; high_index++) { // Es wird von low bis zu dem Pivot-Element jedes Element mit dem Pivot-Element verglichen
-      if (arr[high_index] < pivot) { // Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+            <code class = "code java">// arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+public static int quicksort(int[] arr, int low, int high) { 
+  // Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  if (low &lt; high) { 
+    // Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    int low_index = low; 
+    // Das Pivot-Element des Teilarrays wird an dessen Ende gewählt
+    int pivot = arr[high]; 
+    // Es wird von low bis zu dem Pivot-Element jedes Element mit dem Pivot-Element verglichen
+    for (int high_index = low; high_index &lt; high; high_index++) { 
+      // Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+      if (arr[high_index] &lt; pivot) { 
+        // Die beiden Werte werden miteinander getauscht
         int temp = arr[high_index];
-        arr[high_index] = arr[low_index] ; // Die beiden Werte werden miteinander getauscht
+        arr[high_index] = arr[low_index] ; 
         arr[low_index] = temp;
-        low_index++; // Low_index wird erhöht, da dieses Element nun kleiner als das Pivot-Element ist
+        // Low_index wird erhöht, da dieses Element nun kleiner als das Pivot-Element ist
+        low_index++; 
       }
     }
+    // Das Pivot-Element wird an die Position gebracht, an der links alle kleiner und rechts alle anderen Elemente grösser sind
     int temp = arr[low_index];
-    arr[low_index] = arr[high]; // Das Pivot-Element wird an die Position gebracht, an der links alle kleiner und rechts alle anderen Elemente grösser sind
+    arr[low_index] = arr[high]; 
     arr[high] = temp;
-    quickSort(arr, low_index + 1, high); // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
-    quickSort(arr, low, low_index - 1); // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert   
+    // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low_index + 1, high); 
+    // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert 
+    quickSort(arr, low, low_index - 1    
   }
-  return arr; // Der sortierte Array wird zurückgegeben
+  // Der sortierte Array wird zurückgegeben
+  return arr; 
 }           </code>
           </div>
         </div>
@@ -102,8 +126,8 @@
             <ul>
               <li><span style = "color: purple">Das Pivot-Element, mit dem verglichen wird und das die einzelnen Teilarrays abtrennt</span></li>
               <li><span style = "color: green;">Momentan nicht beachteter Wert</span></li>
-              <li><span style = "color: gray;">Wird mit Pivot verglichen und mit dem <span style = "color: grey;">grauen</span> Element getauscht, falls es kleiner als das Pivot-Element ist</span></li>
-              <li><span style = "color: blue;">Wird mit dem <span style = "color: blue">blauen</span> Element getauscht, falls dies verlangt wird.</span></li>
+              <li><span style = "color: gray;">Wird mit Pivot verglichen und mit dem <span style = "color: blue;">blauen</span> Element getauscht, falls es kleiner als das Pivot-Element ist</span></li>
+              <li><span style = "color: blue;">Wird mit dem <span style = "color: grey">grauen</span> Element getauscht, falls dies verlangt wird.</span></li>
             </ul>
           </div>
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>

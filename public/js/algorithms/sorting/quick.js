@@ -9,10 +9,13 @@ let elements = 50;
 // The index of the pivot value
 let pivot;
 // Number of milliseconds to wait before continue animation
-let speed = 0.001;
+let speed = 0.005;
+// Boolean to abort the animation if it was restarted
+let abort;
  
 // Creates the canvas in its given size and position by the css file
-function setup() {
+async function setup() {
+  await waitfor(3 / speed);
   let canvasDiv = document.getElementById('animation');
   let width = canvasDiv.offsetWidth;
   let height = canvasDiv.offsetHeight;
@@ -32,7 +35,10 @@ function setup() {
 }
 
 // Start of the animation when input start button is pressed
-function startamination() {
+async function startamination() {
+  // Gives the function some time to get aborted
+  await waitfor(3 / speed);
+  abort = false;
   quickSort(arr, 0, arr.length - 1);
 }
 
@@ -49,12 +55,16 @@ async function quickSort(arr, low, pivot) {
     let low_index = low;
     for (let i = low; i < pivot; i++) {
       color[low_index] = 'blue'; 
-      color[i] = 'grey';
-      if (arr[i] < arr[pivot]) {   
+      // Abort breaks the function and has to be added before every call of the waifor function
+      if (abort) return false;
+      if (i != low_index) color[i] = 'grey';
+      else color[i] = 'greyblue';
+      if (arr[i] < arr[pivot]) {
         await waitfor(1 / speed);
         let temp = arr[i];
         arr[i] = arr[low_index];
         arr[low_index] = temp;
+        if (abort) return false;
         await waitfor(1 / (2 * speed));
         low_index++;
       }
@@ -63,8 +73,9 @@ async function quickSort(arr, low, pivot) {
       color[i] = 'green';
       color[low_index - 1] = 'green';
     }
-    if (low_index != pivot) color[low_index] = 'blue';
-    await waitfor(1 / speed);
+    if (low_index != pivot) color[low_index] = 'red';
+    if (abort) return false;
+    await waitfor(2 / speed);
     // Resets the color of the last low_index element so all colors are reseted to the initial conditions
     color[low_index] = 'green';
     let temp = arr[low_index];
@@ -77,6 +88,7 @@ async function quickSort(arr, low, pivot) {
       }
     }
     // Waits until everything above has finished before it calls the function again
+    if (abort) return false;
     await Promise.all([
       quickSort(arr, low, low_index - 1)]);
     await Promise.all([
@@ -87,21 +99,37 @@ async function quickSort(arr, low, pivot) {
 
 // Gets called 60 times per second and draws the elements
 function draw() {
-  background(255, 255, 255);
+  background(255);
   // Draws each element with the given color
   for (let i = 0; i < arr.length; i++) {
     if (color[i] === 'grey') {
-      fill(128, 128, 128);
+      fill(128);
+      stroke(0);
     } 
     else if (color[i] === 'blue') {
       fill(0, 0, 255);
+      stroke(0);
     }
     else if (color[i] === 'purple') {
       fill(128, 0, 128);
-    } 
+      stroke(0);
+    }
+    // Color greyblue means grey rectangle with blue edges
+    else if (color[i] === 'greyblue') {
+      fill(128);
+      stroke(0, 0, 255);
+    }
+    else if (color[i] === 'red') {
+      fill(255, 0, 0);
+      stroke(0);
+    }
     else {
       fill(0, 255, 0);
+      stroke(0);
     }
+    /** Defines the elements as rectangles
+     * They should not fill the whole canvas because the stroke would overflow
+     */
     rect(i * ((width - 1) / elements), height - arr[i], (width / elements), arr[i]);
   }
 }

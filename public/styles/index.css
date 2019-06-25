@@ -201,6 +201,18 @@ footer {
   font-size: 1.5vh;
 }
 
+.g-signin2 {
+  position: relative;
+}
+
+.g-signout2 {
+  position: absolute;
+  background-color: aliceblue;
+  padding: 10px;
+  top: 5%;
+  left: 0%;
+}
+
 /*
   Media Queries
 */

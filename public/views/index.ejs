@@ -9,12 +9,14 @@
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/index.css">
     <!-- Required to import google login -->
-    <meta name="google-signin-client_id" content="28297125991-kukg6mbeal483v0o5di26rrnvtmuu3hn.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="js/index.js"></script>
+    <meta name = "google-signin-client_id" content = "28297125991-kukg6mbeal483v0o5di26rrnvtmuu3hn.apps.googleusercontent.com">
+    <script src = "https://apis.google.com/js/platform.js" async defer></script>
   </head>
   <body>
-      <main>
-	  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+    <main>
+      <div class = "g-signin2" data-onsuccess = "onSignIn()"></div>
+      <a class = "g-signout2" href = "#" onclick = "signOut();">Sign out</a>
       <div class="courses">
         <span class="title"><a href="/courses?query=">Alle Kurse</a></span>
         <div class="coursesListContainer">

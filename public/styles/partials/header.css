@@ -1,0 +1,99 @@
+header {
+  box-sizing: border-box;
+  height: 8vh;
+  width: 100%;
+  background-color: #333;
+  border: 0.5vh solid #555;
+  border-top: none;
+  padding-left: 1vh;
+  display: grid;
+  grid-template-columns: auto 2fr 1fr;
+  grid-template-rows: 100%;
+}
+
+.searchbarDiv {
+  margin: auto;
+}
+
+.search {
+  width: 25vw !important;
+}
+
+.search #suggestions {
+  position: absolute;
+  width: inherit;
+}
+
+#searchBar:hover {
+  background-color: #222 !important;
+}
+
+#searchBar:focus {
+  background-color: #444 !important;
+}
+
+#suggestions a {
+  background-color: #444 !important;
+}
+
+.headerlogo {
+  float: left;
+  height: 100%;
+}
+
+.logo {
+  height: 100%;
+  width: auto;
+}
+
+.links {
+  height: 100%;
+  float: left;
+}
+
+.links ul {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.links li {
+  display: inline-block;
+  height: 100%;
+  list-style: none;
+  float: left;
+}
+
+.links a {
+  font-family: 'Righteous', cursive;
+  text-decoration: none;
+  color: white;
+  height: 100%;
+  font-size: 4vh;
+  margin: auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.searchbarDiv {
+  float: left;
+}
+
+@media only screen and (max-width : 1000px) {
+  header {
+    grid-template-columns: auto 1fr;
+    grid-template-rows: 100%;
+  }
+
+  .searchbarDiv {
+    display: none;
+  }
+
+  .links a {
+    font-size: 6vw;
+  }
+}

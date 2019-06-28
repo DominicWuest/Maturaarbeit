@@ -1,0 +1,18 @@
+{
+  "index" : 4,
+  "title" : "Head",
+  "description" : "Im Head kann man verschiedene Angaben über das HTML-Dokument machen. Mit dem title-Tag kannst du deiner Webseite einen Titel geben, der im Browser in der Tab-Leiste angezeigt. Im Fall von unserer Webseite siehst du oben in der Leiste \"CSAcademy\" stehen. Man kann auch den Schriftsatz der Webseite festlegen, indem man den meta-Tag benutzt. Man braucht allerdings noch ein Attribut im Tag. Ein Attribut kann einem Tag zusätzliche Informationen geben. Der Standartschriftsatz, den wir benutzen ist der \"utf-8\". Du kannst diesen mit folgender Zeile festlegen: <code class=\"html\">&ltmeta charset=\"utf-8\"&gt</code>\nBeachte, dass der meta-Tag kein schliessenden Tag braucht!",
+  "subexercises" : [{
+      "index" : 0,
+      "description" : "Gebe deiner Webseite einen Titel deiner Wahl.",
+      "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+      "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Eigener Titel</title>\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+      "solutionCheck" : "return output.getElementsByTagName('title')[0];"
+      }, {
+          "index" : 1,
+          "description" : "Füge deinem Code den UTF-8-Schriftsatz hinzu.",
+          "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+          "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<meta charset=\"utf-8\">\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
+          "solutionCheck" : "let el = output.getElementsByTagName('meta')[0]; return el && el.charset === 'utf-8';"
+          }]
+}, 

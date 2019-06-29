@@ -29,11 +29,37 @@ let roundConstants = [
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
   // Creation of the byte-array
-  let bytes = [];
-  // Push the character codes of the input
-  for (let i = 0; i < message.length; i++) bytes.push(message.charCodeAt(i));
+  let A = stringToState(message);
   let hashedMsg = 0;
   document.getElementById('hash').textContent = hashedMsg;
+}
+
+function stringToState(string) {
+  let bitArray = stringToBitArray(string);
+  let zeroArray = [];
+  for (let i = 0; i < 25 - ((bitArray.length + 2) % 25); i++) zeroArray.push(0);
+  bitArray = bitArray.concat([1], zeroArray, [1]);
+  let A = [];
+  let w = bitArray.length / 25;
+  let yArr, zArr;
+  for (let x = 0; x < 5; x++) {
+    yArr = [];
+    for (let y = 0; y < 5; y++) {
+      zArr = [];
+      for (let z = 0; z < w; z++) zArr.push(bitArray[w * (5 * y + x) + z]);
+      yArr.push(zArr);
+    }
+    A.push(yArr);
+  }
+}
+
+function stringToBitArray(string) {
+  let byteArray = string.split('').map((char) => char.charCodeAt(0));
+  let bitArray = [];
+  for (byte of byteArray) {
+    for (let i = 0; i < 8; i++) bitArray.push((byte >>> (7 - i)) & 0b1);
+  }
+  return bitArray;
 }
 
 // Circular left rotation
@@ -43,11 +69,11 @@ function leftRotate(num, shift) {
 
 function theta(a, x, y, z) {
   let sumIndeces = [0, 1, 2, 3, 4];
-  return a[x][y][z] + sumIndeces.reduce(function(index, sum) => sum + a[x - 1][index][z]) + sumIndeces.reduce(unction(index, sum) => sum + a[x + 1][index][z - 1]);
+  return a[x][y][z] ^ sumIndeces.reduce((index, sum) => sum ^ a[x - 1][index][z]) ^ sumIndeces.reduce((index, sum) => sum ^ a[x + 1][index][z - 1]);
 }
 
 function rho(a, x, y, z) {
-  
+
 }
 
 function pi(a, x, y) {

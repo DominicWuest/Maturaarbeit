@@ -3,35 +3,7 @@
 	A' is denoted as aA
 */
 
-// The round Constants for the Keccak Algorithm
-let roundConstants = [
-	0x0000000000000001,
-	0x000000008000808B,
-	0x0000000000008082,
-	0x800000000000008B,
-	0x800000000000808A,
-	0x8000000000008089,
-	0x8000000080008000,
-	0x8000000000008003,
-	0x000000000000808B,
-	0x8000000000008002,
-	0x0000000080000001,
-	0x8000000000000080,
-	0x8000000080008081,
-	0x000000000000800A,
-	0x8000000000008009,
-	0x800000008000000A,
-	0x000000000000008A,
-	0x8000000080008081,
-	0x0000000000000088,
-	0x8000000000008080,
-	0x0000000080008009,
-	0x0000000080000001,
-	0x000000008000000A,
-	0x8000000080008008
-];
-
-let w;
+let w, l;
 
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
@@ -45,6 +17,7 @@ function stringToState(string) {
   let bitArray = stringToBitArray(string);
   let A = [];
   w = bitArray.length / 25;
+	l = Math.log(w) / Math.log(2);
   let yArr, zArr;
   for (let x = 0; x < 5; x++) {
     yArr = [];
@@ -113,7 +86,15 @@ function theta(A) {
 }
 
 function rho(A, x, y, z) {
-
+	let aA = A;
+	let x = 1, y = 0, xTemp;
+	for (let t = 0; t < 23; t++) {
+		for (let z = 0; z < w; z++) aA[x][y][z] = A[x][y][(z - (t + 1) * (t + 2) / 2) % w];
+		xTemp = x;
+		x = y;
+		y = (2 * xTemp + 3 * y) % 5;
+	}
+	return aA;
 }
 
 function pi(A, x, y) {
@@ -144,8 +125,26 @@ function chi(A, x) {
 	return aA
 }
 
-function iota(A) {
+function iota(A, i) {
+	let RC = [];
+	for (let j = 0; j < w; j++) RC.push(0);
+	for (let j = 0; j < l; j++) RC[2 ** j - 1] = roundConstants(j + 7 * i);
+	for (let z = 0; z < w; z++) A[0][0][z] ^= RC[z];
+	return A;
+}
 
+function roundConstants(t) {
+	if (t % 255 === 0) return 1;
+	let R = [1, 0, 0, 0, 0, 0, 0, 0];
+	for (let i = 0; i < t % 255; i++) {
+		R.unshift(0);
+		R[0] ^= R[8];
+		R[4] ^= R[8];
+		R[5] ^= R[8];
+		R[6] ^= R[8];
+		while (R.length !== 8) R.pop();
+	}
+	return R[0];
 }
 
 function rotationOffset(x, y) {

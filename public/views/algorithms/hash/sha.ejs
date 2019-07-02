@@ -61,8 +61,8 @@
         </div>
         <div id="hasher">
           <h2>Input-Hasher</h2>
-          <input type="text" name="message" placeholder="Gib hier deine Nachricht ein..." oninput="hash(this.value);">
-          <p>Deine mit dem SHA3-<select id="sha-value">
+          <input type="text" name="message" placeholder="Gib hier deine Nachricht ein..." oninput="hash(this.value);" id="inputhasher">
+          <p>Deine mit dem SHA3-<select id="sha-value" onchange="hash(document.getElementById('inputhasher').value);">
             <option value="224">224</option>
             <option value="256">256</option>
             <option value="384">384</option>

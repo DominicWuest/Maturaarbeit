@@ -146,10 +146,22 @@
             "output" : "*\n**\n***\n****"
           }, {
             "index" : 2,
-            "description" : "Diese Aufgabe ist ähnlich wie die zweite Aufgabe. Hier wollen wir einfach eine symmetrische Pyramide aus Sternen (*) mit einer Grundseite von sieben Sternen.",
-            "startingCode" : "x = 1\nwhile x < :\n\tprint()\n\tx += 1",
-            "solution" : "x = 1\ny = 7\nwhile x < 16:\n\t# Die Anzahl Leerschläge und die Anzahl Sterne werden Ausgegeben\n\tprint(str(y * ' ') + str(x * '*'))\n\t# Die Änderung der Anzahl der Leerschläge und Sterne\n\tx += 2\n\ty -= 1",
-            "output" : "*\n***\n*****\n*******\n*********\n***********\n*************\n***************"
+            "description" : "Erstelle nun selbst eine While-Schleife, die die Zahlen von 3 bis und mit 9 und je einer Zeile ausgibt.",
+            "startingCode" : "",
+            "solution" : "x = 3\nwhile x < 10:\n\tprint(x)\n\tx += 1",
+            "output" : "3\n4\n5\n6\n7\n8\n9"
+          }, {
+            "index" : 3,
+            "description" : "While-Schlaufen können auch mit Variablen des Datentyps Boolean erstellt werden. Ein Boolean hat zwei mögliche Werte, True oder False. Diese Zuordnungen müssen dabei genau so geschrieben werden. Der Boolean stellt also nun die Bedingung dar, die vorher beispielsweise durch x < 5 dargestellt wurde. Modifiziere die Schleife nun so, dass sechs mal in je einer Zeile die Ziffer 7 ausgegeben wird.",
+            "startingCode" : "x = 0\nwhile :if x < 7:\n\t\tprint(7)\n\t\tx += 1\n\telse:",
+            "solution" : "printing = True\nx = 0\nwhile printing:\n\tif x < 7:\n\t\tprint(7)\n\t\tx += 1\n\telse:\n\t\tprinting = False",
+            "output" : "7\n7\n7\n7\n7\n7\n7"
+          }, {
+            "index" : 4,
+            "description" : "Das Zeichen a % b führt die sogenannte Modulo Operation durch. Dabei wird der Rest einer Division von a durch b in den natürlichen Zahlen durchgeführt. Benutze in dieser Aufgabe einen Boolean und die Modulo Operation um eine While-Schlaufe zu erstellen, die alle durch 7 Teilbaren Zahlen von 13 bis 136 in je einer Zeile ausgibt.",
+            "startingCode" : "",
+            "solution" : "a = True\nstart = 13\nwhile a:\n\tif start < 136:\n\t\tif start % 7 == 0:\n\t\t\tprint(start)\n\t\tstart += 1\n\telse:\n\t\ta = False",
+            "output" : "14\n21\n28\n35\n42\n49\n56\n63\n70\n77\n84\n91\n98\n105\n112\n119\n126\n133"
           }]
       }, {
       "index" : 4,

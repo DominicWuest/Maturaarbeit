@@ -85,7 +85,7 @@ function theta(A) {
 	return aA;
 }
 
-function rho(A, x, y, z) {
+function rho(A) {
 	let aA = A;
 	let x = 1, y = 0, xTemp;
 	for (let t = 0; t < 23; t++) {
@@ -97,7 +97,7 @@ function rho(A, x, y, z) {
 	return aA;
 }
 
-function pi(A, x, y) {
+function pi(A) {
 	let aA = [], yArr, zArr;
 	for (let x = 0; x < 5; x++) {
 		yArr = [];
@@ -111,7 +111,7 @@ function pi(A, x, y) {
 	return aA
 }
 
-function chi(A, x) {
+function chi(A) {
 	let aA = [], yArr, zArr;
 	for (let x = 0; x < 5; x++) {
 		yArr = [];

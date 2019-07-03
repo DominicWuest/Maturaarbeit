@@ -3,21 +3,52 @@
 	A' is denoted as aA
 */
 
-let w, l;
+let w, l, nr;
 
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
   // Creation of the byte-array
   let A = stringToState(message);
-  let hashedMsg = 0;
-  document.getElementById('hash').textContent = hashedMsg;
+	for (let i = 0; i < 12 + 2 * l - 1; i++) A = keccakIteration(A, i);
+  document.getElementById('hash').textContent = stateToHexString(A);
+}
+
+function keccakIteration(A, i) {
+	console.log(stateToHexString(iota(chi(pi(rho(theta(A)))), i)));
+	return iota(chi(pi(rho(theta(A)))), i);
+}
+
+function stateToHexString(A) {
+	let binString = stateToBinString(A);
+	let hexString = '';
+	for (let i = 0; i < binString.length / 8 - 1; i++) {
+		hexString += parseInt(binString.slice(i * 8, (i + 1) * 8), 2).toString(16);
+	}
+	return hexString;
+}
+
+function stateToBinString(A) {
+	let lanes = [], laneArr, laneStr;
+	for (let i = 0; i < 5; i++) {
+		laneArr = [];
+		for (let j = 0; j < 5; j++) {
+			laneStr = '';
+			for (let z = 0; z < w; z++) laneStr += A[i][j][z].toString();
+			laneArr.push(laneStr);
+		}
+		lanes.push(laneArr);
+	}
+	let planes = [], plane;
+	for (let j = 0; j < 5; j++) planes.push(lanes[j].reduce((val, cur) => val += cur.toString()));
+	return planes.reduce((val, cur) => val += cur.toString());
 }
 
 function stringToState(string) {
   let bitArray = stringToBitArray(string);
   let A = [];
   w = bitArray.length / 25;
-	l = Math.log(w) / Math.log(2);
+	l = Math.floor(Math.log(w) / Math.log(2));
+	nr = 12 + 2 * l;
   let yArr, zArr;
   for (let x = 0; x < 5; x++) {
     yArr = [];
@@ -28,6 +59,7 @@ function stringToState(string) {
     }
     A.push(yArr);
   }
+	return A;
 }
 
 function stringToBitArray(string) {
@@ -45,9 +77,9 @@ function bitPadding(arr) {
 	let selectElement = document.getElementById('sha-value');
 	let neededLen = selectElement.options[selectElement.selectedIndex].value * 25;
 	arr.push(1);
-	while ((arr.length + 1) % neededLen !== 0) arr.push(0);
+	while ((arr.length + 3) % neededLen !== 0) arr.push(0);
 	arr.push(1);
-	return arr;
+	return arr.concat([1, 0]);
 }
 
 // Circular left rotation
@@ -66,11 +98,13 @@ function theta(A) {
 		}
 		C.push(CArr);
 	}
-	let DArr = [], zArr;
+	let D = [], zArr;
 	for (let x = 0; x < 5; x++) {
 		zArr = [];
-		for (let z = 0; z < w; z++) zArr.push(C[(x - 1) % 5][z] ^ C[(x + 1) % 5][(z - 1) % w]);
-		DArr.push(zArr);
+		for (let z = 0; z < w; z++) {
+			zArr.push(C[(((x - 1) % 5) + 5) % 5][z] ^ C[(x + 1) % 5][(z - 1) % w]);
+		}
+		D.push(zArr);
 	}
 	let aA = [], yArr;
 	for (let x = 0; x < 5; x++) {

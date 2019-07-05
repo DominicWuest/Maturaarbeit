@@ -3,52 +3,45 @@
 	A' is denoted as aA
 */
 
-let w, l, nr;
+const b = 1600, w = 64, l = 6, nr = 12 + 2 * l;
 
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
   // Creation of the byte-array
   let A = stringToState(message);
-	for (let i = 0; i < 12 + 2 * l - 1; i++) A = keccakIteration(A, i);
+	for (let i = 0; i < nr; i++) A = keccakIteration(A, i);
   document.getElementById('hash').textContent = stateToHexString(A);
 }
 
 function keccakIteration(A, i) {
-	console.log(stateToHexString(iota(chi(pi(rho(theta(A)))), i)));
 	return iota(chi(pi(rho(theta(A)))), i);
 }
 
+// Converts a State to a little endian Hex String
 function stateToHexString(A) {
 	let binString = stateToBinString(A);
-	let hexString = '';
-	for (let i = 0; i < binString.length / 8 - 1; i++) {
-		hexString += parseInt(binString.slice(i * 8, (i + 1) * 8), 2).toString(16);
+	let hexString = '', hexElement;
+	for (let i = 0; i < binString.length / 8; i++) {
+    hexElement = parseInt(binString.slice(i * 8, (i + 1) * 8).split('').reverse().join(''), 2).toString(16);
+    hexElement = '0'.repeat(2 - hexElement.length) + hexElement + ' ';
+		hexString += hexElement;
 	}
 	return hexString;
 }
 
 function stateToBinString(A) {
-	let lanes = [], laneArr, laneStr;
-	for (let i = 0; i < 5; i++) {
-		laneArr = [];
-		for (let j = 0; j < 5; j++) {
-			laneStr = '';
-			for (let z = 0; z < w; z++) laneStr += A[i][j][z].toString();
-			laneArr.push(laneStr);
+	let laneStr = '';
+	for (let y = 0; y < 5; y++) {
+    for (let x = 0; x < 5; x++) {
+			for (let z = 0; z < w; z++) laneStr += A[x][y][z].toString();
 		}
-		lanes.push(laneArr);
 	}
-	let planes = [], plane;
-	for (let j = 0; j < 5; j++) planes.push(lanes[j].reduce((val, cur) => val += cur.toString()));
-	return planes.reduce((val, cur) => val += cur.toString());
+	return laneStr;
 }
 
 function stringToState(string) {
   let bitArray = stringToBitArray(string);
   let A = [];
-  w = bitArray.length / 25;
-	l = Math.floor(Math.log(w) / Math.log(2));
-	nr = 12 + 2 * l;
   let yArr, zArr;
   for (let x = 0; x < 5; x++) {
     yArr = [];
@@ -59,27 +52,30 @@ function stringToState(string) {
     }
     A.push(yArr);
   }
-	console.log(A);
 	return A;
 }
 
 function stringToBitArray(string) {
-  let byteArray = string.split('').map((char) => char.charCodeAt(0));
-  let bitArray = [];
-  for (byte of byteArray) {
-    for (let i = 0; i < 8; i++) bitArray.push((byte >>> (7 - i)) & 0b1);
+  let hexArray = string.split('').map((char) => char.charCodeAt(0));
+  let bitArray = [1, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 1, 0, 1, 0, 0, 1, 1, 0];
+  for (hexVal of hexArray) {
+    for (let i = 0; i < 4; i++) bitArray.push((hexVal >>> (3 - i)) & 0b1);
   }
-	bitArray = [0, 1].concat(bitPadding(bitArray));
+	bitArray = bitPadding(bitArray.concat([0, 1]));
   return bitArray;
 }
 
 function bitPadding(arr) {
-	let len = arr.length;
 	let selectElement = document.getElementById('sha-value');
-	let neededLen = selectElement.options[selectElement.selectedIndex].value * 25;
+  let capacity = 2 * selectElement.selectedOptions[0].value;
+  let rate = b - capacity;
+  let zeros = ((-arr.length -2 % rate) + rate) % rate;
+  // Padding for the rate
 	arr.push(1);
-	while ((arr.length + 1) % neededLen !== 0) arr.push(0);
-	arr.push(1);
+  for (let i = 0; i < zeros; i++) arr.push(0);
+  arr.push(1);
+  // Padding for the capacity
+  while (arr.length % b !== 0) arr.push(0);
 	return arr;
 }
 
@@ -103,32 +99,30 @@ function theta(A) {
 	for (let x = 0; x < 5; x++) {
 		zArr = [];
 		for (let z = 0; z < w; z++) {
-			zArr.push(C[(((x - 1) % 5) + 5) % 5][z] ^ C[(x + 1) % 5][(z - 1) % w]);
+			zArr.push(C[(((x - 1) % 5) + 5) % 5][z] ^ C[(x + 1) % 5][(((z - 1) % w) + w) % w]);
 		}
 		D.push(zArr);
 	}
-	let aA = [], yArr;
+	let aA = A, yArr;
 	for (let x = 0; x < 5; x++) {
-		yArr = [];
 		for (let y = 0; y < 5; y++) {
-			zArr = [];
-			for (let z = 0; z < w; z++) zArr.push(A[x][y][z] ^ D[x][z]);
-			yArr.push(zArr);
+			for (let z = 0; z < w; z++) aA[x][y][z] = A[x][y][z] ^ D[x][z];
 		}
-		aA.push(yArr);
 	}
+  console.log('Theta : ' + stateToHexString(aA));
 	return aA;
 }
 
 function rho(A) {
 	let aA = A;
 	let x = 1, y = 0, xTemp;
-	for (let t = 0; t < 23; t++) {
-		for (let z = 0; z < w; z++) aA[x][y][z] = A[x][y][(z - (t + 1) * (t + 2) / 2) % w];
+	for (let t = 0; t < 24; t++) {
+		for (let z = 0; z < w; z++) aA[x][y][z] = A[x][y][(((z - (t + 1) * (t + 2) / 2) % w) + w) % w];
 		xTemp = x;
 		x = y;
 		y = (2 * xTemp + 3 * y) % 5;
 	}
+  console.log('Rho : ' + stateToHexString(aA));
 	return aA;
 }
 
@@ -143,6 +137,7 @@ function pi(A) {
 		}
 		aA.push(yArr);
 	}
+  console.log('Pi : ' + stateToHexString(aA));
 	return aA
 }
 
@@ -157,6 +152,7 @@ function chi(A) {
 		}
 		aA.push(yArr);
 	}
+  console.log('Chi : ' + stateToHexString(aA));
 	return aA
 }
 
@@ -165,6 +161,7 @@ function iota(A, i) {
 	for (let j = 0; j < w; j++) RC.push(0);
 	for (let j = 0; j < l; j++) RC[2 ** j - 1] = roundConstants(j + 7 * i);
 	for (let z = 0; z < w; z++) A[0][0][z] ^= RC[z];
+  console.log('Iota : ' + stateToHexString(A));
 	return A;
 }
 

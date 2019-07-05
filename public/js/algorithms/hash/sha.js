@@ -59,6 +59,7 @@ function stringToState(string) {
     }
     A.push(yArr);
   }
+	console.log(A);
 	return A;
 }
 
@@ -68,7 +69,7 @@ function stringToBitArray(string) {
   for (byte of byteArray) {
     for (let i = 0; i < 8; i++) bitArray.push((byte >>> (7 - i)) & 0b1);
   }
-	bitArray = bitPadding(bitArray);
+	bitArray = [0, 1].concat(bitPadding(bitArray));
   return bitArray;
 }
 
@@ -77,9 +78,9 @@ function bitPadding(arr) {
 	let selectElement = document.getElementById('sha-value');
 	let neededLen = selectElement.options[selectElement.selectedIndex].value * 25;
 	arr.push(1);
-	while ((arr.length + 3) % neededLen !== 0) arr.push(0);
+	while ((arr.length + 1) % neededLen !== 0) arr.push(0);
 	arr.push(1);
-	return arr.concat([1, 0]);
+	return arr;
 }
 
 // Circular left rotation

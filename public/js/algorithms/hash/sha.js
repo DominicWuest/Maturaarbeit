@@ -15,10 +15,8 @@ function hash(message) {
   // Set the output length to the selected value
   outputLength = document.getElementById('sha-value').selectedOptions[0].value;
   let A;
-  // The message in bits
-  let inputBits = stringToBitArray(message);
-  // Appending the SHA3 suffix 01 to the message in bits
-  inputBits = inputBits.concat([0, 1]);
+  // The message in bits with the SHA3 suffix 01 appended to it
+  let inputBits = stringToBitArray(message).concat([0, 1]);
   // An array of the chunks which will be used to make the states
   let chunks = [];
   // Break message into chunks of 2 * outputLength bits (i.e. the rate)
@@ -93,11 +91,12 @@ function messageBitsToState(bitArray) {
 function stringToBitArray(string) {
   // The array holding the string as a bit-array
   let bitArray = [];
-  // Iterate over every value inside the characterArray
-  for (character in string) {
+  // Iterate over every character inside the string
+  for (character of string) {
     let characterValue = character.charCodeAt(0);
+    let binaryLength = characterValue.toString(2).length + 1;
     // Push all bits of the current character seperately to the bitArray
-    for (let i = 0; i < 4; i++) bitArray.push((characterValue >>> (3 - i)) & 0b1);
+    for (let i = 0; i < binaryLength; i++) bitArray.push((characterValue >>> i) & 0b1);
   }
   return bitArray;
 }
@@ -107,7 +106,7 @@ function bitPadding(arr) {
   let capacity = 2 * outputLength;
   let rate = b - capacity;
   if (arr.length !== rate) {
-    let zeros = ((-arr.length -2 % rate) + rate) % rate;
+    let zeros = (((-arr.length -2) % rate) + rate) % rate;
     // Padding for the rate
   	arr.push(1);
     for (let i = 0; i < zeros; i++) arr.push(0);

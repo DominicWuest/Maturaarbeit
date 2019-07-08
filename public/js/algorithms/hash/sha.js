@@ -1,5 +1,5 @@
 /*
-	Most of the variable names obey the ones from the FEDERAL INFORMATION PROCESSING STANDARDS (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
+	Most of the variable names are identical to the ones from the FEDERAL INFORMATION PROCESSING STANDARDS (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
 	A' is denoted as aA
 */
 

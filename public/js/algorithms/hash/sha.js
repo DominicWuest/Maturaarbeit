@@ -9,9 +9,24 @@ let outputLength;
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
   outputLength = document.getElementById('sha-value').selectedOptions[0].value;
-  // Creation of the byte-array
-  let A = stringToState(message);
-	for (let i = 0; i < nr; i++) A = keccakIteration(A, i);
+  let A;
+  let inputBits = stringToBitArray(message);
+  inputBits = inputBits.concat([0, 1]);
+  let chunks = [];
+  // Break message into chunks of 2 * outputLength Bits
+  for (let i = 0; i < Math.floor(inputBits.length / ((b - 2 * outputLength))) + 1; i++) chunks.push(inputBits.slice(i * (b - 2 * outputLength), (i + 1) * (b - 2 * outputLength)));
+  for (chunk of chunks) {
+    let aA = messageBitsToState(chunk);
+    if (A) {
+      for (let x = 0; x < 5; x++) {
+        for (let y = 0; y < 5; y++) {
+          for (let z = 0; z < w; z++) aA[x][y][z] ^= A[x][y][z];
+        }
+      }
+    }
+    A = aA;
+  	for (let i = 0; i < nr; i++) A = keccakIteration(A, i);
+  }
   document.getElementById('hash').textContent = stateToLittleEndianHexString(A).slice(0, outputLength / 4);
 }
 
@@ -37,15 +52,15 @@ function stateToBinString(A) {
 	return laneStr;
 }
 
-function stringToState(string) {
-  let bitArray = stringToBitArray(string);
+function messageBitsToState(bitArray) {
+  let aA = bitPadding(bitArray);
   let A = [];
   let yArr, zArr;
   for (let x = 0; x < 5; x++) {
     yArr = [];
     for (let y = 0; y < 5; y++) {
       zArr = [];
-      for (let z = 0; z < w; z++) zArr.push(bitArray[w * (5 * y + x) + z]);
+      for (let z = 0; z < w; z++) zArr.push(aA[w * (5 * y + x) + z]);
       yArr.push(zArr);
     }
     A.push(yArr);
@@ -59,26 +74,22 @@ function stringToBitArray(string) {
   for (hexVal of hexArray) {
     for (let i = 0; i < 4; i++) bitArray.push((hexVal >>> (3 - i)) & 0b1);
   }
-	bitArray = bitPadding(bitArray.concat([0, 1]));
   return bitArray;
 }
 
 function bitPadding(arr) {
   let capacity = 2 * outputLength;
   let rate = b - capacity;
-  let zeros = ((-arr.length -2 % rate) + rate) % rate;
-  // Padding for the rate
-	arr.push(1);
-  for (let i = 0; i < zeros; i++) arr.push(0);
-  arr.push(1);
+  if (arr.length !== rate) {
+    let zeros = ((-arr.length -2 % rate) + rate) % rate;
+    // Padding for the rate
+  	arr.push(1);
+    for (let i = 0; i < zeros; i++) arr.push(0);
+    arr.push(1);
+  }
   // Padding for the capacity
   while (arr.length % b !== 0) arr.push(0);
 	return arr;
-}
-
-// Circular left rotation
-function leftRotate(num, shift) {
-  return (num << shift) | (num >>> (32 - shift));
 }
 
 function theta(A) {
@@ -163,8 +174,4 @@ function roundConstants(t) {
 		R.pop();
 	}
 	return R[0];
-}
-
-function rotationOffset(x, y) {
-
 }

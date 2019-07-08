@@ -1,22 +1,32 @@
 /*
-	Most of the variable names are identical to the ones from the FEDERAL INFORMATION PROCESSING STANDARDS (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
+	Most of the variable names are identical to the ones from the FEDERAL INFORMATION PROCESSING STANDARDS (NIST) (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
 	A' is denoted as aA
+  For more information about the meaning of certain variables, visit the aforementioned site
 */
 
+// Constants for the algorithm
 const b = 1600, w = 64, l = 6, nr = 12 + 2 * l;
+
+// How long the hash value (in bits) is going to be
 let outputLength;
 
 // This function uses the SHA-3-Algorithm to hash the text input by the user
 function hash(message) {
+  // Set the output length to the selected value
   outputLength = document.getElementById('sha-value').selectedOptions[0].value;
   let A;
+  // The message in bits
   let inputBits = stringToBitArray(message);
+  // Appending the SHA3 suffix 01 to the message in bits
   inputBits = inputBits.concat([0, 1]);
+  // An array of the chunks which will be used to make the states
   let chunks = [];
-  // Break message into chunks of 2 * outputLength Bits
+  // Break message into chunks of 2 * outputLength bits (i.e. the rate)
   for (let i = 0; i < Math.floor(inputBits.length / ((b - 2 * outputLength))) + 1; i++) chunks.push(inputBits.slice(i * (b - 2 * outputLength), (i + 1) * (b - 2 * outputLength)));
+  // Iterate over all chunks
   for (chunk of chunks) {
     let aA = messageBitsToState(chunk);
+    // If it isn't the first chunk, XOR the new state with the old state
     if (A) {
       for (let x = 0; x < 5; x++) {
         for (let y = 0; y < 5; y++) {
@@ -25,25 +35,33 @@ function hash(message) {
       }
     }
     A = aA;
-  	for (let i = 0; i < nr; i++) A = keccakIteration(A, i);
+    // Performing all five step mappings on the state nr times
+  	for (let i = 0; i < nr; i++) A = keccakRound(A, i);
   }
+  // Set the textContent of the hash paragraph to the generated hash value to let the user see what his hashed message is
   document.getElementById('hash').textContent = stateToLittleEndianHexString(A).slice(0, outputLength / 4);
 }
 
-let keccakIteration = (A, i) => iota(chi(pi(rho(theta(A)))), i);
+// Returns the state after modifying the state with all five step mappings
+let keccakRound = (A, i) => iota(chi(pi(rho(theta(A)))), i);
 
 // Converts a State to a little endian Hex String
 function stateToLittleEndianHexString(A) {
+  // Create the binary string of the state
 	let binString = stateToBinString(A);
 	let hexString = '', hexElement;
+  // Iterate over all bytes of the binary string
 	for (let i = 0; i < binString.length / 8; i++) {
+    // Convert the byte from binary to hex and reverse it since it is in big-endian
     hexElement = parseInt(binString.slice(i * 8, (i + 1) * 8).split('').reverse().join(''), 2).toString(16);
+    // Unnshift zeros if the hexElement's length is smaller than two, since preceding zeros get deleted
     hexElement = '0'.repeat(2 - hexElement.length) + hexElement;
 		hexString += hexElement;
 	}
 	return hexString;
 }
 
+// Converts a state to a binary string
 function stateToBinString(A) {
 	let laneStr = '';
 	for (let y = 0; y < 5; y++) {
@@ -52,8 +70,11 @@ function stateToBinString(A) {
 	return laneStr;
 }
 
+// Converts the bitArray parameter to a state. The bitArray holds the bits of a part of the message or the whole message if its length is smaller than the rate.
 function messageBitsToState(bitArray) {
+  // Pad the array
   let aA = bitPadding(bitArray);
+  // Create a new state after rules specified in NIST
   let A = [];
   let yArr, zArr;
   for (let x = 0; x < 5; x++) {
@@ -68,15 +89,20 @@ function messageBitsToState(bitArray) {
 	return A;
 }
 
+// Converts a string to a bit-array
 function stringToBitArray(string) {
-  let hexArray = string.split('').map((char) => char.charCodeAt(0));
+  // The array holding the string as a bit-array
   let bitArray = [];
-  for (hexVal of hexArray) {
-    for (let i = 0; i < 4; i++) bitArray.push((hexVal >>> (3 - i)) & 0b1);
+  // Iterate over every value inside the characterArray
+  for (character in string) {
+    let characterValue = character.charCodeAt(0);
+    // Push all bits of the current character seperately to the bitArray
+    for (let i = 0; i < 4; i++) bitArray.push((characterValue >>> (3 - i)) & 0b1);
   }
   return bitArray;
 }
 
+// Executes the pad10*1 function on the parameter arr
 function bitPadding(arr) {
   let capacity = 2 * outputLength;
   let rate = b - capacity;
@@ -92,6 +118,7 @@ function bitPadding(arr) {
 	return arr;
 }
 
+// The first function of the five step mapping
 function theta(A) {
 	let C = [], CArr, num;
 	for (let x = 0; x < 5; x++) {
@@ -119,6 +146,7 @@ function theta(A) {
 	return aA;
 }
 
+// The second function of the five step mapping
 function rho(A) {
   // Make a deep copy of A
 	let aA = JSON.parse(JSON.stringify(A));
@@ -132,6 +160,7 @@ function rho(A) {
 	return aA;
 }
 
+// The third function of the five step mapping
 function pi(A) {
   // Make a deep copy of A
 	let aA = JSON.parse(JSON.stringify(A));
@@ -143,6 +172,7 @@ function pi(A) {
 	return aA
 }
 
+// The fourth function of the five step mapping
 function chi(A) {
   // Make a deep copy of A
 	let aA = JSON.parse(JSON.stringify(A));
@@ -154,6 +184,7 @@ function chi(A) {
 	return aA
 }
 
+// The fifth function of the five step mapping
 function iota(A, i) {
 	let RC = [];
 	for (let j = 0; j < w; j++) RC.push(0);
@@ -162,6 +193,7 @@ function iota(A, i) {
 	return A;
 }
 
+// Returns a bit based on how many times the five step mapping has been performed. Used by iota
 function roundConstants(t) {
 	if (t % 255 === 0) return 1;
 	let R = [1, 0, 0, 0, 0, 0, 0, 0];

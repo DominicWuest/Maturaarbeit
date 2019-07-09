@@ -93,10 +93,12 @@ function stringToBitArray(string) {
   let bitArray = [];
   // Iterate over every character inside the string
   for (character of string) {
-    let characterValue = character.charCodeAt(0);
-    let binaryLength = characterValue.toString(2).length + 1;
-    // Push all bits of the current character seperately to the bitArray
-    for (let i = 0; i < binaryLength; i++) bitArray.push((characterValue >>> i) & 0b1);
+    // Create the little endian bit representation of the string
+    let bitString = character.charCodeAt(0).toString(2).split('').reverse().join('');
+    // Pad the bitstring
+    while (bitString.length < 8) bitString += '0';
+    // Push every parsed bit to the bit array
+    for (bit of bitString) bitArray.push(parseInt(bit, 2));
   }
   return bitArray;
 }

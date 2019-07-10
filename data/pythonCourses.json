@@ -259,8 +259,32 @@
             "index" : 6,
             "description" : "Bei dieser Aufgabe geht es wieder um Primzahlen. Jede Zahl kann mit ihren sogenannten Primfaktoren, also Primzahlen, die multipliziert die Zahl gegen dargestellt werden. Definiere also eine Funktion, mit der du als Input eine Zahl erhältst und als Output eine Liste der Primfaktoren erhältst, geordnet von der kleinsten zur grössten. Gibt damit die Primfaktoren der vorgegebenen Werten von x und y aus.",
             "startingCode" : "x = 28340\ny = 104500",
-            "solution" : "x = 28340\ny = 104500\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\nprint(primefactors(x))\nprint(primefactors(y))",
+            "solution" : "x = 28340\ny = 104500\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\nprint(primefactors(x))\nprint(primefactors(y))",
             "output" : "[2, 2, 5, 13, 109]\n[2, 2, 5, 5, 5, 11, 19]" 
+          }, {
+            "index" : 7,
+            "description" : "Die Aufspaltung einer Zahl in ihre Primfaktoren kann gebraucht werden um die Teiler der Zahl herauszufinden. Dabei sind also die Primfaktoren selbst auf jeden Fall Teiler, aber auch alle möglichen Multiplikationen der einzelnen Primfaktoren. Definiere nun eine zweite Funktion, die eine Liste aller Teiler (ohne 1) erstellt und gib damit alle Teiler, geordnet vom kleinsten zum grössten Teiler, der Zahl 124 aus.",
+            "startingCode" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef dividers(n):\n\tfactors = primefactors(n)\n\tdivider = []\n\tfor i in range(len(factors)):\n\t\t# Alle Primfaktoren sind Teiler von n\n\t\tdivider.append(factors[i])\n\t\tfor j in range(i + 1, len(factors), 1):\n\t\t\tdivider.append(factors[i] * factors[j])\n\t\t\tfor k in range(j + 1, len(factors), 1):\n\t\t\t\tdivider.append(factors[i] * factors[j] * factors[k])\n\t\t\t\tfor l in range(k + 1, len(factors), 1):\n\t\t\t\t\tdivider.append(factors[i] * factors[j] * factors[k] * factors[l])\n\t# Doppelte Teiler werden entfernt\n\tx = 0\n\twhile x < len(divider):\n\t\ty = x + 1\n\t\twhile y < len(divider):\n\t\t\tif divider[x] == divider[y]:\n\t\t\t\tdivider.remove(divider[x])\n\t\t\telse:\n\t\t\t\ty += 1\n\t\tx += 1\n\t# Die Liste wird der Groesse nach geordnet\n\tfor i in range(len(divider)):\n\t\tfor j in range(i, len(divider), 1):\n\t\t\tif divider[i] > divider[j]:\n\t\t\t\tdivider[i], divider[j] = divider[j], divider[i]\n\treturn divider\n\nprint(primefactors(x))\nprint(dividers(x))",
+            "output" : "[3, 5, 15, 41, 123, 205, 615]" 
+          }, {
+            "index" : 8,
+            "description" : "In dieser Aufgabe wollen wir die Primfaktorenzerlegung dazu benutzen um den grössten gemeinsamen Teiler zweier Zahlen zu finden. Dieser ist dabei das Produkt aller Primfaktoren, die in beiden Zahlen vorhanden sind. Benutze also die Funktion für die Primfaktorenzerlegung und berechne mit einer neuen Funktion den grössten gemeinsamen Teiler der Zahlen 1523 und 2106 und gib ihn aus.",
+            "startingCode" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef ggT(a, b):\n\t",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 9,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 10,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
           }]
       }, {
       "index" : 7,

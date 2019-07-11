@@ -20,7 +20,7 @@ function hash(message) {
   // An array of the chunks which will be used to make the states
   let chunks = [];
   // Break message into chunks of 2 * outputLength bits (i.e. the rate)
-  for (let i = 0; i < Math.floor(inputBits.length / ((b - 2 * outputLength))) + 1; i++) chunks.push(inputBits.slice(i * (b - 2 * outputLength), (i + 1) * (b - 2 * outputLength)));
+  for (let i = 0; i < Math.floor(inputBits.length / (b - 2 * outputLength)) + 1; i++) chunks.push(inputBits.slice(i * (b - 2 * outputLength), (i + 1) * (b - 2 * outputLength)));
   // Iterate over all chunks
   for (chunk of chunks) {
     let aA = messageBitsToState(chunk);

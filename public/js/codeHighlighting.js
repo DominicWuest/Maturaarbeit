@@ -19,7 +19,7 @@ function addHighlighting() {
     }
     if (language === '') continue;
     // Escape less than and greater than
-    let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
+    let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').replace(/&/g, '&amp').split('\n');
     // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly
     let tagIndex = true;
     // Check every line seperately, simplifies the process of colouring comments

@@ -195,7 +195,7 @@
             "index" : 4,
             "description" : "Der + Operator sollte jedoch nicht benutzt werden um zwei Listen aneinander zu hängen, da dieser sehr ineffizient arbeitet. Es ist besser für ein einzelnes Element den Operator a.append(n) zu benutzen. Schreibe ein Programm, das die vorgegebenen Listen q und w mithilfe des append() Operators aneinanderhängt und gib die entstandene Liste aus.",
             "startingCode" : "q = [2, 72, 457, 37, 2]\nw = [3, 7, 26, 48, 1]",
-            "solution" : "q = [2, 72, 457, 37, 2]\nw = [3, 7, 26, 48, 1]\nq.append(w)print(q)",
+            "solution" : "q = [2, 72, 457, 37, 2]\nw = [3, 7, 26, 48, 1]\nq.append(w)\nprint(q)",
             "output" : "[2, 72, 457, 37, 2, [3, 7, 26, 48, 1]]"
           }, {
             "index" : 5,
@@ -232,13 +232,13 @@
             "description" : "Bisher haben wir nur Elemente an das Ende einer Liste hinzugefügt. Man kann jedoch ein Element auch an einem beliebigen Index zu einer Liste hinzufügen. Dies kann mit der Funktion a.insert(i, n), wobei das Element n am Index i zur Liste a hinzugefügt wird. Füge der vorgegebenen Liste a in der Mitte das Element 'Mitte' ein und gibt die Liste aus.",
             "startingCode" : "a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]",
             "solution" : "a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\na.insert(len(a) / 2, 'Mitte')\nprint(a)",
-            "output" : "[1, 2, 3, 4, 5, Mitte, 6, 7, 8, 9, 10]"
+            "output" : "[1, 2, 3, 4, 5, 'Mitte', 6, 7, 8, 9, 10]"
           }, {
             "index" : 11,
             "description" : "Wenn wir ein Element in einer Liste a haben, dessen Index wir erfahren wollen, können wir diesen mit der Methode a.index(n) herausfinden. Gib den Index des Elementes Mitte aus der vorgegebenen Liste b aus.",
             "startingCode" : "b = [1, 2, 3, 4, 5, 'Mitte', 6, 7, 8, 9, 10]",
             "solution" : "b = [1, 2, 3, 4, 5, 'Mitte', 6, 7, 8, 9, 10]\nindex = b.index('Mitte')\nprint(index)",
-            "output" : "6"
+            "output" : "5"
           }, {
             "index" : 12,
             "description" : "Die Methode a.index(n) gibt nur den Index des ersten Elementes mit dem Wert n aus, falls mehrere enthalten sind. Jedoch kann der Methode ein zweites Argument hinzugefügt werden, nämlich der Startwert für den Index, ab welchem gesucht werden soll. Eine Suche nach einem Element mit dem Wert 5 in einer Liste q ab dem Index 3 würde also folgendermassen aussehen:<code class=\"python\">q.index(5, 3)</code>Gib den Index des zweiten Elementes mit dem Wert 18 aus der Liste z aus.",
@@ -249,14 +249,14 @@
             "index" : 13,
             "description" : "Es können aber nicht nur Elemente zu einer Liste hinzugefügt werden, es können auch Elemente entfernt werden. Dafür kann die Funktion a.remove(n) gebraucht werden. Mit a.remove(n) wird das erste Element aus der Liste a, das den Wert n hat entfernt. Entferne die ersten drei Elemente mit den Wert 1 aus der vorgegebenen Liste list und gibt die modifizierte Liste aus.",
             "startingCode" : "list = [1, 26, 26, 1, 36, 372, 58, 1, 4, 1, 48, 1]",
-            "solution" : "list = [1, 26, 26, 1, 36, 372, 58, 1, 4, 1, 48, 1]\nx = 0\nwhile x < 3:\n\tlist.remove(1)\nprint(list)",
+            "solution" : "list = [1, 26, 26, 1, 36, 372, 58, 1, 4, 1, 48, 1]\nx = 0\nwhile x < 3:\n\tlist.remove(1)\n\tx += 1\nprint(list)",
             "output" : "[26, 26, 36, 372, 58, 4, 1, 48, 1]"
           }, {
             "index" : 14,
-            "description" : "Um herauszufinden, ob ein Wert in einer Liste enthalten ist, kann das Schüsselwort in verwendet werden. Der folgende Code testet, ob in der Liste numbers ein Element mit dem Wert 'two' enthalten ist.<code class=\"python\">a = 'two' in numbers<code> und ordnet der Variable a einen Boolean zu, also entweder True, wenn 'two' enthalten ist, oder False, wenn nicht. Schreibe ein Programm, in dem du in je einer Zeile ausgibst, ob die Werte 2, 61, 3, 'wonder' oder 6 in der Liste p enthalten sind.",
+            "description" : "Um herauszufinden, ob ein Wert in einer Liste enthalten ist, kann das Schüsselwort in verwendet werden. Der folgende Code testet, ob in der Liste numbers ein Element mit dem Wert 'two' enthalten ist<code class=\"python\">a = 'two' in numbers</code>und ordnet der Variable a einen Boolean zu, also entweder True, wenn 'two' enthalten ist, oder False, wenn nicht. Schreibe ein Programm, in welchem du in je einer Zeile ausgibst, ob die Werte 2, 61, 3, 'wonder' oder 6 in der Liste p enthalten sind.",
             "startingCode" : "p = [3, 24, 'wonders', 52, 61, 36, 3]",
             "solution" : "p = [3, 24, 'wonders', 52, 61, 36, 3]\nprint(2 in p)\nprint(61 in p)\nprint(3 in p)\nprint('wonder' in p)\nprint(52 in p)\nprint(61 in p)\nprint(6 in p)",
-            "output" : "False\nTrue\nTrue\nFalse\nFalse"
+            "output" : "False\nTrue\nTrue\nFalse\nTrue\nTrue\nFalse"
           }, {
             "index" : 15,
             "description" : "Die range(n) Funktion erzeugt eine Liste, wobei die einzelnen Elemente die ganzen Zahlen von 0 bis (aber ohne) zum Wert n sind. Erzeige damit eine Liste a mit den Werten von 0 bis und mit 12 und gib diese aus.",
@@ -267,7 +267,7 @@
             "index" : 16,
             "description" : "Erzeuge mit der range(n) Funktion eine Liste der zahlen von 0 bis und mit 8. Gib diese aus und verändere sie mithilfe einer While-Schlaufe zu einer Liste von 10 bis und mit 18 und gib sie wieder aus.",
             "startingCode" : "",
-            "solution" : "a = range(9)\nprint(a)\nx = 0\nwhile x < len(a):a[x] += 10\nprint(a)",
+            "solution" : "a = range(9)\nprint(a)\nx = 0\nwhile x < len(a):\n\ta[x] += 10\n\tx += 1\nprint(a)",
             "output" : "[0, 1, 2, 3, 4, 5, 6, 7, 8]\n[10, 11, 12, 13, 14, 15, 16, 17, 18]"
           }, {
             "index" : 17,
@@ -275,41 +275,83 @@
             "startingCode" : "",
             "solution" : "a = range(112, 116)\nprint(a)",
             "output" : "[112, 113, 114, 115]"
+          }, {
+            "index" : 18,
+            "description" : "Nun wollen wir aber nicht nur Listen mit aufeinanderfolgenden Zahlen erstellen. Erstelle mit der Range-Funktion eine Liste der Zahlen von 10 bis und mit 15 und gib diese aus. Modifiziere diese Liste danach in einer While-Schlaufe, sodass sie die die geraden Zahlen zwischen 10 und (mit) 20 enthält.",
+            "startingCode" : "",
+            "solution" : "a = range(10, 16)\nprint(a)\nx = 0\nwhile x < len(a):\n\ta[x] += x\n\tx += 1\nprint(a)",
+            "output" : "[10, 11, 12, 13, 14, 15]\n[10, 12, 14, 16, 18, 20]"
+          }, {
+            "index" : 19,
+            "description" : "Wie schon in der vorletzten Aufgabe hält die Range-Funktion auch beim Problem der letzten Aufgabe eine Lösung bereit. Die Lösung besteht darin, dass man der Range-Funktion noch ein drittes Argument geben kann, welches die Schrittlänge bestimmt. Dieses muss einfach ganzzahlig sein. Erstelle mit der Range-Funktion eine Liste aller durch drei Teilbaren Zahlen zwischen 1 und 29.",
+            "startingCode" : "",
+            "solution" : "a = range(1 + 2, 29, 3)\nprint(a)",
+            "output" : "[3, 6, 9, 12, 15, 18, 21, 24, 27]"
+          }, {
+            "index" : 20,
+            "description" : "Da die Voraussetzung für die Schrittlänge lediglich lautet, dass sie ganzzahlig sein muss kann mit einer Range-Funktion auch eine Liste erstellt werden, bei der Zahlen in absteigender Reihenfolge aufgelistet sind. Erstelle eine Liste mit den geraden Zahlen von 35 bis 17 und gib diese aus.",
+            "startingCode" : "",
+            "solution" : "a = range(35 - 1, 17, -2)\nprint(a)",
+            "output" : "[34, 32, 30, 28, 26, 24, 22, 20, 18]"
           }]
       }, {
       "index" : 5,
       "title" : "For-Schlaufen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schlaufen. Eine For-Schlaufe in Python sieht normalerweise so aus: <code class=\"python\">for x in range(0, 3, 1):\n\tprint(x)</code>Hierbei deklariert das Keyword for, dass eine For-Schlaufe folgt. Die For-Schleife startet dann mit dem Wert x = 0, und zählt in einerschritten bis x = 3, also in diesem Fall bis x = 2. Damit kann eine For-Schleife eine While-Schleife, die lediglich zum zählen da ist gut ersetzen.",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schlaufen. Eine For-Schlaufe in Python sieht normalerweise so aus: <code class=\"python\">for x in [1, 6, 2]:\n\tprint(x)</code>Hierbei deklariert das Schlagwort for, dass eine For-Schlaufe folgt. Die For-Schleife startet dann mit dem ersten Wert der Liste und arbeitet sich bis zum Letzten durch. Dabei nimmt die Variable, die nach dem Schlagwort for folgt den Wert des jeweiligen Elementes an.",
       "subexercises" : [{
           "index" : 0,
-          "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
-          "startingCode" : "for x in range\n\tprint(x)",
-          "solution" : "for x in range(0, 5, 1):\n\tprint(x)",
-          "output" : "0\n1\n2\n3\n4"
+          "description" : "Benutze eine For-Schlaufe, um jedes Element der Liste a je einer Zeile auszugeben.",
+          "startingCode" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]",
+          "solution" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]\nfor element in a:\n\tprint(element)",
+          "output" : "1\n3\n235\n2\n63\n1\n8\n459\n238"
           }, {
-            "index" : 1,
-            "description" : "Setze eine For-Schlaufe ein, um jedes zweite Element einer Liste a auszugeben.",
-            "startingCode" : "a = ['erstes Element', 1, 'guter Weg', 4, 2, 'sieben', 'Geschafft!']\nfor in range():\n\ta[]",
-            "solution" : "a = ['erstes Element', 1, 'guter Weg', 4, 2, 'sieben', 'Geschafft!']\nfor i in range(0, len(a), 2):\n\tprint(a[i])",
-            "output" : "erstes Element\nguter Weg\n2\nGeschafft!"
+          "index" : 1,
+          "description" : "Schreibe eine Liste mit den Zahlen 1, 6, 25, 2 und 4 direkt in eine For-Schlaufe und gibt die Zahlen einzeln ein je einer Zeile aus.",
+          "startingCode" : "",
+          "solution" : "for i in [1, 6, 25, 2, 4]:\n\tprint(i)",
+          "output" : "1\n6\n25\n2\n4"
           }, {
-            "index" : 2,
-            "description" : "Mit for e in a werden alle Elemente e einer Liste a in einer For-Schlaufe verarbeitet. Die Länge eines Strings e kann ebenfalls mit len(e) ausgegeben werden. Erstelle eine For-Schlaufe, welche jedes Element der vorgegebenen Liste a ausgiebt und in der nächsten Zeile die Länge dieses Elementes ausgiebt.",
-            "startingCode" : "a = ['Element', 'Stuhl', 'Hose', 'anscheinend', 'programmieren']",
-            "solution" : "a = ['Element', 'Stuhl', 'Hose', 'anscheinend', 'programmieren']\nfor e in a:\n\tprint(e)\n\tprint(len(e))",
-            "output" : "Element\n7\nStuhl\n5\nHose\n4\nanscheinend\n11\nprogrammieren\n13"
+          "index" : 2,
+          "description" : "Erstelle mit der Range-Funktion eine Liste mit den Zahlen von 0 bis und mit 10 und gib die Elemente dieser Liste mit einer For-Schlaufe aus.",
+          "startingCode" : "",
+          "solution" : "a = range(0, 11)\nfor i in a:\n\tprint(i)",
+          "output" : "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
           }, {
-            "index" : 4,
-            "description" : "Eine For-Schlaufe mit einer Range-Funktion kann auch Rückwärts zählen. Erstelle eine For-Schlaufe, die die Zahlen von 7 bis und mit 0 in absteigender Reihenfolge ausgibt.",
-            "startingCode" : "",
-            "solution" : "for i in range(7, -1, -1):\n\tprint(i)",
-            "output" : "7\n6\n5\n4\n3\n2\n1\n0"
+          "index" : 3,
+          "description" : "Gib nun die geraden Zahlen zwischen 300 und 309 in je einer Zeile aus, indem du die Range-Funktion direkt in die For-Schlaufe hineinschreibst.",
+          "startingCode" : "",
+          "solution" : "for i in range(300, 309, 2):\n\tprint(i)",
+          "output" : "300\n302\n304\n306\n308"
           }, {
-            "index" : 5,
-            "description" : "",
-            "startingCode" : "",
-            "solution" : "",
-            "output" : ""
+          "index" : 4,
+          "description" : "Benutze das Schlagwort in, sowie if-else Verzweigungen um eine Liste mit den Elementen, die sowohl in der Liste a, als auch in der Liste b enthalten sind, sowie eine Liste mit den Elementen, die in a aber nicht in b und eine Liste mit den Elementen in b aber nicht in a. Gib diese Listem im vorgegebenen Format aus und behalte die Reihenfolge der Elemente bei.",
+          "startingCode" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
+          "solution" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\naa = []\nab = []\nbb = []\nfor i in a:\n\tif i in b:\n\t\tab.append(i)\n\telse:\n\t\taa.append(i)\nfor i in b:\n\tif i not in a:\n\t\tbb.append(i)\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
+          "output" : "In a und b [6, 2, 3]\nNur in a [1, 7]\nNur in b [4, 9, 8]"
+          }, {
+          "index" : 5,
+          "description" : "Erstelle mit der Range-Funktion eine Liste aller durch 7 teilbaren Zahlen zwischen 1 und 106. Benutze diese Liste nun um aus der vorgegebenen Liste a alle Zahlen zu entfernen, die nicht durch 7 teilbar sind und setzte an deren Stelle eine 0 ein. Gib die modifizierte Liste a aus.",
+          "startingCode" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]",
+          "solution" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]\ntest_7 = range(1 + 6, 106, 7)\nfor i in a:\n\tif i not in test_7:\n\t\ta.insert(a.index(i), 0)\n\t\ta.remove(i)\nprint(a)",
+          "output" : "[0, 0, 7, 0, 42, 84, 0, 105, 49]"
+          }, {
+          "index" : 6,
+          "description" : "Ob eine Zahl durch eine andere Zahl teilbar ist, können wir auch herausfinden, indem wir die Zahl in den ganzen Zahlen durch den Nenner teilen und das Ergebnis mit der Division in den Fliesskommazahlen vergleichen. Um eine Teilung in den Fliesskommazahlen zu ermöglichen müssen wir die Zahl zuerst mit float(n) in eine Fliesskommazahl umwandeln, respektive sie für eine Teilung in den ganzen Zahlen mit int(n) in einen Integer umwandeln. Teste für jedes Element der Liste q, ob es durch 3 Teilbar ist und entferne es, falls dies der fall ist. Gib danach die bearbeitete Liste q aus.",
+          "startingCode" : "q = [1245, 3621, 2342, 48222, 2363, 36]",
+          "solution" : "q = [1245, 3621, 2342, 48222, 2363, 36]\na = range(len(q))\nfor i in a:\n\tif int(q[i]) / 3 == float(q[i]) / 3:\n\t\tq.remove(q[i])\n\t\t# Die Liste a, mit der q untersucht wird muss\n\t\t# verändert werden, da q verändert wurde\n\t\tfor j in range(len(a)):\n\t\t\ta[j] -= 1\nprint(q)",
+          "output" : "[2342, 2363]"
+          }, {
+          "index" : 7,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 8,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
           }]
       }, {
       "index" : 6,

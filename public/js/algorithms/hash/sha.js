@@ -47,25 +47,25 @@ let keccakRound = (A, i) => iota(chi(pi(rho(theta(A)))), i);
 function stateToLittleEndianHexString(A) {
   // Create the binary string of the state
 	let binString = stateToBinString(A);
-	let hexString = '', hexElement;
+	let hexString = '', byte;
   // Iterate over all bytes of the binary string
 	for (let i = 0; i < binString.length / 8; i++) {
     // Convert the byte from binary to hex and reverse it since it is in big-endian
-    hexElement = parseInt(binString.slice(i * 8, (i + 1) * 8).split('').reverse().join(''), 2).toString(16);
-    // Unnshift zeros if the hexElement's length is smaller than two, since preceding zeros get deleted
-    hexElement = '0'.repeat(2 - hexElement.length) + hexElement;
-		hexString += hexElement;
+    byte = parseInt(binString.slice(i * 8, (i + 1) * 8).split('').reverse().join(''), 2).toString(16);
+    // Unnshift zeros if the byte's length is smaller than two, since preceding zeros get deleted
+    byte = '0'.repeat(2 - byte.length) + byte;
+		hexString += byte;
 	}
 	return hexString;
 }
 
 // Converts a state to a binary string
 function stateToBinString(A) {
-	let laneStr = '';
+	let binStr = '';
 	for (let y = 0; y < 5; y++) {
-    for (let x = 0; x < 5; x++) laneStr += A[x][y].reduce((sum, cur) => sum + cur.toString());
+    for (let x = 0; x < 5; x++) binStr += A[x][y].reduce((sum, cur) => sum + cur.toString());
 	}
-	return laneStr;
+	return binStr;
 }
 
 // Converts the bitArray parameter to a state. The bitArray holds the bits of a part of the message or the whole message if its length is smaller than the rate.
@@ -94,11 +94,11 @@ function stringToBitArray(string) {
   // Iterate over every character inside the string
   for (character of string) {
     // Create the little endian bit representation of the string
-    let bitString = character.charCodeAt(0).toString(2).split('').reverse().join('');
+    let byte = character.charCodeAt(0).toString(2).split('').reverse().join('');
     // Pad the bitstring
-    while (bitString.length < 8) bitString += '0';
+    while (byte.length < 8) byte += '0';
     // Push every parsed bit to the bit array
-    for (bit of bitString) bitArray.push(parseInt(bit, 2));
+    for (bit of byte) byte.push(parseInt(bit, 2));
   }
   return bitArray;
 }

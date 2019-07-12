@@ -31,6 +31,8 @@ function addHighlighting() {
         if (!line.includes(stringNotation)) continue;
         let splittedLine = line.split(stringNotation);
         for (let j = 0; j < splittedLine.length - 1; j++) {
+          // If string notation is inside a comment, continue with next line
+          if (splittedLine[j].includes(codeHighlighting[language]["comments"]["character"])) break;
           if (tagIndex) splittedLine[j] += '<span style="color: ' + codeHighlighting[language]["strings"]["color"] + ';">' + stringNotation;
           else splittedLine[j] += stringNotation + '</span>';
           // Flip the value of tagIndex

@@ -17,6 +17,7 @@
       "continue" : "#C66CAC",
       "pass" : "#C66CAC",
       "import" : "#C66CAC",
+      "from" : "#C66CAC",
       "lambda" : "#FFA500"
     },
     "comments" : {

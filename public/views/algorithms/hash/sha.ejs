@@ -116,20 +116,6 @@ def stateToBinString(A):
         for x in range(5): binStr += ''.join(str(i) for i in A[x][y])
     return binStr
 
-# Diese Funktion konvertiert einen String zu einem Binary-Array
-def stringToBitArray(string):
-    # Der Binary-Array
-    arr = []
-    # Über jeden Character des Strings wird iteriert
-    for char in string:
-        # Der Character als Little-Endian-Binary-String
-        byte = (bin(ord(char))[2:])[::-1]
-        # Das Byte wird gepaddet
-        while len(byte) < 8: byte += '0'
-        # Zum Array wird jedes Bit des Bytes appendet
-        arr += [int(bit) for bit in byte]
-    return arr
-
 # Diese Funktion konvertiert die Bits einer Nachricht, mit maximaler Länge (b - 2 * outputLength), zu einem State
 def messageBitsToState(bitArray):
     # Der Input wird gepaddet
@@ -146,6 +132,20 @@ def messageBitsToState(bitArray):
         A.append(yArr)
     # Der neue State wird zurückgegeben
     return A
+
+# Diese Funktion konvertiert einen String zu einem Binary-Array
+def stringToBitArray(string):
+    # Der Binary-Array
+    arr = []
+    # Über jeden Character des Strings wird iteriert
+    for char in string:
+    # Der Character als Little-Endian-Binary-String
+    byte = (bin(ord(char))[2:])[::-1]
+    # Das Byte wird gepaddet
+    while len(byte) < 8: byte += '0'
+    # Zum Array wird jedes Bit des Bytes appendet
+    arr += [int(bit) for bit in byte]
+    return arr
 
 # Diese Funktion gibt den Array zurück, nachdem die pad10*1 Funktion darauf angewendet wurde
 def bitPadding(arr):
@@ -217,12 +217,12 @@ def chi(A):
 # Die fünfte Funktion des five step mappings
 def iota(A, i):
     RC = w * [0]
-    for j in range(l + 1): RC[2 ** j - 1] = roundConstants(j + 7 * i)
+    for j in range(l + 1): RC[2 ** j - 1] = roundConstant(j + 7 * i)
     for z in range(w): A[0][0][z] ^= RC[z]
     return A
 
 # Diese Funktion gibt eine Konstante zurück, welche von der Rundennummer abhängt. Wird von der Funktion iota gerufen
-def roundConstants(t):
+def roundConstant(t):
     if t % 255 == 0: return 1
     R = [1, 0, 0, 0, 0, 0, 0, 0]
     for i in range(t % 255):
@@ -234,6 +234,7 @@ def roundConstants(t):
         R = R[:-1]
     return R[0]
 </code>
+          <p>Es werden Booleans gebraucht, um die Bits darzustellen, um den nötigen Speicherplatz zu minimieren. True ist ein Bit mit Wert 1, während False ein Bit mit Wert 0 ist.</p>
           <p>Dies ist ein in Java geschriebener Beispielcode:</p>
           <code class="code java" id="java"></code>
         </div>

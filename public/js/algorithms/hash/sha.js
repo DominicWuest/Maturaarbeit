@@ -98,7 +98,7 @@ function stringToBitArray(string) {
     // Pad the bitstring
     while (byte.length < 8) byte += '0';
     // Push every parsed bit to the bit array
-    for (bit of byte) byte.push(parseInt(bit, 2));
+    for (bit of byte) bitArray.push(parseInt(bit, 2));
   }
   return bitArray;
 }
@@ -189,13 +189,13 @@ function chi(A) {
 function iota(A, i) {
 	let RC = [];
 	for (let j = 0; j < w; j++) RC.push(0);
-	for (let j = 0; j < l + 1; j++) RC[2 ** j - 1] = roundConstants(j + 7 * i);
+	for (let j = 0; j < l + 1; j++) RC[2 ** j - 1] = roundConstant(j + 7 * i);
 	for (let z = 0; z < w; z++) A[0][0][z] ^= RC[z];
 	return A;
 }
 
 // Returns a bit based on how many times the five step mapping has been performed. Used by iota
-function roundConstants(t) {
+function roundConstant(t) {
 	if (t % 255 === 0) return 1;
 	let R = [1, 0, 0, 0, 0, 0, 0, 0];
 	for (let i = 0; i < t % 255; i++) {

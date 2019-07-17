@@ -342,10 +342,10 @@
           "output" : "[2342, 2363]"
           }, {
           "index" : 7,
-          "description" : "",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
+          "description" : "Um zu testen, ob eine Zahl a durch eine Zahl b teilbar ist können wir aber auch einen Operator benutzen. Dieser Operator wird mit dem Prozentzeichen geschrieben und nennt sich Modulo-Operator. Die Operation a % b gibt dabei den Rest auch, den wir bei einer Teilung von a durch in den ganzen Zahlen erhalten. Schreibe ein Programm, das für jedes Element der vorgegebenen Liste q testet, ob das Element durch seinen Index + 1 teilbar ist und ersetze es durch den String 'nicht teilbar', falls dies nicht zutrifft.",
+          "startingCode" : "q = [26, 36, 135, 17, 257, 354, 42]",
+          "solution" : "q = [26, 36, 135, 17, 257, 354, 42]\nfor i in q:\n\tif i % (q.index(i) + 1) != 0:\n\t\tq[index(i)] = 'nicht teilbar'\nprint(q)",
+          "output" : "[26, 36, 135, 'nicht teilbar', 'nicht teilbar', 354, 42]"
           }, {
           "index" : 8,
           "description" : "",

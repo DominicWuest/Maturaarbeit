@@ -28,12 +28,24 @@ class hash {
       int copyLength = (inputBits.length - i * (b - 2 * outputLength)) % (b - 2 * outputLength);
       System.arraycopy(inputBits, i * (b - 2 * outputLength), chunks[i], 0, copyLength);
     }
-    return "";
+    return stateToLittleEndianHexString(A);
   }
 
   // Diese Funktion gibt einen Little-Endian-Hex-String des States A zurück
   String stateToLittleEndianHexString(boolean[][][] A) {
-    return "0";
+    // Der State als Binary-String
+    String binString = stateToBinString(A);
+    String hexString = "";
+    // Über jedes Byte wird iteriert
+    for (int i = 0; i < binString.length() / 8; i++) {
+      // Das byte wird zu einem Little-Endian-Hex-Value konvertiert
+      String curByte = binString.slice(i * 8, (i + 1) * 8).reverse().toInt().toHexString();
+      // Das Byte wird gepaddet, damit es zwei Characters lang ist
+      curByte = (2 - curByte.length()) * '0' + curByte;
+      // Das Byte wird zum HexString hinzugefügt
+      hexString += curByte;
+    }
+    return hexString;
   }
 
   // Diese Funktion konvertiert einen State zu einem Binary-String
@@ -53,7 +65,23 @@ class hash {
 
   // Diese Funktion gibt den Array zurück, nachdem die pad10*1 Funktion darauf angewendet wurde
   boolean[] bitPadding(boolean[] arr) {
-    return new boolean[] {true};
+    // Der gepaddete Array, welcher am Schluss zurückgegeben wird
+    boolean[] paddedArr = new boolean[b];
+    // Die Kapazität des Algorithmus
+    int capacity = 2 * outputLength;
+    // Die Rate des Algorithmus
+    int rate = b - capacity;
+    // Falls der Array schon rate Bits lange ist, muss die Rate nicht gepaddet werden
+    if (arr.length != rate) {
+      // Zum Array wird ein Bit mit Wert 1 appendet, danach so viele Bits mit Wert 0, bis die Länge des Arrays der Rate entspricht
+      // danach wird nochmals ein Bit mit Wert 1 appendet
+      int zeros = (-arr.length - 2) % rate;
+      paddedArr[arr.length + 1] = true;
+      for (int i = arr.length + 2; i < b - 1; i++) paddedArr[i] = false;
+      paddedArr[rate - 1] = true;
+    }
+    for (int i = rate; i < b; i++) paddedArr[i] = false;
+    return paddedArr;
   }
 
   // Gibt den State zurück, nachdem das five step mapping darauf angewendet wurde
@@ -137,12 +165,15 @@ class hash {
     // R verkörpert ein Byte mit Startwert 10000000
     boolean[] R = {true, false, false, false, false, false, false, false};
     for (int i = 0; i < t % 255; t++) {
+      // Das Bit, welches verloren geht nach dem Verschieben des Arrays
+      boolean lostBit = R[7];
       // Shifte jeden Wert von R um eins nach rechts
-      for (int j = 7; j >= 0; j--) R[j + 1] = R[j];
-      R[0] ^= R[8];
-      R[4] ^= R[8];
-      R[5] ^= R[8];
-      R[6] ^= R[8];
+      for (int j = 6; j >= 0; j--) R[j + 1] = R[j];
+      R[0] = false;
+      R[0] ^= lostBit;
+      R[4] ^= lostBit;
+      R[5] ^= lostBit;
+      R[6] ^= lostBit;
     }
     return R[0];
   }

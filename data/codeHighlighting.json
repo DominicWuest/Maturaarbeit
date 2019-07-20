@@ -42,6 +42,7 @@
       "float" : "#0C6AF9",
       "public" : "#C66CAC",
       "static" : "#C66CAC",
+      "final" : "#C66CAC",
       "while" : "#C66CAC",
       "for" : "#C66CAC",
       "if" : "#C66CAC",

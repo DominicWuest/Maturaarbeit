@@ -41,6 +41,8 @@
       "double" : "#0C6AF9",
       "float" : "#0C6AF9",
       "boolean" : "#0C6AF9",
+      "false" : "#FFA500",
+      "true" : "#FFA500",
       "public" : "#C66CAC",
       "static" : "#C66CAC",
       "final" : "#C66CAC",

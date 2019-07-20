@@ -242,8 +242,14 @@ import java.lang.Math;
 .
 .
 .
+
+// Die meisten Variablen sind benannt nach den FEDERAL INFORMATION PROCESSING STANDARDS (NIST) (https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.202.pdf)
+// A' wird als aA geschrieben
+
+// Konstanten für die Hash-Funktion
 static final int b = 1600, w = 64, l = 6, nr = 12 + 2 * l;
 
+// Die Länge des produzierten Hash-Values in Bits
 static final int outputLength = 224; // oder : 256 / 384 / 512
 
 // Diese Funktion nimmt einen String entgegen und gibt dessen Hash-Value zurück

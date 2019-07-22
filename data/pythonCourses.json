@@ -427,7 +427,15 @@
             "index" : 11,
             "description" : "",
             "startingCode" : "",
-            "solution" : "",
+            "solution" : "def powerset(set):
+	for i in range(0, 2 ** len(set)):
+		subset = []
+		for j in range(0, len(set)): 
+			if ((i & (1 << j)) > 0): 
+				subset.append(set[j])
+		print(subset)
+set = [1, 2, 3] 
+powerset(set)",
             "output" : "" 
           }, {
             "index" : 12,
@@ -543,6 +551,36 @@
             "output" : "Eine For-Schlaufe ist schneller als eine While-Schlaufe" 
           }, {
             "index" : 6,
+            "description" : "Teste mit dem Modul time, ",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 6,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 6,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 6,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 6,
+            "description" : "",
+            "startingCode" : "",
+            "solution" : "",
+            "output" : "" 
+          }, {
+            "index" : 20,
             "description" : "Mit dem Modul random können zufällig Zahlen in einer vorgegebenen Reichweite generiert werden. Dabei gibt es verschiedene Funktionen, die im Beispielcode gezeigt und im Kommentar dazu beschrieben werden.<code class=\"python\"># Das Random-Modul wird importiert\nfrom random import *\n# Generiert eine zufällige ganze Zahl zwischen 4 und (ohne) 9\nrandint(4, 9)\n# Generiert eine zufällige Fliesskommazahl zwischen 3 und (ohne) 7\nuniform(3, 7)\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n# Durchmischt die Liste x\nshuffle(x)\n# Nimmt ein zufälliges Element aus der Liste\nchoice([1, 5, 2, 7, 36, 7, 26, 2])</code>",
             "startingCode" : "",
             "solution" : "",

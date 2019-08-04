@@ -361,19 +361,19 @@
           "index" : 0,
           "description" : "Das Zahlensystem, welches normalerweise im Alltag verwendet wird ist das sogenannte Dezimalsystem. Dabei werden die Ziffern von 0 bis 9 verwendet. Wenn wir nun eine Zahl haben, können die Ziffern von 0 bis 9 beliebig angeordnet werden. Jede Ziffer wird nun mit einem Faktor multipliziert, der folgendermassen von ihrer Position abhängt: Die Ziffer ganz links wird mit 10**0 multipliziert, die zweite von links mit 10**1, die dritte von links mit 10**2, ... und die n-te von links mit 10**(n-1). Schreibe ein Programm, in welchem die Zahl 12456 als einzelne Faktoren, in der Form 1 * 10**4 in je einer Zeile ausgibt.",
           "startingCode" : "",
-          "solution" : "a = 12456\na = str(a)\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '10**' + str(len(a) - (i + 1)))",
+          "solution" : "a = 12456\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '10**' + str(len(a) - (i + 1)))",
           "output" : "1 * 10**4\n2 * 10**3\n4 * 10**2\n5 * 10**1\n6 * 10**0"
           }, {
           "index" : 1,
           "description" : "In einem Computer kann das Dezimalsystem aber schlecht verwendet werden, da der Computer nicht direkt zwischen den zehn verschiedenen Ziffern des Dezimalsystems unterscheiden kann. Der Computer kann nur eine Unterscheidung von zwei Ziffern machen, also Strom fliesst oder Strom fliesst nicht, was auf die Ziffern 0 oder 1 abgeleitet werden kann. Deswegen wird ein neues System gebraucht, das sogenannte Binärsystem. Dabei können nur noch die Ziffern 0 und 1 verwendet werden. Auch hier wird wieder jede Ziffer mit einem von der Position abhängenden Faktor multipliziert, jedoch nicht mehr mit der Basis 10, sondern der Basis 2: die erste von links wird mit 2**0 multipliziert, die zweite mit 2**1, ... und die n-te mit 2**(n-1). Schreibe ein Programm, das die Binärzahl 100101 als einzlene Faktoren, in der Form 1 * 2**5 in je einer Zeile ausgibt.",
           "startingCode" : "",
-          "solution" : "a = 100101\na = str(a)\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '2**' + str(len(a) - (i + 1)))",
+          "solution" : "a = 100101\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '2**' + str(len(a) - (i + 1)))",
           "output" : "1 * 2**5\n0 * 2**4\n0 * 2**3\n1 * 2**2\n0 * 2**1\n1 * 2**0"
           }, {
           "index" : 2,
           "description" : "Ein Computer muss nun aber die Zahlen aus dem Binärsystem ins Dezimalsystem umwandeln. Schreibe ein Programm, das die Werte der vorgegebenen Variablen x und y, bei denen es sich um Binärzahlen handelt, als Dezimalzahlen ausgibt.",
           "startingCode" : "x = 10101101110\ny = 10100010101",
-          "solution" : "x = 10101101110\ny = 10100010101\nx = str(x)\ny = str(y)\nx_dez = 0\nfor i in range(len(x)):\n\tx_dez += int(x[i]) * 2 ** (len(x) - (i + 1))\nprint(x_dez)\ny_dez = 0\nfor i in range(len(y)):\n\ty_dez += int(y[i]) * 2 ** (len(y) - (i + 1))\nprint(y_dez)",
+          "solution" : "x = 10101101110\ny = 10100010101\n# Die Zahlen werden in Strings umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\nx = str(x)\ny = str(y)\nx_dez = 0\n# Jede einzelne Ziffer wird mit dem Faktor multipliziert\nfor i in range(len(x)):\n\tx_dez += int(x[i]) * 2 ** (len(x) - (i + 1))\nprint(x_dez)\ny_dez = 0\nfor i in range(len(y)):\n\ty_dez += int(y[i]) * 2 ** (len(y) - (i + 1))\nprint(y_dez)",
           "output" : "1390\n1301"
           }, {
           "index" : 3,

@@ -355,6 +355,64 @@
           }]
       }, {
       "index" : 6,
+      "title" : "Zahlensysteme",
+      "description" : "In diesem Kapitel werden wir uns mit den verschiedenen Zahlensystemen befassen. Der Hauptfokus wird dabei auf die Binärzahlen gelegt, jedoch werden auch die Hexadezimalzahlen anschgeschaut, da diese auch noch sehr häufig verwendet werden. Gefordert wird dabei, dass das die Dezimalzahlen grundlegend verstanden wurden.",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Das Zahlensystem, welches normalerweise im Alltag verwendet wird ist das sogenannte Dezimalsystem. Dabei werden die Ziffern von 0 bis 9 verwendet. Wenn wir nun eine Zahl haben, können die Ziffern von 0 bis 9 beliebig angeordnet werden. Jede Ziffer wird nun mit einem Faktor multipliziert, der folgendermassen von ihrer Position abhängt: Die Ziffer ganz links wird mit 10**0 multipliziert, die zweite von links mit 10**1, die dritte von links mit 10**2, ... und die n-te von links mit 10**(n-1). Schreibe ein Programm, in welchem die Zahl 12456 als einzelne Faktoren, in der Form 1 * 10**4 in je einer Zeile ausgibt.",
+          "startingCode" : "",
+          "solution" : "a = 12456\na = str(a)\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '10**' + str(len(a) - (i + 1)))",
+          "output" : "1 * 10**4\n2 * 10**3\n4 * 10**2\n5 * 10**1\n6 * 10**0"
+          }, {
+          "index" : 1,
+          "description" : "In einem Computer kann das Dezimalsystem aber schlecht verwendet werden, da der Computer nicht direkt zwischen den zehn verschiedenen Ziffern des Dezimalsystems unterscheiden kann. Der Computer kann nur eine Unterscheidung von zwei Ziffern machen, also Strom fliesst oder Strom fliesst nicht, was auf die Ziffern 0 oder 1 abgeleitet werden kann. Deswegen wird ein neues System gebraucht, das sogenannte Binärsystem. Dabei können nur noch die Ziffern 0 und 1 verwendet werden. Auch hier wird wieder jede Ziffer mit einem von der Position abhängenden Faktor multipliziert, jedoch nicht mehr mit der Basis 10, sondern der Basis 2: die erste von links wird mit 2**0 multipliziert, die zweite mit 2**1, ... und die n-te mit 2**(n-1). Schreibe ein Programm, das die Binärzahl 100101 als einzlene Faktoren, in der Form 1 * 2**5 in je einer Zeile ausgibt.",
+          "startingCode" : "",
+          "solution" : "a = 100101\na = str(a)\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '2**' + str(len(a) - (i + 1)))",
+          "output" : "1 * 2**5\n0 * 2**4\n0 * 2**3\n1 * 2**2\n0 * 2**1\n1 * 2**0"
+          }, {
+          "index" : 2,
+          "description" : "Ein Computer muss nun aber die Zahlen aus dem Binärsystem ins Dezimalsystem umwandeln. Schreibe ein Programm, das die Werte der vorgegebenen Variablen x und y, bei denen es sich um Binärzahlen handelt, als Dezimalzahlen ausgibt.",
+          "startingCode" : "x = 10101101110\ny = 10100010101",
+          "solution" : "x = 10101101110\ny = 10100010101\nx = str(x)\ny = str(y)\nx_dez = 0\nfor i in range(len(x)):\n\tx_dez += int(x[i]) * 2 ** (len(x) - (i + 1))\nprint(x_dez)\ny_dez = 0\nfor i in range(len(y)):\n\ty_dez += int(y[i]) * 2 ** (len(y) - (i + 1))\nprint(y_dez)",
+          "output" : "1390\n1301"
+          }, {
+          "index" : 3,
+          "description" : "In Python können Binärzahlen aber auch einfacher in Dezimalzahlen umgewandelt werden. Dafür kann a = 0b111 gebraucht werden, wobei 111 die Binärzahl. Dabei wird der Variable a der Wert der Binärzahl als Dezimalzahl zugeordnet, es ist nun also die Zahl 7 unter der Variable a abgespeichert. Wandle die Binärzahlen 11001010 und 101010001 in Dezimalzahlen um und gibt sie in je einer Zeile aus.",
+          "startingCode" : "",
+          "solution" : "a = 0b11001010\nprint(a)\nb =   0b101010001\nprint(b)",
+          "output" : "202\n337"
+          }, {
+          "index" : 4,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 5,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 6,
+          "description" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 7,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 8,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }]
+      }, {
+      "index" : 7,
       "title" : "Funktionen",
       "description" : "Dieses Kapitel befasst sich mit Funktionen. Eine Funktion in Python sieht folgendermassen aus: <code class=\"python\">def a(x, y):\n\tz = x + y\n\treturn z\nprint(a(1, 3)))</code>Dabei wird nach def eine Funktion mit den Variablen x und y definiert (er können beliebig viele Varbiablen sein, durch Kommata getrennt). Die Funktion wird dann mit a(1, 3) aufgerufen und ausgeführt und mit return wird die Ausgabe ausgegeben, die danach ausserhalb gebraucht werden kann.",
       "subexercises" : [{
@@ -401,7 +459,7 @@
             "output" : "[2, 2, 5, 13, 109]\n[2, 2, 5, 5, 5, 11, 19]" 
           }, {
             "index" : 7,
-            "description" : "Die Aufspaltung einer Zahl in ihre Primfaktoren kann gebraucht werden um die Teiler der Zahl herauszufinden. Dabei sind also die Primfaktoren selbst auf jeden Fall Teiler, aber auch alle möglichen Multiplikationen der einzelnen Primfaktoren. Definiere nun eine zweite Funktion, die eine Liste aller Teiler (ohne 1) erstellt und gib damit alle Teiler, geordnet vom kleinsten zum grössten Teiler, der Zahl 124 aus.",
+            "description" : "Die Aufspaltung einer Zahl in ihre Primfaktoren kann gebraucht werden um die Teiler der Zahl herauszufinden. Dabei sind also die Primfaktoren selbst auf jeden Fall Teiler, aber auch alle möglichen Multiplikationen der einzelnen Primfaktoren. Definiere nun eine zweite Funktion, die eine Liste aller Teiler (ohne 1) erstellt und gib damit alle Teiler, geordnet vom kleinsten zum grössten Teiler, der Zahl 124 aus. Die Funktion sollte für Zahlen mit bis zu  vier Primfaktoren funktionieren.",
             "startingCode" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
             "solution" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef dividers(n):\n\tfactors = primefactors(n)\n\tdivider = []\n\tfor i in range(len(factors)):\n\t\t# Alle Primfaktoren sind Teiler von n\n\t\tdivider.append(factors[i])\n\t\tfor j in range(i + 1, len(factors), 1):\n\t\t\tdivider.append(factors[i] * factors[j])\n\t\t\tfor k in range(j + 1, len(factors), 1):\n\t\t\t\tdivider.append(factors[i] * factors[j] *\n\t\t\t\t  factors[k])\n\t\t\t\tfor l in range(k + 1, len(factors), 1):\n\t\t\t\t\tdivider.append(factors[i] * factors[j]\n\t\t\t\t\t  * factors[k] * factors[l])\n\t# Doppelte Teiler werden entfernt\n\tx = 0\n\twhile x < len(divider):\n\t\ty = x + 1\n\t\twhile y < len(divider):\n\t\t\tif divider[x] == divider[y]:\n\t\t\t\tdivider.remove(divider[x])\n\t\t\telse:\n\t\t\t\ty += 1\n\t\tx += 1\n\t# Die Liste wird der Grösse nach geordnet\n\tfor i in range(len(divider)):\n\t\tfor j in range(i, len(divider), 1):\n\t\t\tif divider[i] > divider[j]:\n\t\t\t\tdivider[i], divider[j] = divider[j], divider[i]\n\treturn divider\n\nprint(dividers(x))",
             "output" : "[2, 4, 31, 62, 124]" 
@@ -425,17 +483,9 @@
             "output" : "[131, 183]" 
           }, {
             "index" : 11,
-            "description" : "",
+            "description" : "Um die Lösung dieser Aufgabe zu verstehen solltest du mit den sogenannten Binärzahlen vertraut sein. Falls du dies noch nicht bist schaue dir bitte zuerst das Kapitel zu den Zahlensystemen an.",
             "startingCode" : "",
-            "solution" : "def powerset(set):
-	for i in range(0, 2 ** len(set)):
-		subset = []
-		for j in range(0, len(set)): 
-			if ((i & (1 << j)) > 0): 
-				subset.append(set[j])
-		print(subset)
-set = [1, 2, 3] 
-powerset(set)",
+            "solution" : "",
             "output" : "" 
           }, {
             "index" : 12,
@@ -481,7 +531,7 @@ powerset(set)",
             "output" : "" 
           }]
       }, {
-      "index" : 7,
+      "index" : 8,
       "title" : "Rekursive Funktionen",
       "description" : "Rekursive Funktionen werden genau gleich wie normale Funktionen definiert. Sie haben aber die Eigenschaft, dass Sie in der Funktion selbst aufgerufen wird. Wenn also eine Funktion sich selber aufruft wird sie noch einmal durchgeführt und ruft sich wieder selbst auf. Wenn das immer so weiter gehen würde, dann hätten wir eine unendliche Schlaufe kreiert. Deswegen müssen wir in der Rekursiven Funktion eine Abbruchbedingung einbauen. Die Funktion wird mit dem Codewort return a abgebrochen und gibt den Wert der Variable aus. Das unten stehende Beispiel beinhaltet eine Funktion, die eine Zahl a solange um eins erhöht, bis a den gleichen Wert wie b hat und dann abbricht und a ausgibt.<code class=\"python\">def function(a, b):\n\t# Abbruchbedingung\n\tif a >= b:\n\t\treturn a\n\telse:\n\t\ta += 1\n\t\t# Funktion wird erneut\n\t\t# aufgerufen\n\t\tfunction(a, b)</code>",
       "subexercises" : [{
@@ -510,7 +560,7 @@ powerset(set)",
             "output" : "1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233\n377\n610\n987\n1597\n2584\n4181\n6765\n10946\n17711\n28657\n46368\n75025\n121393\n196418\n317811\n514229\n832040\n1346269\n2178309\n3524578\n5702887\n9227465\n14930352\n24157817\n39088169\n63245986\n102334155\n165580141\n267914296\n433494437\n701408733\n1134903170\n1836311903\n2971215073\n4807526976\n7778742049\n12586269025" 
           }]
       }, {
-      "index" : 8,
+      "index" : 9,
       "title" : "Module",
       "description" : "Dieses Kapitel befasst sich mit Modulen. In einem Modul können Variablen und hauptsächlich Funktionen gespeichert werden. In python gibt es auch Module, die bereits definiert sind, jedoch noch importiert werden müssen. Dies kann man mit import time machen, wobei time der Name des Modules ist. Um eine Funktion aus dem Modul aufzurufen muss man time.time(), also den Namen des Modules . den Namen der Funktion. In diesem Kapitel geht es hauptsächlich um die Module math und time.",
       "subexercises" : [{
@@ -587,7 +637,7 @@ powerset(set)",
             "output" : "" 
           }]
       }, {
-      "index" : 9,
+      "index" : 10,
       "title" : "Klassen Einführung",
       "description" : "Dieses Kapitel befasst sich mit Klassen. Falls du mit den Funktionen noch nicht sattelfest bist empfehlen wir dir, zuerst diese Kapitel durchzuarbeiten, bevor du dich an die Klassen wagst. Klassen werden in Python folgendermassen definiert.<code class=\"python\">class calculator:\n\tdef __init__(self, x, y):\n\t\tself.x = x\n\t\tself.y = y\n\tdef sum(self):\n\t\tself.sum = self.x + self.y\n\t\treturn self.sum\ninput = calculator(2, 3)\nsumme = calculator.sum(input)\nprint(summe)</code>Am obigen Beispiel ist also erkennbar, dass eine Klasse eine Sammlung von Funktionen sein kann. Immer dabei sein muss ein __init__(self, Argument 1, Argument 2, ...). Durch diese Funktion werden die verschiedenen Eigenschaften einer Variable definiert. Wenn die Klasse nun aufgerufen wird mit n = name(Argument 1, Argument 2, ...) dann kann in der Funktion __init__ der Variable n mit n.eigenschaft = Argument 1, einer Eigenschaft von n ein Wert zugeordnet werden. Dieser kann dann in den weiteren Funktionen der Klasse aufgerufen und verarbeitet werden. Die weiteren Funktionen werden mit name.funktionsname(Argument 1, ...) aufgerufen.",
       "subexercises" : [{
@@ -622,7 +672,7 @@ powerset(set)",
             "output" : "1124000727777607680000\n1\n479001600" 
           }]
       }, {
-      "index" : 10,
+      "index" : 11,
       "title" : "Klassen Fortgeschritten",
       "description" : "Wenn dir die Einführung in die Klassen zu leicht ist, du dich aber trotzdem mit Klassen beschäftigen willst, dann empfehlen wir dir dieses Kapitel. Wenn du dich jedoch noch nie mit Klassen befasst hast empfehlen wir dir das letzte Kapitel, die Einführung in die Klassen.",
       "subexercises" : [{

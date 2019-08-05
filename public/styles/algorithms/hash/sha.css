@@ -84,6 +84,10 @@ a:hover {
   max-height: 400px;
 }
 
+.functiondescription p {
+  white-space: pre;
+}
+
 .blockprocesses {
   font-family: sans-serif;
 }

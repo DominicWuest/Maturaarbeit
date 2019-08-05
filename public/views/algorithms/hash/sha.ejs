@@ -50,6 +50,76 @@
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
+          <p>Bitwise XOR wird als ^ geschrieben und ein Bitwise AND als &amp;.</p>
+          <ol>
+            <div class="fivestepmapping">
+              <h3>Five-Step-Mapping</h3>
+              <li><h4>θ (Theta)</h4>
+                <div class="functiondescription">
+                  <p>1. Für alle Paare (x, z), so dass 0 &le; x &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  C[x, z] = A[x, 0, z] ^ A[x, 1, z] ^ A[x, 2, z] ^ A[x, 3, z] ^ A[x, 4, z].</p>
+                  <p>2. Für alle Paare (x, z), so dass 0 &le; x &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  D[x, z] = C[(x - 1) mod 5, z] ^ C[(x + 1) mod 5, (z – 1) mod w].</p>
+                  <p>3. Für alle Triplets (x, y, z), so dass 0 &le; x &lt; 5, 0 &le; y &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  A'[x, y, z] = A[x, y, z] ^ D[x, z].</p>
+                  <p>&nbsp;</p>
+                  <p>4. Gib A' zurück.</p>
+                </div>
+              </li>
+              <li><h4>ρ (Rho)</h4>
+                <div class="functiondescription">
+                  <p>1. Für alle z, so dass 0 &le; z &lt; w, lass A'[0, 0, z] = A[0, 0, z].</p>
+                  <p>2. Lass (x, y) = (1, 0).</p>
+                  <p>3. Für t von 0 bis und mit 23</p>
+                  <p>  a. Für alle z, so dass 0 &le; z &lt; w, lass A'[x, y, z] =  A[x, y, (z – (t + 1)(t + 2) / 2) mod w].</p>
+                  <p>  b. Lass (x, y) = (y, (2 * x + 3 * y) mod 5).</p>
+                  <p>&nbsp;</p>
+                  <p>4. Gib A' zurück.</p>
+                </div>
+              </li>
+              <li><h4>π (Pi)</h4>
+                <div class="functiondescription">
+                  <p>1. Für alle Triplets (x, y, z), so dass 0 &le; x &lt; 5, 0 &le; y &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  A'[x, y, z] = A[(x + 3 * y) mod 5, x, z].</p>
+                  <p>&nbsp;</p>
+                  <p>2. Gib A' zurück.</p>
+                </div>
+              </li>
+              <li><h4>χ (Chi)</h4>
+                <div class="functiondescription">
+                  <p>1. Für alle Triplets (x, y, z), so dass 0 &le; x &lt; 5, 0 &le; y &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  A'[x, y, z] = A[x, y, z] ^ ((A[x + 1 mod 5, y, z] ^ 1) &amp; A[(x + 2) mod 5, y, z]).</p>
+                  <p>&nbsp;</p>
+                  <p>2. Gib A' zurück.</p>
+                </div>
+              </li>
+              <li><h4>RC (Round-Constant - Hilfsfunktion für ι (Iota))</h4>
+                <p>Diese Funktion nimmt, alles als die Anderen des Five-Step-Mapping, eine Zahl t entgegen (Anstatt einen State A) und gibt ein Bit zurück (Anstatt ein modifizierter State A').</p>
+                <div class="functiondescription">
+                  <p>1. Falls t mod 255 == 0, gib 1 zurück.</p>
+                  <p>2. Lass R = [1, 0, 0, 0, 0, 0, 0, 0].</p>
+                  <p>3. Für alle i von 1 bis t mod 255, lass</p>
+                  <p>  R = [0] + R</p>
+                  <p>  R[0] = R[0] ^ R[8]</p>
+                  <p>  R[4] = R[4] ^ R[8]</p>
+              		<p>  R[5] = R[5] ^ R[8]</p>
+              		<p>  R[6] = R[6] ^ R[8]</p>
+                  <p>  R = R[0] bis R[8]</p>
+                  <p>4. Gib R[0] zurück.</p>
+                </div>
+              </li>
+              <li><h4>ι (Iota)</h4>
+                <div class="functiondescription">
+                  <p>1. Für alle Triplets (x, y, z), so dass 0 &le; x &lt; 5, 0 &le; y &lt; 5 und 0 &le; z &lt; w, lass</p>
+                  <p>  A'[x, y, z] = A[x, y, z].</p>
+                  <p>2. Lass RC = 0<sup>w</sup> (Ein Array mit Länge w, gefüllt mit Nullen).</p>
+                  <p>3. Für alle j von 0 bis und mit l, lass RC[2<sup>j</sup> - 1] = rc(j + 7 * i<sub>r</sub>).</p>
+                  <p>4. Für alle z, so dass 0 &le; z &lt; w, lass A'[0, 0, z] = A'[0, 0, z] ^ RC[z].</p>
+                  <p>&nbsp;</p>
+                  <p>5. Gib A' zurück.</p>
+                </div>
+              </li>
+          </ol>
         </div>
         <div id="exampleCode">
           <h2>Beispielcode</h2>

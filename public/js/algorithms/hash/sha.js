@@ -108,7 +108,7 @@ function bitPadding(arr) {
   let capacity = 2 * outputLength;
   let rate = b - capacity;
   if (arr.length !== rate) {
-    let zeros = (((-arr.length -2) % rate) + rate) % rate;
+    let zeros = (((-arr.length - 2) % rate) + rate) % rate;
     // Padding for the rate
   	arr.push(1);
     for (let i = 0; i < zeros; i++) arr.push(0);

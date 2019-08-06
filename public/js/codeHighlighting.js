@@ -19,26 +19,31 @@ function addHighlighting() {
     }
     if (language === '') continue;
     // Escape less than and greater than
-    let code = codeSnippets[i].textContent.replace(/</g, '&lt').replace(/>/g, '&gt').replace(/&/g, '&amp').split('\n');
-    // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly
-    let tagIndex = true;
+    let code = codeSnippets[i].textContent.replace(/&/g, '&amp').replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // Check every line seperately, simplifies the process of colouring comments
     for (let i = 0; i < code.length; i++) {
       let line = code[i];
       // Colour Strings
       for (stringNotation of codeHighlighting[language]["strings"]["character"]) {
-        // If the string notation is not inside the currently checked line, continue with next string notation
+        // If true -> start new span tag, if false -> closes old span tag. Declared before iterating over the lines, so that mutliline strings get recognized correctly
+        let tagIndex = true;
+        // If the string notation is not inside the currently checked line, continue with next line or string notation
         if (!line.includes(stringNotation)) continue;
         let splittedLine = line.split(stringNotation);
         for (let j = 0; j < splittedLine.length - 1; j++) {
-          // If string notation is inside a comment, continue with next line
-          if (splittedLine[j].includes(codeHighlighting[language]["comments"]["character"])) break;
+          // If string notation is inside a comment, add the string notation to the rest of the line and continue with next line or string notation
+          if (splittedLine[j].includes(codeHighlighting[language]["comments"]["character"])) {
+            for (let k = j; k < splittedLine.length - 1; k++) splittedLine[k] += stringNotation;
+            break;
+          }
           if (tagIndex) splittedLine[j] += '<span style="color: ' + codeHighlighting[language]["strings"]["color"] + ';">' + stringNotation;
           else splittedLine[j] += stringNotation + '</span>';
           // Flip the value of tagIndex
           tagIndex = !tagIndex;
         }
         line = splittedLine.join('');
+        // Finish the open string span if it hasnt been closed yet
+        if (!tagIndex) line += '</span>';
       }
       // Characters to be ignored when checking to highlight syntax elements, fields and functions
       let ignoredCharacters = codeHighlighting[language]["ignoredCharacters"];

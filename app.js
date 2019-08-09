@@ -85,7 +85,7 @@ app.get('/2f8a6bf31f3bd67bd2d9720c58b19c9a', function(req, res) {
 });
 
 // Save the message posted on the contactpage
-app.post('/contact', urlencodedParser, function(req, res) {
+app.post('/2f8a6bf31f3bd67bd2d9720c58b19c9a', urlencodedParser, function(req, res) {
   if (req.body !== {}) fs.appendFileSync('data/messages.txt', 'Name: ' + req.body.forename + ' ' + req.body.surname + '\nE-Mail: ' + req.body.email + '\nMessage: ' + req.body.message + '\n\n' + '-'.repeat(50) + '\n\n');
   res.redirect('/contact')
 });

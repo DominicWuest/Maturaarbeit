@@ -49,6 +49,7 @@ main div:first-child {
 a {
   text-decoration: none;
   color: #009;
+  font-family: sans-serif;
 }
 
 a:hover {

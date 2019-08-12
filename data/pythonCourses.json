@@ -466,7 +466,7 @@
             "output" : "[131, 183]" 
           }, {
             "index" : 11,
-            "description" : "Um die Lösung dieser Aufgabe zu verstehen solltest du mit den sogenannten Binärzahlen vertraut sein. Falls du dies noch nicht bist schaue dir bitte zuerst das Kapitel zu den Zahlensystemen an.",
+            "description" : "Um die Lösung dieser Aufgabe zu verstehen solltest du mit den sogenannten Binärzahlen vertraut sein. Falls du dies noch nicht bist schaue dir bitte zuerst das Kapitel zu den Zahlensystemen an. Es geht darum ein sogenanntes Powerset zu erstellen. Dab",
             "startingCode" : "",
             "solution" : "",
             "output" : "" 

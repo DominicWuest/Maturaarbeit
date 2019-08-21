@@ -82,10 +82,99 @@
           "output" : "120 Es gibt einen Sturm"
           }]
     }, {
-      "index" : 2,
-      "title" : "If-else-Verzweigungen",
-      "description" : "Da wir gelernt haben wie wir Variablen definieren und ausgeben können, können wir zum nächsten Kapitel überschreiten, welches die erste Möglichkeit ist die Variablen zu verarbeiten. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Es ist also ein wenn es so ist, dann macht das Programm es so und wenn nicht, dann macht es das, was bei else steht. Dabei wird die if-Verzweigung nur einmal durchlaufen. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">if x == 1:\n\tx += 1\nelif x == 2\n\tx = 3\nelse:\n\tx = 0</code>Dabei wird wenn x = 1 ist x = 2, wenn x = 2 ist x = 3 und andernfalls x = 0 ausgegeben. Dabei muss darauf geachtet werden, dass beim Abfragen des Wertes eine Variable die Notation x == n verwendet werden muss, da x = n einer Zuordnung des Wertes n entsprechen würde.",
+      "index" : 3,
+      "title" : "Logische Operationen",
+      "description" : "Als Logische Operationen bezeichnen wir die Operationen mit den Logischen Operatoren. Diese erfordern als Input einen, oder mehrere (meist zwei) Wahrheitswerte und geben als Output wiederum einen Wahrheitswert, also entweder True, oder False, aus. Hier werden die wichtigsten Logischen Operatoren aufgeführt.",
       "subexercises" : [{
+          "index" : 0,
+          "description" : "Ein Logischer Operator, der nur einen Input braucht ist der not-Operator, oder aus das Komplement genannt. Dieser Operator konvertiert den Wahrheitswert einer Aussage oder Variable. Aus True wird also False und aus False wird True. Definiere eine Variable a mit dem Wahrheitswert True und gib diese aus. Wandle sie danach mit dem not-Operator um, indem du einfach a = not a in eine Programmzeile schreibst und gib sie erneut aus.",
+          "startingCode" : "",
+          "solution" : "a = True\nprint(a)\na = not a\nprint(a)",
+          "output" : "True\nFalse"
+          }, {
+          "index" : 1,
+          "description" : "Ein Logischer Operator, mit dem ausgegeben werden kann, ob eine Variable einen bestimmten Wert hat. Dieser Operator wird mit folgendermassen geschrieben:<code class=\"python\">a = 5\nb = a is 5</code>Dabei wird unter b der Wahrheitswert True abgespeichert, der Variable a der Wert 5 zugeordnet wurde. Schreibe ein Programm, in dem eine Variable x mit dem Wert 'Koordinate' definiert wird und gib in einer Zeile den Wahrheitswert aus, ob unter x der Wert 5 abgespeichert ist und in der nächsten ob unter x der Wert 'Koordinate' abgespeichert ist.",
+          "startingCode" : "",
+          "solution" : "x = 'Koordinate'\nprint(x is 5)\nprint(x is 'Koordinate')",
+          "output" : "False\nTrue"
+          }, {
+          "index" : 2,
+          "description" : "Der Operator is kann auch als mathematisches Zeichen geschrieben werden. Dieses Zeichen wäre dabei ein doppeltes Gleichheitszeichen (==). Definiere eine Variable q mit dem Wert 5 und frage mit dem is-Operator ab, ob unter der Variable der Wert 2 abgespeichert ist.",
+          "startingCode" : "",
+          "solution" : "q = 5\nprint(q == 2)",
+          "output" : "False"
+          }, {
+          "index" : 3,
+          "description" : "Der and-Operator ist ein Operator, der als Input zwei Argumente, also Wahrheitswerte benötigt. Als Output gibt der and-Operator True aus wenn beide Wahrheitswerte ebenfalls True waren und False, wenn mindestens eines der Argumente False war. Schreibe ein Programm, welches austestet, ob der vorgegebenen Variable a der Wahrheitswert zugeordnet ist und ob der Variable b der Wert 7 zugeordnet ist und gib den Output aus.",
+          "startingCode" : "a = True\nb = 7",
+          "solution" : "a = True\nb = 7\nvalue = a and b == 7\nprint(value)",
+          "output" : "True"
+          }, {
+          "index" : 4,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 5,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 6,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 7,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 8,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }]
+    }, {
+      "index" : 3,
+      "title" : "If-else-Verzweigungen",
+      "description" : "Da wir gelernt haben Variablen zu definieren und auszugeben und mit logischen Operationen Wahrheitswerte auszugeben können wir uns anschauen, wie wir diese Verarbeiten können. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Die Bedingung liefert dabei einen Wahrheitswert, wie wir ihn im letzten Kapitel kennengelernt haben. Falls der Wahrheitswert True ist wird der Teil nach der If-Bedingung ausgeführt. Falls dieser Wahrheitswert False ist wird der Teil nach dem Else ausgeführt. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">a = False\nb = True\nif a:\n\tx = 1\nelif b:\n\tx = 2\nelse:\n\tx = 3</code>Dabei wird also zuerst geschaut, ob a Wahr ist, wenn nicht wird geschaut, ob b Wahr ist, wenn nicht dann wird das else ausgeführt. Da a als False definiert wurde wird dieser Teil übersprungen und da b True ist wird dieser Teil ausgeführt, also wird der Wert 3 der Variable x zugeordnet.",
+      "subexercises" : [{
+          "index" : 0,
+          "description" : "Schreibe ein Programm, welches 'a ist wahr' ausgibt, wenn der vorgegebenen Variable a der Wert True zugeordnet ist.",
+          "startingCode" : "a = True",
+          "solution" : "a = True\nif a:\n\tprint('a ist wahr')",
+          "output" : "a ist wahr"
+          }, {
+          "index" : 1,
+          "description" : "Erweitere das Programm aus der letzten Aufgabe um ein else-Bedingung, sodass 'a ist falsch' ausgegeben wird, wenn die Bedingung nicht erfüllt wurde.",
+          "startingCode" : "a = False\nif a:\n\tprint('a ist wahr')",
+          "solution" : "a = False\nif a:\n\tprint('a ist wahr')\nelse:\n\tprint('a ist falsch')",
+          "output" : "a ist falsch"
+          }, {
+          "index" : 2,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 3,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
+          "index" : 4,
+          "description" : "",
+          "startingCode" : "",
+          "solution" : "",
+          "output" : ""
+          }, {
           "index" : 0,
           "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90 definiert wird, teste mit einer If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
           "startingCode" : "print(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
@@ -127,35 +216,6 @@
           "startingCode" : "a = '112'\nb = 4.3623115\nc = 123.0\nd = 124\nprint(str(a) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(a))\nprint(str(b) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(b))\nprint(str(c) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(c))\nprint(str(d) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(d))",
           "solution" : "a = '112.235'\nb = 4.3623115\nc = 123.0\nd = 124\nif a == float(a):\n\tprint(str(a) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(a)))\nif b == float(b):\n\tprint(str(b) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(b)))\nif c == float(c):\n\tprint(str(c) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(c)))\nif d == float(d):\n\tprint(str(d) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(d)))",
           "output" : "4.3623115 ist eine Floating Point Zahl mit dem Integer Wert von 4\n123.0 ist eine Floating Point Zahl mit dem Integer Wert von 123\n124 ist eine Floating Point Zahl mit dem Integer Wert von 124"
-          }]
-    }, {
-      "index" : 3,
-      "title" : "Logische Operationen",
-      "description" : "Als Logische Operationen bezeichnen wir die Operationen mit den Logischen Operatoren. Diese erfordern als Input einen, oder mehrere (meist zwei) Wahrheitswerte und geben als Output wiederum einen Wahrheitswert aus. Hier werden die wichtigsten Logischen Operatoren aufgeführt.",
-      "subexercises" : [{
-          "index" : 8,
-          "description" : "Ein Logischer Operator, der nur einen Input braucht ist der NOT-Operator, oder aus das Komplement genannt. Dieser Operator ",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
-          }, {
-          "index" : 8,
-          "description" : "",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
-          }, {
-          "index" : 8,
-          "description" : "",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
-          }, {
-          "index" : 8,
-          "description" : "",
-          "startingCode" : "",
-          "solution" : "",
-          "output" : ""
           }]
     }, {
       "index" : 4,

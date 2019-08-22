@@ -250,6 +250,21 @@ footer {
     grid-template: 45vh 45vh / 50vw 50vw;
   }
 
+  .coursesList {
+    width: auto;
+    overflow-x: auto;
+  }
+
+  .coursesListContainer li, .coursesListContainer ul {
+    display: block;
+    width: 100%;
+  }
+
+  .coursesListContainer a {
+    display: inline-block;
+    width: 100%;
+  }
+
   .coursesList > li > ul li > ul {
     max-height: 100vh;
   }
@@ -281,16 +296,18 @@ footer {
   }
 
   .courses {
-    width: 40vw;
-    margin: 0 auto;
+    width: auto;
+    margin: 0 8vw;
+    margin-right: 0;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    padding-left: 10vw;
+    padding-left: 3vw;
   }
 
   .coursesListContainer {
     height: 90%;
-    overflow-y: auto;
+    overflow: auto;
+    margin-left: 3vw;
   }
 
   .right {

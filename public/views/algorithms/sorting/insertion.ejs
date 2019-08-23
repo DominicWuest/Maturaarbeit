@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!-- Dominic Wüst -->
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Insertionsort</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script type="text/javascript">
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
+    <%- include(partialsPath + 'header.ejs') %>
+      <main>
+        <div class="title">
+          <h1>Insertionsort</h1>
+        </div>
+        <div class="pageShortcuts">
+          <h2>Page Shortcuts</h2>
+          <ul>
+            <li><a href="#usage">Gebrauch</a></li>
+            <li><a href="#specs">Spezifikationen</a></li>
+            <li><a href="#functionality">Funktionsweise</a></li>
+            <li><a href="#exampleCode">Beispielcode</a><ul>
+              <li><a href="#python">Python</a></li>
+              <li><a href="#java">Java</a></li>
+            </ul></li>
+            <li><a href="#animatedExample">Animiertes Beispiel</a></li>
+          </ul>
+        </div>
+        <div class="text">
+          <div id="usage">
+            <h2>Gebrauch</h2>
+            <p>Der Insertionsort wird gebraucht, um einen unsortierten Array zu sortieren.</p>
+            <p>Der Algorithmus ist vegleichbar mit dem, den die meisten brauchen, um Karten in der Hand zu sortieren.</p>
+          </div>
+          <div id="specs">
+            <h2>Spezifikationen</h2>
+          </div>
+          <div id="functionality">
+            <h2>Funktionsweise</h2>
+          </div>
+          <div id="exampleCode">
+            <h2>Beispielcode</h2>
+          </div>
+        </div>
+      </main>
+  </body>
+</html>

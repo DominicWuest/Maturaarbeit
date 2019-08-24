@@ -37,7 +37,7 @@
           <div id="usage">
             <h2>Gebrauch</h2>
             <p>Der Insertionsort wird gebraucht, um einen unsortierten Array zu sortieren.</p>
-            <p>Der Algorithmus ist vegleichbar mit dem, den die meisten brauchen, um Karten in der Hand zu sortieren.</p>
+            <p>Der Algorithmus ist vegleichbar mit dem, den von den meisten gebraucht wird, um Karten in der Hand zu sortieren.</p>
           </div>
           <div id="specs">
             <h2>Spezifikationen</h2>
@@ -48,6 +48,20 @@
           <div id="exampleCode">
             <h2>Beispielcode</h2>
           </div>
+          <div id="animatedExample">
+            <h2>Animiertes Beispiel</h2>
+            <div class="legend">
+              <h3>Legende</h3>
+              <ul>
+                <li></li>
+              </ul>
+            </div>
+            <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
+            <div class="animationInput">
+                <input type="button" name="restartAnimation" value="Start" onmouseup="restartAnimation(); needsScrambling = true;" ontouchend="restartAnimation(); needsScrambling = true;">
+                <input type="range" name="fps" min="0" max="5" step="0.0001" oninput="fps = Math.pow(2, this.value);">
+            </div>
+            <div id="animation"></div>
         </div>
       </main>
   </body>

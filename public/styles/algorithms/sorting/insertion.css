@@ -80,3 +80,141 @@ a:hover {
   color: #BBB;
   border-radius: 8px;
 }
+
+#animatedExample p {
+  padding-left: 10px;
+}
+
+.legend h3 {
+  font-family: 'Righteous', cursive;
+  margin: 0;
+}
+
+.legend span {
+  font-family: sans-serif;
+}
+
+#animation {
+  background: none;
+  height: 100px;
+  padding: 0;
+  border: 0;
+}
+
+.animationInput {
+  display: grid;
+  grid-template-columns: 10% 85%;
+  justify-content: space-around;
+}
+
+#animatedExample input {
+  cursor: pointer;
+}
+
+#animatedExample input:focus {
+  outline: none;
+}
+
+#animatedExample input[type="button"] {
+  padding: 0;
+  background-color: #333;
+  color: #CCC;
+  border-radius: 15px;
+  border-color: #333;
+  border-style: solid;
+  width: 85%;
+  font-size: 1.3em;
+  margin: auto;
+}
+
+#animatedExample input[type="button"]:hover {
+  box-shadow: 2px 2px 10px black;
+  background-color: #444;
+}
+
+#animatedExample input[type="button"]:active {
+  box-shadow: 2px 2px 10px black;
+  background-color: #666;
+  border-color: #444;
+}
+
+#animatedExample input[type="range"] {
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+/*
+  Range styling for Chrome browser
+*/
+
+#animatedExample input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  background-color: #CCC;
+  height: 95%;
+  width: 17px;
+  border-radius: 15px;
+}
+
+#animatedExample input[type="range"]::-webkit-slider-runnable-track {
+  height: 17px;
+  background-color: #333;
+  box-sizing: content-box;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+#animatedExample input[type="range"]::-webkit-slider-runnable-track:hover, #animatedExample input[type="range"]::-webkit-slider-runnable-track:active {
+  box-shadow: 2px 2px 10px black;
+}
+
+/*
+  Range styling for Firefox browser
+*/
+
+#animatedExample input[type="range"]::-moz-focus-outer {
+  border: 0;
+}
+
+#animatedExample input[type=range]::-moz-range-track {
+  height: 17px;
+  width: 100%;
+  background-color: #333;
+  box-sizing: content-box;
+  padding: 3px;
+  border-radius: 15px;
+}
+
+#animatedExample input[type="range"]:hover::-moz-range-track, #animatedExample input[type="range"]:active::-moz-range-track {
+  box-shadow: 2px 2px 10px black;
+}
+
+#animatedExample input[type=range]::-moz-range-thumb {
+  background-color: #CCC;
+  height: 17px;
+  width: 17px;
+  border-radius: 15px;
+}
+
+/*
+  Range styling for Microsoft Edge browser
+*/
+
+#animatedExample input[type="range"]::-ms-thumb {
+  background-color: #CCC;
+  box-sizing: content-box;
+  border-right: 2px solid #333;
+  border-left: 2px solid #333;
+  height: 17px;
+  width: 17px;
+  border-radius: 15px;
+}
+
+#animatedExample input[type="range"]::-ms-track {
+  height: 21px;
+  width: 100%;
+  background-color: #333;
+  box-sizing: content-box;
+  border: 2px;
+  border-top: 3px;
+  border-radius: 15px;
+}

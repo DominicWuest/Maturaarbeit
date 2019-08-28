@@ -23,3 +23,12 @@ footer {
 	top: 93vh;
 }
 
+@media only screen and (max-width: 1000px) {
+	footer p {
+		font-size: 1.75vh;
+	}
+	
+	#copyright, #about {
+		top: 94vh;
+	}	
+}

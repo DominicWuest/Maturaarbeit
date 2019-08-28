@@ -54,14 +54,6 @@ a:hover {
   	color: black;
 }
 
-.compression {
-  	padding: 0;
-	justify-content: space-around;
-    background: none;
-	width: auto;
-	display: flex;
-}
-
 p {
   	font-family: sans-serif;
 }

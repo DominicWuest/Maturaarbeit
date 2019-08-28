@@ -1,0 +1,25 @@
+footer {
+    box-sizing: border-box;
+    height: 6vh;
+    width: 100%;
+    background-color: #333;
+    border: 0.5vh solid #555;
+    border-bottom: none;
+}
+
+#copyright {
+	color: white;
+	display: inline-block;
+	position: absolute;
+	left: 2vh;
+	top: 93vh;
+}
+
+#about {
+	color: white;
+	display: inline-block;
+	position: absolute;
+	right: 2vh;
+	top: 93vh;
+}
+

@@ -1,14 +1,11 @@
-footer{
+footer {
+	box-sizing: border-box;
+	background-color: #119;
+	border: 0.5vh solid #55A;
     width: 100vw;
-    height: 12vh;
-    background-color: darkblue;
+    height: 10vh;
+	text-align: center;
     color: lightgrey;
-    padding: 0% 3% 3% 0%;
-    margin: -0.7% 0%;
-    position: absolute;
-    left: 0;
-    top: 90%;
-    text-align: center;
     clear: both;
     overflow: scroll;
     overflow-x: hidden;
@@ -16,8 +13,8 @@ footer{
     -ms-overflow-style: none; 
 }
 
-footer::-webkit-scrollbar{ 
-    width: 0 !important
+footer::-webkit-scrollbar { 
+    width: 0 !important;
 }
 
 p{
@@ -25,36 +22,38 @@ p{
 }
 
 /*Style des Links für die Kontakt Seite*/
-#footercontact{
-    background-color: #258;
+#footercontact {
+    background-color: #319;
     color: lightgrey;
     text-decoration: none;
-    margin: 0%;
-    padding: 0.1% 0.5%;
-    cursor: pointer;
+    padding: 0.05% 0.5%;
     border-radius: 50px;
 }
-#description{
+
+#description {
     font-family: 'Kalam', cursive;
     font-size: 100%;
 }
-#copyright{
+
+#copyright {
     font-family: 'Arapey', serif;
     background-color: #249;
     margin: 0% 37.5%;
     border-radius: 100px;
 }
-@media only screen and (max-width: 600px){
-    footer{
-        position: relative;
-        top: -1%;
+
+@media only screen and (max-width: 1000px){
+    footer {
+        position: absolute;
+		top: 90%;		
     }
-    p{
-        font-size: 150%;
-    }
-    #copyright{
-        font-size: 110%;
-        border-radius: 10px;
-    }
+	
+	p {
+		font-size: 180%;
+	}
+	
+	#copyright {
+		border-radius: 5px;
+	}
 }
 

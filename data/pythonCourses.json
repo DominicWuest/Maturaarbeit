@@ -619,12 +619,18 @@
             "solution" : "a = 1\nb = 1\ndef fibonacci(a, b, n, i):\n\tif i >= n:\n\t\treturn\n\telse:\n\t\tif i % 2 == 0:\n\t\t\tprint(a)\n\t\t\ta += b\n\t\telse:\n\t\t\tprint(b)\n\t\t\tb += a\n\t\ti += 1\n\t\tfibonacci(a, b, n, i)\nfibonacci(a, b, 50, 0)",
             "output" : "1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233\n377\n610\n987\n1597\n2584\n4181\n6765\n10946\n17711\n28657\n46368\n75025\n121393\n196418\n317811\n514229\n832040\n1346269\n2178309\n3524578\n5702887\n9227465\n14930352\n24157817\n39088169\n63245986\n102334155\n165580141\n267914296\n433494437\n701408733\n1134903170\n1836311903\n2971215073\n4807526976\n7778742049\n12586269025" 
           }, {
-          "index" : 4,
-          "description" : "Im leztzen Kapitel haben wir angeschaut, wie der grösste gemeinsame Teiler, der ggT zweier Zahlen mit einer iterativen Funktion berechnet werden kann. Schreibe nun eine rekursive Funktion und berechne damit den grössten gemeinsamen Teiler der Zahlen 2590 und 25025 und gib ihn aus. Tipp: Benutze dafür den Modulo-Operator (%), der den Rest einer Teilung zweier Zahlen in den ganzen Zahlen ausgibt.",
-          "startingCode" : "a = 2590\nb = 25025",
-          "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
-          "output" : "34"
-          }]
+            "index" : 4,
+            "description" : "Im leztzen Kapitel haben wir angeschaut, wie der grösste gemeinsame Teiler, der ggT zweier Zahlen mit einer iterativen Funktion berechnet werden kann. Schreibe nun eine rekursive Funktion und berechne damit den grössten gemeinsamen Teiler der Zahlen 2590 und 25025 und gib ihn aus. Tipp: Benutze dafür den Modulo-Operator (%), der den Rest einer Teilung zweier Zahlen in den ganzen Zahlen ausgibt.",
+            "startingCode" : "a = 2590\nb = 25025",
+            "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
+            "output" : "34"
+          }, {
+            "index" : 4,
+            "description" : "Im Kapitel der Zahlens",
+            "startingCode" : "",
+            "solution" : "def macheps(count):\n\ttest = float(1) + float(2 ** (-count))\n\tcount += 1\n\t# Abbruchbedingung\n\tif test == 1:\n\t\tprint(count - 1, test, float(2 ** (-count)))\n\t\treturn\n\tmacheps(count)\nmacheps(0)",
+            "output" : ""
+		  }]
       }, {
       "index" : 10,
       "title" : "Module",

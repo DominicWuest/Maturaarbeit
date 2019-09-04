@@ -624,13 +624,7 @@
             "startingCode" : "a = 2590\nb = 25025",
             "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
             "output" : "34"
-          }, {
-            "index" : 4,
-            "description" : "Im Kapitel der Zahlens",
-            "startingCode" : "",
-            "solution" : "def macheps(count):\n\ttest = float(1) + float(2 ** (-count))\n\tcount += 1\n\t# Abbruchbedingung\n\tif test == 1:\n\t\tprint(count - 1, test, float(2 ** (-count)))\n\t\treturn\n\tmacheps(count)\nmacheps(0)",
-            "output" : ""
-		  }]
+          }]
       }, {
       "index" : 10,
       "title" : "Module",

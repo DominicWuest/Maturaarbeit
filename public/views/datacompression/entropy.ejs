@@ -17,22 +17,76 @@
 			<div class="shortlink">
                 <h2>Shortlinks</h2>
 				<ul>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
-					<li><a href="#"></a></li>
+					<li><a href="#general">Allgemein</a></li>
+					<li><a href="#information">Der Informationsgehalt</a></li>
+					<li><a href="#entropy">Die Entropie</a></li>
+					<li><a href="#huffman">Huffman-Kodierung</a></li>
+					<li><a href="#arithmetic">Arithmetische Kodierung</a></li>
 				</ul>
             </div>
-			<div id = "">
-				<h2></h2>
-                <p></p>
+			<div id = "general">
+				<h2>Allgemein</h2>
+                <p>
+					Die Entropiekodierung ist eine Art der verlustfreien Datenkompression. Die Entropiekodierung basiert darauf, dass Zeichen abgespeichert werden, wie Beispielsweise ein Text. Dabei wir den einzelnen Zeichen eine unterschiedlich lange Folge von Bits zugeordnet.<br>Die Anzahl Bits, die für ein Zeichen verwendet werden wird dabei durch die <a href = "#entropy">Entropie</a> bestimmt.<br>Entropiekodierer werden oft mit anderen Kodierern kombiniert und bildet dabei das letzte Stück in einer Datenkompression.
+				</p>
 			</div>
-			<div id = "">
-				<h2></h2>
-				<p></p>
+			<div id = "information">
+				<h2>Der Informationsgehalt</h2>
+				<h3>Allgemein</h3>
+				<p>
+					Der Informationsgehalt ist ein Mass dafür, wie viel Information in einer Nachricht übertragen wurde. Dabei ist der Informationsgehalt eine logarthmische Grösse. Er wurde von Claude Elwood Shannon in seiner Informationstheorie formalisiert. Der Informationsgehalt bezeichnet die Anzahl Bits, die benötigt werden um ein Zeichen, also eine Information darzustellen.
+				</p>
+				<h3>Definition</h3>
+				<p>
+					Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Zahlenmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> und mit einer Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
+					<figure class = "equation">
+						I(z<sub>n</sub>) = log<sub>m</sub>(<figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure>) = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
+					</figure>
+					<br>
+					Wie aus der oben aufgeführten Formel ersichtlich ist ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
+				</p>
+				<h3>Beispiel</h3>
+				<p>
+					Um den Begriff des Informationsgehaltes nach Shannons Informationstheorie zu verstehen muss man sich der herkömmlichen Bedeutung des Wortes Information Entledigen. Denn der Informationsgehalt eines 500-seitigen Romanes kann genau gleich sein, wie der Informationsgehalt der Ziffer 5, auch wenn die beiden Dinge was völlig anderes bedeuten. Wenn wir also ein Alphabet mit zwei verschiedenen Zeichen haben kann z<sub>1</sub> der 500-seitige Roman sein und z<sub>2</sub> die Ziffer 5. Dabei wird z<sub>1</sub> mit der Binärziffer 0 und z<sub>2</sub> mit der Binärziffer 1 codiert. Dieses zwei Nachrichten können also völlig frei gewählt werden und völlig unterschiedlich sein.
+				</p>
+				<h3>Die Wahrscheinlichkeit</h4>
+				<section class = "withpic">
+					<img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" id = "probabillity" align = "right"/>
+					<p>
+						In der Formel für den Informationsgehalt kam die Wahrscheinlichkeit p<sub>z<sub>n</sub></sub> für ein Zeichen z<sub>n</sub> vor. Die Wahrscheinlichkeit ist nicht nur Absolut, wie die Gegebenheit, dass zum Beispiel in der deutschen Sprache das Zeichen e sehr häufig vorkommt und somit sehr Wahrscheinlich ist, sondern auch realtiv. Wenn Beispielsweise der Artikel 'der' als Zeichen genommen wird, dann ist die Wahrscheinlichkeit gross, dass ein Nomen oder ein Adjektiv folgt und die Wahrscheinlichkeit, dass ein Verb oder ein Pronomen folgt ist sehr klein. Mit einem Blick auf die Formel für den Informationsgehalt wird klar, dass der Informationgehalt für ein Nomen oder ein Adjektiv klein und der Informationsgehalt für ein Verb oder ein Pronomen dementsprechend gross ist.<br>Die Grafik rechts zeigt den Informationsgehalt in Bits in Abhängigkeit der Wahrscheinlichkeit. Die Datenpunkte gehen dabei von einer Wahrscheinlichkeit von 0.01, also einem Prozent bis zu 1, also 100 Prozent, was natürlich einen Informationsgehalt von 0 Bits bedeuten würde.
+					</p>
+				</section>
+				<h3>Rechenbeispiel</h3>
+				<p>
+					In diesem Beispiel schauen wir uns an, wie viele Bits nötig sind, um das Wort 'Alleinsein' optimal binär zu kodieren. Dabei nehmen wir an, dass die einzelnen Zeichen (Buchstaben) statistisch unabhängig voneinander sind, dass man also nicht sagen kann, dass es unwahrscheinlich ist, dass nach einem Vokal nochmal ein Vokal folgt.<br>Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach die Anzahl vorkommnisse durch die Gesamtanzahl der Zeichen ist.
+					<figure class = "equation">
+						p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>, 
+						p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
+						p<sub>e</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
+						p<sub>i</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
+						p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
+						p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+					</figure>
+					Danach muss jeder einzelne Informationsgehalt mit der Formel aus der Definition, die oben steht berechnet werden. Die einzelnen Informationsgehälter können nun addiert werden um den gesamten Informationsgehalt der Kodierung zu finden.
+					<figure class ="equation">
+						I<sub>gesamt</sub> = -log<sub>2</sub>(<figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>) + 2 * (-log<sub>2</sub>(<figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>)) + 2 * (-log<sub>2</sub>(<figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>)) + 2 * (-log<sub>2</sub>(<figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>)) + 2 * (-log<sub>2</sub>(<figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>)) + -log<sub>2</sub>(<figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>)
+					</figure>
+					<figure class = "equation">
+						I<sub>gesamt</sub> = 3.32 Bits + 2 Bits * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 3.32 Bits = 25.22 Bits
+					</figure>
+					Diese 25.22 Bits, die wir aus der Rechnung erhalten haben müssen wir nun aber noch aufrunden auf 26 Bits, da wir keine Bruchteile von Bits haben können. So kann das Wort 'Alleinsein' also mit 26 Bits optimal kodiert werden.
+				</p>
+			</div>
+			<div id = "entropy">
+				<h2>Die Entropie</h2>
+				<p>Die Entropie in der Informatik ist eng verwandt mit der Bedeutung der Entropie in der Thermodynamik. Die Entropie wurde analog zum Informationsgehalt von Claude Elwood Shannon definiert wie folgt. Die Entropie <b>&Eta;</b> einer Quelle <b>Q</b>, die aus den Zeichen <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> besteht wird über </p>
+			</div>
+			<div id = "huffman">
+				<h2>Huffman-Kodierung</h2>
 				<p></p>
 			</div>
-			<div id = "">
-				<h2></h2>
+			<div id = "arithmetic">
+				<h2>Arithmetische Kodierung</h2>
 				<p></p>
 			</div>               
         </main>

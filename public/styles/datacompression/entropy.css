@@ -83,7 +83,7 @@ p {
 	min-height: 35vh;
 }
 
-#probabillity {
+img #probabillity {
 	height: 35vh;
 }
 
@@ -110,6 +110,26 @@ p {
 	margin-bottom: -20%;
 }
 
+.bigparthense {
+	font-size: 200%;
+	font-weight: lighter;
+	vertical-align: sub;
+}
+
+.code {
+  white-space: pre;
+  display: block;
+  font-family: monospace;
+  width: 95%;
+  box-sizing: border-box;
+  padding: 10px;
+  margin: 0 auto;
+  overflow-x: auto;
+  background-color: #444;
+  color: #BBB;
+  border-radius: 8px;
+}
+
 /*give a different style for smaller devices like mobile phones*/
 @media only screen and (max-aspect-ratio : 13 / 9) {
     /*repositon the content, so there is no conflict with the header*/
@@ -117,4 +137,7 @@ p {
         margin: 0% 11%;
         width: 80%;
     }
+	.title {
+		font-size: 2vh;
+	}
 }

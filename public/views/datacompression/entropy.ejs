@@ -79,7 +79,11 @@
 			</div>
 			<div id = "entropy">
 				<h2>Die Entropie</h2>
-				<p>Die Entropie in der Informatik ist eng verwandt mit der Bedeutung der Entropie in der Thermodynamik. Die Entropie wurde analog zum Informationsgehalt von Claude Elwood Shannon definiert wie folgt. Die Entropie <b>&Eta;</b> einer Quelle <b>Q</b>, die aus den Zeichen <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> besteht wird über </p>
+				<p>Die Entropie in der Informatik ist eng verwandt mit der Bedeutung der Entropie in der Thermodynamik, da sie auch mit wahrscheinlichen und unwahrscheinlichen Zuständen definiert wird. Die Entropie wurde analog zum Informationsgehalt von Claude Elwood Shannon definiert. Die Entropie <b>&Eta;</b> eines Zeichens aus einer Quelle <b>Q</b>, die aus den Zeichen <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> besteht wird über die Summe der Wahrscheinlichkeit mit dem Informationsgehalt von jedem einzelnen Zeichen in unserem Alphabet (der vorher definierten Quelle) definiert:</p>
+				<br>
+				<figure class = "equation">
+					&Eta; = <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * I(z<sub>i</sub>)  = <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * (-log<sub>2</sub>(p<sub>z<sub>i</sub></sub>))  = -<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)
+				</figure>
 			</div>
 			<div id = "huffman">
 				<h2>Huffman-Kodierung</h2>

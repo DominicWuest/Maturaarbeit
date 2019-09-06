@@ -41,12 +41,52 @@
           </div>
           <div id="specs">
             <h2>Spezifikationen</h2>
+            <p>Der Insertionsort Algorithmus hat eine worst-case Performance von <span class="bigO">O(n<sup>2</sup>) Vergleiche, O(n<sup>2</sup>) Tauschungen</span> und eine best-case Performance von <span class="bigO">O(n) Vergleiche, O(1) Tauschungen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n<sup>2</sup>) Vergleiche, O(n<sup>2</sup>) Tauschungen</span>.</p>
+            <p>Der Algorithmus braucht keine weiteren Arrays und hat somit jeweils eine Space-complexity von <span class="bigO">O(1)</span>.</p>
           </div>
           <div id="functionality">
             <h2>Funktionsweise</h2>
           </div>
           <div id="exampleCode">
             <h2>Beispielcode</h2>
+            <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+            <code class="code python"># arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+def insertionSort(arr):
+  # Über alle Werte von Index 1 an werden iteriert, um an die richtige Stelle inserted zu werden
+  for i in range(1, len(arr)):
+    # Über alle Werte, dessen Index kleiner ist als der, des momentan fokussierten Wertes werden iteriert
+    for j in range(i - 1, -1, -1):
+      # Falls der Wert, welcher inserted wird grösser ist, als der, mit dem er verglichen wird
+      if arr[j] > arr[j + 1]:
+        # Switche die beiden Werte bei Index j und (j + 1) miteinander
+        arr[j], arr[j + 1] = arr[j + 1], arr[j]
+      # Fahre ansonsten fort mit dem Inserten des nächsten Wertes
+      else:
+        break
+  # Der sortierte Array wird zurückgegeben
+  return arr</code>
+            <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+            <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
+            <code class="code java">// arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+public static int[] insertionSort(int[] arr) {
+  // Über alle Werte von Index 1 an werden iteriert, um an die richtige Stelle inserted zu werden
+  for (int i = 1; i < arr.length; i++) {
+    // Über alle Werte, dessen Index kleiner ist als der, des momentan fokussierten Wertes werden iteriert
+    for (int j = i - 1; j >= 0; j--) {
+      // Falls der Wert, welcher inserted wird grösser ist, als der, mit dem er verglichen wird
+      if (arr[j] > arr[j + 1]) {
+        // Switche die beiden Werte bei index j und (j + 1) miteinander
+        int temp = arr[j];
+        arr[j] = arr[j + 1];
+        arr[j + 1] = temp;
+      }
+      // Fahre ansonsten fort mit dem Inserten des nächsten Wertes
+      else break;
+    }
+  }
+  // Der sortierte Array wird zurückgegeben
+  return arr;
+}</code>
           </div>
           <div id="animatedExample">
             <h2>Animiertes Beispiel</h2>

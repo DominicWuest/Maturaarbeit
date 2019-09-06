@@ -9,224 +9,224 @@
       "title" : "Grundlagen im Rechnen mit Variablen",
       "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus. Jeder Befehl, der dem Programm gegeben wird steht dabei in einer neuen Zeile. Im Code sieht dies folgendermassen aus.<code class=\"python\">x = 3\nprint(x)</code>",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Definiere eine Variable a mit dem Wert 7 und gib diese aus.",
-          "startingCode" : "",
-          "solution" : "a = 7\nprint(a)",
-          "output" : "7"
+            "index" : 0,
+            "description" : "Definiere eine Variable a mit dem Wert 7 und gib diese aus.",
+            "startingCode" : "",
+            "solution" : "a = 7\nprint(a)",
+            "output" : "7"
           }, {
-          "index" : 1,
-          "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n also eine beliebige Zahl sein kann und a mit dem Wert a + n neu definiert wird. Definiere eine Varbable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Varbiable aus.",
-          "startingCode" : "",
-          "solution" : "a = 3\na = a + 4\nprint(a)",
-          "output" : "7"   
+            "index" : 1,
+            "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n also eine beliebige Zahl sein kann und a mit dem Wert a + n neu definiert wird. Definiere eine Varbable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Varbiable aus.",
+            "startingCode" : "",
+            "solution" : "a = 3\na = a + 4\nprint(a)",
+            "output" : "7"   
           }, {
-          "index" : 2,
-          "description" : "Die Addition einer Zahl zu einer Variable a kann auch abgekürzt mit a += n geschrieben werden. Dies hat dabei die gleiche Bedeutung wie a = a + n. Definiere nun eine Variable q mit dem Wert 5, addiere in einem ersten Schritt 18, gib das Zwischenresultat aus und addiere dazu in einem zweiten Schritt 1053 und gib q aus.",
-          "startingCode" : "",
-          "solution" : "q = 5\nq += 18\nprint(q)\nq += 1053\nprint(q)",
-          "output" : "23\n1076"   
+            "index" : 2,
+            "description" : "Die Addition einer Zahl zu einer Variable a kann auch abgekürzt mit a += n geschrieben werden. Dies hat dabei die gleiche Bedeutung wie a = a + n. Definiere nun eine Variable q mit dem Wert 5, addiere in einem ersten Schritt 18, gib das Zwischenresultat aus und addiere dazu in einem zweiten Schritt 1053 und gib q aus.",
+            "startingCode" : "",
+            "solution" : "q = 5\nq += 18\nprint(q)\nq += 1053\nprint(q)",
+            "output" : "23\n1076"   
           }, {
-          "index" : 3,
-          "description" : "Wie für die Addition einer Zahl zu einer Variable a kann auch eine Multiplikation einer Zahl mit einer Variable mit a *= n geschrieben werden. Definiere nun eine Variable b mit dem Wert 23 und multipliziere diese mit 14. Gib das Resultat aus.",
-          "startingCode" : "",
-          "solution" : "b = 23\nb *= 14\nprint(b)",
-          "output" : "322"   
+            "index" : 3,
+            "description" : "Wie für die Addition einer Zahl zu einer Variable a kann auch eine Multiplikation einer Zahl mit einer Variable mit a *= n geschrieben werden. Definiere nun eine Variable b mit dem Wert 23 und multipliziere diese mit 14. Gib das Resultat aus.",
+            "startingCode" : "",
+            "solution" : "b = 23\nb *= 14\nprint(b)",
+            "output" : "322"   
           }, {
-          "index" : 4,
-          "description" : "Definiere eine Variable z mit dem Wert 5, addiere 7, multipliziere sie mit 9 und addiere 4. Gib jeweils die Zwischenresultate und das Endresultat aus.",
-          "startingCode" : "",
-          "solution" : "z = 5\nz += 7\nprint(z)\nz *= 9\nprint(z)\nz += 4\nprint(z)",
-          "output" : "12\n108\n112"   
+            "index" : 4,
+            "description" : "Definiere eine Variable z mit dem Wert 5, addiere 7, multipliziere sie mit 9 und addiere 4. Gib jeweils die Zwischenresultate und das Endresultat aus.",
+            "startingCode" : "",
+            "solution" : "z = 5\nz += 7\nprint(z)\nz *= 9\nprint(z)\nz += 4\nprint(z)",
+            "output" : "12\n108\n112"   
           }, {
-          "index" : 5,
-          "description" : "Mit a ** b kann eine Variable a hoch eine Variable b gerechnet werden. Definiere eine Variable c mit dem Wert 25 und eine Variable e mit dem Wert 24. Addiere 5 zu c und rechne danach c hoch e und gib das Resultat aus.",
-          "startingCode" : "",
-          "solution" : "c = 25\ne = 24\nc += 5\nc = c ** e\nprint(c)",
-          "output" : "282429536481000000000000000000000000"   
+            "index" : 5,
+            "description" : "Mit a ** b kann eine Variable a hoch eine Variable b gerechnet werden. Definiere eine Variable c mit dem Wert 25 und eine Variable e mit dem Wert 24. Addiere 5 zu c und rechne danach c hoch e und gib das Resultat aus.",
+            "startingCode" : "",
+            "solution" : "c = 25\ne = 24\nc += 5\nc = c ** e\nprint(c)",
+            "output" : "282429536481000000000000000000000000"   
           }, {
-          "index" : 6,
-          "description" : "Einer Variable kann nicht nur ein Wert zugeorndet werden, sondern auch ein Text. Dieses Datenformat wird dann als String bezeichnet. Der Text kann einer Variable wie folgt definiert und ausgegeben. <code class=\"python\">x = 'String'\nprint(x)</code>Definiere eine Variable text mit dem String von 'Dies ist ein kleiner Text' und gib diese aus.",
-          "startingCode" : "",
-          "solution" : "wert = 'Dies ist ein kleiner Text'\nprint(wert)",
-          "output" : "Dies ist ein kleiner Text"   
+            "index" : 6,
+            "description" : "Einer Variable kann nicht nur ein Wert zugeorndet werden, sondern auch ein Text. Dieses Datenformat wird dann als String bezeichnet. Der Text kann einer Variable wie folgt definiert und ausgegeben. <code class=\"python\">x = 'String'\nprint(x)</code>Definiere eine Variable text mit dem String von 'Dies ist ein kleiner Text' und gib diese aus.",
+            "startingCode" : "",
+            "solution" : "wert = 'Dies ist ein kleiner Text'\nprint(wert)",
+            "output" : "Dies ist ein kleiner Text"   
           }, {
-          "index" : 7,
-          "description" : "Definiere eine Variable wetter mit dem String 'Heute ist ein schoener Tag' und gib diese aus.",
-          "startingCode" : "",
-          "solution" : "wetter = 'Heute ist ein schoener Tag'\nprint(wetter)",
-          "output" : "Heute ist ein schoener Tag"   
+            "index" : 7,
+            "description" : "Definiere eine Variable wetter mit dem String 'Heute ist ein schoener Tag' und gib diese aus.",
+            "startingCode" : "",
+            "solution" : "wetter = 'Heute ist ein schoener Tag'\nprint(wetter)",
+            "output" : "Heute ist ein schoener Tag"   
+            }, {
+            "index" : 8,
+            "description" : "Nun können wir auch zwei Datenformate gleichzeitig ausgeben. Dabei werden die Variablen in der Ausgabe durch Kommata voneinander getrennt. Definiere eine Variable temperatur mit dem Wert 30 und eine Variable wetter mit dem String 'Es ist warmes Wetter' und gib diese in einer Zeile aus.",
+            "startingCode" : "",
+            "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
+            "output" : "(30, 'Es ist warmes Wetter')"
           }, {
-          "index" : 8,
-          "description" : "Nun können wir auch zwei Datenformate gleichzeitig ausgeben. Dabei werden die Variablen in der Ausgabe durch Kommata voneinander getrennt. Definiere eine Variable temperatur mit dem Wert 30 und eine Variable wetter mit dem String 'Es ist warmes Wetter' und gib diese in einer Zeile aus.",
-          "startingCode" : "",
-          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
-          "output" : "(30, 'Es ist warmes Wetter')"
+            "index" : 9,
+            "description" : "Bei der letzten Aufgabe haben wir gemerkt, dass die Ausgabe mit Klammern und Kommata versehen war, die wir nicht wollen. Man kann mit Python Ausgaben machen, die nur für Strings funktionieren, weshalb wir die nachfolgende Variable y, der ein Integer zugeordnet ist zuerst in einen String umwandeln müssen.<code class=\"python\">x = 'String'\ny = 20\ny = str(y)\nprint(x + y)</code>Verändere nun das Programm aus der letzten Aufgabe, sodass der Output keine Kommata oder Klammern enthält.",
+            "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
+            "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
+            "output" : "30Es ist warmes Wetter"
           }, {
-          "index" : 9,
-          "description" : "Bei der letzten Aufgabe haben wir gemerkt, dass die Ausgabe mit Klammern und Kommata versehen war, die wir nicht wollen. Man kann mit Python Ausgaben machen, die nur für Strings funktionieren, weshalb wir die nachfolgende Variable y, der ein Integer zugeordnet ist zuerst in einen String umwandeln müssen.<code class=\"python\">x = 'String'\ny = 20\ny = str(y)\nprint(x + y)</code>Verändere nun das Programm aus der letzten Aufgabe, sodass der Output keine Kommata oder Klammern enthält.",
-          "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\nprint(temperatur, wetter)",
-          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
-          "output" : "30Es ist warmes Wetter"
+            "index" : 10,
+            "description" : "Das Problem mit der Ausgabe der letzten Aufgabe war, dass wir mit der Ausgabe der Strings keinen Leerschlag zweischen der Nummer und der Beschreibung haben. Verändere nun den Code der letzten Aufgabe um einen Leerschlag zwischen der Nummer und der Beschreibung zu erhalten.",
+            "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
+            "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + ' ' + wetter)",
+            "output" : "30 Es ist warmes Wetter"
           }, {
-          "index" : 10,
-          "description" : "Das Problem mit der Ausgabe der letzten Aufgabe war, dass wir mit der Ausgabe der Strings keinen Leerschlag zweischen der Nummer und der Beschreibung haben. Verändere nun den Code der letzten Aufgabe um einen Leerschlag zwischen der Nummer und der Beschreibung zu erhalten.",
-          "startingCode" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + wetter)",
-          "solution" : "temperatur = 30\nwetter = 'Es ist warmes Wetter'\ntemperatur = str(temperatur)\nprint(temperatur + ' ' + wetter)",
-          "output" : "30 Es ist warmes Wetter"
-          }, {
-          "index" : 11,
-          "description" : "Benutze nun die vorher gelernten Tools um das Ausgabenformat zu verbessern und schreibe ein Programm, in dem eine Variable windgeschwindigkeit mit dem Wert 120 definiert wird und zweite Variable warnung mit dem String 'Es gibt einen Sturm'. Diese beiden Variablen sollen nun auf einer Zeile ausgegeben werden.",
-          "startingCode" : "",
-          "solution" : "windgeschwindigkeit = 120\nwarnung = 'Es gibt einen Sturm'\nwindgeschwindigkeit = str(windgeschwindigkeit)\nprint(windgeschwindigkeit + ' ' + warnung)",
-          "output" : "120 Es gibt einen Sturm"
+            "index" : 11,
+            "description" : "Benutze nun die vorher gelernten Tools um das Ausgabenformat zu verbessern und schreibe ein Programm, in dem eine Variable windgeschwindigkeit mit dem Wert 120 definiert wird und zweite Variable warnung mit dem String 'Es gibt einen Sturm'. Diese beiden Variablen sollen nun auf einer Zeile ausgegeben werden.",
+            "startingCode" : "",
+            "solution" : "windgeschwindigkeit = 120\nwarnung = 'Es gibt einen Sturm'\nwindgeschwindigkeit = str(windgeschwindigkeit)\nprint(windgeschwindigkeit + ' ' + warnung)",
+            "output" : "120 Es gibt einen Sturm"
           }]
     }, {
       "index" : 2,
       "title" : "Logische Operationen",
       "description" : "Als Logische Operationen bezeichnen wir die Operationen mit den Logischen Operatoren. Diese erfordern als Input einen, oder mehrere (meist zwei) Wahrheitswerte und geben als Output wiederum einen Wahrheitswert, also entweder True, oder False, aus. Hier werden die wichtigsten Logischen Operatoren aufgeführt.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Ein Logischer Operator, der nur einen Input braucht ist der not-Operator, oder aus das Komplement genannt. Dieser Operator konvertiert den Wahrheitswert einer Aussage oder Variable. Aus True wird also False und aus False wird True. Definiere eine Variable a mit dem Wahrheitswert True und gib diese aus. Wandle sie danach mit dem not-Operator um, indem du einfach a = not a in eine Programmzeile schreibst und gib sie erneut aus.",
-          "startingCode" : "",
-          "solution" : "a = True\nprint(a)\na = not a\nprint(a)",
-          "output" : "True\nFalse"
+            "index" : 0,
+            "description" : "Ein Logischer Operator, der nur einen Input braucht ist der not-Operator, oder aus das Komplement genannt. Dieser Operator konvertiert den Wahrheitswert einer Aussage oder Variable. Aus True wird also False und aus False wird True. Definiere eine Variable a mit dem Wahrheitswert True und gib diese aus. Wandle sie danach mit dem not-Operator um, indem du einfach a = not a in eine Programmzeile schreibst und gib sie erneut aus.",
+            "startingCode" : "",
+            "solution" : "a = True\nprint(a)\na = not a\nprint(a)",
+            "output" : "True\nFalse"
           }, {
-          "index" : 1,
-          "description" : "Ein Logischer Operator, mit dem ausgegeben werden kann, ob eine Variable einen bestimmten Wert hat. Dieser Operator wird mit folgendermassen geschrieben:<code class=\"python\">a = 5\nb = a is 5</code>Dabei wird unter b der Wahrheitswert True abgespeichert, der Variable a der Wert 5 zugeordnet wurde. Schreibe ein Programm, in dem eine Variable x mit dem Wert 'Koordinate' definiert wird und gib in einer Zeile den Wahrheitswert aus, ob unter x der Wert 5 abgespeichert ist und in der nächsten ob unter x der Wert 'Koordinate' abgespeichert ist.",
-          "startingCode" : "",
-          "solution" : "x = 'Koordinate'\nprint(x is 5)\nprint(x is 'Koordinate')",
-          "output" : "False\nTrue"
+            "index" : 1,
+            "description" : "Ein Logischer Operator, mit dem ausgegeben werden kann, ob eine Variable einen bestimmten Wert hat. Dieser Operator wird mit folgendermassen geschrieben:<code class=\"python\">a = 5\nb = a is 5</code>Dabei wird unter b der Wahrheitswert True abgespeichert, der Variable a der Wert 5 zugeordnet wurde. Schreibe ein Programm, in dem eine Variable x mit dem Wert 'Koordinate' definiert wird und gib in einer Zeile den Wahrheitswert aus, ob unter x der Wert 5 abgespeichert ist und in der nächsten ob unter x der Wert 'Koordinate' abgespeichert ist.",
+            "startingCode" : "",
+            "solution" : "x = 'Koordinate'\nprint(x is 5)\nprint(x is 'Koordinate')",
+            "output" : "False\nTrue"
           }, {
-          "index" : 2,
-          "description" : "Der Operator is kann auch als mathematisches Zeichen geschrieben werden. Dieses Zeichen wäre dabei ein doppeltes Gleichheitszeichen (==). Definiere eine Variable q mit dem Wert 5 und frage mit dem is-Operator ab, ob unter der Variable der Wert 2 abgespeichert ist.",
-          "startingCode" : "",
-          "solution" : "q = 5\nprint(q == 2)",
-          "output" : "False"
+            "index" : 2,
+            "description" : "Der Operator is kann auch als mathematisches Zeichen geschrieben werden. Dieses Zeichen wäre dabei ein doppeltes Gleichheitszeichen (==). Definiere eine Variable q mit dem Wert 5 und frage mit dem is-Operator ab, ob unter der Variable der Wert 2 abgespeichert ist.",
+            "startingCode" : "",
+            "solution" : "q = 5\nprint(q == 2)",
+            "output" : "False"
           }, {
-          "index" : 3,
-          "description" : "Um zu testen, ob ein Wert kleiner oder grösser als ein anderer Wert ist können wir die dafür vorgesehenen mathematischen Operatoren benutzen. Dabei bedeutet a < b: a kleiner b, a > b: a grösser b, a <= b: a kleiner oder gleich b, a >= b: a grösser oder gleich b. Schreibe ein Programm, welches testet, ob 5 kleiner als 5 ist und gib das Resultat aus.",
-          "startingCode" : "",
-          "solution" : "a = 5 < 5\nprint(a)",
-          "output" : "False"
+            "index" : 3,
+            "description" : "Um zu testen, ob ein Wert kleiner oder grösser als ein anderer Wert ist können wir die dafür vorgesehenen mathematischen Operatoren benutzen. Dabei bedeutet a < b: a kleiner b, a > b: a grösser b, a <= b: a kleiner oder gleich b, a >= b: a grösser oder gleich b. Schreibe ein Programm, welches testet, ob 5 kleiner als 5 ist und gib das Resultat aus.",
+            "startingCode" : "",
+            "solution" : "a = 5 < 5\nprint(a)",
+            "output" : "False"
           }, {
-          "index" : 4,
-          "description" : "Der and-Operator ist ein Operator, der als Input zwei Argumente, also Wahrheitswerte benötigt. Als Output gibt der and-Operator True aus wenn beide Wahrheitswerte ebenfalls True waren und False, wenn mindestens eines der Argumente False war. Schreibe ein Programm, welches austestet, ob der vorgegebenen Variable a der Wahrheitswert zugeordnet ist und ob der Variable b der Wert 7 zugeordnet ist und gib den Output aus.",
-          "startingCode" : "a = True\nb = 7",
-          "solution" : "a = True\nb = 7\nvalue = a and b == 7\nprint(value)",
-          "output" : "True"
+            "index" : 4,
+            "description" : "Der and-Operator ist ein Operator, der als Input zwei Argumente, also Wahrheitswerte benötigt. Als Output gibt der and-Operator True aus wenn beide Wahrheitswerte ebenfalls True waren und False, wenn mindestens eines der Argumente False war. Schreibe ein Programm, welches austestet, ob der vorgegebenen Variable a der Wahrheitswert zugeordnet ist und ob der Variable b der Wert 7 zugeordnet ist und gib den Output aus.",
+            "startingCode" : "a = True\nb = 7",
+            "solution" : "a = True\nb = 7\nvalue = a and b == 7\nprint(value)",
+            "output" : "True"
           }, {
-          "index" : 5,
-          "description" : "Schreibe ein Programm, welches den Wahrheitswert dafür ausgibt, ob unter der vorgegebenen Variable a keine 7 abgespeichert ist. Benutze dafür eine Kombination der is und not-Operatoren.",
-          "startingCode" : "a = 18",
-          "solution" : "a = 18\nbool = a is not 7\nprint(bool)",
-          "output" : "True"
+            "index" : 5,
+            "description" : "Schreibe ein Programm, welches den Wahrheitswert dafür ausgibt, ob unter der vorgegebenen Variable a keine 7 abgespeichert ist. Benutze dafür eine Kombination der is und not-Operatoren.",
+            "startingCode" : "a = 18",
+            "solution" : "a = 18\nbool = a is not 7\nprint(bool)",
+            "output" : "True"
           }, {
-          "index" : 6,
-          "description" : "Die Kombination aus dem is und dem not-Operator kann auch mit einem Operator geschrieben werden: a != 7. Gib den Wahrheitswert dafür aus, dass die vorgegebene Variable  q ungleich 8 und ungleich 9 ist.",
-          "startingCode" : "q = 9",
-          "solution" : "q = 9\nbool = q != 8 and q != 9\nprint(bool)",
-          "output" : "False"
+            "index" : 6,
+            "description" : "Die Kombination aus dem is und dem not-Operator kann auch mit einem Operator geschrieben werden: a != 7. Gib den Wahrheitswert dafür aus, dass die vorgegebene Variable  q ungleich 8 und ungleich 9 ist.",
+            "startingCode" : "q = 9",
+            "solution" : "q = 9\nbool = q != 8 and q != 9\nprint(bool)",
+            "output" : "False"
           }, {
-          "index" : 7,
-          "description" : "Noch ein wichtiger Logischer Operator ist der or-Operator. Dieser Operator steht dabei zwischen zwei Wahrheitswerten und gibt True aus, wenn mindestens einer dieser Wahrheistwerte True ist und False, wenn beide Wahrheitswerte False sind. Verwende einen or-Operator, um zu testen ob unter der vorgegebenen Variable x ein Wert grösser 5 definiert ist oder ein Wert kleiner 5 und gib das Resultat aus.",
-          "startingCode" : "x = 5",
-          "solution" : "x = 5\na = x > 5 or x < 5\nprint(a)",
-          "output" : "False"
+            "index" : 7,
+            "description" : "Noch ein wichtiger Logischer Operator ist der or-Operator. Dieser Operator steht dabei zwischen zwei Wahrheitswerten und gibt True aus, wenn mindestens einer dieser Wahrheistwerte True ist und False, wenn beide Wahrheitswerte False sind. Verwende einen or-Operator, um zu testen ob unter der vorgegebenen Variable x ein Wert grösser 5 definiert ist oder ein Wert kleiner 5 und gib das Resultat aus.",
+            "startingCode" : "x = 5",
+            "solution" : "x = 5\na = x > 5 or x < 5\nprint(a)",
+            "output" : "False"
           }]
     }, {
       "index" : 3,
       "title" : "If-else-Verzweigungen",
       "description" : "Da wir gelernt haben Variablen zu definieren und auszugeben und mit logischen Operationen Wahrheitswerte auszugeben können wir uns anschauen, wie wir diese Verarbeiten können. Dieses Kapitel befasst sich mit if-else-Verzweigungen. Eine if-Verzweigung ist besteht aus einer Bedingung und einem ausführenden Teil. Die Bedingung liefert dabei einen Wahrheitswert, wie wir ihn im letzten Kapitel kennengelernt haben. Falls der Wahrheitswert True ist wird der Teil nach der If-Bedingung ausgeführt. Falls dieser Wahrheitswert False ist wird der Teil nach dem Else ausgeführt. If-else-Verzweigungen werden folgendermassen definiert: <code class=\"python\">a = False\nb = True\nif a:\n\tx = 1\nelif b:\n\tx = 2\nelse:\n\tx = 3</code>Dabei wird also zuerst geschaut, ob a Wahr ist, wenn nicht wird geschaut, ob b Wahr ist, wenn nicht dann wird das else ausgeführt. Da a als False definiert wurde wird dieser Teil übersprungen und da b True ist wird dieser Teil ausgeführt, also wird der Wert 3 der Variable x zugeordnet.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Schreibe ein Programm, welches 'a ist wahr' ausgibt, wenn der vorgegebenen Variable a der Wert True zugeordnet ist.",
-          "startingCode" : "a = True",
-          "solution" : "a = True\nif a:\n\tprint('a ist wahr')",
-          "output" : "a ist wahr"
+            "index" : 0,
+            "description" : "Schreibe ein Programm, welches 'a ist wahr' ausgibt, wenn der vorgegebenen Variable a der Wert True zugeordnet ist.",
+            "startingCode" : "a = True",
+            "solution" : "a = True\nif a:\n\tprint('a ist wahr')",
+            "output" : "a ist wahr"
           }, {
-          "index" : 1,
-          "description" : "Erweitere das Programm aus der letzten Aufgabe um ein else-Bedingung, sodass 'a ist falsch' ausgegeben wird, wenn die Bedingung nicht erfüllt wurde, also a als False definiert ist.",
-          "startingCode" : "a = False\nif a:\n\tprint('a ist wahr')",
-          "solution" : "a = False\nif a:\n\tprint('a ist wahr')\nelse:\n\tprint('a ist falsch')",
-          "output" : "a ist falsch"
+            "index" : 1,
+            "description" : "Erweitere das Programm aus der letzten Aufgabe um ein else-Bedingung, sodass 'a ist falsch' ausgegeben wird, wenn die Bedingung nicht erfüllt wurde, also a als False definiert ist.",
+            "startingCode" : "a = False\nif a:\n\tprint('a ist wahr')",
+            "solution" : "a = False\nif a:\n\tprint('a ist wahr')\nelse:\n\tprint('a ist falsch')",
+            "output" : "a ist falsch"
           }, {
-          "index" : 2,
-          "description" : "Verändere das Programm aus der letzten Aufgabe nun so, dass a durch die Bedingung definiert wird, ob 3 gleichwertig zu 'drei' ist und gib das Resultat um vorgegebenen Format aus.",
-          "startingCode" : "a = False\nif a:\n\tprint('a ist wahr')\nelse:\n\tprint('a ist falsch')",
-          "solution" : "a = 3 == 'drei'\nif a:\n\tprint('3 ist gleich drei')\nelse:\n\tprint('3 ist ungleich drei')",
-          "output" : "3 ist ungleich drei"
+            "index" : 2,
+            "description" : "Verändere das Programm aus der letzten Aufgabe nun so, dass a durch die Bedingung definiert wird, ob 3 gleichwertig zu 'drei' ist und gib das Resultat um vorgegebenen Format aus.",
+            "startingCode" : "a = False\nif a:\n\tprint('a ist wahr')\nelse:\n\tprint('a ist falsch')",
+            "solution" : "a = 3 == 'drei'\nif a:\n\tprint('3 ist gleich drei')\nelse:\n\tprint('3 ist ungleich drei')",
+            "output" : "3 ist ungleich drei"
           }, {
-          "index" : 3,
-          "description" : "Modifiziere das Programm aus der letzten Aufgabe so, dass die Zahl 3 mit dem String '3' verglichen wird. Gib das Resultat im vorgegebenen Format aus.",
-          "startingCode" : "a = 3 == 'drei'\nif a:\n\tprint('3 ist gleich drei')\nelse:\n\tprint('3 ist ungleich drei')",
-          "solution" : "a = 3 == '3'\nif a:\n\tprint('3 ist gleich 3')\nelse:\n\tprint('3 ist ungleich 3')",
-          "output" : "3 ist ungleich 3"
+            "index" : 3,
+            "description" : "Modifiziere das Programm aus der letzten Aufgabe so, dass die Zahl 3 mit dem String '3' verglichen wird. Gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "a = 3 == 'drei'\nif a:\n\tprint('3 ist gleich drei')\nelse:\n\tprint('3 ist ungleich drei')",
+            "solution" : "a = 3 == '3'\nif a:\n\tprint('3 ist gleich 3')\nelse:\n\tprint('3 ist ungleich 3')",
+            "output" : "3 ist ungleich 3"
           }, {
-          "index" : 4,
-          "description" : "Verändere das Programm nun so, dass es die Zahl 3 mit dem Integerwert vom String '3' vergleicht. Benutze dafür die Funktion int(x), die einen String x in seinen Integerwert umwandelt und gib das Resultat im vorgegebenen Format aus.",
-          "startingCode" : "a = 3 == '3'\nif a:\n\tprint('3 ist gleich dem Integerwert von 3')\nelse:\n\tprint('3 ist ungleich dem Integerwert von 3')",
-          "solution" : "a = 3 == int('3')\nif a:\n\tprint('3 ist gleich dem Integerwert von 3')\nelse:\n\tprint('3 ist ungleich dem Integerwert von 3')",
-          "output" : "3 ist gleich dem Integerwert von 3"
+            "index" : 4,
+            "description" : "Verändere das Programm nun so, dass es die Zahl 3 mit dem Integerwert vom String '3' vergleicht. Benutze dafür die Funktion int(x), die einen String x in seinen Integerwert umwandelt und gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "a = 3 == '3'\nif a:\n\tprint('3 ist gleich dem Integerwert von 3')\nelse:\n\tprint('3 ist ungleich dem Integerwert von 3')",
+            "solution" : "a = 3 == int('3')\nif a:\n\tprint('3 ist gleich dem Integerwert von 3')\nelse:\n\tprint('3 ist ungleich dem Integerwert von 3')",
+            "output" : "3 ist gleich dem Integerwert von 3"
           }, {
-          "index" : 4,
-          "description" : "Der Boolean muss jedoch nicht wie bisher als Variable definiert werden. Er kann auch direkt in der If-else-Verzweigung geschrieben werden: <code class=\"python\">a = 5\nif a == 5:\n\tprint('a hat den Wert 5')</code>Schreibe ein Programm, das testet, ob unter der vorgegebenen Variable x der Wert 9 oder unter der vorgegebenen Variable y der Wert 8 definiert ist und gib das Resultat im vorgegeben Format aus.",
-          "startingCode" : "x = 104\ny = 9\nprint('Mindestens eine Bedingung trifft zu')\nprint('Keine Bedingnung trifft zu')",
-          "solution" : "x = 104\ny = 9\nif x == 9 or y == 8:\n\tprint('Mindestens eine Bedingung trifft zu')\nelse:\n\tprint('Keine Bedingnung trifft zu')",
-          "output" : "Keine Bedingung trifft zu"
+            "index" : 4,
+            "description" : "Der Boolean muss jedoch nicht wie bisher als Variable definiert werden. Er kann auch direkt in der If-else-Verzweigung geschrieben werden: <code class=\"python\">a = 5\nif a == 5:\n\tprint('a hat den Wert 5')</code>Schreibe ein Programm, das testet, ob unter der vorgegebenen Variable x der Wert 9 oder unter der vorgegebenen Variable y der Wert 8 definiert ist und gib das Resultat im vorgegeben Format aus.",
+            "startingCode" : "x = 104\ny = 9\nprint('Mindestens eine Bedingung trifft zu')\nprint('Keine Bedingnung trifft zu')",
+            "solution" : "x = 104\ny = 9\nif x == 9 or y == 8:\n\tprint('Mindestens eine Bedingung trifft zu')\nelse:\n\tprint('Keine Bedingnung trifft zu')",
+            "output" : "Keine Bedingung trifft zu"
           }, {
-          "index" : 5,
-          "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90 definiert wird, teste mit einer If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
-          "startingCode" : "print(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
-          "solution" : "a = 90\nif a == 90:\n\tprint(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nelse:\n\tprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
-          "output" : "90 ist der Wert 90 zugeordnet"
+            "index" : 5,
+            "description" : "Erstelle ein Programm, in dem eine Variable a mit dem Wert 90 definiert wird, teste mit einer If-else-Verzweigung, ob der Variable der Wert 90 zugeordnet ist oder nicht und gibt das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "print(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
+            "solution" : "a = 90\nif a == 90:\n\tprint(str(a) + ' ' + 'ist der Wert 90 zugeordnet')\nelse:\n\tprint(str(a) + ' ' + 'ist nicht der Wert 90 zugeordnet')",
+            "output" : "90 ist der Wert 90 zugeordnet"
           }, {
-          "index" : 6,
-          "description" : "Modifiziere die if-else-Verzweigung so, dass das Programm im vorgegebenen Format ausgibt, ob x grösser, gleich oder kleiner als 9 ist.",
-          "startingCode" : "x = 9\nif x < 9:\n\tprint('x ist groesser als 9')\nelif x = 13:\n\tprint('x ist gleich 9')\n\n\tprint('x ist kleiner als 9')",
-          "solution" : "x = 9\nif x > 9:\n\tprint('x ist groesser als 9')\nelif x == 9:\n\tprint('x ist gleich 9')\nelse:\n\tprint('x ist kleiner als 9')",
-          "output" : "x ist gleich 9"
+            "index" : 6,
+            "description" : "Modifiziere die if-else-Verzweigung so, dass das Programm im vorgegebenen Format ausgibt, ob x grösser, gleich oder kleiner als 9 ist.",
+            "startingCode" : "x = 9\nif x < 9:\n\tprint('x ist groesser als 9')\nelif x = 13:\n\tprint('x ist gleich 9')\n\n\tprint('x ist kleiner als 9')",
+            "solution" : "x = 9\nif x > 9:\n\tprint('x ist groesser als 9')\nelif x == 9:\n\tprint('x ist gleich 9')\nelse:\n\tprint('x ist kleiner als 9')",
+            "output" : "x ist gleich 9"
           }, {
-          "index" : 7,
-          "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht und das Ergebnis im vorgegebenen Format ausgibt.",
-          "startingCode" : "x = 5\ny = 7\nprint('x ist groesser als y')\nprint('x ist gleich y')\nprint('x ist kleiner als y')",
-          "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
-          "output" : "x ist kleiner als y"   
+            "index" : 7,
+            "description" : "Erstelle ein Programm, das die zwei vorgegebenen Variablen x und y vergleicht und das Ergebnis im vorgegebenen Format ausgibt.",
+            "startingCode" : "x = 5\ny = 7\nprint('x ist groesser als y')\nprint('x ist gleich y')\nprint('x ist kleiner als y')",
+            "solution" : "x = 5\ny = 7\nif x > y:\n\tprint('x ist groesser als y')\nelif x == y:\n\tprint('x ist gleich y')\nelse:\n\tprint('x ist kleiner als y')",
+            "output" : "x ist kleiner als y"   
           }, {
-          "index" : 8,
-          "description" : "Erweitere das Programm aus der letzten Aufgabe nun um ein Programm zu estellen, das x mit den beiden vorgegebenen Variablen y und z vergleicht.",
-          "startingCode" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tprint('x ist groesser als y und z')\nelif x == y:\n\tprint('x ist gleich y und groesser als z')\nelse:\n\tprint('x ist kleiner als y und gleich z')",
-          "solution" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tif x > z:\n\t\tprint('x ist groesser als y und z')\n\telif x == z:\n\t\tprint('x ist groesser als y und gleich z')\n\telse:\n\t\tprint('x ist groesser als y und kleiner als z')\nelif x == y:\n\tif x > z:\n\t\tprint('x ist gleich y und groesser als z')\n\telif x == z:\n\t\tprint('x ist gleich y und z')\n\telse:\n\t\tprint('x ist gleich y und kleiner als z')\nelse:\n\tif x > z:\n\t\tprint('x ist kleiner als y und groesser als z')\n\telif x == z:\n\t\tprint('x ist kleiner als y und gleich z')\n\telse:\n\t\tprint('x ist kleiner als y und z')",
-          "output" : "x ist kleiner als y und gleich z"   
+            "index" : 8,
+            "description" : "Erweitere das Programm aus der letzten Aufgabe nun um ein Programm zu estellen, das x mit den beiden vorgegebenen Variablen y und z vergleicht.",
+            "startingCode" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tprint('x ist groesser als y und z')\nelif x == y:\n\tprint('x ist gleich y und groesser als z')\nelse:\n\tprint('x ist kleiner als y und gleich z')",
+            "solution" : "x = 9\ny = 13\nz = 9\nif x > y:\n\tif x > z:\n\t\tprint('x ist groesser als y und z')\n\telif x == z:\n\t\tprint('x ist groesser als y und gleich z')\n\telse:\n\t\tprint('x ist groesser als y und kleiner als z')\nelif x == y:\n\tif x > z:\n\t\tprint('x ist gleich y und groesser als z')\n\telif x == z:\n\t\tprint('x ist gleich y und z')\n\telse:\n\t\tprint('x ist gleich y und kleiner als z')\nelse:\n\tif x > z:\n\t\tprint('x ist kleiner als y und groesser als z')\n\telif x == z:\n\t\tprint('x ist kleiner als y und gleich z')\n\telse:\n\t\tprint('x ist kleiner als y und z')",
+            "output" : "x ist kleiner als y und gleich z"   
           }, {
-          "index" : 9,
-          "description" : "Erstelle ein Programm, dass eine Variable x mit dem Wert 13 definiert und danach testet, ob es sich beim Wert dieser Variable um einen String oder um einen Integer handelt. Verwende dafür die in Python vordefinierten Funktionen str(x) und int(x), wobei x die Variable, deren Datentyp getestet werden soll. Gib das Resultat im vorgegebenen Format aus.",
-          "startingCode" : "print(str(x) + ' ' + 'ist ein Integer')\nprint(str(x) + ' ' + 'ist ein String')",
-          "solution" : "x = 13\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')",
-          "output" : "13 ist ein Integer"
+            "index" : 9,
+            "description" : "Erstelle ein Programm, dass eine Variable x mit dem Wert 13 definiert und danach testet, ob es sich beim Wert dieser Variable um einen String oder um einen Integer handelt. Verwende dafür die in Python vordefinierten Funktionen str(x) und int(x), wobei x die Variable, deren Datentyp getestet werden soll. Gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "print(str(x) + ' ' + 'ist ein Integer')\nprint(str(x) + ' ' + 'ist ein String')",
+            "solution" : "x = 13\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')",
+            "output" : "13 ist ein Integer"
           }, {
-          "index" : 10,
-          "description" : "Erstelle ein Programm, welches den Datentyp der vorgegebenen Variablen x, y und z herausfinden kann und das Ergebnis im vorgegebenen Format ausgibt.",
-          "startingCode" : "x = '14'\ny = 41\nz = 123.5\nprint('ist ein Integer')\nprint('ist ein String')\nprint('ist weder ein Integer, noch ein String')",
-          "solution" : "x = '14'\ny = 41\nz = 123.5\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nelif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')\nelse:\n\tprint(str(x) + ' ' + 'ist weder ein Integer, noch ein String')\nif y == int(y):\n\tprint(str(y) + ' ' + 'ist ein Integer')\nelif y == str(y):\n\tprint(str(y) + ' ' + 'ist ein String')\nelse:\n\tprint(str(y) + ' ' + 'ist weder ein Integer, noch ein String')\nif z == int(z):\n\tprint(str(z) + ' ' + 'ist ein Integer')\nelif z == str(z):\n\tprint(str(z) + 'ist ein String')\nelse:\n\tprint(str(z) + ' ' + 'ist weder ein Integer, noch ein String')",
-          "output" : "14 ist ein String\n41 ist ein Integer\n123.5 ist weder ein Integer, noch ein String"
+            "index" : 10,
+            "description" : "Erstelle ein Programm, welches den Datentyp der vorgegebenen Variablen x, y und z herausfinden kann und das Ergebnis im vorgegebenen Format ausgibt.",
+            "startingCode" : "x = '14'\ny = 41\nz = 123.5\nprint('ist ein Integer')\nprint('ist ein String')\nprint('ist weder ein Integer, noch ein String')",
+            "solution" : "x = '14'\ny = 41\nz = 123.5\nif x == int(x):\n\tprint(str(x) + ' ' + 'ist ein Integer')\nelif x == str(x):\n\tprint(str(x) + ' ' + 'ist ein String')\nelse:\n\tprint(str(x) + ' ' + 'ist weder ein Integer, noch ein String')\nif y == int(y):\n\tprint(str(y) + ' ' + 'ist ein Integer')\nelif y == str(y):\n\tprint(str(y) + ' ' + 'ist ein String')\nelse:\n\tprint(str(y) + ' ' + 'ist weder ein Integer, noch ein String')\nif z == int(z):\n\tprint(str(z) + ' ' + 'ist ein Integer')\nelif z == str(z):\n\tprint(str(z) + 'ist ein String')\nelse:\n\tprint(str(z) + ' ' + 'ist weder ein Integer, noch ein String')",
+            "output" : "14 ist ein String\n41 ist ein Integer\n123.5 ist weder ein Integer, noch ein String"
           }, {
-          "index" : 11,
-          "description" : "In der letzten Aufgabe haben wir herausgefunden, dass es auch noch andere Datentyps gibt als nur String und Integer. 123.5 war in diesem Beispiel eine sogenannte Floating Point Zahl. Eine Floating Point Zahl n kann mit int(n) in einen Integer umgewandelt werden. Teste für jede der vorgegebenen Variablen, ob ihnen eine Floating Point Point Zahl zugeordnet ist und gib diese, falls es eine Floating Point Zahl ist im vorgegebenen Format aus. Benutze dafür den Befehl float(n) um eine Zahl beliebigen Datentypes in eine Floating Point Zahl umzuwandeln.",
-          "startingCode" : "a = '112'\nb = 4.3623115\nc = 123.0\nd = 124\nprint(str(a) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(a))\nprint(str(b) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(b))\nprint(str(c) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(c))\nprint(str(d) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(d))",
-          "solution" : "a = '112.235'\nb = 4.3623115\nc = 123.0\nd = 124\nif a == float(a):\n\tprint(str(a) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(a)))\nif b == float(b):\n\tprint(str(b) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(b)))\nif c == float(c):\n\tprint(str(c) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(c)))\nif d == float(d):\n\tprint(str(d) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(d)))",
-          "output" : "4.3623115 ist eine Floating Point Zahl mit dem Integer Wert von 4\n123.0 ist eine Floating Point Zahl mit dem Integer Wert von 123\n124 ist eine Floating Point Zahl mit dem Integer Wert von 124"
+            "index" : 11,
+            "description" : "In der letzten Aufgabe haben wir herausgefunden, dass es auch noch andere Datentyps gibt als nur String und Integer. 123.5 war in diesem Beispiel eine sogenannte Floating Point Zahl. Eine Floating Point Zahl n kann mit int(n) in einen Integer umgewandelt werden. Teste für jede der vorgegebenen Variablen, ob ihnen eine Floating Point Point Zahl zugeordnet ist und gib diese, falls es eine Floating Point Zahl ist im vorgegebenen Format aus. Benutze dafür den Befehl float(n) um eine Zahl beliebigen Datentypes in eine Floating Point Zahl umzuwandeln.",
+            "startingCode" : "a = '112'\nb = 4.3623115\nc = 123.0\nd = 124\nprint(str(a) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(a))\nprint(str(b) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(b))\nprint(str(c) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(c))\nprint(str(d) + ' ' + 'ist eine Floating Point Zahl mit dem Integer Wert von' + ' ' + str(int(d))",
+            "solution" : "a = '112.235'\nb = 4.3623115\nc = 123.0\nd = 124\nif a == float(a):\n\tprint(str(a) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(a)))\nif b == float(b):\n\tprint(str(b) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(b)))\nif c == float(c):\n\tprint(str(c) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(c)))\nif d == float(d):\n\tprint(str(d) + ' ' +\n\t  'ist eine Floating Point Zahl mit dem Integer Wert von'\n\t  + ' ' + str(int(d)))",
+            "output" : "4.3623115 ist eine Floating Point Zahl mit dem Integer Wert von 4\n123.0 ist eine Floating Point Zahl mit dem Integer Wert von 123\n124 ist eine Floating Point Zahl mit dem Integer Wert von 124"
           }]
     }, {
       "index" : 4,
       "title" : "While-Schlaufen",
       "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schlaufen. Eine While-Schlaufe in Python sieht beispielsweise folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schlaufe folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schlaufe abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
-          "startingCode" : "x = 0\nwhile x < :\n\tprint(x)\n\tx += 1",
-          "solution" : "x = 0\nwhile x < 5:\n\tprint(x)\n\tx += 1",
-          "output" : "0\n1\n2\n3\n4"
+            "index" : 0,
+            "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
+            "startingCode" : "x = 0\nwhile x < :\n\tprint(x)\n\tx += 1",
+            "solution" : "x = 0\nwhile x < 5:\n\tprint(x)\n\tx += 1",
+            "output" : "0\n1\n2\n3\n4"
           }, {
             "index" : 1,
             "description" : "Gib ein rechtwinkliges Dreieck bestehend aus Sternen (*) aus, welches aus vier Schichten besteht und dessen jede Schicht immer um einen Stern breiter ist als die Letzte. Die erste Schicht besteht somit aus einem Stern, während die Letzte aus vier besteht.",
@@ -252,23 +252,23 @@
             "solution" : "a = True\nstart = 13\nwhile a:\n\tif start < 136:\n\t\tif start % 7 == 0:\n\t\t\tprint(start)\n\t\tstart += 1\n\telse:\n\t\ta = False",
             "output" : "14\n21\n28\n35\n42\n49\n56\n63\n70\n77\n84\n91\n98\n105\n112\n119\n126\n133"
           }, {
-          "index" : 5,
-          "description" : "Es kann auch eine While-Schlaufe innerhalb einer While-Schlaufe ausgeführt werden. Schreibe ein Programm, das die Zahlen von 1 bis und mit 10, immer mit den zwei nachfolgenden Zahlen, also im Format: 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, ..., 10, 11, 12 mit einer Zahl pro Zeile ausgibt.",
-          "startingCode" : "",
-          "solution" : "x = 1\nwhile x < 11:\n\ty = x\n\twhile y < x + 3:\n\t\tprint(y)\n\t\ty += 1\n\tx += 1",
-          "output" : "1\n2\n3\n2\n3\n4\n3\n4\n5\n4\n5\n6\n5\n6\n7\n6\n7\n8\n7\n8\n9\n8\n9\n10\n9\n10\n11\n10\n11\n12"
+            "index" : 5,
+            "description" : "Es kann auch eine While-Schlaufe innerhalb einer While-Schlaufe ausgeführt werden. Schreibe ein Programm, das die Zahlen von 1 bis und mit 10, immer mit den zwei nachfolgenden Zahlen, also im Format: 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, ..., 10, 11, 12 mit einer Zahl pro Zeile ausgibt.",
+            "startingCode" : "",
+            "solution" : "x = 1\nwhile x < 11:\n\ty = x\n\twhile y < x + 3:\n\t\tprint(y)\n\t\ty += 1\n\tx += 1",
+            "output" : "1\n2\n3\n2\n3\n4\n3\n4\n5\n4\n5\n6\n5\n6\n7\n6\n7\n8\n7\n8\n9\n8\n9\n10\n9\n10\n11\n10\n11\n12"
           }, {
-          "index" : 6,
-          "description" : "While-Schlaufen können auch an Anwendungsbeispielen eingesetzt werden. Erstelle ein Programm, welches das Kapital auf einem Konto nach 50 Jahren mit einem Jahreszins von 0.05% und einem Startkapital von 100000 Franken berechnet und ausgibt.",
-          "startingCode" : "",
-          "solution" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time <= endTime:\n\tcapital = capital + capital * interest\n\ttime += 1\nprint(capital)",
-          "output" : "102582.136882"
+            "index" : 6,
+            "description" : "While-Schlaufen können auch an Anwendungsbeispielen eingesetzt werden. Erstelle ein Programm, welches das Kapital auf einem Konto nach 50 Jahren mit einem Jahreszins von 0.05% und einem Startkapital von 100000 Franken berechnet und ausgibt.",
+            "startingCode" : "",
+            "solution" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time <= endTime:\n\tcapital = capital + capital * interest\n\ttime += 1\nprint(capital)",
+            "output" : "102582.136882"
           }, {
-          "index" : 7,
-          "description" : "Erweitere das Programm aus der letzten Aufgabe darum, dass auf das Konto mit gleichen Randbedingnungen (Startkapital 100000 CHF, Jahreszins 0.05%, 50 Jahre Laufzeit) alle fünf Jahre ein Betrag in der Höhe von 10% des momentanen Kontostandes überwiesen wird. Gib das Endkapital nach 50 Jahren aus.",
-          "startingCode" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time <= endTime:\n\tcapital = capital + capital * interest\n\ttime += 1\nprint(capital)",
-          "solution" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time * 5 <= endTime:\n\tcounter = 0\n\twhile counter < 6:\n\t\tcapital = capital + capital * interest\n\t\tcounter += 1\n\tcapital += capital * 0.1\n\ttime += 1\nprint(capital)",
-          "output" : "294881.599039"
+            "index" : 7,
+            "description" : "Erweitere das Programm aus der letzten Aufgabe darum, dass auf das Konto mit gleichen Randbedingnungen (Startkapital 100000 CHF, Jahreszins 0.05%, 50 Jahre Laufzeit) alle fünf Jahre ein Betrag in der Höhe von 10% des momentanen Kontostandes überwiesen wird. Gib das Endkapital nach 50 Jahren aus.",
+            "startingCode" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time <= endTime:\n\tcapital = capital + capital * interest\n\ttime += 1\nprint(capital)",
+            "solution" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time * 5 <= endTime:\n\tcounter = 0\n\twhile counter < 6:\n\t\tcapital = capital + capital * interest\n\t\tcounter += 1\n\tcapital += capital * 0.1\n\ttime += 1\nprint(capital)",
+            "output" : "294881.599039"
           }]
       }, {
       "index" : 5,
@@ -401,128 +401,128 @@
             "solution" : "a = range(35 - 1, 17, -2)\nprint(a)",
             "output" : "[34, 32, 30, 28, 26, 24, 22, 20, 18]"
           }, {
-          "index" : 21,
-          "description" : "Wir können auch einen Wort, also einen String in die einzelnen Buchstaben aufteilen und daraus eine Liste erstellen. Bei einem String können die einzelnen Elemente (Buchstaben) genau gleich ausgewählt werden wir bei einer Liste:<code class=\"python\">a = 'Hallo'\nb = a[0]\nprint(b)</code>Dieser Code würde den String 'H' ausgeben. Schreibe ein Programm, mit dem das Wort 'Programm' in eine Liste, bei der jeder Buchstabe ein Element ist einsetzt und gib diese Liste aus.",
-          "startingCode" : "a = 'Programm'",
-          "solution" : "a = 'Programm'\nb = []\nfor i in range(len(a)):\n\tb.append(a[i])\nprint(b)",
-          "output" : "['P', 'r', 'o', 'g', 'r', 'a', 'm', 'm']"
+            "index" : 21,
+            "description" : "Wir können auch einen Wort, also einen String in die einzelnen Buchstaben aufteilen und daraus eine Liste erstellen. Bei einem String können die einzelnen Elemente (Buchstaben) genau gleich ausgewählt werden wir bei einer Liste:<code class=\"python\">a = 'Hallo'\nb = a[0]\nprint(b)</code>Dieser Code würde den String 'H' ausgeben. Schreibe ein Programm, mit dem das Wort 'Programm' in eine Liste, bei der jeder Buchstabe ein Element ist einsetzt und gib diese Liste aus.",
+            "startingCode" : "a = 'Programm'",
+            "solution" : "a = 'Programm'\nb = []\nfor i in range(len(a)):\n\tb.append(a[i])\nprint(b)",
+            "output" : "['P', 'r', 'o', 'g', 'r', 'a', 'm', 'm']"
           }, {
-          "index" : 22,
-          "description" : "Die Operation aus der vorgerigen Aufgabe kann auch umgekehrt werden. Dies funktioniert aber nur mit Elementen mit dem Datentyp String, aber nicht mit Integer-Elementen. Zum zusammenfügen muss die join-Methode verwendet werden.<code class=\"python\">a = ['q', 'w']\nb = str(''.join(a))</code>Dieser Code erstellt einen String 'qw'. Was vor dem join in den Anführungszeichen steht ist, was eingefügt wird zwischen den einzelnen Elementen. Füge die vorgegebene Liste von Zahlen zu einer Zahl zusammen und gib diese aus.",
-          "startingCode" : "z = [15, 247, 1, 34, 25]",
-          "solution" : "z = [15, 247, 1, 34, 25]\nx = 0\nwhile x < (len(z)):\n\tz[x] = str(z[x])\n\tx += 1\na = int(''.join(z))\nprint(a)",
-          "output" : "1524713425"
+            "index" : 22,
+            "description" : "Die Operation aus der vorgerigen Aufgabe kann auch umgekehrt werden. Dies funktioniert aber nur mit Elementen mit dem Datentyp String, aber nicht mit Integer-Elementen. Zum zusammenfügen muss die join-Methode verwendet werden.<code class=\"python\">a = ['q', 'w']\nb = str(''.join(a))</code>Dieser Code erstellt einen String 'qw'. Was vor dem join in den Anführungszeichen steht ist, was eingefügt wird zwischen den einzelnen Elementen. Füge die vorgegebene Liste von Zahlen zu einer Zahl zusammen und gib diese aus.",
+            "startingCode" : "z = [15, 247, 1, 34, 25]",
+            "solution" : "z = [15, 247, 1, 34, 25]\nx = 0\nwhile x < (len(z)):\n\tz[x] = str(z[x])\n\tx += 1\na = int(''.join(z))\nprint(a)",
+            "output" : "1524713425"
           }]
       }, {
       "index" : 6,
       "title" : "For-Schlaufen",
       "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schlaufen. Eine For-Schlaufe in Python sieht normalerweise so aus: <code class=\"python\">for x in [1, 6, 2]:\n\tprint(x)</code>Hierbei deklariert das Schlagwort for, dass eine For-Schlaufe folgt. Die For-Schleife startet dann mit dem ersten Wert der Liste und arbeitet sich bis zum Letzten durch. Dabei nimmt die Variable, die nach dem Schlagwort for folgt den Wert des jeweiligen Elementes an.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Benutze eine For-Schlaufe, um jedes Element der Liste a je einer Zeile auszugeben.",
-          "startingCode" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]",
-          "solution" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]\nfor element in a:\n\tprint(element)",
-          "output" : "1\n3\n235\n2\n63\n1\n8\n459\n238"
+            "index" : 0,
+            "description" : "Benutze eine For-Schlaufe, um jedes Element der Liste a je einer Zeile auszugeben.",
+            "startingCode" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]",
+            "solution" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]\nfor element in a:\n\tprint(element)",
+            "output" : "1\n3\n235\n2\n63\n1\n8\n459\n238"
           }, {
-          "index" : 1,
-          "description" : "Schreibe eine Liste mit den Zahlen 1, 6, 25, 2 und 4 direkt in eine For-Schlaufe und gibt die Zahlen einzeln ein je einer Zeile aus.",
-          "startingCode" : "",
-          "solution" : "for i in [1, 6, 25, 2, 4]:\n\tprint(i)",
-          "output" : "1\n6\n25\n2\n4"
+            "index" : 1,
+            "description" : "Schreibe eine Liste mit den Zahlen 1, 6, 25, 2 und 4 direkt in eine For-Schlaufe und gibt die Zahlen einzeln ein je einer Zeile aus.",
+            "startingCode" : "",
+            "solution" : "for i in [1, 6, 25, 2, 4]:\n\tprint(i)",
+            "output" : "1\n6\n25\n2\n4"
           }, {
-          "index" : 2,
-          "description" : "Erstelle mit der Range-Funktion eine Liste mit den Zahlen von 0 bis und mit 10 und gib die Elemente dieser Liste mit einer For-Schlaufe aus.",
-          "startingCode" : "",
-          "solution" : "a = range(0, 11)\nfor i in a:\n\tprint(i)",
-          "output" : "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
+            "index" : 2,
+            "description" : "Erstelle mit der Range-Funktion eine Liste mit den Zahlen von 0 bis und mit 10 und gib die Elemente dieser Liste mit einer For-Schlaufe aus.",
+            "startingCode" : "",
+            "solution" : "a = range(0, 11)\nfor i in a:\n\tprint(i)",
+            "output" : "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
           }, {
-          "index" : 3,
-          "description" : "Gib nun die geraden Zahlen zwischen 300 und 309 in je einer Zeile aus, indem du die Range-Funktion direkt in die For-Schlaufe hineinschreibst.",
-          "startingCode" : "",
-          "solution" : "for i in range(300, 309, 2):\n\tprint(i)",
-          "output" : "300\n302\n304\n306\n308"
+            "index" : 3,
+            "description" : "Gib nun die geraden Zahlen zwischen 300 und 309 in je einer Zeile aus, indem du die Range-Funktion direkt in die For-Schlaufe hineinschreibst.",
+            "startingCode" : "",
+            "solution" : "for i in range(300, 309, 2):\n\tprint(i)",
+            "output" : "300\n302\n304\n306\n308"
           }, {
-          "index" : 4,
-          "description" : "Benutze das Schlagwort in, sowie if-else Verzweigungen um eine Liste mit den Elementen, die sowohl in der Liste a, als auch in der Liste b enthalten sind, sowie eine Liste mit den Elementen, die in a aber nicht in b und eine Liste mit den Elementen in b aber nicht in a. Gib diese Listem im vorgegebenen Format aus und behalte die Reihenfolge der Elemente bei.",
-          "startingCode" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
-          "solution" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\naa = []\nab = []\nbb = []\nfor i in a:\n\tif i in b:\n\t\tab.append(i)\n\telse:\n\t\taa.append(i)\nfor i in b:\n\tif i not in a:\n\t\tbb.append(i)\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
-          "output" : "In a und b [6, 2, 3]\nNur in a [1, 7]\nNur in b [4, 9, 8]"
+            "index" : 4,
+            "description" : "Benutze das Schlagwort in, sowie if-else Verzweigungen um eine Liste mit den Elementen, die sowohl in der Liste a, als auch in der Liste b enthalten sind, sowie eine Liste mit den Elementen, die in a aber nicht in b und eine Liste mit den Elementen in b aber nicht in a. Gib diese Listem im vorgegebenen Format aus und behalte die Reihenfolge der Elemente bei.",
+            "startingCode" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
+            "solution" : "a = [1, 6, 2, 3, 7]\nb = [4, 3, 6, 2, 9, 8]\naa = []\nab = []\nbb = []\nfor i in a:\n\tif i in b:\n\t\tab.append(i)\n\telse:\n\t\taa.append(i)\nfor i in b:\n\tif i not in a:\n\t\tbb.append(i)\nprint('In a und b' + ' ' + str(ab))\nprint('Nur in a' + ' ' + str(aa))\nprint('Nur in b' + ' ' + str(bb))",
+            "output" : "In a und b [6, 2, 3]\nNur in a [1, 7]\nNur in b [4, 9, 8]"
           }, {
-          "index" : 5,
-          "description" : "Erstelle mit der Range-Funktion eine Liste aller durch 7 teilbaren Zahlen zwischen 1 und 106. Benutze diese Liste nun um aus der vorgegebenen Liste a alle Zahlen zu entfernen, die nicht durch 7 teilbar sind und setzte an deren Stelle eine 0 ein. Gib die modifizierte Liste a aus.",
-          "startingCode" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]",
-          "solution" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]\ntest_7 = range(1 + 6, 106, 7)\nfor i in a:\n\tif i not in test_7:\n\t\ta.insert(a.index(i), 0)\n\t\ta.remove(i)\nprint(a)",
-          "output" : "[0, 0, 7, 0, 42, 84, 0, 105, 49]"
+            "index" : 5,
+            "description" : "Erstelle mit der Range-Funktion eine Liste aller durch 7 teilbaren Zahlen zwischen 1 und 106. Benutze diese Liste nun um aus der vorgegebenen Liste a alle Zahlen zu entfernen, die nicht durch 7 teilbar sind und setzte an deren Stelle eine 0 ein. Gib die modifizierte Liste a aus.",
+            "startingCode" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]",
+            "solution" : "a = [2, 6, 7, 36, 42, 84, 39, 105, 49]\ntest_7 = range(1 + 6, 106, 7)\nfor i in a:\n\tif i not in test_7:\n\t\ta.insert(a.index(i), 0)\n\t\ta.remove(i)\nprint(a)",
+            "output" : "[0, 0, 7, 0, 42, 84, 0, 105, 49]"
           }, {
-          "index" : 6,
-          "description" : "Ob eine Zahl durch eine andere Zahl teilbar ist, können wir auch herausfinden, indem wir die Zahl in den ganzen Zahlen durch den Nenner teilen und das Ergebnis mit der Division in den Fliesskommazahlen vergleichen. Um eine Teilung in den Fliesskommazahlen zu ermöglichen müssen wir die Zahl zuerst mit float(n) in eine Fliesskommazahl umwandeln, respektive sie für eine Teilung in den ganzen Zahlen mit int(n) in einen Integer umwandeln. Teste für jedes Element der Liste q, ob es durch 3 Teilbar ist und entferne es, falls dies der fall ist. Gib danach die bearbeitete Liste q aus.",
-          "startingCode" : "q = [1245, 3621, 2342, 48222, 2363, 36]",
-          "solution" : "q = [1245, 3621, 2342, 48222, 2363, 36]\na = range(len(q))\nfor i in a:\n\tif int(q[i]) / 3 == float(q[i]) / 3:\n\t\tq.remove(q[i])\n\t\t# Die Liste a, mit der q untersucht wird muss\n\t\t# verändert werden, da q verändert wurde\n\t\tfor j in range(len(a)):\n\t\t\ta[j] -= 1\nprint(q)",
-          "output" : "[2342, 2363]"
+            "index" : 6,
+            "description" : "Ob eine Zahl durch eine andere Zahl teilbar ist, können wir auch herausfinden, indem wir die Zahl in den ganzen Zahlen durch den Nenner teilen und das Ergebnis mit der Division in den Fliesskommazahlen vergleichen. Um eine Teilung in den Fliesskommazahlen zu ermöglichen müssen wir die Zahl zuerst mit float(n) in eine Fliesskommazahl umwandeln, respektive sie für eine Teilung in den ganzen Zahlen mit int(n) in einen Integer umwandeln. Teste für jedes Element der Liste q, ob es durch 3 Teilbar ist und entferne es, falls dies der fall ist. Gib danach die bearbeitete Liste q aus.",
+            "startingCode" : "q = [1245, 3621, 2342, 48222, 2363, 36]",
+            "solution" : "q = [1245, 3621, 2342, 48222, 2363, 36]\na = range(len(q))\nfor i in a:\n\tif int(q[i]) / 3 == float(q[i]) / 3:\n\t\tq.remove(q[i])\n\t\t# Die Liste a, mit der q untersucht wird muss\n\t\t# verändert werden, da q verändert wurde\n\t\tfor j in range(len(a)):\n\t\t\ta[j] -= 1\nprint(q)",
+            "output" : "[2342, 2363]"
           }, {
-          "index" : 7,
-          "description" : "Um zu testen, ob eine Zahl a durch eine Zahl b teilbar ist können wir aber auch einen Operator benutzen. Dieser Operator wird mit dem Prozentzeichen geschrieben und nennt sich Modulo-Operator. Die Operation a % b gibt dabei den Rest auch, den wir bei einer Teilung von a durch in den ganzen Zahlen erhalten. Schreibe ein Programm, das für jedes Element der vorgegebenen Liste q testet, ob das Element durch seinen Index + 1 teilbar ist und ersetze es durch den String 'nicht teilbar', falls dies nicht zutrifft.",
-          "startingCode" : "q = [26, 36, 135, 17, 257, 354, 42]",
-          "solution" : "q = [26, 36, 135, 17, 257, 354, 42]\nfor i in q:\n\tif i % (q.index(i) + 1) != 0:\n\t\tq[index(i)] = 'nicht teilbar'\nprint(q)",
-          "output" : "[26, 36, 135, 'nicht teilbar', 'nicht teilbar', 354, 42]"
+            "index" : 7,
+            "description" : "Um zu testen, ob eine Zahl a durch eine Zahl b teilbar ist können wir aber auch einen Operator benutzen. Dieser Operator wird mit dem Prozentzeichen geschrieben und nennt sich Modulo-Operator. Die Operation a % b gibt dabei den Rest auch, den wir bei einer Teilung von a durch in den ganzen Zahlen erhalten. Schreibe ein Programm, das für jedes Element der vorgegebenen Liste q testet, ob das Element durch seinen Index + 1 teilbar ist und ersetze es durch den String 'nicht teilbar', falls dies nicht zutrifft.",
+            "startingCode" : "q = [26, 36, 135, 17, 257, 354, 42]",
+            "solution" : "q = [26, 36, 135, 17, 257, 354, 42]\nfor i in q:\n\tif i % (q.index(i) + 1) != 0:\n\t\tq[index(i)] = 'nicht teilbar'\nprint(q)",
+            "output" : "[26, 36, 135, 'nicht teilbar', 'nicht teilbar', 354, 42]"
           }]
       }, {
       "index" : 7,
       "title" : "Zahlensysteme",
       "description" : "In diesem Kapitel werden wir uns mit den verschiedenen Zahlensystemen befassen. Der Hauptfokus wird dabei auf die Binärzahlen gelegt, jedoch werden auch die Hexadezimalzahlen anschgeschaut, da diese auch noch sehr häufig verwendet werden. Gefordert wird dabei, dass das die Dezimalzahlen grundlegend verstanden wurden.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Das Zahlensystem, welches normalerweise im Alltag verwendet wird ist das sogenannte Dezimalsystem. Dabei werden die Ziffern von 0 bis 9 verwendet. Wenn wir nun eine Zahl haben, können die Ziffern von 0 bis 9 beliebig angeordnet werden. Jede Ziffer wird nun mit einem Faktor multipliziert, der folgendermassen von ihrer Position abhängt: Die Ziffer ganz links wird mit 10**0 multipliziert, die zweite von links mit 10**1, die dritte von links mit 10**2, ... und die n-te von links mit 10**(n-1). Schreibe ein Programm, in welchem die Zahl 12456 als einzelne Faktoren, in der Form 1 * 10**4 in je einer Zeile ausgibt.",
-          "startingCode" : "",
-          "solution" : "a = 12456\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '10**' + str(len(a) - (i + 1)))",
-          "output" : "1 * 10**4\n2 * 10**3\n4 * 10**2\n5 * 10**1\n6 * 10**0"
+            "index" : 0,
+            "description" : "Das Zahlensystem, welches normalerweise im Alltag verwendet wird ist das sogenannte Dezimalsystem. Dabei werden die Ziffern von 0 bis 9 verwendet. Wenn wir nun eine Zahl haben, können die Ziffern von 0 bis 9 beliebig angeordnet werden. Jede Ziffer wird nun mit einem Faktor multipliziert, der folgendermassen von ihrer Position abhängt: Die Ziffer ganz links wird mit 10**0 multipliziert, die zweite von links mit 10**1, die dritte von links mit 10**2, ... und die n-te von links mit 10**(n-1). Schreibe ein Programm, in welchem die Zahl 12456 als einzelne Faktoren, in der Form 1 * 10**4 in je einer Zeile ausgibt.",
+            "startingCode" : "",
+            "solution" : "a = 12456\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '10**' + str(len(a) - (i + 1)))",
+            "output" : "1 * 10**4\n2 * 10**3\n4 * 10**2\n5 * 10**1\n6 * 10**0"
           }, {
-          "index" : 1,
-          "description" : "In einem Computer kann das Dezimalsystem aber schlecht verwendet werden, da der Computer nicht direkt zwischen den zehn verschiedenen Ziffern des Dezimalsystems unterscheiden kann. Der Computer kann nur eine Unterscheidung von zwei Ziffern machen, also Strom fliesst oder Strom fliesst nicht, was auf die Ziffern 0 oder 1 abgeleitet werden kann. Deswegen wird ein neues System gebraucht, das sogenannte Binärsystem. Dabei können nur noch die Ziffern 0 und 1 verwendet werden. Auch hier wird wieder jede Ziffer mit einem von der Position abhängenden Faktor multipliziert, jedoch nicht mehr mit der Basis 10, sondern der Basis 2: die erste von links wird mit 2**0 multipliziert, die zweite mit 2**1, ... und die n-te mit 2**(n-1). Schreibe ein Programm, das die Binärzahl 100101 als einzlene Faktoren, in der Form 1 * 2**5 in je einer Zeile ausgibt.",
-          "startingCode" : "",
-          "solution" : "a = 100101\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '2**' + str(len(a) - (i + 1)))",
-          "output" : "1 * 2**5\n0 * 2**4\n0 * 2**3\n1 * 2**2\n0 * 2**1\n1 * 2**0"
+            "index" : 1,
+            "description" : "In einem Computer kann das Dezimalsystem aber schlecht verwendet werden, da der Computer nicht direkt zwischen den zehn verschiedenen Ziffern des Dezimalsystems unterscheiden kann. Der Computer kann nur eine Unterscheidung von zwei Ziffern machen, also Strom fliesst oder Strom fliesst nicht, was auf die Ziffern 0 oder 1 abgeleitet werden kann. Deswegen wird ein neues System gebraucht, das sogenannte Binärsystem. Dabei können nur noch die Ziffern 0 und 1 verwendet werden. Auch hier wird wieder jede Ziffer mit einem von der Position abhängenden Faktor multipliziert, jedoch nicht mehr mit der Basis 10, sondern der Basis 2: die erste von links wird mit 2**0 multipliziert, die zweite mit 2**1, ... und die n-te mit 2**(n-1). Schreibe ein Programm, das die Binärzahl 100101 als einzlene Faktoren, in der Form 1 * 2**5 in je einer Zeile ausgibt.",
+            "startingCode" : "",
+            "solution" : "a = 100101\n# Die Zahl wird in einen String umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\na = str(a)\n# Jede Ziffer wird mit dem dazugehörigen Faktor ausgegeben\nfor i in range(len(a)):\n\tprint(a[i] + ' * ' + '2**' + str(len(a) - (i + 1)))",
+            "output" : "1 * 2**5\n0 * 2**4\n0 * 2**3\n1 * 2**2\n0 * 2**1\n1 * 2**0"
           }, {
-          "index" : 2,
-          "description" : "Ein Computer muss nun aber die Zahlen aus dem Binärsystem ins Dezimalsystem umwandeln. Schreibe ein Programm, das die Werte der vorgegebenen Variablen x und y, bei denen es sich um Binärzahlen handelt, als Dezimalzahlen ausgibt.",
-          "startingCode" : "x = 10101101110\ny = 10100010101",
-          "solution" : "x = 10101101110\ny = 10100010101\n# Die Zahlen werden in Strings umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\nx = str(x)\ny = str(y)\nx_dez = 0\n# Jede einzelne Ziffer wird mit dem Faktor multipliziert\nfor i in range(len(x)):\n\tx_dez += int(x[i]) * 2 ** (len(x) - (i + 1))\nprint(x_dez)\ny_dez = 0\nfor i in range(len(y)):\n\ty_dez += int(y[i]) * 2 ** (len(y) - (i + 1))\nprint(y_dez)",
-          "output" : "1390\n1301"
+            "index" : 2,
+            "description" : "Ein Computer muss nun aber die Zahlen aus dem Binärsystem ins Dezimalsystem umwandeln. Schreibe ein Programm, das die Werte der vorgegebenen Variablen x und y, bei denen es sich um Binärzahlen handelt, als Dezimalzahlen ausgibt.",
+            "startingCode" : "x = 10101101110\ny = 10100010101",
+            "solution" : "x = 10101101110\ny = 10100010101\n# Die Zahlen werden in Strings umgewandelt, damit die\n# einzelnen Ziffern ausgewählt werden können\nx = str(x)\ny = str(y)\nx_dez = 0\n# Jede einzelne Ziffer wird mit dem Faktor multipliziert\nfor i in range(len(x)):\n\tx_dez += int(x[i]) * 2 ** (len(x) - (i + 1))\nprint(x_dez)\ny_dez = 0\nfor i in range(len(y)):\n\ty_dez += int(y[i]) * 2 ** (len(y) - (i + 1))\nprint(y_dez)",
+            "output" : "1390\n1301"
           }, {
-          "index" : 3,
-          "description" : "In Python können Binärzahlen aber auch einfacher in Dezimalzahlen umgewandelt werden. Dafür kann a = 0b111 gebraucht werden, wobei 111 die Binärzahl. Dabei wird der Variable a der Wert der Binärzahl als Dezimalzahl zugeordnet, es ist nun also die Zahl 7 unter der Variable a abgespeichert. Wandle die Binärzahlen 11001010 und 101010001 in Dezimalzahlen um und gibt sie in je einer Zeile aus.",
-          "startingCode" : "",
-          "solution" : "a = 0b11001010\nprint(a)\nb = 0b101010001\nprint(b)",
-          "output" : "202\n337"
+            "index" : 3,
+            "description" : "In Python können Binärzahlen aber auch einfacher in Dezimalzahlen umgewandelt werden. Dafür kann a = 0b111 gebraucht werden, wobei 111 die Binärzahl. Dabei wird der Variable a der Wert der Binärzahl als Dezimalzahl zugeordnet, es ist nun also die Zahl 7 unter der Variable a abgespeichert. Wandle die Binärzahlen 11001010 und 101010001 in Dezimalzahlen um und gibt sie in je einer Zeile aus.",
+            "startingCode" : "",
+            "solution" : "a = 0b11001010\nprint(a)\nb = 0b101010001\nprint(b)",
+            "output" : "202\n337"
           }, {
-          "index" : 4,
-          "description" : "Schreibe nun ein Programm, welches eine Zahl aus dem Dezimalsystem ins Binärsystem umwandeln kann. Wandle damit die Zahlen 171 und 402 in Binärzahlen um und gib die jeweiligen Ergebnisse in je einer Zeile aus.",
-          "startingCode" : "",
-          "solution" : "a = [171, 402]\n# Das Programm wird auf beide Zahlen angewandt\n# Es wird eine Liste mit jeder Ziffer erstellt\nfor i in a:\n\tb = []\n\t# Zuerst muss die höchste Potenz gefunden werden\n\tx = True\n\ty = 0\n\twhile x:\n\t\tif i <= 2 ** (y + 1):\n\t\t\ti -= 2 ** y\n\t\t\tb.append(1)\n\t\t\tx = False\n\t\telse:\n\t\t\ty += 1\n\t# Jetzt werden die nachfolgenden Ziffern bestimmt\n\tfor k in range(y - 1, -1, -1):\n\t\tif i >= 2 ** k:\n\t\t\ti -= 2 ** k\n\t\t\tb.append(1)\n\t\telse:\n\t\t\tb.append(0)\n\t# Der Datentyp der Elemente der Liste wird in String\n\t# umgewandelt\n\tfor i in range(len(b)):\n\t\tb[i] = str(b[i])\n\t# Die Elemente der Liste werden aneinandergehängt\n\tb = int(''.join(b))\n\tprint(b)",
-          "output" : "10101011\n110010010"
+            "index" : 4,
+            "description" : "Schreibe nun ein Programm, welches eine Zahl aus dem Dezimalsystem ins Binärsystem umwandeln kann. Wandle damit die Zahlen 171 und 402 in Binärzahlen um und gib die jeweiligen Ergebnisse in je einer Zeile aus.",
+            "startingCode" : "",
+            "solution" : "a = [171, 402]\n# Das Programm wird auf beide Zahlen angewandt\n# Es wird eine Liste mit jeder Ziffer erstellt\nfor i in a:\n\tb = []\n\t# Zuerst muss die höchste Potenz gefunden werden\n\tx = True\n\ty = 0\n\twhile x:\n\t\tif i <= 2 ** (y + 1):\n\t\t\ti -= 2 ** y\n\t\t\tb.append(1)\n\t\t\tx = False\n\t\telse:\n\t\t\ty += 1\n\t# Jetzt werden die nachfolgenden Ziffern bestimmt\n\tfor k in range(y - 1, -1, -1):\n\t\tif i >= 2 ** k:\n\t\t\ti -= 2 ** k\n\t\t\tb.append(1)\n\t\telse:\n\t\t\tb.append(0)\n\t# Der Datentyp der Elemente der Liste wird in String\n\t# umgewandelt\n\tfor i in range(len(b)):\n\t\tb[i] = str(b[i])\n\t# Die Elemente der Liste werden aneinandergehängt\n\tb = int(''.join(b))\n\tprint(b)",
+            "output" : "10101011\n110010010"
           }, {
-          "index" : 5,
-          "description" : "Für die umwandlung von Zahlen aus dem Dezimalsystem ins Binärsystem gibt es in Python bereits eine vordefinierte Methode. So kann mit bin(n) die Dezimalzahl n ins Binärsystem umgewandelt werden. Schreibe ein Programm, das die Zahlen 20194 und 2401 ins Binärsystem umwandelt und diese in je einer Zeile ausgibt.",
-          "startingCode" : "a = 20194\nb = 2401",
-          "solution" : "a = 20194\nb = 2401\naBin = bin(a)\nbBin = bin(b)\nprint(aBin)\nprint(bBin)",
-          "output" : "0b100111011100010\n0b100101100001"
+            "index" : 5,
+            "description" : "Für die umwandlung von Zahlen aus dem Dezimalsystem ins Binärsystem gibt es in Python bereits eine vordefinierte Methode. So kann mit bin(n) die Dezimalzahl n ins Binärsystem umgewandelt werden. Schreibe ein Programm, das die Zahlen 20194 und 2401 ins Binärsystem umwandelt und diese in je einer Zeile ausgibt.",
+            "startingCode" : "a = 20194\nb = 2401",
+            "solution" : "a = 20194\nb = 2401\naBin = bin(a)\nbBin = bin(b)\nprint(aBin)\nprint(bBin)",
+            "output" : "0b100111011100010\n0b100101100001"
           }, {
-          "index" : 6,
-          "description" : "Wenn wir nun aber mit Operationen mit diesen Binärzahlen durchführen möchten stört uns das 0b am Anfang der Zahl. Schreibe ein Programm, welches die Dezimalzahl 2048 in das Binärsystem umwandelt und gib die Binärzahl ohne das 0b vorne dran aus.",
-          "startingCode" : "a = 2048",
-          "solution" : "a = 2048\naBin = str(bin(a))\naList = []\n# Der String wird in eine Liste umgewandelt\nfor i in aBin:\n\taList.append(i)\n# Das 0 und das b werden aus der Liste entfernt\naList.remove('0')\naList.remove('b')\n# Die Liste wird wieder zurück in einen String umgewandelt\nresult = ''.join(aList)\nprint(result)",
-          "output" : "100000000000"
+            "index" : 6,
+            "description" : "Wenn wir nun aber mit Operationen mit diesen Binärzahlen durchführen möchten stört uns das 0b am Anfang der Zahl. Schreibe ein Programm, welches die Dezimalzahl 2048 in das Binärsystem umwandelt und gib die Binärzahl ohne das 0b vorne dran aus.",
+            "startingCode" : "a = 2048",
+            "solution" : "a = 2048\naBin = str(bin(a))\naList = []\n# Der String wird in eine Liste umgewandelt\nfor i in aBin:\n\taList.append(i)\n# Das 0 und das b werden aus der Liste entfernt\naList.remove('0')\naList.remove('b')\n# Die Liste wird wieder zurück in einen String umgewandelt\nresult = ''.join(aList)\nprint(result)",
+            "output" : "100000000000"
           }]
       }, {
       "index" : 8,
       "title" : "Funktionen",
       "description" : "Dieses Kapitel befasst sich mit Funktionen. Eine Funktion in Python sieht folgendermassen aus: <code class=\"python\">def a(x, y):\n\tz = x + y\n\treturn z\nprint(a(1, 3)))</code>Dabei wird nach def eine Funktion mit den Variablen x und y definiert (er können beliebig viele Varbiablen sein, durch Kommata getrennt). Die Funktion wird dann mit a(1, 3) aufgerufen und ausgeführt und mit return wird die Ausgabe ausgegeben, die danach ausserhalb gebraucht werden kann.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Definiere eine Funktion, welche die zwei vorgegebenen Variablen x und y multipliziert und das Ergebnis ausgibt.",
-          "startingCode" : "x = 124\ny = 41",
-          "solution" : "x = 124\ny = 41\ndef a(x, y):\n\tz = x * y\n\treturn z\nprint(a(x, y))",
-          "output" : "5084"
+            "index" : 0,
+            "description" : "Definiere eine Funktion, welche die zwei vorgegebenen Variablen x und y multipliziert und das Ergebnis ausgibt.",
+            "startingCode" : "x = 124\ny = 41",
+            "solution" : "x = 124\ny = 41\ndef a(x, y):\n\tz = x * y\n\treturn z\nprint(a(x, y))",
+            "output" : "5084"
           }, {
             "index" : 1,
             "description" : "Definiere eine Funktion, welche den Betrag einer Zahl berechnen kann. Tipp: Exponenten werden mit a ** x, also a hoch x geschrieben.",
@@ -595,11 +595,11 @@
       "title" : "Rekursive Funktionen",
       "description" : "Rekursive Funktionen werden genau gleich wie normale Funktionen definiert. Sie haben aber die Eigenschaft, dass Sie in der Funktion selbst aufgerufen wird. Wenn also eine Funktion sich selber aufruft wird sie noch einmal durchgeführt und ruft sich wieder selbst auf. Wenn das immer so weiter gehen würde, dann hätten wir eine unendliche Schlaufe kreiert. Deswegen müssen wir in der Rekursiven Funktion eine Abbruchbedingung einbauen. Die Funktion wird mit dem Codewort return a abgebrochen und gibt den Wert der Variable aus. Das unten stehende Beispiel beinhaltet eine Funktion, die eine Zahl a solange um eins erhöht, bis a den gleichen Wert wie b hat und dann abbricht und a ausgibt.<code class=\"python\">def function(a, b):\n\t# Abbruchbedingung\n\tif a >= b:\n\t\treturn a\n\telse:\n\t\ta += 1\n\t\t# Funktion wird erneut\n\t\t# aufgerufen\n\t\tfunction(a, b)</code>",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Definiere eine rekursive Funktion, die die Zahlen von 3 bis und mit 18 ausgibt.",
-          "startingCode" : "",
-          "solution" : "a = 3\nb = 19\ndef printer(a, b):\n\tif a < b:\n\t\tprint(a)\n\t\ta += 1\n\t\tprinter(a, b)\n\telse:\n\t\treturn\nprinter(a, b)",
-          "output" : "3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18"
+            "index" : 0,
+            "description" : "Definiere eine rekursive Funktion, die die Zahlen von 3 bis und mit 18 ausgibt.",
+            "startingCode" : "",
+            "solution" : "a = 3\nb = 19\ndef printer(a, b):\n\tif a < b:\n\t\tprint(a)\n\t\ta += 1\n\t\tprinter(a, b)\n\telse:\n\t\treturn\nprinter(a, b)",
+            "output" : "3\n4\n5\n6\n7\n8\n9\n10\n11\n12\n13\n14\n15\n16\n17\n18"
           }, {
             "index" : 1,
             "description" : "Rekursive Funktionen können auch dazu genutzt werden um rekursive Folgen auszugeben. Nun betrachten wir die Folge die wie folgt definiert ist: a_0 = 0, a_n+1 = 1 / 3* a_n + 12. Definiere eine rekursive Funktion, die eine Liste erstellt in der die ersten 10 Elemente der Funktion enthalten sind und gib diese Liste aus.",
@@ -619,11 +619,11 @@
             "solution" : "a = 1\nb = 1\ndef fibonacci(a, b, n, i):\n\tif i >= n:\n\t\treturn\n\telse:\n\t\tif i % 2 == 0:\n\t\t\tprint(a)\n\t\t\ta += b\n\t\telse:\n\t\t\tprint(b)\n\t\t\tb += a\n\t\ti += 1\n\t\tfibonacci(a, b, n, i)\nfibonacci(a, b, 50, 0)",
             "output" : "1\n1\n2\n3\n5\n8\n13\n21\n34\n55\n89\n144\n233\n377\n610\n987\n1597\n2584\n4181\n6765\n10946\n17711\n28657\n46368\n75025\n121393\n196418\n317811\n514229\n832040\n1346269\n2178309\n3524578\n5702887\n9227465\n14930352\n24157817\n39088169\n63245986\n102334155\n165580141\n267914296\n433494437\n701408733\n1134903170\n1836311903\n2971215073\n4807526976\n7778742049\n12586269025" 
           }, {
-          "index" : 4,
-          "description" : "Im leztzen Kapitel haben wir angeschaut, wie der grösste gemeinsame Teiler, der ggT zweier Zahlen mit einer iterativen Funktion berechnet werden kann. Schreibe nun eine rekursive Funktion und berechne damit den grössten gemeinsamen Teiler der Zahlen 2590 und 25025 und gib ihn aus. Tipp: Benutze dafür den Modulo-Operator (%), der den Rest einer Teilung zweier Zahlen in den ganzen Zahlen ausgibt.",
-          "startingCode" : "a = 2590\nb = 25025",
-          "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
-          "output" : "34"
+            "index" : 4,
+            "description" : "Im leztzen Kapitel haben wir angeschaut, wie der grösste gemeinsame Teiler, der ggT zweier Zahlen mit einer iterativen Funktion berechnet werden kann. Schreibe nun eine rekursive Funktion und berechne damit den grössten gemeinsamen Teiler der Zahlen 2590 und 25025 und gib ihn aus. Tipp: Benutze dafür den Modulo-Operator (%), der den Rest einer Teilung zweier Zahlen in den ganzen Zahlen ausgibt.",
+            "startingCode" : "a = 2590\nb = 25025",
+            "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
+            "output" : "34"
           }]
       }, {
       "index" : 10,
@@ -672,22 +672,22 @@
             "solution" : "from random import *\nnumbers = range(43)\nluckyNumbers = range(7)\n# Es wird sechs mal eine Zahl aus der Liste numbers gezogen\nresult = []\nfor i in range(6):\n\t# Die gezogene Nummer wird abgespeichert unter temp\n\ttemp = choice(numbers)\n\t# Die gezogenen Nummer wird aus der Nummernliste entfernt\n\tnumbers.remove(temp)\n\tresult.append(temp)\n# Die Glückszahl wird aus luckyNumbers gezogen\nluckyNumber = choice(luckyNumbers)\n# print(str(result) + ' ' + str(luckyNumber))\nprint('Abgeschlossen')",
             "output" : "Abgeschlossen" 
           }, {
-          "index" : 7,
-          "description" : "Teste mithilfe des Moduls time, ob es sich mehr Lohnt 1000 * 1000 zu rechnen, oder ob es schneller ist 1000 ** 2 zu rechnen. Gib das Resultat im vorgegebenen Format aus. Nimm für beide etwa gleich schnell einen Unterschied von bis zu 1% der Durchlaufzeit.",
-          "startingCode" : "print('1000 ** 2 ist schneller')\nprint('1000 * 1000 ist schneller')\nprint('Beide sind etwa gleich schnell')",
-          "solution" : "from time import *\nt_0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_multiply = time() - t_0\nt_0 = time()\nfor i in range(1000000):\n\t1000 ** 2\nt_power = time() - t_0\nif t_power < 0.99 * t_multiply:\n\tprint('1000 ** 2 ist schneller')\nelif t_multiply < 0.99 * t_power:\n\tprint('1000 * 1000 ist schneller')\nelse:\n\tprint('Beide sind etwa gleich schnell')",
-          "output" : "1000 * 1000 ist schneller"
+            "index" : 7,
+            "description" : "Teste mithilfe des Moduls time, ob es sich mehr Lohnt 1000 * 1000 zu rechnen, oder ob es schneller ist 1000 ** 2 zu rechnen. Gib das Resultat im vorgegebenen Format aus. Nimm für beide etwa gleich schnell einen Unterschied von bis zu 1% der Durchlaufzeit.",
+            "startingCode" : "print('1000 ** 2 ist schneller')\nprint('1000 * 1000 ist schneller')\nprint('Beide sind etwa gleich schnell')",
+            "solution" : "from time import *\nt_0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_multiply = time() - t_0\nt_0 = time()\nfor i in range(1000000):\n\t1000 ** 2\nt_power = time() - t_0\nif t_power < 0.99 * t_multiply:\n\tprint('1000 ** 2 ist schneller')\nelif t_multiply < 0.99 * t_power:\n\tprint('1000 * 1000 ist schneller')\nelse:\n\tprint('Beide sind etwa gleich schnell')",
+            "output" : "1000 * 1000 ist schneller"
           }]
       }, {
       "index" : 11,
       "title" : "Klassen Einführung",
       "description" : "Dieses Kapitel befasst sich mit Klassen. Falls du mit den Funktionen noch nicht sattelfest bist empfehlen wir dir, zuerst diese Kapitel durchzuarbeiten, bevor du dich an die Klassen wagst. Klassen werden in Python folgendermassen definiert.<code class=\"python\">class calculator:\n\tdef __init__(self, x, y):\n\t\tself.x = x\n\t\tself.y = y\n\tdef sum(self):\n\t\tself.sum = self.x + self.y\n\t\treturn self.sum\ninput = calculator(2, 3)\nsumme = calculator.sum(input)\nprint(summe)</code>Am obigen Beispiel ist also erkennbar, dass eine Klasse eine Sammlung von Funktionen sein kann. Immer dabei sein muss ein __init__(self, Argument 1, Argument 2, ...). Durch diese Funktion werden die verschiedenen Eigenschaften einer Variable definiert. Wenn die Klasse nun aufgerufen wird mit n = name(Argument 1, Argument 2, ...) dann kann in der Funktion __init__ der Variable n mit n.eigenschaft = Argument 1, einer Eigenschaft von n ein Wert zugeordnet werden. Dieser kann dann in den weiteren Funktionen der Klasse aufgerufen und verarbeitet werden. Die weiteren Funktionen werden mit name.funktionsname(Argument 1, ...) aufgerufen.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Kopiere oder Schreibe das Programm aus der Kapitelbeschreibung ab füge noch ein drittes Argument z = 8 hinzu. Addiere nun die drei Werte und gib das Resultat aus.",
-          "startingCode" : "z = 8",
-          "solution" : "z = 8\nclass calculator:\n\t'''\n\tEine Klasse gebraucht um Operationen zu rechnen\n\n\t...\n\n\tAttribute\n\t----------\n\tx : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\ty : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\tz : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\n\tVerfahren\n\t-------\n\tsum()\n\t\tGibt die Summe der Attribute aus\n\t'''\n\tdef __init__(self, x, y, z):\n\t\t'''\n\t\tParameter\n\t\t----------\n\t\tx : int\n\t\t\tDie erste Zahl als input\n\t\ty : int\n\t\t\tDie zweite Zahl als input\n\t\tz : int\n\t\t\tDie dritte Zahl als input\n\t\t'''\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\t'''Gibt die Summe der Attribute aus'''\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\ninput = calculator(2, 3, z)\nsumme = calculator.sum(input)\nprint(summe)",
-          "output" : "13"
+            "index" : 0,
+            "description" : "Kopiere oder Schreibe das Programm aus der Kapitelbeschreibung ab füge noch ein drittes Argument z = 8 hinzu. Addiere nun die drei Werte und gib das Resultat aus.",
+            "startingCode" : "z = 8",
+            "solution" : "z = 8\nclass calculator:\n\t'''\n\tEine Klasse gebraucht um Operationen zu rechnen\n\n\t...\n\n\tAttribute\n\t----------\n\tx : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\ty : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\tz : int\n\t\tEine ganze Zahl mit der gerechnet werden soll\n\n\tVerfahren\n\t-------\n\tsum()\n\t\tGibt die Summe der Attribute aus\n\t'''\n\tdef __init__(self, x, y, z):\n\t\t'''\n\t\tParameter\n\t\t----------\n\t\tx : int\n\t\t\tDie erste Zahl als input\n\t\ty : int\n\t\t\tDie zweite Zahl als input\n\t\tz : int\n\t\t\tDie dritte Zahl als input\n\t\t'''\n\t\tself.x = x\n\t\tself.y = y\n\t\tself.z = z\n\tdef sum(self):\n\t\t'''Gibt die Summe der Attribute aus'''\n\t\tself.sum = self.x + self.y + self.z\n\t\treturn self.sum\ninput = calculator(2, 3, z)\nsumme = calculator.sum(input)\nprint(summe)",
+            "output" : "13"
           }, {
             "index" : 1,
             "description" : "Erweitere nun das Programm aus der letzten Aufgabe um zu dem Summenrechner noch einen Produktrechner hinzuzufügen. Addiere die drei vorgegebenen Variablen nun mit der Klasse, gib das Ergebnis aus und Multipliziere die Variablen mit der Klasse und gib das Ergebnis auf einer neuen Zeile aus.",
@@ -718,11 +718,11 @@
       "title" : "Klassen Fortgeschritten",
       "description" : "Wenn dir die Einführung in die Klassen zu leicht ist, du dich aber trotzdem mit Klassen beschäftigen willst, dann empfehlen wir dir dieses Kapitel. Wenn du dich jedoch noch nie mit Klassen befasst hast empfehlen wir dir das letzte Kapitel, die Einführung in die Klassen.",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Definiere eine Klasse, die in der Lage ist die Gravitationskraft zwischen zwei Objekten nach dem Newtonschen Gravitationsgesetz zu berechenen. Benutze dafür die vorgegebenen und gib die Kraft auf die Masse_1 zuerst und in der darauffolgenden Zeile die Kraft auf die Masse_2 aus. Runde die Kräfte mit round(x, 4) auf 4 Stellen nach dem Komma.",
-          "startingCode" : "mass_1 = 15000 # Masse in kg\nmass_2 = 37500 # Masse in kg\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.05 # Distanz (m)",
-          "solution" : "mass_1 = 15000 # Masse in kg\nmass_2 = 37500 # Masse in kg\nglobal G\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.05 # Distanz (m)\nclass gravitation:\n\t'''\n\tEine Klasse gebraucht um die Gravitationskraft zwischen\n\tzwei Objekten zu berechnen\n\n\t...\n\n\tAttribute\n\t----------\n\tmass : int\n\t\tDie Masse des Objektes\n\tdistance : int\n\t\tDie Distanz zu dem interagierenden Objekt\n\tVerfahren\n\t-------\n\tforce()\n\t\tDie Kraft die auf das Objekt wirkt\n\t'''\n\tdef __init__(self, mass, distance):\n\t\t'''\n\t\tParameter\n\t\t----------\n\t\tmass : int\n\t\t\tDie Masse des Objektes\n\t\tdistance : int\n\t\t\tDie Distanz zu dem interagierenden Objekt\n\t\t'''\n\t\tself.mass = mass\n\t\tself.distance = distance\n\tdef force(self, interactor_mass):\n\t\t'''Gibt die Kraft auf das Objekt aus'''\n\t\tforce = (G * self.mass * interactor_mass /\n\t  self.distance ** 2)\n\t\treturn force\nobject_1 = gravitation(mass_1, distance)\nobject_2 = gravitation(mass_2, distance)\nforce_1 = gravitation.force(object_1, object_2.mass)\nforce_2 = gravitation.force(object_2, object_1.mass)\nprint(round(force_1, 4))\nprint(round(force_2, 4))",
-          "output" : "15.0165\n15.0165"
+            "index" : 0,
+            "description" : "Definiere eine Klasse, die in der Lage ist die Gravitationskraft zwischen zwei Objekten nach dem Newtonschen Gravitationsgesetz zu berechenen. Benutze dafür die vorgegebenen und gib die Kraft auf die Masse_1 zuerst und in der darauffolgenden Zeile die Kraft auf die Masse_2 aus. Runde die Kräfte mit round(x, 4) auf 4 Stellen nach dem Komma.",
+            "startingCode" : "mass_1 = 15000 # Masse in kg\nmass_2 = 37500 # Masse in kg\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.05 # Distanz (m)",
+            "solution" : "mass_1 = 15000 # Masse in kg\nmass_2 = 37500 # Masse in kg\nglobal G\nG = 6.674 * 10 ** (-11) #Gravitationskonstante (m^3/(kg*s^2))\ndistance = 0.05 # Distanz (m)\nclass gravitation:\n\t'''\n\tEine Klasse gebraucht um die Gravitationskraft zwischen\n\tzwei Objekten zu berechnen\n\n\t...\n\n\tAttribute\n\t----------\n\tmass : int\n\t\tDie Masse des Objektes\n\tdistance : int\n\t\tDie Distanz zu dem interagierenden Objekt\n\tVerfahren\n\t-------\n\tforce()\n\t\tDie Kraft die auf das Objekt wirkt\n\t'''\n\tdef __init__(self, mass, distance):\n\t\t'''\n\t\tParameter\n\t\t----------\n\t\tmass : int\n\t\t\tDie Masse des Objektes\n\t\tdistance : int\n\t\t\tDie Distanz zu dem interagierenden Objekt\n\t\t'''\n\t\tself.mass = mass\n\t\tself.distance = distance\n\tdef force(self, interactor_mass):\n\t\t'''Gibt die Kraft auf das Objekt aus'''\n\t\tforce = (G * self.mass * interactor_mass /\n\t  self.distance ** 2)\n\t\treturn force\nobject_1 = gravitation(mass_1, distance)\nobject_2 = gravitation(mass_2, distance)\nforce_1 = gravitation.force(object_1, object_2.mass)\nforce_2 = gravitation.force(object_2, object_1.mass)\nprint(round(force_1, 4))\nprint(round(force_2, 4))",
+            "output" : "15.0165\n15.0165"
           }, {
             "index" : 1,
             "description" : "Definiere eine Klasse, die folgende Operationen mit n-dimensionalen Vektoren durchführen kann: Addition mit einem Vektor, Multiplikation mit einer Konstante, Länge des Vektors (magnitude), Einheitsvektor (norm). Gib die Länge des Vektor_1, der Richtungsvektor des Vektor_2, das Produkt von 3 und dem Vektor_3 und die Addition von Vektor_2 und Vektor_4 in je einer Zeile aus. Runde die Zahlen mit der bereits implementierten Funktion round(x, 4). Beachte dabei, dass du nur skalare Werte addieren, runden oder multiplizieren kannst.",

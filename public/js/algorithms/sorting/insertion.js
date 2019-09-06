@@ -39,6 +39,8 @@ let pipeColors = [
   // Being compared to
   128, 0, 128
 ];
+// Whether the pipes need to be scambled or not
+let needsScrambling = true;
 
 // Class of the pipes displayed
 class Pipe {
@@ -65,12 +67,16 @@ function restartAnimation() {
   setup();
   frameCounter = 0;
   animationIndex = 0;
-  pipes = [];
   focusedPipeIndex = 0;
   lowestUnsortedIndex = 1;
-  for (let i = 0; i < pipesAmount; i++) pipes.push(new Pipe(i * minPipeHeight));
-  pipes = scramble(pipes);
-  pipes[0].status = 2;
+  // Recreate the pipes array if the animation has been played before
+  if (needsScrambling) {
+    pipes = [];
+    for (let i = 0; i < pipesAmount; i++) pipes.push(new Pipe(i * minPipeHeight));
+    pipes = scramble(pipes);
+    pipes[0].status = 2;
+  }
+  needsScrambling = true;
   loop();
 }
 
@@ -131,6 +137,7 @@ function comparePipe() {
 function switchPipe() {
   // Change the status of the pipe the current one is being compared with to sorted
   pipes[focusedPipeIndex - 1].status = 1;
+  // Switch the pipes at index focusedPipeIndex and (focusedPipeIndex - 1) with each other
   let temp = pipes[focusedPipeIndex];
   pipes[focusedPipeIndex] = pipes[focusedPipeIndex - 1];
   pipes[focusedPipeIndex - 1] = temp;

@@ -87,6 +87,29 @@ p {
 	height: 35vh;
 }
 
+.sum {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	text-align: center;
+	font-size: 175%;
+}
+
+.sum span {
+	display: block;
+}
+
+.sum span.start {
+	text-align: center;
+	font-size: 50%;
+}
+
+.sum span.end {
+	text-align: center;
+	font-size: 50%;
+	margin-bottom: -20%;
+}
+
 /*give a different style for smaller devices like mobile phones*/
 @media only screen and (max-aspect-ratio : 13 / 9) {
     /*repositon the content, so there is no conflict with the header*/

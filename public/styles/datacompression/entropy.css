@@ -58,6 +58,35 @@ p {
   	font-family: sans-serif;
 }
 
+.equation {
+	display: inline-block;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle; 
+    margin: 0;
+    text-align: center;
+}
+
+.fraction span {
+    display: block;
+}
+
+.fraction span.lower {
+	border-top: thick solid black;
+}
+
+.withpic {
+	min-height: 35vh;
+}
+
+#probabillity {
+	height: 35vh;
+}
+
 /*give a different style for smaller devices like mobile phones*/
 @media only screen and (max-aspect-ratio : 13 / 9) {
     /*repositon the content, so there is no conflict with the header*/

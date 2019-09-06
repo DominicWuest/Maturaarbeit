@@ -275,11 +275,11 @@
       "title" : "Listen",
       "description" : "Dieses Kapitel befasst sich mit Listen. Eine Liste ist eine Sammlung von Elementen, die geordnet sind. Zu jedem Element ist ein Index zugeordnet, der bei 0 startet und in einer Schritten hoch zählt. Für die Listen gibt es verschiedene Operationen, die Sie in diesem Kapitel kennenlernen werden. Eine Liste wird mit eckigen Klammern gekennzeichnet und die Elemente werden mit Kommata getrennt: <code class=\"python\">a = ['Element 1', 'Element 2']</code>Ein Element aus einer Liste kann herausgegeben werden, indem die Liste und das der Index des Elementes in eckigen Klammern geschrieben wird: <code class=\"python\">a[0]</code>",
       "subexercises" : [{
-          "index" : 0,
-          "description" : "Schreibe ein Programm, dass eine Liste mit der Zahlen 1 bis und mit 10 erstellt und diese Ausgibt.",
-          "startingCode" : "",
-          "solution" : "a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(a)",
-          "output" : "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+            "index" : 0,
+            "description" : "Schreibe ein Programm, dass eine Liste mit der Zahlen 1 bis und mit 10 erstellt und diese Ausgibt.",
+            "startingCode" : "",
+            "solution" : "a = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\nprint(a)",
+            "output" : "[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
           }, {
             "index" : 1,
             "description" : "Mit a.append(Element) wird ein Element ans Ende einer Liste angehängt. Erstelle nun eine Signum Funktion mit If-else-Verzweigungen und einer While-Schleife, die auf die vorgegebene Liste angewendet wird und die Lösung ausgiebt ausgiebt.",

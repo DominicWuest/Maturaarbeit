@@ -79,6 +79,10 @@ p {
 	border-top: thick solid black;
 }
 
+.fraction span.upper {
+	display: inline-block;
+}
+
 .withpic {
 	min-height: 35vh;
 }
@@ -95,8 +99,25 @@ img #probabillity {
 	font-size: 175%;
 }
 
+.lim {
+	display: inline-block;
+	vertical-align: text-top;
+	text-align: center;
+	margin: 0;
+}
+
+.lim span {
+	margin-top: -20%;
+	display: block;
+}
+
 .sum span {
 	display: block;
+}
+
+.lim span.start {
+	text-align: center;
+	font-size: 50%;
 }
 
 .sum span.start {

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <!-- Dominic Wolf -->
 <html>
-<head>
+	<head>
         <title>Protokolle</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
         <meta charset="utf-8"/>
-</head>
-<body>
+	</head>
+	<body>
         <%- include(partialsPath + 'header.ejs') %>
         <main>
                 <div class="title">
@@ -71,5 +71,6 @@
                         <p>UDP's ermöglicht Anwendungen Datagramme zu versenden. Datagramme sind geschlossene, unabhängige Dateneinheiten, welche ohne Sicherung versendet werden. Es ist ein Protokoll der Transportschicht. Routing-Protokoll-Updates, Serververfügbarkeit und Streaminganwendungen sind einige der Hauptaufgaben von UDP. Sie werden verwendet, wenn Datengeschwindigkeit eine höhere Priorität hat als Datensicherheit. Deswegen werden Datenpakete unabhängig davon, ob der Empfänger diese empfangen kann oder nicht versendet. Der Sender sendet die Pakete direkt und individuell ohne Verschlüsselung an den Empfänger.</p>
                 </div>
         </main>
-</body>
+	<%- include(partialsPath + 'footer1.ejs') %>
+	</body>
 </html>

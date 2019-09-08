@@ -2,7 +2,7 @@
 <!-- Daniel Isler -->
 <html lang = "de">
     <head>
-		<meta charset="utf-8"/>
+	    <meta charset="utf-8"/>
         <title>Entropiekodierung</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
@@ -286,7 +286,7 @@ def entropy(I, A):
 						0.6358 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
 					</figure>
 					<p>
-						Wir haben also eine Redundanz von 0.6358 Bit pro Zeichen in deutschsprachigen Texten. Das bedeutet, dass wir mit einer optimalen Entropiekodierung im Durchschnitt 0.6358 Bit pro Zeichen an Daten einsparen können. Dies scheint zwar wenig, aber wenn wir nun Beispielweise einen Bericht mit 10'000 Buchstaben haben, dann können wir 10'000 Zeichen * 0.6358 Bit / Zeichen = 6358 Bit einsparen, was schon ein beträchtlicher Betrag sein kann. Eine Entropiekodierung ist also sinnvoll für Situationen mit grosser Redundanz, wäre aber zum Beispiel sinnlos für die Aufzeichnung der Würfe eines Würfels, bei dem jede Möglickeit die gleich Auftrittswahrscheinlichkeit hat, womit die Redundanz 0 beträgt.
+						Wir haben also eine Redundanz von 0.6358 Bit pro Zeichen in deutschsprachigen Texten. Das bedeutet, dass wir mit einer optimalen Entropiekodierung im Durchschnitt 0.6358 Bit pro Zeichen an Daten einsparen können. Dies scheint zwar wenig, aber wenn wir nun Beispielweise einen Bericht mit 10'000 Buchstaben haben, dann können wir 10'000 Zeichen * 0.6358 Bit / Zeichen = 6358 Bit einsparen, was schon ein beträchtlicher Betrag sein kann. Eine Entropiekodierung ist also sinnvoll für Situationen mit grosser Redundanz, wäre aber zum Beispiel sinnlos für die Aufzeichnung der Würfe eines Würfels, bei dem jede Möglickeit die gleich Auftrittswahrscheinlichkeit hat, womit die Redundanz 0 beträgt und eine Entropiekompression keine Daten einsparen könnte.
 					</p>
 				</div>			
 			</div>

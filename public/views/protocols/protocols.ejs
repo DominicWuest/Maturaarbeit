@@ -5,7 +5,7 @@
         <title>Protokolle</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <link rel="stylesheet" href="/styles/course.css">
         <meta charset="utf-8"/>
 	</head>
 	<body>
@@ -25,9 +25,10 @@
                                 <li><a href="#udp">UDP</a></li>
                         </ul>
                 </div>
-                <div>
-                        <p>Protokolle braucht es, damit Rechner richtig miteinander kommunizieren können. Sie definieren die Syntax und Semnantik der Daten, welche über das Internet ausgetauscht werden. Es gibt insgesamt über 500 verschiedene Netzwerkprotokolle. Die fünf wichtigsten Protokolle, die wir im Informatikunterricht benutzen, haben wir unten für Sie zusammengefasst. Für die Internetprotokollfamilie ist das TCP/IP-Referenzmodell massgebend. Es beschreibt den Aufbau und das Zusammenspiel der Netzwerkprotokolle.</p>
-                </div>
+							<div class="text">
+								<div id="nutzen">
+									<p>Protokolle braucht es, damit Rechner richtig miteinander kommunizieren können. Sie definieren die Syntax und Semnantik der Daten, welche über das Internet ausgetauscht werden. Es gibt insgesamt über 500 verschiedene Netzwerkprotokolle. Die fünf wichtigsten Protokolle, die wir im Informatikunterricht benutzen, haben wir unten für Sie zusammengefasst. Für die Internetprotokollfamilie ist das TCP/IP-Referenzmodell massgebend. Es beschreibt den Aufbau und das Zusammenspiel der Netzwerkprotokolle.</p>
+								</div>
                 <div id="schichten">
                         <h2>Schichten</h2>
                         <p>Es gibt vier verschiedene Schichten von Protokollen, welche man für verschiedene Zwecke benötigt.</p>
@@ -70,6 +71,7 @@
                         <h2>UDP | User Datagram Protocol</h2>
                         <p>UDP's ermöglicht Anwendungen Datagramme zu versenden. Datagramme sind geschlossene, unabhängige Dateneinheiten, welche ohne Sicherung versendet werden. Es ist ein Protokoll der Transportschicht. Routing-Protokoll-Updates, Serververfügbarkeit und Streaminganwendungen sind einige der Hauptaufgaben von UDP. Sie werden verwendet, wenn Datengeschwindigkeit eine höhere Priorität hat als Datensicherheit. Deswegen werden Datenpakete unabhängig davon, ob der Empfänger diese empfangen kann oder nicht versendet. Der Sender sendet die Pakete direkt und individuell ohne Verschlüsselung an den Empfänger.</p>
                 </div>
+						</div>
         </main>
 	<%- include(partialsPath + 'footer1.ejs') %>
 	</body>

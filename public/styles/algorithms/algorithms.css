@@ -1,4 +1,4 @@
-::-html {
+html {
 	height: 100vh;
 	scrollbar-base-color: green;
 }
@@ -9,7 +9,6 @@ body {
 }
 
 main {
-	scroll-behavior: smooth;
 	overflow: hidden;
 	box-sizing: border-box;
 	margin: 0 auto;
@@ -54,7 +53,7 @@ a:hover {
   	color: black;
 }
 
-.video {
+.algorithms {
   	padding: 0;
   	background: none;
 	justify-content: space-around;
@@ -66,24 +65,22 @@ p {
   	font-family: sans-serif;
 }
 
-#display, #vga, #hdmi, #dvi {
-    width: 98%;
+#sorting, #search, #hash {
+	width: 22%;
 	text-align: center;
 	padding: 0px;
-    margin: 0% 1%;
+	height: auto;
+}
+
+.pictures {
+	width: auto;
+	height: 230px;
+	margin: 0;
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
 }
 
 img {
 	max-width: 100%;
 	height: auto;
-}
-
-
-@media only screen and (max-aspect-ratio : 13 / 9){
-/*give a different style for smaller devices like mobile phones*/
-    main {
-/*repositon the content, so there is no conflict with the header*/
-        margin: 0% 11%;
-        width: 80%;
-     }
 }

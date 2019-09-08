@@ -15,7 +15,7 @@
     </script>
   </head>
   <body onload="addHighlighting(); restartAnimation(); noLoop(); needsScrambling = false;" onresize="setup();">
-    <%- include ../../partials/header.ejs %>
+    <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class="title">
         <h1>Bubblesort</h1>
@@ -53,41 +53,68 @@
         <div id="exampleCode">
           <h2>Beispielcode</h2>
           <p class="codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class="code python">def bubbleSort(arr): # arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
-  max = len(arr) - 1 # Der maximale Index, welcher der fokussierte Wert haben kann
-  focusedIndex = 0 # Der fokussierte Index
-  comparedIndex = 1 # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
-  while max > 1: # Sobald der maximal zu fokussierende Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
-    if focusedIndex == max: # Falls der fokussierte Index dem maximal zu fokussierendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
-      max -= 1 # Der maximal zu fokussierende Index muss nun um eins kleiner sein
-      focusedIndex = 0 # Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
-      comparedIndex = 1 # Der Index, mit dem verglichen wird, ist wieder 1
-    if arr[focusedIndex] > arr[comparedIndex]: # Falls der Wert am fokussierten Index grösser ist als der am Verglichenen
-      arr[focusedIndex], arr[comparedIndex] = arr[comparedIndex], arr[focusedIndex] # Die beiden Werte werden miteinander getauscht
-    focusedIndex += 1 # Nach jeder Iteration wird der fokussierte Index um eins erhöht
-    comparedIndex += 1 # Nach jeder Iteration wird der verglichene Index um eins erhöht
-  return arr # Der sortierte Array wird zurückgegeben</code>
+          <code class="code python"># arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+def bubbleSort(arr):
+  # Der maximale Index, welcher der fokussierte Wert haben kann
+  max = len(arr) - 1
+  # Der fokussierte Index
+  focusedIndex = 0
+  # Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  comparedIndex = 1
+  # Sobald der maximal zu fokussierende Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+  while max > 1:
+    # Falls der fokussierte Index dem maximal zu fokussierendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+    if focusedIndex == max:
+      # Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      max -= 1
+      # Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      focusedIndex = 0
+      # Der Index, mit dem verglichen wird, ist wieder 1
+      comparedIndex = 1
+    # Falls der Wert am fokussierten Index grösser ist als der am Verglichenen
+    if arr[focusedIndex] > arr[comparedIndex]:
+      # Die beiden Werte werden miteinander getauscht
+      arr[focusedIndex], arr[comparedIndex] = arr[comparedIndex], arr[focusedIndex]
+    # Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    focusedIndex += 1
+    # Nach jeder Iteration wird der verglichene Index um eins erhöht
+    comparedIndex += 1
+  # Der sortierte Array wird zurückgegeben
+  return arr</code>
           <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
           <p>Es können selbstverständlich auch andere Datentypen gebraucht werden. </p>
-          <code class="code java">public static int bubbleSort(int[] arr) { // arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
-  int max = arr.length - 1; // Der maximale Index, welcher der fokussierte Wert haben kann
-  int focusedIndex = 0; // Der fokussierte Index
-  int comparedIndex = 1; // Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
-  while (max > 1) { // Sobald der maximal zu fokussierene Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
-    if (focusedIndex == max) { // Falls der fokussierte Index dem maximal zu fokussireendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
-      max--; // Der maximal zu fokussierende Index muss nun um eins kleiner sein
-      focusedIndex = 0; // Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
-      comparedIndex = 1; // Der Index, mit dem verglichen wird, ist wieder 1
+          <code class="code java">// arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+public static int bubbleSort(int[] arr) {
+  // Der maximale Index, welcher der fokussierte Wert haben kann
+  int max = arr.length - 1;
+  // Der fokussierte Index
+  int focusedIndex = 0;
+  // Der Index des Wertes, welcher mit dem Wert am fokussierten Index verglichen wird
+  int comparedIndex = 1;
+  // Sobald der maximal zu fokussierene Index 1 ist, ist der Array sortiert. Falls max anfangs schon kleiner als 1 ist, hat der Array so wenig Elemente, dass er schon sortiert ist
+  while (max > 1) {
+    // Falls der fokussierte Index dem maximal zu fokussireendem Index entspricht, wird der Algorithmus wieder vom Index null weitergeführt
+    if (focusedIndex == max) {
+      // Der maximal zu fokussierende Index muss nun um eins kleiner sein
+      max--;
+      // Man beginnt wieder am Anfang des Arrays => Der fokussierte Index ist wieder 0
+      focusedIndex = 0;
+      // Der Index, mit dem verglichen wird, ist wieder 1
+      comparedIndex = 1;
     }
-    if (arr[focusedIndex] > arr[comparedIndex]) { // Falls der Wert am fokussierten Index grösser ist als der am Verglichenen, werden die beiden Werte miteinander getauscht
+    // Falls der Wert am fokussierten Index grösser ist als der am Verglichenen, werden die beiden Werte miteinander getauscht
+    if (arr[focusedIndex] > arr[comparedIndex]) {
       int temp = arr[focusedIndex];
       arr[focusedIndex] = arr[comparedIndex];
       arr[comparedIndex] = temp;
     }
-    focusedIndex++; // Nach jeder Iteration wird der fokussierte Index um eins erhöht
-    comparedIndex++; // Nach jeder Iteration wird der verglichene Index um eins erhöht
+    // Nach jeder Iteration wird der fokussierte Index um eins erhöht
+    focusedIndex++;
+    // Nach jeder Iteration wird der verglichene Index um eins erhöht
+    comparedIndex++;
   }
-  return arr; // Der sortierte Array wird zurückgegeben
+  // Der sortierte Array wird zurückgegeben
+  return arr;
 }</code>
         </div>
         <div id="animatedExample">

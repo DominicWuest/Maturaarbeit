@@ -41,6 +41,10 @@ main div {
   border-radius: 50px;
 }
 
+ol, ul {
+  font-family: sans-serif;
+}
+
 main div:first-child {
   margin-top: 25px;
 }
@@ -53,7 +57,6 @@ main div:first-child {
 a {
   text-decoration: none;
   color: #009;
-  font-family: sans-serif;
 }
 
 a:hover {
@@ -83,6 +86,16 @@ a:hover {
   white-space: pre;
   border-radius: 8px;
   max-height: 400px;
+}
+
+.fivestepmapping .code {
+  text-align: center;
+  width: 35%;
+}
+
+.functiondescription ol ol {
+  list-style: lower-latin;
+  padding-bottom: 10px;
 }
 
 .blockprocesses {

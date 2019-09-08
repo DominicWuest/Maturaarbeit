@@ -71,14 +71,12 @@ ul ul {
 
 .coursesListContainer {
   margin-left: 1vh;
-  height: 73vh;
 }
 
 .coursesList {
   padding: 0;
   padding-bottom: 3%;
   width: 18vw;
-  overflow-x: show;
   height: auto;
   width: 18.5vw;
 }
@@ -253,7 +251,7 @@ footer {
 
   .coursesList {
     width: auto;
-    overflow-x: auto;
+    overflow: auto;
   }
 
   .coursesListContainer li, .coursesListContainer ul {

@@ -25,8 +25,8 @@
 					<li><a href="#general">Allgemein</a></li>
 					<li><a href="#information">Der Informationsgehalt</a></li>
 					<li><a href="#entropy">Die Entropie</a></li>
-					<li><a href="#huffman">Huffman-Kodierung</a></li>
-					<li><a href="#arithmetic">Arithmetische Kodierung</a></li>
+					<li><a href="#redundancy">Die Redundanz</a></li>
+					<li><a href="#algorithms">Algorithmen für die Entropiekodierung</a></li>
 				</ul>
             </div>
 			<div id = "general">
@@ -242,14 +242,59 @@ def entropy(I, A):
 					</figure>
 				</div>
 			</div>
-			<div id = "huffman">
-				<h2>Huffman-Kodierung</h2>
-				<p></p>
+			<div id = "redundancy">
+				<h2>Die Redundanz</h2>
+				<p>
+					Die Redundanz bezeichnet die Informationen aus einer Infomrationsquelle, die mehrfach verwendet werden. Somit kann eine redundante Informationseinheit ohne Informationsverlust weggelassen werden. Somit ist der Teil einer Nachricht, der keine Informations enthält redundant. Die Redundanz ist eine Logarithmische Grösse und zeigt an, wie viel mal kürzer eine Kodierung sein könnte.
+				</p>
+				<div id = "calculate">
+					<h3>Berechnung</h3>
+					<p>
+						Die Redundanz kann aus der Differenz zwischen der Maximalen Entropie einer Quelle und der Entropie derselben Quelle berechenen. Damit muss sie immer positiv sein, da die Entropie die maximale Entropie nie überschreiten kann. Da es sich um eine Subtraktion handelt erhält die Redundanz die gleiche Einheit wie die Entropie: Bit / Zeichen.
+					</p>
+					<figure class = "equation">
+						R = &Eta;<sub>max</sub>(I) - &Eta;(I)
+					</figure>
+				</div>
+				<div id = "calculateex">
+					<h3>Rechenbeispiel</h3>
+					<p>
+						Dieses Rechenbeispiel berechnet die Redundanz eines Textes, der mit dem lateinischen Alphabet: Z = {a, b, c, ..., z} geschrieben wurde und somit 26 verschiedene Zeichen enthält. Für die Auftrittswahrscheinlichkeit dieser Zeichen wurden die Werte von <a href = "https://de.wikipedia.org/wiki/Entropie_(Kryptologie)">Wikipedia</a>, in der Spalte der deutschsprachigen Texte verwendet. Die Gross- und kleinschreibung, sowie die Leerzeichen werden dabei nicht berücksichtigt, da diese die ganze Sache nur noch unnötig kompliziert machen würden.
+					</p>
+					<br>
+					<p>
+						Um die Redundanz zu berechnen müssen wir zuerst die Entropie und die maximale Entropie des Textes berechenen. Der Text erreicht seine maximale Entropie, wenn alle Zeichen die gleiche Auftrittswahrscheinlichkeit haben, also gleich viel vorkommen. Somit ergibt sich:
+					</p>
+					<figure class = "equation">
+						&Eta; = -<figure class = "sum"><span class = "end">26</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>) = 
+						-<span class = "bigparthense">(</span>p<sub>a</sub> * log<sub>2</sub>(p<sub>a</sub>) + p<sub>b</sub> * log<sub>2</sub>(p<sub>b</sub>) + p<sub>c</sub> * log<sub>2</sub>(p<sub>c</sub>) + p<sub>d</sub> * log<sub>2</sub>(p<sub>d</sub>) + p<sub>e</sub> * log<sub>2</sub>(p<sub>e</sub>) + p<sub>f</sub> * log<sub>2</sub>(p<sub>f</sub>) + p<sub>g</sub> * log<sub>2</sub>(p<sub>g</sub>) + p<sub>h</sub> * log<sub>2</sub>(p<sub>h</sub>) + p<sub>i</sub> * log<sub>2</sub>(p<sub>i</sub>) + p<sub>j</sub> * log<sub>2</sub>(p<sub>j</sub>) + p<sub>k</sub> * log<sub>2</sub>(p<sub>k</sub>) + p<sub>l</sub> * log<sub>2</sub>(p<sub>l</sub>) + p<sub>m</sub> * log<sub>2</sub>(p<sub>m</sub>) + p<sub>n</sub> * log<sub>2</sub>(p<sub>n</sub>) + p<sub>o</sub> * log<sub>2</sub>(p<sub>o</sub>) + p<sub>p</sub> * log<sub>2</sub>(p<sub>p</sub>) + p<sub>q</sub> * log<sub>2</sub>(p<sub>q</sub>) + p<sub>r</sub> * log<sub>2</sub>(p<sub>r</sub>) + p<sub>s</sub> * log<sub>2</sub>(p<sub>s</sub>) + p<sub>t</sub> * log<sub>2</sub>(p<sub>t</sub>) + p<sub>u</sub> * log<sub>2</sub>(p<sub>u</sub>) + p<sub>v</sub> * log<sub>2</sub>(p<sub>v</sub>) + p<sub>w</sub> * log<sub>2</sub>(p<sub>w</sub>) + p<sub>x</sub> * log<sub>2</sub>(p<sub>x</sub>) + p<sub>y</sub> * log<sub>2</sub>(p<sub>y</sub>) + p<sub>z</sub> * log<sub>2</sub>(p<sub>z</sub>)<span class = "bigparthense">)</span> =
+						<br>
+						-<span class = "bigparthense">(</span>0.0545 * log<sub>2</sub>(0.0545) + 0.0175 * log<sub>2</sub>(0.0175) + 0.0337 * log<sub>2</sub>(0.0337) + 0.0511 * log<sub>2</sub>(0.0511) + 0.1689 * log<sub>2</sub>(0.1689) + 0.0128 * log<sub>2</sub>(0.0128) + 0.0376 * log<sub>2</sub>(0.0376) + 0.0526 * log<sub>2</sub>(0.0526) + 0.0851 * log<sub>2</sub>(0.0851) + 0.0018 * log<sub>2</sub>(0.0018) + 0.0151 * log<sub>2</sub>(0.0151) + 0.0377 * log<sub>2</sub>(0.0377) + 0.0222 * log<sub>2</sub>(0.0222) + 0.1042 * log<sub>2</sub>(0.1042) + 0.0311 * log<sub>2</sub>(0.0311) + 0.0063 * log<sub>2</sub>(0.0063) + 0.0001 * log<sub>2</sub>(0.0001) + 0.0714 * log<sub>2</sub>(0.0714) + 0.0624 * log<sub>2</sub>(0.0624) + 0.0608 * log<sub>2</sub>(0.0608) + 0.0340 * log<sub>2</sub>(0.0340) + 0.0089 * log<sub>2</sub>(0.0089) + 0.0164 * log<sub>2</sub>(0.0164) + 0.0002 * log<sub>2</sub>(0.0002) + 0.0007 * log<sub>2</sub>(0.0007) + 0.0127 * log<sub>2</sub>(0.0127)<span class = "bigparthense">)</span>
+						<br>
+						&asymp; 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+						<br>
+						&Eta;<sub>max</sub> = <figure class = "fraction"><span class = "upper">26</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26) = log<sub>2</sub>(26)
+						<br>
+						&asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+					</figure>
+					<p>
+						Nun müssen wir die Differenz dieser beiden Werte bilden und erhalten den Wert für die Redundanz von (grossen, damit die Auftrittswahrscheinlichkeit gut ist) in Deutsch geschriebenen Texten.
+					</p>
+					<figure class = "equation">
+						R = &Eta;<sub>max</sub> - &Eta; &asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> - 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> = 
+						<br>
+						0.6358 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+					</figure>
+					<p>
+						Wir haben also eine Redundanz von 0.6358 Bit pro Zeichen in deutschsprachigen Texten. Das bedeutet, dass wir mit einer optimalen Entropiekodierung im Durchschnitt 0.6358 Bit pro Zeichen an Daten einsparen können. Dies scheint zwar wenig, aber wenn wir nun Beispielweise einen Bericht mit 10'000 Buchstaben haben, dann können wir 10'000 Zeichen * 0.6358 Bit / Zeichen = 6358 Bit einsparen, was schon ein beträchtlicher Betrag sein kann. Eine Entropiekodierung ist also sinnvoll für Situationen mit grosser Redundanz, wäre aber zum Beispiel sinnlos für die Aufzeichnung der Würfe eines Würfels, bei dem jede Möglickeit die gleich Auftrittswahrscheinlichkeit hat, womit die Redundanz 0 beträgt.
+					</p>
+				</div>			
 			</div>
-			<div id = "arithmetic">
-				<h2>Arithmetische Kodierung</h2>
-				<p></p>
-			</div>               
+			<div id = "algorithms">
+				<h2>Algorithmen für die Entropiekodierung</h2>
+				<h3><a href = "entropy/huffman">Huffman-Kodierung</a></h3>
+				<h3><a href = "entropy/arithmetic">Arithmetische Kodierung</a></h3>
+			</div>
         </main>
 		<%- include(partialsPath + 'footer1.ejs') %>
     </body>

@@ -13,7 +13,7 @@ main {
 	display: grid;
 	margin: 0.5vh;
   	grid-template-columns: repeat(2, 48.5%);
-	grid-template-rows: 10vh 75vh 5vh;
+	grid-template-rows: 10vh 66vh 14vh;
   	justify-content: center;
 	height: 85vh;
 }
@@ -51,18 +51,22 @@ label {
     font-family: Arial, sans-serif;
 }
 
-
 input.input,
 textarea {
     border: 1px solid #8c8c8c;
     resize: none;
-	width: 90%;
+	width: 100%;
     border-radius: .5vh .5vh;
-	padding: .5vh;
+	padding: 1.5vh;
     outline: none;
     font-family: Arial, sans-serif;
-    font-size: 3vh;
+    font-size: 2vh;
     color: #8c8c8c;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-size: 1.5vh;
 }
 
 #message {
@@ -115,7 +119,7 @@ input#submit {
 #person1, #person2, #person3 {
     background-color: white;
 	border-radius: 2vh;
-	height: 55%;
+	height: 65%;
 	width: 30%;
 	margin: auto;
 	text-align: center;
@@ -129,33 +133,37 @@ input#submit {
 
 #person1:hover, #person2:hover, #person3:hover {
     background-color: gainsboro;
-    transform: scale(1.05,1.05);    
+    transform: scale(1.05,1.05);
 }
 
 .picture {
-	width: 23vh;
+    margin-top: 10px;
+	width: auto;
 	height: 23vh;
+    border: 1px solid black;
 }
 
 @media only screen and (max-width: 1350px) {
-	
+
 	#person1, #person2, #person3 {
 		height: 70%;
 		width: 70%;
 		font-size: 1.5vh;
 		padding: 1vh;
-		display: "";
+		display: none;
 	}
-	
+
 	.picture {
-		width: 23vh;
+        margin-top: 10px;
+		width: auto;
 		height: 23vh;
+        border: 1px solid black;
 	}
-	
+
 	input.input, textarea {
 		margin-left: 1vh;
 	}
-	
+
 	label {
 		margin-left: 1vh;
 	}
@@ -180,9 +188,14 @@ input#submit {
 		width: 65%;
 		font-size: 1.5vh;
 	}
-	
+
 	.picture {
-		width: 25vh;
+        margin-top: 10px;
+		width: auto;
 		height: 25vh;
+        border: 1px solid black;
 	}
+}
+
+footer {
 }

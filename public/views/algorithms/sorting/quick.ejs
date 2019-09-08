@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8">
+    <title>Quicksort</title>
+    <link rel = "shortcut icon" type = "image/x-icon" href = "/imgs/favicon.ico"/>
+    <link rel = "stylesheet" href =<%= "/styles/" + path + ".css" %>>
+    <link href = "https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel = "stylesheet">
+    <script src = <%= "/js/" + path + ".js" %>></script>
+    <script src = "/js/codeHighlighting.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script>
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body onload = "addHighlighting();" onresize = "setup();">
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Quicksort</h1>
+      </div>
+      <div class = "pageShortcuts">
+        <h2>Page Shortcuts</h2>
+        <ul>
+          <li><a href = "#usage">Gebrauch</a></li>
+          <li><a href = "#specs">Spezifikationen</a></li>
+          <li><a href = "#functionality">Funktionsweise</a></li>
+          <li>
+            <a href = "#exampleCode">Beispielcode</a>
+            <ul>
+              <li><a href = "#python">Python</a></li>
+              <li><a href = "#java">Java</a></li>
+            </ul>
+          </li>
+          <li><a href = "#animatedExample">Animiertes Beispiel</a></li>
+        </ul>
+      </div>
+      <div class = "text">
+        <div id = "usage">
+          <h2>Gebrauch</h2>
+          <p>Der Quicksort wird gebraucht, um einen Array zu sortieren.</p>
+          <p>Der Quicksort kann sehr effizient sein, er kann jedoch im schlechtesten Fall genauso ineffizient wie die einfacheren Sortieralgorithmen sein.</p>
+        </div>
+        <div id = "specs">
+          <h2>Spezifikationen</h2>
+          <p>Beim Quicksort werden im schlechtesten Fall, der aber nur sehr selten vorkommt <span class="bigO">O(n<sup>2</sup>) Vergleiche</span> durcheführt. Die best-case Performance besteht aus <span class="bigO">O(n * log(n)) Vergleichen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n * log(n))</span> Vergleiche.</p>
+          <p>Der Algorithmus funktioniert als In-place-Algorithmus, da er nur Elemente innerhalb einer Liste vertauscht. Jedoch braucht er für jede Rekursionsebene neuen Speicherplatz und hat damit eine durchschnittliche Space-complexity von <span class="bigO">O(log(n))</span> und im schlechtesten Fall eine Space-complexity von <span class="bigO">O(n)</span>.</p>
+        </div>
+        <div id = "functionality">
+          <h2>Funktionsweise</h2>
+          <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
+          <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
+          <p>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index innerhalb des zu sortierenden Teilarrays gewählt werden. Der Algorithmus vertauscht die Elemente des Arrays nun so, dass zwei neue Teilarrays entstehen, einer mit Elementen die alle kleiner oder gleich wie gross das gewählte Pivot-Element sind und der andere mit Elementen, die alle grösser oder gleich dem Pivot-Element sind. Dies kann dadurch gemacht werden, indem für jedes Element getestet wird, ob es kleiner als das Pivot-Element ist oder nicht. Ist es kleiner, dann wird es mit dem ersten Element getauscht, das diese Bedingung nicht erfüllt hat und somit grösser oder gleich dem Pivot-Element sein muss. Wurde der Array in die zwei Teilarrays unterteilt wird das Pivot-Element dazwischen gesetzt und befindet sich somit an seiner endgültigen Position. Dieses Verfahren wird nun durch Rekursion auf jeden Teilarray andgewandt, bis alle Teilarrays aus lediglich noch einem Element bestehen. Ist dies der Fall ist der Array sortiert.</p>
+        </div>
+        <div id = "exampleCode">
+          <h2>Beispielcode</h2>
+          <div id = "python">
+            <p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+            <code class = "code python"># arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
+def quickSort(arr, low, high): 
+  # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  if low &lt; high:
+    # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    low_index = low 
+    # Element, mit dem verglichen wird hat den höchsten Index im Teilarray 
+    pivot = arr[high] 
+    # Es wird von low bis (und ohne) dem Pivot Element jedes Element mit dem Pivot-Element verglichen
+    for high_index in range(low, high, 1): 
+      # Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+      if arr[high_index] &lt; pivot: 
+        # Die beiden Werte werden miteinander getauscht
+        arr[low_index], arr[high_index] = arr[high_index], arr[low_index] 
+        # Low_index wird erhöht, da dieses Element nun kleiner ist als das Pivot Element
+        low_index += 1 
+    # Das Pivot-Element wird dorthin gesetzt wo rechts alle grösser und links alle kleiner sind
+    arr[low_index], arr[high] = arr[high], arr[low_index] 
+    # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low_index + 1, high) 
+    # Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert  
+    quickSort(arr, low, low_index - 1) 
+  # Der sortierte Array wird zurückgegeben
+  return arr</code>
+          </div>
+          <div id = "java">
+            <p class="codeDescription">Dies ist ein in Java geschriebener Beispielcode:</p>
+            <p>Es können selbstverständlich auch andere Datentypen gebraucht werden.</p>
+            <code class = "code java">// arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
+public static int quicksort(int[] arr, int low, int high) { 
+  // Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  if (low &lt; high) { 
+    // Der Index des Elementes auf dem unsortierten linken Teil des Arrays
+    int low_index = low; 
+    // Das Pivot-Element des Teilarrays wird an dessen Ende gewählt
+    int pivot = arr[high]; 
+    // Es wird von low bis zu dem Pivot-Element jedes Element mit dem Pivot-Element verglichen
+    for (int high_index = low; high_index &lt; high; high_index++) { 
+      // Falls der untersuchte Wert kleiner als das Pivot-Element ist 
+      if (arr[high_index] &lt; pivot) { 
+        // Die beiden Werte werden miteinander getauscht
+        int temp = arr[high_index];
+        arr[high_index] = arr[low_index] ; 
+        arr[low_index] = temp;
+        // Low_index wird erhöht, da dieses Element nun kleiner als das Pivot-Element ist
+        low_index++; 
+      }
+    }
+    // Das Pivot-Element wird an die Position gebracht, an der links alle kleiner und rechts alle anderen Elemente grösser sind
+    int temp = arr[low_index];
+    arr[low_index] = arr[high]; 
+    arr[high] = temp;
+    // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der rechte Teil wird sortiert
+    quickSort(arr, low_index + 1, high); 
+    // Die Funktion wird mit dem teilsortierten Array erneut aufgerufen und der linke Teil wird sortiert 
+    quickSort(arr, low, low_index - 1    
+  }
+  // Der sortierte Array wird zurückgegeben
+  return arr; 
+}           </code>
+          </div>
+        </div>
+        <div id="animatedExample">
+          <h2>Animiertes Beispiel</h2>
+          <div class="legend">
+            <h3>Legende</h3>
+            <ul>
+              <li><span style = "color: purple">Das Pivot-Element, mit dem verglichen wird und von dem die einzelnen Teilarrays abgetrennt werden</span></li>
+              <li><span style = "color: green;">Momentan nicht beachteter Wert</span></li>
+              <li><span style = "color: gray;">Wird mit Pivot verglichen und mit dem <span style = "color: blue;">blauen</span> Element getauscht, falls es kleiner als das Pivot-Element ist</span></li>
+              <li><span style = "color: blue;">Wird mit dem <span style = "color: grey">grauen</span> Element getauscht, falls dies verlangt wird.</span></li>
+              <li><span style = "color: red;">Wird mit dem Pivot-Element getauscht, falls dies verlangt wird. Links davon sind also alle kleiner als das Pivot-Element und rechts alle grösser.</span></li>
+            </ul>
+          </div>
+          <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
+          <div class = "animationInput">
+              <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "abort = true; setup(); startamination();">
+              <input type = "range" name = "speed" min = "0.0001" max = "0.01" step = "0.00001" oninput = "speed = this.value">
+          </div>
+          <div id = "animation"></div>
+        </div>
+      </div>
+    </main>
+	<%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

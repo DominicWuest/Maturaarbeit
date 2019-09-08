@@ -11,10 +11,11 @@ body {
 
 main {
 	display: grid;
-	margin: 1vh;
+	margin: 0.5vh;
   	grid-template-columns: repeat(2, 48.5%);
 	grid-template-rows: 10vh 66vh 14vh;
   	justify-content: center;
+	height: 85vh;
 }
 
 form {

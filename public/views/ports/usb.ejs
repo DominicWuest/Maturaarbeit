@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+    <head>
+        <title>USB</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <meta charset="utf-8"/>
+    </head>
+    <body>
+        <%- include(partialsPath + 'header.ejs') %>
+        <main>
+            <div class = "title">
+                <h1>Die USB-Schnittstelle</h1>
+            </div>
+            <div class = "text">
+                <p class="usbdescription">Da sich die Nutzer der elektronischen Geräten aufgrund der Vielzahl an verschiedenen Schnittstellen überfordert fühlten schlossen sich mehrere IT- und Kommunikationsgeräthersteller zusammen, um eine neue Schnittstelle zu konzipieren, die eine vielzahl von Anschlüssen zu ersetzten vermag. So entstand die USB-Schnittstelle. <b>USB</b> steht für <b>U</b>niversal <b>S</b>erial <b>B</b>us, auf Deutsch ein Universeller Serieller Bus. Das Wort Bus steht dabei natürlich nicht direkt für einen Bus, der auf einer Strasse fährt, er steht jedoch dafür, dass wir eine Schnittstelle haben, also eine Art Öffentliches Verkehrsmittel in der Datenübertragung, womit Bus ganz gut dazu passt. Universell ist diese Schnittstelle, weil du mit USB nicht nur Dateien von deiner Festplatte auf einen Datenträger (Zum Beispiel einen Stick) laden kannst, sondern weil du auch Beispielsweise eine Tastatur oder eine Maus mit deinem Computer verbinden kannst. Seriell bedeutet hier, dass die Daten bit-seriell übertragen werden, was heisst, dass die einzelnen Bits nacheinander übertragen werden. Wenn du Beispielweise die Zahl 23 hast, so wäre diese in der binären Darstellung 10111, also eine Zahl, für die mindestens fünf Bits benötigt werden. Diese fünf Bits werden nun bei einer Übertragung über die USB-Schnittstelle nacheinander auf das verbundene Gerät übertragen. Das ganze wird über ein sogenanntes differentiell symmetrisches Adernpaar übertragen, welches simpel gesagt zwei Adern hat, bei der einen wird die 0 übertragen, bei der anderen die 1, realisiert durch unterschiedliche Spannungspegel. Dadurch werden viele Fehler eliminiert und es ermöglicht eine sehr schnelle Datenübertragung.</p>
+            </div>
+            <div class="usb">
+                <div id = "usb1">
+                    <a href="/ports/usb/1x" id="describeUSB1">
+                        <h2>Der USB 1 Anschluss</h2>
+                        <div>
+                            <img src="/imgs/ports/usb/usb1.jpg" alt="USB 1.X"/>
+                        </div>
+                    </a>
+                </div>
+                <div id = "usb2">
+                    <a href="/ports/usb/2" id="describeUSB2">
+                        <h2>Der USB 2 Anschluss</h2>
+                        <div>
+                            <img src="/imgs/ports/usb/usb2.jpg" alt="USB 2.0"/>   
+                        </div>
+                    </a>
+                </div>
+                <div id="usb3">
+                    <a href="/ports/usb/3x" id="describeUSB3">
+                        <h2>Der USB 3 Anschluss</h2>
+                        <div>
+                            <img src="/imgs/ports/usb/usb3.jpg" alt="USB 3.X"/>
+                        </div>
+                    </a>
+                </div>
+                <div id = "usbc">
+                    <a href="/ports/usb/usb-c" id="describeUSBc">
+                        <h2>Der USB-C Anschluss</h2>
+                        <div>
+                            <img src="/imgs/ports/usb/usbc.jpg" alt="USB Typ C"/>
+                        </div>
+                    </a>
+                </div>
+              </div>
+            <div id="usbextra">
+                <p class="usbdescription">Die verschiedenen USB Typen, also der USB 1.x, USB 2.0 und der USB 3.x können dadurch unterschieden werden, dass die Stecker zwar die gleiche Form, nämlich häufig den Typ a haben, jedoch verschiedene Farben. So ist der USB 1 weiss, der USB 2 schwarz und der USB 3 blau. Wenn Sie einen roten oder gelben USB sehen, dann bedeutet dies, dass der Anschluss weiter betrieben wird, wenn sich das angeschlossene Gerät im Standby befindet, wie zum Beispiel wenn man das Smartphone am zugeklappten Laptop auflädt. Dies ist jedoch nur eine Faustregel und trifft natürlich nicht immer zu.</p>
+            </div>
+        </main>
+		<%- include(partialsPath + 'footer1.ejs') %>
+    </body>
+</html>

@@ -1,5 +1,6 @@
-html {
+::-html {
 	height: 100vh;
+	scrollbar-base-color: green;
 }
 
 body {
@@ -27,15 +28,11 @@ main h2 {
   	font-family: 'Righteous', cursive;
 }
 
-main h3 {
-  	font-family: sans-serif;
-}
-
 main div {
   	padding: 25px;
   	margin-bottom: 25px;
   	background-color: rgba(255, 255, 255, 0.8);
-  	border-radius: 50px;
+  	border-radius: 25px;
 }
 
 main div {
@@ -45,10 +42,6 @@ main div {
 .title {
   	text-align: center;
   	font-size: 3em;
-}
-
-#general{
-    font-size: 0.4em;
 }
 
 a {
@@ -65,22 +58,10 @@ p {
   	font-family: sans-serif;
 }
 
-#typeab img{
-    max-width: 50%;
-    margin: 0% 25%;
-}
-
-#colorspec img{
-    width: 25%;
-    margin: 0% 37.5%;
-}
-
-#chargers img{
-    width: 5%;
-}
-
-#pins img{
-    max-width: 60%;
-    margin: 0% 20%;
-}
-
+@media only screen and (max-aspect-ratio : 13 / 9){
+/*give a different style for smaller devices like mobile phones*/
+    main {
+/*repositon the content, so there is no conflict with the header*/
+        margin: 0% 11%;
+        width: 80%;
+    }

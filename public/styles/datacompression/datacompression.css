@@ -58,7 +58,6 @@ p {
   	font-family: sans-serif;
 }
 
-<<<<<<< HEAD
 /*give a different style for smaller devices like mobile phones*/
 @media only screen and (max-aspect-ratio : 13 / 9) {
     /*repositon the content, so there is no conflict with the header*/
@@ -67,12 +66,3 @@ p {
         width: 80%;
     }
 }
-=======
-@media only screen and (max-aspect-ratio : 13 / 9){
-/*give a different style for smaller devices like mobile phones*/
-    main {
-/*repositon the content, so there is no conflict with the header*/
-        margin: 0% 11%;
-        width: 80%;
-    }
->>>>>>> 17aab823f86424cbdda32f230f9d531628284d53

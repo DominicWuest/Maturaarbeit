@@ -27,7 +27,6 @@ var person = 1;
 function checkwindow() {
 	if (window.innerWidth <= 1350) {
 		document.getElementById("person" + person).style.display = "grid";
-		console.log("person" + person)
 		person += 1;
 		if (person == 4) {
 			person = 1;
@@ -52,7 +51,6 @@ function imageswitch() {
 		if (person == 4) {
 			person = 1;
 		}
-		console.log("person" + person)
 		document.getElementById("person" + person).style.display = "grid";
 	}
 }

@@ -8,7 +8,7 @@ html {
 }
 
 main {
-  height: 90vh;
+  height: 96vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
   background-repeat: repeat-x;
   display: grid;
@@ -247,7 +247,7 @@ footer {
 
   main {
     grid-gap: 0;
-    grid-template: 45vh 45vh / 50vw 50vw;
+    grid-template: 48vh 48vh / 50vw 50vw;
   }
 
   .coursesList {

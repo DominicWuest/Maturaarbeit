@@ -9,16 +9,18 @@ footer {
     clear: both;
     overflow: scroll;
     overflow-x: hidden;
-    overflow: -moz-scrollbars-none; 
-    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+	font-size: 0.75em;
 }
 
-footer::-webkit-scrollbar { 
+footer::-webkit-scrollbar {
     width: 0 !important;
 }
 
-p{
+footer p {
     font-size: 120%;
+		margin: 0;
 }
 
 /*Style des Links für die Kontakt Seite*/
@@ -33,27 +35,36 @@ p{
 #description {
     font-family: 'Kalam', cursive;
     font-size: 100%;
+		padding: 0.8vh 0;
 }
 
 #copyright {
     font-family: 'Arapey', serif;
     background-color: #249;
     margin: 0% 37.5%;
+		font-size: 75%;
     border-radius: 100px;
 }
 
-@media only screen and (max-width: 1000px){
-    footer {
-        position: absolute;
-		top: 90%;		
-    }
-	
-	p {
-		font-size: 180%;
-	}
-	
-	#copyright {
-		border-radius: 5px;
-	}
-}
+@media only screen and (max-aspect-ratio : 13 / 9){
 
+	footer {
+		height: 4vh;
+		position: absolute;
+		bottom: 0;
+	}
+
+	#description {
+		display: none;
+	}
+
+	#copyright {
+		margin: auto;
+		background: transparent;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+}

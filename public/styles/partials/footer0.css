@@ -9,6 +9,7 @@ footer {
     clear: both;
     overflow: scroll;
     overflow-x: hidden;
+<<<<<<< HEAD
     overflow: -moz-scrollbars-none; 
     -ms-overflow-style: none; 
 }
@@ -19,6 +20,20 @@ footer::-webkit-scrollbar {
 
 p{
     font-size: 120%;
+=======
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+	font-size: 0.75em;
+}
+
+footer::-webkit-scrollbar {
+    width: 0 !important;
+}
+
+footer p {
+    font-size: 120%;
+		margin: 0;
+>>>>>>> 17aab823f86424cbdda32f230f9d531628284d53
 }
 
 /*Style des Links für die Kontakt Seite*/
@@ -33,12 +48,17 @@ p{
 #description {
     font-family: 'Kalam', cursive;
     font-size: 100%;
+<<<<<<< HEAD
+=======
+		padding: 0.8vh 0;
+>>>>>>> 17aab823f86424cbdda32f230f9d531628284d53
 }
 
 #copyright {
     font-family: 'Arapey', serif;
     background-color: #249;
     margin: 0% 37.5%;
+<<<<<<< HEAD
     border-radius: 100px;
 }
 
@@ -57,3 +77,31 @@ p{
 	}
 }
 
+=======
+		font-size: 75%;
+    border-radius: 100px;
+}
+
+@media only screen and (max-aspect-ratio : 13 / 9){
+
+	footer {
+		height: 4vh;
+		position: absolute;
+		bottom: 0;
+	}
+
+	#description {
+		display: none;
+	}
+
+	#copyright {
+		margin: auto;
+		background: transparent;
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+
+}
+>>>>>>> 17aab823f86424cbdda32f230f9d531628284d53

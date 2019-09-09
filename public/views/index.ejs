@@ -14,31 +14,33 @@
       <main>
       <div class="courses">
         <span class="title"><a href="/courses?query=">Alle Kurse</a></span>
-        <div class="coursesListContainer">
-          <ul class="coursesList">
-            <% let index = 0 %>
-            <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
-            <% for (let i = 1; i < courses[0].length; i++) { %>
-              <% if (courses[3][i] > index) { %>
-                <% for (let j = 0; j < courses[3][i] - index; j++) { %>
-                  <ul><li>
+        <div class="coursesListWrapper">
+          <div class="coursesListContainer">
+            <ul class="coursesList">
+              <% let index = 0 %>
+              <li><a href="<%= courses[1][0] %>"> <%= courses[0][0]  %></a>
+              <% for (let i = 1; i < courses[0].length; i++) { %>
+                <% if (courses[3][i] > index) { %>
+                  <% for (let j = 0; j < courses[3][i] - index; j++) { %>
+                    <ul><li>
+                  <% } %>
+                  <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+                <% } else if (courses[3][i] < index) { %>
+                  <% for (let j = 0; j < index - courses[3][i]; j++) { %>
+                    </li></ul>
+                  <% } %>
+                  <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+                <% } else { %>
+                </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
                 <% } %>
-                <a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-              <% } else if (courses[3][i] < index) { %>
-                <% for (let j = 0; j < index - courses[3][i]; j++) { %>
-                  </li></ul>
-                <% } %>
-                <li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
-              <% } else { %>
-              </li><li><a href="<%= courses[1][i] %>"> <%= courses[0][i] %></a>
+                <% index = courses[3][i] %>
               <% } %>
-              <% index = courses[3][i] %>
-            <% } %>
-            <% for (let i = 0; i < index; i++) { %>
-              </li></ul>
-            <% } %>
-            </li>
-          </ul>
+              <% for (let i = 0; i < index; i++) { %>
+                </li></ul>
+              <% } %>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
       <div class="middle">

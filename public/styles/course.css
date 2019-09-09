@@ -59,7 +59,7 @@ a:hover {
   background: none;
 }
 
-.text p {
+.text p, .text h3 {
   font-family: sans-serif;
 }
 
@@ -69,6 +69,7 @@ a:hover {
 }
 
 .code {
+  white-space: pre;
   display: block;
   font-family: monospace;
   width: 95%;
@@ -79,5 +80,4 @@ a:hover {
   background-color: #444;
   color: #BBB;
   border-radius: 8px;
-  white-space: pre;
 }

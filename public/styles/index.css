@@ -71,20 +71,24 @@ ul ul {
 
 .coursesListContainer {
   margin-left: 1vh;
-  height: 73vh;
 }
 
 .coursesList {
   padding: 0;
-  padding-bottom: 3%;
   width: 18vw;
-  overflow-x: show;
   height: auto;
+  max-height: 72vh;
   width: 18.5vw;
+  overflow: auto;
+}
+
+.coursesListWrapper {
+  height: auto;
+  overflow-x: visible;
 }
 
 .coursesList > li > ul li > ul {
-  transition: max-height 1s;
+  transition: max-height 2s 1s;
   max-height: 0;
   overflow: hidden;
 }
@@ -253,7 +257,8 @@ footer {
 
   .coursesList {
     width: auto;
-    overflow-x: auto;
+    max-height: 40vh;
+    overflow: auto;
   }
 
   .coursesListContainer li, .coursesListContainer ul {

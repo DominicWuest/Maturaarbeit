@@ -9,8 +9,13 @@ footer {
     clear: both;
     overflow: scroll;
     overflow-x: hidden;
-    overflow: -moz-scrollbars-none; 
-    -ms-overflow-style: none; 
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+	font-size: 0.75em;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
 footer::-webkit-scrollbar { 
@@ -34,7 +39,6 @@ footer p {
 #description {
     font-family: 'Kalam', cursive;
     font-size: 100%;
-	padding: 0.8vh 0;
 }
 
 #copyright {
@@ -42,6 +46,8 @@ footer p {
     background-color: #249;
     margin: 0% 37.5%;
 	font-size: 75%;
+	box-sizing: content-box;
+	padding: 0.2vh 0.6vh;
     border-radius: 100px;
 }
 

@@ -5,7 +5,7 @@
         <title>Grafikkarte</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <link rel="stylesheet" href="/styles/course.css">
         <meta charset="utf-8"/>
 </head>
 <body>
@@ -22,6 +22,7 @@
                                 <li><a href="#aufbau">Aufbau</a></li>
                         </ul>
                 </div>
+              <div class="text">
                 <div id="aufgabe">
                         <h2>Aufgabe</h2>
                         <p>GPU steht für Graphics Professor Unit also einem Prozessor für Graphiken. Sie ist dafür verantwortlich die Pixel zu berechnen. Hätte man keine GPU, gäbe es zwar Daten, die anzeigt werden könnten aber nicht visualisiert werden. Die Grafikkarte ist ausserdem für die Berechnung von 2D/3D- Grafiken zuständig.</p>
@@ -34,6 +35,7 @@
                         <h2>Aufbau</h2>
                         <p>Die GPU befindet sich Nahe der CPU und ist mit ihr über einen PCI-Express verbunden. Die meisten Grafikkarte haben heutzutage eigene Lüfter verbaut, die die Prozessoren vom überhitzen schützen.</p>
                 </div>
+              </div>
         </main>
 	<%- include(partialsPath + 'footer1.ejs') %>
 </body>

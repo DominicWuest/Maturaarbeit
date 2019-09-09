@@ -81,3 +81,9 @@ a:hover {
   color: #BBB;
   border-radius: 8px;
 }
+
+/* for the videoport sites */
+#pins img{
+    width: 45%;
+    margin: 0% 27.5%;
+}

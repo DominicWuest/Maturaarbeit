@@ -5,7 +5,7 @@
         <title>Motherboard</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <link rel="stylesheet" href="/styles/course.css">
         <meta charset="utf-8"/>
 </head>
 <body>
@@ -21,11 +21,10 @@
                                 <li><a href="#komponenten">Komponenten</a></li>
                         </ul>
                 </div>
-                <div>
-                        <p>Das Motherboard ist das Kernstück von einem Computer. Es wird auch Mainboard oder auf deutsch Hauptplatine genannt. Auf ihm werden die einzelnen Komponenten montiert.</p>
-                </div>
+              <div class="text">
                 <div id="aufgabe">
                         <h2>Aufgabe</h2>
+                        <p>Das Motherboard ist das Kernstück von einem Computer. Es wird auch Mainboard oder auf deutsch Hauptplatine genannt. Auf ihm werden die einzelnen Komponenten montiert.</p>
                         <p>Die Aufgabe eines Motherboardes ist es, alle Komponenten mit Hilfe von Leiterbahnen zu verbinden. Die notwendigen Komponenten, die man auf das Motherboard platzieren muss, sind der Prozessor, der Arbeitsspeicher, verschiedene Erweiterungskarten (Grafikkarte, Soundkarte, PCI-karte) und der BIOS-Chip.</p>
                 </div>
                 <div id="komponenten">
@@ -53,6 +52,7 @@
                                 </li>
                         </ul>
                 </div>
+              </div>
         </main>
         <script src="js/motherboard.js"></script>
 	<%- include(partialsPath + 'footer1.ejs') %>

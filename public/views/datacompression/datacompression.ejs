@@ -4,7 +4,7 @@
     <head>
         <title>Datenkompression</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+        <link rel="stylesheet" href="/styles/course.css">
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
         <meta charset="utf-8"/>
     </head>
@@ -24,6 +24,7 @@
 					<li><a href="#lz77">LZ77</a></li>
 				</ul>
             </div>
+    <div class="text">
 			<div id = "general">
 				<h2>Allgemein</h2>
                 <p>Die Datenkompression ist, wie im Namen bereits zu erkennen ist, ein Vorgang um digitale Daten zu komprimieren, also zu verdichten oder zu reduzieren. Die Datenkompression wird fast immer bei Fernübertragungen von digitalen Daten angewandt. Dabei ist das Ziel, dass die benötigte Datenmenge minimal ist, damit die komprimierte Datei möglichst wenige Ressourcen bei der Übertragung und Speicherung verbraucht. Dies ist gleichbedeutend damit, dass die Datei aus mäglichst wenigen Bits besteht.</p>
@@ -46,8 +47,9 @@
                 <a href = "/datacompression/lz77" id = "lz77link">
                     <h2>LZ77</h2>
                 </a>
-			</div>                
-        </main>
-		<%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+			</div>
+    </div>
+  </main>
+	<%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

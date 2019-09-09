@@ -32,33 +32,34 @@
 			<div id = "general">
 				<h2>Allgemein</h2>
                 <p>
-					Die Entropiekodierung ist eine Art der verlustfreien Datenkompression. Die Entropiekodierung basiert darauf, dass Zeichen abgespeichert werden, wie Beispielsweise ein Text. Dabei wir den einzelnen Zeichen eine unterschiedlich lange Folge von Bits zugeordnet.<br>Die Anzahl Bits, die für ein Zeichen verwendet werden wird dabei durch die <a href = "#entropy">Entropie</a> bestimmt.<br>Entropiekodierer werden oft mit anderen Kodierern kombiniert und bildet dabei das letzte Stück in einer Datenkompression. Auf dieser Seite werden die Ereignisse als statistisch unabhängig betrachtet, was zwar eigentlich nicht der Fall ist, aber es wäre nicht wirklich realisierbar diese auch noch einzubringen. Eine statistische Abhängigkeit wäre zum Beispiel unwahrscheinlich ist, dass in einem Wort zweimal der gleiche Buchstabe hintereinander steht.
+					Die Entropiekodierung ist eine Art der verlustfreien Datenkompression. Die Entropiekodierung basiert darauf, dass Zeichen abgespeichert werden, wie Beispielsweise ein Text. Dabei wir den einzelnen Zeichen eine unterschiedlich lange Folge von Bits zugeordnet.<br>Die Anzahl Bits, die für ein Zeichen verwendet werden wird dabei durch die <a href = "#entropy">Entropie</a> bestimmt.<br>Entropiekodierer werden oft mit anderen Kodierern kombiniert und bilden dabei das letzte Stück in einer Datenkompression. Auf dieser Seite werden die Ereignisse als statistisch unabhängig betrachtet, was zwar eigentlich nicht der Fall ist, aber es wäre sehr schwierig die statistische Abhängigkeit auch noch einzubringen. Eine statistische Abhängigkeit wäre zum Beispiel unwahrscheinlich ist, dass in einem Wort zweimal der gleiche Buchstabe hintereinander steht.
 				</p>
 			</div>
 			<div id = "information">
 				<h2>Der Informationsgehalt</h2>
 				<p>
-					Der Informationsgehalt ist ein Mass dafür, wie viel Information in einer Nachricht übertragen wurde. Dabei ist der Informationsgehalt eine logarthmische Grösse. Er wurde von Claude Elwood Shannon in seiner Informationstheorie formalisiert. Der Informationsgehalt bezeichnet die Anzahl Bits, die benötigt werden um ein Zeichen, also eine Information darzustellen.
+					Der Informationsgehalt ist ein Mass dafür, wie viel Information in einer Nachricht übertragen wird. Dabei ist der Informationsgehalt eine logarithmische Grösse. Er wurde von Claude Elwood Shannon in seiner Informationstheorie formalisiert. Der Informationsgehalt bezeichnet die Anzahl Bits, die benötigt werden um ein Zeichen, also eine Information darzustellen.
 				</p>
 				<div id = "definitioninfo">
 					<h3>Definition</h3>
 					<p>
-						Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Zahlenmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> und mit einer Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
+						Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert, häufig auch als Auftrittswahrscheinlichkeit bezeichnet. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Symbolmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> mit der Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
+						<br>
 						<figure class = "equation">
 							I(z<sub>n</sub>) = log<sub>m</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure><span class = "bigparthense">)</span> = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
 						</figure>
 						<br>
-						Wie aus der oben aufgeführten Formel ersichtlich ist ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
+						Wie aus der oben aufgeführten Formel ersichtlich ist, ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
 					</p>
 				</div>
 				<div id = "example">
 					<h3>Beispiel</h3>
 					<p>
-						Um den Begriff des Informationsgehaltes nach Shannons Informationstheorie zu verstehen muss man sich der herkömmlichen Bedeutung des Wortes Information Entledigen. Denn der Informationsgehalt eines 500-seitigen Romanes kann genau gleich sein, wie der Informationsgehalt der Ziffer 5, auch wenn die beiden Dinge was völlig anderes bedeuten. Wenn wir also ein Alphabet mit zwei verschiedenen Zeichen haben kann z<sub>1</sub> der 500-seitige Roman sein und z<sub>2</sub> die Ziffer 5. Dabei wird z<sub>1</sub> mit der Binärziffer 0 und z<sub>2</sub> mit der Binärziffer 1 codiert. Dieses zwei Nachrichten können also völlig frei gewählt werden und völlig unterschiedlich sein.
+						Um den Begriff des Informationsgehaltes nach Shannons Informationstheorie zu verstehen muss man sich der herkömmlichen Bedeutung des Wortes Information entledigen. Denn der Informationsgehalt eines 500-seitigen Romanes kann genau gleich sein, wie der Informationsgehalt der Ziffer 5, auch wenn die beiden Dinge etwas völlig anderes bedeuten. Wenn wir also ein Alphabet mit zwei verschiedenen Zeichen haben kann z<sub>1</sub> der 500-seitige Roman sein und z<sub>2</sub> die Ziffer 5. Dabei wird z<sub>1</sub> mit der Binärziffer 0 und z<sub>2</sub> mit der Binärziffer 1 codiert. Dieses zwei Nachrichten können also völlig frei gewählt werden und völlig unterschiedlich sein. Haben die beiden Nachrichten die gleiche Auftrittswahrscheinlichkeit, dann haben sie auch den gleichen Informationsgehalt.
 					</p>
 				</div>
 				<div id = "probabillity">
-					<h3>Die Wahrscheinlichkeit</h4>
+					<h3>Die Wahrscheinlichkeit</h3>
 					<section class = "withpic">
 						<img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" id = "probabillity" align = "right"/>
 						<p>

@@ -1,6 +1,7 @@
 html {
 	height: 100vh;
 	scrollbar-base-color: green;
+	overflow-y: hidden;
 }
 
 body {

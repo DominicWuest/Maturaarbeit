@@ -13,6 +13,7 @@ footer {
 	float: left;
 	color: white;
 	display: inline-block;
+	margin-top: -1vh;
 }
 
 #about {
@@ -20,6 +21,7 @@ footer {
   	text-align: right;
 	color: white;
 	display: inline-block;
+	margin-top: -1vh;
 }
 
 @media only screen and (max-width: 1000px) {

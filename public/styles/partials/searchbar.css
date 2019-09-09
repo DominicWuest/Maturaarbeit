@@ -43,6 +43,7 @@
 #suggestions a {
   box-sizing: border-box;
   text-decoration: none;
+  font-family: sans-serif;
   display: block;
   color: white;
   font-size: 3vh;

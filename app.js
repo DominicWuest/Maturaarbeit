@@ -127,6 +127,8 @@ app.get('/courses', urlencodedParser, function(req, res) {
 
 // Routing for the python programming page. Seperate, since it needs pythonCourses, while other courses don't
 app.get('/languages/python', function(req, res) {
+  // Increment stats for python course or else create new entry
+  stats["Python"] = stats["Python"] + 1 || 1;
   res.render('languages/python', {
     'path' : '/languages/python',
     'partialsPath' : '../partials/',
@@ -138,6 +140,8 @@ app.get('/languages/python', function(req, res) {
 
 // Routing for the HTML coding page. Serparate, since it needs htmlCourses, while other courses don't
 app.get('/languages/html', function(req, res) {
+  // Increment stats for HTML course or else create new entry
+  stats["HTML"] = stats["HTML"] + 1 || 1;
   res.render('languages/html', {
     'path' : '/languages/html',
     'partialsPath' : '../partials/',

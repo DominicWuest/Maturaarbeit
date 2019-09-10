@@ -1,5 +1,6 @@
 html {
   height: 100vh;
+  overflow-y: hidden;
 }
 
 body {
@@ -80,4 +81,10 @@ a:hover {
   background-color: #444;
   color: #BBB;
   border-radius: 8px;
+}
+
+/* for the videoport sites */
+#pins img{
+    width: 45%;
+    margin: 0% 27.5%;
 }

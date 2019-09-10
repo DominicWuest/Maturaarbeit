@@ -1,0 +1,90 @@
+.equation {
+	display: inline-block;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.fraction {
+    display: inline-block;
+    vertical-align: middle; 
+    margin: 0;
+    text-align: center;
+}
+
+.fraction span {
+    display: block;
+}
+
+.fraction span.lower {
+	border-top: thick solid black;
+}
+
+.fraction span.upper {
+	display: inline-block;
+}
+
+.withpic {
+	min-height: 35vh;
+}
+
+img #probabillity {
+	height: 35vh;
+}
+
+.sum {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	text-align: center;
+	font-size: 175%;
+}
+
+.lim {
+	display: inline-block;
+	vertical-align: text-top;
+	text-align: center;
+	margin: 0;
+}
+
+.lim span {
+	margin-top: -20%;
+	display: block;
+}
+
+.sum span {
+	display: block;
+}
+
+.lim span.start {
+	text-align: center;
+	font-size: 50%;
+}
+
+.sum span.start {
+	text-align: center;
+	font-size: 50%;
+}
+
+.sum span.end {
+	text-align: center;
+	font-size: 50%;
+	margin-bottom: -20%;
+}
+
+.bigparthense {
+    font-size: 200%;
+    font-weight: lighter;
+    vertical-align: sub;
+}
+
+/*give a different style for smaller devices like mobile phones*/
+@media only screen and (max-aspect-ratio : 13 / 9) {
+    /*repositon the content, so there is no conflict with the header*/
+    main {
+        margin: 0% 11%;
+        width: 80%;
+    }
+	.title {
+		font-size: 2vh;
+	}
+}

@@ -1,12 +1,14 @@
 footer {
-    display: grid;
-    grid-template-columns: 85% 15%;
+    display: flex;
     box-sizing: border-box;
-    height: 6vh;
+    height: 50px;
     width: 100%;
     background-color: #333;
-    border: 0.5vh solid #555;
-    padding: 0 35px;
+    border: 4px solid #555;
+    padding: 0 20px;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
 }
 
 #copyright {
@@ -17,17 +19,32 @@ footer {
 }
 
 #about {
-  	float: right;
-  	text-align: right;
+	float: right;
+	text-align: right;
 	color: white;
 	display: inline-block;
-	margin-top: -1vh;
+    position: absolute;
+    right: 35px;
 }
 
-@media only screen and (max-width: 1000px) {
-	
+@media only screen and (max-aspect-ratio : 13 / 9) {
+
+  footer {
+    height: 30px;
+  }
+
 	footer p {
 		font-size: 1.75vh;
 	}
-	
+
+  #about {
+    display: none;
+  }
+
+  #copyright {
+    float: none;
+    width: 100%;
+    text-align: center;
+  }
+
 }

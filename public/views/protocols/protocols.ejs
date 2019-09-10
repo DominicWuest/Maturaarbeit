@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<!-- Dominic Wolf -->
+<html>
+	<head>
+        <title>Protokolle</title>
+        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+        <link rel="stylesheet" href="/styles/course.css">
+        <meta charset="utf-8"/>
+	</head>
+	<body>
+        <%- include(partialsPath + 'header.ejs') %>
+        <main>
+                <div class="title">
+                        <h1>Protokolle</h1>
+                </div>
+                <div class="shortlink">
+                        <h2>Shortlinks</h2>
+                        <ul>
+                                <li><a href="#schichten">Schichten</a></li>
+                                <li><a href="#http">HTTP</a></li>
+                                <li><a href="#https">HTTPS</a></li>
+                                <li><a href="#ftp">FTP</a></li>
+                                <li><a href="#tcp">TCP</a></li>
+                                <li><a href="#udp">UDP</a></li>
+                        </ul>
+                </div>
+							<div class="text">
+								<div id="nutzen">
+									<p>Protokolle braucht es, damit Rechner richtig miteinander kommunizieren können. Sie definieren die Syntax und Semnantik der Daten, welche über das Internet ausgetauscht werden. Es gibt insgesamt über 500 verschiedene Netzwerkprotokolle. Die fünf wichtigsten Protokolle, die wir im Informatikunterricht benutzen, haben wir unten für Sie zusammengefasst. Für die Internetprotokollfamilie ist das TCP/IP-Referenzmodell massgebend. Es beschreibt den Aufbau und das Zusammenspiel der Netzwerkprotokolle.</p>
+								</div>
+                <div id="schichten">
+                        <h2>Schichten</h2>
+                        <p>Es gibt vier verschiedene Schichten von Protokollen, welche man für verschiedene Zwecke benötigt.</p>
+                        <ul>
+                                <li>
+                                        <h3>Anwendungsschicht</h3>
+                                        <p>Die Protokolle der Anwendungsschicht arbeiten mit Anwendungsprogrammen zusammen. Zum Beispiel dem normalen Browser. Sie übermitteln Daten für die Darstellung, die Sitzung und die Anwendung.</p>
+                                </li>
+                                <li>
+                                        <h3>Transportschicht</h3>
+                                        <p>Die Transportschicht stellt eine Ende-zu-Ende-Verbindung her. Sie übernimmt den Transport von Nachrichten zwischen zwei Rechnern. Die Hauptaufgabe ist es also den Datentransport zu steuern die Unverfälschtheit sicherzustellen.</p>
+                                </li>
+                                <li>
+                                        <h3>Internetschicht</h3>
+                                        <p>Die Internetschicht ist für die Weitergabe von Datenpaketen und für die richtige Wegwahl zuständig. Das heisst, sie sollen den richtigen Weg von Absender zu Empfänger über Knoten im Internet finden.</p>
+                                </li>
+                                <li>
+                                        <h3>Netzzugangsschicht</h3>
+                                        <p>Die Netzzugangsschicht ist im TCP/IP-Referenzmodell, enthält aber keine Protokolle der TCP/IP-Familie. Sie dient als Platzhalter für neue, verschiedene Techniken zur Datenübertragung von Punkt-zu-Punkt-Verbindungen. Diese Protokolle sind dafür entwickelt worden, Unternetze zu verbinden.</p>
+                                </li>
+                        </ul>
+                </div>
+                <div id="http">
+                        <h2>HTTP | Hypertext Transfer Protocol</h2>
+                        <p>HTTP ist der übliche Protokoll-Standart, welcher für die Übermittlung von Daten zwischen Client und Webserver benutzt wird. Es ist ein Protokoll der Anwendungsschicht. Es ist die Grundvoraussetzung, dass Daten des Webservers beim Clients korrekt angezeigt werden. Man unterscheidet dabei zwischen "Anfrage" und "Antwort". Die "Anfrage" wird vom Client an den Webserver geschickt, während die "Antwort" eine vom Webserver verarbeitete Nachricht zurück ist. Im Browser sind dies also meistens HTML- oder PHP-Seiten. Wenn man also eine "Anfrage" an einen Webserver schickt, antwortet dieser zuerst mit einem dreistelligen Statuscode (zum Beispiel 404-Fehlermeldung, wenn es einen Fehler gibt). Dieser Code enthält Informationen, ob die "Anfrage" richtig beantwortet werden kann. Dann wird die HTML-Seite nachgeschickt.</p>
+                </div>
+                <div id="https">
+                        <h2>HTTPS | Hypertext Transfer Protocol Secured</h2>
+                        <p>HTTPS ist eigentlich das gleiche wie HTTP, nur wird in diesem Fall die Datenübertragung gesichert. Es ist ein Protokoll der Anwendungsschicht. Es wird verhindert, dass Drittteilnehmer übermittelte Daten auslesen können. Der Datenaustausch wird dabei verschlüsselt und authentifiziert. Wenn man eine Internetseite mit HTTPS-Protokoll aufruft, findet zuerst eine geschützte Identifikation und Authentifizierung der beiden Kommunikationspartner mit Hilfe eines SSL-Protokolls statt. Anschliessend wird mit verschiedenen Verschlüsselungsmethoden ein gemeinsamer Sitzungsschlüssel ausgetauscht. Dieser kann nur von Client und Webserver entschlüsselt werden. Somit ist der Datenaustausch gesichert.</p>
+                </div>
+                <div id="ftp">
+                        <h2>FTP | File Transfer Protocol</h2>
+                        <p>FTP ist ein Netzwerkprotokoll zu Übertragung von Dateien über IP-Netzwerke. Es ist ein Protokoll der Anwendungsschicht. Mit diesem Protokoll können Dateien vom Webserver heruntergeladen und Dateien vom Client hochgeladen werden. FTP's können auch Dateien und Verzeichnisse löschen oder umbennenen. Wenn man Verbindung mit einem FTP-Server aufbauen will, läuft dies über zwei Kanäle. Einem Datenkanal und einem Steuerkanal. Es werden Befehle über den Steuerkanal weitergeleitet und die Daten werden über den Datenkanal ausgetauscht.</p>
+                </div>
+                <div id="tcp">
+                <h2>TCP | Transmission Control Protocol</h2>
+                <p>Das TCP ist eine Gruppe vpn Netzwerkprotokollen. Es definiert, auf welche Art zwischen Netzwerkkomponenten ausgetauscht werden soll. Das TCP steuert das Zerlegen von Daten in Pakete. Diese werden über das Internet versendet und bei einem anderem Rechner mit dem TCP wieder zusammengefügt. Das TCP ist insbesondere für die Fehlerbehandlung, die Flusssterung und die Anwendungsunterstützung da. Durch TCP stehen Empfänger und Sender ständig im Kontakt zueinander. Es werden durchgehend Statusmeldungen ausgetauscht. Wenn beim Datenaustausch ein Fehler entsteht wird die fehlerhafte Datei noch einmal gesendet. Die Flusssteurung ist notwendig um die ganze verfügbare Übertragungsgeschwindigkeit auszunutzen. TPC können ausserdem spezifische Anwendungen unterscheiden.</p>
+                </div>
+                <div id="udp">
+                        <h2>UDP | User Datagram Protocol</h2>
+                        <p>UDP's ermöglicht Anwendungen Datagramme zu versenden. Datagramme sind geschlossene, unabhängige Dateneinheiten, welche ohne Sicherung versendet werden. Es ist ein Protokoll der Transportschicht. Routing-Protokoll-Updates, Serververfügbarkeit und Streaminganwendungen sind einige der Hauptaufgaben von UDP. Sie werden verwendet, wenn Datengeschwindigkeit eine höhere Priorität hat als Datensicherheit. Deswegen werden Datenpakete unabhängig davon, ob der Empfänger diese empfangen kann oder nicht versendet. Der Sender sendet die Pakete direkt und individuell ohne Verschlüsselung an den Empfänger.</p>
+                </div>
+						</div>
+        </main>
+	<%- include(partialsPath + 'footer1.ejs') %>
+	</body>
+</html>

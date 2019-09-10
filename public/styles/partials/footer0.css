@@ -18,7 +18,7 @@ footer {
 	justify-content: center;
 }
 
-footer::-webkit-scrollbar {
+footer::-webkit-scrollbar { 
     width: 0 !important;
 }
 
@@ -44,9 +44,10 @@ footer p {
 #copyright {
     font-family: 'Arapey', serif;
     background-color: #249;
-		font-size: 75%;
-		box-sizing: content-box;
-		padding: 0.2vh 0.6vh;
+    margin: 0% 37.5%;
+	font-size: 75%;
+	box-sizing: content-box;
+	padding: 0.2vh 0.6vh;
     border-radius: 100px;
 }
 

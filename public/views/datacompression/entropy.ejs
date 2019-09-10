@@ -76,6 +76,7 @@
 						In diesem Beispiel schauen wir uns an, wie viele Bit nötig sind, um das Wort 'Alleinsein' optimal binär zu kodieren. Dabei nehmen wir an, dass die einzelnen Zeichen (Buchstaben) statistisch unabhängig voneinander sind, dass man also nicht sagen kann, dass es unwahrscheinlich ist, dass nach einem Vokal nochmal ein Vokal folgt.
 						<br>
 						Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach durch die Anzahl Vorkommnisse durch die Gesamtanzahl der Zeichen ausgerechnet werden kann.
+						<br>
 						<figure class = "equation">
 							p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>, 
 							p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
@@ -84,6 +85,7 @@
 							p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
 							p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
 						</figure>
+						<br>
 						Danach muss jeder einzelne Informationsgehalt mit der Formel aus der Definition, die oben steht berechnet werden. Die einzelnen Informationsgehälter können nun addiert werden um den gesamten Informationsgehalt der Nachricht zu finden.
 						<figure class ="equation">
 							I<sub>gesamt</sub> = (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>)

@@ -22,8 +22,8 @@ footer {
 	text-align: right;
 	color: white;
 	display: inline-block;
-  position: absolute;
-  right: 35px;
+    position: absolute;
+    right: 35px;
 }
 
 @media only screen and (max-aspect-ratio : 13 / 9) {

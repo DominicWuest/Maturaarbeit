@@ -14,11 +14,6 @@ let app = express();
 // Declare the urlbody parser
 let urlencodedParser = bodyParser.urlencoded({extended : false});
 
-// Parse mostPopular.csv, containing the current most popular courses
-let mostPopular = csvParser(fs.readFileSync('data/mostPopular.csv'), {
-  comment : '$'
-});
-
 // Parse courses.csv, containing all courses available
 let courses = csvParser(fs.readFileSync('data/courses.csv'), {
   comment : '$'
@@ -28,6 +23,9 @@ let courses = csvParser(fs.readFileSync('data/courses.csv'), {
 let newestCourses = csvParser(fs.readFileSync('data/newestCourses.csv'), {
   comment : '$'
 });
+
+// Parse stats.json, containing the statistics for all courses, used to calculate mostPopular list
+let stats = JSON.parse(fs.readFileSync('data/stats.json'));
 
 // Create the paths to all the courses
 let pathsToCourses = courses[1].map(function(path) {
@@ -51,11 +49,28 @@ let htmlCourses = JSON.parse(fs.readFileSync('data/htmlCourses.json', 'utf-8'));
 // All information about how to colour code
 let codeHighlighting = JSON.parse(fs.readFileSync('data/codeHighlighting.json', 'utf-8'));
 
-// Characters not allowed inside queries : What they should be replaced with
+// Characters used for XSS : What they should be replaced with
 let illegalCharacters = {'"' : '\\"',
                          "'" : "\\'",
                          '>' : '&gt',
                          '<' : '&lt'};
+
+// The time to wait to write the stats for courses in ms
+let mostPopularInterval = 1000 * 60 * 5;
+
+// An array containing the names of the five most popular courses (Calculated by the amount of clicks)
+let mostPopularCourses = [];
+
+// Update the array containing the five most popular courses
+updateMostPopular();
+
+// Set Interval to write new stats for courses to file
+setInterval(function() {
+  // Update the array with containing the most popular courses
+  updateMostPopular();
+  // Write the new stats to the file stats.json
+  fs.writeFileSync('data/stats.json', JSON.stringify(stats));
+}, mostPopularInterval);
 
 // Directory for static files
 app.use(express.static('public'));
@@ -68,7 +83,7 @@ app.set('view engine', 'ejs');
 app.get('/', function(req, res) {
   res.render('index', {
     'courses' : courses,
-    'mostPopular' : mostPopular,
+    'mostPopularCourses' : mostPopularCourses,
     'newestCourses' : newestCourses
   });
 });
@@ -135,13 +150,18 @@ app.get('/languages/html', function(req, res) {
 // All the routing for the courses inside data/courses.csv
 for (let i = 0; i < courses[0].length; i++) {
   app.get(courses[1][i], function(req, res) {
-    // If the .ejs file for the site exists, render it
-    if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) res.render(pathsToCourses[i], {
-      'path' : pathsToCourses[i],
-      'partialsPath' : '../'.repeat(pathsToCourses[i].match(/\//g).length) + 'partials/',
-      'courses' : courses,
-      'codeHighlighting' : codeHighlighting
-    });
+    // If the .ejs file for the site exists, render it and update stats
+    if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) {
+      // Increment stats for course or else create new entry
+      stats[courses[0][i]] = stats[courses[0][i]] + 1 || 1;
+      // Render the site
+      res.render(pathsToCourses[i], {
+        'path' : pathsToCourses[i],
+        'partialsPath' : '../'.repeat(pathsToCourses[i].match(/\//g).length) + 'partials/',
+        'courses' : courses,
+        'codeHighlighting' : codeHighlighting
+      });
+    }
     // If the .ejs file doesn't exist, render underconstruction.ejs
     else res.render('underconstruction', {
       'courses' : courses
@@ -154,6 +174,17 @@ app.use(function(req, res, next) {
   res.status(404);
   res.render('404');
 });
+
+// Updates the array of most popular courses
+function updateMostPopular() {
+  let clicksArr = [];
+  // Generate an array containing key - value pairs of array stats
+  for (let key in stats) clicksArr.push([key, stats[key]]);
+  // Sort clicksArr by amount of clicks
+  clicksArr.sort((a, b) => a[1] < b[1]);
+  // Set mostPopularCourses to be the names of the courses with the top five amounts of clicks
+  mostPopularCourses = clicksArr.map((a) => a[0]).slice(0, 5);
+}
 
 // Listen on port 3000
 app.listen(3000);

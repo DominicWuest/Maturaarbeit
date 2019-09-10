@@ -51,8 +51,8 @@
         <div class="mostPopular">
           <span class="title">Beliebteste Kurse</span>
           <ul>
-            <% for (let i = 0; i < mostPopular[0].length; i++) { %>
-              <li><a href="<%= courses[1][courses[0].indexOf(mostPopular[0][i])] %>"><%= (i + 1) + ". " + mostPopular[0][i] %></a></li>
+            <% for (let i = 0; i < mostPopularCourses.length; i++) { %>
+              <li><a href="<%= courses[1][courses[0].indexOf(mostPopularCourses[i])] %>"><%= (i + 1) + ". " + mostPopularCourses[i] %></a></li>
             <% } %>
           </ul>
         </div>

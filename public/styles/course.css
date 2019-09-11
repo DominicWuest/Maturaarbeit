@@ -91,6 +91,7 @@ a:hover {
 }
 
 @media only screen and (max-aspect-ratio : 13 / 9) {
+
   .title {
     font-size: 1.3em;
     word-wrap: break-word;

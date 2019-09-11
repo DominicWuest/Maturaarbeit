@@ -219,11 +219,11 @@
           }]
     }, {
       "index" : 4,
-      "title" : "While-Schlaufen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schlaufen. Eine While-Schlaufe in Python sieht beispielsweise folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schlaufe folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schlaufe abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
+      "title" : "While-Schleifen",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht beispielsweise folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schleife folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
             "index" : 0,
-            "description" : "Modifiziere die Schlaufe so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
+            "description" : "Modifiziere die Schleife so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
             "startingCode" : "x = 0\nwhile x < :\n\tprint(x)\n\tx += 1",
             "solution" : "x = 0\nwhile x < 5:\n\tprint(x)\n\tx += 1",
             "output" : "0\n1\n2\n3\n4"
@@ -241,25 +241,25 @@
             "output" : "3\n4\n5\n6\n7\n8\n9"
           }, {
             "index" : 3,
-            "description" : "While-Schlaufen können auch mit Variablen des Datentyps Boolean erstellt werden. Ein Boolean hat zwei mögliche Werte, True oder False. Diese Zuordnungen müssen dabei genau so geschrieben werden. Der Boolean stellt also nun die Bedingung dar, die vorher beispielsweise durch x < 5 dargestellt wurde. Modifiziere die Schleife nun so, dass sechs mal in je einer Zeile die Ziffer 7 ausgegeben wird.",
+            "description" : "While-Schleifen können auch mit Variablen des Datentyps Boolean erstellt werden. Ein Boolean hat zwei mögliche Werte, True oder False. Diese Zuordnungen müssen dabei genau so geschrieben werden. Der Boolean stellt also nun die Bedingung dar, die vorher beispielsweise durch x < 5 dargestellt wurde. Modifiziere die Schleife nun so, dass sechs mal in je einer Zeile die Ziffer 7 ausgegeben wird.",
             "startingCode" : "x = 0\nwhile :if x < 7:\n\t\tprint(7)\n\t\tx += 1\n\telse:",
             "solution" : "printing = True\nx = 0\nwhile printing:\n\tif x < 7:\n\t\tprint(7)\n\t\tx += 1\n\telse:\n\t\tprinting = False",
             "output" : "7\n7\n7\n7\n7\n7\n7"
           }, {
             "index" : 4,
-            "description" : "Das Zeichen a % b führt die sogenannte Modulo Operation durch. Dabei wird der Rest einer Division von a durch b in den natürlichen Zahlen durchgeführt. Benutze in dieser Aufgabe einen Boolean und die Modulo Operation um eine While-Schlaufe zu erstellen, die alle durch 7 Teilbaren Zahlen von 13 bis 136 in je einer Zeile ausgibt.",
+            "description" : "Das Zeichen a % b führt die sogenannte Modulo Operation durch. Dabei wird der Rest einer Division von a durch b in den natürlichen Zahlen durchgeführt. Benutze in dieser Aufgabe einen Boolean und die Modulo Operation um eine While-Schleife zu erstellen, die alle durch 7 Teilbaren Zahlen von 13 bis 136 in je einer Zeile ausgibt.",
             "startingCode" : "",
             "solution" : "a = True\nstart = 13\nwhile a:\n\tif start < 136:\n\t\tif start % 7 == 0:\n\t\t\tprint(start)\n\t\tstart += 1\n\telse:\n\t\ta = False",
             "output" : "14\n21\n28\n35\n42\n49\n56\n63\n70\n77\n84\n91\n98\n105\n112\n119\n126\n133"
           }, {
             "index" : 5,
-            "description" : "Es kann auch eine While-Schlaufe innerhalb einer While-Schlaufe ausgeführt werden. Schreibe ein Programm, das die Zahlen von 1 bis und mit 10, immer mit den zwei nachfolgenden Zahlen, also im Format: 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, ..., 10, 11, 12 mit einer Zahl pro Zeile ausgibt.",
+            "description" : "Es kann auch eine While-Schleife innerhalb einer While-Schleife ausgeführt werden. Schreibe ein Programm, das die Zahlen von 1 bis und mit 10, immer mit den zwei nachfolgenden Zahlen, also im Format: 1, 2, 3, 2, 3, 4, 3, 4, 5, 4, 5, 6, ..., 10, 11, 12 mit einer Zahl pro Zeile ausgibt.",
             "startingCode" : "",
             "solution" : "x = 1\nwhile x < 11:\n\ty = x\n\twhile y < x + 3:\n\t\tprint(y)\n\t\ty += 1\n\tx += 1",
             "output" : "1\n2\n3\n2\n3\n4\n3\n4\n5\n4\n5\n6\n5\n6\n7\n6\n7\n8\n7\n8\n9\n8\n9\n10\n9\n10\n11\n10\n11\n12"
           }, {
             "index" : 6,
-            "description" : "While-Schlaufen können auch an Anwendungsbeispielen eingesetzt werden. Erstelle ein Programm, welches das Kapital auf einem Konto nach 50 Jahren mit einem Jahreszins von 0.05% und einem Startkapital von 100000 Franken berechnet und ausgibt.",
+            "description" : "While-Schleifen können auch an Anwendungsbeispielen eingesetzt werden. Erstelle ein Programm, welches das Kapital auf einem Konto nach 50 Jahren mit einem Jahreszins von 0.05% und einem Startkapital von 100000 Franken berechnet und ausgibt.",
             "startingCode" : "",
             "solution" : "capital = 100000\ninterest = 0.05 / 100\nendTime = 50\ntime = 0\nwhile time <= endTime:\n\tcapital = capital + capital * interest\n\ttime += 1\nprint(capital)",
             "output" : "102582.136882"
@@ -312,7 +312,7 @@
             "output" : "[47, 36, 3, 73, 48, 3]"
           }, {
             "index" : 6,
-            "description" : "Benutze eine While-Schlaufe um jedes Element einer Liste, die aus den beiden vorgegebenen Listen x und y besteht zu halbieren und gib die entstehende Liste aus.",
+            "description" : "Benutze eine While-Schleife um jedes Element einer Liste, die aus den beiden vorgegebenen Listen x und y besteht zu halbieren und gib die entstehende Liste aus.",
             "startingCode" : "x = [37, 83, 22, 37, 48]\ny = [10, 20, 24]",
             "solution" : "x = [37, 83, 22, 37, 48]\ny = [10, 20, 24]\nz = x + y\na = 0\nwhile a < len(z):\n\tz[a] = float(z[a]) / 2\n\ta += 1\nprint(z)",
             "output" : "[18.5, 41.5, 11.0, 18.5, 24.0, 5.0, 10.0, 12.0]" 
@@ -372,7 +372,7 @@
             "output" : "[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]"
           }, {
             "index" : 16,
-            "description" : "Erzeuge mit der range(n) Funktion eine Liste der zahlen von 0 bis und mit 8. Gib diese aus und verändere sie mithilfe einer While-Schlaufe zu einer Liste von 10 bis und mit 18 und gib sie wieder aus.",
+            "description" : "Erzeuge mit der range(n) Funktion eine Liste der zahlen von 0 bis und mit 8. Gib diese aus und verändere sie mithilfe einer While-Schleife zu einer Liste von 10 bis und mit 18 und gib sie wieder aus.",
             "startingCode" : "",
             "solution" : "a = range(9)\nprint(a)\nx = 0\nwhile x < len(a):\n\ta[x] += 10\n\tx += 1\nprint(a)",
             "output" : "[0, 1, 2, 3, 4, 5, 6, 7, 8]\n[10, 11, 12, 13, 14, 15, 16, 17, 18]"
@@ -384,7 +384,7 @@
             "output" : "[112, 113, 114, 115]"
           }, {
             "index" : 18,
-            "description" : "Nun wollen wir aber nicht nur Listen mit aufeinanderfolgenden Zahlen erstellen. Erstelle mit der Range-Funktion eine Liste der Zahlen von 10 bis und mit 15 und gib diese aus. Modifiziere diese Liste danach in einer While-Schlaufe, sodass sie die die geraden Zahlen zwischen 10 und (mit) 20 enthält.",
+            "description" : "Nun wollen wir aber nicht nur Listen mit aufeinanderfolgenden Zahlen erstellen. Erstelle mit der Range-Funktion eine Liste der Zahlen von 10 bis und mit 15 und gib diese aus. Modifiziere diese Liste danach in einer While-Schleife, sodass sie die die geraden Zahlen zwischen 10 und (mit) 20 enthält.",
             "startingCode" : "",
             "solution" : "a = range(10, 16)\nprint(a)\nx = 0\nwhile x < len(a):\n\ta[x] += x\n\tx += 1\nprint(a)",
             "output" : "[10, 11, 12, 13, 14, 15]\n[10, 12, 14, 16, 18, 20]"
@@ -415,29 +415,29 @@
           }]
       }, {
       "index" : 6,
-      "title" : "For-Schlaufen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schlaufen. Eine For-Schlaufe in Python sieht normalerweise so aus: <code class=\"python\">for x in [1, 6, 2]:\n\tprint(x)</code>Hierbei deklariert das Schlagwort for, dass eine For-Schlaufe folgt. Die For-Schleife startet dann mit dem ersten Wert der Liste und arbeitet sich bis zum Letzten durch. Dabei nimmt die Variable, die nach dem Schlagwort for folgt den Wert des jeweiligen Elementes an.",
+      "title" : "For-Schleifen",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten For-Schleifen. Eine For-Schleife in Python sieht normalerweise so aus: <code class=\"python\">for x in [1, 6, 2]:\n\tprint(x)</code>Hierbei deklariert das Schlagwort for, dass eine For-Schleife folgt. Die For-Schleife startet dann mit dem ersten Wert der Liste und arbeitet sich bis zum Letzten durch. Dabei nimmt die Variable, die nach dem Schlagwort for folgt den Wert des jeweiligen Elementes an.",
       "subexercises" : [{
             "index" : 0,
-            "description" : "Benutze eine For-Schlaufe, um jedes Element der Liste a je einer Zeile auszugeben.",
+            "description" : "Benutze eine For-Schleife, um jedes Element der Liste a je einer Zeile auszugeben.",
             "startingCode" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]",
             "solution" : "a = [1, 3, 235, 2, 63, 1, 8, 459, 238]\nfor element in a:\n\tprint(element)",
             "output" : "1\n3\n235\n2\n63\n1\n8\n459\n238"
           }, {
             "index" : 1,
-            "description" : "Schreibe eine Liste mit den Zahlen 1, 6, 25, 2 und 4 direkt in eine For-Schlaufe und gibt die Zahlen einzeln ein je einer Zeile aus.",
+            "description" : "Schreibe eine Liste mit den Zahlen 1, 6, 25, 2 und 4 direkt in eine For-Schleife und gibt die Zahlen einzeln ein je einer Zeile aus.",
             "startingCode" : "",
             "solution" : "for i in [1, 6, 25, 2, 4]:\n\tprint(i)",
             "output" : "1\n6\n25\n2\n4"
           }, {
             "index" : 2,
-            "description" : "Erstelle mit der Range-Funktion eine Liste mit den Zahlen von 0 bis und mit 10 und gib die Elemente dieser Liste mit einer For-Schlaufe aus.",
+            "description" : "Erstelle mit der Range-Funktion eine Liste mit den Zahlen von 0 bis und mit 10 und gib die Elemente dieser Liste mit einer For-Schleife aus.",
             "startingCode" : "",
             "solution" : "a = range(0, 11)\nfor i in a:\n\tprint(i)",
             "output" : "0\n1\n2\n3\n4\n5\n6\n7\n8\n9\n10"
           }, {
             "index" : 3,
-            "description" : "Gib nun die geraden Zahlen zwischen 300 und 309 in je einer Zeile aus, indem du die Range-Funktion direkt in die For-Schlaufe hineinschreibst.",
+            "description" : "Gib nun die geraden Zahlen zwischen 300 und 309 in je einer Zeile aus, indem du die Range-Funktion direkt in die For-Schleife hineinschreibst.",
             "startingCode" : "",
             "solution" : "for i in range(300, 309, 2):\n\tprint(i)",
             "output" : "300\n302\n304\n306\n308"
@@ -533,17 +533,17 @@
             "index" : 2,
             "description" : "Definiere eine Funktion, die ausgeben kann, ob der vorgegebenen Variable p eine Primzahl zugeordent ist. Gebe das Resultat im vorgegebenen Format aus.",
             "startingCode" : "p = 120431\nprint(str(p) + ' ist keine Primzahl')\nprint(str(p) + ' ist eine Primzahl')",
-            "solution" : "p = 120431\ndef isprime(p):\n\tb = True\n\t# Eine for-Schlaufe, die für jede Zahl kleiner p,\n\t# grösser 1 testet, ob sie ein Teiler ist\n\tfor i in range(2, p, 1):\n\t\t# Wenn die Zahl Teilbar ist, dann ist p keine Primzah\n\t\tif p % i == 0:\n\t\t\tprint(str(p) + ' ist keine Primzahl')\n\t\t\tb = False\n\t\t\tbreak\n\t# Wenn kein Teiler gefunden wurde ist b eine Primzahl\n\tif b == True:\n\t\tprint(str(p) + ' ist eine Primzahl')\n\treturn\nisprime(p)",
+            "solution" : "p = 120431\ndef isprime(p):\n\tb = True\n\t# Eine for-Schleife, die für jede Zahl kleiner p,\n\t# grösser 1 testet, ob sie ein Teiler ist\n\tfor i in range(2, p, 1):\n\t\t# Wenn die Zahl Teilbar ist, dann ist p keine Primzah\n\t\tif p % i == 0:\n\t\t\tprint(str(p) + ' ist keine Primzahl')\n\t\t\tb = False\n\t\t\tbreak\n\t# Wenn kein Teiler gefunden wurde ist b eine Primzahl\n\tif b == True:\n\t\tprint(str(p) + ' ist eine Primzahl')\n\treturn\nisprime(p)",
             "output" : "120431 ist eine Primzahl" 
           }, {
             "index" : 3,
             "description" : "Erweitere nun die Funktion aus der letzten Aufgabe, um eine Funktion zu finden, die eine Liste mit allen Primzahlen zwischen den Zahlen 124 und 190 erstellt und diese ausgibt.",
             "startingCode" : "def isprime(p):\n\tb = True\n\tfor i in range(2, p, 1):\n\t\tif p % i == 0:\n\t\t\tprint(str(p) + ' ist keine Primzahl')\n\t\t\tb = False\n\t\t\tbreak\n\tif b == True:\n\t\tprint(str(p) + ' ist eine Primzahl')\nisprime(p)",
-            "solution" : "def listprime(x, y):\n\tc = [('Primzahlen zwischen ' + str(x) + ' und ' + str(y))]\n\t# Eine For-Schlaufe um alle Zahlen zwischen x und y\n\t# durchzugehen\n\tfor k in range(x, y, 1):\n\t\tb = True\n\t\tfor i in range(2, k, 1):\n\t\t\tif k % i == 0:\n\t\t\t\tb = False\n\t\t\t\tbreak\n\t\tif b == True:\n\t\t\tc.append(k)\n\treturn c\nprint(listprime(124, 190))",
+            "solution" : "def listprime(x, y):\n\tc = [('Primzahlen zwischen ' + str(x) + ' und ' + str(y))]\n\t# Eine For-Schleife um alle Zahlen zwischen x und y\n\t# durchzugehen\n\tfor k in range(x, y, 1):\n\t\tb = True\n\t\tfor i in range(2, k, 1):\n\t\t\tif k % i == 0:\n\t\t\t\tb = False\n\t\t\t\tbreak\n\t\tif b == True:\n\t\t\tc.append(k)\n\treturn c\nprint(listprime(124, 190))",
             "output" : "['Primzahlen zwischen 124 und 190', 127, 131, 137, 139, 149, 151, 157, 163, 167, 173, 179, 181]" 
           }, {
             "index" : 4,
-            "description" : "Definiere eine Funktion mit der vorgegebenen Liste a als Input, die das kleinste Element der Liste ausgibt. Benutze dafür eine For-Schlaufe. Tipp: Die Elemente einer Liste sind als Strings abgespeichert. Um sie zu vergleichen müssen sie erst mit int(a) in Integer umgewandelt werden.",
+            "description" : "Definiere eine Funktion mit der vorgegebenen Liste a als Input, die das kleinste Element der Liste ausgibt. Benutze dafür eine For-Schleife. Tipp: Die Elemente einer Liste sind als Strings abgespeichert. Um sie zu vergleichen müssen sie erst mit int(a) in Integer umgewandelt werden.",
             "startingCode" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66]",
             "solution" : "a = [1, 5, 2, 5, 2, 1, 623, -213, 2135, 6, -13, 261, -36, 66]\ndef minimum(a):\n\tx = int(a[0])\n\tfor element in a:\n\t\tif x > int(element):\n\t\t\tx = int(element)\n\treturn x\nprint(minimum(a))",
             "output" : "-213" 
@@ -557,31 +557,31 @@
             "index" : 6,
             "description" : "Bei dieser Aufgabe geht es wieder um Primzahlen. Jede Zahl kann mit ihren sogenannten Primfaktoren, also Primzahlen, die multipliziert die Zahl gegen dargestellt werden. Definiere also eine Funktion, mit der du als Input eine Zahl erhältst und als Output eine Liste der Primfaktoren erhältst, geordnet von der kleinsten zur grössten. Gibt damit die Primfaktoren der vorgegebenen Werten von x und y aus.",
             "startingCode" : "x = 28340\ny = 104500",
-            "solution" : "x = 28340\ny = 104500\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\nprint(primefactors(x))\nprint(primefactors(y))",
+            "solution" : "x = 28340\ny = 104500\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\nprint(primefactors(x))\nprint(primefactors(y))",
             "output" : "[2, 2, 5, 13, 109]\n[2, 2, 5, 5, 5, 11, 19]" 
           }, {
             "index" : 7,
             "description" : "Die Aufspaltung einer Zahl in ihre Primfaktoren kann gebraucht werden um die Teiler der Zahl herauszufinden. Dabei sind also die Primfaktoren selbst auf jeden Fall Teiler, aber auch alle möglichen Multiplikationen der einzelnen Primfaktoren. Definiere nun eine zweite Funktion, die eine Liste aller Teiler (ohne 1) erstellt und gib damit alle Teiler, geordnet vom kleinsten zum grössten Teiler, der Zahl 124 aus. Die Funktion sollte für Zahlen mit bis zu  vier Primfaktoren funktionieren.",
-            "startingCode" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
-            "solution" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef dividers(n):\n\tfactors = primefactors(n)\n\tdivider = []\n\tfor i in range(len(factors)):\n\t\t# Alle Primfaktoren sind Teiler von n\n\t\tdivider.append(factors[i])\n\t\tfor j in range(i + 1, len(factors), 1):\n\t\t\tdivider.append(factors[i] * factors[j])\n\t\t\tfor k in range(j + 1, len(factors), 1):\n\t\t\t\tdivider.append(factors[i] * factors[j] *\n\t\t\t\t  factors[k])\n\t\t\t\tfor l in range(k + 1, len(factors), 1):\n\t\t\t\t\tdivider.append(factors[i] * factors[j]\n\t\t\t\t\t  * factors[k] * factors[l])\n\t# Doppelte Teiler werden entfernt\n\tx = 0\n\twhile x < len(divider):\n\t\ty = x + 1\n\t\twhile y < len(divider):\n\t\t\tif divider[x] == divider[y]:\n\t\t\t\tdivider.remove(divider[x])\n\t\t\telse:\n\t\t\t\ty += 1\n\t\tx += 1\n\t# Die Liste wird der Grösse nach geordnet\n\tfor i in range(len(divider)):\n\t\tfor j in range(i, len(divider), 1):\n\t\t\tif divider[i] > divider[j]:\n\t\t\t\tdivider[i], divider[j] = divider[j], divider[i]\n\treturn divider\n\nprint(dividers(x))",
+            "startingCode" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "x = 124\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef dividers(n):\n\tfactors = primefactors(n)\n\tdivider = []\n\tfor i in range(len(factors)):\n\t\t# Alle Primfaktoren sind Teiler von n\n\t\tdivider.append(factors[i])\n\t\tfor j in range(i + 1, len(factors), 1):\n\t\t\tdivider.append(factors[i] * factors[j])\n\t\t\tfor k in range(j + 1, len(factors), 1):\n\t\t\t\tdivider.append(factors[i] * factors[j] *\n\t\t\t\t  factors[k])\n\t\t\t\tfor l in range(k + 1, len(factors), 1):\n\t\t\t\t\tdivider.append(factors[i] * factors[j]\n\t\t\t\t\t  * factors[k] * factors[l])\n\t# Doppelte Teiler werden entfernt\n\tx = 0\n\twhile x < len(divider):\n\t\ty = x + 1\n\t\twhile y < len(divider):\n\t\t\tif divider[x] == divider[y]:\n\t\t\t\tdivider.remove(divider[x])\n\t\t\telse:\n\t\t\t\ty += 1\n\t\tx += 1\n\t# Die Liste wird der Grösse nach geordnet\n\tfor i in range(len(divider)):\n\t\tfor j in range(i, len(divider), 1):\n\t\t\tif divider[i] > divider[j]:\n\t\t\t\tdivider[i], divider[j] = divider[j], divider[i]\n\treturn divider\n\nprint(dividers(x))",
             "output" : "[2, 4, 31, 62, 124]" 
           }, {
             "index" : 8,
             "description" : "In dieser Aufgabe wollen wir die Primfaktorenzerlegung dazu benutzen um den grössten gemeinsamen Teiler zweier Zahlen zu finden. Dieser ist dabei das Produkt aller Primfaktoren, die in beiden Zahlen vorhanden sind. Benutze also die Funktion für die Primfaktorenzerlegung und berechne mit einer neuen Funktion den grössten gemeinsamen Teiler der Zahlen 1520 und 3730 und gib ihn aus.",
-            "startingCode" : "a = 1520\nb = 3730\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
-            "solution" : "a = 1520\nb = 3730\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\tfor w in range(10):\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef ggT(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Testen welche Faktoren in beiden vorkommen\n\tfactors_both = []\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.append(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tggT = 1\n\tfor i in range(len(factors_both)):\n\t\tggT *= factors_both[i]\n\treturn ggT\n\nprint(ggT(a, b))",
+            "startingCode" : "a = 1520\nb = 3730\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "a = 1520\nb = 3730\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\tfor w in range(10):\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef ggT(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Testen welche Faktoren in beiden vorkommen\n\tfactors_both = []\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.append(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tggT = 1\n\tfor i in range(len(factors_both)):\n\t\tggT *= factors_both[i]\n\treturn ggT\n\nprint(ggT(a, b))",
             "output" : "80" 
           }, {
             "index" : 9,
             "description" : "Das Gegenstück zum ggT ist das kgV, das kleinste gemeinsame Vielfache zweier Zahlen. Dieses kann auch mithilfe der Primfaktoren bestimmt werden. Dabei müssen alle Primfaktoren von der ersten Zahl mit allen Primfaktoren der zweiten Zahl, ausgenommen der Primfaktoren, die bereits in der ersten Zahl vorgekommen sind multipliziert werden um das kgV zu erhalten. Definiere eine Funktion, die das kgV zweier Zahlen berechnet und gib damit das kgV von 108 und 261 aus.",
-            "startingCode" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
-            "solution" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef kgV(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Die beiden Listen werden aneinandergehängt\n\tfactors_both = factors_a + factors_b\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.remove(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tkgV = 1\n\tfor i in range(len(factors_both)):\n\t\tkgV *= factors_both[i]\n\treturn kgV\n\nprint(kgV(142, 261))",
+            "startingCode" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef kgV(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Die beiden Listen werden aneinandergehängt\n\tfactors_both = factors_a + factors_b\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.remove(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tkgV = 1\n\tfor i in range(len(factors_both)):\n\t\tkgV *= factors_both[i]\n\treturn kgV\n\nprint(kgV(142, 261))",
             "output" : "1044" 
           }, {
             "index" : 10,
             "description" : "Die Aufstpaltung in die Primfaktoren kann auch sehr behilflich sein beim Vereinfachen von Brüchen. Definiere eine Funktion, die den Bruch (Format als Liste [Zähler, Nenner]) [2620, 3660] vollständig vereinfacht und ausgibt.",
-            "startingCode" : "a = [2620, 3660]\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
-            "solution" : "a = [2620, 3660]\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schlaufe\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef simplifier(fraction):\n\ta = fraction[0]\n\tb = fraction[1]\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\ti = 0\n\twhile i < len(factors_a):\n\t\tj = 0\n\t\twhile j < len(factors_b):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_a.remove(factors_a[i])\n\t\t\t\tfactors_b.remove(factors_b[j])\n\t\t\telse:\n\t\t\t\tj += 1\n\t\ti += 1\n\ta = 1\n\tfor i in range(len(factors_a)):\n\t\ta *= factors_a[i]\n\tb = 1\n\tfor i in range(len(factors_b)):\n\t\tb *= factors_b[i]\n\treturn [a, b]\n\nprint(simplifier(a))",
+            "startingCode" : "a = [2620, 3660]\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "a = [2620, 3660]\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef simplifier(fraction):\n\ta = fraction[0]\n\tb = fraction[1]\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\ti = 0\n\twhile i < len(factors_a):\n\t\tj = 0\n\t\twhile j < len(factors_b):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_a.remove(factors_a[i])\n\t\t\t\tfactors_b.remove(factors_b[j])\n\t\t\telse:\n\t\t\t\tj += 1\n\t\ti += 1\n\ta = 1\n\tfor i in range(len(factors_a)):\n\t\ta *= factors_a[i]\n\tb = 1\n\tfor i in range(len(factors_b)):\n\t\tb *= factors_b[i]\n\treturn [a, b]\n\nprint(simplifier(a))",
             "output" : "[131, 183]" 
           }, {
             "index" : 11,
@@ -593,7 +593,7 @@
       }, {
       "index" : 9,
       "title" : "Rekursive Funktionen",
-      "description" : "Rekursive Funktionen werden genau gleich wie normale Funktionen definiert. Sie haben aber die Eigenschaft, dass Sie in der Funktion selbst aufgerufen wird. Wenn also eine Funktion sich selber aufruft wird sie noch einmal durchgeführt und ruft sich wieder selbst auf. Wenn das immer so weiter gehen würde, dann hätten wir eine unendliche Schlaufe kreiert. Deswegen müssen wir in der Rekursiven Funktion eine Abbruchbedingung einbauen. Die Funktion wird mit dem Codewort return a abgebrochen und gibt den Wert der Variable aus. Das unten stehende Beispiel beinhaltet eine Funktion, die eine Zahl a solange um eins erhöht, bis a den gleichen Wert wie b hat und dann abbricht und a ausgibt.<code class=\"python\">def function(a, b):\n\t# Abbruchbedingung\n\tif a >= b:\n\t\treturn a\n\telse:\n\t\ta += 1\n\t\t# Funktion wird erneut\n\t\t# aufgerufen\n\t\tfunction(a, b)</code>",
+      "description" : "Rekursive Funktionen werden genau gleich wie normale Funktionen definiert. Sie haben aber die Eigenschaft, dass Sie in der Funktion selbst aufgerufen wird. Wenn also eine Funktion sich selber aufruft wird sie noch einmal durchgeführt und ruft sich wieder selbst auf. Wenn das immer so weiter gehen würde, dann hätten wir eine unendliche Schleife kreiert. Deswegen müssen wir in der Rekursiven Funktion eine Abbruchbedingung einbauen. Die Funktion wird mit dem Codewort return a abgebrochen und gibt den Wert der Variable aus. Das unten stehende Beispiel beinhaltet eine Funktion, die eine Zahl a solange um eins erhöht, bis a den gleichen Wert wie b hat und dann abbricht und a ausgibt.<code class=\"python\">def function(a, b):\n\t# Abbruchbedingung\n\tif a >= b:\n\t\treturn a\n\telse:\n\t\ta += 1\n\t\t# Funktion wird erneut\n\t\t# aufgerufen\n\t\tfunction(a, b)</code>",
       "subexercises" : [{
             "index" : 0,
             "description" : "Definiere eine rekursive Funktion, die die Zahlen von 3 bis und mit 18 ausgibt.",
@@ -661,10 +661,10 @@
             "output" : "Die Operation x = x + n ist schneller" 
           }, {
             "index" : 5,
-            "description" : "Teste nach dem gleichen Prinzip wie vorher, ob eine While-Schlaufe oder eine For-Schlaufe schneller durchlaufen wird. Denke wieder daran, dies mit genug vielen Durchlaufen zu testen und gib das Resultat im vorgegebenen Format aus.",
-            "startingCode" : "print('Eine For-Schlaufe ist schneller als eine While-Schlaufe')\nprint('Eine While-Schlaufe ist schneller als eine For-Schlaufe')",
-            "solution" : "from time import *\nt0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_for = time() - t0\nt0 = time()\nx = 0\nwhile x < 1000000:\n\t1000 * 1000\n\tx = x + 1\nt_while = time() - t0\nif t_for < t_while:\n\tprint('Eine For-Schlaufe ist schneller als eine While-Schlaufe')\nelse:\n\tprint('Eine While-Schlaufe ist schneller als eine For-Schlaufe')",
-            "output" : "Eine For-Schlaufe ist schneller als eine While-Schlaufe" 
+            "description" : "Teste nach dem gleichen Prinzip wie vorher, ob eine While-Schleife oder eine For-Schleife schneller durchlaufen wird. Denke wieder daran, dies mit genug vielen Durchlaufen zu testen und gib das Resultat im vorgegebenen Format aus.",
+            "startingCode" : "print('Eine For-Schleife ist schneller als eine While-Schleife')\nprint('Eine While-Schleife ist schneller als eine For-Schleife')",
+            "solution" : "from time import *\nt0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_for = time() - t0\nt0 = time()\nx = 0\nwhile x < 1000000:\n\t1000 * 1000\n\tx = x + 1\nt_while = time() - t0\nif t_for < t_while:\n\tprint('Eine For-Schleife ist schneller als eine While-Schleife')\nelse:\n\tprint('Eine While-Schleife ist schneller als eine For-Schleife')",
+            "output" : "Eine For-Schleife ist schneller als eine While-Schleife" 
           }, {
             "index" : 6,
             "description" : "Mit dem Modul random können zufällig Zahlen in einer vorgegebenen Reichweite generiert werden. Dabei gibt es verschiedene Funktionen, die im Beispielcode gezeigt und im Kommentar dazu beschrieben werden.<code class=\"python\"># Das Random-Modul wird importiert\nfrom random import *\n# Generiert eine zufällige ganze Zahl zwischen 4 und (ohne) 9\nrandint(4, 9)\n# Generiert eine zufällige Fliesskommazahl zwischen 3 und (ohne) 7\nuniform(3, 7)\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n# Durchmischt die Liste x\nshuffle(x)\n# Nimmt ein zufälliges Element aus der Liste\nchoice([1, 5, 2, 7, 36, 7, 26, 2])</code>Schreibe ein Programm, welches eine Lottoziehung ausführen kann. Dabei werden zufällig sechs verschiedene Zahlen aus den ersten 42 natürlichen Zahlen gezogen. Zusätzlich wird noch die Glückszahl zufällig aus den ersten sechs natürlichen Zahlen gezogen. Das Programm soll eine Liste mit den gezogenen Zahlen in aufsteigender Reihenfolge und die Glückszahl ausgeben. Falls es funktioniert gib lediglich den String 'Abgeschlossen' aus.",

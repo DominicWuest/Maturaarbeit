@@ -40,6 +40,7 @@ main div:first-child {
 }
 
 .title {
+  word-wrap: break-word;
   text-align: center;
   font-size: 3em;
 }
@@ -84,7 +85,22 @@ a:hover {
 }
 
 /* for the videoport sites */
-#pins img{
+#pins img {
     width: 45%;
     margin: 0% 27.5%;
+}
+
+@media only screen and (max-aspect-ratio : 13 / 9) {
+  .title {
+    font-size: 1.3em;
+    word-wrap: break-word;
+  }
+
+  h2 {
+    font-size: 1.1em;
+  }
+
+  p, a {
+    font-size: 0.9em;
+  }
 }

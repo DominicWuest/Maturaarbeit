@@ -61,6 +61,7 @@ function checkSolution(output) {
   // If the outputmatches the expected output of the subexercise
   if (output === pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['output']) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('workingSubexercise');
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     // Set exerciseFinished to true if all subexercises have been completed
     if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;

@@ -104,21 +104,3 @@
 #bob {
   background-color: rgba(0, 0, 100, 0.3);
 }
-
-@media only screen and (max-device-width : 500px) {
-  html {
-    font-size: 2em;
-  }
-
-  .title {
-    font-size: 1em;
-  }
-
-  #factions {
-    font-size: 0.5em;
-  }
-
-  #factionsProcess {
-    font-size: 0.9em;
-  }
-}

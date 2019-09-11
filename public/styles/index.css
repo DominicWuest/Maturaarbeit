@@ -288,12 +288,18 @@ footer {
     padding: 0;
     grid-column: 1 / 3;
     grid-row: 1 / 2;
-    z-index: 10;
   }
 
   .domainname {
     width: 100vw;
-    height: 40vh;
+    height: 35vh;
+    font-size: 2em;
+  }
+
+  #searchBar {
+    height: 3vh;
+    padding-left: 2vw !important;
+    font-size: 0.8em !important;
   }
 
   .domainname span {
@@ -303,11 +309,10 @@ footer {
 
   .courses {
     width: auto;
-    margin: 0 8vw;
+    margin: 0 5vw;
     margin-right: 0;
     grid-column: 1 / 2;
     grid-row: 2 / 3;
-    padding-left: 3vw;
   }
 
   .coursesListContainer {
@@ -326,9 +331,13 @@ footer {
   }
 
   .right, .courses {
-    padding-top: 3vh;
     box-sizing: border-box;
   }
+
+  .newestCourses li:nth-child(5) {
+    display: none;
+  }
+
 
   footer {
     font-size: 1vh;

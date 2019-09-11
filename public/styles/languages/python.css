@@ -126,6 +126,11 @@ main {
   font-size: 1.8vh;
 }
 
+.workingSubexercise {
+  background-color: #FE9900;
+  border-color: #FFFFFF;
+}
+
 .finishedSubexercise {
   background-color: #6FEE44;
   border-color: #34D100;

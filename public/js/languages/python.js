@@ -38,7 +38,7 @@ function runit() {
     // If the code hasn't finished running, declare a timeout and show an error in the output div
     if (!finished) {
       worker.terminate();
-      myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schlaufe kreiert?</span>';
+      myPre.innerHTML = '<span class="error">Dein Code hat zu lange gebraucht, um ausgeführt zu werden.\nHast du möglicherweise eine unendliche Schleife kreiert?</span>';
       checkSolution(null);
       running = false;
     }
@@ -68,17 +68,20 @@ function checkSolution(output) {
     else {
       resetSubexercise();
       subexerciseIndex++;
+      document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
     }
   }
   // The output is incorrect
   else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
 }
 
-// Replaces the code in the textarea with the starting code of the subexercise
+// Replaces the code in the textarea with the starting code of the subexercise and highlights the exercise the user is working on
 function resetSubexercise() {
-  if (courseIndex === 0) document.getElementById('textarea').value = '';
+  if (courseIndex === 0) {
+    document.getElementById('textarea').value = '';
+  }
   else document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
-  document.getElementById('textarea').oninput();
+    document.getElementById('textarea').oninput();
 }
 
 // Gets called whenever the user changes the exercise. This function displays the exercises text
@@ -96,6 +99,8 @@ function displayExercise() {
   textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
   // Display all the subexercises
   for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
+  // Highlight the first subexercise
+  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';

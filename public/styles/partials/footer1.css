@@ -28,14 +28,6 @@ footer {
 
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
-  footer {
-    height: 30px;
-  }
-
-	footer p {
-		font-size: 1.75vh;
-	}
-
   #about {
     display: none;
   }

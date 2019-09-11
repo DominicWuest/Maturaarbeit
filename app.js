@@ -56,7 +56,7 @@ let illegalCharacters = {'"' : '\\"',
                          '<' : '&lt'};
 
 // The time to wait to write the stats for courses in ms
-let mostPopularInterval = 1000 * 5// * 60 * 5;
+let mostPopularInterval = 1000 * 60 * 5;
 
 // An array containing the names of the five most popular courses (Calculated by the amount of clicks)
 let mostPopularCourses = [];

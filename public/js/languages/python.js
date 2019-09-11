@@ -64,7 +64,7 @@ function checkSolution(output) {
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
     // Set exerciseFinished to true if all subexercises have been completed
     if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
-    // Increment the subexerciseIndex and reset it if the user hasn't finished all subexercises yet
+    // Increment the subexerciseIndex and reset it and show it in a different style if the user hasn't finished all subexercises yet
     else {
       resetSubexercise();
       subexerciseIndex++;
@@ -75,13 +75,11 @@ function checkSolution(output) {
   else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
 }
 
-// Replaces the code in the textarea with the starting code of the subexercise and highlights the exercise the user is working on
+// Replaces the code in the textarea with the starting code of the subexercise
 function resetSubexercise() {
-  if (courseIndex === 0) {
-    document.getElementById('textarea').value = '';
-  }
+  if (courseIndex === 0) document.getElementById('textarea').value = '';
   else document.getElementById('textarea').value = pythonCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['startingCode'];
-    document.getElementById('textarea').oninput();
+  document.getElementById('textarea').oninput();
 }
 
 // Gets called whenever the user changes the exercise. This function displays the exercises text
@@ -99,7 +97,7 @@ function displayExercise() {
   textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
   // Display all the subexercises
   for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
-  // Highlight the first subexercise
+  // Highlight the starting subexercise
   document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {

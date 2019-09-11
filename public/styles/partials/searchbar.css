@@ -64,7 +64,7 @@
   text-decoration: underline;
 }
 
-@media (orientation : portrait) {
+@media only screen and (max-aspect-ratio : 13 / 9) {
   #searchBar {
     font-size: 2.5vw;
   }

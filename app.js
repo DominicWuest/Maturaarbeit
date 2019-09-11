@@ -56,7 +56,7 @@ let illegalCharacters = {'"' : '\\"',
                          '<' : '&lt'};
 
 // The time to wait to write the stats for courses in ms
-let mostPopularInterval = 1000 * 60 * 5;
+let mostPopularInterval = 1000 * 5// * 60 * 5;
 
 // An array containing the names of the five most popular courses (Calculated by the amount of clicks)
 let mostPopularCourses = [];
@@ -185,7 +185,7 @@ function updateMostPopular() {
   // Generate an array containing key - value pairs of array stats
   for (let key in stats) clicksArr.push([key, stats[key]]);
   // Sort clicksArr by amount of clicks
-  clicksArr.sort((a, b) => a[1] < b[1]);
+  clicksArr.sort((a, b) => b[1] - a[1]);
   // Set mostPopularCourses to be the names of the courses with the top five amounts of clicks
   mostPopularCourses = clicksArr.map((a) => a[0]).slice(0, 5);
 }

@@ -128,6 +128,9 @@ main {
 
 .workingSubexercise {
   border-color: #6FEE44 #FF3F3F;
+  /*border: 0.5vh solid;
+  border-image-source: linear-gradient(#FF3F3F, #6FEE44);
+  border-image-slice: 1 1;*/
 }
 
 .finishedSubexercise {

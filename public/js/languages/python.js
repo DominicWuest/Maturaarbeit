@@ -45,7 +45,7 @@ function runit() {
   }, timeoutBounds);
   // The onmessage event gets triggered by the worker and it sends back the output of the code
   worker.onmessage = function(message) {
-    myPre.textContent = message["data"];
+    myPre.innerHTML = message["data"];
     finished = true;
     running = false;
     clearTimeout(timeout);
@@ -73,7 +73,10 @@ function checkSolution(output) {
     }
   }
   // The output is incorrect
-  else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+  else {
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('workingSubexercise');
+    }
 }
 
 // Replaces the code in the textarea with the starting code of the subexercise

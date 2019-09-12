@@ -5,14 +5,14 @@
 }
 
 .fraction {
-    display: inline-block;
-    vertical-align: middle; 
-    margin: 0;
-    text-align: center;
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
 }
 
 .fraction span {
-    display: block;
+  display: block;
 }
 
 .fraction span.lower {
@@ -72,18 +72,18 @@ img #probabillity {
 }
 
 .bigparthense {
-    font-size: 200%;
-    font-weight: lighter;
-    vertical-align: sub;
+  font-size: 200%;
+  font-weight: lighter;
+  vertical-align: sub;
 }
 
 /*give a different style for smaller devices like mobile phones*/
 @media only screen and (max-aspect-ratio : 13 / 9) {
-    /*repositon the content, so there is no conflict with the header*/
-    main {
-        margin: 0% 11%;
-        width: 80%;
-    }
+  /*repositon the content, so there is no conflict with the header*/
+  main {
+    margin: 0% 11%;
+    width: 80%;
+  }
 	.title {
 		font-size: 2vh;
 	}

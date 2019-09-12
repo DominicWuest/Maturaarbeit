@@ -73,6 +73,7 @@ function displayExercise() {
   makeDropdown();
   resetSubexercise();
   exerciseFinished = false;
+  // Highlight code
   document.getElementById('textarea').oninput();
 }
 

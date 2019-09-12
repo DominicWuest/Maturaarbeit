@@ -123,14 +123,12 @@ main {
   margin-top: 2vh;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   color: #BBB;
-  font-size: 1.8vh;
 }
 
 .workingSubexercise {
-  border-color: #6FEE44 #FF3F3F;
-  /*border: 0.5vh solid;
-  border-image-source: linear-gradient(#FF3F3F, #6FEE44);
-  border-image-slice: 1 1;*/
+  background-image: linear-gradient(#2441B4, #31128B);
+  border-color: #31128B;
+  color: #DDD;
 }
 
 .finishedSubexercise {

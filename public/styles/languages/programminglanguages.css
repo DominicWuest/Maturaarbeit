@@ -31,16 +31,17 @@ main {
   font-size: 1.8vh;
   background-color: white;
   grid-column: 1;
-  overflow: auto;
 }
 
 .exerciseMain {
   padding-left: 1vh;
   padding-right: 1vh;
+  padding-bottom: 2vh;
+  height: 92.8%;
+  overflow: auto;
 }
 
 #exerciseText {
-  height: 93.8%;
   overflow-y: auto;
   padding: 0;
   padding-top: 0;
@@ -54,13 +55,16 @@ main {
   display: block;
   margin: 1vh auto;
   width: 75%;
-  background-color: #333;
+  background-color: #236;
   color: #AAA;
   padding: 1vh;
   font-size: 2vh;
   tab-size: 4;
-  border-radius: 2vh;
+  border-radius: 0.5vh;
   border: 0.3vh solid black;
+  white-space: pre;
+  overflow-x: auto;
+  padding-bottom: 1.5vh;
 }
 
 #exerciseTitle h1 {
@@ -123,7 +127,12 @@ main {
   margin-top: 2vh;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   color: #BBB;
-  font-size: 1.8vh;
+}
+
+.workingSubexercise {
+  background-image: linear-gradient(#2441B4, #31128B);
+  border-color: #31128B;
+  color: #DDD;
 }
 
 .finishedSubexercise {

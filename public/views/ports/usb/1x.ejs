@@ -1,57 +1,57 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-    <head>
-        <title>USB 1</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-		<link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-    </head>
-    <body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-            <div class = title>
-                <h1>
-                    Der USB 1 Anschluss
-                </h1>
-			</div>
-            <div>
-                <p id="general">Der USB 1 Anschluss wurde aufgrund der bei <b><a href="/ports/usb" id="usblink">USB</a></b> beschriebenen Problematik mit den vielen verschiedenen Anschlüssen im Januar 1996 eingeführt. Jedoch bekam die Schnittstelle kaum Unterstützung der damals vorhandenen Betriebssysteme, wie beispielsweise Windows. Deswegen und wegen seiner geringen Datensatzübertragungsrate, die bei Fullspeed damals bei lediglich 12Mbits/s, also 12 Millionen Bits pro Sekunde lag, was selbst damals schon gering war, wurde der USB 1 Anschluss vom Firewire-BUS von Apple dominiert und erhielt den Spitznamen "Useless BUS". </p>
-            </div>
-            <div class="shortlink">
-                <h2>Shortlinks</h2>
-                <ul>
-                    <li><a href="#typeab">Typ A und B</a></li>
-                    <li><a href="#colorspec">Farbe</a></li>
-                    <li><a href="#chargers">Ladegerät</a></li>
-                    <li><a href="#pins">Pins</a></li>
-                </ul>
-            </div>
-            <div id ="typeab">
-                <h2>Typ A und B</h2>
-                <img src="/imgs/ports/usb/1ab.jpg" alt="USB A/B"/>
-                <p>Zum USB 1 gehören zwei Stecker, der USB A, der heute sehr häufig verwendet wird, sowie der USB B, der Quadratförmige Stecker, der rechts auf dem Bild zu sehen ist, jedoch heutzutage recht selten anzutreffen ist. Beide Stecker haben die gleiche Funktion, aber eine unterschiedliche Form, weswegen sie für verschiedene Geräte unterschiedlich gut geeignet sind. Zu dieser Zeit waren dies die einzigen Möglichkeiten ein Gerät mit der USB Schnittstelle kompatibel zu machen.</p>
-            </div>
-            <div id ="colorspec">
-                <h2>Farbe</h2>
-                <img src ="/imgs/ports/usb/1xwhite.jpg" alt ="USB 1.X"/>
-                <p>Der USB 1 Stecker kann häufig daran identifiziert werden, dass er im inneren weiss ist. Dies ist natürlich nur eine Faustregel, jedoch liegt sie in den meisten Fällen richtig. Der Farbcode ist auch beim USB Typ B zu erkennen, wie auf dem Bild links im letzten Textfeld zu erkennen ist.</p>
-            </div>
-            <div id ="chargers">
-                <h2>Ladegerät</h2>
-                <img src = "/imgs/ports/usb/bc.png" alt ="Charging station"/>
-                <p> Wenn Sie nun Ihr Smartphoneladekabel untersuchen, werden Sie sich wahrscheinlich fragen, wieso Sie einen USB 1 Stecker haben und keinen der neueren Generationen. Dies liegt daran, dass die USB Schnittstelle mit lediglich 0.5 bis 4.5 Watt ein Gerät mit Strom speisen kann. Deswegen wurde der neue USB-BC (USB Battery Charging) eingeführt, welcher auf bis zu 7.5 Watt laufen kann. Für Schnellladegeräte, sowie für Laptopladegeräte über USB wurde der USB-PD (USB Power Delivery) entwickelt, welcher auch für unterschiedliche Spannungen, also nicht nur für 5 Volt ausgelegt ist und eine Leistung von bis zu 100 Watt aufbringen kann.</p>
-            </div>
-            <div id ="pins">
-                <h2>Pins</h2>
-                <img src = "/imgs/ports/usb/pins.png" alt = "Pins of the USB connector"/>
-                <!-- Licensing notice -->
-                <a href="https://commons.wikimedia.org/wiki/User:LivingShadow">Simon Eugster</a> – <a href="https://commons.wikimedia.org/wiki/User:LivingShadow">Simon</a> / <a href="/wiki/User_talk:LivingShadow">?!</a> 19:02, 7 January 2008 (UTC), <a href="https://commons.wikimedia.org/wiki/File:USB.svg">USB</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
-                <p>Der USB Anschluss der ersten Generation hat vier verschiedene Pins, also Kabelverbindungen. Diese sind wie auf dem obigen Bild angeordent, links der USB Typ A und rechts der USB Typ B. Dabei gehören immer jeweils zwei dieser Pins zusammen, da man für einen Stromfluss einen positiven und einen negativen Pol braucht. Die Pins mit der Nummer eins und Nummer vier sind für die Versorgungsspannung des Endgerätes zuständig, sie liefern also beispielsweise die Energie um eine über die USB Schnittstelle verbundene Tastatur zu betreiben. Die Pins Nummer zwei und Nummer drei sind für die Datenübertragung zuständig. Bei diesen Pins ist auch zu beachten, dass der Minus-Pol die Elektronen speist, während der Plus-Pol die Elektronen aufnimmt, die Elektronen fliessen also vom Minus-Pol zum Plus-Pol.</p>
-            </div>
-        </main>
-		<%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+  <head>
+    <title>USB 1</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = title>
+        <h1>
+          Der USB 1 Anschluss
+        </h1>
+      </div>
+      <div>
+        <p id="general">Der USB 1 Anschluss wurde aufgrund der bei <b><a href="/ports/usb" id="usblink">USB</a></b> beschriebenen Problematik mit den vielen verschiedenen Anschlüssen im Januar 1996 eingeführt. Jedoch bekam die Schnittstelle kaum Unterstützung der damals vorhandenen Betriebssysteme, wie beispielsweise Windows. Deswegen und wegen seiner geringen Datensatzübertragungsrate, die bei Fullspeed damals bei lediglich 12Mbits/s, also 12 Millionen Bits pro Sekunde lag, was selbst damals schon gering war, wurde der USB 1 Anschluss vom Firewire-BUS von Apple dominiert und erhielt den Spitznamen "Useless BUS". </p>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#typeab">Typ A und B</a></li>
+          <li><a href="#colorspec">Farbe</a></li>
+          <li><a href="#chargers">Ladegerät</a></li>
+          <li><a href="#pins">Pins</a></li>
+        </ul>
+      </div>
+      <div id ="typeab">
+        <h2>Typ A und B</h2>
+        <img src="/imgs/ports/usb/1ab.jpg" alt="USB A/B"/>
+        <p>Zum USB 1 gehören zwei Stecker, der USB A, der heute sehr häufig verwendet wird, sowie der USB B, der Quadratförmige Stecker, der rechts auf dem Bild zu sehen ist, jedoch heutzutage recht selten anzutreffen ist. Beide Stecker haben die gleiche Funktion, aber eine unterschiedliche Form, weswegen sie für verschiedene Geräte unterschiedlich gut geeignet sind. Zu dieser Zeit waren dies die einzigen Möglichkeiten ein Gerät mit der USB Schnittstelle kompatibel zu machen.</p>
+      </div>
+      <div id ="colorspec">
+        <h2>Farbe</h2>
+        <img src ="/imgs/ports/usb/1xwhite.jpg" alt ="USB 1.X"/>
+        <p>Der USB 1 Stecker kann häufig daran identifiziert werden, dass er im inneren weiss ist. Dies ist natürlich nur eine Faustregel, jedoch liegt sie in den meisten Fällen richtig. Der Farbcode ist auch beim USB Typ B zu erkennen, wie auf dem Bild links im letzten Textfeld zu erkennen ist.</p>
+      </div>
+      <div id ="chargers">
+        <h2>Ladegerät</h2>
+        <img src = "/imgs/ports/usb/bc.png" alt ="Charging station"/>
+        <p> Wenn Sie nun Ihr Smartphoneladekabel untersuchen, werden Sie sich wahrscheinlich fragen, wieso Sie einen USB 1 Stecker haben und keinen der neueren Generationen. Dies liegt daran, dass die USB Schnittstelle mit lediglich 0.5 bis 4.5 Watt ein Gerät mit Strom speisen kann. Deswegen wurde der neue USB-BC (USB Battery Charging) eingeführt, welcher auf bis zu 7.5 Watt laufen kann. Für Schnellladegeräte, sowie für Laptopladegeräte über USB wurde der USB-PD (USB Power Delivery) entwickelt, welcher auch für unterschiedliche Spannungen, also nicht nur für 5 Volt ausgelegt ist und eine Leistung von bis zu 100 Watt aufbringen kann.</p>
+      </div>
+      <div id ="pins">
+        <h2>Pins</h2>
+        <img src = "/imgs/ports/usb/pins.png" alt = "Pins of the USB connector"/>
+        <!-- Licensing notice -->
+        <a href="https://commons.wikimedia.org/wiki/User:LivingShadow">Simon Eugster</a> – <a href="https://commons.wikimedia.org/wiki/User:LivingShadow">Simon</a> / <a href="/wiki/User_talk:LivingShadow">?!</a> 19:02, 7 January 2008 (UTC), <a href="https://commons.wikimedia.org/wiki/File:USB.svg">USB</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
+        <p>Der USB Anschluss der ersten Generation hat vier verschiedene Pins, also Kabelverbindungen. Diese sind wie auf dem obigen Bild angeordent, links der USB Typ A und rechts der USB Typ B. Dabei gehören immer jeweils zwei dieser Pins zusammen, da man für einen Stromfluss einen positiven und einen negativen Pol braucht. Die Pins mit der Nummer eins und Nummer vier sind für die Versorgungsspannung des Endgerätes zuständig, sie liefern also beispielsweise die Energie um eine über die USB Schnittstelle verbundene Tastatur zu betreiben. Die Pins Nummer zwei und Nummer drei sind für die Datenübertragung zuständig. Bei diesen Pins ist auch zu beachten, dass der Minus-Pol die Elektronen speist, während der Plus-Pol die Elektronen aufnimmt, die Elektronen fliessen also vom Minus-Pol zum Plus-Pol.</p>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

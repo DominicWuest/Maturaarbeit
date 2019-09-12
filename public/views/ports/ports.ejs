@@ -1,38 +1,38 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-    <head>
-        <title>Anschlüsse</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-		<link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-    </head>
-    <body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-            <div class = "title">
-                <h1>Schnittstellen</h1>
-            </div>
-            <div>
-                <p>Die Anschlüsse am Computer, die gebraucht werden um externe Geräte zu verbinden werden in der Fachsprache Schnittstellen genannt. Hier haben wir die wichtigsten davon aufgeführt, um dir deren Anwendung und Funktion näher zu bringen. Dabei geht er vor allem darum die verschiedenen Schnittstellen zu erkennen und deren Vor- und Nachteile zu kennen. Es geht also um eine Theorie, die wenn möglich in der Parxis angewendet werden kann.</p>
-            </div>
-            <div class = "ports">
-                <div id = "usb">
-                    <a href = "/ports/usb" id = "describeportUSB">
-                        <h2>Verschiedene USB Anschlüsse</h2>
-                        <img src="/imgs/ports/usb/usba.jpg" alt="USB A Port" id = "USBAPort"/>
-                    </a>
-                </div>
-                <div id = "video">
-                    <a href = "/ports/video" id = "describeportVIDEO">
-                        <h2>Verschiedene Videoanschlüsse</h2>
-                        <img src = "/imgs/ports/videoports.jpg" alt = "Video port general" id = "videoports"/>
-                    </a>
-                </div>
-            </div>
-        </main>
-		<%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+  <head>
+    <title>Anschlüsse</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Schnittstellen</h1>
+      </div>
+      <div>
+        <p>Die Anschlüsse am Computer, die gebraucht werden um externe Geräte zu verbinden werden in der Fachsprache Schnittstellen genannt. Hier haben wir die wichtigsten davon aufgeführt, um dir deren Anwendung und Funktion näher zu bringen. Dabei geht er vor allem darum die verschiedenen Schnittstellen zu erkennen und deren Vor- und Nachteile zu kennen. Es geht also um eine Theorie, die wenn möglich in der Parxis angewendet werden kann.</p>
+      </div>
+      <div class = "ports">
+        <div id = "usb">
+          <a href = "/ports/usb" id = "describeportUSB">
+            <h2>Verschiedene USB Anschlüsse</h2>
+            <img src="/imgs/ports/usb/usba.jpg" alt="USB A Port" id = "USBAPort"/>
+          </a>
+        </div>
+        <div id = "video">
+          <a href = "/ports/video" id = "describeportVIDEO">
+            <h2>Verschiedene Videoanschlüsse</h2>
+            <img src = "/imgs/ports/videoports.jpg" alt = "Video port general" id = "videoports"/>
+          </a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

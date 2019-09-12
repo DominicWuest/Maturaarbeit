@@ -48,6 +48,7 @@ main {
   white-space: pre-wrap;
   margin-top: 2vh;
   font-family: Arial, sans-serif;
+  padding-bottom: 1.5vh;
 }
 
 #exerciseText code {

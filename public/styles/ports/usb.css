@@ -1,37 +1,39 @@
 .usb {
-  	padding: 0;
-  	background: none;
-	justify-content: space-around;
-	width: auto;
-	display: flex;
+  padding: 0;
+  background: none;
+  justify-content: space-around;
+  width: auto;
+  display: flex;
 }
 
 p {
-  	font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 #usb1, #usb2, #usb3, #usbc {
-	width: 98%;
-	text-align: center;
-	padding: 0px;
-    margin: 0% 1%;
+  width: 98%;
+  text-align: center;
+  padding: 0px;
+  margin: 0% 1%;
 }
 
 img {
-	max-width: 100%;
-	height: auto;
+  max-width: 100%;
+  height: auto;
 }
 
 #usbextra{
-    position: relative;
-    top: 0%;
+  position: relative;
+  top: 0%;
 }
 
 @media only screen and (max-aspect-ratio : 13 / 9){
-/*give a different style for smaller devices like mobile phones*/
-    main {
-/*repositon the content, so there is no conflict with the header*/
-        width: 80%;
-        margin: 0% 11%;
-    }
 
+  /*give a different style for smaller devices like mobile phones*/
+  main {
+    /*repositon the content, so there is no conflict with the header*/
+    width: 80%;
+    margin: 0% 11%;
+  }
+
+}

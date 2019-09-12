@@ -28,16 +28,21 @@ function checkSolution(output) {
   if (eval('(function(output) {' + htmlCourses['exercises'][courseIndex]['subexercises'][subexerciseIndex]['solutionCheck'] + '})(document.getElementById("output"));')) {
     document.getElementById('subExercise' + subexerciseIndex).classList.add('finishedSubexercise');
     document.getElementById('subExercise' + subexerciseIndex).classList.remove('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('workingSubexercise');
     // Set exerciseFinished to true if all subexercises have been completed
     if (subexerciseIndex === htmlCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
     // Increment the subexerciseIndex and reset it if the user hasn't finished all subexercises yet
     else {
-      resetSubexercise();
       subexerciseIndex++;
+      resetSubexercise();
+      document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
     }
   }
   // The output is incorrect
-  else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+  else {
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('workingSubexercise');
+  }
 }
 
 // Replaces the code in the textarea with the starting code of the subexercise
@@ -59,6 +64,8 @@ function displayExercise() {
   textDiv.innerHTML = htmlCourses['exercises'][courseIndex]['description'];
   // Display all the subexercises
   for (subexercise of htmlCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
+  // Highlight the starting subexercise
+  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';

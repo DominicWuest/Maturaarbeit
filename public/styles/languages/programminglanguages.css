@@ -55,7 +55,7 @@ main {
   display: block;
   margin: 1vh auto;
   width: 75%;
-  background-color: #333;
+  background-color: #236;
   color: #AAA;
   padding: 1vh;
   font-size: 2vh;
@@ -127,7 +127,12 @@ main {
   margin-top: 2vh;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   color: #BBB;
-  font-size: 1.8vh;
+}
+
+.workingSubexercise {
+  background-image: linear-gradient(#2441B4, #31128B);
+  border-color: #31128B;
+  color: #DDD;
 }
 
 .finishedSubexercise {

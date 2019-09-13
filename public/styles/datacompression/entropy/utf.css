@@ -1,0 +1,46 @@
+.tableASCII {
+  display: grid;
+  grid-template-columns: 2vw repeat(16, 4vw);
+  grid-template-rows: 3.5vh repeat(8, 8vh);
+  grid-gap: 0.5vh;
+}
+
+.box {
+  font-size: 2.8vh;
+  color: #000;
+  text-align: center;
+}
+
+.box:nth-child(-n + 148){
+  background-color: #7A7;
+}
+
+.box:nth-child(-n + 121) {
+  background-color: #A77;
+}
+
+.box:nth-child(-n + 114), .letters {
+  background-color: #7A7;
+}
+
+.box:nth-child(-n + 87), .syntax {
+  background-color: #A77;
+}
+
+.box:nth-child(-n + 79), .numbers {
+  background-color: #CCC;
+}
+
+.box:nth-child(-n + 68), .box:nth-child(n + 149){
+  background-color: #A77;
+}
+
+.box:nth-child(-n + 53), .box:nth-child(153), .commands {
+  background-color: #77A;
+}
+
+.box:nth-child(17n - 16), .box:nth-child(-n + 17) {
+  font-size: 2.8vh;
+  background-color: #000;
+  color: #FFF;
+}

@@ -67,13 +67,16 @@ function checkSolution(output) {
     if (subexerciseIndex === pythonCourses['exercises'][courseIndex]['subexercises'].length - 1) exerciseFinished = true;
     // Increment the subexerciseIndex and reset it and show it in a different style if the user hasn't finished all subexercises yet
     else {
-      resetSubexercise();
       subexerciseIndex++;
+      resetSubexercise();
       document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
     }
   }
   // The output is incorrect
-  else document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+  else {
+    document.getElementById('subExercise' + subexerciseIndex).classList.add('incorrectSubexercise');
+    document.getElementById('subExercise' + subexerciseIndex).classList.remove('workingSubexercise');
+    }
 }
 
 // Replaces the code in the textarea with the starting code of the subexercise

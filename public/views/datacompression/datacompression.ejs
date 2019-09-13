@@ -1,55 +1,53 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-    <head>
-        <title>Datenkompression</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link rel="stylesheet" href="/styles/course.css">
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <meta charset="utf-8"/>
-    </head>
-	<body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-            <div class="title">
-                <h1>Datenkompression</h1>
-            </div>
-			<div class="shortlink">
-                <h2>Shortlinks</h2>
-				<ul>
-					<li><a href="#general">Allgemein</a></li>
-					<li><a href="#lossless">Verlustlose Datenkompression</a></li>
-					<li><a href="#lossy">Verlustbehaftete Datenkompression</a></li>
-					<li><a href="#entropy">Entropiekodierung</a></li>
-					<li><a href="#lz77">LZ77</a></li>
-				</ul>
-            </div>
-    <div class="text">
-			<div id = "general">
-				<h2>Allgemein</h2>
-                <p>Die Datenkompression ist, wie im Namen bereits zu erkennen ist, ein Vorgang um digitale Daten zu komprimieren, also zu verdichten oder zu reduzieren. Die Datenkompression wird fast immer bei Fernübertragungen von digitalen Daten angewandt. Dabei ist das Ziel, dass die benötigte Datenmenge minimal ist, damit die komprimierte Datei möglichst wenige Ressourcen bei der Übertragung und Speicherung verbraucht. Dies ist gleichbedeutend damit, dass die Datei aus mäglichst wenigen Bits besteht.</p>
-			</div>
-			<div id = "lossless">
-				<h2>Verlustlose Datenkompression</h2>
-				<p>Es klingt vielleicht komisch, aber es ist möglich Daten zu komprimieren, ohne dass dabei Verluste entstehen. Dabei werden sogenannt redundante, also mehrfach genannte Informationen nicht mehrmals, sondern nur einmal abgespeichert. Eine verlustlose Datenkompression ist also nur möglich, wenn irgendeine Art redundanter Information vorliegt. Ein Beispiel dafür wäre ein komplett weisses Bild. Dabei ist also beim originalen Bild unter jedem Pixel der RGB-Code #FFFFFF abgespeichert, was im Binären Format mindestens 7 Bits pro Farbe, also insgesamt 21 Bits erfordert: 1111111 1111111 1111111. Wenn wir nun eine HD-Auflösung haben, dann haben wir 1280 * 720 = 921'600 Pixel auf unserem Bild. Wir brauchen also für das Originalbild 21 * 921600 = 19'353'600 Bits in unserem Speicherplatz. Wenn wir das Bild aber nun komprimieren können wir es mit lediglich den 21 Bits für den Farbcode und einem Indikator, dass dieser Farbcode auf jedes Pixel angewandt wird. So wird natürlich sehr viel weniger Speicher als im Originalformat gebraucht, jedoch kann das Originalformat einfach wieder hergestellt werden. Dieses Beispiel war aber nicht allzu anwendungsorientiert, da es unrealistisch ein Bild zu haben, dass zu 100% weiss ist, illustriert die verlustlose Datenkompression aber sehr gut.</p>
-				<p>Die verlustlose Datenkompression wird beim komprimieren von Dateien, bei denen alle Informationen essenziell sind eingestzt. Dies sind zum Beispiel ausführende Dateien eines Programmes, die nicht mehr funktionieren würden, wenn etwas fehlt. Diese Dateien sind aber auch oftmals gross, weswegen sie komprimiert werden, damit beim herunterladen einer solchen Datei die Internetverbindung nicht überlastet wird und dass es in vernünftiger Zeit geschieht.</p>
-			</div>
-			<div id = "lossy">
-				<h2>Verlustbehaftete Datenkompression</h2>
-				<p>Bei der verlustbehafteten Datenkompression funktioniert nach einem ähnlichen Prinzip wir die verlustlose Datenkompression. Nur werden bei der verlustbehafteten Datenkompression nicht nur Daten, die exakt gleich sind als redundant angesehen, sondern auch Daten, die je nach Stärke der Kompression sehr grosse bis eine kleine Ähnlichkeit aufweisen. Somit kann also bei einem Bild einer Landschaft mit dem Himmel im Hintergrund der Himmel beispielsweise mit nur einem Blau und nicht mit möglicherweise 20 verschiedenen Blautönen dargestellt werden wie in der Originaldatei. Aus der komprimierten Datei kann man aber nicht mehr herauslesen, welche Teile des Himmels aus welchem Blau bestehen. Deswegen kann man aus die Originaldatei nicht mehr aus der komprimierten Datei hergestellt werden. Je stärker ein Bild komprimiert wird, desto mehr geht es in Richtung Verschwommenheit, was schlussendlich in einer einzigen Farbe resultiert.</p>
-			</div>
-			<div id = "entropy">
-            	<a href = "/datacompression/entropy" id = "entropylink">
-                    <h2>Entropiekodierung</h2>
-                </a>
-            </div>
-            <div id = "lz77">
-                <a href = "/datacompression/lz77" id = "lz77link">
-                    <h2>LZ77</h2>
-                </a>
-			</div>
-    </div>
-  </main>
-	<%- include(partialsPath + 'footer1.ejs') %>
+  <head>
+    <title>Datenkompression</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href="/styles/course.css">
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Datenkompression</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#general">Allgemein</a></li>
+          <li><a href="#lossless">Verlustlose Datenkompression</a></li>
+          <li><a href="#lossy">Verlustbehaftete Datenkompression</a></li>
+          <li><a href="#algorithms">Arten und Algorithmen der Datenkompression</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id = "general">
+          <h2>Allgemein</h2>
+          <p>Die Datenkompression ist, wie im Namen bereits zu erkennen ist, ein Vorgang um digitale Daten zu komprimieren, also zu verdichten oder zu reduzieren. Die Datenkompression wird fast immer bei Fernübertragungen von digitalen Daten angewandt. Dabei ist das Ziel, dass die benötigte Datenmenge minimal ist, damit die komprimierte Datei möglichst wenige Ressourcen bei der Übertragung und Speicherung verbraucht. Dies ist gleichbedeutend damit, dass die Datei aus mäglichst wenigen Bits besteht.</p>
+        </div>
+        <div id = "lossless">
+          <h2>Verlustlose Datenkompression</h2>
+          <p>Es klingt vielleicht komisch, aber es ist möglich Daten zu komprimieren, ohne dass dabei Verluste entstehen. Dabei werden sogenannt redundante, also mehrfach genannte Informationen nicht mehrmals, sondern nur einmal abgespeichert. Eine verlustlose Datenkompression ist also nur möglich, wenn irgendeine Art redundanter Information vorliegt. Ein Beispiel dafür wäre ein komplett weisses Bild. Dabei ist also beim originalen Bild unter jedem Pixel der RGB-Code #FFFFFF abgespeichert, was im Binären Format mindestens 7 Bits pro Farbe, also insgesamt 21 Bits erfordert: 1111111 1111111 1111111. Wenn wir nun eine HD-Auflösung haben, dann haben wir 1280 * 720 = 921'600 Pixel auf unserem Bild. Wir brauchen also für das Originalbild 21 * 921600 = 19'353'600 Bits in unserem Speicherplatz. Wenn wir das Bild aber nun komprimieren können wir es mit lediglich den 21 Bits für den Farbcode und einem Indikator, dass dieser Farbcode auf jedes Pixel angewandt wird. So wird natürlich sehr viel weniger Speicher als im Originalformat gebraucht, jedoch kann das Originalformat einfach wieder hergestellt werden. Dieses Beispiel war aber nicht allzu anwendungsorientiert, da es unrealistisch ein Bild zu haben, dass zu 100% weiss ist, illustriert die verlustlose Datenkompression aber sehr gut.</p>
+          <p>Die verlustlose Datenkompression wird beim komprimieren von Dateien, bei denen alle Informationen essenziell sind eingestzt. Dies sind zum Beispiel ausführende Dateien eines Programmes, die nicht mehr funktionieren würden, wenn etwas fehlt. Diese Dateien sind aber auch oftmals gross, weswegen sie komprimiert werden, damit beim herunterladen einer solchen Datei die Internetverbindung nicht überlastet wird und dass es in vernünftiger Zeit geschieht.</p>
+        </div>
+        <div id = "lossy">
+          <h2>Verlustbehaftete Datenkompression</h2>
+          <p>Bei der verlustbehafteten Datenkompression funktioniert nach einem ähnlichen Prinzip wir die verlustlose Datenkompression. Nur werden bei der verlustbehafteten Datenkompression nicht nur Daten, die exakt gleich sind als redundant angesehen, sondern auch Daten, die je nach Stärke der Kompression sehr grosse bis eine kleine Ähnlichkeit aufweisen. Somit kann also bei einem Bild einer Landschaft mit dem Himmel im Hintergrund der Himmel beispielsweise mit nur einem Blau und nicht mit möglicherweise 20 verschiedenen Blautönen dargestellt werden wie in der Originaldatei. Aus der komprimierten Datei kann man aber nicht mehr herauslesen, welche Teile des Himmels aus welchem Blau bestehen. Deswegen kann man aus die Originaldatei nicht mehr aus der komprimierten Datei hergestellt werden. Je stärker ein Bild komprimiert wird, desto mehr geht es in Richtung Verschwommenheit, was schlussendlich in einer einzigen Farbe resultiert.</p>
+        </div>
+        <div id = "algorithms">
+          <h2>Arten und Algorithmen der Datenkompression</h2>
+          <a href = "/datacompression/entropy" id = "entropylink">
+            <h3>Entropiekodierung</h3>
+          </a>
+          <a href = "/datacompression/lz77" id = "lz77link">
+            <h3>LZ77</h3>
+          </a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
   </body>
 </html>

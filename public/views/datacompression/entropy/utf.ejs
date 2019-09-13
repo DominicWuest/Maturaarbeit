@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <title>UTF</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>UTF</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#general">Allgemein</a></li>
+          <li><a href="#ascii">ACSII</a></li>
+          <li><a href="#unicode">Unicode</a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div>
+        <div id = "general">
+          <h2>Allgemein</h2>
+          <p>
+            <b>UTF</b> steht für <b>U</b>CS <b>T</b>ransforamtion <b>F</b>ormat. Dabei steht <b>UCS</b> für <b>U</b>niversial <b>C</b>oded <b>C</b>haracter <b>S</b>et. UTF ist die Kodierung der Zeichen, die ihrerseits mit einer Unicode-Nummer, durch die das Zeichen dann dargestellt wird. Damit ist UTF also die Kodierung der Unicode-Nummer.
+          </p>
+        </div>
+        <div id = "ascii">
+          <h2>ASCII</h2>
+          <p>
+            <b>ASCII</b> steht für <b>A</b>merican <b>S</b>tandard <b>C</b>ode for <b>I</b>nformation <b>I</b>nterchange. Es handelt sich dabei um eine digitale Kodierung von Zeichen, die sieben Bits pro Zeichen verwendet. Damit können also 2<sup>7</sup> = 128 verschiedene Codes realisiert, womit 128 verschiedene Zeichen dargestellt werden können. Wegen dem begrentzten Platz und da ASCII von den westlichen Ländern definiert wurde, sind darin keine arabischen Schriftzeichen oder derartige Symbole definiert, sondern nur die lateinischen Buchstaben und noch einige oft verwendete Sonderzeichen. Viele Codes wurden auch dafür gebraucht, um Befehle zu definieren, wie zum Beispiel 'start of text' oder 'bell', womit eine Glocke geläutet werden kann, wenn ein digitaler Code hereinkommt. ASCII ordnet nun also jedem Zeichen eine Nummer zu, die einem 7 Bit langem Code entspricht. In der untenstehenden Grafik ist die ASCII-Tabelle aufgeführt.
+            <figure class = "tableASCII">
+              <!-- display top row of table -->
+              <section class = "box"></section>
+              <section class = "box">_0</section>
+              <section class = "box">_1</section>
+              <section class = "box">_2</section>
+              <section class = "box">_3</section>
+              <section class = "box">_4</section>
+              <section class = "box">_5</section>
+              <section class = "box">_6</section>
+              <section class = "box">_7</section>
+              <section class = "box">_8</section>
+              <section class = "box">_9</section>
+              <section class = "box">_A</section>
+              <section class = "box">_B</section>
+              <section class = "box">_C</section>
+              <section class = "box">_D</section>
+              <section class = "box">_E</section>
+              <section class = "box">_F</section>
+              <!-- zero row -->
+              <section class = "box">0_</section>
+              <section class = "box">00<br>[NUL]</section>
+              <section class = "box">01<br>[SOH]</section>
+              <section class = "box">02<br>[STX]</section>
+              <section class = "box">03<br>[ETX]</section>
+              <section class = "box">04<br>[EOT]</section>
+              <section class = "box">05<br>[ENQ]</section>
+              <section class = "box">06<br>[ACK]</section>
+              <section class = "box">07<br>[BEL]</section>
+              <section class = "box">08<br>[BS]</section>
+              <section class = "box">09<br>[HT]</section>
+              <section class = "box">0A<br>[LF]</section>
+              <section class = "box">0B<br>[VT]</section>
+              <section class = "box">0C<br>[FF]</section>
+              <section class = "box">0D<br>[CR]</section>
+              <section class = "box">0E<br>[SO]</section>
+              <section class = "box">0F<br>[SI]</section>
+              <!-- first row -->
+              <section class = "box">1_</section>
+              <section class = "box">10<br>[DLE]</section>
+              <section class = "box">11<br>[DC1]</section>
+              <section class = "box">12<br>[DC2]</section>
+              <section class = "box">13<br>[DC3]</section>
+              <section class = "box">14<br>[DC4]</section>
+              <section class = "box">15<br>[NAK]</section>
+              <section class = "box">16<br>[SYN]</section>
+              <section class = "box">17<br>[ETB]</section>
+              <section class = "box">18<br>[CAN]</section>
+              <section class = "box">19<br>[EM]</section>
+              <section class = "box">1A<br>[SUB]</section>
+              <section class = "box">1B<br>[ESC]</section>
+              <section class = "box">1C<br>[FS]</section>
+              <section class = "box">1D<br>[GS]</section>
+              <section class = "box">1E<br>[RS]</section>
+              <section class = "box">1F<br>[US]</section>
+              <!-- second row -->
+              <section class = "box">2_</section>
+              <section class = "box">20<br>[SP]</section>
+              <section class = "box">21<br>!</section>
+              <section class = "box">22<br>"</section>
+              <section class = "box">23<br>#</section>
+              <section class = "box">24<br>$</section>
+              <section class = "box">25<br>%</section>
+              <section class = "box">26<br>&</section>
+              <section class = "box">27<br>'</section>
+              <section class = "box">28<br>(</section>
+              <section class = "box">29<br>)</section>
+              <section class = "box">2A<br>*</section>
+              <section class = "box">2B<br>+</section>
+              <section class = "box">2C<br>,</section>
+              <section class = "box">2D<br>-</section>
+              <section class = "box">2E<br>.</section>
+              <section class = "box">2F<br>/</section>
+              <!-- third row -->
+              <section class = "box">3_</section>
+              <section class = "box">30<br>0</section>
+              <section class = "box">31<br>1</section>
+              <section class = "box">32<br>2</section>
+              <section class = "box">33<br>3</section>
+              <section class = "box">34<br>4</section>
+              <section class = "box">35<br>5</section>
+              <section class = "box">36<br>6</section>
+              <section class = "box">37<br>7</section>
+              <section class = "box">38<br>8</section>
+              <section class = "box">39<br>9</section>
+              <section class = "box">3A<br>:</section>
+              <section class = "box">3B<br>;</section>
+              <section class = "box">3C<br>&gt;</section>
+              <section class = "box">3D<br>=</section>
+              <section class = "box">3E<br>&lt;</section>
+              <section class = "box">3F<br>?</section>
+              <!-- fourth row -->
+              <section class = "box">4_</section>
+              <section class = "box">40<br>@</section>
+              <section class = "box">41<br>A</section>
+              <section class = "box">42<br>B</section>
+              <section class = "box">43<br>C</section>
+              <section class = "box">44<br>D</section>
+              <section class = "box">45<br>E</section>
+              <section class = "box">46<br>F</section>
+              <section class = "box">47<br>G</section>
+              <section class = "box">48<br>H</section>
+              <section class = "box">49<br>I</section>
+              <section class = "box">4A<br>J</section>
+              <section class = "box">4B<br>K</section>
+              <section class = "box">4C<br>L</section>
+              <section class = "box">4D<br>M</section>
+              <section class = "box">4E<br>N</section>
+              <section class = "box">4F<br>O</section>
+              <!-- fifth row -->
+              <section class = "box">5_</section>
+              <section class = "box">50<br>P</section>
+              <section class = "box">51<br>Q</section>
+              <section class = "box">52<br>R</section>
+              <section class = "box">53<br>S</section>
+              <section class = "box">54<br>T</section>
+              <section class = "box">55<br>U</section>
+              <section class = "box">56<br>V</section>
+              <section class = "box">57<br>W</section>
+              <section class = "box">58<br>X</section>
+              <section class = "box">59<br>Y</section>
+              <section class = "box">5A<br>Z</section>
+              <section class = "box">5B<br>[</section>
+              <section class = "box">5C<br>\</section>
+              <section class = "box">5D<br>]</section>
+              <section class = "box">5E<br>^</section>
+              <section class = "box">5F<br>_</section>
+              <!-- sixth row -->
+              <section class = "box">6_</section>
+              <section class = "box">60<br>`</section>
+              <section class = "box">61<br>a</section>
+              <section class = "box">62<br>b</section>
+              <section class = "box">63<br>c</section>
+              <section class = "box">64<br>d</section>
+              <section class = "box">65<br>e</section>
+              <section class = "box">66<br>f</section>
+              <section class = "box">67<br>g</section>
+              <section class = "box">68<br>h</section>
+              <section class = "box">69<br>i</section>
+              <section class = "box">6B<br>j</section>
+              <section class = "box">6A<br>k</section>
+              <section class = "box">6C<br>l</section>
+              <section class = "box">6D<br>m</section>
+              <section class = "box">6E<br>n</section>
+              <section class = "box">6F<br>o</section>
+              <!-- seventh row -->
+              <section class = "box">7_</section>
+              <section class = "box">70<br>p</section>
+              <section class = "box">71<br>q</section>
+              <section class = "box">72<br>r</section>
+              <section class = "box">73<br>s</section>
+              <section class = "box">74<br>t</section>
+              <section class = "box">75<br>u</section>
+              <section class = "box">76<br>v</section>
+              <section class = "box">77<br>w</section>
+              <section class = "box">78<br>x</section>
+              <section class = "box">79<br>y</section>
+              <section class = "box">7A<br>z</section>
+              <section class = "box">7B<br>{</section>
+              <section class = "box">7C<br>|</section>
+              <section class = "box">7D<br>}</section>
+              <section class = "box">7E<br>~</section>
+              <section class = "box">7F<br>[DEL]</section>
+            </figure>
+            <figure class = "legend">
+              <h3>Legende der Zeichen:</h3>
+              <div class = "commands">
+                <h4>Steuerzeichen</h4>
+                NUL &#8788; No operation = Füllzeichen,  nichts<br>
+                SOH &#8788; Star of heading = Start der Überschrift<br>
+                STX &#8788; Start of text = Start des Textes<br>
+                EOF &#8788; End of file = Ende der Datei<br>
+                ENQ &#8788; Enquiry = Anfrage auf Antwort<br>
+                ACK &#8788; Acknowledgement = Bestätigung des Eingangs der Nachricht<br>
+                BEL &#8788; Bell = Glocke die geläutet wird<br>
+                BS &#8788; Backspace = Eine Position zurück<br>
+                HT &#8788; Horizontal tabulator = Abstand in horizintaler Richtung (meistens äquivalent zu 4 Leertasten)<br>
+                LF &#8788; Linefeed = Neue Zeile, bei neuen Computern mit der Enter-Taste<br>
+                VT &#8788; Vertical tabulator: Gleich wie HT in, einfach in vertikale Richtung<br>
+                FF &#8788; Form feed = Eine neue Seite wird angefangen<br>
+                CR &#8788; Carriage return = Zurück zum Anfang der Linie<br>
+                SO &#8788; Shift out = Bei Schreibmaschienen Schriftband nach verschieben (Farbwechsel auf rot)<br>
+                SI &#8788; Shift in = Bei Schreibmaschienen Schriftband nach verschieben (Farbwechsel auf schwarz)<br>
+                DLE &#8788; Data link escape = Folgende Objekte als Rohdaten interpretieren (nicht als Steuerzeichen oder ähnliches)<br>
+                DC1, DC2, DC3, DC4 &#8788; Device control = Gerätesteuerung 1, 2, 3, 4, zum Beispiel Übertragung unterbrechen<br>
+                NAK &#8788; Negative acknowledgement = Negative Bestätigung, im vorhergehenden Code wurde ein Fehler festgestellt<br>
+                SYN &#8788; Synchronous idle = Synchroner Leerlauf für synchrone Übertragungssysteme<br>
+                ETB &#8788; End of transmission block = Ende eines Überblocks<br>
+                CAN &#8788; Cancel = Stornieren, die vorhergehenden Daten sollen ignoriert werden<br>
+                EM &#8788; End of media = Ende des nutzbaren Teil des Bandes<br>
+                SUB &#8788; Substitute = Ersatz fehlerhafter Zeichen, wie strg-z<br>
+                ESC &#8788; Escape = Zeichen wird auf den meisten Systemen gesendet, also auch Flucht aus DLE<br>
+                FS, GS, RS, US = Begrenzer von Felder von Datenstrukturen, hirarchische Ebene steigt ab in Reihenfolge<br>
+                SP &#8788; Space = Leerraum, Abstand<br>
+                DEL &#8788; Delete = Löschen des vorhergehenden Zeichens<br>
+              </div>
+              <div class = "letters">
+                Buchstaben vom lateinischen Alphabet
+              </div>
+              <div class = "numbers">
+                Ziffern vom Dezimalsystem
+              </div>
+              <div class = "syntax">
+                Satzzeichen, Klammern, Syntax
+              </div>
+            </section>
+          </p>
+        </div>
+        <div>
+          <h2>Unicode</h2>
+          <p>
+            Unicode ist ein internationaler Standard, durch den für jedes sinnvolle Zeichen aller bekannten Schrift- und Zeichensysteme ein digitaler Code festgelegt wird. Unicode ist also die Entzifferungstabelle, mit der aufgrund eines Codes ein Zeichen dargestellt werden kann. Der digitale Code besteht dabei aus einer Nummer. Unicode wird regelmässig aktualisiert und es werden neue Zeichen hinzugefügt. Seit Mai 2019 enthält Unicode 137'929 verschiedene Zeichen aus insgesamt 150 Schriftsystemen.
+            <br>
+            Bei früher verwendeten Systemen, die einen digitalen Code für Zeichen festgelegt haben, kam immer das Problem auf, dass der Platz nicht ausreichte, da neue Zeichen aufgenommen werden mussten. Damit Unicode nicht auch durch ein grösseres System ersetzt werden die Zeichen im Unicode mit 32 Bits kodiert. Damit gibt es also 2<sup>32</sup> = 4'294'967'296 Möglichkeiten, wie ein solcher Code aussehen kann und somit können über vier Milliarden verschiedene Zeichen Kodiert werden. Unicode hat also nicht grosse Reserven für neue Zeichen.
+            <br>
+            Ein Unicode-Zeichen
+          </p>
+        </div>
+        <div>
+          <h2></h2>
+          <p></p>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

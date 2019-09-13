@@ -1,324 +1,326 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-    <head>
-	    <meta charset="utf-8"/>
-        <title>Entropiekodierung</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-		<script src = "/js/codeHighlighting.js"></script>
-		<script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-		<link rel="stylesheet" href="/styles/course.css">
-		<script>
-      		const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
-    	</script>
-    </head>
-	<body onload = "addHighlighting();" onresize = "setup();">
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-            <div class="title">
-                <h1>Entropiekodierung</h1>
-            </div>
-			<div class="shortlink">
-                <h2>Shortlinks</h2>
-				<ul>
-					<li><a href="#general">Allgemein</a></li>
-					<li><a href="#information">Der Informationsgehalt</a></li>
-					<li><a href="#entropy">Die Entropie</a></li>
-					<li><a href="#redundancy">Die Redundanz</a></li>
-					<li><a href="#algorithms">Algorithmen für die Entropiekodierung</a></li>
-				</ul>
-            </div>
-			<div id = "general">
-				<h2>Allgemein</h2>
-                <p>
-					Die Entropiekodierung ist eine Art der verlustfreien Datenkompression. Die Entropiekodierung basiert darauf, dass Zeichen abgespeichert werden, wie beispielsweise ein Text. Dabei wir den einzelnen Zeichen eine unterschiedlich lange Folge von Bits zugeordnet.<br>Die Anzahl Bits, die für ein Zeichen verwendet werden wird dabei durch die <a href = "#entropy">Entropie</a> bestimmt.<br>Entropiekodierer werden oft mit anderen Kodierern kombiniert und bilden dabei das letzte Stück in einer Datenkompression. Auf dieser Seite werden die Ereignisse als statistisch unabhängig betrachtet, was zwar eigentlich nicht der Fall ist, aber es wäre sehr schwierig die statistische Abhängigkeit auch noch einzubringen. Eine statistische Abhängigkeit wäre zum Beispiel unwahrscheinlich ist, dass in einem Wort zweimal der gleiche Buchstabe hintereinander steht.
-				</p>
-			</div>
-			<div id = "information">
-				<h2>Der Informationsgehalt</h2>
-				<p>
-					Der Informationsgehalt ist ein Mass dafür, wie viel Information in einer Nachricht übertragen wird. Dabei ist der Informationsgehalt eine logarithmische Grösse. Er wurde von Claude Elwood Shannon in seiner Informationstheorie formalisiert. Der Informationsgehalt bezeichnet die Anzahl Bits, die benötigt werden um ein Zeichen, also eine Information darzustellen.
-				</p>
-				<div id = "definitioninfo">
-					<h3>Definition</h3>
-					<p>
-						Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert, häufig auch als Auftrittswahrscheinlichkeit bezeichnet. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Symbolmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> mit der Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
-						<br>
-						<figure class = "equation">
-							I(z<sub>n</sub>) = log<sub>m</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure><span class = "bigparthense">)</span> = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
-						</figure>
-						<br>
-						Wie aus der oben aufgeführten Formel ersichtlich ist, ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
-					</p>
-				</div>
-				<div id = "example">
-					<h3>Beispiel</h3>
-					<p>
-						Um den Begriff des Informationsgehaltes nach Shannons Informationstheorie zu verstehen muss man sich der herkömmlichen Bedeutung des Wortes Information entledigen. Denn der Informationsgehalt eines 500-seitigen Romanes kann genau gleich sein, wie der Informationsgehalt der Ziffer 5, auch wenn die beiden Dinge etwas völlig anderes bedeuten. Wenn wir also ein Alphabet mit zwei verschiedenen Zeichen haben kann z<sub>1</sub> der 500-seitige Roman sein und z<sub>2</sub> die Ziffer 5. Dabei wird z<sub>1</sub> mit der Binärziffer 0 und z<sub>2</sub> mit der Binärziffer 1 codiert. Dieses zwei Nachrichten können also völlig frei gewählt werden und völlig unterschiedlich sein. Haben die beiden Nachrichten die gleiche Auftrittswahrscheinlichkeit, dann haben sie auch den gleichen Informationsgehalt. Der Informationsgehalt ist also gross, wenn eine unwahrscheinliche, also anders ausgesdrückt unerwartete Information dargestellt wird.
-					</p>
-				</div>
-				<div id = "probabillity">
-					<h3>Die Wahrscheinlichkeit</h3>
-					<section class = "withpic">
-						<img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" id = "probabillity" align = "right"/>
-						<p>
-							In der Formel für den Informationsgehalt kommt die Wahrscheinlichkeit p<sub>z<sub>n</sub></sub> für ein Zeichen z<sub>n</sub> vor. Die Wahrscheinlichkeit ist muss nicht Absolut, wie die Gegebenheit, dass zum Beispiel in der deutschen Sprache das Zeichen e sehr häufig vorkommt und somit sehr Wahrscheinlich ist, sondern auch relativ. Wenn beispielsweise der Artikel 'der' als Zeichen genommen wird, dann ist die Wahrscheinlichkeit gross, dass ein Nomen oder ein Adjektiv folgt und die Wahrscheinlichkeit, dass ein Verb oder ein Pronomen folgt ist sehr klein. Mit einem Blick auf die Formel für den Informationsgehalt wird klar, dass der Informationgehalt für ein Nomen oder ein Adjektiv klein und der Informationsgehalt für ein Verb oder ein Pronomen dementsprechend gross ist. Diese Wahrscheinlichkeit basiert aber auf statistischer Abhängigkeit. Deswegen wird nicht näher darauf eingegangen.
-							<br>
-							Die Grafik rechts oder oben zeigt den Informationsgehalt in Bits in Abhängigkeit der Wahrscheinlichkeit. Die Datenpunkte gehen dabei von einer Wahrscheinlichkeit von 0.01, also einem Prozent bis zu 1, also 100 Prozent, was natürlich einen Informationsgehalt von 0 Bits bedeuten würde. DIe Schrittweite beträgt dabei 0.01, also ein Prozent.
-						</p>
-					</section>
-				</div>
-				<div class = "calculatingex">
-					<h3>Rechenbeispiel</h3>
-					<p>
-						In diesem Beispiel schauen wir uns an, wie viele Bit nötig sind, um das Wort 'Alleinsein' optimal binär zu kodieren. Dabei nehmen wir an, dass die einzelnen Zeichen (Buchstaben) statistisch unabhängig voneinander sind, dass man also nicht sagen kann, dass es unwahrscheinlich ist, dass nach einem Vokal nochmal ein Vokal folgt.
-						<br>
-						Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach durch die Anzahl Vorkommnisse durch die Gesamtanzahl der Zeichen ausgerechnet werden kann.
-						<figure class = "equation">
-							p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>, 
-							p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
-							p<sub>e</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
-							p<sub>i</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
-							p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>, 
-							p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
-						</figure>
-						<br>
-						Danach muss jeder einzelne Informationsgehalt mit der Formel aus der Definition, die oben steht berechnet werden. Die einzelnen Informationsgehälter können nun addiert werden um den gesamten Informationsgehalt der Nachricht zu finden.
-						<figure class ="equation">
-							I<sub>gesamt</sub> = (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>)
-						</figure>
-						<figure class = "equation">
-							I<sub>gesamt</sub> = 3.32 Bits + 2 Bits * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 3.32 Bits = 25.22 Bits
-						</figure>
-						Diese 25.22 Bits, die wir aus der Rechnung erhalten haben müssen wir nun aber noch aufrunden auf 26 Bits, da wir keine Bruchteile von Bits haben können. So kann das Wort 'Alleinsein' also mit 26 Bits optimal kodiert werden.
-					</p>
-				</div>
-			</div>
-			<div id = "entropy">
-				<h2>Die Entropie</h2>
-				<p>
-					Die Entropie in der Informatik wird als informationstheoretische Entriopie nach Shannon bezeichnet und wurde, wie der Name bereits sagt zusammen mit dem Informationsgehalt von Claude Elwood Shannon definiert. Die Entropie wird mit einem grossen Eta &Eta; dargestellt und hat (meistens) die Einheit Bit / Zeichen.
-				</p>
-				<div class = "entropydef">
-					<h3>Definition</h3>
-					<p>
-						Die Entropie hängt stark mit dem Informationsgehalt zusammen. Dabei stellt sie den mittleren Informationsgehalt der verschiedenen Zustände, die eine Information einer Nachricht annehmen kann dar. Im binären Format wären die verschiedenen Zustände also 0 und 1, im lateinischen Alphabet wären es die Buchstaben von a bis z. Im lateinischen Alphabet gäbe es demfall 26 verschiedene Zustände, die für jede einzelne Information angenommen werden können. Der Mittelwert der Informationsgehälter berechnet sich nicht, wie wahrscheinlich erwartet aus der Summe aller Informationsgehälter geteilt durch die Anzahl der Informationsgehälter. Dabei stellt das Symbol p<sub>z<sub>n</sub></sub> jeweils die Warhscheinlichkeit des Zeichens y<sub>n</sub> dar aus der Menge aller möglichen Zeichen &Zeta; = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>}.
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta; &ne; <figure class = "fraction"><span class = "upper"><figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)</span><span class = "lower">m</span></figure>
-					</figure>
-					<br>
-					<p>
-						Wenn wir es so machen würden hätten wir ein Problem mit Zeichen, die wenig vorkommen, also eine kleine Wahrscheinlichkeit und damit einen grossen Informationsgehalt haben. Das Problem damit wäre, dass alle Informationgehälter in der obigen Formel gleich behandelt werden. Damit hätte ein Zeichen, dass nur sehr wenig auftreten würde einen grossen Einfluss auf den durchschnittlichen Informationsgehalt in einem Text. Dies macht aber keinen Sinn, weswegen wir etwas einbauen müssen, womit das Vorkommen im Text berücksichtigt wird. Das können wir machen, indem wir von jedem Zeichen den Informationsgehalt mit der Wahrscheinlichkeit multiplizieren. Diese Produkte können dann zueinander addiert werden und wir erhalten den durchschnittlichen Informationsgehalt unserer Nachricht. Mathematisch dargestellt sieht es dann folgendermassen aus:
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta;(I) =
-						<br>
-						p<sub>z<sub>1</sub></sub> * I(z<sub>1</sub>) + p<sub>z<sub>2</sub></sub> * I(z<sub>2</sub>) + ... + p<sub>z<sub>m</sub></sub> * I(z<sub>m</sub>) =
-						<br>
-						p<sub>z<sub>1</sub></sub> * log<sub>2</sub>(p<sub>z<sub>1</sub></sub>) + p<sub>z<sub>2</sub></sub> * log<sub>2</sub>(p<sub>z<sub>2</sub></sub>) + ... + p<sub>z<sub>m</sub></sub> * log<sub>2</sub>(p<sub>z<sub>m</sub></sub>) =
-						<br>
-						<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * I(z<sub>i</sub>)  = <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * (-log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)) =
-						<br>
-						-<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)
-					</figure>
-					<br>
-					<p>
-						Falls wir eine Nachricht haben, die mehrere Informationen enthält, kann über die Entropie relativ einfach berechnet werden, wie viele Bits benötigt werden, um die Nachricht abzuspeichern. Dies können wir herausfinden, indem wir die Entropie mit der Anzahl der vorkommenden Zeichen multiplizieren.
-					</p>
-				</div>
-				<div id = "entropyex">
-					<h3>Beispiel</h3>
-					<p>
-						Die Entropie eines Würfels mit sechs Seiten, die alle mit der gleichen Wahrscheinlichkeit gewürfelt werden können lässt sich sehr einfach berechnen. Die Menge der Ergebnisse dieses Würfels sind: E = {1, 2, 3, 4, 5, 6}. Es liegen also 6 verschiedene Möglichkeiten vor, von denen jede mit gleicher Wahrscheinlichkeit gewürfelt werden kann. Die Wahrscheinlichkeit liegt somit bei p<sub>1</sub> = p<sub>2</sub> = ... = p<sub>6</sub> = 0.1666... = 6<sup>-1</sup>. Wenn wir daraus den Informationsgehalt berechnen erhalten wir I = -log<sub>2</sub>(6<sup>-1</sup>) = log<sub>2</sub>(6). Dieser multipliziert mit der Wahrscheinlichkeit ergibt: 6<sup>-1</sup> * log<sub>2</sub>(6). Wenn wir nun alle Informationsgehäter, multipliziert mit der Wahrscheinlichkeit zueinander addieren, dann erhalten wir die Entropie &Eta; = 6 * 6<sup>-1</sup> * log<sub>2</sub>(6) = log<sub>2</sub>(6).
-						<br>
-						Dabei fällt schnell auf, dass die Entropie genau dem Informationsgehalt eines einzelnen Wurfes mit dem Würfel entspricht. Diese Entdeckung macht auch Sinn, da die Entropie per Definition den mittleren Informationsgehalt eines Wurfes darstellen soll. Da alle Informationsgehälter genau gleich sind muss der mittlere Inforamtionsgehalt jedem einzelnen Informationsgehalt entsprechen.
-					</p>
-				</div>
-				<div id = "calculatex">
-					<h3>Rechenbeispiel</h3>
-					<p>
-						In diesem Beispiel wollen wir die Entropie des Satzes 'Ich mag die Entropiekodierung' berechnen, wobei wir als erlaubte Symbole die Buchstaben verwenden, die im Satz vorkommen und jeden einzelnen Buchstaben als einzelne Information ansehen. Es kommen im Satz also 15 verscheidene Symbole, die 26 Informationen darstellen vor. Gross- und Kleinschreibung, sowie die Leerzeichen zwischen den Wörtern werden dabei ausser Acht gelassen. Zuerst müssen wir also die Wahrscheinlichkeit durch das Vorkommen der einzelnen Buchstaben bestimmen.
-					</p>
-					<br>
-					<figure class = "equation">
-						p<sub>i</sub> = <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure>, 
-						p<sub>c</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>, 
-						p<sub>h</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>, 
-						p<sub>m</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>, 
-						p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>, 
-						p<sub>g</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,    	
-						p<sub>d</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,  	
-						p<sub>e</sub> = <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure>,  	
-						p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,  	
-						p<sub>t</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,  	
-						p<sub>r</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,  	
-						p<sub>o</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,  	
-						p<sub>p</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,  	
-						p<sub>k</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,  	
-						p<sub>u</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>	
-					</figure>
-					<br>
-					<p>
-						Danach muss nach der Definition der Entropie die Summe aller Informationsgehälter multipliziert mit den Wahrscheinlichkeiten der Zeichen ausgerechnet werden. Dafür müssen wir die Entropie für jedes einzelne Zeichen berechnen und danach durch die Summe davon die Gesamtentropie.
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta;(I) =
-						-<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>) =
-						- <span class = "bigparthense">(</span>
-						<span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						+ <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
-						= - <span class = "bigparthense">(</span>
-						2 * <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
-						+ 5 * <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
-						+ 8 * <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
-						<span class = "bigparthense">)</span>
-						= - (-1.02 + (-1.94) + (-2.08)) = 5.04 Bit / Zeichen
-					</figure>
-					<br>
-					Die Nachricht, die aus dem Satz 'Ich mag die Entropiekodierung' besteht hat also einen mittleren Informationsgehalt von 5.04 Bit / Zeichen. Dabei wurden jedoch die Leerzeichen weggelassen, da diese nicht im vorgegebenen Alphabet enthalten sind und somit eine Wahrscheinlichkeit von 0 haben und nichts zur Entropie beitragen. Der Speicherplatz, der für diesen Satz bei einer optimalen Entropiekodierung gebraucht berechnet sich aus der Anzahl der Zeichen multipliziert mit der Entropie: 5.04 Bit / Zeichen * 15 Zeichen = 75.58 Bit =&gt; 76 Bit. Dieser Wert entspricht genau der Summe der einzelnen Informationsgehälter.
-				</div>
-				<div id = "pythonex">
-					<h3>Beispielcode in Python</h3>
-					<p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-					<code class = "code python"># Nötiger Import
+  <head>
+    <meta charset="utf-8"/>
+    <title>Entropiekodierung</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <script src = "/js/codeHighlighting.js"></script>
+    <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <link rel="stylesheet" href="/styles/course.css">
+    <script>
+    const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
+  </head>
+  <body onload = "addHighlighting();" onresize = "setup();">
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Entropiekodierung</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#general">Allgemein</a></li>
+          <li><a href="#information">Der Informationsgehalt</a></li>
+          <li><a href="#entropy">Die Entropie</a></li>
+          <li><a href="#redundancy">Die Redundanz</a></li>
+          <li><a href="#algorithms">Algorithmen für die Entropiekodierung</a></li>
+        </ul>
+      </div>
+      <div id = "general">
+        <h2>Allgemein</h2>
+        <p>
+          Die Entropiekodierung ist eine Art der verlustfreien Datenkompression. Die Entropiekodierung basiert darauf, dass Zeichen abgespeichert werden, wie beispielsweise ein Text. Dabei wir den einzelnen Zeichen eine unterschiedlich lange Folge von Bits zugeordnet.<br>Die Anzahl Bits, die für ein Zeichen verwendet werden wird dabei durch die <a href = "#entropy">Entropie</a> bestimmt.<br>Entropiekodierer werden oft mit anderen Kodierern kombiniert und bilden dabei das letzte Stück in einer Datenkompression. Auf dieser Seite werden die Ereignisse als statistisch unabhängig betrachtet, was zwar eigentlich nicht der Fall ist, aber es wäre sehr schwierig die statistische Abhängigkeit auch noch einzubringen. Eine statistische Abhängigkeit wäre zum Beispiel unwahrscheinlich ist, dass in einem Wort zweimal der gleiche Buchstabe hintereinander steht.
+        </p>
+      </div>
+      <div id = "information">
+        <h2>Der Informationsgehalt</h2>
+        <p>
+          Der Informationsgehalt ist ein Mass dafür, wie viel Information in einer Nachricht übertragen wird. Dabei ist der Informationsgehalt eine logarithmische Grösse. Er wurde von Claude Elwood Shannon in seiner Informationstheorie formalisiert. Der Informationsgehalt bezeichnet die Anzahl Bits, die benötigt werden um ein Zeichen, also eine Information darzustellen.
+        </p>
+        <div id = "definitioninfo">
+          <h3>Definition</h3>
+          <p>
+            Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert, häufig auch als Auftrittswahrscheinlichkeit bezeichnet. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Symbolmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> mit der Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
+            <br>
+            <figure class = "equation">
+              I(z<sub>n</sub>) = log<sub>m</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure><span class = "bigparthense">)</span> = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
+            </figure>
+            <br>
+            Wie aus der oben aufgeführten Formel ersichtlich ist, ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
+          </p>
+        </div>
+        <div id = "example">
+          <h3>Beispiel</h3>
+          <p>
+            Um den Begriff des Informationsgehaltes nach Shannons Informationstheorie zu verstehen muss man sich der herkömmlichen Bedeutung des Wortes Information entledigen. Denn der Informationsgehalt eines 500-seitigen Romanes kann genau gleich sein, wie der Informationsgehalt der Ziffer 5, auch wenn die beiden Dinge etwas völlig anderes bedeuten. Wenn wir also ein Alphabet mit zwei verschiedenen Zeichen haben kann z<sub>1</sub> der 500-seitige Roman sein und z<sub>2</sub> die Ziffer 5. Dabei wird z<sub>1</sub> mit der Binärziffer 0 und z<sub>2</sub> mit der Binärziffer 1 codiert. Dieses zwei Nachrichten können also völlig frei gewählt werden und völlig unterschiedlich sein. Haben die beiden Nachrichten die gleiche Auftrittswahrscheinlichkeit, dann haben sie auch den gleichen Informationsgehalt. Der Informationsgehalt ist also gross, wenn eine unwahrscheinliche, also anders ausgesdrückt unerwartete Information dargestellt wird.
+          </p>
+        </div>
+        <div id = "probabillity">
+          <h3>Die Wahrscheinlichkeit</h3>
+          <section class = "withpic">
+            <img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" id = "probabillity" align = "right"/>
+            <p>
+              In der Formel für den Informationsgehalt kommt die Wahrscheinlichkeit p<sub>z<sub>n</sub></sub> für ein Zeichen z<sub>n</sub> vor. Die Wahrscheinlichkeit ist muss nicht Absolut, wie die Gegebenheit, dass zum Beispiel in der deutschen Sprache das Zeichen e sehr häufig vorkommt und somit sehr Wahrscheinlich ist, sondern auch relativ. Wenn beispielsweise der Artikel 'der' als Zeichen genommen wird, dann ist die Wahrscheinlichkeit gross, dass ein Nomen oder ein Adjektiv folgt und die Wahrscheinlichkeit, dass ein Verb oder ein Pronomen folgt ist sehr klein. Mit einem Blick auf die Formel für den Informationsgehalt wird klar, dass der Informationgehalt für ein Nomen oder ein Adjektiv klein und der Informationsgehalt für ein Verb oder ein Pronomen dementsprechend gross ist. Diese Wahrscheinlichkeit basiert aber auf statistischer Abhängigkeit. Deswegen wird nicht näher darauf eingegangen.
+              <br>
+              Die Grafik rechts oder oben zeigt den Informationsgehalt in Bits in Abhängigkeit der Wahrscheinlichkeit. Die Datenpunkte gehen dabei von einer Wahrscheinlichkeit von 0.01, also einem Prozent bis zu 1, also 100 Prozent, was natürlich einen Informationsgehalt von 0 Bits bedeuten würde. DIe Schrittweite beträgt dabei 0.01, also ein Prozent.
+            </p>
+          </section>
+        </div>
+        <div class = "calculatingex">
+          <h3>Rechenbeispiel</h3>
+          <p>
+            In diesem Beispiel schauen wir uns an, wie viele Bit nötig sind, um das Wort 'Alleinsein' optimal binär zu kodieren. Dabei nehmen wir an, dass die einzelnen Zeichen (Buchstaben) statistisch unabhängig voneinander sind, dass man also nicht sagen kann, dass es unwahrscheinlich ist, dass nach einem Vokal nochmal ein Vokal folgt.
+            <br>
+            Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach durch die Anzahl Vorkommnisse durch die Gesamtanzahl der Zeichen ausgerechnet werden kann.
+            <br>
+            <figure class = "equation">
+              p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
+              p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+              p<sub>e</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+              p<sub>i</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+              p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+              p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+            </figure>
+            <br>
+            Danach muss jeder einzelne Informationsgehalt mit der Formel aus der Definition, die oben steht berechnet werden. Die einzelnen Informationsgehälter können nun addiert werden um den gesamten Informationsgehalt der Nachricht zu finden.
+            <figure class ="equation">
+              I<sub>gesamt</sub> = (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>)
+            </figure>
+            <figure class = "equation">
+              I<sub>gesamt</sub> = 3.32 Bits + 2 Bits * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 3.32 Bits = 25.22 Bits
+            </figure>
+            Diese 25.22 Bits, die wir aus der Rechnung erhalten haben müssen wir nun aber noch aufrunden auf 26 Bits, da wir keine Bruchteile von Bits haben können. So kann das Wort 'Alleinsein' also mit 26 Bits optimal kodiert werden.
+          </p>
+        </div>
+      </div>
+      <div id = "entropy">
+        <h2>Die Entropie</h2>
+        <p>
+          Die Entropie in der Informatik wird als informationstheoretische Entriopie nach Shannon bezeichnet und wurde, wie der Name bereits sagt zusammen mit dem Informationsgehalt von Claude Elwood Shannon definiert. Die Entropie wird mit einem grossen Eta &Eta; dargestellt und hat (meistens) die Einheit Bit / Zeichen.
+        </p>
+        <div class = "entropydef">
+          <h3>Definition</h3>
+          <p>
+            Die Entropie hängt stark mit dem Informationsgehalt zusammen. Dabei stellt sie den mittleren Informationsgehalt der verschiedenen Zustände, die eine Information einer Nachricht annehmen kann dar. Im binären Format wären die verschiedenen Zustände also 0 und 1, im lateinischen Alphabet wären es die Buchstaben von a bis z. Im lateinischen Alphabet gäbe es demfall 26 verschiedene Zustände, die für jede einzelne Information angenommen werden können. Der Mittelwert der Informationsgehälter berechnet sich nicht, wie wahrscheinlich erwartet aus der Summe aller Informationsgehälter geteilt durch die Anzahl der Informationsgehälter. Dabei stellt das Symbol p<sub>z<sub>n</sub></sub> jeweils die Warhscheinlichkeit des Zeichens y<sub>n</sub> dar aus der Menge aller möglichen Zeichen &Zeta; = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>}.
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta; &ne; <figure class = "fraction"><span class = "upper"><figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)</span><span class = "lower">m</span></figure>
+          </figure>
+          <br>
+          <p>
+            Wenn wir es so machen würden hätten wir ein Problem mit Zeichen, die wenig vorkommen, also eine kleine Wahrscheinlichkeit und damit einen grossen Informationsgehalt haben. Das Problem damit wäre, dass alle Informationgehälter in der obigen Formel gleich behandelt werden. Damit hätte ein Zeichen, dass nur sehr wenig auftreten würde einen grossen Einfluss auf den durchschnittlichen Informationsgehalt in einem Text. Dies macht aber keinen Sinn, weswegen wir etwas einbauen müssen, womit das Vorkommen im Text berücksichtigt wird. Das können wir machen, indem wir von jedem Zeichen den Informationsgehalt mit der Wahrscheinlichkeit multiplizieren. Diese Produkte können dann zueinander addiert werden und wir erhalten den durchschnittlichen Informationsgehalt unserer Nachricht. Mathematisch dargestellt sieht es dann folgendermassen aus:
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta;(I) =
+            <br>
+            p<sub>z<sub>1</sub></sub> * I(z<sub>1</sub>) + p<sub>z<sub>2</sub></sub> * I(z<sub>2</sub>) + ... + p<sub>z<sub>m</sub></sub> * I(z<sub>m</sub>) =
+            <br>
+            p<sub>z<sub>1</sub></sub> * log<sub>2</sub>(p<sub>z<sub>1</sub></sub>) + p<sub>z<sub>2</sub></sub> * log<sub>2</sub>(p<sub>z<sub>2</sub></sub>) + ... + p<sub>z<sub>m</sub></sub> * log<sub>2</sub>(p<sub>z<sub>m</sub></sub>) =
+            <br>
+            <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * I(z<sub>i</sub>)  = <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * (-log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)) =
+            <br>
+            -<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>)
+          </figure>
+          <br>
+          <p>
+            Falls wir eine Nachricht haben, die mehrere Informationen enthält, kann über die Entropie relativ einfach berechnet werden, wie viele Bits benötigt werden, um die Nachricht abzuspeichern. Dies können wir herausfinden, indem wir die Entropie mit der Anzahl der vorkommenden Zeichen multiplizieren.
+          </p>
+        </div>
+        <div id = "entropyex">
+          <h3>Beispiel</h3>
+          <p>
+            Die Entropie eines Würfels mit sechs Seiten, die alle mit der gleichen Wahrscheinlichkeit gewürfelt werden können lässt sich sehr einfach berechnen. Die Menge der Ergebnisse dieses Würfels sind: E = {1, 2, 3, 4, 5, 6}. Es liegen also 6 verschiedene Möglichkeiten vor, von denen jede mit gleicher Wahrscheinlichkeit gewürfelt werden kann. Die Wahrscheinlichkeit liegt somit bei p<sub>1</sub> = p<sub>2</sub> = ... = p<sub>6</sub> = 0.1666... = 6<sup>-1</sup>. Wenn wir daraus den Informationsgehalt berechnen erhalten wir I = -log<sub>2</sub>(6<sup>-1</sup>) = log<sub>2</sub>(6). Dieser multipliziert mit der Wahrscheinlichkeit ergibt: 6<sup>-1</sup> * log<sub>2</sub>(6). Wenn wir nun alle Informationsgehäter, multipliziert mit der Wahrscheinlichkeit zueinander addieren, dann erhalten wir die Entropie &Eta; = 6 * 6<sup>-1</sup> * log<sub>2</sub>(6) = log<sub>2</sub>(6).
+            <br>
+            Dabei fällt schnell auf, dass die Entropie genau dem Informationsgehalt eines einzelnen Wurfes mit dem Würfel entspricht. Diese Entdeckung macht auch Sinn, da die Entropie per Definition den mittleren Informationsgehalt eines Wurfes darstellen soll. Da alle Informationsgehälter genau gleich sind muss der mittlere Inforamtionsgehalt jedem einzelnen Informationsgehalt entsprechen.
+          </p>
+        </div>
+        <div id = "calculatex">
+          <h3>Rechenbeispiel</h3>
+          <p>
+            In diesem Beispiel wollen wir die Entropie des Satzes 'Ich mag die Entropiekodierung' berechnen, wobei wir als erlaubte Symbole die Buchstaben verwenden, die im Satz vorkommen und jeden einzelnen Buchstaben als einzelne Information ansehen. Es kommen im Satz also 15 verscheidene Symbole, die 26 Informationen darstellen vor. Gross- und Kleinschreibung, sowie die Leerzeichen zwischen den Wörtern werden dabei ausser Acht gelassen. Zuerst müssen wir also die Wahrscheinlichkeit durch das Vorkommen der einzelnen Buchstaben bestimmen.
+          </p>
+          <br>
+          <figure class = "equation">
+            p<sub>i</sub> = <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure>,
+            p<sub>c</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>h</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>m</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>g</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,
+            p<sub>d</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,
+            p<sub>e</sub> = <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure>,
+            p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,
+            p<sub>t</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>r</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,
+            p<sub>o</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure>,
+            p<sub>p</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>k</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>,
+            p<sub>u</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure>
+          </figure>
+          <br>
+          <p>
+            Danach muss nach der Definition der Entropie die Summe aller Informationsgehälter multipliziert mit den Wahrscheinlichkeiten der Zeichen ausgerechnet werden. Dafür müssen wir die Entropie für jedes einzelne Zeichen berechnen und danach durch die Summe davon die Gesamtentropie.
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta;(I) =
+            -<figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>) =
+            - <span class = "bigparthense">(</span>
+            <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            + <span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span><span class = "bigparthense">)</span>
+            = - <span class = "bigparthense">(</span>
+            2 * <figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">4</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
+            + 5 * <figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
+            + 8 * <figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">15</span></figure><span class = "bigparthense">)</span>
+            <span class = "bigparthense">)</span>
+            = - (-1.02 + (-1.94) + (-2.08)) = 5.04 Bit / Zeichen
+          </figure>
+          <br>
+          Die Nachricht, die aus dem Satz 'Ich mag die Entropiekodierung' besteht hat also einen mittleren Informationsgehalt von 5.04 Bit / Zeichen. Dabei wurden jedoch die Leerzeichen weggelassen, da diese nicht im vorgegebenen Alphabet enthalten sind und somit eine Wahrscheinlichkeit von 0 haben und nichts zur Entropie beitragen. Der Speicherplatz, der für diesen Satz bei einer optimalen Entropiekodierung gebraucht berechnet sich aus der Anzahl der Zeichen multipliziert mit der Entropie: 5.04 Bit / Zeichen * 15 Zeichen = 75.58 Bit =&gt; 76 Bit. Dieser Wert entspricht genau der Summe der einzelnen Informationsgehälter.
+        </div>
+        <div id = "pythonex">
+          <h3>Beispielcode in Python</h3>
+          <p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
+          <code class = "code python"># Nötiger Import
 import math
 # Gibt die Entropie einer Information I (String) über einem Alphabet A (Liste) aus
 def entropy(I, A):
-	# Die Entropie wird direkt als Fliesskommazahl definiert
-    entropy = 0.0
-	info = 0
-	# Jedes Element des Alphabets trägt zur Entropie bei
-    for i in range(len(A)):
-    	# Zählt wie viel ein Zeichen im String vorkommt
-        counter = float(I.count(I[i]))
-        # Definiert die Wahrscheinlichkeit eines Zeichens 
-        p = counter / len(A)
-        # Definiert den Informationsgehalt des Zeichens zum Logarithmus der Basis 2, sofern die Wahrscheinlichkeit &lt; 0
-		if p &gt; 0:
-        	info = - math.log(p) / math.log(2)
-        # Addiert den Teil zur Gesamtentropie
-        entropy += p * info
-    return entropy
-</code>
-				</div>
-				<div id = "entropymax">
-					<h3>Maximale Entropie</h3>
-					<p>
-						Die Entropie einer Nachricht, die aus n Zeichen besteht kann nicht beliebig gross sein. Dabei kann ein Maximum bestimmt werden, nämlich wenn jedes Zeichen in der Nachricht nur einmal vorkommt, wie beispielsweise in einem Isogramm. Ein Beispiel dafür wäre das Wort 'Dialektforschung'. Dieses Wort besteht aus 16 Buchstaben, also 16 Informationen. Nun wollen wir das gesamte lateinische Alphabet mit 26 Buchstaben verwenden. So haben wir also 16 Buchstaben, die die gleiche Wahrscheinlichkeit haben und die restlichen zehn Buchstaben haben auch die gleiche Wahrscheinlichkeit:
-					</p>
-					<br>
-					<figure class = "equation">
-						p<sub>z</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> &forall;z &isin; {d, i, a, l, ... , g}, p<sub>z</sub> = <figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> &forall;z (&isin; {a, b, c, d, ..., z} &and; &notin; {d, i, a, l, ... , g}).
-					</figure>
-					<br>
-					<p>
-						Wenn wir die Formel für die Entropie der Information 'Dialektforschung' anwenden erhalten wir:
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta;<sub>max</sub>(I) = -<figure class = "sum"><span class = "end">16</span>&sum;<span class = "start">i = 1</span></figure> <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
-						+ -<figure class = "sum"><span class = "end">10</span>&sum;<span class = "end">i = 1</span></figure><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
-					</figure>
-					<br>
-					<p>
-						Wenn wir das ganze noch vereinfachen und dabei den Grenzwert <figure class = "lim">lim<span class = "start">x &rarr; 0</span></figure>(x * log<sub>2</sub>(x)) = 0 anwenden erhalten wir:
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta;<sub>max</sub>(I) = -<figure class = "sum"><span class = "end">16</span>&sum;<span class = "start">i = 1</span></figure> <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
-						+ -<figure class = "sum"><span class = "end">10</span>&sum;<span class = "end">i = 1</span></figure><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
-						= -16 * <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span> 
-						= - <figure class = "fraction"><span class = "upper">16</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26<sup>-1</sup>) = 
-						<br>
-						<figure class = "fraction"><span class = "upper">16</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26)
-					</figure>
-					<br>
-					<p>
-						Für den allgemeinen Fall kann man aus der Lösung der Obenstehenden Rechnung schliessen, dass die maximale Entropie bei einem Alphabet mit N Elementen und einer Nachricht, die Q Informationen beinhaltet mit der Dastellung über dem Binärsystem mit folgender Formel berechnet werden kann:
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta;<sub>max</sub> = <figure class = "fraction"><span class = "upper">Q</span><span class = "lower">N</span></figure> * log<sub>2</sub>(N)
-					</figure>
-				</div>
-			</div>
-			<div id = "redundancy">
-				<h2>Die Redundanz</h2>
-				<p>
-					Die Redundanz bezeichnet die Informationen aus einer Infomrationsquelle, die mehrfach verwendet werden. Somit kann eine redundante Informationseinheit ohne Informationsverlust weggelassen werden. Somit ist der Teil einer Nachricht, der keine Informations enthält redundant. Die Redundanz ist eine Logarithmische Grösse und zeigt an, wie viel mal kürzer eine Kodierung sein könnte.
-				</p>
-				<div id = "calculate">
-					<h3>Berechnung</h3>
-					<p>
-						Die Redundanz kann aus der Differenz zwischen der maximalen Entropie einer Quelle und der Entropie derselben Quelle berechenet werden. Damit muss kann sie minimal 0 sein, da die Entropie die maximale Entropie nie überschreiten kann. Da es sich um eine Subtraktion handelt erhält die Redundanz die gleiche Einheit wie die Entropie: Bit / Zeichen.
-					</p>
-					<figure class = "equation">
-						R = &Eta;<sub>max</sub>(I) - &Eta;(I)
-					</figure>
-				</div>
-				<div id = "calculateex">
-					<h3>Rechenbeispiel</h3>
-					<p>
-						Dieses Rechenbeispiel berechnet die Redundanz eines Textes, der mit dem lateinischen Alphabet: Z = {a, b, c, ..., z} geschrieben wurde und somit 26 verschiedene Zeichen enthält. Für die Auftrittswahrscheinlichkeit dieser Zeichen wurden die Werte von <a href = "https://de.wikipedia.org/wiki/Entropie_(Kryptologie)">Wikipedia</a>, in der Spalte der deutschsprachigen Texte verwendet. Die Gross- und kleinschreibung, sowie die Leerzeichen werden dabei nicht berücksichtigt, da diese die ganze Sache nur noch unnötig kompliziert machen würden.
-					</p>
-					<br>
-					<p>
-						Um die Redundanz zu berechnen müssen wir zuerst die Entropie und die maximale Entropie des Textes berechenen. Der Text erreicht seine maximale Entropie, wenn alle Zeichen die gleiche Auftrittswahrscheinlichkeit haben, also gleich viel vorkommen. Somit ergibt sich:
-					</p>
-					<br>
-					<figure class = "equation">
-						&Eta; = -<figure class = "sum"><span class = "end">26</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>) = 
-						-<span class = "bigparthense">(</span>p<sub>a</sub> * log<sub>2</sub>(p<sub>a</sub>) + p<sub>b</sub> * log<sub>2</sub>(p<sub>b</sub>) + p<sub>c</sub> * log<sub>2</sub>(p<sub>c</sub>) + p<sub>d</sub> * log<sub>2</sub>(p<sub>d</sub>) + p<sub>e</sub> * log<sub>2</sub>(p<sub>e</sub>) + p<sub>f</sub> * log<sub>2</sub>(p<sub>f</sub>) + p<sub>g</sub> * log<sub>2</sub>(p<sub>g</sub>) + p<sub>h</sub> * log<sub>2</sub>(p<sub>h</sub>) + p<sub>i</sub> * log<sub>2</sub>(p<sub>i</sub>) + p<sub>j</sub> * log<sub>2</sub>(p<sub>j</sub>) + p<sub>k</sub> * log<sub>2</sub>(p<sub>k</sub>) + p<sub>l</sub> * log<sub>2</sub>(p<sub>l</sub>) + p<sub>m</sub> * log<sub>2</sub>(p<sub>m</sub>) + p<sub>n</sub> * log<sub>2</sub>(p<sub>n</sub>) + p<sub>o</sub> * log<sub>2</sub>(p<sub>o</sub>) + p<sub>p</sub> * log<sub>2</sub>(p<sub>p</sub>) + p<sub>q</sub> * log<sub>2</sub>(p<sub>q</sub>) + p<sub>r</sub> * log<sub>2</sub>(p<sub>r</sub>) + p<sub>s</sub> * log<sub>2</sub>(p<sub>s</sub>) + p<sub>t</sub> * log<sub>2</sub>(p<sub>t</sub>) + p<sub>u</sub> * log<sub>2</sub>(p<sub>u</sub>) + p<sub>v</sub> * log<sub>2</sub>(p<sub>v</sub>) + p<sub>w</sub> * log<sub>2</sub>(p<sub>w</sub>) + p<sub>x</sub> * log<sub>2</sub>(p<sub>x</sub>) + p<sub>y</sub> * log<sub>2</sub>(p<sub>y</sub>) + p<sub>z</sub> * log<sub>2</sub>(p<sub>z</sub>)<span class = "bigparthense">)</span> =
-						<br>
-						-<span class = "bigparthense">(</span>0.0545 * log<sub>2</sub>(0.0545) + 0.0175 * log<sub>2</sub>(0.0175) + 0.0337 * log<sub>2</sub>(0.0337) + 0.0511 * log<sub>2</sub>(0.0511) + 0.1689 * log<sub>2</sub>(0.1689) + 0.0128 * log<sub>2</sub>(0.0128) + 0.0376 * log<sub>2</sub>(0.0376) + 0.0526 * log<sub>2</sub>(0.0526) + 0.0851 * log<sub>2</sub>(0.0851) + 0.0018 * log<sub>2</sub>(0.0018) + 0.0151 * log<sub>2</sub>(0.0151) + 0.0377 * log<sub>2</sub>(0.0377) + 0.0222 * log<sub>2</sub>(0.0222) + 0.1042 * log<sub>2</sub>(0.1042) + 0.0311 * log<sub>2</sub>(0.0311) + 0.0063 * log<sub>2</sub>(0.0063) + 0.0001 * log<sub>2</sub>(0.0001) + 0.0714 * log<sub>2</sub>(0.0714) + 0.0624 * log<sub>2</sub>(0.0624) + 0.0608 * log<sub>2</sub>(0.0608) + 0.0340 * log<sub>2</sub>(0.0340) + 0.0089 * log<sub>2</sub>(0.0089) + 0.0164 * log<sub>2</sub>(0.0164) + 0.0002 * log<sub>2</sub>(0.0002) + 0.0007 * log<sub>2</sub>(0.0007) + 0.0127 * log<sub>2</sub>(0.0127)<span class = "bigparthense">)</span>
-						<br>
-						&asymp; 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
-						<br>
-						&Eta;<sub>max</sub> = <figure class = "fraction"><span class = "upper">26</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26) = log<sub>2</sub>(26)
-						<br>
-						&asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
-					</figure>
-					<br>
-					<p>
-						Nun müssen wir die Differenz dieser beiden Werte bilden und erhalten den Wert für die Redundanz von (grossen, damit die Auftrittswahrscheinlichkeit gut angenähert werden kann) in Deutsch geschriebenen Texten.
-					</p>
-					<br>
-					<figure class = "equation">
-						R = &Eta;<sub>max</sub> - &Eta; &asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> - 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> = 
-						<br>
-						0.6358 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
-					</figure>
-					<br>
-					<p>
-						Wir haben also eine Redundanz von 0.6358 Bit pro Zeichen in deutschsprachigen Texten. Das bedeutet, dass wir mit einer optimalen Entropiekodierung im Durchschnitt 0.6358 Bit pro Zeichen an Daten einsparen können. Dies scheint zwar wenig, aber wenn wir nun Beispielweise einen Bericht mit 10'000 Buchstaben haben, dann können wir 10'000 Zeichen * 0.6358 Bit / Zeichen = 6358 Bit einsparen, was schon ein beträchtlicher Betrag sein kann. Eine Entropiekodierung ist also sinnvoll für Situationen mit grosser Redundanz, wäre aber zum Beispiel sinnlos für die Aufzeichnung der Würfe eines Würfels, bei dem jede Möglickeit die gleich Auftrittswahrscheinlichkeit hat, womit die Redundanz 0 beträgt und eine Entropiekompression keine Daten einsparen könnte. Da die Datenübertragung und die Speicherung von Daten heutzutage sehr günstig ist, findet die Entropiekodierung immer weniger Anwendung.
-					</p>
-				</div>			
-			</div>
-			<div id = "algorithms">
-				<h2>Algorithmen für die Entropiekodierung</h2>
-				<h3><a href = "entropy/huffman">Huffman-Kodierung</a></h3>
-				<h3><a href = "entropy/arithmetic">Arithmetische Kodierung</a></h3>
-			</div>
-        </main>
-		<%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+  # Die Entropie wird direkt als Fliesskommazahl definiert
+  entropy = 0.0
+  info = 0
+  # Jedes Element des Alphabets trägt zur Entropie bei
+  for i in range(len(A)):
+    # Zählt wie viel ein Zeichen im String vorkommt
+    counter = float(I.count(I[i]))
+    # Definiert die Wahrscheinlichkeit eines Zeichens
+    p = counter / len(A)
+    # Definiert den Informationsgehalt des Zeichens zum Logarithmus der Basis 2, sofern die Wahrscheinlichkeit &lt; 0
+    if p &gt; 0:
+      info = - math.log(p) / math.log(2)
+      # Addiert den Teil zur Gesamtentropie
+      entropy += p * info
+  return entropy
+          </code>
+        </div>
+        <div id = "entropymax">
+          <h3>Maximale Entropie</h3>
+          <p>
+            Die Entropie einer Nachricht, die aus n Zeichen besteht kann nicht beliebig gross sein. Dabei kann ein Maximum bestimmt werden, nämlich wenn jedes Zeichen in der Nachricht nur einmal vorkommt, wie beispielsweise in einem Isogramm. Ein Beispiel dafür wäre das Wort 'Dialektforschung'. Dieses Wort besteht aus 16 Buchstaben, also 16 Informationen. Nun wollen wir das gesamte lateinische Alphabet mit 26 Buchstaben verwenden. So haben wir also 16 Buchstaben, die die gleiche Wahrscheinlichkeit haben und die restlichen zehn Buchstaben haben auch die gleiche Wahrscheinlichkeit:
+          </p>
+          <br>
+          <figure class = "equation">
+            p<sub>z</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> &forall;z &isin; {d, i, a, l, ... , g}, p<sub>z</sub> = <figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> &forall;z (&isin; {a, b, c, d, ..., z} &and; &notin; {d, i, a, l, ... , g}).
+          </figure>
+          <br>
+          <p>
+            Wenn wir die Formel für die Entropie der Information 'Dialektforschung' anwenden erhalten wir:
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta;<sub>max</sub>(I) = -<figure class = "sum"><span class = "end">16</span>&sum;<span class = "start">i = 1</span></figure> <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
+            + -<figure class = "sum"><span class = "end">10</span>&sum;<span class = "end">i = 1</span></figure><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
+          </figure>
+          <br>
+          <p>
+            Wenn wir das ganze noch vereinfachen und dabei den Grenzwert <figure class = "lim">lim<span class = "start">x &rarr; 0</span></figure>(x * log<sub>2</sub>(x)) = 0 anwenden erhalten wir:
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta;<sub>max</sub>(I) = -<figure class = "sum"><span class = "end">16</span>&sum;<span class = "start">i = 1</span></figure> <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
+            + -<figure class = "sum"><span class = "end">10</span>&sum;<span class = "end">i = 1</span></figure><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
+            = -16 * <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
+            = - <figure class = "fraction"><span class = "upper">16</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26<sup>-1</sup>) =
+            <br>
+            <figure class = "fraction"><span class = "upper">16</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26)
+          </figure>
+          <br>
+          <p>
+            Für den allgemeinen Fall kann man aus der Lösung der Obenstehenden Rechnung schliessen, dass die maximale Entropie bei einem Alphabet mit N Elementen und einer Nachricht, die Q Informationen beinhaltet mit der Dastellung über dem Binärsystem mit folgender Formel berechnet werden kann:
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta;<sub>max</sub> = <figure class = "fraction"><span class = "upper">Q</span><span class = "lower">N</span></figure> * log<sub>2</sub>(N)
+          </figure>
+        </div>
+      </div>
+      <div id = "redundancy">
+        <h2>Die Redundanz</h2>
+        <p>
+          Die Redundanz bezeichnet die Informationen aus einer Infomrationsquelle, die mehrfach verwendet werden. Somit kann eine redundante Informationseinheit ohne Informationsverlust weggelassen werden. Somit ist der Teil einer Nachricht, der keine Informations enthält redundant. Die Redundanz ist eine Logarithmische Grösse und zeigt an, wie viel mal kürzer eine Kodierung sein könnte.
+        </p>
+        <div id = "calculate">
+          <h3>Berechnung</h3>
+          <p>
+            Die Redundanz kann aus der Differenz zwischen der maximalen Entropie einer Quelle und der Entropie derselben Quelle berechenet werden. Damit muss kann sie minimal 0 sein, da die Entropie die maximale Entropie nie überschreiten kann. Da es sich um eine Subtraktion handelt erhält die Redundanz die gleiche Einheit wie die Entropie: Bit / Zeichen.
+          </p>
+          <figure class = "equation">
+            R = &Eta;<sub>max</sub>(I) - &Eta;(I)
+          </figure>
+        </div>
+        <div id = "calculateex">
+          <h3>Rechenbeispiel</h3>
+          <p>
+            Dieses Rechenbeispiel berechnet die Redundanz eines Textes, der mit dem lateinischen Alphabet: Z = {a, b, c, ..., z} geschrieben wurde und somit 26 verschiedene Zeichen enthält. Für die Auftrittswahrscheinlichkeit dieser Zeichen wurden die Werte von <a href = "https://de.wikipedia.org/wiki/Entropie_(Kryptologie)">Wikipedia</a>, in der Spalte der deutschsprachigen Texte verwendet. Die Gross- und kleinschreibung, sowie die Leerzeichen werden dabei nicht berücksichtigt, da diese die ganze Sache nur noch unnötig kompliziert machen würden.
+          </p>
+          <br>
+          <p>
+            Um die Redundanz zu berechnen müssen wir zuerst die Entropie und die maximale Entropie des Textes berechenen. Der Text erreicht seine maximale Entropie, wenn alle Zeichen die gleiche Auftrittswahrscheinlichkeit haben, also gleich viel vorkommen. Somit ergibt sich:
+          </p>
+          <br>
+          <figure class = "equation">
+            &Eta; = -<figure class = "sum"><span class = "end">26</span>&sum;<span class = "start">i = 1</span></figure>p<sub>z<sub>i</sub></sub> * log<sub>2</sub>(p<sub>z<sub>i</sub></sub>) =
+            -<span class = "bigparthense">(</span>p<sub>a</sub> * log<sub>2</sub>(p<sub>a</sub>) + p<sub>b</sub> * log<sub>2</sub>(p<sub>b</sub>) + p<sub>c</sub> * log<sub>2</sub>(p<sub>c</sub>) + p<sub>d</sub> * log<sub>2</sub>(p<sub>d</sub>) + p<sub>e</sub> * log<sub>2</sub>(p<sub>e</sub>) + p<sub>f</sub> * log<sub>2</sub>(p<sub>f</sub>) + p<sub>g</sub> * log<sub>2</sub>(p<sub>g</sub>) + p<sub>h</sub> * log<sub>2</sub>(p<sub>h</sub>) + p<sub>i</sub> * log<sub>2</sub>(p<sub>i</sub>) + p<sub>j</sub> * log<sub>2</sub>(p<sub>j</sub>) + p<sub>k</sub> * log<sub>2</sub>(p<sub>k</sub>) + p<sub>l</sub> * log<sub>2</sub>(p<sub>l</sub>) + p<sub>m</sub> * log<sub>2</sub>(p<sub>m</sub>) + p<sub>n</sub> * log<sub>2</sub>(p<sub>n</sub>) + p<sub>o</sub> * log<sub>2</sub>(p<sub>o</sub>) + p<sub>p</sub> * log<sub>2</sub>(p<sub>p</sub>) + p<sub>q</sub> * log<sub>2</sub>(p<sub>q</sub>) + p<sub>r</sub> * log<sub>2</sub>(p<sub>r</sub>) + p<sub>s</sub> * log<sub>2</sub>(p<sub>s</sub>) + p<sub>t</sub> * log<sub>2</sub>(p<sub>t</sub>) + p<sub>u</sub> * log<sub>2</sub>(p<sub>u</sub>) + p<sub>v</sub> * log<sub>2</sub>(p<sub>v</sub>) + p<sub>w</sub> * log<sub>2</sub>(p<sub>w</sub>) + p<sub>x</sub> * log<sub>2</sub>(p<sub>x</sub>) + p<sub>y</sub> * log<sub>2</sub>(p<sub>y</sub>) + p<sub>z</sub> * log<sub>2</sub>(p<sub>z</sub>)<span class = "bigparthense">)</span> =
+            <br>
+            -<span class = "bigparthense">(</span>0.0545 * log<sub>2</sub>(0.0545) + 0.0175 * log<sub>2</sub>(0.0175) + 0.0337 * log<sub>2</sub>(0.0337) + 0.0511 * log<sub>2</sub>(0.0511) + 0.1689 * log<sub>2</sub>(0.1689) + 0.0128 * log<sub>2</sub>(0.0128) + 0.0376 * log<sub>2</sub>(0.0376) + 0.0526 * log<sub>2</sub>(0.0526) + 0.0851 * log<sub>2</sub>(0.0851) + 0.0018 * log<sub>2</sub>(0.0018) + 0.0151 * log<sub>2</sub>(0.0151) + 0.0377 * log<sub>2</sub>(0.0377) + 0.0222 * log<sub>2</sub>(0.0222) + 0.1042 * log<sub>2</sub>(0.1042) + 0.0311 * log<sub>2</sub>(0.0311) + 0.0063 * log<sub>2</sub>(0.0063) + 0.0001 * log<sub>2</sub>(0.0001) + 0.0714 * log<sub>2</sub>(0.0714) + 0.0624 * log<sub>2</sub>(0.0624) + 0.0608 * log<sub>2</sub>(0.0608) + 0.0340 * log<sub>2</sub>(0.0340) + 0.0089 * log<sub>2</sub>(0.0089) + 0.0164 * log<sub>2</sub>(0.0164) + 0.0002 * log<sub>2</sub>(0.0002) + 0.0007 * log<sub>2</sub>(0.0007) + 0.0127 * log<sub>2</sub>(0.0127)<span class = "bigparthense">)</span>
+            <br>
+            &asymp; 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+            <br>
+            &Eta;<sub>max</sub> = <figure class = "fraction"><span class = "upper">26</span><span class = "lower">26</span></figure> * log<sub>2</sub>(26) = log<sub>2</sub>(26)
+            <br>
+            &asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+          </figure>
+          <br>
+          <p>
+            Nun müssen wir die Differenz dieser beiden Werte bilden und erhalten den Wert für die Redundanz von (grossen, damit die Auftrittswahrscheinlichkeit gut angenähert werden kann) in Deutsch geschriebenen Texten.
+          </p>
+          <br>
+          <figure class = "equation">
+            R = &Eta;<sub>max</sub> - &Eta; &asymp; 4.7004 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> - 4.0646 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure> =
+            <br>
+            0.6358 <figure class = "fraction"><span class = "upper">Bit</span><span class = "lower">Zeichen</span></figure>
+          </figure>
+          <br>
+          <p>
+            Wir haben also eine Redundanz von 0.6358 Bit pro Zeichen in deutschsprachigen Texten. Das bedeutet, dass wir mit einer optimalen Entropiekodierung im Durchschnitt 0.6358 Bit pro Zeichen an Daten einsparen können. Dies scheint zwar wenig, aber wenn wir nun Beispielweise einen Bericht mit 10'000 Buchstaben haben, dann können wir 10'000 Zeichen * 0.6358 Bit / Zeichen = 6358 Bit einsparen, was schon ein beträchtlicher Betrag sein kann. Eine Entropiekodierung ist also sinnvoll für Situationen mit grosser Redundanz, wäre aber zum Beispiel sinnlos für die Aufzeichnung der Würfe eines Würfels, bei dem jede Möglickeit die gleich Auftrittswahrscheinlichkeit hat, womit die Redundanz 0 beträgt und eine Entropiekompression keine Daten einsparen könnte. Da die Datenübertragung und die Speicherung von Daten heutzutage sehr günstig ist, findet die Entropiekodierung immer weniger Anwendung.
+          </p>
+        </div>
+      </div>
+      <div id = "algorithms">
+        <h2>Algorithmen für die Entropiekodierung</h2>
+        <h3><a href = "entropy/utf">UTF</a></h3>
+        <h3><a href = "entropy/huffman">Huffman-Kodierung</a></h3>
+        <h3><a href = "entropy/arithmetic">Arithmetische Kodierung</a></h3>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

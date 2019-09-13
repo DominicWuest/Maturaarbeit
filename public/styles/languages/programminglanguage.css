@@ -36,16 +36,19 @@ main {
 .exerciseMain {
   padding-left: 1vh;
   padding-right: 1vh;
+  padding-bottom: 2vh;
+  height: 92.8%;
+  overflow: auto;
 }
 
 #exerciseText {
-  height: 93.8%;
   overflow-y: auto;
   padding: 0;
   padding-top: 0;
   white-space: pre-wrap;
   margin-top: 2vh;
   font-family: Arial, sans-serif;
+  padding-bottom: 1.5vh;
 }
 
 #exerciseText code {
@@ -53,13 +56,16 @@ main {
   display: block;
   margin: 1vh auto;
   width: 75%;
-  background-color: #333;
+  background-color: #236;
   color: #AAA;
   padding: 1vh;
   font-size: 2vh;
   tab-size: 4;
-  border-radius: 2vh;
+  border-radius: 0.5vh;
   border: 0.3vh solid black;
+  white-space: pre;
+  overflow-x: auto;
+  padding-bottom: 1.5vh;
 }
 
 #exerciseTitle h1 {
@@ -111,10 +117,6 @@ main {
   max-height: 20vh;
 }
 
-#exerciseText code {
-  text-align: center;
-}
-
 .subexercise {
   box-sizing: border-box;
   display: block;
@@ -126,7 +128,19 @@ main {
   margin-top: 2vh;
   transition: background-color 0.3s, border-color 0.3s, color 0.3s;
   color: #BBB;
-  font-size: 1.8vh;
+}
+
+.workingSubexercise {
+  background-image: linear-gradient(#2441B4, #31128B);
+  border-color: #31128B;
+  color: #DDD;
+}
+
+.workingSubexercise {
+  border-color: #6FEE44 #FF3F3F;
+  /*border: 0.5vh solid;
+  border-image-source: linear-gradient(#FF3F3F, #6FEE44);
+  border-image-slice: 1 1;*/
 }
 
 .finishedSubexercise {
@@ -289,6 +303,10 @@ button::-moz-focus-inner {
   cursor: pointer;
 }
 
+.input button:active {
+
+}
+
 .output {
   font-size: 1.8vh;
   background-color: white;
@@ -300,11 +318,10 @@ button::-moz-focus-inner {
   width: 100%;
   overflow: auto;
   box-sizing: border-box;
-  line-height: normal;
   margin: 0;
   padding: 1vh;
 }
 
-#output > * {
-  margin-top: 0;
+.error {
+  color: red;
 }

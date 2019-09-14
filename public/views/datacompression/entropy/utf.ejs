@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <meta charset="utf-8"/>
   </head>
-  <body>
+  <body onload = "displayExercise(4);">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class="title">
@@ -252,35 +252,35 @@
                 <th id = "ASCIIextable">ASCII (binär)</th>
                 <th id = "ASCIIextable">ASCII (dezimal)</th>
               </tr>
-                <td id = "ASCIIextable">t</td>
                 <td id = "ASCIIextable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"></td>
                 <td id = "ASCIIextable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"></td>
                 <td id = "ASCIIextable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 2);"></td>
-              </tr>
-              <tr>
                 <td id = "ASCIIextable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 3);"></td>
+              </tr>
+              <tr>
                 <td id = "ASCIIextable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 4);"></td>
-                <td id = "ASCIIextable">1101011</td>
                 <td id = "ASCIIextable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 5);"></td>
-              </tr>
-              <tr>
                 <td id = "ASCIIextable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 6);"></td>
-                <td id = "ASCIIextable">26</td>
                 <td id = "ASCIIextable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 7);"></td>
-                <td id = "ASCIIextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"></td>
               </tr>
               <tr>
+                <td id = "ASCIIextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"></td>
                 <td id = "ASCIIextable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 9);"></td>
                 <td id = "ASCIIextable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 10);"></td>
                 <td id = "ASCIIextable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 11);"></td>
-                <td id = "ASCIIextable">111</td>
+              </tr>
+              <tr>
+                <td id = "ASCIIextable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 12);"></td>
+                <td id = "ASCIIextable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 13);"></td>
+                <td id = "ASCIIextable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 14);"></td>
+                <td id = "ASCIIextable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 15);"></td>
               </tr>
             </table>
           </p>
         </div>
         <div id = "ISOIEC8859-1">
           <h2>ISO/IEC 8859</h2>
-          <p>Zwar reichen die 95 druckbaren aus, damit man sich im modernen Englisch austauschen kann. Das Problem liegt aber darin, dass viele Sprachen, die ebenfalls auf dem lateinischen Alphabet basieren weitere Symbole für eine vernünftige Kommunikation benötigen. Mit dem Versuch dieses Problem zu beheben wurde ISO/IEC 8859 mit 96 weiteren Druckbaren Zeichen eingeführt. Dabei sind die ersten 128 Hexadezimalzahlen den gleichen Zeichen zugeordnet wie in der ASCII-Tabelle, damit diese kompatibel ist. Die Steuerungsbefehle wurden bei ISO/IEC 8859 weggelassen, da dieses System für Computer und nicht mehr für Schreibmaschienen konzipiert wurde, womit alle diese Befehle unnötig werden. Die insgesamt 95 + 96 = 191 Zeichen in ISO/IEC 8859-1 reichen aber nicht aus, um alle Sonderzeichen der häufig verwendeten Sprachen in den westlichen Ländern. Deswegen wurden 15 verschiedene ISO/IEC-Tabellen eingeführt, wobei
+          <p>Zwar reichen die 95 druckbaren aus, damit man sich im modernen Englisch austauschen kann. Das Problem liegt aber darin, dass viele Sprachen, die ebenfalls auf dem lateinischen Alphabet basieren weitere Symbole für eine vernünftige Kommunikation benötigen. Mit dem Versuch dieses Problem zu beheben wurde ISO/IEC 8859 mit 96 weiteren Druckbaren Zeichen eingeführt. Dabei sind die ersten 128 Hexadezimalzahlen den gleichen Zeichen zugeordnet wie in der ASCII-Tabelle, damit diese kompatibel ist. Die Steuerungsbefehle wurden bei ISO/IEC 8859 weggelassen, da dieses System für Computer und nicht mehr für Schreibmaschienen konzipiert wurde, womit alle diese Befehle unnötig werden. Die insgesamt 95 + 96 = 191 Zeichen in ISO/IEC 8859-1 reichen aber nicht aus, um alle Sonderzeichen der häufig verwendeten Sprachen in den westlichen Ländern. Deswegen wurden 15 verschiedene ISO/IEC-Tabellen eingeführt, wobei bei allen die erste Hälfte genau gleich ist, damit sie alle mit der alten ASCII-Tabelle kompatibel sind. Die unten aufgeführte Tabelle ISO/IEC 8859-1 wird unter anderem von Geräten verwendet, die ihre Soracheinstellung auf Deutsch gestellt haben.
             <h3>ISO/IEC 8859-1</h3>
             <h4>8-Bit Kodierung, Variante Latin-1, für westeuropäische Länder</h4>
             <figure class = "tableISOIEC">
@@ -599,28 +599,28 @@
                 <th id = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
                 <th id = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
               </tr>
-                <td id = "ISOIECextable">¶</td>
                 <td id = "ISOIECextable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"></td>
                 <td id = "ISOIECextable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"></td>
                 <td id = "ISOIECextable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 2);"></td>
+                <td id = "ISOIECextable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 3);"></td>
               </tr>
               <tr>
-                <td id = "ISOIECextable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIECI(this.value, 3);"></td>
-                <td id = "ISOIECextable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIECI(this.value, 4);"></td>
-                <td id = "ISOIECextable">10110011</td>
+                <td id = "ISOIECextable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 4);"></td>
                 <td id = "ISOIECextable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 5);"></td>
-              </tr>
-              <tr>
                 <td id = "ISOIECextable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 6);"></td>
-                <td id = "ISOIECextable">A1</td>
                 <td id = "ISOIECextable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 7);"></td>
-                <td id = "ISOIECextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"></td>
               </tr>
               <tr>
+                <td id = "ISOIECextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"></td>
                 <td id = "ISOIECextable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 9);"></td>
                 <td id = "ISOIECextable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 10);"></td>
                 <td id = "ISOIECextable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 11);"></td>
-                <td id = "ISOIECextable">194</td>
+              </tr>
+              <tr>
+                <td id = "ISOIECextable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 12);"></td>
+                <td id = "ISOIECextable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 13);"></td>
+                <td id = "ISOIECextable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 14);"></td>
+                <td id = "ISOIECextable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 15);"></td>
               </tr>
             </table>
           </p>

@@ -75,6 +75,24 @@
   text-align: center;
 }
 
+.utf8table {
+  text-align: center;
+  border: solid #000;
+}
+
+.indicator {
+  background-color: #33F;
+  color: #FFF;
+}
+
+.counter {
+  background-color: #3F3;
+}
+
+.endicator {
+  background-color: #F33;
+}
+
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
   .box {

@@ -69,15 +69,13 @@
   color: #FFF;
 }
 
-#ASCIIexamples, #ISOIECexamples {
-  width: 75vw;
+table, th, td {
+  text-align: center;
   align-content: center;
-  text-align: center;
-}
-
-.utf8table {
-  text-align: center;
-  border: solid #000;
+  width: 75vw;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-size: 110%;
 }
 
 .indicator {

@@ -641,7 +641,7 @@
           <h2>UTF-8</h2>
           <p>
             UTF-8 ist eine Kodierung der Unicodenummer. UTF-8 ist eine Art der Entropiekodierung, da selten verwendete Zeichen mit weniger Bit kodiert werden als Zeichen, die häufig verwendet werden. UTF-8 wird von sehr vielen Websites verwendet (die Zeichen auf dieser Webseite werden auch über UTF-8 abgebildet), über 90% weltweit. Bei UTF-8 wird die Unicodenummer in 8 Bit, also 1 Byte grosse Blöcke unterteilt. Dabei entsprechen die ersten sieben Bits der ASCII-Tabelle, wodurch UTF-8 mit ASCII kompatibel gemacht wurde. Die genaue Vorgehensweise der Kodierung wird in der folgenden Grafik erklärt.
-            <table>
+            <table class = "utf8tab">
               <tr>
                 <th class = "utf8table">Unicode-Bereich</th>
                 <th class = "utf8table">UTF-8 Kodierung</th>
@@ -655,15 +655,48 @@
               <tr>
                 <td class = "utf8table">080 bis 7FF</td>
                 <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">1</span><span class ="endicator">0</span>xxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-                <td class = "utf8table">Wenn Zeichen ausserhalb der ASCII-Tabelle Kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span>wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits stehen also im ersten Byte.</td>
+                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle Kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span>wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits stehen also im ersten Byte.</td>
               </tr>
               <tr>
                 <td class = "utf8table">0800 bis FFFF</td>
-                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">11</span><span class = "endicator">0</soan>xxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>0xxxxxxx</td>
+                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">11</span><span class = "endicator">0</span>xxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
               </tr>
               <tr>
                 <td class = "utf8table">01 0000 bis 10 FFFFF</td>
-                <td class = "utf8table"><span class = "indicator">1</soan><span class = "counter">111</span><span class = "endicator">0</span>xxx<br><span class = "indicator">10</span>xxxxxx<br>10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
+                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">111</span><span class = "endicator">0</span>xxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
+              </tr>
+            </table>
+            <h3>Beispiel Aufgaben</h3>
+            <h4>Schreibe für den Unicode immer alle 32 Bit und bei UTF-8 zwischen jedem Byte ein Abstand. Dezimal einfach so viele Stelle wie nötig.</h4>
+            <table id = "UTF8examples">
+              <tr>
+                <th id = "UTF8extable">UTF-8</th>
+                <th id = "UTF8extable">Unicode (hexadezimal)</th>
+                <th id = "UTF8extable">Unicode (binär)</th>
+                <th id = "UTF8extable">Unicode (dezimal)</th>
+              </tr>
+                <td id = "UTF8extable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"></td>
+                <td id = "UTF8extable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"></td>
+                <td id = "UTF8extable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 2);"></td>
+                <td id = "UTF8extable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 3);"></td>
+              </tr>
+              <tr>
+                <td id = "UTF8extable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 4);"></td>
+                <td id = "UTF8extable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 5);"></td>
+                <td id = "UTF8extable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 6);"></td>
+                <td id = "UTF8extable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 7);"></td>
+              </tr>
+              <tr>
+                <td id = "UTF8extable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 8);"></td>
+                <td id = "UTF8extable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 9);"></td>
+                <td id = "UTF8extable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 10);"></td>
+                <td id = "UTF8extable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 11);"></td>
+              </tr>
+              <tr>
+                <td id = "UTF8extable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 12);"></td>
+                <td id = "UTF8extable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 13);"></td>
+                <td id = "UTF8extable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 14);"></td>
+                <td id = "UTF8extable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"></td>
               </tr>
             </table>
           </p>

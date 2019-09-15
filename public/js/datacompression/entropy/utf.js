@@ -13,13 +13,13 @@ let randSign;
 // Random integer to select which slot is given
 let randSlot;
 
-// storage of indexes of displayed signs of ASCII
+// Storage of indexes of displayed sign in ASCII
 let randSignListASCII = [];
 
-// storage of indexes of displayed signs of ISOIEC
+// Storage of indexes of displayed sign in ISOIEC
 let randSignListISOIEC = [];
 
-// storage of indexes of dispayed numbers in utf-8
+// Storage of indexes of dispayed number in utf-8
 let randNumListUTF8 = [];
 
 // Setup all exercises
@@ -38,7 +38,8 @@ function displayASCII(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randSignListASCII.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('ASCIIextable' + (startingIndex + randSlot)).textContent = inputsASCII[randSign][randSlot];
+  document.getElementById('inputASCII-' + (startingIndex + randSlot)).value = inputsASCII[randSign][randSlot];
+  document.getElementById('ASCIIextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
 }
 
 // Display the given content in the exercise of ISOIEC
@@ -47,7 +48,8 @@ function displayISOIEC(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randSignListISOIEC.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('ISOIECextable' + (startingIndex + randSlot)).textContent = inputsISOIEC[randSign][randSlot];
+  document.getElementById('inputISOIEC-' + (startingIndex + randSlot)).value = inputsISOIEC[randSign][randSlot];
+  document.getElementById('ISOIECextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
 }
 
 // Display the given content in the exercise of UTF8
@@ -56,7 +58,8 @@ function displayUTF8(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randNumListUTF8.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('UTF8extable' + (startingIndex + randSlot)).textContent = inputsUTF8[randSign][randSlot];
+  document.getElementById('inputUTF8-' + (startingIndex + randSlot)).value = inputsUTF8[randSign][randSlot];
+  document.getElementById('UTF8extable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
 }
 
 
@@ -196,4 +199,46 @@ function checkUTF8(message, index) {
   else {
     document.getElementById('UTF8extable' + index).style.backgroundColor = "red";
   }
+}
+
+function resetASCII() {
+  for (let index = 0; index < 16; index++) {
+    document.getElementById('inputASCII-' + index).value = '';
+    document.getElementById('ASCIIextable' + index).style.backgroundColor = "white";
+  }
+  randSignListASCII = [];
+  for (let i = 0; i < 4; i++) displayASCII(i * 4);
+}
+
+function resetISOIEC() {
+  for (let index = 0; index < 16; index++) {
+    document.getElementById('inputISOIEC-' + index).value = '';
+    document.getElementById('ISOIECextable' + index).style.backgroundColor = "white";
+  }
+  randSignListISOIEC = [];
+  for (let i = 0; i < 4; i++) displayISOIEC(i * 4);
+}
+
+function resetUTF8() {
+  for (let index = 0; index < 16; index++) {
+    document.getElementById('inputUTF8-' + index).value = '';
+    document.getElementById('UTF8extable' + index).style.backgroundColor = "white";
+  }
+  randNumListUTF8 = [];
+  for (let i = 0; i < 4; i++) displayUTF8(i * 4);
+}
+
+function solutionASCII(index) {
+  document.getElementById('inputASCII-' + index).value = inputsASCII[randSignListASCII[Math.floor(index * 0.25)]][index % 4];
+  document.getElementById('ASCIIextable' + index).style.backgroundColor = "green";
+}
+
+function solutionISOIEC(index) {
+  document.getElementById('inputISOIEC-' + index).value = inputsISOIEC[randSignListISOIEC[Math.floor(index * 0.25)]][index % 4];
+  document.getElementById('ISOIECextable' + index).style.backgroundColor = "green";
+}
+
+function solutionUTF8(index) {
+  document.getElementById('inputUTF8-' + index).value = inputsUTF8[randNumListUTF8[Math.floor(index * 0.25)]][index % 4];
+  document.getElementById('UTF8extable' + index).style.backgroundColor = "green";
 }

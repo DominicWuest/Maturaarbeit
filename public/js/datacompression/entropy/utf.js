@@ -7,6 +7,59 @@ let inputsISOIEC = [['SP', '20', '00100000', '32'], ['!', '21', '00100001', '33'
 // Define input values for utf-8 exercise with random decimals
 let inputsUTF8 = [['1'], ['5'], ['10'], ['20'], ['28'], ['31'], ['37'], ['39'], ['47'], ['53'], ['68'], ['72'], ['85'], ['91'], ['120'], ['129'], ['137'], ['178'], ['252'], ['290'], ['362'], ['525'], ['934'], ['1623'], ['1836'], ['2000'], ['2105'], ['3621'], ['3623'], ['7231'], ['9341'], ['12345'], ['19312'], ['36112'], ['42361'], ['48234'], ['60262'], ['70252'], ['90251'], ['126122'], ['151213'], ['361312'], ['401234'], ['691250'], ['912012'], ['1000000'], ['1591203'], ['1802302'], ['2097151']];
 
+// Random integer to select which sign is to be solved
+let randSign;
+
+// Random integer to select which slot is given
+let randSlot;
+
+// storage of indexes of displayed signs of ASCII
+let randSignListASCII = [];
+
+// storage of indexes of displayed signs of ISOIEC
+let randSignListISOIEC = [];
+
+// storage of indexes of dispayed numbers in utf-8
+let randNumListUTF8 = [];
+
+// Setup all exercises
+function displayExercise(n) {
+  inputsUTF8 = GenUTF8(inputsUTF8);
+  for (let i = 0; i < n; i++)  {
+    displayASCII(i * 4);
+    displayISOIEC(i * 4);
+    displayUTF8(i * 4);
+  }
+}
+
+// Display the given content in the exercise of ASCII
+function displayASCII(startingIndex) {
+  randSign = Math.round(Math.random() * (inputsASCII.length - 1));
+  // Save the indexes ot the signs to use them later to correct
+  randSignListASCII.push(randSign);
+  randSlot = Math.floor(Math.random() * 4);
+  document.getElementById('ASCIIextable' + (startingIndex + randSlot)).textContent = inputsASCII[randSign][randSlot];
+}
+
+// Display the given content in the exercise of ISOIEC
+function displayISOIEC(startingIndex) {
+  randSign = Math.round(Math.random() * (inputsISOIEC.length - 1));
+  // Save the indexes ot the signs to use them later to correct
+  randSignListISOIEC.push(randSign);
+  randSlot = Math.floor(Math.random() * 4);
+  document.getElementById('ISOIECextable' + (startingIndex + randSlot)).textContent = inputsISOIEC[randSign][randSlot];
+}
+
+// Display the given content in the exercise of UTF8
+function displayUTF8(startingIndex) {
+  randSign = Math.round(Math.random() * (inputsUTF8.length - 1));
+  // Save the indexes ot the signs to use them later to correct
+  randNumListUTF8.push(randSign);
+  randSlot = Math.floor(Math.random() * 4);
+  document.getElementById('UTF8extable' + (startingIndex + randSlot)).textContent = inputsUTF8[randSign][randSlot];
+}
+
+
 //Generate the solutions for utf-8 from the decimal values
 function GenUTF8(inputDecimals) {
   for (let i = 0; i < inputDecimals.length; i++) {
@@ -107,58 +160,6 @@ function GenUTF8(inputDecimals) {
     inputDecimals[i].push(bin, hex, UTF8code);
   }
   return inputDecimals;
-}
-
-// Random integer to select which sign is to be solved
-let randSign;
-
-// Random integer to select which slot is given
-let randSlot;
-
-// storage of indexes of displayed signs of ASCII
-let randSignListASCII = [];
-
-// storage of indexes of displayed signs of ISOIEC
-let randSignListISOIEC = [];
-
-// storage of indexes of dispayed numbers in utf-8
-let randNumListUTF8 = [];
-
-// Setup all exercises
-function displayExercise(n) {
-  inputsUTF8 = GenUTF8(inputsUTF8);
-  for (let i = 0; i < n; i++)  {
-    displayASCII(i * 4);
-    displayISOIEC(i * 4);
-    displayUTF8(i * 4);
-  }
-}
-
-// Display the given content in the exercise of ASCII
-function displayASCII(startingIndex) {
-  randSign = Math.round(Math.random() * (inputsASCII.length - 1));
-  // Save the indexes ot the signs to use them later to correct
-  randSignListASCII.push(randSign);
-  randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('ASCIIextable' + (startingIndex + randSlot)).textContent = inputsASCII[randSign][randSlot];
-}
-
-// Display the given content in the exercise of ISOIEC
-function displayISOIEC(startingIndex) {
-  randSign = Math.round(Math.random() * (inputsISOIEC.length - 1));
-  // Save the indexes ot the signs to use them later to correct
-  randSignListISOIEC.push(randSign);
-  randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('ISOIECextable' + (startingIndex + randSlot)).textContent = inputsISOIEC[randSign][randSlot];
-}
-
-// Display the given content in the exercise of UTF8
-function displayUTF8(startingIndex) {
-  randSign = Math.round(Math.random() * (inputsUTF8.length - 1));
-  // Save the indexes ot the signs to use them later to correct
-  randNumListUTF8.push(randSign);
-  randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('UTF8extable' + (startingIndex + randSlot)).textContent = inputsUTF8[randSign][randSlot];
 }
 
 // Check whether the given input matches the solution for the ASCII exercise

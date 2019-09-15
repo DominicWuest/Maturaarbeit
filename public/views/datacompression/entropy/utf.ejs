@@ -648,32 +648,32 @@
                 <th class = "utf8table">Erklärung</th>
               </tr>
               <tr>
-                <td class = "utf8table">00 bis 7F</td>
+                <td class = "utf8table">00000000 bis 0000007F</td>
                 <td class = "utf8table">0xxxxxxx</td>
                 <td class = "utf8table">Dieser Bereich der UTF-8-Kodierung entspricht genau dem Code aus der ASCII-Tabelle. Die 0 am Anfang ist festgelegt, die restlichen Bits, die hier mit x angezeigt werden, können frei gewählt werden. Ein Zeichen, das in der ASCII-Tabelle vorkommt braucht also 1 Byte an Speicherpaltz.</td>
               </tr>
               <tr>
-                <td class = "utf8table">080 bis 7FF</td>
+                <td class = "utf8table">00000080 bis 000007FF</td>
                 <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">1</span><span class ="endicator">0</span>xxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle Kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span>wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits stehen also im ersten Byte.</td>
+                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle Kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span> wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits können also nur im ersten oder im zweiten Byte stehen.</td>
               </tr>
               <tr>
-                <td class = "utf8table">0800 bis FFFF</td>
+                <td class = "utf8table">00000800 bis 0000FFFF</td>
                 <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">11</span><span class = "endicator">0</span>xxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
               </tr>
               <tr>
-                <td class = "utf8table">01 0000 bis 10 FFFFF</td>
+                <td class = "utf8table">00010000 bis 001FFFFFF</td>
                 <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">111</span><span class = "endicator">0</span>xxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
               </tr>
             </table>
             <h3>Beispiel Aufgaben</h3>
-            <h4>Schreibe für den Unicode immer alle 32 Bit und bei UTF-8 zwischen jedem Byte ein Abstand. Dezimal einfach so viele Stelle wie nötig.</h4>
+            <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht, um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
             <table id = "UTF8examples">
               <tr>
-                <th id = "UTF8extable">UTF-8</th>
-                <th id = "UTF8extable">Unicode (hexadezimal)</th>
-                <th id = "UTF8extable">Unicode (binär)</th>
                 <th id = "UTF8extable">Unicode (dezimal)</th>
+                <th id = "UTF8extable">Unicode (binär)</th>
+                <th id = "UTF8extable">Unicode (hexadezimal)</th>
+                <th id = "UTF8extable">UTF-8</th>
               </tr>
                 <td id = "UTF8extable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"></td>
                 <td id = "UTF8extable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"></td>
@@ -699,11 +699,14 @@
                 <td id = "UTF8extable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"></td>
               </tr>
             </table>
+            Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge Kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.
           </p>
         </div>
         <div id = "utf-16">
           <h2>UTF-16</h2>
-          <p></p>
+          <p>
+
+          </p>
         </div><div id = "utf-32">
           <h2>UTF-32</h2>
           <p></p>

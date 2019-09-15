@@ -670,7 +670,7 @@
               </tr>
             </table>
             <h3>Beispiel Aufgaben</h3>
-            <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht, um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
+            <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
             <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF8();">
             <br>
             <table id = "UTF8examples">
@@ -704,17 +704,61 @@
                 <td id = "UTF8extable15"><input id = "inputUTF8-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(15);"></td>
               </tr>
             </table>
+            <br>
             Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge Kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.
           </p>
         </div>
         <div id = "utf-16">
           <h2>UTF-16</h2>
           <p>
-
+            UTF-16 ist auch eine Kodierung der Unicode-Nummer, mit der ein Zeichen dargestellt werden kann. Eine UTF-16 Kodierung besteht dabei analog zu UTF-8 aus 16 Bit grossen Blöcken. Dabei benötigt jedes Zeichen einen oder zwei solche Blöcke. Ein Zeichen benötigt also eine Datenmenge von 16 oder 32 Bit. Der Unicode-Zeichenbereich wird in UTF-16 in verschiedene Ebenen (Planes) unterteilt. Diese Ebenen bieten jeweils Platz für 2<sup>16</sup> = 65536 Zeichen, da jedes Zeichen in so einer Ebene mit einem 16 Bit langen Code kodiert wird. UTF-16 ist aufgrund des längeren Codes für die Zeichen nicht mehr kompatibel mit der ASCII-Tabelle. Unicode hat aber noch riesige Reserven, da in Unicode nur 137'929 Zeichen und Symbole vorkommen. Diese Reserven sind auch in UTF-16 vorhanden, weswegen nur 6 der 17 Ebenen gebraucht werden. Hier werden die 6 Ebenen, die in Gebrauch sind und die Kodierung der Zeichen, die in den Ebenen liegen erklärt.
           </p>
-        </div><div id = "utf-32">
+          <div class = "BMP">
+            <h3>BMP - Basic Multilingual Plane - Plane 0</h3>
+            <p>
+              Im der Ebene 0, der BMP sind die Unicodes von U+0000<sub>16</sub> bis U+FFFF<sub>16</sub> = 0<sub>10</sub> bis 65535<sub>10</sub> enthalten. Diese Zeichen sind die heute gebräuchlichen Schriftzeichen von fast allen modernen Sprachen (auch Symbolschriften, wie in chinesisch oder japanisch). Die sogenannten Surrogates, die noch vorkommen werden besetzt um den Wechsel in eine andere Ebene zu ermöglichen.<br>Die Unicode-Nummern der Zeichen aus der BMP bestehen aus 16 Nullen und 16 restlichen Bits. Deswegen können sie ganz einfach als 16 Bit Code kodiert werden. Von den 65535 möglichen Codes aus der BMP sind nur noch 64 Codes unbesetzt: von 0870<sub>16</sub> bis 089F<sub>16</sub> = von 2'160<sub>10</sub> bis 2'207<sub>10</sub> und von 2FE0<sub>16</sub> bis 2FEF<sub>16</sub> = von 12'256<sub>10</sub> bis 12'271</sub>. In der untenstehenden Grafik wird gezeigt, welche Bereiche Zeichen wo in der BMP liegen.
+            </p>
+          <img src = "/imgs/datacompression/entropy/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
+          <h3>Beispiel Aufgaben</h3>
+          <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF16();">
+          <br>
+          <table id = "UTF16examples">
+            <tr>
+              <th id = "UTF16extable">Unicode (dezimal)</th>
+              <th id = "UTF16extable">Unicode (binär)</th>
+              <th id = "UTF16extable">Unicode (hexadezimal)</th>
+              <th id = "UTF16extable">UTF-16 (hexadezimal)</th>
+            </tr>
+              <td id = "UTF16extable0"><input id = "inputUTF16-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(0);"></td>
+              <td id = "UTF16extable1"><input id = "inputUTF16-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(1);"></td>
+              <td id = "UTF16extable2"><input id = "inputUTF16-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(2);"></td>
+              <td id = "UTF16extable3"><input id = "inputUTF16-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(3);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF16extable4"><input id = "inputUTF16-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(4);"></td>
+              <td id = "UTF16extable5"><input id = "inputUTF16-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(5);"></td>
+              <td id = "UTF16extable6"><input id = "inputUTF16-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(6);"></td>
+              <td id = "UTF16extable7"><input id = "inputUTF16-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(7);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF16extable8"><input id = "inputUTF16-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(8);"></td>
+              <td id = "UTF16extable9"><input id = "inputUTF16-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(9);"></td>
+              <td id = "UTF16extable10"><input id = "inputUTF16-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(10);"></td>
+              <td id = "UTF16extable11"><input id = "inputUTF16-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(11);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF16extable12"><input id = "inputUTF16-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(12);"></td>
+              <td id = "UTF16extable13"><input id = "inputUTF16-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(13);"></td>
+              <td id = "UTF16extable14"><input id = "inputUTF16-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(14);"></td>
+              <td id = "UTF16extable15"><input id = "inputUTF16-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(15);"></td>
+            </tr>
+          </table>
+          </div>
+        </div>
+        <div id = "utf-32">
           <h2>UTF-32</h2>
-          <p></p>
+          <p>UTF-32 ist die simpelste Kodierung der Unicode-Nummer. Dabei wird einfach die Unicode-Nummer mit einer 32 Bit grossen Zahl dargestellt. Damit verbraucht ein Zeichen in UTF-32 immer 32 Bit = 4 Byte Daten, obwohl Zeichen aus der ASCII-Tabelle mit UTF-8 mit lediglich 8 Bit = 1 Byte dargestellt werden können. Der Vorteil von UTF-32 ist, dass der Rechenaufwand bei der Darstellung nur so viel ist, wie für das Dekodieren der Unicode-Nummer gebraucht wird. Bei UTF-8 und UTF-16 hingegen muss zuerst die Unicode-Nummer identifiziert werden.</p>
         </div>
       </div>
     </main>

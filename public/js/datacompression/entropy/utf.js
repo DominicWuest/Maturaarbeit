@@ -203,11 +203,11 @@ function GenUTF16(inputDecimals) {
       UTF16codeBin = (dec >>> 0).toString(2);
     }
     else {
+      dec = dec - 65536;
       unibin = (dec >>> 0).toString(2);
-      // Minus 65536
-      unibin = unibin.substring(1);
       // Fill it up to 20 Bits
-      for (let k = 0; k < 4; k++) {
+      zeros = 20 - unibin.length;
+      for (let k = 0; k < zeros; k++) {
         unibin = '0'.concat(unibin);
       }
       // Divide it into two substrings
@@ -320,7 +320,7 @@ function resetUTF16() {
     document.getElementById('inputUTF16-' + index).value = '';
     document.getElementById('UTF16extable' + index).style.backgroundColor = "white";
   }
-  randNumListUTF8 = [];
+  randNumListUTF16 = [];
   for (let i = 0; i < 4; i++) displayUTF16(i * 4);
 }
 

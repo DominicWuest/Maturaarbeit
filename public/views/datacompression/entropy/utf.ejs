@@ -635,9 +635,9 @@
           <p>
             Unicode ist ein internationaler Standard, durch den für jedes sinnvolle Zeichen aller bekannten Schrift- und Zeichensysteme ein digitaler Code festgelegt wird. Es werden also auch Symbole festgelegt, wie beispielsweise die Emoji. Unicode ist also die Entzifferungstabelle, mit der aufgrund eines Codes ein Zeichen dargestellt werden kann. Der digitale Code besteht dabei aus einer Nummer. Unicode wird regelmässig aktualisiert und es werden neue Zeichen hinzugefügt. Seit Mai 2019 enthält Unicode 137'929 verschiedene Zeichen aus insgesamt 150 Schriftsystemen.
             <br>
-            Bei früher verwendeten Systemen, die einen digitalen Code für Zeichen festgelegt haben, kam immer das Problem auf, dass der Platz nicht ausreichte, da neue Zeichen aufgenommen werden mussten. Damit Unicode nicht auch durch ein grösseres System ersetzt muss, werden die Zeichen in Unicode mit 32 Bits kodiert. Damit gibt es also 2<sup>32</sup> = 4'294'967'296 Möglichkeiten, wie ein solcher Code aussehen kann und somit können über vier Milliarden verschiedene Zeichen Kodiert werden. Unicode hat also noch sehr grosse Reserven für neue Zeichen.
+            Bei früher verwendeten Systemen, die einen digitalen Code für Zeichen festgelegt haben, kam immer das Problem auf, dass der Platz nicht ausreichte, da neue Zeichen aufgenommen werden mussten. Damit Unicode nicht auch durch ein grösseres System ersetzt muss, werden die Zeichen in Unicode mit 32 Bits kodiert. Damit gibt es also 2<sup>32</sup> = 4'294'967'296 Möglichkeiten, wie ein solcher Code aussehen kann und somit können über vier Milliarden verschiedene Zeichen kodiert werden. Unicode hat also noch sehr grosse Reserven für neue Zeichen.
             <br>
-            Da eine 32 Bit grosse Binärzahl zu viel Platz braucht wir die Unicodenummer fast überrall im Hexadezimalformat angegeben. Eine Unicodenummer sieht folgendermassen aus: U+270D. Man kann also am U+ am Anfang erkennen, dass es sich um eine Unicodenummer handelt, wenn man ein Zeichen mit dieser Nummer untendran sieht. Wie du vielleicht bereits bemerkt hast, beinhaltet die Nnummer, die als Beispiel genommen wurde lediglich 16 Bit. Dies scheint aber nur so, weil in der Darstellung die ersten 16 Bit weggelasssen wurden, da diese alle die Ziffer 0 haben. Abgespeichert wird die Nummer aber trotzdem im 32 Bit-Format, sofern sie nicht noch Kodiert wird.
+            Da eine 32 Bit grosse Binärzahl zu viel Platz braucht wir die Unicodenummer fast überrall im Hexadezimalformat angegeben. Eine Unicodenummer sieht folgendermassen aus: U+270D. Man kann also am U+ am Anfang erkennen, dass es sich um eine Unicodenummer handelt, wenn man ein Zeichen mit dieser Nummer untendran sieht. Wie du vielleicht bereits bemerkt hast, beinhaltet die Nnummer, die als Beispiel genommen wurde lediglich 16 Bit. Dies scheint aber nur so, weil in der Darstellung die ersten 16 Bit weggelasssen wurden, da diese alle die Ziffer 0 haben. Abgespeichert wird die Nummer aber trotzdem im 32 Bit-Format, sofern sie nicht noch kodiert wird.
           </p>
         </div>
         <div id = "utf-8">
@@ -658,7 +658,7 @@
               <tr>
                 <td class = "utf8table">00000080 bis 000007FF</td>
                 <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">1</span><span class ="endicator">0</span>xxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle Kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span> wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits können also nur im ersten oder im zweiten Byte stehen.</td>
+                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span> wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits können also nur im ersten oder im zweiten Byte stehen.</td>
               </tr>
               <tr>
                 <td class = "utf8table">00000800 bis 0000FFFF</td>
@@ -705,7 +705,7 @@
               </tr>
             </table>
             <br>
-            Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge Kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.
+            Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.
           </p>
         </div>
         <div id = "utf-16">
@@ -713,12 +713,71 @@
           <p>
             UTF-16 ist auch eine Kodierung der Unicode-Nummer, mit der ein Zeichen dargestellt werden kann. Eine UTF-16 Kodierung besteht dabei analog zu UTF-8 aus 16 Bit grossen Blöcken. Dabei benötigt jedes Zeichen einen oder zwei solche Blöcke. Ein Zeichen benötigt also eine Datenmenge von 16 oder 32 Bit. Der Unicode-Zeichenbereich wird in UTF-16 in verschiedene Ebenen (Planes) unterteilt. Diese Ebenen bieten jeweils Platz für 2<sup>16</sup> = 65536 Zeichen, da jedes Zeichen in so einer Ebene mit einem 16 Bit langen Code kodiert wird. UTF-16 ist aufgrund des längeren Codes für die Zeichen nicht mehr kompatibel mit der ASCII-Tabelle. Unicode hat aber noch riesige Reserven, da in Unicode nur 137'929 Zeichen und Symbole vorkommen. Diese Reserven sind auch in UTF-16 vorhanden, weswegen nur 6 der 17 Ebenen gebraucht werden. Hier werden die 6 Ebenen, die in Gebrauch sind und die Kodierung der Zeichen, die in den Ebenen liegen erklärt.
           </p>
-          <div class = "BMP">
+          <div id = "BMP">
             <h3>BMP - Basic Multilingual Plane - Plane 0</h3>
             <p>
               Im der Ebene 0, der BMP sind die Unicodes von U+0000<sub>16</sub> bis U+FFFF<sub>16</sub> = 0<sub>10</sub> bis 65535<sub>10</sub> enthalten. Diese Zeichen sind die heute gebräuchlichen Schriftzeichen von fast allen modernen Sprachen (auch Symbolschriften, wie in chinesisch oder japanisch). Die sogenannten Surrogates, die noch vorkommen werden besetzt um den Wechsel in eine andere Ebene zu ermöglichen.<br>Die Unicode-Nummern der Zeichen aus der BMP bestehen aus 16 Nullen und 16 restlichen Bits. Deswegen können sie ganz einfach als 16 Bit Code kodiert werden. Von den 65535 möglichen Codes aus der BMP sind nur noch 64 Codes unbesetzt: von 0870<sub>16</sub> bis 089F<sub>16</sub> = von 2'160<sub>10</sub> bis 2'207<sub>10</sub> und von 2FE0<sub>16</sub> bis 2FEF<sub>16</sub> = von 12'256<sub>10</sub> bis 12'271</sub>. In der untenstehenden Grafik wird gezeigt, welche Bereiche Zeichen wo in der BMP liegen.
             </p>
-          <img src = "/imgs/datacompression/entropy/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
+            <img src = "/imgs/datacompression/entropy/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
+          </div>
+          <div id = "SMP">
+            <h3>SMP - Supplementary Multilingual Plane - Plane 1</h3>
+            <p>
+              Die erste Ebene, die nicht in der BMP liegt ist die SMP, Supplementary Multilingual Plane. Diese Ebene enthält historische Schriftzeichen, aber auch Lautschriften oder Musiknoten. Zudem sind in dieser Ebene im Bereich der Symbole die Emoji enthalten. Die UTF-16 Koduerung der Zeichen, die ausserhalb der BNO liegt wird in der nachfolgenden Tabelle erklärt.
+            </p>
+            <table id = "utf16tab">
+              <tr>
+                <th class = "utf16table">Erklärung</th>
+                <th class = "utf16table">Beispiel</th>
+              </tr>
+              <tr>
+                <td class = "utf16table">Zuerst wird die Unicode-Nummer der darzustellenden Zeichens ins Binärformat umgewandelt</td>
+                <td class = "utf16table">U+10101<sub>unicode</sub> = 10101<sub>16</sub> =<br>0001 0000 0001 0000 0001</td>
+              </tr>
+              <tr>
+                <td class = "utf16table">Danach wird das höchstwertige Bit subtrahiert, was also einer subtraktion von 2<sup>17</sup> = 131'072<sub>10</sub> entspricht.</td>
+                <td class = "utf16table">-0001 0000 0000 0000 0000=<br><span style = "color: #F22;">0000 0000 00</span><span style = "color: #226;">01 0000 0001</span></td>
+              </tr>
+              <tr>
+                <td class = "utf16table">Nun wird die Binärzahl in der Mitte gespalten, wodurch zwei 10 Bit grosse Binärzahlen entstehen</td>
+                <td class = "utf16table"><span style = "color: #F22;">0000 0000 00</span> | <span style = "color: #226;">01 0000 0001</span></td>
+              </tr>
+              <tr>
+                <td class = "utf16table">Jetzt wird jeder 10-Bit Zahl ein Vorsatz angesetzt: der ersten <span style = "color: #22F;">110110</span> und der zweiten <span style = "color: #090;">110111</span>.</td>
+                <td class = "utf16table"><span style = "color: #22F;">1101 10</span><span style = "color: #F22;">00 0000 0000</span> <span style = "color: #090;">1101 11</span><span style = "color: #226;">01 0000 0001</span></td>
+              </tr>
+              <tr>
+                <td class = "utf16table">Die erhaltene Binärzahl wird noch ins Hexadezimalsystem übertragen und wir erhalten das Ergebnis der Kodierung</td>
+                <td class = "utf16table">D800 DE01</td>
+              </tr>
+            </table>
+            <br>
+            <p>In der untenstehenden Grafik wird angezeigt, wo sich welche Zeichen befinden.</p>
+            <br>
+            <img src = "/imgs/datacompression/entropy/utf/smpmap.png" id = "smpmap" alt = "SMP-Karte"/>
+          </div>
+          <div id = "SIP">
+            <h3>SIP - Supplemantary Ideographic Plane - Plane 2</h3>
+            <p>
+              Die zweite Ebene ausserhalb der BMP ist die SIP, die Supplementary Ideographic Plane. Diese Ebene wird dazu verwendet, um japanische, chinesische, koreanische und vietnamesische Zeichen darzustellen. Daran, dass diese Zeichen selbst schon eine Zusatzebene brauchen, kann man erkennen, wieso sie nicht in der BMP stehen. Da sie ausserhalb der BMP stehen lohnt sich die UTF-16 Kodierung nicht mehr, sie ist sogar schlechter als UTF-32, da sie mehr Rechenaufwand verursacht, aber dennoch gleich viel Daten verbraucht. In der untenstehenden Grafik ist die SIP genauer aufgeführt.
+            </p>
+            <img src = "/imgs/datacompression/entropy/utf/sipmap.png" id = "sipmap" alt = "SIP-Karte"/>
+            <a href="https://en.wikipedia.org/wiki/en:User:Drmccreedy">Drmccreedy</a>, <a href="https://commons.wikimedia.org/wiki/File:Roadmap_to_Unicode_SIP.svg">Roadmap to Unicode SIP</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-SA 4.0</a>
+          </div>
+          <div id = "SSP">
+            <h3>SSP - Supplementary Special-purpose Plane - Plane 14</h3>
+            <p>
+              Die dritte Ebene ausserhalb der BMP ist die SSP, die Supplementary Special-purpose Plane. Diese Ebene wurde extra von den anderen Ebenen abgegrenzt, damit Zeichen, die zum Beispiel in der SMP kein Platz mehr haben nicht in diese Ebene gelegt werden. In dieser Ebene werden nicht grafische Zeichen, wie Kontrollzeichen zur Sprachmarkierung abgespeichert. Die Zeichen haben, wie man auch in der folgenden Grafik erkennen kann, nicht ihre eigene Ebene erhalten, da sie in der BMP keinen Platz gefunden haben, sondern da sie sich von den anderen Zeichen abgrenzen sollte.
+            </p>
+            <img src = "/imgs/datacompression/entropy/utf/sspmap.png" id = "sspmap" alt = "SSP-Karte"/>
+            <a href="https://en.wikipedia.org/wiki/en:User:Drmccreedy">Drmccreedy</a>, <a href="https://commons.wikimedia.org/wiki/File:Roadmap_to_Unicode_SSP.svg">Roadmap to Unicode SSP</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-SA 4.0</a>
+          </div>
+          <div id = "PUAB">
+            <h3>PUA-A und PUA-B - Private Use Planes A/B - Planes 15/16</h3>
+            <p>
+              Die letzten zwei Ebenen sind in UTF-16 als die sogenannten Private Use Planes definiert. Diese Ebenen werden dazu gebraucht um Zeichen ausserhalb des Unicodes zu definieren. Diese Zeichen werden von Schriftarten verwendet um Hilfsglyphen zu verweisen, wie zum Beispiel Ligaturen (ineinander geschriebene Buchstaben, wie etwa æ). Solche Zeichen sind nur eingeschränkt interoperabel, können also nicht überrall verwendet werden. Wenn eine Software Unicode unterstützt heisst es nicht, dass sie auch die Zuweisung von Zeichen durch andere Parteien wie die PUA-A/B unterstützt. Diese Hilfsglyphen aus diesen zwei Ebenen sind also nicht definiert in Unicode. Sie werden gebraucht um beispielweise Firmenlogos darzustellen.
+            </p>
+          </div>
           <h3>Beispiel Aufgaben</h3>
           <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
           <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF16();">

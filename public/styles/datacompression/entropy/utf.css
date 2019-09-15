@@ -91,7 +91,7 @@ table, th, td {
   background-color: #F33;
 }
 
-#bmpmap {
+#bmpmap, #smpmap, #sipmap, #sspmap {
   width: 75vw;
 }
 

@@ -247,6 +247,7 @@
               </div>
             </section>
             <h3>Beispiel Aufgaben</h3>
+            <input type = "button" value = "Neue Aufgaben" onclick = "resetASCII();">
             <table id = "ASCIIexamples">
               <tr>
                 <th id = "ASCIIextable">Zeichen</th>
@@ -254,28 +255,28 @@
                 <th id = "ASCIIextable">ASCII (binär)</th>
                 <th id = "ASCIIextable">ASCII (dezimal)</th>
               </tr>
-                <td id = "ASCIIextable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"></td>
-                <td id = "ASCIIextable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"></td>
-                <td id = "ASCIIextable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 2);"></td>
-                <td id = "ASCIIextable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 3);"></td>
+                <td id = "ASCIIextable0"><input id = "inputASCII-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(0);"></td>
+                <td id = "ASCIIextable1"><input id = "inputASCII-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(1);"></td>
+                <td id = "ASCIIextable2"><input id = "inputASCII-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(2);"></td>
+                <td id = "ASCIIextable3"><input id = "inputASCII-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(3);"></td>
               </tr>
               <tr>
-                <td id = "ASCIIextable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 4);"></td>
-                <td id = "ASCIIextable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 5);"></td>
-                <td id = "ASCIIextable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 6);"></td>
-                <td id = "ASCIIextable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 7);"></td>
+                <td id = "ASCIIextable4"><input id = "inputASCII-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(4);"></td>
+                <td id = "ASCIIextable5"><input id = "inputASCII-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(5);"></td>
+                <td id = "ASCIIextable6"><input id = "inputASCII-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(6);"></td>
+                <td id = "ASCIIextable7"><input id = "inputASCII-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(7);"></td>
               </tr>
               <tr>
-                <td id = "ASCIIextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"></td>
-                <td id = "ASCIIextable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 9);"></td>
-                <td id = "ASCIIextable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 10);"></td>
-                <td id = "ASCIIextable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 11);"></td>
+                <td id = "ASCIIextable8"><input id = "inputASCII-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(8);"></td>
+                <td id = "ASCIIextable9"><input id = "inputASCII-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(9);"></td>
+                <td id = "ASCIIextable10"><input id = "inputASCII-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(10);"></td>
+                <td id = "ASCIIextable11"><input id = "inputASCII-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(11);"></td>
               </tr>
               <tr>
-                <td id = "ASCIIextable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 12);"></td>
-                <td id = "ASCIIextable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 13);"></td>
-                <td id = "ASCIIextable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 14);"></td>
-                <td id = "ASCIIextable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 15);"></td>
+                <td id = "ASCIIextable12"><input id = "inputASCII-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(12);"></td>
+                <td id = "ASCIIextable13"><input id = "inputASCII-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(13);"></td>
+                <td id = "ASCIIextable14"><input id = "inputASCII-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(14);"></td>
+                <td id = "ASCIIextable15"><input id = "inputASCII-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(15);"></td>
               </tr>
             </table>
           </p>
@@ -594,6 +595,8 @@
               <section class = "box">FF<br>ÿ</section>
             </figure>
             <h3>Beispiel Aufgaben</h3>
+            <input type = "button" value = "Neue Aufgaben" onclick = "resetISOIEC();">
+            <br>
             <table id = "ISOIECexamples">
               <tr>
                 <th id = "ISOIECextable">Zeichen</th>
@@ -601,28 +604,28 @@
                 <th id = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
                 <th id = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
               </tr>
-                <td id = "ISOIECextable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"></td>
-                <td id = "ISOIECextable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"></td>
-                <td id = "ISOIECextable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 2);"></td>
-                <td id = "ISOIECextable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 3);"></td>
+                <td id = "ISOIECextable0"><input id = "inputISOIEC-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(0);"></td>
+                <td id = "ISOIECextable1"><input id = "inputISOIEC-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(1);"></td>
+                <td id = "ISOIECextable2"><input id = "inputISOIEC-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(2);"></td>
+                <td id = "ISOIECextable3"><input id = "inputISOIEC-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(3);"></td>
               </tr>
               <tr>
-                <td id = "ISOIECextable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 4);"></td>
-                <td id = "ISOIECextable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 5);"></td>
-                <td id = "ISOIECextable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 6);"></td>
-                <td id = "ISOIECextable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 7);"></td>
+                <td id = "ISOIECextable4"><input id = "inputISOIEC-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(4);"></td>
+                <td id = "ISOIECextable5"><input id = "inputISOIEC-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(5);"></td>
+                <td id = "ISOIECextable6"><input id = "inputISOIEC-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(6);"></td>
+                <td id = "ISOIECextable7"><input id = "inputISOIEC-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(7);"></td>
               </tr>
               <tr>
-                <td id = "ISOIECextable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"></td>
-                <td id = "ISOIECextable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 9);"></td>
-                <td id = "ISOIECextable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 10);"></td>
-                <td id = "ISOIECextable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 11);"></td>
+                <td id = "ISOIECextable8"><input id = "inputISOIEC-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(8);"></td>
+                <td id = "ISOIECextable9"><input id = "inputISOIEC-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(9);"></td>
+                <td id = "ISOIECextable10"><input id = "inputISOIEC-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(10);"></td>
+                <td id = "ISOIECextable11"><input id = "inputISOIEC-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(11);"></td>
               </tr>
               <tr>
-                <td id = "ISOIECextable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 12);"></td>
-                <td id = "ISOIECextable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 13);"></td>
-                <td id = "ISOIECextable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 14);"></td>
-                <td id = "ISOIECextable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 15);"></td>
+                <td id = "ISOIECextable12"><input id = "inputISOIEC-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(12);"></td>
+                <td id = "ISOIECextable13"><input id = "inputISOIEC-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(13);"></td>
+                <td id = "ISOIECextable14"><input id = "inputISOIEC-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(14);"></td>
+                <td id = "ISOIECextable15"><input id = "inputISOIEC-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(15);"></td>
               </tr>
             </table>
           </p>
@@ -668,6 +671,8 @@
             </table>
             <h3>Beispiel Aufgaben</h3>
             <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht, um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
+            <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF8();">
+            <br>
             <table id = "UTF8examples">
               <tr>
                 <th id = "UTF8extable">Unicode (dezimal)</th>
@@ -675,28 +680,28 @@
                 <th id = "UTF8extable">Unicode (hexadezimal)</th>
                 <th id = "UTF8extable">UTF-8</th>
               </tr>
-                <td id = "UTF8extable0"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"></td>
-                <td id = "UTF8extable1"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"></td>
-                <td id = "UTF8extable2"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 2);"></td>
-                <td id = "UTF8extable3"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 3);"></td>
+                <td id = "UTF8extable0"><input id = "inputUTF8-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(0);"></td>
+                <td id = "UTF8extable1"><input id = "inputUTF8-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(1);"></td>
+                <td id = "UTF8extable2"><input id = "inputUTF8-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(2);"></td>
+                <td id = "UTF8extable3"><input id = "inputUTF8-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(3);"></td>
               </tr>
               <tr>
-                <td id = "UTF8extable4"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 4);"></td>
-                <td id = "UTF8extable5"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 5);"></td>
-                <td id = "UTF8extable6"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 6);"></td>
-                <td id = "UTF8extable7"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 7);"></td>
+                <td id = "UTF8extable4"><input id = "inputUTF8-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(4);"></td>
+                <td id = "UTF8extable5"><input id = "inputUTF8-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(5);"></td>
+                <td id = "UTF8extable6"><input id = "inputUTF8-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(6);"></td>
+                <td id = "UTF8extable7"><input id = "inputUTF8-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(7);"></td>
               </tr>
               <tr>
-                <td id = "UTF8extable8"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 8);"></td>
-                <td id = "UTF8extable9"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 9);"></td>
-                <td id = "UTF8extable10"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 10);"></td>
-                <td id = "UTF8extable11"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 11);"></td>
+                <td id = "UTF8extable8"><input id = "inputUTF8-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(8);"></td>
+                <td id = "UTF8extable9"><input id = "inputUTF8-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(9);"></td>
+                <td id = "UTF8extable10"><input id = "inputUTF8-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(10);"></td>
+                <td id = "UTF8extable11"><input id = "inputUTF8-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(11);"></td>
               </tr>
               <tr>
-                <td id = "UTF8extable12"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 12);"></td>
-                <td id = "UTF8extable13"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 13);"></td>
-                <td id = "UTF8extable14"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 14);"></td>
-                <td id = "UTF8extable15"><input type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"></td>
+                <td id = "UTF8extable12"><input id = "inputUTF8-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(12);"></td>
+                <td id = "UTF8extable13"><input id = "inputUTF8-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(13);"></td>
+                <td id = "UTF8extable14"><input id = "inputUTF8-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(14);"></td>
+                <td id = "UTF8extable15"><input id = "inputUTF8-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(15);"></td>
               </tr>
             </table>
             Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge Kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.

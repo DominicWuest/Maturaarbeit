@@ -1,0 +1,139 @@
+.tableASCII {
+  display: grid;
+  grid-template-columns: 2vw repeat(16, 4vw);
+  grid-template-rows: 3.5vh repeat(8, 8vh);
+  grid-gap: 0.5vh;
+}
+
+.tableISOIEC {
+  display: grid;
+  grid-template-columns: 2vw repeat(16, 4vw);
+  grid-template-rows: 3.5vh repeat(16, 8vh);
+  grid-gap: 0.5vh;
+}
+
+.box {
+  font-size: 2.8vh;
+  color: #000;
+  text-align: center;
+}
+
+.tableISOIEC .box:nth-child(-n + 187) {
+  background-color: #000;
+  color: #FFF;
+}
+
+.box:nth-child(-n + 148), .tableISOIEC .box:nth-child(-n + 148) {
+  background-color: #7A7;
+  color: #000;
+}
+
+.box:nth-child(-n + 121), .tableISOIEC .box:nth-child(-n + 121) {
+  background-color: #A77;
+}
+
+.box:nth-child(-n + 114), .letters, .tableISOIEC .box:nth-child(-n + 114) {
+  background-color: #7A7;
+}
+
+.box:nth-child(-n + 87), .syntax, .tableISOIEC .box:nth-child(-n + 87) {
+  background-color: #A77;
+}
+
+.box:nth-child(-n + 79), .numbers, .tableISOIEC .box:nth-child(-n + 79) {
+  background-color: #CCC;
+}
+
+.box:nth-child(-n + 68), .box:nth-child(n + 149), .tableISOIEC .box:nth-child(-n + 68), .tableISOIEC .box:nth-child(n + 149){
+  background-color: #A77;
+  color: #000;
+}
+
+.box:nth-child(-n + 53), .box:nth-child(153), .commands {
+  background-color: #77A;
+}
+
+.tableISOIEC .box:nth-child(-n + 52), .tableISOIEC .box:nth-child(n + 153){
+  background-color: #000;
+  color: #FFF;
+}
+
+.tableISOIEC .box:nth-child(n + 188) {
+  background-color: #A77;
+  color: #000;
+}
+
+.box:nth-child(17n - 16), .box:nth-child(-n + 17), .tableISOIEC .box:nth-child(17n - 16), .tableISOIEC .box:nth-child(-n + 17) {
+  font-size: 2.8vh;
+  background-color: #000;
+  color: #FFF;
+}
+
+table, th, td {
+  text-align: center;
+  align-content: center;
+  width: 75vw;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-size: 110%;
+}
+
+.indicator {
+  background-color: #33F;
+  color: #FFF;
+}
+
+.counter {
+  background-color: #3F3;
+}
+
+.endicator {
+  background-color: #F33;
+}
+
+#bmpmap, #smpmap, #sipmap, #sspmap {
+  width: 75vw;
+}
+
+#inputUTF8-3, #inputUTF8-7, #inputUTF8-11, #inputUTF8-15 {
+  width: 18vw;
+}
+
+@media only screen and (max-aspect-ratio : 13 / 9) {
+
+  .box {
+    font-size: 0.5vw;
+    background-color: #F00;
+  }
+
+  .box:nth-child(-n + 17), .tableISOIEC .box:nth-child(-n + 17) {
+    font-size: 0.9vw;
+  }
+
+  .box:nth-child(n + 54) {
+    font-size: 1vw;
+  }
+
+  .box:nth-child(17n + 1), .tableISOIEC .box:nth-child(17n + 1) {
+    font-size: 0.9vw;
+  }
+
+  .box:nth-child(153) {
+    font-size: 0.5vw;
+  }
+
+  .tableASCII {
+    display: grid;
+    grid-template-columns: 2vw repeat(16, 3vw);
+    grid-template-rows: 2vh repeat(8, 4vh);
+    grid-gap: 0.5vh;
+  }
+
+  .tableISOIEC {
+    display: grid;
+    grid-template-columns: 2vw repeat(16, 3vw);
+    grid-template-rows: 2vh repeat(16, 4vh);
+    grid-gap: 0.5vh;
+  }
+
+}

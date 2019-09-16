@@ -76,6 +76,7 @@
             In diesem Beispiel schauen wir uns an, wie viele Bit nötig sind, um das Wort 'Alleinsein' optimal binär zu kodieren. Dabei nehmen wir an, dass die einzelnen Zeichen (Buchstaben) statistisch unabhängig voneinander sind, dass man also nicht sagen kann, dass es unwahrscheinlich ist, dass nach einem Vokal nochmal ein Vokal folgt.
             <br>
             Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach durch die Anzahl Vorkommnisse durch die Gesamtanzahl der Zeichen ausgerechnet werden kann.
+            <br>
             <figure class = "equation">
               p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
               p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
@@ -200,24 +201,24 @@
           <h3>Beispielcode in Python</h3>
           <p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
           <code class = "code python"># Nötiger Import
-  import math
-  # Gibt die Entropie einer Information I (String) über einem Alphabet A (Liste) aus
-  def entropy(I, A):
-    # Die Entropie wird direkt als Fliesskommazahl definiert
-    entropy = 0.0
-    info = 0
-    # Jedes Element des Alphabets trägt zur Entropie bei
-    for i in range(len(A)):
-      # Zählt wie viel ein Zeichen im String vorkommt
-      counter = float(I.count(I[i]))
-      # Definiert die Wahrscheinlichkeit eines Zeichens
-      p = counter / len(A)
-      # Definiert den Informationsgehalt des Zeichens zum Logarithmus der Basis 2, sofern die Wahrscheinlichkeit &lt; 0
-      if p &gt; 0:
-        info = - math.log(p) / math.log(2)
-        # Addiert den Teil zur Gesamtentropie
-        entropy += p * info
-    return entropy
+import math
+# Gibt die Entropie einer Information I (String) über einem Alphabet A (Liste) aus
+def entropy(I, A):
+  # Die Entropie wird direkt als Fliesskommazahl definiert
+  entropy = 0.0
+  info = 0
+  # Jedes Element des Alphabets trägt zur Entropie bei
+  for i in range(len(A)):
+    # Zählt wie viel ein Zeichen im String vorkommt
+    counter = float(I.count(I[i]))
+    # Definiert die Wahrscheinlichkeit eines Zeichens
+    p = counter / len(A)
+    # Definiert den Informationsgehalt des Zeichens zum Logarithmus der Basis 2, sofern die Wahrscheinlichkeit &lt; 0
+    if p &gt; 0:
+      info = - math.log(p) / math.log(2)
+      # Addiert den Teil zur Gesamtentropie
+      entropy += p * info
+  return entropy
           </code>
         </div>
         <div id = "entropymax">
@@ -315,6 +316,7 @@
       </div>
       <div id = "algorithms">
         <h2>Algorithmen für die Entropiekodierung</h2>
+        <h3><a href = "entropy/utf">UTF</a></h3>
         <h3><a href = "entropy/huffman">Huffman-Kodierung</a></h3>
         <h3><a href = "entropy/arithmetic">Arithmetische Kodierung</a></h3>
       </div>

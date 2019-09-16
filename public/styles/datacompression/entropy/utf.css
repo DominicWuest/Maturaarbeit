@@ -91,6 +91,14 @@ table, th, td {
   background-color: #F33;
 }
 
+#bmpmap, #smpmap, #sipmap, #sspmap {
+  width: 75vw;
+}
+
+#inputUTF8-3, #inputUTF8-7, #inputUTF8-11, #inputUTF8-15 {
+  width: 18vw;
+}
+
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
   .box {

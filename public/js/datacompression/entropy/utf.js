@@ -275,7 +275,7 @@ function checkUTF8(message, index) {
 // Check whether the given input matches the solution for the UTF16 exercise
 function checkUTF16(message, index) {
   // If the input matches the solution display a green background
-  if (message === inputsUTF16[randNumListUTF8[Math.floor(index * 0.25)]][index % 4]) {
+  if (message === inputsUTF16[randNumListUTF16[Math.floor(index * 0.25)]][index % 4]) {
     document.getElementById('UTF16extable' + index).style.backgroundColor = "green";
   }
   // If the input is wrong display a red background

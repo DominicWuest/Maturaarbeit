@@ -16,7 +16,7 @@
     </script>
     <title>HTML</title>
   </head>
-  <body onload="loaded(); setTextareaDimensions(); displayExercise(0);" onresize="setTextareaDimensions();">
+  <body onload="loaded(); setTextareaDimensions(); displayExercise(0); addHighlighting(); document.getElementById('textarea').oninput();" onresize="setTextareaDimensions();">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class="exercise">
@@ -32,9 +32,13 @@
       <div class="inputContainer">
         <h1 class="sectionTitle">Code</h1>
         <form class="input">
-          <textarea id="textarea" oninput="document.getElementById('code').textContent = this.value; addHighlighting();" spellcheck="false" ></textarea>
-          <code id="code" class="textareaContainer html">
-          </code>
+          <div class="userInput">
+            <ol id="lineNumbers"></ol>
+            <div class="inputDiv">
+              <textarea id="textarea" oninput="document.getElementById('code').textContent = this.value + '&#8203;'; addHighlighting();" spellcheck="false" ></textarea>
+              <code id="code" class="textareaContainer html"></code>
+            </div>
+          </div>
           <div class="buttons">
             <button type="button" name="run" onclick="runit();">Run</button><!-- Comment to prevent Whitespace
             --><div class="solutionButtonDiv"><button type="button" name="solution" onclick="showSolution();">Lösung</button></div><!-- Comment to prevent Whitespace

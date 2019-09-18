@@ -2,6 +2,8 @@
 let courseIndex;
 // A boolean indicating whether all subexercises of the current exercise have been completed
 let exerciseFinished;
+// The amount of line numbers to add
+let maxLineNumbers = 999;
 
 // Parses the cookie of the exercise index, so that the user always sees the exercise he was last on
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndexHTML=')).length) {
@@ -62,20 +64,21 @@ function displayExercise() {
   // Set the description of the exercise
   let textDiv = document.getElementById('exerciseText');
   textDiv.innerHTML = htmlCourses['exercises'][courseIndex]['description'];
-  // Display all the subexercises
-  for (subexercise of htmlCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
-  // Highlight the starting subexercise
-  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
     document.getElementsByName('solution')[0].style.visibility = 'hidden';
+    return;
   }
   // Show the solution button if the exercise is not free coding
   else {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'visible';
     document.getElementsByName('solution')[0].style.visibility = 'visible';
   }
+  // Display all the subexercises
+  for (subexercise of htmlCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
+  // Highlight the starting subexercise
+  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Make the new dropdown menu for all exercises
   makeDropdown();
   resetSubexercise();
@@ -91,6 +94,9 @@ function showSolution() {
 }
 
 function loaded() {
+  let lineNumbers = document.getElementById('lineNumbers');
+  // Add all line numbers
+  for (let i = 0; i < maxLineNumbers; i++) lineNumbers.appendChild(document.createElement('LI'));
   // Add event listener for tabs and the enter key
   document.getElementById('textarea').addEventListener('keydown', function(event) {
     let caretPosition = event.target.selectionEnd;
@@ -102,6 +108,8 @@ function loaded() {
       let cursorIndex = textArea.selectionStart - 1;
       // The current code
       let code = textArea.value;
+      // Add a tab before the next line if the character before the cursor is a greater than sign
+      let greaterThan = code.charAt(cursorIndex) === '>';
       // Split the code on newline characters to create an array containing all the lines of code
       let codeArray = textArea.value.split('\n');
       // The index of the cursor in the array
@@ -119,7 +127,7 @@ function loaded() {
         length = newLength;
       }
       // Set the right amount of tabs at the beginning of the line
-      let newLine = '\t'.repeat(codeArray[index].match(/(\t*)?/)[0].length) + codeArray[index].substring(length);
+      let newLine = '\t'.repeat(codeArray[index].match(/(\t*)?/)[0].length + (greaterThan ? 1 : 0)) + codeArray[index].substring(length);
       // Include the new line in the code
       codeArray[index] = codeArray[index].substring(0, length);
       codeArray.splice(index + 1, 0, newLine);

@@ -220,7 +220,7 @@
     }, {
       "index" : 4,
       "title" : "While-Schleifen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht beispielsweise folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schleife folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schleife folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
             "index" : 0,
             "description" : "Modifiziere die Schleife so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
@@ -235,7 +235,7 @@
             "output" : "*\n**\n***\n****"
           }, {
             "index" : 2,
-            "description" : "Erstelle nun selbst eine While-Schleife, die die Zahlen von 3 bis und mit 9 und je einer Zeile ausgibt.",
+            "description" : "Erstelle nun selbst eine While-Schleife, welche die Zahlen von 3 bis und mit 9 und je einer Zeile ausgibt.",
             "startingCode" : "",
             "solution" : "x = 3\nwhile x < 10:\n\tprint(x)\n\tx += 1",
             "output" : "3\n4\n5\n6\n7\n8\n9"
@@ -273,7 +273,7 @@
       }, {
       "index" : 5,
       "title" : "Listen",
-      "description" : "Dieses Kapitel befasst sich mit Listen. Eine Liste ist eine Sammlung von Elementen, die geordnet sind. Zu jedem Element ist ein Index zugeordnet, der bei 0 startet und in einer Schritten hoch zählt. Für die Listen gibt es verschiedene Operationen, die Sie in diesem Kapitel kennenlernen werden. Eine Liste wird mit eckigen Klammern gekennzeichnet und die Elemente werden mit Kommata getrennt: <code class=\"python\">a = ['Element 1', 'Element 2']</code>Ein Element aus einer Liste kann herausgegeben werden, indem die Liste und das der Index des Elementes in eckigen Klammern geschrieben wird: <code class=\"python\">a[0]</code>",
+      "description" : "Dieses Kapitel befasst sich mit Listen. Eine Liste ist eine Sammlung von geordneten Elementen. Jedem Element ist ein Index zugeordnet, der bei 0 startet und in Einerschritten hoch zählt. Für die Listen gibt es verschiedene Operationen, die Sie in diesem Kapitel kennenlernen werden. Eine Liste wird mit eckigen Klammern gekennzeichnet und die Elemente werden mit Kommata getrennt: <code class=\"python\">a = ['Element 1', 'Element 2']</code>Ein Element aus einer Liste kann herausgegeben werden, indem die Liste und der Index des Elementes in eckigen Klammern geschrieben wird: <code class=\"python\">a[0]</code>",
       "subexercises" : [{
             "index" : 0,
             "description" : "Schreibe ein Programm, dass eine Liste mit der Zahlen 1 bis und mit 10 erstellt und diese Ausgibt.",
@@ -667,7 +667,7 @@
             "output" : "Eine For-Schleife ist schneller als eine While-Schleife"
           }, {
             "index" : 6,
-            "description" : "Mit dem Modul random können zufällig Zahlen in einer vorgegebenen Reichweite generiert werden. Dabei gibt es verschiedene Funktionen, die im Beispielcode gezeigt und im Kommentar dazu beschrieben werden.<code class=\"python\"># Das Random-Modul wird importiert\nfrom random import *\n# Generiert eine zufällige ganze Zahl zwischen 4 und (ohne) 9\nrandint(4, 9)\n# Generiert eine zufällige Fliesskommazahl zwischen 3 und (ohne) 7\nuniform(3, 7)\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n# Durchmischt die Liste x\nshuffle(x)\n# Nimmt ein zufälliges Element aus der Liste\nchoice([1, 5, 2, 7, 36, 7, 26, 2])</code>Schreibe ein Programm, welches eine Lottoziehung ausführen kann. Dabei werden zufällig sechs verschiedene Zahlen aus den ersten 42 natürlichen Zahlen gezogen. Zusätzlich wird noch die Glückszahl zufällig aus den ersten sechs natürlichen Zahlen gezogen. Das Programm soll eine Liste mit den gezogenen Zahlen in aufsteigender Reihenfolge und die Glückszahl ausgeben. Falls es funktioniert gib lediglich den String 'Abgeschlossen' aus.",
+            "description" : "Mit dem Modul random können zufällig Zahlen in einer vorgegebenen Reichweite generiert werden. Dabei gibt es verschiedene Funktionen, die im Beispielcode gezeigt und im Kommentar dazu beschrieben werden.<code class=\"python\"># Das Random-Modul wird importiert\nfrom random import *\n# Generiert eine zufällige ganze Zahl\n# zwischen 4 und (ohne) 9\nrandint(4, 9)\n# Generiert eine zufällige Fliess-\n# kommazahl zwischen 3 und (ohne) 7\nuniform(3, 7)\nx = [1, 2, 3, 4, 5, 6, 7, 8, 9]\n# Durchmischt die Liste x\nshuffle(x)\n# Nimmt ein zufälliges Element aus\n# der Liste\nchoice([1, 5, 2, 7, 36, 7, 26, 2])</code>Schreibe ein Programm, welches eine Lottoziehung ausführen kann. Dabei werden zufällig sechs verschiedene Zahlen aus den ersten 42 natürlichen Zahlen gezogen. Zusätzlich wird noch die Glückszahl zufällig aus den ersten sechs natürlichen Zahlen gezogen. Das Programm soll eine Liste mit den gezogenen Zahlen in aufsteigender Reihenfolge und die Glückszahl ausgeben. Falls es funktioniert gib lediglich den String 'Abgeschlossen' aus.",
             "startingCode" : "",
             "solution" : "from random import *\nnumbers = range(43)\nluckyNumbers = range(7)\n# Es wird sechs mal eine Zahl aus der Liste numbers gezogen\nresult = []\nfor i in range(6):\n\t# Die gezogene Nummer wird abgespeichert unter temp\n\ttemp = choice(numbers)\n\t# Die gezogenen Nummer wird aus der Nummernliste entfernt\n\tnumbers.remove(temp)\n\tresult.append(temp)\n# Die Glückszahl wird aus luckyNumbers gezogen\nluckyNumber = choice(luckyNumbers)\n# print(str(result) + ' ' + str(luckyNumber))\nprint('Abgeschlossen')",
             "output" : "Abgeschlossen"
@@ -677,6 +677,12 @@
             "startingCode" : "print('1000 ** 2 ist schneller')\nprint('1000 * 1000 ist schneller')\nprint('Beide sind etwa gleich schnell')",
             "solution" : "from time import *\nt_0 = time()\nfor i in range(1000000):\n\t1000 * 1000\nt_multiply = time() - t_0\nt_0 = time()\nfor i in range(1000000):\n\t1000 ** 2\nt_power = time() - t_0\nif t_power < 0.99 * t_multiply:\n\tprint('1000 ** 2 ist schneller')\nelif t_multiply < 0.99 * t_power:\n\tprint('1000 * 1000 ist schneller')\nelse:\n\tprint('Beide sind etwa gleich schnell')",
             "output" : "1000 * 1000 ist schneller"
+          }, {
+            "index" : 8,
+            "description" : "Im Kapitel der Listen haben wir zwei Methoden kennen gelernt um zwei Listen zusammenzufügen. Die eine Methode war x = x + y und die andere x.extend(y). Teste mit dem Modul time, welche der beiden Operationen schneller ist. Nimm für gleich schnell einen Unterschied von bis zu einem Prozent der Durchlaufzeit. Gib den Output im vorgegebenen Format aus.",
+            "startingCode" : "print('Mit + geht es schneller als mit extend')\nprint('Es sind beide Operationen etwa gleich schnell')\nprint('Mit extend geht es schneller als mit +')",
+            "solution" : "from time import *\nz = [15, 247, 1, 34, 25]\ny = [15, 247, 1, 34, 25]\nt0 = time()\nfor i in range(5000):\n\tz = z + y\nt_add = time() - t0\nz = [15, 247, 1, 34, 25]\nt0 = time()\nfor i in range(5000):\n\tz.extend(y)\nt_extend = time() - t0\nif t_add < 0.99 * t_extend:\n\tprint('Mit + geht es schneller als mit extend')\nelif t_add > 0.99 * t_extend and t_extend > 0.99 * t_add:\n\tprint('Es sind beide Operationen etwa gleich schnell')\nelse:\n\tprint('Mit extend geht es schneller als mit +')",
+            "output" : "Mit extend geht es schneller als mit +"
           }]
       }, {
       "index" : 11,

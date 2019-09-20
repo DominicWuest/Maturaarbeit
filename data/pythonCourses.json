@@ -463,7 +463,7 @@
             "index" : 7,
             "description" : "Um zu testen, ob eine Zahl a durch eine Zahl b teilbar ist können wir aber auch einen Operator benutzen. Dieser Operator wird mit dem Prozentzeichen geschrieben und nennt sich Modulo-Operator. Die Operation a % b gibt dabei den Rest auch, den wir bei einer Teilung von a durch in den ganzen Zahlen erhalten. Schreibe ein Programm, das für jedes Element der vorgegebenen Liste q testet, ob das Element durch seinen Index + 1 teilbar ist und ersetze es durch den String 'nicht teilbar', falls dies nicht zutrifft.",
             "startingCode" : "q = [26, 36, 135, 17, 257, 354, 42]",
-            "solution" : "q = [26, 36, 135, 17, 257, 354, 42]\nfor i in q:\n\tif i % (q.index(i) + 1) != 0:\n\t\tq[index(i)] = 'nicht teilbar'\nprint(q)",
+            "solution" : "q = [26, 36, 135, 17, 257, 354, 42]\nfor i in q:\n\tif i % (q.index(i) + 1) != 0:\n\t\tq[q.index(i)] = 'nicht teilbar'\nprint(q)",
             "output" : "[26, 36, 135, 'nicht teilbar', 'nicht teilbar', 354, 42]"
           }]
       }, {
@@ -574,8 +574,8 @@
           }, {
             "index" : 9,
             "description" : "Das Gegenstück zum ggT ist das kgV, das kleinste gemeinsame Vielfache zweier Zahlen. Dieses kann auch mithilfe der Primfaktoren bestimmt werden. Dabei müssen alle Primfaktoren von der ersten Zahl mit allen Primfaktoren der zweiten Zahl, ausgenommen der Primfaktoren, die bereits in der ersten Zahl vorgekommen sind multipliziert werden um das kgV zu erhalten. Definiere eine Funktion, die das kgV zweier Zahlen berechnet und gib damit das kgV von 108 und 261 aus.",
-            "startingCode" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
-            "solution" : "a = 108\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef kgV(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Die beiden Listen werden aneinandergehängt\n\tfactors_both = factors_a + factors_b\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.remove(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tkgV = 1\n\tfor i in range(len(factors_both)):\n\t\tkgV *= factors_both[i]\n\treturn kgV\n\nprint(kgV(142, 261))",
+            "startingCode" : "a = 116\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
+            "solution" : "a = 116\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef kgV(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Die beiden Listen werden aneinandergehängt\n\tfactors_both = factors_a + factors_b\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.remove(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tkgV = 1\n\tfor i in range(len(factors_both)):\n\t\tkgV *= factors_both[i]\n\treturn kgV\n\nprint(kgV(116, 261))",
             "output" : "1044"
           }, {
             "index" : 10,
@@ -623,7 +623,7 @@
             "description" : "Im leztzen Kapitel haben wir angeschaut, wie der grösste gemeinsame Teiler, der ggT zweier Zahlen mit einer iterativen Funktion berechnet werden kann. Schreibe nun eine rekursive Funktion und berechne damit den grössten gemeinsamen Teiler der Zahlen 2590 und 25025 und gib ihn aus. Tipp: Benutze dafür den Modulo-Operator (%), der den Rest einer Teilung zweier Zahlen in den ganzen Zahlen ausgibt.",
             "startingCode" : "a = 2590\nb = 25025",
             "solution" : "a = 2590\nb = 25025\n# Gibt den ggT der Integer a und b aus\ndef ggT(a, b):\n\t# Abbruchbedingung, wenn a durch b Teilbar ist, also die beiden\n\t# Zahlen auf den gleichen Wert gebracht wurden\n\tif b == 0:\n\t\t# Der ggT wird ausgegeben\n\t\tprint(a)\n\t\treturn a\n\t# Die Funktion wird erneut aufgerufen\n\tggT(b, a % b)\nggT(a, b)",
-            "output" : "34"
+            "output" : "35"
           }]
       }, {
       "index" : 10,

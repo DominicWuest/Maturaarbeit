@@ -234,4 +234,7 @@ function purify(html) {
 // Sets the dimensions of the textarea to the dimensions of the code div, so that they mach up
 function setTextareaDimensions() {
   document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
+  document.getElementById('code').style.width = document.getElementById('code').offsetWidth + 'px';
+  document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
+  document.getElementById('code').style.height = document.getElementById('code').offsetHeight + 'px';
 }

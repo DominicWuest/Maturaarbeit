@@ -2,7 +2,6 @@ html, body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  overflow-y: hidden;
 }
 
 body {
@@ -12,11 +11,10 @@ body {
 
 main {
 	display: grid;
-	margin: 0.5vh;
+	margin: 1vh;
   	grid-template-columns: repeat(2, 48.5%);
 	grid-template-rows: 10vh 66vh 14vh;
   	justify-content: center;
-	height: 85vh;
 }
 
 form {
@@ -170,7 +168,7 @@ input#submit {
 	}
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-aspect-ratio: 11/16) {
 	main {
 		grid-template-columns: repeat(1,97%);
 		grid-template-rows: 10vh 70vh 70vh 5vh;

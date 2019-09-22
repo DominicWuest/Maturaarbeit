@@ -5,39 +5,37 @@
         <title>Prozessor</title>
         <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
         <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/course.css">
+        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
         <meta charset="utf-8"/>
 </head>
 <body>
         <%- include(partialsPath + 'header.ejs') %>
         <main>
-                  <div class="title">
-                          <h1>CPU | Prozessor</h1>
-                  </div>
-                  <div class="shortlink">
-                          <h2>Shortlinks</h2>
-                          <ul>
-                                  <li><a href="#aufgabe">Aufgabe</a></li>
-                                  <li><a href="#funktion">Funktion</a></li>
-                                  <li><a href="#aufbau">Aufbau</a></li>
-                          </ul>
-                  </div>
-                <div class="text">
-                  <div id="aufgabe">
-                          <h2>Aufgabe</h2>
-                          <p>Der Prozessor ist hauptsächlich dafür da, Informationen vom Computer zu erhalten, diese dann umzurechnen und damit Befehle an die anderen Komponenten weiterzugeben.</p>
-                  </div>
-                  <div id="funktion">
-                          <h2>Funktion</h2>
-                          <p>I'm Prozessor hat es ein Rechenwerk und ein Steuerwerk. Das Rechenwerk berechnet Rechnungen im Binärsystem, also mit 0 und 1. Es können alle möglichen Operationen (Addition, Multiplikation, etc.) ausgeführt werden. Das Steuerwerk im CPU kann mit einem Decoder Befehle ins Binärsystem und umgekehrt umwandeln. Im Zusammenspielen erhält also das Steuerwerk Befehle vom Computer. Diese Befehle werden ins Binärsystem umgewandelt und vom Rechenwerk berechnet. Die Berechnungen werden im Steuerwerk wieder zu Befehlen umgewandelt und an die verschiedenen Komponenten weitergegeben.</p>
-  <p>Die Leistungsfähigkeit des Prozessor wird in Hertz (Hz) angegeben. 1 Hz bedeutet dass der Prozessor eine Rechenoperation in der Sekunde durchführen kann. Inzwischen sind Prozessoren mit mehreren Gigahertz (1 Mia. Hz) Standart. Prozessoren können unterschiedlich viele Codes haben. Je mehr Codes sie haben, desto schneller sind sie, weil in jedem Core gleichzeitig verschiedene Berechnungen durchgeführt werden können. Die handelsüblichen Prozessoren haben zwischen einem und vier Cores.</p>
-                  </div>
-                  <div id="aufbau">
-                          <h2>Aufbau</h2>
-                          <p>Der Prozessor ist ein kleines programmierbare Rechenwerk, welche über Befehle andere Maschinen und Schaltungen steuert. Er wird auf dem vorgegebenen Sockel auf dem Motherboard installiert. Auf den Prozessor kommt meistens ein Lüfter, welcher für die Warme Luft aus dem Computer bläst und gleichzeitig den Prozessor kühlt. Diesen benötigt es, weil sich der Prozessor durch aufwendige Rechnungen stark erhitzt und würde sich somit abschalten.</p>
-                  </div>
+                <div class="title">
+                        <h1>CPU | Prozessor</h1>
+                </div>
+                <div class="shortlink">
+                        <h2>Shortlinks</h2>
+                        <ul>
+                                <li><a href="#aufgabe">Aufgabe</a></li>
+                                <li><a href="#funktion">Funktion</a></li>
+                                <li><a href="#aufbau">Aufbau</a></li>
+                        </ul>
+                </div>
+                <div id="aufgabe">
+                        <h2>Aufgabe</h2>
+                        <p>Der Prozessor ist hauptsächlich dafür da, Informationen vom Computer zu erhalten, diese dann umzurechnen und damit Befehle an die anderen Komponenten weiterzugeben.</p>
+                </div>
+                <div id="funktion">
+                        <h2>Funktion</h2>
+                        <p>Im Prozessor hat es ein Rechenwerk und ein Steuerwerk. Das Rechenwerk berechnet Rechnungen im Binärsystem, also mit 0 und 1. Es können alle möglichen Operationen (Addition, Multiplikation, etc.) ausgeführt werden. Das Steuerwerk im CPU kann mit einem Decoder Befehle ins Binärsystem und umgekehrt umwandeln. Im Zusammenspielen erhält also das Steuerwerk Befehle vom Computer. Diese Befehle werden ins Binärsystem umgewandelt und vom Rechenwerk berechnet. Die Berechnungen werden im Steuerwerk wieder zu Befehlen umgewandelt und an die verschiedenen Komponenten weitergegeben. </p>
+                        <p>Die Leistungsfähigkeit des Prozessors wird in Hertz (Hz) angegeben. 1 Hz bedeutet, dass der Prozessor eine Rechenoperation in der Sekunde durchführen kann. Inzwischen sind Prozessoren mit mehreren Gigahertz (1 Mia. Hz) Standard. Prozessoren können unterschiedlich viele Codes haben. Je mehr Codes sie haben, desto schneller sind sie, weil in jedem Core gleichzeitig verschiedene Berechnungen durchgeführt werden können. Die handelsüblichen Prozessoren haben zwischen einem und vier Cores.
+</p>
+                </div>
+                <div id="aufbau">
+                        <h2>Aufbau</h2>
+                        <p>Der Prozessor ist ein kleines programmierbare Rechenwerk, welche über Befehle andere Maschinen und Schaltungen steuert. Er wird auf dem vorgegebenen Sockel auf dem Motherboard installiert. Auf den Prozessor kommt meistens ein Lüfter, welcher für die warme Luft aus dem Computer bläst und gleichzeitig den Prozessor kühlt. Diesen benötigt es, weil sich der Prozessor durch aufwendige Rechnungen stark erhitzt und würde sich somit abschalten.</p>
                 </div>
         </main>
-	<%- include(partialsPath + 'footer1.ejs') %>
 </body>
 </html>

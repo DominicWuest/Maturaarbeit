@@ -1,7 +1,6 @@
 html {
 	height: 100vh;
 	scrollbar-base-color: green;
-	overflow-y: hidden;
 }
 
 body {
@@ -15,7 +14,7 @@ main {
 	margin: 0 auto;
 	width: 80%;
 	overflow: auto;
-	height: 86vh;
+	height: 92vh;
 	padding-right: 25px;
 }
 
@@ -75,7 +74,7 @@ p {
 
 .pictures {
 	width: auto;
-	height: 230px;
+	height: 280px;
 	margin: 0;
 	border-top-left-radius: 0;
 	border-top-right-radius: 0;
@@ -84,4 +83,16 @@ p {
 img {
 	max-width: 100%;
 	height: auto;
+}
+
+.license {
+	font-size: 0.9em;
+	opacity: 0;
+	padding: 0;
+	margin: 0;
+	transition: 1s ease all;
+}
+
+.pictures:hover .license {
+	opacity: 1;
 }

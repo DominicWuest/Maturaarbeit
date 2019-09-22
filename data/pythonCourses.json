@@ -220,7 +220,7 @@
     }, {
       "index" : 4,
       "title" : "While-Schleifen",
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schleife folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
+      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Schlagwort while, dass eine While-Schleife folgt. Nach dem Schlagwort steht die sogenannte Bedingung. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Bedingung nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
       "subexercises" : [{
             "index" : 0,
             "description" : "Modifiziere die Schleife so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",

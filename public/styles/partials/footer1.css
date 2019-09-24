@@ -1,5 +1,8 @@
 footer {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100%;
+  grid-column-gap: 30px;
   box-sizing: border-box;
   height: 50px;
   width: 100%;
@@ -11,11 +14,25 @@ footer {
   bottom: 0;
 }
 
+footer p {
+  font-family: sans-serif;
+  color: white;
+}
+
+.icons {
+  overflow: visible;
+  white-space: nowrap;
+}
+
+.icons a {
+  color: white;
+}
+
 #copyright {
   float: left;
   color: white;
   display: inline-block;
-  margin-top: -1vh;
+  white-space: nowrap;
 }
 
 #about {
@@ -31,6 +48,14 @@ footer {
 
   #about {
     display: none;
+  }
+
+  .icons {
+    display: none;
+  }
+
+  footer {
+    grid-template-columns: 100%;
   }
 
   #copyright {

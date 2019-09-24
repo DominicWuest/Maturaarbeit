@@ -8,6 +8,8 @@ let running = false;
 let finished = false;
 // A boolean indicating whether all subexercises of the current exercise have been completed
 let exerciseFinished;
+// The amount of line numbers to add
+let maxLineNumbers = 999;
 
 // Parses the cookie of the exercise index, so that the user always sees the exercise he was last on
 if (document.cookie.split(';').filter((item) => item.trim().startsWith('courseIndexPython=')).length) {
@@ -99,20 +101,21 @@ function displayExercise() {
   // Set the description of the exercise
   let textDiv = document.getElementById('exerciseText');
   textDiv.innerHTML = pythonCourses['exercises'][courseIndex]['description'];
-  // Display all the subexercises
-  for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
-  // Highlight the starting subexercise
-  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Hide the solution button if the exercise is free coding
   if (courseIndex === 0) {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'hidden';
     document.getElementsByName('solution')[0].style.visibility = 'hidden';
+    return;
   }
   // Show the solution button if the exercise is not free coding
   else {
     document.getElementsByClassName('solutionButtonDiv')[0].style.visibility = 'visible';
     document.getElementsByName('solution')[0].style.visibility = 'visible';
   }
+  // Display all the subexercises
+  for (subexercise of pythonCourses['exercises'][courseIndex]['subexercises']) textDiv.innerHTML += '<p class="subexercise" id="subExercise' + subexercise["index"] + '">' + subexercise['description'] + '</p>';
+  // Highlight the starting subexercise
+  document.getElementById('subExercise' + subexerciseIndex).classList.add('workingSubexercise');
   // Make the new dropdown menu for all exercises
   makeDropdown();
   resetSubexercise();
@@ -127,6 +130,9 @@ function showSolution() {
 }
 
 function loaded() {
+  let lineNumbers = document.getElementById('lineNumbers');
+  // Add all line numbers
+  for (let i = 0; i < maxLineNumbers; i++) lineNumbers.appendChild(document.createElement('LI'));
   // Add event listener for tabs and the enter key
   document.getElementById('textarea').addEventListener('keydown', function(event) {
     let caretPosition = event.target.selectionEnd;
@@ -189,12 +195,14 @@ function loaded() {
       document.getElementById('textarea').focus();
     }
   });
-  // Eventlistener for the textarea so that the code div lines up with the textarea
+  // Eventlistener for the textarea so that the code div and line numbers line up with the textarea
   document.getElementById('textarea').addEventListener('scroll', function(event) {
-    let element = document.getElementById('code');
     // Set the scroll position of the code div to the scroll position of the textarea
+    let element = document.getElementById('code');
     element.scrollLeft = event["target"]["scrollLeft"];
     element.scrollTop = event["target"]["scrollTop"];
+    // Set the vertical offset of the line numbers to the textareas offset
+    lineNumbers.scrollTop = event["target"]["scrollTop"];
   });
   makeDropdown();
   addHighlighting();
@@ -228,4 +236,7 @@ function makeDropdown() {
 // Sets the dimensions of the textarea to the dimensions of the code div, so that they mach up
 function setTextareaDimensions() {
   document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
+  document.getElementById('code').style.width = document.getElementById('code').offsetWidth + 'px';
+  document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
+  document.getElementById('code').style.height = (document.getElementById('code').offsetHeight - 6) + 'px';
 }

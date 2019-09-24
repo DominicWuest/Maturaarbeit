@@ -14,7 +14,7 @@ main {
 	display: grid;
 	margin: 0.5vh;
   	grid-template-columns: repeat(2, 48.5%);
-	grid-template-rows: 10vh 66vh 14vh;
+	grid-template-rows: 1fr 6fr;
   	justify-content: center;
 	height: 85vh;
 }
@@ -44,7 +44,7 @@ h1 {
 }
 
 label {
-	margin: 5% 0 0 0;
+	margin: 15px 0 0 0;
 	display: block;
   	cursor: pointer;
     color: #3a3a3a;
@@ -142,6 +142,24 @@ input#submit {
 	width: auto;
 	height: 23vh;
     border: 1px solid black;
+}
+
+#checkboxDiv {
+  padding-left: 10px;
+  padding-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 15fr;
+  grid-template-rows: 100%;
+  transition: color 0.2s;
+}
+
+#checkboxDiv p {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+#checkboxDiv input {
+  padding: 0 10px;
 }
 
 @media only screen and (max-width: 1350px) {

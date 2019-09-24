@@ -220,11 +220,7 @@
     }, {
       "index" : 4,
       "title" : "While-Schleifen",
-<<<<<<< HEAD
-      "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Keyword while, dass eine While-Schleife folgt. Nach dem Keyword steht die sogenannte Condition. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Condition nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
-=======
       "description" : "Dieses Kapitel befasst sich mit den sogenannten While-Schleifen. Eine While-Schleife in Python sieht folgendermassen aus: <code class=\"python\">while x < 2:\n\tx += 1</code>Hierbei deklariert das Schlüsselwort while, dass eine While-Schleife folgt. Nach dem Schlüsselwort steht die sogenannte Bedingung. Sie wird vor jeder Durchführung des Code-Blocks geprüft. Falls diese Bedingung nicht (mehr) zutrifft, wird die Schleife abgebrochen. Ansonsten wird der folgende Codeblock ausgeführt.",
->>>>>>> 89f14a6e3dbe90173e896aa17c8692bb1895d0fb
       "subexercises" : [{
             "index" : 0,
             "description" : "Modifiziere die Schleife so, dass alle ganzen Zahlen von 0 bis und mit 4 ausgegeben werden.",
@@ -577,11 +573,7 @@
             "output" : "80"
           }, {
             "index" : 9,
-<<<<<<< HEAD
-            "description" : "Das Gegenstück zum ggT ist das kgV, das kleinste gemeinsame Vielfache zweier Zahlen. Dieses kann auch mithilfe der Primfaktoren bestimmt werden. Dabei müssen alle Primfaktoren von der ersten Zahl mit allen Primfaktoren der zweiten Zahl, ausgenommen der Primfaktoren, die bereits in der ersten Zahl vorgekommen sind multipliziert werden um das kgV zu erhalten. Definiere eine Funktion, die das kgV zweier Zahlen berechnet und gib damit das kgV von 108 und 261 aus.",
-=======
             "description" : "Das Gegenstück zum ggT ist das kgV, das kleinste gemeinsame Vielfache zweier Zahlen. Dieses kann auch mithilfe der Primfaktoren bestimmt werden. Um das kgV zu erhalten müssen alle Primfaktoren der ersten Zahl mit allen Primfaktoren der zweiten Zahl, ausgenommen der Primfaktoren, die bereits in der ersten Zahl vorgekommen sind multipliziert werden. Definiere eine Funktion, die das kgV zweier Zahlen berechnet und gib damit das kgV von 108 und 261 aus.",
->>>>>>> 89f14a6e3dbe90173e896aa17c8692bb1895d0fb
             "startingCode" : "a = 116\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p",
             "solution" : "a = 116\nb = 261\ndef primefactors(n):\n\tp = []\n\tq = n\n\tx = True\n\twhile x:\n\t\tfor i in range(2, n + 1, 1):\n\t\t\tif q % i == 0:\n\t\t\t\tp.append(i)\n\t\t\t\tq = q / i\n\t\t\t\tbreak\n\t\t# Abbruchbedingung fuer die While-Schleife\n\t\ta = 1\n\t\tfor i in range(len(p)):\n\t\t\ta *= p[i]\n\t\tif a == n:\n\t\t\tx = False\n\t\t\treturn p\n\ndef kgV(a, b):\n\tfactors_a = primefactors(a)\n\tfactors_b = primefactors(b)\n\t# Die beiden Listen werden aneinandergehängt\n\tfactors_both = factors_a + factors_b\n\tfor i in range(len(factors_a)):\n\t\tfor j in range(len(factors_b)):\n\t\t\tif factors_a[i] == factors_b[j]:\n\t\t\t\tfactors_both.remove(factors_a[i])\n\t\t\t\t# Das gebrauchte Element wird ersetzt,\n\t\t\t\t# damit es nur einmal gebraucht wird\n\t\t\t\tfactors_a[i] = 0\n\tkgV = 1\n\tfor i in range(len(factors_both)):\n\t\tkgV *= factors_both[i]\n\treturn kgV\n\nprint(kgV(116, 261))",
             "output" : "1044"

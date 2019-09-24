@@ -188,6 +188,8 @@ main {
 #lineNumbers li {
   width: 0;
   height: 2vh;
+  padding: 0;
+  margin: 0;
   list-style-type: none;
 }
 
@@ -209,7 +211,6 @@ main {
   tab-size: 4;
   -moz-tab-size: 4;
   white-space: pre;
-  border: 1vh solid #333;
   background-color: #333;
   color: #AAA;
   font-size: 1.8vh;

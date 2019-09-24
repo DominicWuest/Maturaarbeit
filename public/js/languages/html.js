@@ -165,6 +165,8 @@ function loaded() {
     // Set the scroll position of the code div to the scroll position of the textarea
     element.scrollLeft = event["target"]["scrollLeft"];
     element.scrollTop = event["target"]["scrollTop"];
+    // Set the vertical offset of the line numbers to the textareas offset
+    lineNumbers.scrollTop = event["target"]["scrollTop"];
   });
   makeDropdown();
   addHighlighting();
@@ -236,5 +238,5 @@ function setTextareaDimensions() {
   document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
   document.getElementById('code').style.width = document.getElementById('code').offsetWidth + 'px';
   document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
-  document.getElementById('code').style.height = document.getElementById('code').offsetHeight + 'px';
+  document.getElementById('code').style.height = (document.getElementById('code').offsetHeight - 6) + 'px';
 }

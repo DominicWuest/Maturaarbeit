@@ -238,5 +238,5 @@ function setTextareaDimensions() {
   document.getElementById('textarea').style.width = document.getElementById('code').offsetWidth + 'px';
   document.getElementById('code').style.width = document.getElementById('code').offsetWidth + 'px';
   document.getElementById('textarea').style.height = document.getElementById('code').offsetHeight + 'px';
-  document.getElementById('code').style.height = document.getElementById('code').offsetHeight + 'px';
+  document.getElementById('code').style.height = (document.getElementById('code').offsetHeight - 6) + 'px';
 }

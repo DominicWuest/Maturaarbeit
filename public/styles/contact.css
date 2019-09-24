@@ -170,7 +170,7 @@ input#submit {
 	}
 }
 
-@media only screen and (max-width: 680px) {
+@media only screen and (max-aspect-ratio: 11/16) {
 	main {
 		grid-template-columns: repeat(1,97%);
 		grid-template-rows: 10vh 70vh 70vh 5vh;

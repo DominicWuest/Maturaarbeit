@@ -47,7 +47,7 @@
           <table class = "buildtree">
             <tr>
               <th>Ebene</th>
-              <th colspan = "9">Blätter</th>
+              <th colspan = "9">Blätter / Baum</th>
             </tr>
             <tr>
               <td>0</td>
@@ -67,7 +67,7 @@
           <table class = "buildtree">
             <tr>
               <th>Ebene</th>
-              <th colspan = "9">Blätter</th>
+              <th colspan = "9">Blätter / Baum</th>
             </tr>
             <tr>
               <td>1</td>
@@ -120,7 +120,7 @@
             p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
           </figure>
           <figure class = "equation">
-            p<sub>-</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>,
+            p<sub>-</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
           </figure>
           <figure class = "equation">
             p<sub>k</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>,
@@ -137,6 +137,315 @@
           <figure class = "equation">
             p<sub>p</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>
           </figure>
+          <p>Aus diesen Wahrscheinlichkeiten erstellen wir nun unseren Baum. Dabei müssen die Zeichen nach ihrer Wahrscheinlichkeit von links nach rechts geordnet werden.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+            </tr>
+          </table>
+          <p>Nun werden die Zeichen mit den niedrigsten Wahrscheinlichkeiten zusammengefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td colspan = "5"></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+            </tr>
+          </table>
+          <p>Jetzt werden die Zeichen, die nicht zusammengefasst wurden in die Ebene 1 angehoben. In der Ebene 1 werden die Zeichen wieder nach ihren Wahrscheinlichkeiten geordnet. Danach werden wieder die Zeichen mit den tiefsten Wahrscheinlichkeitswerten zusammengefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan = "4"></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "3"></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+            </tr>
+          </table>
+          <p>Wieder werden die Wahrscheinlichkeiten verglichen und die Zeichen werden neu angeordnet und auf die gleiche Ebene angehoben. Danach werden wieder die Zeichen mit den niedrigsten Wahrscheinlichkeiten zusammengefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "4"></td>
+              <td colspan = "5">
+                <figure class = "triangle5"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan = "5"></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "2"></td>
+            </tr>
+          </table>
+          <p>Jetzt werden die Zeichen wieder ihrer Wahrscheinlichkeit entsprechend neu angeordnet und auf eine Ebene angehoben. Danach werden wieder diejenigen mit den kleinsten Wahrscheinlichkeiten zusammegefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan = "6"></td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "5">
+                <figure class = "triangle5"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "4"></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "6"></td>
+            </tr>
+          </table>
+          <p>Wieder erhalten die Zeichen eine neue Anordnung und es werden alle auf die gleiche Ebene gebracht. Danach werden wieder die Zeichen mit der kleinsten Wahrscheinlichkeit zusammengefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan = "3"></td>
+              <td colspan = "6">
+                <figure class = "triangle6"></figure><figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "5">
+                <figure class = "triangle5"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td colspan = "4"></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "3"></td>
+            </tr>
+          </table>
+          <p>Nun sind wir fast am Ende angelangt. Es gibt nur noch zwei Äste, die zusammengefasst werden können. Die Zeichen werden also wieder neu angeordnet und die letzten Äste werden zusammengefasst.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td colspan = "9">
+                <figure class = "triangle9"></figure><figure class = "fraction"><span class = "upper">3</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure> = 1
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan = "6">
+                <figure class = "triangle6"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "5">
+                <figure class = "triangle5"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "4"></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "6"></td>
+            </tr>
+          </table>
         </div>
         <div>
           <h3>Darstellung im Code</h3>

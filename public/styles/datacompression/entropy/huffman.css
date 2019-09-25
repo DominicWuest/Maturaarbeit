@@ -1,0 +1,74 @@
+.circle {
+  text-align: center;
+  height: 3vw;
+  width: 3vw;
+  clip-path: circle();
+  color: #FFF;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle {
+  text-align: center;
+  clip-path: polygon(100px 0px, 200px 70px, 0px 70px);
+  height: 70px;
+  width: 200px;
+  margin-bottom: 0px;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+table, th, td {
+  text-align: center;
+  align-content: center;
+  width: 75vw;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-size: 110%;
+}
+
+.equation {
+	display: inline-block;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.fraction {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+}
+
+.fraction span {
+  display: block;
+}
+
+.fraction span.lower {
+	border-top: thick solid black;
+}
+
+.fraction span.upper {
+	display: inline-block;
+}
+
+.sum {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	text-align: center;
+	font-size: 175%;
+}
+
+.sum span {
+	display: block;
+}
+
+.sum span.start {
+	text-align: center;
+	font-size: 50%;
+}
+
+.sum span.end {
+	text-align: center;
+	font-size: 50%;
+	margin-bottom: -20%;
+}

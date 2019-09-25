@@ -9,8 +9,12 @@
     <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <meta charset="utf-8"/>
+    <script src = "/js/codeHighlighting.js"></script>
+    <script>
+    const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+    </script>
   </head>
-  <body onload = "">
+  <body onload = "addHighlighting();">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class="title">
@@ -44,6 +48,7 @@
             <figure class = "equation">
               p<sub>z<sub>i</sub></sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">m</span></figure> * <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure> z<sub>i</sub>
             </figure>
+            <br>
             Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.
           </p>
           <table class = "buildtree">
@@ -450,7 +455,44 @@
           </table>
         </div>
         <div>
-          <h3>Darstellung im Code</h3>
+          <h3>In Python geschriebener Beispielcode</h3>
+          <code class = "code python"># a ist der String, auf dem eine Basis für einen Huffman-Baum aufgebaut wird
+def base(a):
+    p = []
+    lenght = len(a)
+    x = 0
+    i = 0
+    # Eine While-Schleife wird benötigt, da unbekannt ist, wie viel mal sie durchlaufen wird
+    while x < lenght:
+        # Zählt wie oft ein Zeichen im String vorkommt
+        counter = float(a.count(a[0]))
+        # Entfernt das Zeichen, damit es nur einmal gezählt wird
+        a = a.replace(a[0], '')
+        # Definiert die Wahrscheinlichkeit des Zeichens
+        p.append(counter / lenght)
+        i += 1
+        x += counter
+    # Sortiert die Liste mit den Wahrscheinlichkeiten in absteigender Reihenfolge
+    p.sort(reverse = True)
+    return p
+
+# Die Liste base ist die Basis, auf der ein Huffman-Baum aufgebaut wird
+def tree(base):
+    # Gibt in jedem Durchlauf eine Ebene der Basis aus
+    print(base)
+    # Abbruchbedingung, wenn der Baum fertig ist, dann ist die Wahrscheinlichkeit 1
+    if base[0] == 1:
+        return
+    # Addiert die zwei niedrigsten Wahrscheinlichkeiten
+    base[-2] = base[-1] + base[-2]
+    base.remove(base[-1])
+    # Die Liste wird wieder sortiert
+    base.sort(reverse = True)
+    # Die Funktion wird rekursiv aufgerufen
+    tree(base)
+a = 'ein-kleines-beispiel'
+# Ruft die Funktionen auf, die einen Huffman-Baum als Matrix ausgeben
+tree(base(a))</code>
         </div>
         <div>
           <h3>Beispielaufgaben</h3>

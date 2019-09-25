@@ -8,11 +8,47 @@
 }
 
 .triangle {
-  text-align: center;
-  clip-path: polygon(100px 0px, 200px 70px, 0px 70px);
-  height: 70px;
-  width: 200px;
-  margin-bottom: 0px;
+  align: middle;
+  clip-path: polygon(8.25vw 0, 17vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 17vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle3 {
+  align: middle;
+  clip-path: polygon(12.75vw 0, 25.5vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 25.5vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle5 {
+  align: middle;
+  clip-path: polygon(21.5vw 0, 43vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 43vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle6 {
+  align: middle;
+  clip-path: polygon(25.75vw 0, 51.5vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 51.5vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle9 {
+  align: middle;
+  clip-path: polygon(38.75vw 0, 77.5vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 77.5vw;
+  margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 

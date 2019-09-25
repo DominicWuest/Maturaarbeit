@@ -245,15 +245,15 @@
               <div class = "syntax">
                 Satzzeichen, Klammern, Syntax
               </div>
-            </section>
+            </figure>
             <h3>Beispiel Aufgaben</h3>
             <input type = "button" value = "Neue Aufgaben" onclick = "resetASCII();">
             <table id = "ASCIIexamples">
               <tr>
-                <th id = "ASCIIextable">Zeichen</th>
-                <th id = "ASCIIextable">ASCII (hexadezimal)</th>
-                <th id = "ASCIIextable">ASCII (binär)</th>
-                <th id = "ASCIIextable">ASCII (dezimal)</th>
+                <th class = "ASCIIextable">Zeichen</th>
+                <th class = "ASCIIextable">ASCII (hexadezimal)</th>
+                <th class = "ASCIIextable">ASCII (binär)</th>
+                <th class = "ASCIIextable">ASCII (dezimal)</th>
               </tr>
                 <td id = "ASCIIextable0"><input id = "inputASCII-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(0);"></td>
                 <td id = "ASCIIextable1"><input id = "inputASCII-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(1);"></td>
@@ -599,10 +599,10 @@
             <br>
             <table id = "ISOIECexamples">
               <tr>
-                <th id = "ISOIECextable">Zeichen</th>
-                <th id = "ISOIECextable">ISO/IEC 8859-1 (hexadezimal)</th>
-                <th id = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
-                <th id = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
+                <th class = "ISOIECextable">Zeichen</th>
+                <th class = "ISOIECextable">ISO/IEC 8859-1 (hexadezimal)</th>
+                <th class = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
+                <th class = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
               </tr>
                 <td id = "ISOIECextable0"><input id = "inputISOIEC-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(0);"></td>
                 <td id = "ISOIECextable1"><input id = "inputISOIEC-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(1);"></td>
@@ -675,10 +675,10 @@
             <br>
             <table id = "UTF8examples">
               <tr>
-                <th id = "UTF8extable">Unicode (dezimal)</th>
-                <th id = "UTF8extable">Unicode (binär)</th>
-                <th id = "UTF8extable">Unicode (hexadezimal)</th>
-                <th id = "UTF8extable">UTF-8</th>
+                <th class = "UTF8extable">Unicode (dezimal)</th>
+                <th class = "UTF8extable">Unicode (binär)</th>
+                <th class = "UTF8extable">Unicode (hexadezimal)</th>
+                <th class = "UTF8extable">UTF-8</th>
               </tr>
                 <td id = "UTF8extable0"><input id = "inputUTF8-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(0);"></td>
                 <td id = "UTF8extable1"><input id = "inputUTF8-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(1);"></td>
@@ -716,7 +716,7 @@
           <div id = "BMP">
             <h3>BMP - Basic Multilingual Plane - Plane 0</h3>
             <p>
-              Im der Ebene 0, der BMP sind die Unicodes von U+0000<sub>16</sub> bis U+FFFF<sub>16</sub> = 0<sub>10</sub> bis 65535<sub>10</sub> enthalten. Diese Zeichen sind die heute gebräuchlichen Schriftzeichen von fast allen modernen Sprachen (auch Symbolschriften, wie in chinesisch oder japanisch). Die sogenannten Surrogates, die noch vorkommen werden besetzt um den Wechsel in eine andere Ebene zu ermöglichen.<br>Die Unicode-Nummern der Zeichen aus der BMP bestehen aus 16 Nullen und 16 restlichen Bits. Deswegen können sie ganz einfach als 16 Bit Code kodiert werden. Von den 65535 möglichen Codes aus der BMP sind nur noch 64 Codes unbesetzt: von 0870<sub>16</sub> bis 089F<sub>16</sub> = von 2'160<sub>10</sub> bis 2'207<sub>10</sub> und von 2FE0<sub>16</sub> bis 2FEF<sub>16</sub> = von 12'256<sub>10</sub> bis 12'271</sub>. In der untenstehenden Grafik wird gezeigt, welche Bereiche Zeichen wo in der BMP liegen.
+              Im der Ebene 0, der BMP sind die Unicodes von U+0000<sub>16</sub> bis U+FFFF<sub>16</sub> = 0<sub>10</sub> bis 65535<sub>10</sub> enthalten. Diese Zeichen sind die heute gebräuchlichen Schriftzeichen von fast allen modernen Sprachen (auch Symbolschriften, wie in chinesisch oder japanisch). Die sogenannten Surrogates, die noch vorkommen werden besetzt um den Wechsel in eine andere Ebene zu ermöglichen.<br>Die Unicode-Nummern der Zeichen aus der BMP bestehen aus 16 Nullen und 16 restlichen Bits. Deswegen können sie ganz einfach als 16 Bit Code kodiert werden. Von den 65535 möglichen Codes aus der BMP sind nur noch 64 Codes unbesetzt: von 0870<sub>16</sub> bis 089F<sub>16</sub> = von 2'160<sub>10</sub> bis 2'207<sub>10</sub> und von 2FE0<sub>16</sub> bis 2FEF<sub>16</sub> = von 12'256<sub>10</sub> bis 12'271<sub>10</sub>. In der untenstehenden Grafik wird gezeigt, welche Bereiche Zeichen wo in der BMP liegen.
             </p>
             <img src = "/imgs/datacompression/entropy/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
           </div>
@@ -784,10 +784,10 @@
           <br>
           <table id = "UTF16examples">
             <tr>
-              <th id = "UTF16extable">Unicode (dezimal)</th>
-              <th id = "UTF16extable">Unicode (binär)</th>
-              <th id = "UTF16extable">Unicode (hexadezimal)</th>
-              <th id = "UTF16extable">UTF-16 (hexadezimal)</th>
+              <th class = "UTF16extable">Unicode (dezimal)</th>
+              <th class = "UTF16extable">Unicode (binär)</th>
+              <th class = "UTF16extable">Unicode (hexadezimal)</th>
+              <th class = "UTF16extable">UTF-16 (hexadezimal)</th>
             </tr>
               <td id = "UTF16extable0"><input id = "inputUTF16-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(0);"></td>
               <td id = "UTF16extable1"><input id = "inputUTF16-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(1);"></td>
@@ -813,7 +813,6 @@
               <td id = "UTF16extable15"><input id = "inputUTF16-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(15);"></td>
             </tr>
           </table>
-          </div>
         </div>
         <div id = "utf-32">
           <h2>UTF-32</h2>

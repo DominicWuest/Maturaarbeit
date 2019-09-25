@@ -5,6 +5,7 @@
     <title>Huffman</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <meta charset="utf-8"/>
@@ -31,11 +32,111 @@
       </div>
       <div id = "tree">
         <h2>Huffman Baum</h2>
+        <p>
+          Die Huffman-Kodierung basiert auf einem Baum. Dieser Baum besteht aus Ästen und Blättern. Die Blätter sind dabei die Zeichen, die Codiert werden und die Äste sind der Weg (also der Code), der zu den Blättern führt. In diesem Teil schauen wir uns an, wie ein solcher Baum aufgebaut wird und wie er schlussendluch im Code umgesetzt wird.
+        </p>
         <div>
           <h3>Aufbau des Baumes</h3>
+          <p>
+            Um den Baum aufzubauen muss zuerst die Wahrscheinlichkeit der einzelenen Zeichen bestimmt werden. Dies kann sehr einfach gemacht werden, indem die Anzahl der Vorkommnisse durch die Gesamtanzahl an Zeichen geteilt wird. Wenn also ein Satz, der aus den Zeichen Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>} besteht können die jeweiligen Wahrscheinlichkeiten durch folgende Formel berechnet werden, wobei m die gesamte Anzahl an Zeichen ist und z<sub>i</sub> 1 beträgt, wenn das betrachtete Zeichen z<sub>i</sub> ist und 0, wenn nicht.
+            <figure class = "equation">
+              p<sub>z<sub>i</sub></sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">m</span></figure> * <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure> z<sub>i</sub>
+            </figure>
+            Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.
+          </p>
+          <table class = "buildtree">
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter</th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td><figure class = "circle">z<sub>1</sub></figure>p<sub>z<sub>1</sub></sub></td>
+              <td><figure class = "circle">z<sub>2</sub></figure>p<sub>z<sub>2</sub></sub></td>
+              <td><figure class = "circle">z<sub>3</sub></figure>p<sub>z<sub>3</sub></sub></td>
+              <td><figure class = "circle">z<sub>4</sub></figure>p<sub>z<sub>4</sub></sub></td>
+              <td><figure class = "circle">z<sub>5</sub></figure>p<sub>z<sub>5</sub></sub></td>
+              <td><figure class = "circle">z<sub>6</sub></figure>p<sub>z<sub>6</sub></sub></td>
+              <td><figure class = "circle">z<sub>7</sub></figure>p<sub>z<sub>7</sub></sub></td>
+              <td><figure class = "circle">z<sub>8</sub></figure>p<sub>z<sub>8</sub></sub></td>
+              <td><figure class = "circle">z<sub>9</sub></figure>p<sub>z<sub>9</sub></sub></td>
+            </tr>
+          </table>
+          <br>
+          <p>Nachdem die Zeichen eingeordnet wurden werden die niedrigsten Wahrscheinlichkeiten in einem Ast zusammengefasst und haben somit eine grössere Wahrscheinlichkeit.</p>
+          <table class = "buildtree">
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td colspan = "7"></td>
+              <td colspan = "2">p<sub>z<sub>2</sub></sub> + p<sub>z<sub>1</sub></sub><figure class = "triangle"></figure></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td><figure class = "circle">z<sub>1</sub></figure>p<sub>z<sub>1</sub></sub></td>
+              <td><figure class = "circle">z<sub>2</sub></figure>p<sub>z<sub>2</sub></sub></td>
+              <td><figure class = "circle">z<sub>3</sub></figure>p<sub>z<sub>3</sub></sub></td>
+              <td><figure class = "circle">z<sub>4</sub></figure>p<sub>z<sub>4</sub></sub></td>
+              <td><figure class = "circle">z<sub>5</sub></figure>p<sub>z<sub>5</sub></sub></td>
+              <td><figure class = "circle">z<sub>6</sub></figure>p<sub>z<sub>6</sub></sub></td>
+              <td><figure class = "circle">z<sub>7</sub></figure>p<sub>z<sub>7</sub></sub></td>
+              <td><figure class = "circle">z<sub>8</sub></figure>p<sub>z<sub>8</sub></sub></td>
+              <td><figure class = "circle">z<sub>9</sub></figure>p<sub>z<sub>9</sub></sub></td>
+            </tr>
+          </table>
+          <p>Danach wird die Tabelle wieder neu angeordnet, sodass die Elemente mit absteidender Wahrscheinlichkeit von links nach rechts geordnet werden. Das Bedeutet, dass jetzt die folgenden Vergleiche durchgeführt werden müssen.</p>
+          <figure class = "equation">
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>3</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>4</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>5</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>6</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>7</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>8</sub></sub>
+            <br>
+            p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>9</sub></sub>
+          </figure>
+          <p>Wenn einer der Vergleiche nicht stimmt, dann kann über alle nachfolgenden Elemente ausgesagt werden, dass sie nicht stimmen. Deswegen müssen diese Vergleiche nicht mehr durchgeführt werden. Falls der Baum grösser wir, macht es Sinn einen effizienten <a href = "/algorithms/sorting">Sortierungsalgorithmus</a> anzuwenden. Nachdem die Zeichen wieder neu angeordnet sind können wir wieder von vorne anfangen, ausser dass alle Zeichen, die nicht mit einem Ast zusammengefasst wurden eine Ebene aufsteigen und die zusammengefassten Zeichen als ein Zeichen auf der höheren Ebene betrachtet werden. Der Baum ist fertig, wenn alle Zeichen in einem Ast zusammengefasst wurden, dessen Wahrscheinlichkeit 1 beträgt. Keine Angst, wenn du es bis jetzt noch nicht richtig verstanden hat, es folgt ein konkretes Beispiel, in dem der Algorithmus vollständig ausgeführt wird.</p>
         </div>
         <div>
           <h3>Konkretes Beispiel</h3>
+          <p>
+            In diesem Beispiel wollen wir den Satz: "ein-kleines-beispiel" kodieren. Zuerst müssen wir die Wahrscheinlichkeiten der einzelnen Buchstaben berechnen.
+          </p>
+          <figure class = "equation">
+            p<sub>e</sub> = <figure class = "fraction"><span class = "upper">5</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>i</sub> = <figure class = "fraction"><span class = "upper">4</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>-</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>k</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>s</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>b</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>,
+          </figure>
+          <figure class = "equation">
+            p<sub>p</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure>
+          </figure>
         </div>
         <div>
           <h3>Darstellung im Code</h3>

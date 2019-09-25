@@ -20,6 +20,11 @@ function checkInput(event) {
 		inputStatus = false;
 	}
 
+	if (!document.getElementById('checkbox').checked) {
+		document.getElementById('checkboxDiv').style.color = '#F00';
+		inputStatus = false;
+	}
+
 	if (!inputStatus) event.preventDefault();
 }
 var person = 1;

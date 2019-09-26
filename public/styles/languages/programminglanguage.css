@@ -163,23 +163,27 @@ main {
   height: 95%;
   grid-column: 2;
   line-height: 2vh;
+  display: grid;
+  grid-template-rows: 20fr 1fr;
 }
 
 .userInput {
   width: 100%;
   display: grid;
   grid-template-columns: 1fr 20fr;
+  height: 100%;
 }
 
 #lineNumbers {
   overflow: hidden;
   color: #666;
   font-family: sans-serif;
-  height: 80vh;
-  padding-left: 2.9vw;
+  padding-left: 3.2vw;
+  height: 1vh;
   width: 1vw;
-  margin: 0;
   padding-top: 0.5vw;
+  box-sizing: border-box;
+  margin: 0;
   line-height: 2vh;
   counter-reset: item;
   border-right: 0.1vw solid #777;
@@ -197,6 +201,8 @@ main {
   content: counter(item) " ";
   counter-increment: item;
   float: right;
+  right: 0.3vw;
+  position: relative;
 }
 
 #inputDiv {
@@ -207,7 +213,6 @@ main {
   line-height: 2vh;
   font-family: monospace;
   display: block;
-  box-sizing: border-box;
   tab-size: 4;
   -moz-tab-size: 4;
   white-space: pre;
@@ -221,6 +226,7 @@ main {
   box-sizing: border-box;
   padding: 0.5vw;
   padding-right: 0;
+  padding-bottom: 0;
   overflow: auto;
 }
 
@@ -230,7 +236,6 @@ main {
   font-family: monospace;
   padding: 0;
   overflow: auto;
-  box-sizing: border-box;
   white-space: pre;
   tab-size: 4;
   -moz-tab-size: 4;
@@ -247,11 +252,12 @@ main {
   box-sizing: border-box;
   padding: 0.5vw;
   padding-right: 0;
+  padding-bottom: 0;
 }
 
 .buttons {
   border-top: 0.01vh solid #BBB;
-  height: 5%;
+  height: 100%;
   background-color: #333;
   box-sizing: border-box;
   display: grid;
@@ -339,10 +345,7 @@ button::-moz-focus-inner {
 
 .input button:hover {
   cursor: pointer;
-}
-
-.input button:active {
-
+  background-color: white;
 }
 
 .output {

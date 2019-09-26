@@ -1,53 +1,50 @@
 .circle {
   text-align: center;
-  height: 3vw;
-  width: 3vw;
-  clip-path: circle();
   color: #FFF;
-  background: linear-gradient(to top right, #2441B4, #31128B);
+  background-color: blue;
 }
 
 .triangle {
   align: middle;
-  clip-path: polygon(8.25vw 0, 17vw 5vw, 0px 5vw);
+  clip-path: polygon(8vw 0, 16vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 17vw;
+  width: 16vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle3 {
   align: middle;
-  clip-path: polygon(12.75vw 0, 25.5vw 5vw, 0px 5vw);
+  clip-path: polygon(12vw 0, 24vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 25.5vw;
+  width: 24vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle5 {
   align: middle;
-  clip-path: polygon(21.5vw 0, 43vw 5vw, 0px 5vw);
+  clip-path: polygon(20vw 0, 40vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 43vw;
+  width: 40vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle6 {
   align: middle;
-  clip-path: polygon(25.75vw 0, 51.5vw 5vw, 0px 5vw);
+  clip-path: polygon(24vw 0, 48vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 51.5vw;
+  width: 48vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle9 {
   align: middle;
-  clip-path: polygon(38.75vw 0, 77.5vw 5vw, 0px 5vw);
+  clip-path: polygon(36vw 0, 72vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 77.5vw;
+  width: 72vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }

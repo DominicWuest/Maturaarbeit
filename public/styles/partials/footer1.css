@@ -54,8 +54,13 @@ footer p {
     display: none;
   }
 
+  .text p {
+    font-size: 0.9em;
+  }
+
   footer {
     grid-template-columns: 100%;
+    padding: 0;
   }
 
   #copyright {
@@ -64,4 +69,10 @@ footer p {
     text-align: center;
   }
 
+}
+
+@media only screen and (max-width: 410px) {
+  #copyright p {
+    font-size: 0.8em;
+  }
 }

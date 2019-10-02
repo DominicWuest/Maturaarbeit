@@ -105,3 +105,8 @@ table, th, td {
 	font-size: 50%;
 	margin-bottom: -20%;
 }
+
+#inputTREESTRING {
+  height: 15vh;
+  width: 15vw;
+}

@@ -9,14 +9,18 @@ body {
   overflow-y: hidden;
 }
 
+footer {
+  height: 6vh !important;
+}
+
 main {
   scroll-behavior: smooth;
   box-sizing: border-box;
   margin: 0 auto;
-  width: 90%;
+  width: 100%;
   overflow: auto;
   height: 86vh;
-  padding-right: 25px;
+  padding: 0 7vw;
 }
 
 main h1 {
@@ -93,7 +97,7 @@ a:hover {
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
   .title {
-    font-size: 1.3em;
+    font-size: 1.1em;
     word-wrap: break-word;
   }
 

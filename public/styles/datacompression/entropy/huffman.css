@@ -106,7 +106,7 @@ table, th, td {
 	margin-bottom: -20%;
 }
 
-#inputTree0, #inputTree2, #inputTree4, #inputTree6 {
+#inputTree0, #inputTree2, #inputTree4, #inputTree6, #inputHuffman0, #inputHuffman3, #inputHuffman6, #inputHuffman9 {
   height: 22vh;
   width: 30vw;
 }

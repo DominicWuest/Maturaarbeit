@@ -526,9 +526,264 @@ Tree(base(a))</code>
         <h2>Kodierung der Zeichen</h2>
         <div>
           <h3>Allgemein</h3>
+          <p>Bis jetzt haben wir gelernt, wie man einen Huffman-Baum aufgbaut. Nun geht es noch darum, wie man diesen einsetzen kann um Zeichen zu kodieren.<br>Um die Zeichen zu kodieren müssen wir sie in binärer Form darstellen. Dafür kann sehr einfach der vorher aufgebaute Huffman-Baum gebraucht werden. Dabei wird immer beim Stamm (ganz oben, dort wo die Wahrscheinlichkeit 1 beträgt) angefangen und wenn eine Abzweigung nach links genommen wird eine 0 geschrieben, ansonsten eine 1. So bekommen die Zeichen also genau so lange Codes, wie Ebenen durchquert werden müssen, bis die Zeichen erreicht werden.<br>Die Dekodierung eines Code kann erst schwierig erscheinen, da die Codes jeweils unterschiedliche Längen haben, abhängig vom Informationsgehalt des Zeichens. Es ist aber schnell erkennbar, wenn man ein Code dekodiert, denn wenn man das erste Zeichen hat, dann wäre es sinnlos, dass der Code dort noch weiter geht, da der Baum nicht mehr weiter geht.</p>
         </div>
         <div>
           <h3>Konkretes Beispiel</h3>
+          <p>Nun wollen wir uns die Huffman-Kodierung an einem konkreten Beispiel anschauen. Dafür nehmen wir das selbe Beispiel, das auch schon für den Aufbau des Huffman-Baumes benutzt wurde, da wir so den Baum bereits erstellt haben. Wir haben also den String: "ein-kleines-beispiel" mit dem Huffman-Baum.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td colspan = "9">
+                <figure class = "triangle9"></figure><figure class = "fraction"><span class = "upper">3</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure> = 1
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan = "6">
+                <figure class = "triangle6"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "5">
+                <figure class = "triangle5"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan = "3">
+                <figure class = "triangle3"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "4"></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "6"></td>
+            </tr>
+          </table>
+          <p>Nun ordnen wir den Abzweigungen auf den Ästen den Code 0, wenn nach links abgezweigt wurde und den Code 1, wenn nach rechts abgezweigt wurde. Der Baum sieht dann also folgendermassen aus.</p>
+          <table>
+            <tr>
+              <th>Ebene</th>
+              <th colspan = "9">Blätter / Baum</th>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td colspan = "9">
+                <figure class = "triangle9"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">3</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure> = 1
+              </td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td colspan = "6">
+                <figure class = "triangle6"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "3">
+                <figure class = "triangle3"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colspan = "5">
+                <figure class = "triangle5"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure> + <figure class = "fraction"><span class = "upper">3</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">7</span><span class = "lower">20</span></figure>
+              </td>
+              <td><figure class = "circle">e</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure></td>
+              <td><figure class = "circle">i</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td colspan = "3">
+                <figure class = "triangle3"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">5</span></figure>
+              </td>
+              <td colspan = "2">
+                <figure class = "triangle"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">20</span></figure>
+              </td>
+              <td colspan = "2"></td>
+              <td><figure class = "circle">n</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">l</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td><figure class = "circle">s</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td colspan = "2">
+                <figure class = "triangle"><span class = "code0">0</span><span class = "code1">1</span></figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> + <figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+              </td>
+              <td><figure class = "circle">-</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure></td>
+              <td><figure class = "circle">k</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "4"></td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td></td>
+              <td><figure class = "circle">b</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td><figure class = "circle">p</figure><figure class = "fraction"><span class = "upper">1</span><span class = "lower">20</span></figure></td>
+              <td colspan = "6"></td>
+            </tr>
+          </table>
+          <p>Das erste Zeichen vom String: "ein-kleines-beispiel", der dekodiert werden soll ist ein 'e'. Wenn wir dieses 'e' nun im Huffman-Baum suchen, können wir erkennen, dass im ersten Ast nach links und im zweiten Ast nach rechts gehen müssen. Das 'e' erhält also den Code 01. Danach kommt ein 'i'. Um zum 'i' zu gelangen müssen wir beim ersten Ast nach rechts und beim zweiten Ast nach links abzweigen. So erhält das 'i' den Code 10. Der gesamte Code bis jetzt ist also 0110. Für die weiteren Zeichen erhalten wir die in der folgenden Tabelle aufgezeichneten Codes.</p>
+          <table>
+            <tr>
+              <th>Zeichen</th>
+              <th>Code</th>
+              <th>Gesamtcode bis jetzt</th>
+              <th>Auftrittswahrscheinlichkeit</th>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>01</td>
+              <td>01</td>
+              <td>0.25</td>
+            </tr>
+            <tr>
+              <td>i</td>
+              <td>10</td>
+              <td>0110</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td>n</td>
+              <td>110</td>
+              <td>0110110</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>0010</td>
+              <td>01101100010</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>k</td>
+              <td>0011</td>
+              <td>011011000100011</td>
+              <td>0.05</td>
+            </tr>
+            <tr>
+              <td>l</td>
+              <td>111</td>
+              <td>011011000100011111</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>01</td>
+              <td>01101100010001111101</td>
+              <td>0.25</td>
+            </tr>
+            <tr>
+              <td>i</td>
+              <td>10</td>
+              <td>0110110001000111110110</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td>n</td>
+              <td>110</td>
+              <td>0110110001000111110110110</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>01</td>
+              <td>011011000100011111011011001</td>
+              <td>0.25</td>
+            </tr>
+            <tr>
+              <td>s</td>
+              <td>0000</td>
+              <td>0110110001000111110110110010000</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>-</td>
+              <td>0010</td>
+              <td>01101100010001111101101100100000010</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>b</td>
+              <td>00010</td>
+              <td>0110110001000111110110110010000001000010</td>
+              <td>0.05</td>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>01</td>
+              <td>011011000100011111011011001000000100001001</td>
+              <td>0.25</td>
+            </tr>
+            <tr>
+              <td>i</td>
+              <td>10</td>
+              <td>01101100010001111101101100100000010000100110</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td>s</td>
+              <td>0000</td>
+              <td>011011000100011111011011001000000100001001100000</td>
+              <td>0.1</td>
+            </tr>
+            <tr>
+              <td>p</td>
+              <td>00011</td>
+              <td>01101100010001111101101100100000010000100110000000011</td>
+              <td>0.05</td>
+            </tr>
+            <tr>
+              <td>i</td>
+              <td>10</td>
+              <td>0110110001000111110110110010000001000010011000000001110</td>
+              <td>0.2</td>
+            </tr>
+            <tr>
+              <td>e</td>
+              <td>01</td>
+              <td>011011000100011111011011001000000100001001100000000111001</td>
+              <td>0.25</td>
+            </tr>
+            <tr>
+              <td>l</td>
+              <td>111</td>
+              <td>011011000100011111011011001000000100001001100000000111001111</td>
+              <td>0.1</td>
+            </tr>
+          </table>
+          <p>Der String: "ein-kleines-beispiel" kann also mit dem 60 Bit langen Code: 011011000100011111011011001000000100001001100000000111001111 kodiert werden. Wenn wir den String aber mit einer Kodierung kodieren würden, die keine Rücksicht auf den Informationsgehalt der Zeichen nimmt bräuchten wir mindestens 4 Bit pro Zeichen, damit die 9 verschiedenen Zeichen dargestellt werden können. Somit wären mindestens 20 Zeichen * 4 Bit pro Zeichen = 80 Bit nötig um den String zu kodieren. Somit haben wir 20 Bit redundante Daten eingespart mit der Huffman-Kodierung.</p>
         </div>
         <div>
           <h3>Beispielaufgaben</h3>

@@ -24,7 +24,7 @@
         <h2>Shortlinks</h2>
         <ul>
           <li><a href="#general">Allgemein</a></li>
-          <li><a href="#tree">Huffman Baum</a></li>
+          <li><a href="#Tree">Huffman Baum</a></li>
           <li><a href="#encoding">Kodierung der Zeichen</a></li>
         </ul>
       </div>
@@ -36,7 +36,7 @@
           Die Huffman-Kodierung wird aufgrund ihrer Schnelligkeit und da sie nicht durch ein Patent geschützt wurde sehr viel verwendet, obwohl es Entropiekodierungen gibt, die bessere Resultate erbringen wie beispeilsweise die <a href = "/datacompression/entropy/arithmetic">Arithmetische Kodierung</a>. Die Huffman-Kodierung wird bei JPG und bei MP3 eingesetzt.
         </p>
       </div>
-      <div id = "tree">
+      <div id = "Tree">
         <h2>Huffman Baum</h2>
         <p>
           Die Huffman-Kodierung basiert auf einem Baum. Dieser Baum besteht aus Ästen und Blättern. Die Blätter sind dabei die Zeichen, die Codiert werden und die Äste sind der Weg (also der Code), der zu den Blättern führt. In diesem Teil schauen wir uns an, wie ein solcher Baum aufgebaut wird und wie er schlussendluch im Code umgesetzt wird.
@@ -51,7 +51,7 @@
             <br>
             Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.
           </p>
-          <table class = "buildtree">
+          <table class = "buildTree">
             <tr>
               <th>Ebene</th>
               <th colspan = "9">Blätter / Baum</th>
@@ -71,7 +71,7 @@
           </table>
           <br>
           <p>Nachdem die Zeichen eingeordnet wurden werden die niedrigsten Wahrscheinlichkeiten in einem Ast zusammengefasst und haben somit eine grössere Wahrscheinlichkeit.</p>
-          <table class = "buildtree">
+          <table class = "buildTree">
             <tr>
               <th>Ebene</th>
               <th colspan = "9">Blätter / Baum</th>
@@ -477,7 +477,7 @@ def base(a):
     return p
 
 # Die Liste base ist die Basis, auf der ein Huffman-Baum aufgebaut wird
-def tree(base):
+def Tree(base):
     # Gibt in jedem Durchlauf eine Ebene der Basis aus
     print(base)
     # Abbruchbedingung, wenn der Baum fertig ist, dann ist die Wahrscheinlichkeit 1
@@ -489,35 +489,35 @@ def tree(base):
     # Die Liste wird wieder sortiert
     base.sort(reverse = True)
     # Die Funktion wird rekursiv aufgerufen
-    tree(base)
+    Tree(base)
 a = 'ein-kleines-beispiel'
 # Ruft die Funktionen auf, die einen Huffman-Baum als Matrix ausgeben
-tree(base(a))</code>
+Tree(base(a))</code>
         </div>
         <div>
           <h3>Beispielaufgaben</h3>
           <p>Nun kannst du Aufgaben zu Huffman-Bäumen lösen. Dabei wird dir entweder ein Huffman-Baum als Input gegeben und du musst den zugehörigen String herausfinden, oder es wird ein String gegeben und du musst den zugehörigen Huffman-Baum herausfinden.</p>
-          <input type = "button" value = "Neue Aufgaben" onclick = "resetTREE();">
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetTree();">
           <table>
             <tr>
               <th>Baum</th>
               <th>String</th>
             </tr>
             <tr>
-              <td id = "TREEextable0"><textarea id = "inputTREE0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTREE(0);"></td>
-              <td id = "TREEextable1"><input type = "text" id = "inputTREE1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 1);"></td>
+              <td id = "Treeextable0"><textarea id = "inputTree0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(0);"></td>
+              <td id = "Treeextable1"><input type = "text" id = "inputTree1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 1);"></td>
             </tr>
             <tr>
-              <td id = "TREEextable2"><textarea id = "inputTREE2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTREE(2);"></td>
-              <td id = "TREEextable3"><input type = "text" id = "inputTREE3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 3);"></td>
+              <td id = "Treeextable2"><textarea id = "inputTree2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(2);"></td>
+              <td id = "Treeextable3"><input type = "text" id = "inputTree3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 3);"></td>
             </tr>
             <tr>
-              <td id = "TREEextable4"><textarea id = "inputTREE4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTREE(4);"></td>
-              <td id = "TREEextable5"><input type = "text" id = "inputTREE5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 5);"></td>
+              <td id = "Treeextable4"><textarea id = "inputTree4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(4);"></td>
+              <td id = "Treeextable5"><input type = "text" id = "inputTree5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 5);"></td>
             </tr>
             <tr>
-              <td id = "TREEextable6"><textarea id = "inputTREE6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTREE(6);"></td>
-              <td id = "TREEextable7"><input type = "text" id = "inputTREE7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTREE(this.value, 7);"></td>
+              <td id = "Treeextable6"><textarea id = "inputTree6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(6);"></td>
+              <td id = "Treeextable7"><input type = "text" id = "inputTree7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 7);"></td>
             </tr>
           </table>
         </div>

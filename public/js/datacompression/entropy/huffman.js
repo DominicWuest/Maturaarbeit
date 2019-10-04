@@ -37,7 +37,6 @@ function GenString(startingIndex) {
 
 // Generate the base of the huffman-tree
 function baseTree(string) {
-  document.getElementById('inputTREE4').value += string + '\n';
   base = [];
   // Save the length of the string to be able to acces it when the string is changed
   var divider = string.length;

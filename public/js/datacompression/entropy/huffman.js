@@ -1,8 +1,11 @@
 // List of all possible characters for the random string
 let characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'];
 
-// Storage of indexes of displayed sign in TREE
-let randCharListTREE = [];
+// List with all string-character sublists
+let string = [];
+
+// List with the indexes of the string character in sublists
+let stringIndex = [];
 
 // Setup all exercises
 function displayExercise(n) {
@@ -12,53 +15,74 @@ function displayExercise(n) {
 }
 
 function displayTREE(startingIndex) {
-  inputsTREE = HuffmanTree(baseTree(GenTree(characters)));
-  randChar = Math.round(Math.random() * (characters.length - 1));
-  // Save the  indexes ot the characters to use them later to correct
-  randCharListTREE.push(randChar);
-  randSlot = Math.floor(Math.random() * 2);
-  document.getElementById('inputTREE' + (startingIndex + randSlot)).value = inputsTREE[randChar][randSlot];
-  document.getElementById('inputTREE' + (startingIndex + randSlot)).disabled = true;
-  document.getElementById('TREEextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
+  inputString = GenString(startingIndex / 2);
+  document.getElementById('inputTREE' + (startingIndex + 1)).value = inputString.join('');
+  document.getElementById('inputTREE' + (startingIndex + 1)).disabled = true;
+  document.getElementById('TREEextable' + (startingIndex + 1)).style.backgroundColor = "blue";
 }
 
 // Generate the solutions for random generated Strings or Trees
-function GenTree(alphabet) {
-  // Generate a random string
-  string = []
-  s = []
-  for (let i = 0; i < Math.random() * 20 + 5; i++) {
-    string.push(Math.floor(Math.random() * 27));
+function GenString(startingIndex) {
+  stringIndex.push([startingIndex.toString(10)]);
+  string.push([startingIndex.toString(10)]);
+  for (let i = 0; i < Math.random() * 2 + 5; i++) {
+    stringIndex[startingIndex].push(Math.floor(Math.random() * 27));
+    string[startingIndex].push(characters[stringIndex[startingIndex][i + 1]]);
   }
-  document.getElementById('TREEextable1').textContent = string;
-  inputs = HuffmanTree(string);
-  document.getElementById('TREEextable0').textContent = string;
-  return inputs;
-}
-
-// Generate a huffman-tree for a string
-function HuffmanTree(base) {
-  if (base[0] === 1.0) return;
-  base[base.lenght - 2] = (base[base.lenght - 1] + base[base.lenght - 2], 2);
-  base.lenght = base.lenght - 1;
-  base.sort(function(a, b){return b - a});
-  document.getElementById('inputTREE0').value = base;
-  HuffmanTree(base);
+  // Remove the startingIndex element from the sublist
+  stringIndex[startingIndex].shift();
+  string[startingIndex].shift();
+  return string[startingIndex];
 }
 
 // Generate the base of the huffman-tree
 function baseTree(string) {
+  document.getElementById('inputTREE4').value += string + '\n';
   base = [];
-  base.push(string.filter((v) => (v === value)).length / string.lenght);
+  // Save the length of the string to be able to acces it when the string is changed
+  var divider = string.length;
+  var ino = 0;
+  for (let i = 0; i < divider; i++) {
+    base.push(string.filter((v) => (v === string[ino])).length / divider);
+    var value = string[ino];
+    for (let q = 0; q < base[i] * divider; q++) {
+      var index = string.indexOf(value);
+      if (index !== -1) var a = string.splice(index, 1);
+    }
+    ino = ino + 1 - base[i] * divider;
+  }
   base.sort(function(a, b){return b - a});
-  document.getElementById('inputTREE0').value = base;
+  // Remove the remaing zeros
+  while (base[base.length - 1] === 0) base.pop();
   return base;
+}
+
+// Generate a huffman-tree on a base
+function HuffmanTree(base) {
+  var solution = '';
+  // Let the tree grow until it reaches a probabillity of 1
+  var growing = true;
+  while (growing) {
+    // Round the values to 0.1%
+    var roundedBase = [];
+    for (let i = 0; i < base.length; i++) roundedBase.push (Math.round(base[i] * 1000) / 10);
+    solution += roundedBase + '\n';
+    base[base.length - 2] = (base[base.length - 1] + base[base.length - 2]);
+    base.pop();
+    base.sort(function(a, b){return b - a});
+    if (base[0] === 1) {
+      growing = false;
+    }
+  }
+  solution += 1;
+  return solution;
 }
 
 // Check whether the given input matches the solution for the TREE exercise
 function checkTREE(message, index) {
+  let solution = '';
   // If the input matches the solution display a green background
-  if (message === inputsTREE[randCharListTREE[Math.floor(index * 0.5)]][index % 2]) {
+  if (message === HuffmanTree(baseTree(stringIndex[index / 2]))) {
     document.getElementById('TREEextable' + index).style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
@@ -69,17 +93,18 @@ function checkTREE(message, index) {
 
 // Reset the starting and solution values and background colors
 function resetTREE() {
-  for (let index = 0; index < 16; index++) {
+  for (let index = 0; index < 8; index++) {
     document.getElementById('inputTREE' + index).value = '';
     document.getElementById('inputTREE' + index).disabled = false;
     document.getElementById('TREEextable' + index).style.backgroundColor = "white";
   }
-  randCharListTREE = [];
-  for (let i = 0; i < 4; i++) displayTREE(i * 4);
+  string = [];
+  stringIndex = [];
+  for (let i = 0; i < 4; i++) displayTREE(i * 2);
 }
 
 // Display the solution value
 function solutionTREE(index) {
-  document.getElementById('inputTREE' + index).value = inputsTREE[randCharListTREE[Math.floor(index * 0.5)]][index % 2];
+  document.getElementById('inputTREE' + index).value = HuffmanTree(baseTree(stringIndex[index / 2]));
   document.getElementById('TREEextable' + index).style.backgroundColor = "green";
 }

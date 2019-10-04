@@ -7,21 +7,21 @@ let string = [];
 // List with the indexes of the string character in sublists
 let stringIndex = [];
 
-// List of the solution trees
+// List of the solution Trees
 let solution = [[''], [''], [''], ['']];
 
 // Setup all exercises
 function displayExercise(n) {
   for (let i = 0; i < n; i++) {
-    displayTREE(i * 2);
+    displayTree(i * 2);
   }
 }
 
-function displayTREE(startingIndex) {
+function displayTree(startingIndex) {
   inputString = GenString(startingIndex / 2);
-  document.getElementById('inputTREE' + (startingIndex + 1)).value = inputString.join('');
-  document.getElementById('inputTREE' + (startingIndex + 1)).disabled = true;
-  document.getElementById('TREEextable' + (startingIndex + 1)).style.backgroundColor = "blue";
+  document.getElementById('inputTree' + (startingIndex + 1)).value = inputString.join('');
+  document.getElementById('inputTree' + (startingIndex + 1)).disabled = true;
+  document.getElementById('Treeextable' + (startingIndex + 1)).style.backgroundColor = "blue";
   // Calculate the solution
   HuffmanTree(baseTree(inputString), startingIndex);
 }
@@ -40,7 +40,7 @@ function GenString(startingIndex) {
   return string[startingIndex];
 }
 
-// Generate the base of the huffman-tree
+// Generate the base of the huffman-Tree
 function baseTree(string) {
   base = [];
   // Save the length of the string to be able to acces it when the string is changed
@@ -61,9 +61,9 @@ function baseTree(string) {
   return base;
 }
 
-// Generate a huffman-tree on a base
+// Generate a huffman-Tree on a base
 function HuffmanTree(base, startingIndex) {
-  // Let the tree grow until it reaches a probabillity of 1
+  // Let the Tree grow until it reaches a probabillity of 1
   var growing = true;
   while (growing) {
     // Round the values to 0.1%
@@ -81,33 +81,33 @@ function HuffmanTree(base, startingIndex) {
   return;
 }
 
-// Check whether the given input matches the solution for the TREE exercise
-function checkTREE(message, index) {
+// Check whether the given input matches the solution for the Tree exercise
+function checkTree(message, index) {
   // If the input matches the solution display a green background
   if (message === solution[index / 2]) {
-    document.getElementById('TREEextable' + index).style.backgroundColor = "green";
+    document.getElementById('Treeextable' + index).style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('TREEextable' + index).style.backgroundColor = "red";
+    document.getElementById('Treeextable' + index).style.backgroundColor = "red";
   }
 }
 
 // Reset the starting and solution values and background colors
-function resetTREE() {
+function resetTree() {
   for (let index = 0; index < 8; index++) {
-    document.getElementById('inputTREE' + index).value = '';
-    document.getElementById('inputTREE' + index).disabled = false;
-    document.getElementById('TREEextable' + index).style.backgroundColor = "white";
+    document.getElementById('inputTree' + index).value = '';
+    document.getElementById('inputTree' + index).disabled = false;
+    document.getElementById('Treeextable' + index).style.backgroundColor = "white";
   }
   string = [];
   stringIndex = [];
   solution = [[''], [''], [''], ['']];
-  for (let i = 0; i < 4; i++) displayTREE(i * 2);
+  for (let i = 0; i < 4; i++) displayTree(i * 2);
 }
 
 // Display the solution value
-function solutionTREE(index) {
-  document.getElementById('inputTREE' + index).value = solution[index / 2];
-  document.getElementById('TREEextable' + index).style.backgroundColor = "green";
+function solutionTree(index) {
+  document.getElementById('inputTree' + index).value = solution[index / 2];
+  document.getElementById('Treeextable' + index).style.backgroundColor = "green";
 }

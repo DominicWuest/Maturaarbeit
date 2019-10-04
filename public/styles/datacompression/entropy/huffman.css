@@ -106,7 +106,7 @@ table, th, td {
 	margin-bottom: -20%;
 }
 
-#inputTREE0 {
+#inputTREE0, #inputTREE2, #inputTREE4, #inputTREE6 {
   height: 15vh;
-  width: 15vw;
+  width: 20vw;
 }

@@ -1,5 +1,5 @@
 // List of all possible characters for the random string
-let characters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '-'];
+let characters = [];
 
 // List with all string-character sublists
 let string = [];
@@ -8,16 +8,44 @@ let string = [];
 let stringIndex = [];
 
 // List of the solution Trees
-let solution = [[''], [''], [''], ['']];
+let solution = [];
 
 // Setup all exercises
 function displayExercise(n) {
+  // Add the letters to characters according to their probabillity in german texts, source: https://de.wikipedia.org/wiki/Buchstabenh%C3%A4ufigkeit
+  for (let i = 0; i < 65; i++) characters.push('a');
+  for (let i = 0; i < 19; i++) characters.push('b');
+  for (let i = 0; i < 31; i++) characters.push('c');
+  for (let i = 0; i < 51; i++) characters.push('d');
+  for (let i = 0; i < 174; i++) characters.push('e');
+  for (let i = 0; i < 17; i++) characters.push('f');
+  for (let i = 0; i < 30; i++) characters.push('g');
+  for (let i = 0; i < 48; i++) characters.push('h');
+  for (let i = 0; i < 76; i++) characters.push('i');
+  for (let i = 0; i < 3; i++) characters.push('j');
+  for (let i = 0; i < 12; i++) characters.push('k');
+  for (let i = 0; i < 34; i++) characters.push('l');
+  for (let i = 0; i < 25; i++) characters.push('m');
+  for (let i = 0; i < 98; i++) characters.push('n');
+  for (let i = 0; i < 25; i++) characters.push('o');
+  for (let i = 0; i < 8; i++) characters.push('p');
+  for (let i = 0; i < 1; i++) characters.push('q');
+  for (let i = 0; i < 70; i++) characters.push('r');
+  for (let i = 0; i < 73; i++) characters.push('s');
+  for (let i = 0; i < 62; i++) characters.push('t');
+  for (let i = 0; i < 44; i++) characters.push('u');
+  for (let i = 0; i < 7; i++) characters.push('v');
+  for (let i = 0; i < 19; i++) characters.push('w');
+  for (let i = 0; i < 1; i++) characters.push('x');
+  for (let i = 0; i < 1; i++) characters.push('y');
+  for (let i = 0; i < 11; i++) characters.push('z');
   for (let i = 0; i < n; i++) {
     displayTree(i * 2);
   }
 }
 
 function displayTree(startingIndex) {
+  solution.push(['']);
   inputString = GenString(startingIndex / 2);
   document.getElementById('inputTree' + (startingIndex + 1)).value = inputString.join('');
   document.getElementById('inputTree' + (startingIndex + 1)).disabled = true;
@@ -30,8 +58,8 @@ function displayTree(startingIndex) {
 function GenString(startingIndex) {
   stringIndex.push([startingIndex.toString(10)]);
   string.push([startingIndex.toString(10)]);
-  for (let i = 0; i < Math.random() * 2 + 5; i++) {
-    stringIndex[startingIndex].push(Math.floor(Math.random() * 27));
+  for (let i = 0; i < Math.random() * 20 + 5; i++) {
+    stringIndex[startingIndex].push(Math.floor(Math.random() * characters.length));
     string[startingIndex].push(characters[stringIndex[startingIndex][i + 1]]);
   }
   // Remove the startingIndex element from the sublist
@@ -64,7 +92,8 @@ function baseTree(string) {
 // Generate a huffman-Tree on a base
 function HuffmanTree(base, startingIndex) {
   // Let the Tree grow until it reaches a probabillity of 1
-  var growing = true;
+  if (base[0] === 1) var growing = false;
+  else var growing = true;
   while (growing) {
     // Round the values to 0.1%
     var roundedBase = [];
@@ -95,6 +124,7 @@ function checkTree(message, index) {
 
 // Reset the starting and solution values and background colors
 function resetTree() {
+  console.log('reset');
   for (let index = 0; index < 8; index++) {
     document.getElementById('inputTree' + index).value = '';
     document.getElementById('inputTree' + index).disabled = false;
@@ -102,7 +132,7 @@ function resetTree() {
   }
   string = [];
   stringIndex = [];
-  solution = [[''], [''], [''], ['']];
+  solution = [];
   for (let i = 0; i < 4; i++) displayTree(i * 2);
 }
 

@@ -75,9 +75,8 @@ function displayHuffman(startingIndex) {
   uniqueChar = temp.filter(function(item, pos) {
     return temp.indexOf(item) == pos;
   })
-  solHuffman[startingIndex] += uniqueChar + '\n';
-  HuffmanTree(baseTree(inputString, startingIndex, true), startingIndex, true);
-  HuffmanCode(startingIndex, temp);
+  HuffmanTree(baseTree(inputString, startingIndex, true, uniqueChar), startingIndex, true);
+  HuffmanCode(startingIndex, temp, uniqueChar);
   solHuffman.push(temp.join(''));
   // If the third slot is chosen display just the string
   if (randSlot === 1) {
@@ -125,7 +124,7 @@ function GenStringHuff(startingIndex) {
 }
 
 // Generate the base of the huffman-Tree
-function baseTree(string, startingIndex, huff) {
+function baseTree(string, startingIndex, huff, fixedString) {
   base = [];
   // Save the length of the string to be able to acces it when the string is changed
   var divider = string.length;
@@ -139,14 +138,29 @@ function baseTree(string, startingIndex, huff) {
     }
     ino = ino + 1 - base[i] * divider;
   }
+  // Sort the base manualy and also sort the fixedString (the subbase) with it
   if (huff) {
-    roundedBase = [];
+    // First create a new variable where the zeros are removed
+    var workingbase = [];
     for (let i = 0; i < base.length; i++) {
-      if (base[i] !== 0) roundedBase.push(Math.round(base[i] * 1000) / 10);
+      if (base[i] != 0) workingbase.push(base[i]);
     }
-    solHuffman[startingIndex] += roundedBase + '\n';
+    for (let i = 0; i < (base.length - 1); i++) {
+      for (let q = i + 1; q < base.length; q++) {
+        if (workingbase[i] < workingbase[q]) {
+          var temp = workingbase[i];
+          workingbase[i] = workingbase[q];
+          workingbase[q] = temp;
+          temp = fixedString[i];
+          fixedString[i] = fixedString[q];
+          fixedString[q] = temp;
+        }
+      }
+    }
+    base.sort(function(a, b){return b - a});
+    solHuffman[startingIndex] += fixedString + '\n';
   }
-  base.sort(function(a, b){return b - a});
+  // base.sort(function(a, b){return b - a});
   // Remove the remaing zeros
   while (base[base.length - 1] === 0) base.pop();
   return base;
@@ -176,11 +190,13 @@ function HuffmanTree(base, startingIndex, huff) {
 }
 
 // Creates the encoded binary value of the string
-function HuffmanCode(startingIndex, string) {
+function HuffmanCode(startingIndex, string, uniqueString) {
   // Variable where the code will be stored in
   var code = '';
-  console.log(string);
-  console.log(solHuffman[startingIndex]);
+  // Create a variable with the tree as a list so we can access the elements by themselves
+  var check = solHuffman[startingIndex];
+  check = check.replace(/\n/g, ',');
+  check = check.split(',');
   code += '123';
   // add the finished code to the solution array
   solHuffman.push(code);

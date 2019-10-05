@@ -64,8 +64,8 @@ function displayTree(startingIndex) {
   uniqueChar = inputString.filter(function(item, pos) {
     return inputString.indexOf(item) == pos;
   })
-  //HuffmanTree(baseTree(inputString, startingIndex, false, uniqueChar), startingIndex, false);
-  baseTree(inputString, startingIndex, false, uniqueChar);
+  HuffmanTree(baseTree(inputString, startingIndex, false, uniqueChar), startingIndex, false);
+  //baseTree(inputString, startingIndex, false, uniqueChar);
 }
 
 // Display the second exercise
@@ -143,32 +143,32 @@ function baseTree(string, startingIndex, huff, fixedString) {
       if (index !== -1) var a = string.splice(index, 1);
     }
   }
-  console.log(base);
   base.sort(function(a,b){return b[1] - a[1]});
-  console.log(base);
   return base;
 }
 
 // Generate a huffman-Tree on a base
 function HuffmanTree(base, startingIndex, huff) {
   // Let the Tree grow until it reaches a probabillity of 1
-  if (base[0] === 1) var growing = false;
+  if (base[0][1] === 1) var growing = false;
   else var growing = true;
   while (growing) {
+    console.log(base);
     // Round the values to 0.1%
     var roundedBase = [];
-    for (let i = 0; i < base.length; i++) roundedBase.push(Math.round(base[i] * 1000) / 10);
+    console.log(roundedBase);
+    for (let i = 0; i < base.length; i++) roundedBase.push([base[i][0], Math.round(base[i][1] * 1000) / 10]);
     if (huff) solHuffman[startingIndex] += roundedBase + '\n';
     else solution[startingIndex / 2] += roundedBase + '\n';
-    base[base.length - 2] = (base[base.length - 1] + base[base.length - 2]);
+    base[base.length - 2] = [(base[base.length - 2][0] + base[base.length - 1][0]), (base[base.length - 2][1] + base[base.length - 1][1])];
     base.pop();
-    base.sort(function(a, b){return b - a});
-    if (base[0] === 1) {
+    base.sort(function(a,b){return b[1] - a[1]});
+    if (base[0][1] === 1) {
+      if (huff) solHuffman[startingIndex] += base[0];
+      else solution[startingIndex / 2] += base[0];
       growing = false;
     }
   }
-  if (huff) solHuffman[startingIndex] += 1;
-  else solution[startingIndex / 2] += 1;
   return;
 }
 

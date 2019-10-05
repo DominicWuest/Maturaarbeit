@@ -195,8 +195,12 @@ function HuffmanCode(startingIndex, string, uniqueString) {
   var code = '';
   // Create a variable with the tree as a list so we can access the elements by themselves
   var check = solHuffman[startingIndex];
-  check = check.replace(/\n/g, ',');
-  check = check.split(',');
+  check = check.replace(/\n/g, ',').split(',');
+  console.log(check);
+  console.log(check[uniqueString.length] + '   ' + uniqueString.length);
+  console.log(string);
+  // Number of planes in the tree
+  var planes = uniqueString.length;
   code += '123';
   // add the finished code to the solution array
   solHuffman.push(code);

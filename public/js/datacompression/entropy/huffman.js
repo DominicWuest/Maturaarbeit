@@ -50,7 +50,7 @@ function displayExercise(n) {
   for (let i = 0; i < 11; i++) characters.push('z');
   for (let i = 0; i < n; i++) {
     displayTree(i * 2);
-    displayHuffman(i * 3);
+    //displayHuffman(i * 3);
   }
 }
 
@@ -61,7 +61,11 @@ function displayTree(startingIndex) {
   document.getElementById('inputTree' + (startingIndex + 1)).disabled = true;
   document.getElementById('Treeextable' + (startingIndex + 1)).style.backgroundColor = "blue";
   // Calculate the solution
-  HuffmanTree(baseTree(inputString, startingIndex, false), startingIndex, false);
+  uniqueChar = inputString.filter(function(item, pos) {
+    return inputString.indexOf(item) == pos;
+  })
+  //HuffmanTree(baseTree(inputString, startingIndex, false, uniqueChar), startingIndex, false);
+  baseTree(inputString, startingIndex, false, uniqueChar);
 }
 
 // Display the second exercise
@@ -126,43 +130,22 @@ function GenStringHuff(startingIndex) {
 // Generate the base of the huffman-Tree
 function baseTree(string, startingIndex, huff, fixedString) {
   base = [];
+  for (let i = 0; i < fixedString.length; i++) base.push([fixedString[i]]);
   // Save the length of the string to be able to acces it when the string is changed
   var divider = string.length;
-  var ino = 0;
-  for (let i = 0; i < divider; i++) {
-    base.push(string.filter((v) => (v === string[ino])).length / divider);
-    var value = string[ino];
-    for (let q = 0; q < base[i] * divider; q++) {
+  // Put the probabillity values into the subarray with the sign
+  for (let i = 0; i < fixedString.length; i++) {
+    base[i].push(string.filter((v) => (v === string[0])).length / divider);
+    // Remove characters that were already used
+    var value = string[0];
+    for (let q = 0; q < base[i][1] * divider; q++) {
       var index = string.indexOf(value);
       if (index !== -1) var a = string.splice(index, 1);
     }
-    ino = ino + 1 - base[i] * divider;
   }
-  // Sort the base manualy and also sort the fixedString (the subbase) with it
-  if (huff) {
-    // First create a new variable where the zeros are removed
-    var workingbase = [];
-    for (let i = 0; i < base.length; i++) {
-      if (base[i] != 0) workingbase.push(base[i]);
-    }
-    for (let i = 0; i < (base.length - 1); i++) {
-      for (let q = i + 1; q < base.length; q++) {
-        if (workingbase[i] < workingbase[q]) {
-          var temp = workingbase[i];
-          workingbase[i] = workingbase[q];
-          workingbase[q] = temp;
-          temp = fixedString[i];
-          fixedString[i] = fixedString[q];
-          fixedString[q] = temp;
-        }
-      }
-    }
-    base.sort(function(a, b){return b - a});
-    solHuffman[startingIndex] += fixedString + '\n';
-  }
-  // base.sort(function(a, b){return b - a});
-  // Remove the remaing zeros
-  while (base[base.length - 1] === 0) base.pop();
+  console.log(base);
+  base.sort(function(a,b){return b[1] - a[1]});
+  console.log(base);
   return base;
 }
 
@@ -196,9 +179,6 @@ function HuffmanCode(startingIndex, string, uniqueString) {
   // Create a variable with the tree as a list so we can access the elements by themselves
   var check = solHuffman[startingIndex];
   check = check.replace(/\n/g, ',').split(',');
-  console.log(check);
-  console.log(check[uniqueString.length] + '   ' + uniqueString.length);
-  console.log(string);
   // Number of planes in the tree
   var planes = uniqueString.length;
   code += '123';

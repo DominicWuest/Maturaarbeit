@@ -61,7 +61,7 @@ function displayTree(startingIndex) {
   document.getElementById('inputTree' + (startingIndex + 1)).disabled = true;
   document.getElementById('Treeextable' + (startingIndex + 1)).style.backgroundColor = "blue";
   // Calculate the solution
-  HuffmanTree(baseTree(inputString, false), startingIndex, false);
+  HuffmanTree(baseTree(inputString, startingIndex, false), startingIndex, false);
 }
 
 // Display the second exercise
@@ -69,22 +69,26 @@ function displayHuffman(startingIndex) {
   solHuffman.push(['']);
   inputString = GenStringHuff(startingIndex / 3);
   // Copy the list into a temporary variable because it gets changed in the solution functions
-  var temp = inputString.slice().join('');
+  var temp = inputString.slice();
   randSlot = Math.floor(Math.random() * 2);
   // Calculate the solution
-  HuffmanTree(baseTree(inputString, true), startingIndex, true);
-  HuffmanCode(startingIndex);
-  solHuffman.push(temp);
+  uniqueChar = temp.filter(function(item, pos) {
+    return temp.indexOf(item) == pos;
+  })
+  solHuffman[startingIndex] += uniqueChar + '\n';
+  HuffmanTree(baseTree(inputString, startingIndex, true), startingIndex, true);
+  HuffmanCode(startingIndex, temp);
+  solHuffman.push(temp.join(''));
   // If the third slot is chosen display just the string
   if (randSlot === 1) {
-    document.getElementById('inputHuffman' + (startingIndex + 2)).value = temp;
+    document.getElementById('inputHuffman' + (startingIndex + 2)).value = temp.join('');
     document.getElementById('inputHuffman' + (startingIndex + 2)).disabled = true;
     document.getElementById('Huffmanextable' + (startingIndex + 2)).style.backgroundColor = "blue";
   }
   // Otherwise display the code and the string together
-  else {
-    document.getElementById('inputHuffman' + (startingIndex)).value = '12';
-    document.getElementById('inputHuffman' + (startingIndex + 1)).value = '34';
+  if (randSlot === 0) {
+    document.getElementById('inputHuffman' + (startingIndex)).value = solHuffman[startingIndex];
+    document.getElementById('inputHuffman' + (startingIndex + 1)).value = solHuffman[startingIndex + 1];
     document.getElementById('inputHuffman' + (startingIndex)).disabled = true;
     document.getElementById('inputHuffman' + (startingIndex + 1)).disabled = true;
     document.getElementById('Huffmanextable' + (startingIndex)).style.backgroundColor = "blue";
@@ -121,7 +125,7 @@ function GenStringHuff(startingIndex) {
 }
 
 // Generate the base of the huffman-Tree
-function baseTree(string, huff) {
+function baseTree(string, startingIndex, huff) {
   base = [];
   // Save the length of the string to be able to acces it when the string is changed
   var divider = string.length;
@@ -134,6 +138,13 @@ function baseTree(string, huff) {
       if (index !== -1) var a = string.splice(index, 1);
     }
     ino = ino + 1 - base[i] * divider;
+  }
+  if (huff) {
+    roundedBase = [];
+    for (let i = 0; i < base.length; i++) {
+      if (base[i] !== 0) roundedBase.push(Math.round(base[i] * 1000) / 10);
+    }
+    solHuffman[startingIndex] += roundedBase + '\n';
   }
   base.sort(function(a, b){return b - a});
   // Remove the remaing zeros
@@ -165,8 +176,14 @@ function HuffmanTree(base, startingIndex, huff) {
 }
 
 // Creates the encoded binary value of the string
-function HuffmanCode(startingIndex) {
-  solHuffman.push('011011000100011111011011001000000100001001100000000111001111');
+function HuffmanCode(startingIndex, string) {
+  // Variable where the code will be stored in
+  var code = '';
+  console.log(string);
+  console.log(solHuffman[startingIndex]);
+  code += '123';
+  // add the finished code to the solution array
+  solHuffman.push(code);
 }
 
 // Check whether the given input matches the solution for the Tree exercise

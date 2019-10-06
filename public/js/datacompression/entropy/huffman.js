@@ -19,6 +19,9 @@ let solution = [];
 // List of the solutions of the last exercise
 let solHuffman = [];
 
+// Array with all tree solutions with indicators what the code sign is
+let checkHuff = [];
+
 // Setup all exercises
 function displayExercise(n) {
   // Add the letters to characters according to their probabillity in german texts, source: https://de.wikipedia.org/wiki/Buchstabenh%C3%A4ufigkeit
@@ -151,18 +154,24 @@ function HuffmanTree(base, startingIndex, huff) {
   // Let the Tree grow until it reaches a probabillity of 1
   if (base[0][1] === 1) var growing = false;
   else var growing = true;
+  if (huff) checkHuff.push([]);
   while (growing) {
-    console.log(base);
     // Round the values to 0.1%
     var roundedBase = [];
-    console.log(roundedBase);
     for (let i = 0; i < base.length; i++) roundedBase.push([base[i][0], Math.round(base[i][1] * 1000) / 10]);
-    if (huff) solHuffman[startingIndex] += roundedBase + '\n';
+    var solutionArray = [];
+    for (let i = 0; i < base.length; i++) solutionArray.push([base[i][0], base[i][1]]);
+    if (huff) {
+      solutionArray[roundedBase.length - 2].push(0);
+      solutionArray[roundedBase.length - 1].push(1);
+      checkHuff[startingIndex / 3].push(solutionArray);
+      solHuffman[startingIndex] += roundedBase + '\n';
+    }
     else solution[startingIndex / 2] += roundedBase + '\n';
     base[base.length - 2] = [(base[base.length - 2][0] + base[base.length - 1][0]), (base[base.length - 2][1] + base[base.length - 1][1])];
     base.pop();
     base.sort(function(a,b){return b[1] - a[1]});
-    if (base[0][1] === 1) {
+    if (1 - base[0][1] < 0.000000001) {
       if (huff) solHuffman[startingIndex] += base[0];
       else solution[startingIndex / 2] += base[0];
       growing = false;
@@ -175,12 +184,26 @@ function HuffmanTree(base, startingIndex, huff) {
 function HuffmanCode(startingIndex, string, uniqueString) {
   // Variable where the code will be stored in
   var code = '';
-  // Create a variable with the tree as a list so we can access the elements by themselves
-  var check = solHuffman[startingIndex];
-  check = check.replace(/\n/g, ',').split(',');
-  // Number of planes in the tree
-  var planes = uniqueString.length;
-  code += '123';
+  // Calculate the code for each sign
+  var encoded = [];
+  for (let i = 0; i < uniqueString.length; i++) {
+    var codeSign = '';
+    // Access the planes from the lowest and extract the solution values
+    for (var z = checkHuff[startingIndex / 3].length - 1; z > -1; z -= 1) {
+      for (let w = 0; w < checkHuff[startingIndex / 3][z].length; w++) {
+        if (checkHuff[startingIndex / 3][z][w][0].includes(uniqueString[i])) {
+          if (checkHuff[startingIndex / 3][z][w][2] === 0 || checkHuff[startingIndex / 3][z][w][2] === 1) {
+            codeSign += checkHuff[startingIndex / 3][z][w][2];
+          }
+        }
+      }
+    }
+    encoded.push(codeSign);
+  }
+  // Add the precalculated codes to the solution by their occurance
+  for (let i = 0; i < string.length; i++) {
+    code += encoded[uniqueString.indexOf(string[i])]
+  }
   // add the finished code to the solution array
   solHuffman.push(code);
 }

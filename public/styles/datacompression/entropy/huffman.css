@@ -111,6 +111,11 @@ table, th, td {
   width: 30vw;
 }
 
+#inputHuffman1, #inputHuffman4, #inputHuffman7, #inputHuffman10 {
+  height: 15vh;
+  width: 13vw;
+}
+
 .code0 {
   color: #F66;
 }

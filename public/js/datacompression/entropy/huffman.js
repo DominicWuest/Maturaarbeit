@@ -50,7 +50,7 @@ function displayExercise(n) {
   for (let i = 0; i < 11; i++) characters.push('z');
   for (let i = 0; i < n; i++) {
     displayTree(i * 2);
-    //displayHuffman(i * 3);
+    displayHuffman(i * 3);
   }
 }
 
@@ -65,7 +65,6 @@ function displayTree(startingIndex) {
     return inputString.indexOf(item) == pos;
   })
   HuffmanTree(baseTree(inputString, startingIndex, false, uniqueChar), startingIndex, false);
-  //baseTree(inputString, startingIndex, false, uniqueChar);
 }
 
 // Display the second exercise

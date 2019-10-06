@@ -27,8 +27,9 @@
 	min-height: 35vh;
 }
 
-img #probabillity {
-	height: 35vh;
+img .probabillity {
+	height: 30vh;
+	align: right;
 }
 
 .sum {

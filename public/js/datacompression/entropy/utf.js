@@ -95,7 +95,7 @@ function displayUTF16(startingIndex) {
 }
 
 
-//Generate the solutions for utf-8 from the decimal values
+// Generate the solutions for utf-8 from the decimal values
 function GenUTF8(inputDecimals) {
   for (let i = 0; i < inputDecimals.length; i++) {
     dec = inputDecimals[i][0];

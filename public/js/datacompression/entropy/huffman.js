@@ -172,8 +172,8 @@ function HuffmanTree(base, startingIndex, huff) {
     base.pop();
     base.sort(function(a,b){return b[1] - a[1]});
     if (1 - base[0][1] < 0.000000001) {
-      if (huff) solHuffman[startingIndex] += base[0];
-      else solution[startingIndex / 2] += base[0];
+      if (huff) solHuffman[startingIndex] += base[0][0] + ',1';
+      else solution[startingIndex / 2] += base[0][0] + ',1';
       growing = false;
     }
   }
@@ -255,6 +255,7 @@ function resetHuffman() {
   stringHuff = [];
   stringIndexHuff = [];
   solHuffman = [];
+  checkHuff = [];
   for (let i = 0; i < 4; i++) displayHuffman(i * 3);
 }
 

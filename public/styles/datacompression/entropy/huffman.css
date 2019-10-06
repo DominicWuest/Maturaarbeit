@@ -1,0 +1,125 @@
+.circle {
+  text-align: center;
+  color: #FFF;
+  background-color: blue;
+}
+
+.triangle {
+  align: middle;
+  clip-path: polygon(8vw 0, 16vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 16vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle3 {
+  align: middle;
+  clip-path: polygon(12vw 0, 24vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 24vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle5 {
+  align: middle;
+  clip-path: polygon(20vw 0, 40vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 40vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle6 {
+  align: middle;
+  clip-path: polygon(24vw 0, 48vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 48vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+.triangle9 {
+  align: middle;
+  clip-path: polygon(36vw 0, 72vw 5vw, 0px 5vw);
+  height: 5vw;
+  width: 72vw;
+  margin: 0 0 0 0;
+  background: linear-gradient(to top right, #2441B4, #31128B);
+}
+
+table, th, td {
+  text-align: center;
+  align-content: center;
+  width: 75vw;
+  border: 1px solid #000;
+  border-collapse: collapse;
+  font-size: 110%;
+}
+
+.equation {
+	display: inline-block;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.fraction {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+}
+
+.fraction span {
+  display: block;
+}
+
+.fraction span.lower {
+	border-top: thick solid black;
+}
+
+.fraction span.upper {
+	display: inline-block;
+}
+
+.sum {
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0;
+	text-align: center;
+	font-size: 175%;
+}
+
+.sum span {
+	display: block;
+}
+
+.sum span.start {
+	text-align: center;
+	font-size: 50%;
+}
+
+.sum span.end {
+	text-align: center;
+	font-size: 50%;
+	margin-bottom: -20%;
+}
+
+#inputTree0, #inputTree2, #inputTree4, #inputTree6, #inputHuffman0, #inputHuffman3, #inputHuffman6, #inputHuffman9 {
+  height: 22vh;
+  width: 30vw;
+}
+
+#inputHuffman1, #inputHuffman4, #inputHuffman7, #inputHuffman10 {
+  height: 15vh;
+  width: 13vw;
+}
+
+.code0 {
+  color: #F66;
+}
+
+.code1 {
+  color: #FFF;
+}

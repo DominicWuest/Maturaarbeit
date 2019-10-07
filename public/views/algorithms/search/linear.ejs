@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <!-- Dominic Wüst -->
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <title>Linear Search</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href="/styles/searchAnimation.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
-    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
-    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-    <script type="text/javascript">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CRighteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %>></script>
+    <script src="/js/codeHighlighting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script>
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
@@ -68,7 +68,7 @@ def linearSearch(arr, val):
           <code class="code java">// arr ist der Array, in dem der Wert val gesucht wird
 public static int linearSearch(int[] arr, int val) {
   // Man iteriert über den ganzen Array
-  for (int i = 0; i < arr.length; i++) {
+  for (int i = 0; i &lt; arr.length; i++) {
     // Der untersuchte Wert stimmt mit dem Gesuchten überein
     if (arr[i] == val) {
       // Der gerade analysierte Index wird zurückgegeben
@@ -91,7 +91,7 @@ public static int linearSearch(int[] arr, int val) {
               <li><span style="color: gray;">Ausgeschlossener Wert</span></li>
             </ul>
           </div>
-          <input type="range" id="range" min="0" max="30" value="15" oninput="playing = false; restartAnimation();" onmouseup="restartAnimation(); playing = true;" ontouchend="restartAnimation(); playing = true;">
+          <input type="range" id="range" min="0" max="30" value="15" oninput="playing = false; restartAnimation();" onmouseup="restartAnimation(); playing = true;">
           <div id="animation"></div>
         </div>
       </div>

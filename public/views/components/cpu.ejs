@@ -1,41 +1,41 @@
 <!DOCTYPE html>
 <!-- Dominic Wolf -->
-<html>
-<head>
-        <title>Prozessor</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-</head>
-<body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-                <div class="title">
-                        <h1>CPU | Prozessor</h1>
-                </div>
-                <div class="shortlink">
-                        <h2>Shortlinks</h2>
-                        <ul>
-                                <li><a href="#aufgabe">Aufgabe</a></li>
-                                <li><a href="#funktion">Funktion</a></li>
-                                <li><a href="#aufbau">Aufbau</a></li>
-                        </ul>
-                </div>
-                <div id="aufgabe">
-                        <h2>Aufgabe</h2>
-                        <p>Der Prozessor ist dafür da, Befehle entgegenzunehmen und auszuführen. Diese Operationen reichen von einfachen Rechenoperationen bis zum Interagieren mit anderen Komponenten.</p>
-                </div>
-                <div id="funktion">
-                        <h2>Funktion</h2>
-                        <p>Im Prozessor befindet sich ein Rechenwerk und ein Steuerwerk. Das Rechenwerk führt Rechnungen aus. Es können alle möglichen Operationen (Addition, Multiplikation, etc.) ausgeführt werden. Das Steuerwerk im CPU kann mit einem Decoder Befehle decodieren. Diese Befehle werden vom Rechenwerk ausgeführt. Die Berechnungen werden im Steuerwerk wieder zu Befehlen umgewandelt und an die verschiedenen Komponenten weitergegeben. </p>
-                        <p>Die Leistungsfähigkeit des Prozessors wird in Hertz (Hz) angegeben. 1 Hz bedeutet, dass der Prozessor eine Rechenoperation in der Sekunde durchführen kann. Inzwischen liegt der Standart bei mehreren Gigahertz (1GHz = 1 Mia. Hz). Prozessoren können unterschiedlich viele Cores haben. Die Cores arbeiten parallel zueinander. Somit wird das gleichzeitige Ausführen mehrerer Instruktionen ermöglicht. Zusätzlich können die Cores in Threads unterteilt werden. Diese werden ebenfalls als Virtual Cores bezeichnet, da sie ebenfalls parallel zueinander Instruktionen ausführen können. Die handelsüblichen Prozessoren haben zwischen einem und vier Cores und einem bis zwei Threads pro Core.</p>
-                </div>
-                <div id="aufbau">
-                        <h2>Aufbau</h2>
-                        <p>Der Prozessor ist ein kleines, programmierbares Rechenwerk, welche über Befehle andere Maschinen und Schaltungen steuert. Er wird auf dem vorgegebenen Sockel auf dem Motherboard installiert. Auf den Prozessor kommt meistens ein Kühlungsmodul, welcher die CPU kühlt. Häufig werden dafür Lüfter gebraucht, jedoch ist für leistungsstärkere PC's Wasserkühlung zu empfehlen. Ein Kühlungsmodul benötigt es, da sich der Prozessor beim Rechnen stark erhitzt, was zu einem Leistungsverlust führen kann, welcher automatisch von der CPU aktiviert wird (Thermal Throttling). Falls die CPU lange und immer wieder unter enormer Hitze leidet kann dies zu permanenter Beschädigung der Hardware führen.</p>
-                </div>
-        </main>
-        <%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+<html lang="de">
+  <head>
+    <title>Prozessor</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>CPU | Prozessor</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#aufgabe">Aufgabe</a></li>
+          <li><a href="#funktion">Funktion</a></li>
+          <li><a href="#aufbau">Aufbau</a></li>
+        </ul>
+      </div>
+      <div id="aufgabe">
+        <h2>Aufgabe</h2>
+        <p>Der Prozessor ist dafür da, Befehle entgegenzunehmen und auszuführen. Diese Operationen reichen von einfachen Rechenoperationen bis zum Interagieren mit anderen Komponenten.</p>
+      </div>
+      <div id="funktion">
+        <h2>Funktion</h2>
+        <p>Im Prozessor befindet sich ein Rechenwerk und ein Steuerwerk. Das Rechenwerk führt Rechnungen aus. Es können alle möglichen Operationen (Addition, Multiplikation, etc.) ausgeführt werden. Das Steuerwerk im CPU kann mit einem Decoder Befehle decodieren. Diese Befehle werden vom Rechenwerk ausgeführt. Die Berechnungen werden im Steuerwerk wieder zu Befehlen umgewandelt und an die verschiedenen Komponenten weitergegeben. </p>
+        <p>Die Leistungsfähigkeit des Prozessors wird in Hertz (Hz) angegeben. 1 Hz bedeutet, dass der Prozessor eine Rechenoperation in der Sekunde durchführen kann. Inzwischen liegt der Standart bei mehreren Gigahertz (1GHz = 1 Mia. Hz). Prozessoren können unterschiedlich viele Cores haben. Die Cores arbeiten parallel zueinander. Somit wird das gleichzeitige Ausführen mehrerer Instruktionen ermöglicht. Zusätzlich können die Cores in Threads unterteilt werden. Diese werden ebenfalls als Virtual Cores bezeichnet, da sie ebenfalls parallel zueinander Instruktionen ausführen können. Die handelsüblichen Prozessoren haben zwischen einem und vier Cores und einem bis zwei Threads pro Core.</p>
+      </div>
+      <div id="aufbau">
+        <h2>Aufbau</h2>
+        <p>Der Prozessor ist ein kleines, programmierbares Rechenwerk, welche über Befehle andere Maschinen und Schaltungen steuert. Er wird auf dem vorgegebenen Sockel auf dem Motherboard installiert. Auf den Prozessor kommt meistens ein Kühlungsmodul, welcher die CPU kühlt. Häufig werden dafür Lüfter gebraucht, jedoch ist für leistungsstärkere PC's Wasserkühlung zu empfehlen. Ein Kühlungsmodul benötigt es, da sich der Prozessor beim Rechnen stark erhitzt, was zu einem Leistungsverlust führen kann, welcher automatisch von der CPU aktiviert wird (Thermal Throttling). Falls die CPU lange und immer wieder unter enormer Hitze leidet kann dies zu permanenter Beschädigung der Hardware führen.</p>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

@@ -45,10 +45,12 @@
           <h3>Aufbau des Baumes</h3>
           <p>
             Um den Baum aufzubauen muss zuerst die Wahrscheinlichkeit der einzelenen Zeichen bestimmt werden. Dies kann sehr einfach gemacht werden, indem die Anzahl der Vorkommnisse durch die Gesamtanzahl an Zeichen geteilt wird. Wenn also ein Satz, der aus den Zeichen Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>} besteht können die jeweiligen Wahrscheinlichkeiten durch folgende Formel berechnet werden, wobei m die gesamte Anzahl an Zeichen ist und z<sub>i</sub> 1 beträgt, wenn das betrachtete Zeichen z<sub>i</sub> ist und 0, wenn nicht.
-            <figure class = "equation">
-              p<sub>z<sub>i</sub></sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">m</span></figure> * <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure> z<sub>i</sub>
-            </figure>
-            <br>
+          </p>
+          <figure class = "equation">
+            p<sub>z<sub>i</sub></sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">m</span></figure> * <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure> z<sub>i</sub>
+          </figure>
+          <br>
+          <p>
             Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.
           </p>
           <table class = "buildTree">
@@ -463,7 +465,7 @@ def base(a):
     x = 0
     i = 0
     # Eine While-Schleife wird benötigt, da unbekannt ist, wie viel mal sie durchlaufen wird
-    while x < lenght:
+    while x &lt; lenght:
         # Zählt wie oft ein Zeichen im String vorkommt
         counter = float(a.count(a[0]))
         # Entfernt das Zeichen, damit es nur einmal gezählt wird
@@ -504,20 +506,20 @@ Tree(base(a))</code>
               <th>String</th>
             </tr>
             <tr>
-              <td id = "Treeextable0"><textarea id = "inputTree0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(0);"></td>
-              <td id = "Treeextable1"><input type = "text" id = "inputTree1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 1);"></td>
+              <td id = "Treeextable0"><textarea id = "inputTree0" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(0);"></td>
+              <td id = "Treeextable1"><input type = "text" id = "inputTree1" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 1);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable2"><textarea id = "inputTree2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(2);"></td>
-              <td id = "Treeextable3"><input type = "text" id = "inputTree3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 3);"></td>
+              <td id = "Treeextable2"><textarea id = "inputTree2" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(2);"></td>
+              <td id = "Treeextable3"><input type = "text" id = "inputTree3" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 3);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable4"><textarea id = "inputTree4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(4);"></td>
-              <td id = "Treeextable5"><input type = "text" id = "inputTree5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 5);"></td>
+              <td id = "Treeextable4"><textarea id = "inputTree4" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(4);"></td>
+              <td id = "Treeextable5"><input type = "text" id = "inputTree5" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 5);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable6"><textarea id = "inputTree6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(6);"></td>
-              <td id = "Treeextable7"><input type = "text" id = "inputTree7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 7);"></td>
+              <td id = "Treeextable6"><textarea id = "inputTree6" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(6);"></td>
+              <td id = "Treeextable7"><input type = "text" id = "inputTree7" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 7);"></td>
             </tr>
           </table>
         </div>
@@ -796,24 +798,24 @@ Tree(base(a))</code>
               <th>String</th>
             </tr>
             <tr>
-              <td id = "Huffmanextable0"><textarea id = "inputHuffman0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(0);"></td>
-              <td id = "Huffmanextable1"><textarea id = "inputHuffman1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 1);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(1);"></td>
-              <td id = "Huffmanextable2"><input type = "text" id = "inputHuffman2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(2);"></td>
+              <td id = "Huffmanextable0"><textarea id = "inputHuffman0" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(0);"></td>
+              <td id = "Huffmanextable1"><textarea id = "inputHuffman1" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 1);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(1);"></td>
+              <td id = "Huffmanextable2"><input type = "text" id = "inputHuffman2" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(2);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable3"><textarea id = "inputHuffman3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 3);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(3);"></td>
-              <td id = "Huffmanextable4"><textarea id = "inputHuffman4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(4);"></td>
-              <td id = "Huffmanextable5"><input type = "text" id = "inputHuffman5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(5);"></td>
+              <td id = "Huffmanextable3"><textarea id = "inputHuffman3" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 3);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(3);"></td>
+              <td id = "Huffmanextable4"><textarea id = "inputHuffman4" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(4);"></td>
+              <td id = "Huffmanextable5"><input type = "text" id = "inputHuffman5" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(5);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable6"><textarea id = "inputHuffman6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(6);"></td>
-              <td id = "Huffmanextable7"><textarea id = "inputHuffman7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 7);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(7);"></td>
-              <td id = "Huffmanextable8"><input type = "text" id = "inputHuffman8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(8);"></td>
+              <td id = "Huffmanextable6"><textarea id = "inputHuffman6" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(6);"></td>
+              <td id = "Huffmanextable7"><textarea id = "inputHuffman7" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 7);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(7);"></td>
+              <td id = "Huffmanextable8"><input type = "text" id = "inputHuffman8" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(8);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable9"><textarea id = "inputHuffman9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 9);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(9);"></td>
-              <td id = "Huffmanextable10"><textarea id = "inputHuffman10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 10);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(10);"></td>
-              <td id = "Huffmanextable11"><input type = "text" id = "inputHuffman11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(11);"></td>
+              <td id = "Huffmanextable9"><textarea id = "inputHuffman9" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 9);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(9);"></td>
+              <td id = "Huffmanextable10"><textarea id = "inputHuffman10" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 10);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(10);"></td>
+              <td id = "Huffmanextable11"><input type = "text" id = "inputHuffman11" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(11);"></td>
             </tr>
           </table>
         </div>

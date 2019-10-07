@@ -1,61 +1,61 @@
 <!DOCTYPE html>
 <!-- Dominic Wolf -->
-<html>
-<head>
-        <title>Motherboard</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-</head>
-<body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-                <div class="title">
-                        <h1>Motherboard</h1>
-                </div>
-                <div class="shortlink">
-                        <h2>Shortlinks</h2>
-                        <ul>
-                                <li><a href="#aufgabe">Aufgabe</a></li>
-                                <li><a href="#komponenten">Komponenten</a></li>
-                        </ul>
-                </div>
-                <div class="text">
-                    <div id="aufgabe">
-                        <h2>Aufgabe</h2>
-                        <p>Das Motherboard ist das Kernstück eines Computers. Es wird auch Mainboard oder auf Deutsch Hauptplatine genannt. Auf ihm werden die einzelnen Komponenten montiert. Somit ermöglicht das Motherboard die Kommunikation zwischen den Komponenten.</p>
-                        <p>Die Aufgabe eines Motherboards ist es, alle Komponenten mit Hilfe von Leiterbahnen zu verbinden. Die notwendigen Komponenten, welche auf das Motherboard zu platzieren sind, ist einerseits der Prozessor, der Arbeitsspeicher, verschiedene Erweiterungskarten (Grafikkarte, Soundkarte, PCI-Karte), ein Massenspeicher und der BIOS-Chip.</p>
-                    </div>
-                    <div id="komponenten">
-                        <h2>Komponenten</h2>
-                        <ul>
-                                <li>
-                                        <h3>Sockel</h3>
-                                        <p>Jedes Motherboard besitzt mindestens einen Sockel, welcher für die CPU vorgesehen ist. Auf diesem Sockel wird der Prozessor befestigt. Nicht jedes Motherboard ist kompatibel mit jedem Prozessor. Somit ist beim Kauf eines Motherboards stets darauf zu Achten, ob der Sockel des Boards mit dem jeweiligen Prozessor kompatibel ist.</p>
-                                </li>
-                                <li>
-                                        <h3>RAM-Steckplätze</h3>
-                                        <p>In der Nähe des Prozessors befinden sich die RAM-Steckplätze. Hier werden die <a href="/components/ram"><b>RAM</b></a>-Module eingesetzt. Die neusten und schnellsten, auf dem Markt erhältlichen, Module sind die DDR4-Module. Normalerweise besitzt ein Motherbaord vier RAMsteckplätze, welche farblich gekennzeichnet sind, um den jeweils richtigen Kanal anzusteuern.</p>
-                                        <p>Es ist wichtig, dass die RAMslots richtig besetzt sind, da dies ansonsten zu einem Bottleneck beim RAM führen kann.</p>
-                                </li>
-                                <li>
-                                        <h3>PCI-Steckplätze</h3>
-                                        <p>Auf den PCI-Steckplätzen werden verschiedene Steckkarten festgemacht. Es existieren verschiedene Arten von PCI-Steckplätzen. Die langsameren PCI und die schnelleren PCI-E. Diese sind mit einer separaten Punkt-zu-Punkt Verbindung verbunden, dem PCI Express. PCI Express steht für "Peripheral Component Interconnect Express". Der neuste PCI Express kann bis zu 32 Gigabyte pro Sekunde transferieren. Üblicherweise wird die Grafikkarte mit den PCI-E-Steckplätzen angeschlossen, da hier eine Übertragung von besonders grossen Datenmengen gefragt ist. An die PCI-Anschlüsse kommen Karten, welche weniger Daten übermitteln müssen, beispielsweise Soundkarten.</p>
-                                </li>
-                                <li>
-                                        <h3>SATA-Anschlüsse</h3>
-                                        <p>SATA ist der Übertragungsstandart von Daten zwischen Speichermedien und dem Prozessor. Hier schliesst man Festplatten, SSDs und optische Datenträger an. Die standard SATAs kann theoretisch bis zu 600 Mb pro Sekunde übertragen.</p>
-                                </li>
-                                <li>
-                                        <h3>Bridges</h3>
-                                        <p> Das Motherboard wird in zwei verschiedene Bridges unterteilt. Die South- und Northbridge, welche zwei verschiedene Chips sind. Die Southbridge liegt nahe an den PCI-Steckplätzen, den SATA-Anschlüssen und den USB-Ports. Sie ist über die Northbridge mit dem Prozessor verbunden. An der Northbridge sind die wichtigeren Komponenten, wie die RAM-Steckplätze, die PCI-E-Steckplätze für die Grafikkarten und der Prozessor verbunden. Auf beiden Chips sitzt ein Kühlkörper.</p>
-                                </li>
-                        </ul>
-                    </div>
-                </div>
-        </main>
-        <script src="js/motherboard.js"></script>
-        <%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+<html lang="de">
+  <head>
+    <title>Motherboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Motherboard</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#aufgabe">Aufgabe</a></li>
+          <li><a href="#komponenten">Komponenten</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="aufgabe">
+          <h2>Aufgabe</h2>
+          <p>Das Motherboard ist das Kernstück eines Computers. Es wird auch Mainboard oder auf Deutsch Hauptplatine genannt. Auf ihm werden die einzelnen Komponenten montiert. Somit ermöglicht das Motherboard die Kommunikation zwischen den Komponenten.</p>
+          <p>Die Aufgabe eines Motherboards ist es, alle Komponenten mit Hilfe von Leiterbahnen zu verbinden. Die notwendigen Komponenten, welche auf das Motherboard zu platzieren sind, ist einerseits der Prozessor, der Arbeitsspeicher, verschiedene Erweiterungskarten (Grafikkarte, Soundkarte, PCI-Karte), ein Massenspeicher und der BIOS-Chip.</p>
+        </div>
+        <div id="komponenten">
+          <h2>Komponenten</h2>
+          <ul>
+            <li>
+              <h3>Sockel</h3>
+              <p>Jedes Motherboard besitzt mindestens einen Sockel, welcher für die CPU vorgesehen ist. Auf diesem Sockel wird der Prozessor befestigt. Nicht jedes Motherboard ist kompatibel mit jedem Prozessor. Somit ist beim Kauf eines Motherboards stets darauf zu Achten, ob der Sockel des Boards mit dem jeweiligen Prozessor kompatibel ist.</p>
+            </li>
+            <li>
+              <h3>RAM-Steckplätze</h3>
+              <p>In der Nähe des Prozessors befinden sich die RAM-Steckplätze. Hier werden die <a href="/components/ram"><b>RAM</b></a>-Module eingesetzt. Die neusten und schnellsten, auf dem Markt erhältlichen, Module sind die DDR4-Module. Normalerweise besitzt ein Motherbaord vier RAMsteckplätze, welche farblich gekennzeichnet sind, um den jeweils richtigen Kanal anzusteuern.</p>
+              <p>Es ist wichtig, dass die RAMslots richtig besetzt sind, da dies ansonsten zu einem Bottleneck beim RAM führen kann.</p>
+            </li>
+            <li>
+              <h3>PCI-Steckplätze</h3>
+              <p>Auf den PCI-Steckplätzen werden verschiedene Steckkarten festgemacht. Es existieren verschiedene Arten von PCI-Steckplätzen. Die langsameren PCI und die schnelleren PCI-E. Diese sind mit einer separaten Punkt-zu-Punkt Verbindung verbunden, dem PCI Express. PCI Express steht für "Peripheral Component Interconnect Express". Der neuste PCI Express kann bis zu 32 Gigabyte pro Sekunde transferieren. Üblicherweise wird die Grafikkarte mit den PCI-E-Steckplätzen angeschlossen, da hier eine Übertragung von besonders grossen Datenmengen gefragt ist. An die PCI-Anschlüsse kommen Karten, welche weniger Daten übermitteln müssen, beispielsweise Soundkarten.</p>
+            </li>
+            <li>
+              <h3>SATA-Anschlüsse</h3>
+              <p>SATA ist der Übertragungsstandart von Daten zwischen Speichermedien und dem Prozessor. Hier schliesst man Festplatten, SSDs und optische Datenträger an. Die standard SATAs kann theoretisch bis zu 600 Mb pro Sekunde übertragen.</p>
+            </li>
+            <li>
+              <h3>Bridges</h3>
+              <p> Das Motherboard wird in zwei verschiedene Bridges unterteilt. Die South- und Northbridge, welche zwei verschiedene Chips sind. Die Southbridge liegt nahe an den PCI-Steckplätzen, den SATA-Anschlüssen und den USB-Ports. Sie ist über die Northbridge mit dem Prozessor verbunden. An der Northbridge sind die wichtigeren Komponenten, wie die RAM-Steckplätze, die PCI-E-Steckplätze für die Grafikkarten und der Prozessor verbunden. Auf beiden Chips sitzt ein Kühlkörper.</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </main>
+    <script src="js/motherboard.js"></script>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

@@ -1,42 +1,42 @@
 <!DOCTYPE html>
 <!-- Dominic Wolf -->
-<html>
-<head>
-        <title>Arbeitsspeicher</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-        <link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-</head>
-<body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-                <div class="title">
-                        <h1>RAM | Arbeitsspeicher</h1>
-                </div>
-                <div class="shortlink">
-                        <h2>Shortlinks</h2>
-                        <ul>
-                                <li><a href="#aufgabe">Aufgabe</a></li>
-                                <li><a href="#funktion">Funktion</a></li>
-                                <li><a href="#aufbau">Aufbau</a></li>
-                        </ul>
-                </div>
-                <div class="text">
-                    <div id="aufgabe">
-                        <h2>Aufgabe</h2>
-                        <p>Der Arbeitsspeicher, oder auch RAM (Random Access Memory) genannt, ist der Speicher, welcher temporär abgespeicherte Daten beinhält. Ohne einen solchen Speicher müsste jede Interaktion mit Daten über den, im Vergleich zum RAM, langsamen Massenspeicher ablaufen.</p>
-                    </div>
-                    <div id="funktion">
-                        <h2>Funktion</h2>
-                        <p>Sobald man ein Programm oder eine Webseite auf einem Computer öffnet, werden Dateien in den Zwischenspeicher gelegt. Diese zwischengespeicherten Daten sind so lange verfügbar, bis sie vom System selbst gelöscht werden oder der Computer heruntergefahren wird. Der Arbeitsspeicher ist verfügbar, solange er Strom erhält. Anhand des Beispiels eines Word-Dokumentes sieht man, wie der Arbeitsspeicher funktioniert. Schreibt man einen Text in Word, wird dieser lediglich im Arbeitsspeicher gespeichert. Würde man das Programm dann schliessen, wird der ganze Text gelöscht. Falls jedoch das Dokument vorher abspeichert wird, speichert der Computer die Datei auf dem Massenspeicher. Auf einem Massenspeicher gehen Daten nicht verloren beim Herunterfahren des Computers.</p>
-                    </div>
-                    <div id="aufbau">
-                        <h2>Aufbau</h2>
-                        <p>Die RAM-Steckplätze sind über die Northbridge mit dem Prozessor verbunden. In die RAM-Steckplätze werden RAM-Module eingesetzt. Die schnellsten im Handel erhältlichen sind die DDR4-Module. Bei einem Arbeitsspeicher kommt es aber nicht nur auf die Schnelligkeit an, sondern ebenfalls auf die Grösse des Speichers. Es gibt Speicher mit einer Kapazität von einem Gigabyte bis hoch zu 128 Gigabyte. Allerdings überschreiten diese einen Preis von mehreren Tausend Franken. Üblicherweise reichen acht Gigabyte RAM. Bei einem leistungsstärkeren PC waären eher 16 oder mehr Gigabyte RAM zu empfehlen.</p>
-                    </div>
-                </div>
-        </main>
-        <%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+<html lang="de">
+  <head>
+    <title>Arbeitsspeicher</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>RAM | Arbeitsspeicher</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#aufgabe">Aufgabe</a></li>
+          <li><a href="#funktion">Funktion</a></li>
+          <li><a href="#aufbau">Aufbau</a></li>
+        </ul>
+      </div>
+      <div class="text">
+        <div id="aufgabe">
+          <h2>Aufgabe</h2>
+          <p>Der Arbeitsspeicher, oder auch RAM (Random Access Memory) genannt, ist der Speicher, welcher temporär abgespeicherte Daten beinhält. Ohne einen solchen Speicher müsste jede Interaktion mit Daten über den, im Vergleich zum RAM, langsamen Massenspeicher ablaufen.</p>
+        </div>
+        <div id="funktion">
+          <h2>Funktion</h2>
+          <p>Sobald man ein Programm oder eine Webseite auf einem Computer öffnet, werden Dateien in den Zwischenspeicher gelegt. Diese zwischengespeicherten Daten sind so lange verfügbar, bis sie vom System selbst gelöscht werden oder der Computer heruntergefahren wird. Der Arbeitsspeicher ist verfügbar, solange er Strom erhält. Anhand des Beispiels eines Word-Dokumentes sieht man, wie der Arbeitsspeicher funktioniert. Schreibt man einen Text in Word, wird dieser lediglich im Arbeitsspeicher gespeichert. Würde man das Programm dann schliessen, wird der ganze Text gelöscht. Falls jedoch das Dokument vorher abspeichert wird, speichert der Computer die Datei auf dem Massenspeicher. Auf einem Massenspeicher gehen Daten nicht verloren beim Herunterfahren des Computers.</p>
+        </div>
+        <div id="aufbau">
+          <h2>Aufbau</h2>
+          <p>Die RAM-Steckplätze sind über die Northbridge mit dem Prozessor verbunden. In die RAM-Steckplätze werden RAM-Module eingesetzt. Die schnellsten im Handel erhältlichen sind die DDR4-Module. Bei einem Arbeitsspeicher kommt es aber nicht nur auf die Schnelligkeit an, sondern ebenfalls auf die Grösse des Speichers. Es gibt Speicher mit einer Kapazität von einem Gigabyte bis hoch zu 128 Gigabyte. Allerdings überschreiten diese einen Preis von mehreren Tausend Franken. Üblicherweise reichen acht Gigabyte RAM. Bei einem leistungsstärkeren PC waären eher 16 oder mehr Gigabyte RAM zu empfehlen.</p>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

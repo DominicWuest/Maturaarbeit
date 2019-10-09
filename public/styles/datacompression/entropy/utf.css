@@ -110,7 +110,7 @@ table, th, td {
     font-size: 0.9vw;
   }
 
-  .box:nth-child(n + 54) {
+  .box:nth-child(n + 54), .tableISOIEC .box:nth-child(n + 17) {
     font-size: 1vw;
   }
 
@@ -118,22 +118,45 @@ table, th, td {
     font-size: 0.9vw;
   }
 
-  .box:nth-child(153) {
+  .tableISOIEC .box:nth-child(53), .box:nth-child(153), .tableISOIEC .box:nth-child(189), .tableISOIEC .box:nth-child(202) {
     font-size: 0.5vw;
   }
 
   .tableASCII {
+    margin-left: 0px;
     display: grid;
-    grid-template-columns: 2vw repeat(16, 3vw);
-    grid-template-rows: 2vh repeat(8, 4vh);
+    grid-template-columns: 2vw repeat(16, 3.5vw);
+    grid-template-rows: 2vh repeat(8, 3.5vh);
     grid-gap: 0.5vh;
   }
 
+  .legend {
+    margin-left: 0px;
+    width: 75vw;
+  }
+
   .tableISOIEC {
+    margin-left: 0px;
     display: grid;
-    grid-template-columns: 2vw repeat(16, 3vw);
-    grid-template-rows: 2vh repeat(16, 4vh);
+    grid-template-columns: 2vw repeat(16, 3.5vw);
+    grid-template-rows: 2vh repeat(16, 3.5vh);
     grid-gap: 0.5vh;
+  }
+
+  #inputASCII-0, #inputASCII-4, #inputASCII-8, #inputASCII-12 {
+    max-width: 10vw;
+  }
+
+  #inputISOIEC-0, #inputISOIEC-4, #inputISOIEC-8, #inputISOIEC-12 {
+    max-width: 10vw;
+  }
+
+  #inputUTF8-0, #inputUTF8-2, #inputUTF8-4, #inputUTF8-6, #inputUTF8-8, #inputUTF8-10, #inputUTF8-12, #inputUTF8-14 {
+    max-width: 10vw;
+  }
+
+  #inputUTF16-0, #inputUTF16-4, #inputUTF16-8, #inputUTF16-12 {
+    max-width: 10vw;
   }
 
 }

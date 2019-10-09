@@ -59,6 +59,7 @@ footer p {
 
   footer {
     grid-template-columns: 100%;
+    position: relative;
     padding: 0;
   }
 

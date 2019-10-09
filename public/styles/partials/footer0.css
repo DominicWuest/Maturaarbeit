@@ -74,7 +74,7 @@ footer p {
 	footer {
 		height: 4vh;
 		position: absolute;
-		bottom: 0;
+		top: 96vh;
 		font-size: 1vh;
 	}
 

@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  height: 93vh;
+  height: 90vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
   background-repeat: repeat-x;
   display: grid;
@@ -250,7 +250,7 @@ footer {
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
   main {
-    height: 96vh;
+    height: 100vh;
     grid-gap: 0;
     grid-template: 48vh 48vh / 50vw 50vw;
   }

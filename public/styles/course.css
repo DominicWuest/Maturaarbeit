@@ -96,6 +96,10 @@ a:hover {
 
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
+  body {
+    height: 100vh;
+  }
+
   .title {
     font-size: 1.1em;
     word-wrap: break-word;

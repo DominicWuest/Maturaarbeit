@@ -13,14 +13,14 @@
   margin: 0% 1%;
 }
 
-img {
+main img {
   max-width: 100%;
   height: auto;
 }
 
 
 @media only screen and (max-aspect-ratio : 13 / 9){
-  
+
   /*give a different style for smaller devices like mobile phones*/
   main {
     /*repositon the content, so there is no conflict with the header*/

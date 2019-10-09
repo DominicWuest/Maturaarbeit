@@ -1,4 +1,6 @@
 .circle {
+  width: 4vw;
+  margin: 0vw 1.75vw;
   text-align: center;
   color: #FFF;
   background-color: blue;
@@ -6,45 +8,45 @@
 
 .triangle {
   align: middle;
-  clip-path: polygon(8vw 0, 16vw 5vw, 0px 5vw);
+  clip-path: polygon(7.6vw 0, 15.2vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 16vw;
+  width: 15.2vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle3 {
   align: middle;
-  clip-path: polygon(12vw 0, 24vw 5vw, 0px 5vw);
+  clip-path: polygon(11.425vw 0, 22.85vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 24vw;
+  width: 22.85vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle5 {
   align: middle;
-  clip-path: polygon(20vw 0, 40vw 5vw, 0px 5vw);
+  clip-path: polygon(19.15vw 0, 38.3vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 40vw;
+  width: 38.3vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle6 {
   align: middle;
-  clip-path: polygon(24vw 0, 48vw 5vw, 0px 5vw);
+  clip-path: polygon(23vw 0, 46vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 48vw;
+  width: 46vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
 
 .triangle9 {
   align: middle;
-  clip-path: polygon(36vw 0, 72vw 5vw, 0px 5vw);
+  clip-path: polygon(34.6vw 0, 69.2vw 5vw, 0px 5vw);
   height: 5vw;
-  width: 72vw;
+  width: 69.2vw;
   margin: 0 0 0 0;
   background: linear-gradient(to top right, #2441B4, #31128B);
 }
@@ -52,10 +54,14 @@
 table, th, td {
   text-align: center;
   align-content: center;
-  width: 75vw;
-  border: 1px solid #000;
+  width: 7.5vw;
+  border: 0.1vw solid #000;
   border-collapse: collapse;
   font-size: 110%;
+}
+
+td {
+  width: 7.5vw;
 }
 
 .equation {
@@ -106,20 +112,30 @@ table, th, td {
 	margin-bottom: -20%;
 }
 
-#inputTree0, #inputTree2, #inputTree4, #inputTree6, #inputHuffman0, #inputHuffman3, #inputHuffman6, #inputHuffman9 {
-  height: 22vh;
-  width: 30vw;
-}
-
-#inputHuffman1, #inputHuffman4, #inputHuffman7, #inputHuffman10 {
-  height: 15vh;
-  width: 13vw;
-}
-
 .code0 {
   color: #F66;
 }
 
 .code1 {
   color: #FFF;
+}
+
+@media only screen and (max-aspect-ratio : 13 / 9) {
+
+  #inputHuffman0, #inputHuffman3, #inputHuffman6, #inputHuffman9 {
+    width: 30vw;
+  }
+
+  #encoding {
+    word-wrap: break-word;
+  }
+
+  #encodex {
+    font-size: 90%;
+  }
+
+  #encodex tr td:nth-child(4), #encodex tr th:nth-child(4) {
+    display: none;
+  }
+
 }

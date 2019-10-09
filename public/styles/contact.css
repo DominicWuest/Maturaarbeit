@@ -189,22 +189,27 @@ input#submit {
 }
 
 @media only screen and (max-aspect-ratio: 11/16) {
+
   html, body {
     overflow-y: scroll;
   }
+
   main {
     grid-template-columns: repeat(1,97%);
     grid-template-rows: 10vh 70vh 70vh 5vh;
   }
+
   form {
     grid-column-start: 1;
     grid-column-end: 2;
   }
+
   #persons {
     grid-row: 3;
     grid-column-start: 1;
     grid-column-end: 2;
   }
+
   #person1, #person2, #person3 {
     height: 70%;
     width: 65%;
@@ -217,4 +222,10 @@ input#submit {
     height: 25vh;
     border: 1px solid black;
   }
+
+  footer {
+    position: relative;
+    top: 64vh;
+  }
+
 }

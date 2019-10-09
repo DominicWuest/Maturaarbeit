@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <!-- Dominic Wüst -->
-<html>
+<html lang="de">
   <head>
     <meta charset="utf-8">
     <title>Binary Search</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href="/styles/searchAnimation.css">
-    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P|Righteous" rel="stylesheet">
-    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
-    <script src="/js/codeHighlighting.js" type="text/javascript"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-    <script type="text/javascript">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P%7CRighteous" rel="stylesheet">
+    <script src=<%= "/js/" + path + ".js" %>></script>
+    <script src="/js/codeHighlighting.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
+    <script>
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
@@ -38,7 +38,7 @@
         <div id="usage">
           <h2>Gebrauch</h2>
           <p>Der Binary Suchalgorithmus wird benutzt, um die Position eines Elements in einer sortierten Liste zu finden.</p>
-          <p>Java enthält eine Funktion, mit welcher man einen Binary Search unternehmen kann, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#binarySearch(byte[],%20byte)" target="_blank">Arrays.binarySearch()</a>.</p>
+          <p>Java enthält eine Funktion, mit welcher man einen Binary Search unternehmen kann, <a href="https://docs.oracle.com/javase/7/docs/api/java/util/Arrays.html#binarySearch(byte%5B%5D,%20byte)" target="_blank">Arrays.binarySearch()</a>.</p>
         </div>
         <div id="specs">
           <h2>Spezifikationen</h2>
@@ -62,14 +62,14 @@ def binarySearch(arr, val):
   # Der maximale Index
   r = len(arr) - 1
   # Solange der minimale Wert kleiner oder gleich dem maximalen ist
-  while l <= r:
+  while l &lt;= r:
     # Der zu untersuchende Index
     index = (l + r) // 2
     # Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
-    if arr[index] < val:
+    if arr[index] &lt; val:
       l = index + 1
     # Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
-    elif arr[index] > val:
+    elif arr[index] &gt; val:
       r = index - 1
     # Der untersuchte Wert entspricht dem Gesuchten
     else:
@@ -84,17 +84,17 @@ def binarySearch(arr, val):
   int l = 0;
   // Der maximale Index
   int r = arr.length - 1;
-  // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schlaufe berechnet
+  // Der zu untersuchende Index, er wird nach jeder Iteration der folgen While-Schleife berechnet
   int index;
   // Solange der minimale Wert kleiner oder gleich dem maximalen ist
-  while (l <= r) {
+  while (l &lt;= r) {
     index = (l + r) / 2;
     // Der untersuchte Wert ist kleiner als der Gesuchte => Der gesuchte Wert hat einen grösseren Index
-    if (arr[index] < val) {
+    if (arr[index] &lt; val) {
       l = index + 1;
     }
     // Der untersuchte Wert ist grösser als der Gesuchte => Der gesuchte Wert hat einen kleineren Index
-    else if (arr[index] > val) {
+    else if (arr[index] &gt; val) {
       r = index - 1;
     }
     // Der untersuchte Wert entspricht dem Gesuchten
@@ -118,7 +118,7 @@ def binarySearch(arr, val):
               <li><span style="color: gray;">Ausgeschlossener Wert</span></li>
             </ul>
           </div>
-          <input type="range" id="range" min="0" max="30" value="15" oninput="playing = false; restartAnimation();" onmouseup="restartAnimation(); playing = true;" ontouchend="restartAnimation(); playing = true;">
+          <input type="range" id="range" min="0" max="30" value="15" oninput="playing = false; restartAnimation();" onmouseup="restartAnimation(); playing = true;">
           <div id="animation"></div>
         </div>
       </div>

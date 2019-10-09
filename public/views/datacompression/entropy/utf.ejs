@@ -6,7 +6,7 @@
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-    <script src=<%= "/js/" + path + ".js" %> type="text/javascript"></script>
+    <script src=<%= "/js/" + path + ".js" %>></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <meta charset="utf-8"/>
   </head>
@@ -39,175 +39,177 @@
           <h2>ASCII</h2>
           <p>
             <b>ASCII</b> steht für <b>A</b>merican <b>S</b>tandard <b>C</b>ode for <b>I</b>nformation <b>I</b>nterchange. Es handelt sich dabei um eine digitale Kodierung von Zeichen, die sieben Bits pro Zeichen verwendet. Damit können also 2<sup>7</sup> = 128 verschiedene Codes realisiert, womit 128 verschiedene Zeichen dargestellt werden können. Wegen dem begrentzten Platz und da ASCII von den westlichen Ländern definiert wurde, sind darin keine arabischen Schriftzeichen oder derartige Symbole definiert, sondern nur die lateinischen Buchstaben und noch einige oft verwendete Sonderzeichen. Viele Codes wurden auch dafür gebraucht, um Befehle zu definieren, wie zum Beispiel 'start of text' oder 'bell', womit eine Glocke geläutet werden kann, wenn ein digitaler Code hereinkommt. ASCII ordnet nun also jedem Zeichen eine Nummer zu, die einem 7 Bit langem Code entspricht. In der untenstehenden Grafik ist die ASCII-Tabelle mit einer Legende in der die Steuerzeichen kurz berschrieben werden. Die Zeichennummer wird dabei mit einer Hexadezimalzahl angegeben, wobei die Zahl in der Tabelle über dem jeweiligen Zeichen steht.
-            <h3>ASCII Tabelle</h3>
-            <figure class = "tableASCII">
-              <!-- display top row of table -->
-              <section class = "box"></section>
-              <section class = "box">_0</section>
-              <section class = "box">_1</section>
-              <section class = "box">_2</section>
-              <section class = "box">_3</section>
-              <section class = "box">_4</section>
-              <section class = "box">_5</section>
-              <section class = "box">_6</section>
-              <section class = "box">_7</section>
-              <section class = "box">_8</section>
-              <section class = "box">_9</section>
-              <section class = "box">_A</section>
-              <section class = "box">_B</section>
-              <section class = "box">_C</section>
-              <section class = "box">_D</section>
-              <section class = "box">_E</section>
-              <section class = "box">_F</section>
-              <!-- zero row -->
-              <section class = "box">0_</section>
-              <section class = "box">00<br>[NUL]</section>
-              <section class = "box">01<br>[SOH]</section>
-              <section class = "box">02<br>[STX]</section>
-              <section class = "box">03<br>[ETX]</section>
-              <section class = "box">04<br>[EOT]</section>
-              <section class = "box">05<br>[ENQ]</section>
-              <section class = "box">06<br>[ACK]</section>
-              <section class = "box">07<br>[BEL]</section>
-              <section class = "box">08<br>[BS]</section>
-              <section class = "box">09<br>[HT]</section>
-              <section class = "box">0A<br>[LF]</section>
-              <section class = "box">0B<br>[VT]</section>
-              <section class = "box">0C<br>[FF]</section>
-              <section class = "box">0D<br>[CR]</section>
-              <section class = "box">0E<br>[SO]</section>
-              <section class = "box">0F<br>[SI]</section>
-              <!-- first row -->
-              <section class = "box">1_</section>
-              <section class = "box">10<br>[DLE]</section>
-              <section class = "box">11<br>[DC1]</section>
-              <section class = "box">12<br>[DC2]</section>
-              <section class = "box">13<br>[DC3]</section>
-              <section class = "box">14<br>[DC4]</section>
-              <section class = "box">15<br>[NAK]</section>
-              <section class = "box">16<br>[SYN]</section>
-              <section class = "box">17<br>[ETB]</section>
-              <section class = "box">18<br>[CAN]</section>
-              <section class = "box">19<br>[EM]</section>
-              <section class = "box">1A<br>[SUB]</section>
-              <section class = "box">1B<br>[ESC]</section>
-              <section class = "box">1C<br>[FS]</section>
-              <section class = "box">1D<br>[GS]</section>
-              <section class = "box">1E<br>[RS]</section>
-              <section class = "box">1F<br>[US]</section>
-              <!-- second row -->
-              <section class = "box">2_</section>
-              <section class = "box">20<br>[SP]</section>
-              <section class = "box">21<br>!</section>
-              <section class = "box">22<br>"</section>
-              <section class = "box">23<br>#</section>
-              <section class = "box">24<br>$</section>
-              <section class = "box">25<br>%</section>
-              <section class = "box">26<br>&</section>
-              <section class = "box">27<br>'</section>
-              <section class = "box">28<br>(</section>
-              <section class = "box">29<br>)</section>
-              <section class = "box">2A<br>*</section>
-              <section class = "box">2B<br>+</section>
-              <section class = "box">2C<br>,</section>
-              <section class = "box">2D<br>-</section>
-              <section class = "box">2E<br>.</section>
-              <section class = "box">2F<br>/</section>
-              <!-- third row -->
-              <section class = "box">3_</section>
-              <section class = "box">30<br>0</section>
-              <section class = "box">31<br>1</section>
-              <section class = "box">32<br>2</section>
-              <section class = "box">33<br>3</section>
-              <section class = "box">34<br>4</section>
-              <section class = "box">35<br>5</section>
-              <section class = "box">36<br>6</section>
-              <section class = "box">37<br>7</section>
-              <section class = "box">38<br>8</section>
-              <section class = "box">39<br>9</section>
-              <section class = "box">3A<br>:</section>
-              <section class = "box">3B<br>;</section>
-              <section class = "box">3C<br>&gt;</section>
-              <section class = "box">3D<br>=</section>
-              <section class = "box">3E<br>&lt;</section>
-              <section class = "box">3F<br>?</section>
-              <!-- fourth row -->
-              <section class = "box">4_</section>
-              <section class = "box">40<br>@</section>
-              <section class = "box">41<br>A</section>
-              <section class = "box">42<br>B</section>
-              <section class = "box">43<br>C</section>
-              <section class = "box">44<br>D</section>
-              <section class = "box">45<br>E</section>
-              <section class = "box">46<br>F</section>
-              <section class = "box">47<br>G</section>
-              <section class = "box">48<br>H</section>
-              <section class = "box">49<br>I</section>
-              <section class = "box">4A<br>J</section>
-              <section class = "box">4B<br>K</section>
-              <section class = "box">4C<br>L</section>
-              <section class = "box">4D<br>M</section>
-              <section class = "box">4E<br>N</section>
-              <section class = "box">4F<br>O</section>
-              <!-- fifth row -->
-              <section class = "box">5_</section>
-              <section class = "box">50<br>P</section>
-              <section class = "box">51<br>Q</section>
-              <section class = "box">52<br>R</section>
-              <section class = "box">53<br>S</section>
-              <section class = "box">54<br>T</section>
-              <section class = "box">55<br>U</section>
-              <section class = "box">56<br>V</section>
-              <section class = "box">57<br>W</section>
-              <section class = "box">58<br>X</section>
-              <section class = "box">59<br>Y</section>
-              <section class = "box">5A<br>Z</section>
-              <section class = "box">5B<br>[</section>
-              <section class = "box">5C<br>\</section>
-              <section class = "box">5D<br>]</section>
-              <section class = "box">5E<br>^</section>
-              <section class = "box">5F<br>_</section>
-              <!-- sixth row -->
-              <section class = "box">6_</section>
-              <section class = "box">60<br>`</section>
-              <section class = "box">61<br>a</section>
-              <section class = "box">62<br>b</section>
-              <section class = "box">63<br>c</section>
-              <section class = "box">64<br>d</section>
-              <section class = "box">65<br>e</section>
-              <section class = "box">66<br>f</section>
-              <section class = "box">67<br>g</section>
-              <section class = "box">68<br>h</section>
-              <section class = "box">69<br>i</section>
-              <section class = "box">6A<br>j</section>
-              <section class = "box">6B<br>k</section>
-              <section class = "box">6C<br>l</section>
-              <section class = "box">6D<br>m</section>
-              <section class = "box">6E<br>n</section>
-              <section class = "box">6F<br>o</section>
-              <!-- seventh row -->
-              <section class = "box">7_</section>
-              <section class = "box">70<br>p</section>
-              <section class = "box">71<br>q</section>
-              <section class = "box">72<br>r</section>
-              <section class = "box">73<br>s</section>
-              <section class = "box">74<br>t</section>
-              <section class = "box">75<br>u</section>
-              <section class = "box">76<br>v</section>
-              <section class = "box">77<br>w</section>
-              <section class = "box">78<br>x</section>
-              <section class = "box">79<br>y</section>
-              <section class = "box">7A<br>z</section>
-              <section class = "box">7B<br>{</section>
-              <section class = "box">7C<br>|</section>
-              <section class = "box">7D<br>}</section>
-              <section class = "box">7E<br>~</section>
-              <section class = "box">7F<br>[DEL]</section>
-            </figure>
-            <figure class = "legend">
-              <h3>Legende der Zeichen:</h3>
-              <div class = "commands">
-                <h4>Steuerzeichen</h4>
+          </p>
+          <h3>ASCII Tabelle</h3>
+          <figure class = "tableASCII">
+            <!-- display top row of table -->
+            <span class = "box"></span>
+            <span class = "box">_0</span>
+            <span class = "box">_1</span>
+            <span class = "box">_2</span>
+            <span class = "box">_3</span>
+            <span class = "box">_4</span>
+            <span class = "box">_5</span>
+            <span class = "box">_6</span>
+            <span class = "box">_7</span>
+            <span class = "box">_8</span>
+            <span class = "box">_9</span>
+            <span class = "box">_A</span>
+            <span class = "box">_B</span>
+            <span class = "box">_C</span>
+            <span class = "box">_D</span>
+            <span class = "box">_E</span>
+            <span class = "box">_F</span>
+            <!-- zero row -->
+            <span class = "box">0_</span>
+            <span class = "box">00<br>[NUL]</span>
+            <span class = "box">01<br>[SOH]</span>
+            <span class = "box">02<br>[STX]</span>
+            <span class = "box">03<br>[ETX]</span>
+            <span class = "box">04<br>[EOT]</span>
+            <span class = "box">05<br>[ENQ]</span>
+            <span class = "box">06<br>[ACK]</span>
+            <span class = "box">07<br>[BEL]</span>
+            <span class = "box">08<br>[BS]</span>
+            <span class = "box">09<br>[HT]</span>
+            <span class = "box">0A<br>[LF]</span>
+            <span class = "box">0B<br>[VT]</span>
+            <span class = "box">0C<br>[FF]</span>
+            <span class = "box">0D<br>[CR]</span>
+            <span class = "box">0E<br>[SO]</span>
+            <span class = "box">0F<br>[SI]</span>
+            <!-- first row -->
+            <span class = "box">1_</span>
+            <span class = "box">10<br>[DLE]</span>
+            <span class = "box">11<br>[DC1]</span>
+            <span class = "box">12<br>[DC2]</span>
+            <span class = "box">13<br>[DC3]</span>
+            <span class = "box">14<br>[DC4]</span>
+            <span class = "box">15<br>[NAK]</span>
+            <span class = "box">16<br>[SYN]</span>
+            <span class = "box">17<br>[ETB]</span>
+            <span class = "box">18<br>[CAN]</span>
+            <span class = "box">19<br>[EM]</span>
+            <span class = "box">1A<br>[SUB]</span>
+            <span class = "box">1B<br>[ESC]</span>
+            <span class = "box">1C<br>[FS]</span>
+            <span class = "box">1D<br>[GS]</span>
+            <span class = "box">1E<br>[RS]</span>
+            <span class = "box">1F<br>[US]</span>
+            <!-- second row -->
+            <span class = "box">2_</span>
+            <span class = "box">20<br>[SP]</span>
+            <span class = "box">21<br>!</span>
+            <span class = "box">22<br>"</span>
+            <span class = "box">23<br>#</span>
+            <span class = "box">24<br>$</span>
+            <span class = "box">25<br>%</span>
+            <span class = "box">26<br>&</span>
+            <span class = "box">27<br>'</span>
+            <span class = "box">28<br>(</span>
+            <span class = "box">29<br>)</span>
+            <span class = "box">2A<br>*</span>
+            <span class = "box">2B<br>+</span>
+            <span class = "box">2C<br>,</span>
+            <span class = "box">2D<br>-</span>
+            <span class = "box">2E<br>.</span>
+            <span class = "box">2F<br>/</span>
+            <!-- third row -->
+            <span class = "box">3_</span>
+            <span class = "box">30<br>0</span>
+            <span class = "box">31<br>1</span>
+            <span class = "box">32<br>2</span>
+            <span class = "box">33<br>3</span>
+            <span class = "box">34<br>4</span>
+            <span class = "box">35<br>5</span>
+            <span class = "box">36<br>6</span>
+            <span class = "box">37<br>7</span>
+            <span class = "box">38<br>8</span>
+            <span class = "box">39<br>9</span>
+            <span class = "box">3A<br>:</span>
+            <span class = "box">3B<br>;</span>
+            <span class = "box">3C<br>&gt;</span>
+            <span class = "box">3D<br>=</span>
+            <span class = "box">3E<br>&lt;</span>
+            <span class = "box">3F<br>?</span>
+            <!-- fourth row -->
+            <span class = "box">4_</span>
+            <span class = "box">40<br>@</span>
+            <span class = "box">41<br>A</span>
+            <span class = "box">42<br>B</span>
+            <span class = "box">43<br>C</span>
+            <span class = "box">44<br>D</span>
+            <span class = "box">45<br>E</span>
+            <span class = "box">46<br>F</span>
+            <span class = "box">47<br>G</span>
+            <span class = "box">48<br>H</span>
+            <span class = "box">49<br>I</span>
+            <span class = "box">4A<br>J</span>
+            <span class = "box">4B<br>K</span>
+            <span class = "box">4C<br>L</span>
+            <span class = "box">4D<br>M</span>
+            <span class = "box">4E<br>N</span>
+            <span class = "box">4F<br>O</span>
+            <!-- fifth row -->
+            <span class = "box">5_</span>
+            <span class = "box">50<br>P</span>
+            <span class = "box">51<br>Q</span>
+            <span class = "box">52<br>R</span>
+            <span class = "box">53<br>S</span>
+            <span class = "box">54<br>T</span>
+            <span class = "box">55<br>U</span>
+            <span class = "box">56<br>V</span>
+            <span class = "box">57<br>W</span>
+            <span class = "box">58<br>X</span>
+            <span class = "box">59<br>Y</span>
+            <span class = "box">5A<br>Z</span>
+            <span class = "box">5B<br>[</span>
+            <span class = "box">5C<br>\</span>
+            <span class = "box">5D<br>]</span>
+            <span class = "box">5E<br>^</span>
+            <span class = "box">5F<br>_</span>
+            <!-- sixth row -->
+            <span class = "box">6_</span>
+            <span class = "box">60<br>`</span>
+            <span class = "box">61<br>a</span>
+            <span class = "box">62<br>b</span>
+            <span class = "box">63<br>c</span>
+            <span class = "box">64<br>d</span>
+            <span class = "box">65<br>e</span>
+            <span class = "box">66<br>f</span>
+            <span class = "box">67<br>g</span>
+            <span class = "box">68<br>h</span>
+            <span class = "box">69<br>i</span>
+            <span class = "box">6A<br>j</span>
+            <span class = "box">6B<br>k</span>
+            <span class = "box">6C<br>l</span>
+            <span class = "box">6D<br>m</span>
+            <span class = "box">6E<br>n</span>
+            <span class = "box">6F<br>o</span>
+            <!-- seventh row -->
+            <span class = "box">7_</span>
+            <span class = "box">70<br>p</span>
+            <span class = "box">71<br>q</span>
+            <span class = "box">72<br>r</span>
+            <span class = "box">73<br>s</span>
+            <span class = "box">74<br>t</span>
+            <span class = "box">75<br>u</span>
+            <span class = "box">76<br>v</span>
+            <span class = "box">77<br>w</span>
+            <span class = "box">78<br>x</span>
+            <span class = "box">79<br>y</span>
+            <span class = "box">7A<br>z</span>
+            <span class = "box">7B<br>&lcub;</span>
+            <span class = "box">7C<br>|</span>
+            <span class = "box">7D<br>&rcub;</span>
+            <span class = "box">7E<br>~</span>
+            <span class = "box">7F<br>[DEL]</span>
+          </figure>
+          <figure class = "legend">
+            <h3>Legende der Zeichen:</h3>
+            <div class = "commands">
+              <h4>Steuerzeichen</h4>
+              <p>
                 NUL &#8788; No operation = Füllzeichen,  nichts<br>
                 SOH &#8788; Star of heading = Start der Überschrift<br>
                 STX &#8788; Start of text = Start des Textes<br>
@@ -235,400 +237,401 @@
                 FS, GS, RS, US = Begrenzer von Felder von Datenstrukturen, hirarchische Ebene steigt ab in Reihenfolge<br>
                 SP &#8788; Space = Leerraum, Abstand<br>
                 DEL &#8788; Delete = Löschen des vorhergehenden Zeichens<br>
-              </div>
-              <div class = "letters">
-                Buchstaben vom lateinischen Alphabet
-              </div>
-              <div class = "numbers">
-                Ziffern vom Dezimalsystem
-              </div>
-              <div class = "syntax">
-                Satzzeichen, Klammern, Syntax
-              </div>
-            </figure>
-            <h3>Beispiel Aufgaben</h3>
-            <input type = "button" value = "Neue Aufgaben" onclick = "resetASCII();">
-            <table id = "ASCIIexamples">
-              <tr>
-                <th class = "ASCIIextable">Zeichen</th>
-                <th class = "ASCIIextable">ASCII (hexadezimal)</th>
-                <th class = "ASCIIextable">ASCII (binär)</th>
-                <th class = "ASCIIextable">ASCII (dezimal)</th>
-              </tr>
-                <td id = "ASCIIextable0"><input id = "inputASCII-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(0);"></td>
-                <td id = "ASCIIextable1"><input id = "inputASCII-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(1);"></td>
-                <td id = "ASCIIextable2"><input id = "inputASCII-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(2);"></td>
-                <td id = "ASCIIextable3"><input id = "inputASCII-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(3);"></td>
-              </tr>
-              <tr>
-                <td id = "ASCIIextable4"><input id = "inputASCII-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(4);"></td>
-                <td id = "ASCIIextable5"><input id = "inputASCII-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(5);"></td>
-                <td id = "ASCIIextable6"><input id = "inputASCII-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(6);"></td>
-                <td id = "ASCIIextable7"><input id = "inputASCII-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(7);"></td>
-              </tr>
-              <tr>
-                <td id = "ASCIIextable8"><input id = "inputASCII-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(8);"></td>
-                <td id = "ASCIIextable9"><input id = "inputASCII-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(9);"></td>
-                <td id = "ASCIIextable10"><input id = "inputASCII-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(10);"></td>
-                <td id = "ASCIIextable11"><input id = "inputASCII-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(11);"></td>
-              </tr>
-              <tr>
-                <td id = "ASCIIextable12"><input id = "inputASCII-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(12);"></td>
-                <td id = "ASCIIextable13"><input id = "inputASCII-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(13);"></td>
-                <td id = "ASCIIextable14"><input id = "inputASCII-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(14);"></td>
-                <td id = "ASCIIextable15"><input id = "inputASCII-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(15);"></td>
-              </tr>
-            </table>
-          </p>
+              </p>
+            </div>
+            <div class = "letters">
+              <p>Buchstaben vom lateinischen Alphabet</p>
+            </div>
+            <div class = "numbers">
+              <p>Ziffern vom Dezimalsystem</p>
+            </div>
+            <div class = "syntax">
+              <p>Satzzeichen, Klammern, Syntax</p>
+            </div>
+          </figure>
+          <h3>Beispiel Aufgaben</h3>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetASCII();">
+          <table id = "ASCIIexamples">
+            <tr>
+              <th class = "ASCIIextable">Zeichen</th>
+              <th class = "ASCIIextable">ASCII (hexadezimal)</th>
+              <th class = "ASCIIextable">ASCII (binär)</th>
+              <th class = "ASCIIextable">ASCII (dezimal)</th>
+            </tr>
+            <tr>
+              <td id = "ASCIIextable0"><input id = "inputASCII-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(0);"></td>
+              <td id = "ASCIIextable1"><input id = "inputASCII-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(1);"></td>
+              <td id = "ASCIIextable2"><input id = "inputASCII-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(2);"></td>
+              <td id = "ASCIIextable3"><input id = "inputASCII-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(3);"></td>
+            </tr>
+            <tr>
+              <td id = "ASCIIextable4"><input id = "inputASCII-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(4);"></td>
+              <td id = "ASCIIextable5"><input id = "inputASCII-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(5);"></td>
+              <td id = "ASCIIextable6"><input id = "inputASCII-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(6);"></td>
+              <td id = "ASCIIextable7"><input id = "inputASCII-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(7);"></td>
+            </tr>
+            <tr>
+              <td id = "ASCIIextable8"><input id = "inputASCII-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(8);"></td>
+              <td id = "ASCIIextable9"><input id = "inputASCII-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(9);"></td>
+              <td id = "ASCIIextable10"><input id = "inputASCII-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(10);"></td>
+              <td id = "ASCIIextable11"><input id = "inputASCII-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(11);"></td>
+            </tr>
+            <tr>
+              <td id = "ASCIIextable12"><input id = "inputASCII-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(12);"></td>
+              <td id = "ASCIIextable13"><input id = "inputASCII-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(13);"></td>
+              <td id = "ASCIIextable14"><input id = "inputASCII-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(14);"></td>
+              <td id = "ASCIIextable15"><input id = "inputASCII-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkASCII(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionASCII(15);"></td>
+            </tr>
+          </table>
         </div>
         <div id = "ISOIEC8859-1">
           <h2>ISO/IEC 8859</h2>
-          <p>Zwar reichen die 95 druckbaren aus, damit man sich im modernen Englisch austauschen kann. Das Problem liegt aber darin, dass viele Sprachen, die ebenfalls auf dem lateinischen Alphabet basieren weitere Symbole für eine vernünftige Kommunikation benötigen. Mit dem Versuch dieses Problem zu beheben wurde ISO/IEC 8859 mit 96 weiteren Druckbaren Zeichen eingeführt. Dabei sind die ersten 128 Hexadezimalzahlen den gleichen Zeichen zugeordnet wie in der ASCII-Tabelle, damit diese kompatibel ist. Die Steuerungsbefehle wurden bei ISO/IEC 8859 weggelassen, da dieses System für Computer und nicht mehr für Schreibmaschienen konzipiert wurde, womit alle diese Befehle unnötig werden. Die insgesamt 95 + 96 = 191 Zeichen in ISO/IEC 8859-1 reichen aber nicht aus, um alle Sonderzeichen der häufig verwendeten Sprachen in den westlichen Ländern. Deswegen wurden 15 verschiedene ISO/IEC-Tabellen eingeführt, wobei bei allen die erste Hälfte genau gleich ist, damit sie alle mit der alten ASCII-Tabelle kompatibel sind. Die unten aufgeführte Tabelle ISO/IEC 8859-1 wird unter anderem von Geräten verwendet, die ihre Soracheinstellung auf Deutsch gestellt haben.
-            <h3>ISO/IEC 8859-1</h3>
-            <h4>8-Bit Kodierung, Variante Latin-1, für westeuropäische Länder</h4>
-            <figure class = "tableISOIEC">
-              <!-- display top row of table -->
-              <section class = "box"></section>
-              <section class = "box">_0</section>
-              <section class = "box">_1</section>
-              <section class = "box">_2</section>
-              <section class = "box">_3</section>
-              <section class = "box">_4</section>
-              <section class = "box">_5</section>
-              <section class = "box">_6</section>
-              <section class = "box">_7</section>
-              <section class = "box">_8</section>
-              <section class = "box">_9</section>
-              <section class = "box">_A</section>
-              <section class = "box">_B</section>
-              <section class = "box">_C</section>
-              <section class = "box">_D</section>
-              <section class = "box">_E</section>
-              <section class = "box">_F</section>
-              <!-- zero row -->
-              <section class = "box">0_</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <section class = "box">N</section>
-              <section class = "box">i</section>
-              <section class = "box">c</section>
-              <section class = "box">h</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box">b</section>
-              <section class = "box">e</section>
-              <section class = "box">l</section>
-              <section class = "box">e</section>
-              <section class = "box">g</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <!-- first row -->
-              <section class = "box">1_</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <section class = "box">N</section>
-              <section class = "box">i</section>
-              <section class = "box">c</section>
-              <section class = "box">h</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box">b</section>
-              <section class = "box">e</section>
-              <section class = "box">l</section>
-              <section class = "box">e</section>
-              <section class = "box">g</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <!-- second row -->
-              <section class = "box">2_</section>
-              <section class = "box">20<br>[SP]</section>
-              <section class = "box">21<br>!</section>
-              <section class = "box">22<br>"</section>
-              <section class = "box">23<br>#</section>
-              <section class = "box">24<br>$</section>
-              <section class = "box">25<br>%</section>
-              <section class = "box">26<br>&</section>
-              <section class = "box">27<br>'</section>
-              <section class = "box">28<br>(</section>
-              <section class = "box">29<br>)</section>
-              <section class = "box">2A<br>*</section>
-              <section class = "box">2B<br>+</section>
-              <section class = "box">2C<br>,</section>
-              <section class = "box">2D<br>-</section>
-              <section class = "box">2E<br>.</section>
-              <section class = "box">2F<br>/</section>
-              <!-- third row -->
-              <section class = "box">3_</section>
-              <section class = "box">30<br>0</section>
-              <section class = "box">31<br>1</section>
-              <section class = "box">32<br>2</section>
-              <section class = "box">33<br>3</section>
-              <section class = "box">34<br>4</section>
-              <section class = "box">35<br>5</section>
-              <section class = "box">36<br>6</section>
-              <section class = "box">37<br>7</section>
-              <section class = "box">38<br>8</section>
-              <section class = "box">39<br>9</section>
-              <section class = "box">3A<br>:</section>
-              <section class = "box">3B<br>;</section>
-              <section class = "box">3C<br>&gt;</section>
-              <section class = "box">3D<br>=</section>
-              <section class = "box">3E<br>&lt;</section>
-              <section class = "box">3F<br>?</section>
-              <!-- fourth row -->
-              <section class = "box">4_</section>
-              <section class = "box">40<br>@</section>
-              <section class = "box">41<br>A</section>
-              <section class = "box">42<br>B</section>
-              <section class = "box">43<br>C</section>
-              <section class = "box">44<br>D</section>
-              <section class = "box">45<br>E</section>
-              <section class = "box">46<br>F</section>
-              <section class = "box">47<br>G</section>
-              <section class = "box">48<br>H</section>
-              <section class = "box">49<br>I</section>
-              <section class = "box">4A<br>J</section>
-              <section class = "box">4B<br>K</section>
-              <section class = "box">4C<br>L</section>
-              <section class = "box">4D<br>M</section>
-              <section class = "box">4E<br>N</section>
-              <section class = "box">4F<br>O</section>
-              <!-- fifth row -->
-              <section class = "box">5_</section>
-              <section class = "box">50<br>P</section>
-              <section class = "box">51<br>Q</section>
-              <section class = "box">52<br>R</section>
-              <section class = "box">53<br>S</section>
-              <section class = "box">54<br>T</section>
-              <section class = "box">55<br>U</section>
-              <section class = "box">56<br>V</section>
-              <section class = "box">57<br>W</section>
-              <section class = "box">58<br>X</section>
-              <section class = "box">59<br>Y</section>
-              <section class = "box">5A<br>Z</section>
-              <section class = "box">5B<br>[</section>
-              <section class = "box">5C<br>\</section>
-              <section class = "box">5D<br>]</section>
-              <section class = "box">5E<br>^</section>
-              <section class = "box">5F<br>_</section>
-              <!-- sixth row -->
-              <section class = "box">6_</section>
-              <section class = "box">60<br>`</section>
-              <section class = "box">61<br>a</section>
-              <section class = "box">62<br>b</section>
-              <section class = "box">63<br>c</section>
-              <section class = "box">64<br>d</section>
-              <section class = "box">65<br>e</section>
-              <section class = "box">66<br>f</section>
-              <section class = "box">67<br>g</section>
-              <section class = "box">68<br>h</section>
-              <section class = "box">69<br>i</section>
-              <section class = "box">6A<br>j</section>
-              <section class = "box">6B<br>k</section>
-              <section class = "box">6C<br>l</section>
-              <section class = "box">6D<br>m</section>
-              <section class = "box">6E<br>n</section>
-              <section class = "box">6F<br>o</section>
-              <!-- seventh row -->
-              <section class = "box">7_</section>
-              <section class = "box">70<br>p</section>
-              <section class = "box">71<br>q</section>
-              <section class = "box">72<br>r</section>
-              <section class = "box">73<br>s</section>
-              <section class = "box">74<br>t</section>
-              <section class = "box">75<br>u</section>
-              <section class = "box">76<br>v</section>
-              <section class = "box">77<br>w</section>
-              <section class = "box">78<br>x</section>
-              <section class = "box">79<br>y</section>
-              <section class = "box">7A<br>z</section>
-              <section class = "box">7B<br>{</section>
-              <section class = "box">7C<br>|</section>
-              <section class = "box">7D<br>}</section>
-              <section class = "box">7E<br>~</section>
-              <section class = "box"></section>
-              <!-- eight row -->
-              <section class = "box">8_</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <section class = "box">N</section>
-              <section class = "box">i</section>
-              <section class = "box">c</section>
-              <section class = "box">h</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box">b</section>
-              <section class = "box">e</section>
-              <section class = "box">l</section>
-              <section class = "box">e</section>
-              <section class = "box">g</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <!-- nineth row -->
-              <section class = "box">9_</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <section class = "box">N</section>
-              <section class = "box">i</section>
-              <section class = "box">c</section>
-              <section class = "box">h</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box">b</section>
-              <section class = "box">e</section>
-              <section class = "box">l</section>
-              <section class = "box">e</section>
-              <section class = "box">g</section>
-              <section class = "box">t</section>
-              <section class = "box"></section>
-              <section class = "box"></section>
-              <!-- tenth row -->
-              <section class = "box">A_</section>
-              <section class = "box">A0<br>NBSP</section>
-              <section class = "box">A1<br>¡</section>
-              <section class = "box">A2<br>¢</section>
-              <section class = "box">A3<br>£</section>
-              <section class = "box">A4<br>¤</section>
-              <section class = "box">A5<br>¥</section>
-              <section class = "box">A6<br>¦</section>
-              <section class = "box">A7<br>§</section>
-              <section class = "box">A8<br>¨</section>
-              <section class = "box">A9<br>©</section>
-              <section class = "box">AA<br>ª</section>
-              <section class = "box">AB<br>«</section>
-              <section class = "box">AC<br>¬</section>
-              <section class = "box">AD<br>SHY</section>
-              <section class = "box">AE<br>®</section>
-              <section class = "box">AF<br>¯</section>
-              <!-- eleventh row -->
-              <section class = "box">B_</section>
-              <section class = "box">B0<br>°</section>
-              <section class = "box">B1<br>±</section>
-              <section class = "box">B2<br>²</section>
-              <section class = "box">B3<br>³</section>
-              <section class = "box">B4<br>´</section>
-              <section class = "box">B5<br>µ</section>
-              <section class = "box">B6<br>¶</section>
-              <section class = "box">B7<br>·</section>
-              <section class = "box">B8<br>¸</section>
-              <section class = "box">B9<br>¹</section>
-              <section class = "box">BA<br>º</section>
-              <section class = "box">BB<br>»</section>
-              <section class = "box">BC<br>¼</section>
-              <section class = "box">BD<br>½</section>
-              <section class = "box">BE<br>¾</section>
-              <section class = "box">BF<br>¿</section>
-              <!-- twelfeth row -->
-              <section class = "box">C_</section>
-              <section class = "box">C0<br>À</section>
-              <section class = "box">C1<br>Á</section>
-              <section class = "box">C2<br>Â</section>
-              <section class = "box">C3<br>Ã</section>
-              <section class = "box">C4<br>Ä</section>
-              <section class = "box">C5<br>Å</section>
-              <section class = "box">C6<br>Æ</section>
-              <section class = "box">C7<br>Ç</section>
-              <section class = "box">C8<br>È</section>
-              <section class = "box">C9<br>É</section>
-              <section class = "box">CA<br>Ê</section>
-              <section class = "box">CB<br>Ë</section>
-              <section class = "box">CC<br>Ì</section>
-              <section class = "box">CD<br>Í</section>
-              <section class = "box">CE<br>Î</section>
-              <section class = "box">CF<br>Ï</section>
-              <!-- thirteenth row -->
-              <section class = "box">D_</section>
-              <section class = "box">D0<br>Ð</section>
-              <section class = "box">D1<br>Ñ</section>
-              <section class = "box">D2<br>Ò</section>
-              <section class = "box">D3<br>Ó</section>
-              <section class = "box">D4<br>Ô</section>
-              <section class = "box">D5<br>Õ</section>
-              <section class = "box">D6<br>Ö</section>
-              <section class = "box">D7<br>×</section>
-              <section class = "box">D8<br>Ø</section>
-              <section class = "box">D9<br>Ù</section>
-              <section class = "box">DA<br>Ú</section>
-              <section class = "box">DB<br>Û</section>
-              <section class = "box">DC<br>Ü</section>
-              <section class = "box">DD<br>Ý</section>
-              <section class = "box">DE<br>Þ</section>
-              <section class = "box">DF<br>ß</section>
-              <!-- fourteenth row -->
-              <section class = "box">E_</section>
-              <section class = "box">E0<br>à</section>
-              <section class = "box">E1<br>á</section>
-              <section class = "box">E2<br>â</section>
-              <section class = "box">E3<br>ã</section>
-              <section class = "box">E4<br>ä</section>
-              <section class = "box">E5<br>å</section>
-              <section class = "box">E6<br>æ</section>
-              <section class = "box">E7<br>ç</section>
-              <section class = "box">E8<br>è</section>
-              <section class = "box">E9<br>é</section>
-              <section class = "box">EA<br>ê</section>
-              <section class = "box">EB<br>ë</section>
-              <section class = "box">EC<br>ì</section>
-              <section class = "box">ED<br>í</section>
-              <section class = "box">EE<br>î</section>
-              <section class = "box">EF<br>ï</section>
-              <!-- fiveteenth row -->
-              <section class = "box">F_</section>
-              <section class = "box">F0<br>ð</section>
-              <section class = "box">F1<br>ñ</section>
-              <section class = "box">F2<br>ò</section>
-              <section class = "box">F3<br>ó</section>
-              <section class = "box">F4<br>ô</section>
-              <section class = "box">F5<br>õ</section>
-              <section class = "box">F6<br>ö</section>
-              <section class = "box">F7<br>÷</section>
-              <section class = "box">F8<br>ø</section>
-              <section class = "box">F9<br>ù</section>
-              <section class = "box">FA<br>ú</section>
-              <section class = "box">FB<br>û</section>
-              <section class = "box">FC<br>ü</section>
-              <section class = "box">FD<br>ý</section>
-              <section class = "box">FE<br>þ</section>
-              <section class = "box">FF<br>ÿ</section>
-            </figure>
-            <h3>Beispiel Aufgaben</h3>
-            <input type = "button" value = "Neue Aufgaben" onclick = "resetISOIEC();">
-            <br>
-            <table id = "ISOIECexamples">
-              <tr>
-                <th class = "ISOIECextable">Zeichen</th>
-                <th class = "ISOIECextable">ISO/IEC 8859-1 (hexadezimal)</th>
-                <th class = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
-                <th class = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
-              </tr>
-                <td id = "ISOIECextable0"><input id = "inputISOIEC-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(0);"></td>
-                <td id = "ISOIECextable1"><input id = "inputISOIEC-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(1);"></td>
-                <td id = "ISOIECextable2"><input id = "inputISOIEC-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(2);"></td>
-                <td id = "ISOIECextable3"><input id = "inputISOIEC-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(3);"></td>
-              </tr>
-              <tr>
-                <td id = "ISOIECextable4"><input id = "inputISOIEC-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(4);"></td>
-                <td id = "ISOIECextable5"><input id = "inputISOIEC-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(5);"></td>
-                <td id = "ISOIECextable6"><input id = "inputISOIEC-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(6);"></td>
-                <td id = "ISOIECextable7"><input id = "inputISOIEC-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(7);"></td>
-              </tr>
-              <tr>
-                <td id = "ISOIECextable8"><input id = "inputISOIEC-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(8);"></td>
-                <td id = "ISOIECextable9"><input id = "inputISOIEC-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(9);"></td>
-                <td id = "ISOIECextable10"><input id = "inputISOIEC-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(10);"></td>
-                <td id = "ISOIECextable11"><input id = "inputISOIEC-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(11);"></td>
-              </tr>
-              <tr>
-                <td id = "ISOIECextable12"><input id = "inputISOIEC-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(12);"></td>
-                <td id = "ISOIECextable13"><input id = "inputISOIEC-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(13);"></td>
-                <td id = "ISOIECextable14"><input id = "inputISOIEC-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(14);"></td>
-                <td id = "ISOIECextable15"><input id = "inputISOIEC-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(15);"></td>
-              </tr>
-            </table>
-          </p>
+          <p>Zwar reichen die 95 druckbaren aus, damit man sich im modernen Englisch austauschen kann. Das Problem liegt aber darin, dass viele Sprachen, die ebenfalls auf dem lateinischen Alphabet basieren weitere Symbole für eine vernünftige Kommunikation benötigen. Mit dem Versuch dieses Problem zu beheben wurde ISO/IEC 8859 mit 96 weiteren Druckbaren Zeichen eingeführt. Dabei sind die ersten 128 Hexadezimalzahlen den gleichen Zeichen zugeordnet wie in der ASCII-Tabelle, damit diese kompatibel ist. Die Steuerungsbefehle wurden bei ISO/IEC 8859 weggelassen, da dieses System für Computer und nicht mehr für Schreibmaschienen konzipiert wurde, womit alle diese Befehle unnötig werden. Die insgesamt 95 + 96 = 191 Zeichen in ISO/IEC 8859-1 reichen aber nicht aus, um alle Sonderzeichen der häufig verwendeten Sprachen in den westlichen Ländern. Deswegen wurden 15 verschiedene ISO/IEC-Tabellen eingeführt, wobei bei allen die erste Hälfte genau gleich ist, damit sie alle mit der alten ASCII-Tabelle kompatibel sind. Die unten aufgeführte Tabelle ISO/IEC 8859-1 wird unter anderem von Geräten verwendet, die ihre Soracheinstellung auf Deutsch gestellt haben.</p>
+          <h3>ISO/IEC 8859-1</h3>
+          <h4>8-Bit Kodierung, Variante Latin-1, für westeuropäische Länder</h4>
+          <figure class = "tableISOIEC">
+            <!-- display top row of table -->
+            <span class = "box"></span>
+            <span class = "box">_0</span>
+            <span class = "box">_1</span>
+            <span class = "box">_2</span>
+            <span class = "box">_3</span>
+            <span class = "box">_4</span>
+            <span class = "box">_5</span>
+            <span class = "box">_6</span>
+            <span class = "box">_7</span>
+            <span class = "box">_8</span>
+            <span class = "box">_9</span>
+            <span class = "box">_A</span>
+            <span class = "box">_B</span>
+            <span class = "box">_C</span>
+            <span class = "box">_D</span>
+            <span class = "box">_E</span>
+            <span class = "box">_F</span>
+            <!-- zero row -->
+            <span class = "box">0_</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <span class = "box">N</span>
+            <span class = "box">i</span>
+            <span class = "box">c</span>
+            <span class = "box">h</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box">b</span>
+            <span class = "box">e</span>
+            <span class = "box">l</span>
+            <span class = "box">e</span>
+            <span class = "box">g</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <!-- first row -->
+            <span class = "box">1_</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <span class = "box">N</span>
+            <span class = "box">i</span>
+            <span class = "box">c</span>
+            <span class = "box">h</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box">b</span>
+            <span class = "box">e</span>
+            <span class = "box">l</span>
+            <span class = "box">e</span>
+            <span class = "box">g</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <!-- second row -->
+            <span class = "box">2_</span>
+            <span class = "box">20<br>[SP]</span>
+            <span class = "box">21<br>!</span>
+            <span class = "box">22<br>"</span>
+            <span class = "box">23<br>#</span>
+            <span class = "box">24<br>$</span>
+            <span class = "box">25<br>%</span>
+            <span class = "box">26<br>&</span>
+            <span class = "box">27<br>'</span>
+            <span class = "box">28<br>(</span>
+            <span class = "box">29<br>)</span>
+            <span class = "box">2A<br>*</span>
+            <span class = "box">2B<br>+</span>
+            <span class = "box">2C<br>,</span>
+            <span class = "box">2D<br>-</span>
+            <span class = "box">2E<br>.</span>
+            <span class = "box">2F<br>/</span>
+            <!-- third row -->
+            <span class = "box">3_</span>
+            <span class = "box">30<br>0</span>
+            <span class = "box">31<br>1</span>
+            <span class = "box">32<br>2</span>
+            <span class = "box">33<br>3</span>
+            <span class = "box">34<br>4</span>
+            <span class = "box">35<br>5</span>
+            <span class = "box">36<br>6</span>
+            <span class = "box">37<br>7</span>
+            <span class = "box">38<br>8</span>
+            <span class = "box">39<br>9</span>
+            <span class = "box">3A<br>:</span>
+            <span class = "box">3B<br>;</span>
+            <span class = "box">3C<br>&gt;</span>
+            <span class = "box">3D<br>=</span>
+            <span class = "box">3E<br>&lt;</span>
+            <span class = "box">3F<br>?</span>
+            <!-- fourth row -->
+            <span class = "box">4_</span>
+            <span class = "box">40<br>@</span>
+            <span class = "box">41<br>A</span>
+            <span class = "box">42<br>B</span>
+            <span class = "box">43<br>C</span>
+            <span class = "box">44<br>D</span>
+            <span class = "box">45<br>E</span>
+            <span class = "box">46<br>F</span>
+            <span class = "box">47<br>G</span>
+            <span class = "box">48<br>H</span>
+            <span class = "box">49<br>I</span>
+            <span class = "box">4A<br>J</span>
+            <span class = "box">4B<br>K</span>
+            <span class = "box">4C<br>L</span>
+            <span class = "box">4D<br>M</span>
+            <span class = "box">4E<br>N</span>
+            <span class = "box">4F<br>O</span>
+            <!-- fifth row -->
+            <span class = "box">5_</span>
+            <span class = "box">50<br>P</span>
+            <span class = "box">51<br>Q</span>
+            <span class = "box">52<br>R</span>
+            <span class = "box">53<br>S</span>
+            <span class = "box">54<br>T</span>
+            <span class = "box">55<br>U</span>
+            <span class = "box">56<br>V</span>
+            <span class = "box">57<br>W</span>
+            <span class = "box">58<br>X</span>
+            <span class = "box">59<br>Y</span>
+            <span class = "box">5A<br>Z</span>
+            <span class = "box">5B<br>[</span>
+            <span class = "box">5C<br>\</span>
+            <span class = "box">5D<br>]</span>
+            <span class = "box">5E<br>^</span>
+            <span class = "box">5F<br>_</span>
+            <!-- sixth row -->
+            <span class = "box">6_</span>
+            <span class = "box">60<br>`</span>
+            <span class = "box">61<br>a</span>
+            <span class = "box">62<br>b</span>
+            <span class = "box">63<br>c</span>
+            <span class = "box">64<br>d</span>
+            <span class = "box">65<br>e</span>
+            <span class = "box">66<br>f</span>
+            <span class = "box">67<br>g</span>
+            <span class = "box">68<br>h</span>
+            <span class = "box">69<br>i</span>
+            <span class = "box">6A<br>j</span>
+            <span class = "box">6B<br>k</span>
+            <span class = "box">6C<br>l</span>
+            <span class = "box">6D<br>m</span>
+            <span class = "box">6E<br>n</span>
+            <span class = "box">6F<br>o</span>
+            <!-- seventh row -->
+            <span class = "box">7_</span>
+            <span class = "box">70<br>p</span>
+            <span class = "box">71<br>q</span>
+            <span class = "box">72<br>r</span>
+            <span class = "box">73<br>s</span>
+            <span class = "box">74<br>t</span>
+            <span class = "box">75<br>u</span>
+            <span class = "box">76<br>v</span>
+            <span class = "box">77<br>w</span>
+            <span class = "box">78<br>x</span>
+            <span class = "box">79<br>y</span>
+            <span class = "box">7A<br>z</span>
+            <span class = "box">7B<br>&lcub;</span>
+            <span class = "box">7C<br>|</span>
+            <span class = "box">7D<br>&rcub;</span>
+            <span class = "box">7E<br>~</span>
+            <span class = "box"></span>
+            <!-- eight row -->
+            <span class = "box">8_</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <span class = "box">N</span>
+            <span class = "box">i</span>
+            <span class = "box">c</span>
+            <span class = "box">h</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box">b</span>
+            <span class = "box">e</span>
+            <span class = "box">l</span>
+            <span class = "box">e</span>
+            <span class = "box">g</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <!-- nineth row -->
+            <span class = "box">9_</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <span class = "box">N</span>
+            <span class = "box">i</span>
+            <span class = "box">c</span>
+            <span class = "box">h</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box">b</span>
+            <span class = "box">e</span>
+            <span class = "box">l</span>
+            <span class = "box">e</span>
+            <span class = "box">g</span>
+            <span class = "box">t</span>
+            <span class = "box"></span>
+            <span class = "box"></span>
+            <!-- tenth row -->
+            <span class = "box">A_</span>
+            <span class = "box">A0<br>NBSP</span>
+            <span class = "box">A1<br>¡</span>
+            <span class = "box">A2<br>¢</span>
+            <span class = "box">A3<br>£</span>
+            <span class = "box">A4<br>¤</span>
+            <span class = "box">A5<br>¥</span>
+            <span class = "box">A6<br>¦</span>
+            <span class = "box">A7<br>§</span>
+            <span class = "box">A8<br>¨</span>
+            <span class = "box">A9<br>©</span>
+            <span class = "box">AA<br>ª</span>
+            <span class = "box">AB<br>«</span>
+            <span class = "box">AC<br>¬</span>
+            <span class = "box">AD<br>SHY</span>
+            <span class = "box">AE<br>®</span>
+            <span class = "box">AF<br>¯</span>
+            <!-- eleventh row -->
+            <span class = "box">B_</span>
+            <span class = "box">B0<br>°</span>
+            <span class = "box">B1<br>±</span>
+            <span class = "box">B2<br>²</span>
+            <span class = "box">B3<br>³</span>
+            <span class = "box">B4<br>´</span>
+            <span class = "box">B5<br>µ</span>
+            <span class = "box">B6<br>¶</span>
+            <span class = "box">B7<br>·</span>
+            <span class = "box">B8<br>¸</span>
+            <span class = "box">B9<br>¹</span>
+            <span class = "box">BA<br>º</span>
+            <span class = "box">BB<br>»</span>
+            <span class = "box">BC<br>¼</span>
+            <span class = "box">BD<br>½</span>
+            <span class = "box">BE<br>¾</span>
+            <span class = "box">BF<br>¿</span>
+            <!-- twelfeth row -->
+            <span class = "box">C_</span>
+            <span class = "box">C0<br>À</span>
+            <span class = "box">C1<br>Á</span>
+            <span class = "box">C2<br>Â</span>
+            <span class = "box">C3<br>Ã</span>
+            <span class = "box">C4<br>Ä</span>
+            <span class = "box">C5<br>Å</span>
+            <span class = "box">C6<br>Æ</span>
+            <span class = "box">C7<br>Ç</span>
+            <span class = "box">C8<br>È</span>
+            <span class = "box">C9<br>É</span>
+            <span class = "box">CA<br>Ê</span>
+            <span class = "box">CB<br>Ë</span>
+            <span class = "box">CC<br>Ì</span>
+            <span class = "box">CD<br>Í</span>
+            <span class = "box">CE<br>Î</span>
+            <span class = "box">CF<br>Ï</span>
+            <!-- thirteenth row -->
+            <span class = "box">D_</span>
+            <span class = "box">D0<br>Ð</span>
+            <span class = "box">D1<br>Ñ</span>
+            <span class = "box">D2<br>Ò</span>
+            <span class = "box">D3<br>Ó</span>
+            <span class = "box">D4<br>Ô</span>
+            <span class = "box">D5<br>Õ</span>
+            <span class = "box">D6<br>Ö</span>
+            <span class = "box">D7<br>×</span>
+            <span class = "box">D8<br>Ø</span>
+            <span class = "box">D9<br>Ù</span>
+            <span class = "box">DA<br>Ú</span>
+            <span class = "box">DB<br>Û</span>
+            <span class = "box">DC<br>Ü</span>
+            <span class = "box">DD<br>Ý</span>
+            <span class = "box">DE<br>Þ</span>
+            <span class = "box">DF<br>ß</span>
+            <!-- fourteenth row -->
+            <span class = "box">E_</span>
+            <span class = "box">E0<br>à</span>
+            <span class = "box">E1<br>á</span>
+            <span class = "box">E2<br>â</span>
+            <span class = "box">E3<br>ã</span>
+            <span class = "box">E4<br>ä</span>
+            <span class = "box">E5<br>å</span>
+            <span class = "box">E6<br>æ</span>
+            <span class = "box">E7<br>ç</span>
+            <span class = "box">E8<br>è</span>
+            <span class = "box">E9<br>é</span>
+            <span class = "box">EA<br>ê</span>
+            <span class = "box">EB<br>ë</span>
+            <span class = "box">EC<br>ì</span>
+            <span class = "box">ED<br>í</span>
+            <span class = "box">EE<br>î</span>
+            <span class = "box">EF<br>ï</span>
+            <!-- fiveteenth row -->
+            <span class = "box">F_</span>
+            <span class = "box">F0<br>ð</span>
+            <span class = "box">F1<br>ñ</span>
+            <span class = "box">F2<br>ò</span>
+            <span class = "box">F3<br>ó</span>
+            <span class = "box">F4<br>ô</span>
+            <span class = "box">F5<br>õ</span>
+            <span class = "box">F6<br>ö</span>
+            <span class = "box">F7<br>÷</span>
+            <span class = "box">F8<br>ø</span>
+            <span class = "box">F9<br>ù</span>
+            <span class = "box">FA<br>ú</span>
+            <span class = "box">FB<br>û</span>
+            <span class = "box">FC<br>ü</span>
+            <span class = "box">FD<br>ý</span>
+            <span class = "box">FE<br>þ</span>
+            <span class = "box">FF<br>ÿ</span>
+          </figure>
+          <h3>Beispiel Aufgaben</h3>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetISOIEC();">
+          <br>
+          <table id = "ISOIECexamples">
+            <tr>
+              <th class = "ISOIECextable">Zeichen</th>
+              <th class = "ISOIECextable">ISO/IEC 8859-1 (hexadezimal)</th>
+              <th class = "ISOIECextable">ISO/IEC 8859-1 (binär)</th>
+              <th class = "ISOIECextable">ISO/IEC 8859-1 (dezimal)</th>
+            </tr>
+            <tr>
+              <td id = "ISOIECextable0"><input id = "inputISOIEC-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(0);"></td>
+              <td id = "ISOIECextable1"><input id = "inputISOIEC-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(1);"></td>
+              <td id = "ISOIECextable2"><input id = "inputISOIEC-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(2);"></td>
+              <td id = "ISOIECextable3"><input id = "inputISOIEC-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(3);"></td>
+            </tr>
+            <tr>
+              <td id = "ISOIECextable4"><input id = "inputISOIEC-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(4);"></td>
+              <td id = "ISOIECextable5"><input id = "inputISOIEC-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(5);"></td>
+              <td id = "ISOIECextable6"><input id = "inputISOIEC-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(6);"></td>
+              <td id = "ISOIECextable7"><input id = "inputISOIEC-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(7);"></td>
+            </tr>
+            <tr>
+              <td id = "ISOIECextable8"><input id = "inputISOIEC-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(8);"></td>
+              <td id = "ISOIECextable9"><input id = "inputISOIEC-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(9);"></td>
+              <td id = "ISOIECextable10"><input id = "inputISOIEC-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(10);"></td>
+              <td id = "ISOIECextable11"><input id = "inputISOIEC-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(11);"></td>
+            </tr>
+            <tr>
+              <td id = "ISOIECextable12"><input id = "inputISOIEC-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(12);"></td>
+              <td id = "ISOIECextable13"><input id = "inputISOIEC-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(13);"></td>
+              <td id = "ISOIECextable14"><input id = "inputISOIEC-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(14);"></td>
+              <td id = "ISOIECextable15"><input id = "inputISOIEC-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkISOIEC(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionISOIEC(15);"></td>
+            </tr>
+          </table>
         </div>
         <div id = "unicode">
           <h2>Unicode</h2>
@@ -644,67 +647,70 @@
           <h2>UTF-8</h2>
           <p>
             UTF-8 ist eine Kodierung der Unicodenummer. UTF-8 ist eine Art der Entropiekodierung, da häufig verwendete Zeichen mit weniger Bit kodiert werden als Zeichen, die nur selten verwendet werden. UTF-8 wird von sehr vielen Websites verwendet (die Zeichen auf dieser Webseite werden auch über UTF-8 abgebildet), über 90% weltweit. Bei UTF-8 wird die Unicodenummer in 8 Bit, also 1 Byte grosse Blöcke unterteilt. Dabei entsprechen die ersten sieben Bits der ASCII-Tabelle, wodurch UTF-8 mit ASCII kompatibel gemacht wurde. Die genaue Vorgehensweise der Kodierung wird in der folgenden Grafik erklärt.
-            <table class = "utf8tab">
-              <tr>
-                <th class = "utf8table">Unicode-Bereich</th>
-                <th class = "utf8table">UTF-8 Kodierung</th>
-                <th class = "utf8table">Erklärung</th>
-              </tr>
-              <tr>
-                <td class = "utf8table">00000000 bis 0000007F</td>
-                <td class = "utf8table">0xxxxxxx</td>
-                <td class = "utf8table">Dieser Bereich der UTF-8-Kodierung entspricht genau dem Code aus der ASCII-Tabelle. Die 0 am Anfang ist festgelegt, die restlichen Bits, die hier mit x angezeigt werden, können frei gewählt werden. Ein Zeichen, das in der ASCII-Tabelle vorkommt braucht also 1 Byte an Speicherpaltz.</td>
-              </tr>
-              <tr>
-                <td class = "utf8table">00000080 bis 000007FF</td>
-                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">1</span><span class ="endicator">0</span>xxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-                <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span> wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits können also nur im ersten oder im zweiten Byte stehen.</td>
-              </tr>
-              <tr>
-                <td class = "utf8table">00000800 bis 0000FFFF</td>
-                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">11</span><span class = "endicator">0</span>xxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-              </tr>
-              <tr>
-                <td class = "utf8table">00010000 bis 001FFFFFF</td>
-                <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">111</span><span class = "endicator">0</span>xxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
-              </tr>
-            </table>
-            <h3>Beispiel Aufgaben</h3>
-            <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
-            <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF8();">
-            <br>
-            <table id = "UTF8examples">
-              <tr>
-                <th class = "UTF8extable">Unicode (dezimal)</th>
-                <th class = "UTF8extable">Unicode (binär)</th>
-                <th class = "UTF8extable">Unicode (hexadezimal)</th>
-                <th class = "UTF8extable">UTF-8</th>
-              </tr>
-                <td id = "UTF8extable0"><input id = "inputUTF8-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(0);"></td>
-                <td id = "UTF8extable1"><input id = "inputUTF8-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(1);"></td>
-                <td id = "UTF8extable2"><input id = "inputUTF8-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(2);"></td>
-                <td id = "UTF8extable3"><input id = "inputUTF8-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(3);"></td>
-              </tr>
-              <tr>
-                <td id = "UTF8extable4"><input id = "inputUTF8-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(4);"></td>
-                <td id = "UTF8extable5"><input id = "inputUTF8-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(5);"></td>
-                <td id = "UTF8extable6"><input id = "inputUTF8-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(6);"></td>
-                <td id = "UTF8extable7"><input id = "inputUTF8-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(7);"></td>
-              </tr>
-              <tr>
-                <td id = "UTF8extable8"><input id = "inputUTF8-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(8);"></td>
-                <td id = "UTF8extable9"><input id = "inputUTF8-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(9);"></td>
-                <td id = "UTF8extable10"><input id = "inputUTF8-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(10);"></td>
-                <td id = "UTF8extable11"><input id = "inputUTF8-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(11);"></td>
-              </tr>
-              <tr>
-                <td id = "UTF8extable12"><input id = "inputUTF8-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(12);"></td>
-                <td id = "UTF8extable13"><input id = "inputUTF8-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(13);"></td>
-                <td id = "UTF8extable14"><input id = "inputUTF8-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(14);"></td>
-                <td id = "UTF8extable15"><input id = "inputUTF8-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(15);"></td>
-              </tr>
-            </table>
-            <br>
+          </p>
+          <table class = "utf8tab">
+            <tr>
+              <th class = "utf8table">Unicode-Bereich</th>
+              <th class = "utf8table">UTF-8 Kodierung</th>
+              <th class = "utf8table">Erklärung</th>
+            </tr>
+            <tr>
+              <td class = "utf8table">00000000 bis 0000007F</td>
+              <td class = "utf8table">0xxxxxxx</td>
+              <td class = "utf8table">Dieser Bereich der UTF-8-Kodierung entspricht genau dem Code aus der ASCII-Tabelle. Die 0 am Anfang ist festgelegt, die restlichen Bits, die hier mit x angezeigt werden, können frei gewählt werden. Ein Zeichen, das in der ASCII-Tabelle vorkommt braucht also 1 Byte an Speicherpaltz.</td>
+            </tr>
+            <tr>
+              <td class = "utf8table">00000080 bis 000007FF</td>
+              <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">1</span><span class ="endicator">0</span>xxxxx<br><span class = "indicator">10</span>xxxxxx</td>
+              <td class = "utf8table" rowspan = "3">Wenn Zeichen ausserhalb der ASCII-Tabelle kodiert werden beginnt das erste Byte mit einer <span class = "indicator">1</span> und nicht mit einer 0. Nach dieser 1 folgen so viele weitere <span class = "counter">1</span> wie viele der nachfolgenden Bytes miteinander interpretiert werden sollen. Das Ende dieser Folge von <span class = "indicator">1</span> wir mit einer <span class = "endicator">0</span> markiert. Die nachfolgenden Bytes beginnen alle mit dem Indikator <span class = "indicator">10</span>. Die Bits, bei denen ein x abgebildet ist stehen für die Bits des Unicode-Zeichenwertes. Dabei bilden sie von rechts nach links gelesen die Unicode-Zahl von rechts nach links geschrieben ab. Überflüssige Bits können also nur im ersten oder im zweiten Byte stehen.</td>
+            </tr>
+            <tr>
+              <td class = "utf8table">00000800 bis 0000FFFF</td>
+              <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">11</span><span class = "endicator">0</span>xxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
+            </tr>
+            <tr>
+              <td class = "utf8table">00010000 bis 001FFFFFF</td>
+              <td class = "utf8table"><span class = "indicator">1</span><span class = "counter">111</span><span class = "endicator">0</span>xxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx<br><span class = "indicator">10</span>xxxxxx</td>
+            </tr>
+          </table>
+          <h3>Beispiel Aufgaben</h3>
+          <h4>Schreibe für den binären Unicode immer die niederwertigen (hinteren) 16 Bits, ausser wenn die hochwertigen Bits werden gebraucht um die Zahl darzustellen, schreibe so viele Bits wie benötigt werden. Schreibe bei UTF-8 zwischen jedem Byte ein Leerzeichen als Hilfe zur Übersichtlichkeit. Schreibe für das Dezimalformat einfach so viele Stellen, wie benötigt werden und für das Hexadezimalformat alle 8 Bytes.</h4>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetUTF8();">
+          <br>
+          <table id = "UTF8examples">
+            <tr>
+              <th class = "UTF8extable">Unicode (dezimal)</th>
+              <th class = "UTF8extable">Unicode (binär)</th>
+              <th class = "UTF8extable">Unicode (hexadezimal)</th>
+              <th class = "UTF8extable">UTF-8</th>
+            </tr>
+            <tr>
+              <td id = "UTF8extable0"><input id = "inputUTF8-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(0);"></td>
+              <td id = "UTF8extable1"><input id = "inputUTF8-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(1);"></td>
+              <td id = "UTF8extable2"><input id = "inputUTF8-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(2);"></td>
+              <td id = "UTF8extable3"><input id = "inputUTF8-3" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(3);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF8extable4"><input id = "inputUTF8-4" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 4);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(4);"></td>
+              <td id = "UTF8extable5"><input id = "inputUTF8-5" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(5);"></td>
+              <td id = "UTF8extable6"><input id = "inputUTF8-6" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 6);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(6);"></td>
+              <td id = "UTF8extable7"><input id = "inputUTF8-7" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(7);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF8extable8"><input id = "inputUTF8-8" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(8);"></td>
+              <td id = "UTF8extable9"><input id = "inputUTF8-9" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 9);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(9);"></td>
+              <td id = "UTF8extable10"><input id = "inputUTF8-10" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 10);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(10);"></td>
+              <td id = "UTF8extable11"><input id = "inputUTF8-11" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(11);"></td>
+            </tr>
+            <tr>
+              <td id = "UTF8extable12"><input id = "inputUTF8-12" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 12);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(12);"></td>
+              <td id = "UTF8extable13"><input id = "inputUTF8-13" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 13);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(13);"></td>
+              <td id = "UTF8extable14"><input id = "inputUTF8-14" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 14);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(14);"></td>
+              <td id = "UTF8extable15"><input id = "inputUTF8-15" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF8(this.value, 15);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF8(15);"></td>
+            </tr>
+          </table>
+          <br>
+          <p>
             Der Nachteil von UTF-8 wird erst bei der Kodierung ersichtlich. Während UTF-8 zwar viel weniger Daten, bei beispielsweise einer Übertragung benötigt, wie wenn die Unicode-Nummer mit ihren 32 Bit roh übertragen werden würde, sind bei der Unicode-Nummer alle Zeichen mit einer gleich langen Bitfolge kodiert, während bei UTF-8 unterschiedlich lange Bitfolgen auftauchen können, was einen höheren Rechenaufwand erfordert. Deswegen verwendet zum Beispiel Microsoft Windows UTF-16 als Kompromiss zwischen UTF-8 und UTF-32.
           </p>
         </div>
@@ -789,6 +795,7 @@
               <th class = "UTF16extable">Unicode (hexadezimal)</th>
               <th class = "UTF16extable">UTF-16 (hexadezimal)</th>
             </tr>
+            <tr>
               <td id = "UTF16extable0"><input id = "inputUTF16-0" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(0);"></td>
               <td id = "UTF16extable1"><input id = "inputUTF16-1" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(1);"></td>
               <td id = "UTF16extable2"><input id = "inputUTF16-2" type = "text" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkUTF16(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionUTF16(2);"></td>

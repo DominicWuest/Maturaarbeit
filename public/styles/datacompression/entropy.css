@@ -27,9 +27,10 @@
 	min-height: 35vh;
 }
 
-img .probabillity {
-	height: 30vh;
-	align: right;
+.probabillityimg {
+	float: right;
+	max-height: 30vh;
+	max-width: 70vw;
 }
 
 .sum {

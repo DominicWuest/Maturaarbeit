@@ -1,18 +1,24 @@
 // Array to be sorted
 let arr = [];
+
 // Indicator of what color the elements should have
 let color = [];
+
 // Index of the compare value to the left (compared to pivot)
 let low;
+
 // Number of elements to be displayed
 let elements = 50;
+
 // The index of the pivot value
 let pivot;
+
 // Number of milliseconds to wait before continue animation
 let speed = 0.005;
+
 // Boolean to abort the animation if it was restarted
 let abort;
- 
+
 // Creates the canvas in its given size and position by the css file
 async function setup() {
   await waitfor(3 / speed);
@@ -24,6 +30,7 @@ async function setup() {
   // Declares the parent div of the canvas
   canvas.parent('animation');
   // Creates a new array with a given number of elements
+  if (window.innerWidth / window.innerHeight < 9 / 13) elements = 15;
   arr = new Array(floor(elements));
   // Gives each element a fixed height and defines a green color, but keeps array in order
   for (let i = 0; i < arr.length; i++) {
@@ -54,7 +61,7 @@ async function quickSort(arr, low, pivot) {
     color[pivot] = 'purple';
     let low_index = low;
     for (let i = low; i < pivot; i++) {
-      color[low_index] = 'blue'; 
+      color[low_index] = 'blue';
       // Abort breaks the function and has to be added before every call of the waifor function
       if (abort) return false;
       if (i != low_index) color[i] = 'grey';
@@ -105,7 +112,7 @@ function draw() {
     if (color[i] === 'grey') {
       fill(128);
       stroke(0);
-    } 
+    }
     else if (color[i] === 'blue') {
       fill(0, 0, 255);
       stroke(0);
@@ -138,7 +145,7 @@ function draw() {
  * Buffer to brake down the speed of the animation
  * @param {number} time - Time to wait in milliseconds
  */
-function waitfor(time) { 
+function waitfor(time) {
   return new Promise(resolve => {
     setTimeout(() => {
       resolve(time);

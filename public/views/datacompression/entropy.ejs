@@ -11,7 +11,7 @@
     <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
     <link rel="stylesheet" href="/styles/course.css">
     <script>
-    const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
+      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
     </script>
   </head>
   <body onload = "addHighlighting();" onresize = "setup();">
@@ -45,11 +45,13 @@
           <h3>Definition</h3>
           <p>
             Der Informationsgehalt eines Zeichens wird über die Wahrscheinlichkeit mit der es vorkommt definiert, häufig auch als Auftrittswahrscheinlichkeit bezeichnet. Per Definition ist der Informationsgehalt eines Zeichens <b>z<sub>n</sub></b> aus einer Symbolmenge <b>Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ... , z<sub>m</sub>}</b> mit der Auftrittswahrscheinlichkeit <b>p<sub>z<sub>n</sub></sub></b>:
-            <br>
-            <figure class = "equation">
-              I(z<sub>n</sub>) = log<sub>m</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure><span class = "bigparthense">)</span> = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
-            </figure>
-            <br>
+          </p>
+          <br>
+          <figure class = "equation">
+            I(z<sub>n</sub>) = log<sub>m</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">p<sub>z<sub>n</sub></sub></span></figure><span class = "bigparthense">)</span> = log<sub>m</sub>(1) - log<sub>a</sub>(p<sub>z<sub>n</sub></sub>) = -log<sub>m</sub>(p<sub>z<sub>n</sub></sub>)
+          </figure>
+          <br>
+          <p>
             Wie aus der oben aufgeführten Formel ersichtlich ist, ist die Einheit des Informationsgehaltes davon abhängig, was wir als a definieren. Als a werden die möglichen Zustände genommen, die unsere Kodierung annehmen kann, also im Beispiel des Binäralphabetes wäre a = 2, mit den Zuständen 0 und 1. Beim Hexadezimalsystem wäre a = 16, da wir 16 verschiedene Zustände haben, um unser Zeichen zu kodieren. Im Allgemeinen kann die Einheit als Shannon (sh) bezeichnet werden. Dies hat sich aber nicht wirklich durchgesetzt, da im häufigsten Fall die Binärkodierung gewählt wird. In diesem Fall entspricht die Einheit einem Bit, welche auch verwendet wird.
           </p>
         </div>
@@ -61,14 +63,14 @@
         </div>
         <div class = "probabillity">
           <h3>Die Wahrscheinlichkeit</h3>
-          <section class = "withpic">
-            <img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" class = "probabillity" align = "right"/>
+          <div class = "withpic">
+            <img src = "/imgs/datacompression/entropy/informationsgehalt.png" alt = "Wahrscheinlichkeitsgrafik" class = "probabillityimg"/>
             <p>
               In der Formel für den Informationsgehalt kommt die Wahrscheinlichkeit p<sub>z<sub>n</sub></sub> für ein Zeichen z<sub>n</sub> vor. Die Wahrscheinlichkeit ist muss nicht Absolut, wie die Gegebenheit, dass zum Beispiel in der deutschen Sprache das Zeichen e sehr häufig vorkommt und somit sehr Wahrscheinlich ist, sondern auch relativ. Wenn beispielsweise der Artikel 'der' als Zeichen genommen wird, dann ist die Wahrscheinlichkeit gross, dass ein Nomen oder ein Adjektiv folgt und die Wahrscheinlichkeit, dass ein Verb oder ein Pronomen folgt ist sehr klein. Mit einem Blick auf die Formel für den Informationsgehalt wird klar, dass der Informationgehalt für ein Nomen oder ein Adjektiv klein und der Informationsgehalt für ein Verb oder ein Pronomen dementsprechend gross ist. Diese Wahrscheinlichkeit basiert aber auf statistischer Abhängigkeit. Deswegen wird nicht näher darauf eingegangen.
               <br>
               Die Grafik rechts oder oben zeigt den Informationsgehalt in Bits in Abhängigkeit der Wahrscheinlichkeit. Die Datenpunkte gehen dabei von einer Wahrscheinlichkeit von 0.01, also einem Prozent bis zu 1, also 100 Prozent, was natürlich einen Informationsgehalt von 0 Bits bedeuten würde. DIe Schrittweite beträgt dabei 0.01, also ein Prozent.
             </p>
-          </section>
+          </div>
         </div>
         <div class = "calculatingex">
           <h3>Rechenbeispiel</h3>
@@ -77,22 +79,26 @@
             <br>
             Zuerst müssen wir die einzelnen Wahrscheinlichkeiten der Zeichen berechnen, was einfach durch die Anzahl Vorkommnisse durch die Gesamtanzahl der Zeichen ausgerechnet werden kann.
             <br>
-            <figure class = "equation">
-              p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
-              p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
-              p<sub>e</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
-              p<sub>i</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
-              p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
-              p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
-            </figure>
-            <br>
+          </p>
+          <figure class = "equation">
+            p<sub>a</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>,
+            p<sub>l</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+            p<sub>e</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+            p<sub>i</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+            p<sub>n</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure>,
+            p<sub>s</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure>
+          </figure>
+          <br>
+          <p>
             Danach muss jeder einzelne Informationsgehalt mit der Formel aus der Definition, die oben steht berechnet werden. Die einzelnen Informationsgehälter können nun addiert werden um den gesamten Informationsgehalt der Nachricht zu finden.
-            <figure class ="equation">
-              I<sub>gesamt</sub> = (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>)
-            </figure>
-            <figure class = "equation">
-              I<sub>gesamt</sub> = 3.32 Bits + 2 Bits * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 3.32 Bits = 25.22 Bits
-            </figure>
+          </p>
+          <figure class ="equation">
+            I<sub>gesamt</sub> = (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + 2 * (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">2</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>) + (-log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">10</span></figure><span class = "bigparthense">)</span>)
+          </figure>
+          <figure class = "equation">
+            I<sub>gesamt</sub> = 3.32 Bits + 2 Bits * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 2 * 2.32 Bits + 3.32 Bits = 25.22 Bits
+          </figure>
+          <p>
             Diese 25.22 Bits, die wir aus der Rechnung erhalten haben müssen wir nun aber noch aufrunden auf 26 Bits, da wir keine Bruchteile von Bits haben können. So kann das Wort 'Alleinsein' also mit 26 Bits optimal kodiert werden.
           </p>
         </div>
@@ -195,7 +201,9 @@
             = - (-1.02 + (-1.94) + (-2.08)) = 5.04 Bit / Zeichen
           </figure>
           <br>
-          Die Nachricht, die aus dem Satz 'Ich mag die Entropiekodierung' besteht hat also einen mittleren Informationsgehalt von 5.04 Bit / Zeichen. Dabei wurden jedoch die Leerzeichen weggelassen, da diese nicht im vorgegebenen Alphabet enthalten sind und somit eine Wahrscheinlichkeit von 0 haben und nichts zur Entropie beitragen. Der Speicherplatz, der für diesen Satz bei einer optimalen Entropiekodierung gebraucht berechnet sich aus der Anzahl der Zeichen multipliziert mit der Entropie: 5.04 Bit / Zeichen * 15 Zeichen = 75.58 Bit =&gt; 76 Bit. Dieser Wert entspricht genau der Summe der einzelnen Informationsgehälter.
+          <p>
+            Die Nachricht, die aus dem Satz 'Ich mag die Entropiekodierung' besteht hat also einen mittleren Informationsgehalt von 5.04 Bit / Zeichen. Dabei wurden jedoch die Leerzeichen weggelassen, da diese nicht im vorgegebenen Alphabet enthalten sind und somit eine Wahrscheinlichkeit von 0 haben und nichts zur Entropie beitragen. Der Speicherplatz, der für diesen Satz bei einer optimalen Entropiekodierung gebraucht berechnet sich aus der Anzahl der Zeichen multipliziert mit der Entropie: 5.04 Bit / Zeichen * 15 Zeichen = 75.58 Bit =&gt; 76 Bit. Dieser Wert entspricht genau der Summe der einzelnen Informationsgehälter.
+          </p>
         </div>
         <div id = "pythonex">
           <h3>Beispielcode in Python</h3>
@@ -240,9 +248,9 @@ def entropy(I, A):
             + -<figure class = "sum"><span class = "end">10</span>&sum;<span class = "end">i = 1</span></figure><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">0</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>
           </figure>
           <br>
-          <p>
-            Wenn wir das ganze noch vereinfachen und dabei den Grenzwert <figure class = "lim">lim<span class = "start">x &rarr; 0</span></figure>(x * log<sub>2</sub>(x)) = 0 anwenden erhalten wir:
-          </p>
+          <p>Wenn wir das ganze noch vereinfachen und dabei den Grenzwert</p>
+          <figure class = "lim">lim<span class = "start">x &rarr; 0</span></figure>
+          <p>(x * log<sub>2</sub>(x)) = 0 anwenden erhalten wir:</p>
           <br>
           <figure class = "equation">
             &Eta;<sub>max</sub>(I) = -<figure class = "sum"><span class = "end">16</span>&sum;<span class = "start">i = 1</span></figure> <figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure> * log<sub>2</sub><span class = "bigparthense">(</span><figure class = "fraction"><span class = "upper">1</span><span class = "lower">26</span></figure><span class = "bigparthense">)</span>

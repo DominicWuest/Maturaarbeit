@@ -83,6 +83,7 @@ header {
 }
 
 @media only screen and (max-aspect-ratio : 13 / 9) {
+
   header {
     grid-template-columns: 50px 1fr;
     grid-template-rows: 100%;
@@ -95,4 +96,5 @@ header {
   .links a {
     font-size: 6vw;
   }
+
 }

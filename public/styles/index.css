@@ -8,7 +8,7 @@ body {
 }
 
 main {
-  height: 90vh;
+  height: 93vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
   background-repeat: repeat-x;
   display: grid;

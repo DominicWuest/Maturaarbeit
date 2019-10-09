@@ -2,13 +2,15 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
+    <meta charset="utf-8"/>
     <title>UTF</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <script src=<%= "/js/" + path + ".js" %>></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <meta charset="utf-8"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="/js/datacompression/entropy/jquerydesigns.js"></script>
   </head>
   <body onload = "displayExercise(4);">
     <%- include(partialsPath + 'header.ejs') %>

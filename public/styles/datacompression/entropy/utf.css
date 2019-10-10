@@ -99,6 +99,18 @@ table, th, td {
   width: 18vw;
 }
 
+/*
+  Fix safaris transparency problems
+*/
+input[type = "button"] {
+  background-color: #DDD;
+}
+
+main input[type = "text"]:disabled, main textarea:disabled {
+  -webkit-text-fill-color: #000;
+  opacity: 1;
+}
+
 @media only screen and (max-aspect-ratio : 13 / 9) {
 
   .box {

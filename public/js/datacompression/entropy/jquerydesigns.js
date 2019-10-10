@@ -16,8 +16,4 @@ $(document).ready(function() {
     $(this).css("background-color", "#FFF")
   });
 
-  $('.numbers').scroll(function(){
-    $('.numbers').scrollTop($(this).scrollTop());
-  })
-
 });

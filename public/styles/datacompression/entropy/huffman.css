@@ -120,6 +120,12 @@ td {
   color: #FFF;
 }
 
+main input[type = "text"]:focus, textarea:focus {
+  box-shadow: inset 0 0 .5vh .1vh;
+  outline: none;
+}
+
+
 /*
   Fix safaris transparency problems
 */

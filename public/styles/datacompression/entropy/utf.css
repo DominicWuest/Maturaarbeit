@@ -100,7 +100,7 @@ table, th, td {
 }
 
 main input[type = "text"]:focus, textarea:focus {
-  box-shadow: inset 0 0 .1vh .1vh;
+  box-shadow: inset;
 }
 
 /*

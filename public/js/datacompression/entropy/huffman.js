@@ -109,11 +109,11 @@ function GenString(startingIndex) {
   for (let i = 0; i < Math.random() * 20 + 5; i++) {
     if (i === 0) {
       stringIndex.push([Math.floor(Math.random() * characters.length)]);
-      string.push([characters[stringIndex[startingIndex][i + 1]]]);
+      string.push([characters[stringIndex[startingIndex][i]]]);
     }
     else {
       stringIndex[startingIndex].push(Math.floor(Math.random() * characters.length));
-      string[startingIndex].push(characters[stringIndex[startingIndex][i + 1]]);
+      string[startingIndex].push(characters[stringIndex[startingIndex][i]]);
     }
   }
   return string[startingIndex];
@@ -121,15 +121,16 @@ function GenString(startingIndex) {
 
 // Generate a random string for the huffman exercise
 function GenStringHuff(startingIndex) {
-  stringIndexHuff.push([startingIndex.toString(10)]);
-  stringHuff.push([startingIndex.toString(10)]);
   for (let i = 0; i < Math.random() * 20 + 5; i++) {
-    stringIndexHuff[startingIndex].push(Math.floor(Math.random() * characters.length));
-    stringHuff[startingIndex].push(characters[stringIndexHuff[startingIndex][i + 1]]);
+    if (i === 0) {
+      stringIndexHuff.push([Math.floor(Math.random() * characters.length)]);
+      stringHuff.push([characters[stringIndexHuff[startingIndex][i]]]);
+    }
+    else {
+      stringIndexHuff[startingIndex].push(Math.floor(Math.random() * characters.length));
+      stringHuff[startingIndex].push(characters[stringIndexHuff[startingIndex][i]]);
+    }
   }
-  // Remove the startingIndex element from the sublist
-  stringIndexHuff[startingIndex].shift();
-  stringHuff[startingIndex].shift();
   return stringHuff[startingIndex];
 }
 

@@ -44,7 +44,9 @@ async function setup() {
 // Start of the animation when input start button is pressed
 async function startamination() {
   // Gives the function some time to get aborted
+  document.getElementById('startbutton').disabled = true;
   await waitfor(3 / speed);
+  document.getElementById('startbutton').disabled = false;
   abort = false;
   quickSort(arr, 0, arr.length - 1);
 }

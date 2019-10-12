@@ -21,7 +21,6 @@ let abort;
 
 // Creates the canvas in its given size and position by the css file
 async function setup() {
-  await waitfor(3 / speed);
   let canvasDiv = document.getElementById('animation');
   let width = canvasDiv.offsetWidth;
   let height = canvasDiv.offsetHeight;

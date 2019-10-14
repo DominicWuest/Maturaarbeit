@@ -49,14 +49,14 @@
           <h2>Spezifikationen</h2>
           <p>Der MD-Algorithmus produziert einen 128-Bit Hash.</p>
           <p>Somit kann er 2<sup>128</sup> (Circa 3.4 ∗ 10<sup>38</sup>) einzigartige Hashes hervorbringen.</p>
-          <p>Trotzdessen wird er heute als unsicher klassifiziert. Manchmal genügt lediglich eine schnelle <a href="https://www.google.com/search?q=276f8db0b86edaa7fc805516c852c889&rlz=1C1CHBF_deCH819CH819&oq=276f8db0b86edaa7fc805516c852c889&aqs=chrome..69i57.411j0j7&sourceid=chrome&ie=UTF-8" target="_blank">Google Suche</a> eines Hashes, um dessen Ursprung herauszufinden.</p>
-          <p>Aufgrund der schnellen Generierung eines MD-Hashes ist es relativ einfach, eine Kollision zu bruteforcen.</p>
+          <p>Trotzdem wird er heute als unsicher klassifiziert. Manchmal genügt lediglich eine schnelle <a href="https://www.google.com/search?q=276f8db0b86edaa7fc805516c852c889&rlz=1C1CHBF_deCH819CH819&oq=276f8db0b86edaa7fc805516c852c889&aqs=chrome..69i57.411j0j7&sourceid=chrome&ie=UTF-8" target="_blank">Google Suche</a> eines Hashes, um dessen Ursprung herauszufinden.</p>
+          <p>Aufgrund der schnellen Generierung eines MD-Hashes ist es relativ einfach, eine Kollision mit der Brute-Force-Methode auszulösen.</p>
           <p>Eine Kollision eines MD5-Hashes kann durch Anwendung von verschiedenen Tricks in 15-60 Minuten gefunden werden, wobei dies bei einem MD4-Hash weniger als eine Sekunde dauert.</p>
         </div>
         <div id="functionality">
           <h2>Funktionsweise</h2>
           <p>Als erstes wird die Nachricht in Bits umgewandelt. Anschliessend folgt das Padding. Gepaddet wird, indem ein Bit von eins angefügt wird und dann so lange Bits von null, bis die Länge der Nachricht Modulo 512 448 ergibt. Anschliessend wird eine 64-Bit Repräsentation der originalen Länge der Nachricht angefügt.</p>
-          <p>Nun müssen vier Variabeln mit folgenden Startwerten deklariert werden:</p>
+          <p>Nun müssen vier Variablen mit folgenden Startwerten deklariert werden:</p>
           <code class="code">a0 = 0x67452301
 b0 = 0xEFCDAB89
 c0 = 0x98BADCFE

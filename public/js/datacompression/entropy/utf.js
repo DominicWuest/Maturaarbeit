@@ -59,6 +59,7 @@ function displayASCII(startingIndex) {
   document.getElementById('inputASCII-' + (startingIndex + randSlot)).value = inputsASCII[randSign][randSlot];
   document.getElementById('inputASCII-' + (startingIndex + randSlot)).disabled = true;
   document.getElementById('ASCIIextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
+  document.getElementById('buttonASCII' + (startingIndex + randSlot)).style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of ISOIEC
@@ -70,6 +71,7 @@ function displayISOIEC(startingIndex) {
   document.getElementById('inputISOIEC-' + (startingIndex + randSlot)).value = inputsISOIEC[randSign][randSlot];
   document.getElementById('inputISOIEC-' + (startingIndex + randSlot)).disabled = true;
   document.getElementById('ISOIECextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
+  document.getElementById('buttonISOIEC' + (startingIndex + randSlot)).style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of UTF8
@@ -81,6 +83,7 @@ function displayUTF8(startingIndex) {
   document.getElementById('inputUTF8-' + (startingIndex + randSlot)).value = inputsUTF8[randSign][randSlot];
   document.getElementById('inputUTF8-' + (startingIndex + randSlot)).disabled = true;
   document.getElementById('UTF8extable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
+  document.getElementById('buttonUTF8-' + (startingIndex + randSlot)).style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of UTF16
@@ -92,6 +95,7 @@ function displayUTF16(startingIndex) {
   document.getElementById('inputUTF16-' + (startingIndex + randSlot)).value = inputsUTF16[randSign][randSlot];
   document.getElementById('inputUTF16-' + (startingIndex + randSlot)).disabled = true;
   document.getElementById('UTF16extable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
+  document.getElementById('buttonUTF16-' + (startingIndex + randSlot)).style.visibility = 'hidden';
 }
 
 
@@ -294,6 +298,7 @@ function resetASCII() {
     document.getElementById('inputASCII-' + index).value = '';
     document.getElementById('inputASCII-' + index).disabled = false;
     document.getElementById('ASCIIextable' + index).style.backgroundColor = "white";
+    document.getElementById('buttonASCII' + index).style.visibility = 'visible';
   }
   randSignListASCII = [];
   for (let i = 0; i < 4; i++) displayASCII(i * 4);
@@ -305,6 +310,7 @@ function resetISOIEC() {
     document.getElementById('inputISOIEC-' + index).value = '';
     document.getElementById('inputISOIEC-' + index).disabled = false;
     document.getElementById('ISOIECextable' + index).style.backgroundColor = "white";
+    document.getElementById('buttonISOIEC' + index).style.visibility = 'visible';
   }
   randSignListISOIEC = [];
   for (let i = 0; i < 4; i++) displayISOIEC(i * 4);
@@ -316,6 +322,7 @@ function resetUTF8() {
     document.getElementById('inputUTF8-' + index).value = '';
     document.getElementById('inputUTF8-' + index).disabled = false;
     document.getElementById('UTF8extable' + index).style.backgroundColor = "white";
+    document.getElementById('buttonUTF8-' + index).style.visibility = 'visible';
   }
   randNumListUTF8 = [];
   for (let i = 0; i < 4; i++) displayUTF8(i * 4);
@@ -327,6 +334,7 @@ function resetUTF16() {
     document.getElementById('inputUTF16-' + index).value = '';
     document.getElementById('inputUTF16-' + index).disabled = false;
     document.getElementById('UTF16extable' + index).style.backgroundColor = "white";
+    document.getElementById('buttonUTF16-' + index).style.visibility = 'visible';
   }
   randNumListUTF16 = [];
   for (let i = 0; i < 4; i++) displayUTF16(i * 4);

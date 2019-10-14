@@ -89,6 +89,7 @@ function displayHuffman(startingIndex) {
     document.getElementById('inputHuffman' + (startingIndex + 2)).value = temp.join('');
     document.getElementById('inputHuffman' + (startingIndex + 2)).disabled = true;
     document.getElementById('Huffmanextable' + (startingIndex + 2)).style.backgroundColor = "blue";
+    document.getElementById('solButton' + (startingIndex + 2)).style.visibility = 'hidden';
   }
   // Otherwise display the code and the string together
   if (randSlot === 0) {
@@ -98,34 +99,38 @@ function displayHuffman(startingIndex) {
     document.getElementById('inputHuffman' + (startingIndex + 1)).disabled = true;
     document.getElementById('Huffmanextable' + (startingIndex)).style.backgroundColor = "blue";
     document.getElementById('Huffmanextable' + (startingIndex + 1)).style.backgroundColor = "blue";
+    document.getElementById('solButton' + (startingIndex)).style.visibility = 'hidden';
+    document.getElementById('solButton' + (startingIndex + 1)).style.visibility = 'hidden';
   }
 }
 
 // Generate a random string for the tree exercise
 function GenString(startingIndex) {
-  stringIndex.push([startingIndex.toString(10)]);
-  string.push([startingIndex.toString(10)]);
   for (let i = 0; i < Math.random() * 20 + 5; i++) {
-    stringIndex[startingIndex].push(Math.floor(Math.random() * characters.length));
-    string[startingIndex].push(characters[stringIndex[startingIndex][i + 1]]);
+    if (i === 0) {
+      stringIndex.push([Math.floor(Math.random() * characters.length)]);
+      string.push([characters[stringIndex[startingIndex][i]]]);
+    }
+    else {
+      stringIndex[startingIndex].push(Math.floor(Math.random() * characters.length));
+      string[startingIndex].push(characters[stringIndex[startingIndex][i]]);
+    }
   }
-  // Remove the startingIndex element from the sublist
-  stringIndex[startingIndex].shift();
-  string[startingIndex].shift();
   return string[startingIndex];
 }
 
 // Generate a random string for the huffman exercise
 function GenStringHuff(startingIndex) {
-  stringIndexHuff.push([startingIndex.toString(10)]);
-  stringHuff.push([startingIndex.toString(10)]);
   for (let i = 0; i < Math.random() * 20 + 5; i++) {
-    stringIndexHuff[startingIndex].push(Math.floor(Math.random() * characters.length));
-    stringHuff[startingIndex].push(characters[stringIndexHuff[startingIndex][i + 1]]);
+    if (i === 0) {
+      stringIndexHuff.push([Math.floor(Math.random() * characters.length)]);
+      stringHuff.push([characters[stringIndexHuff[startingIndex][i]]]);
+    }
+    else {
+      stringIndexHuff[startingIndex].push(Math.floor(Math.random() * characters.length));
+      stringHuff[startingIndex].push(characters[stringIndexHuff[startingIndex][i]]);
+    }
   }
-  // Remove the startingIndex element from the sublist
-  stringIndexHuff[startingIndex].shift();
-  stringHuff[startingIndex].shift();
   return stringHuff[startingIndex];
 }
 
@@ -133,7 +138,7 @@ function GenStringHuff(startingIndex) {
 function baseTree(string, startingIndex, huff, fixedString) {
   base = [];
   for (let i = 0; i < fixedString.length; i++) base.push([fixedString[i]]);
-  // Save the length of the string to be able to acces it when the string is changed
+  // Save the length of the string to access it when the string is changed
   var divider = string.length;
   // Put the probabillity values into the subarray with the sign
   for (let i = 0; i < fixedString.length; i++) {
@@ -251,6 +256,7 @@ function resetHuffman() {
     document.getElementById('inputHuffman' + index).value = '';
     document.getElementById('inputHuffman' + index).disabled = false;
     document.getElementById('Huffmanextable' + index).style.backgroundColor = "white";
+    document.getElementById('solButton' + index).style.visibility = 'visible';
   }
   stringHuff = [];
   stringIndexHuff = [];

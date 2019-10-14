@@ -6,6 +6,7 @@ html {
 body {
   margin: 0;
   background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
+  background: #99B9D0;/*#AECEE5;*/
   overflow-y: hidden;
 }
 
@@ -112,5 +113,5 @@ a:hover {
   p, a {
     font-size: 0.9em;
   }
-  
+
 }

@@ -13,7 +13,7 @@ body {
 main {
   display: grid;
   margin: 0.5vh;
-  grid-template-columns: repeat(2, 48.5%);
+  grid-template-columns: repeat(2, 48.5vw);
   grid-template-rows: 1fr 6fr;
   justify-content: center;
   height: 85vh;

@@ -45,21 +45,20 @@
         </div>
         <div id = "specs">
           <h2>Spezifikationen</h2>
-          <p>Beim Quicksort werden im schlechtesten Fall, der aber nur sehr selten vorkommt <span class="bigO">O(n<sup>2</sup>) Vergleiche</span> durcheführt. Die best-case Performance besteht aus <span class="bigO">O(n * log(n)) Vergleichen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n * log(n))</span> Vergleiche.</p>
+          <p>Beim Quicksort werden im schlechtesten Fall, der aber nur sehr selten vorkommt <span class="bigO">O(n<sup>2</sup>) Vergleiche</span> durchgeführt. Die best-case Performance besteht aus <span class="bigO">O(n * log(n)) Vergleichen</span>. Seine Durchschnittsperformance beträgt <span class="bigO">O(n * log(n))</span> Vergleiche.</p>
           <p>Der Algorithmus funktioniert als In-place-Algorithmus, da er nur Elemente innerhalb einer Liste vertauscht. Jedoch braucht er für jede Rekursionsebene neuen Speicherplatz und hat damit eine durchschnittliche Space-complexity von <span class="bigO">O(log(n))</span> und im schlechtesten Fall eine Space-complexity von <span class="bigO">O(n)</span>.</p>
         </div>
         <div id = "functionality">
           <h2>Funktionsweise</h2>
           <p>Der Quicksort Algorithmus arbeitet nach dem Teile-und-herrsche-Verfahren.</p>
-          <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.</p>
-          <p>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index innerhalb des zu sortierenden Teilarrays gewählt werden. Der Algorithmus vertauscht die Elemente des Arrays nun so, dass zwei neue Teilarrays entstehen, einer mit Elementen die alle kleiner oder gleich wie gross das gewählte Pivot-Element sind und der andere mit Elementen, die alle grösser oder gleich dem Pivot-Element sind. Dies kann dadurch gemacht werden, indem für jedes Element getestet wird, ob es kleiner als das Pivot-Element ist oder nicht. Ist es kleiner, dann wird es mit dem ersten Element getauscht, das diese Bedingung nicht erfüllt hat und somit grösser oder gleich dem Pivot-Element sein muss. Wurde der Array in die zwei Teilarrays unterteilt wird das Pivot-Element dazwischen gesetzt und befindet sich somit an seiner endgültigen Position. Dieses Verfahren wird nun durch Rekursion auf jeden Teilarray andgewandt, bis alle Teilarrays aus lediglich noch einem Element bestehen. Ist dies der Fall ist der Array sortiert.</p>
+          <p>Das Grundprinzip vom Teile-und-herrsche-Verfahren ist, dass ein Problem, welches sehr schwierig erscheint, so lange in einfachere Teilprobleme zerlegt wird, bis diese beherrschbar, also gelöst sind. Dieses Verfahren kann von einer rekursiven Funktion, also einer Funktion, die sich selber aufruft, durchgeführt werden. Die Lösung des letzten Teilproblems ist dabei auch die Lösung des Gesamtproblems.<br>Der Quicksort führt dieses Teile-und-herrsche-Verfahren aus, indem er einen unsortierten Array, also das Problem in zwei unsortierte Teilarrays unterteilt. Dies macht er indem er ein beliebiges Element als das sogenannte Pivot-Element definiert. Das Pivot-Element kann am Ende des Arrays stehen, wie beispielsweise im Beispielcode, kann aber auch in der Mitte oder zufällig an einem beliebigen Index innerhalb des zu sortierenden Teilarrays gewählt werden. Der Algorithmus vertauscht die Elemente des Arrays nun so, dass zwei neue Teilarrays entstehen, einer mit Elementen, die alle kleiner oder gleich wie gross das gewählte Pivot-Element sind und der andere mit Elementen, die alle grösser oder gleich dem Pivot-Element sind. Dies kann dadurch gemacht werden, indem für jedes Element getestet wird, ob es kleiner als das Pivot-Element ist oder nicht. Ist es kleiner, dann wird es mit dem ersten Element getauscht, das diese Bedingung nicht erfüllt hat und somit grösser oder gleich dem Pivot-Element sein muss. Wurde der Array in die zwei Teilarrays unterteilt wird das Pivot-Element dazwischengesetzt und befindet sich somit an seiner endgültigen Position. Dieses Verfahren wird nun durch Rekursion auf jeden Teilarray angewandt, bis alle Teilarrays aus lediglich noch einem Element bestehen. Ist dies der Fall ist der Array sortiert.</p>
         </div>
         <div id = "exampleCode">
           <h2>Beispielcode</h2>
           <p class = "codeDescription">Dies ist ein in Python geschriebener Beispielcode:</p>
-          <code class = "code python"># arr ist der Array, welcher zu sortieren ist, low der Index vom ersten Element und high der Index vom letzten Element
+          <code class = "code python"># arr ist der Array, welcher zu sortieren ist, low der Index des ersten Elements und high der Index des letzten Elements
 def quickSort(arr, low, high):
-  # Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  # Abbruchbedingung, wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
   if low &lt; high:
     # Der Index des Elementes auf dem unsortierten linken Teil des Arrays
     low_index = low
@@ -85,7 +84,7 @@ def quickSort(arr, low, high):
         <p>Es können selbstverständlich auch andere Datentypen gebraucht werden.</p>
         <code class = "code java">// arr ist der Array, welcher zu sortieren ist. Die Funktion gibt den sortierten Array zurück
 public static int quicksort(int[] arr, int low, int high) {
-  // Abbruchbedingung wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
+  // Abbruchbedingung, wenn der Array fertig sortiert ist, damit die Funktion nicht unendlich lange läuft
   if (low &lt; high) {
     // Der Index des Elementes auf dem unsortierten linken Teil des Arrays
     int low_index = low;
@@ -130,7 +129,7 @@ public static int quicksort(int[] arr, int low, int high) {
           </div>
           <p>Drücke Start, um die Animation zu starten. Ändere die Position des Sliders, um die Geschwindigkeit der Animation zu verändern.</p>
           <div class = "animationInput">
-            <input type = "button" name = "restartAnimation" value = "Start" onmouseup = "abort = true; setup(); startamination();">
+            <input id = "startbutton" type = "button" name = "restartAnimation" value = "Start" onmouseup = "abort = true; setup(); startamination();">
             <input type = "range" name = "speed" min = "0.0001" max = "0.01" step = "0.00001" oninput = "speed = this.value">
           </div>
           <div id = "animation"></div>

@@ -37,7 +37,7 @@
         <div id="history">
           <h2>Geschichte</h2>
           <p>Die Secure Hash Algorithmen ist eine Gruppe von vier Hashing-Algorithmen, welche vom National Institute of Standards and Technology (NIST) veröffentlicht wurden.</p>
-          <p>Der erste Algorithmus der SHA-Gruppe ist der im Jahre 1993 veröffentlichte, damals gennante, SHA-Algorithmus. Der Algorithmus wurde schnell wieder zurückgezogen, da ein signifikanter Fehler darin entdeckt wurde.</p>
+          <p>Der erste Algorithmus der SHA-Gruppe ist der im Jahre 1993 veröffentlichte, damals genannte, SHA-Algorithmus. Der Algorithmus wurde schnell wieder zurückgezogen, da ein signifikanter Fehler darin entdeckt wurde.</p>
           <p>Der neuste SHA3-Algorithmus gewann im Oktober 2012 einen von NIST organisierten Wettbewerb. Damals war er als Keccak-Algorithmus bekannt.</p>
         </div>
         <div id="usage">
@@ -66,7 +66,7 @@
               <li>A: Der State.</li>
               <li>b: Die Breite der Keccak-Permutation, bei SHA3 1600.</li>
               <li>w: Die Lane-Size, bzw. b / 25.</li>
-              <li>l: Der Loagrithmus Basis 2 von w, bei SHA3 6.</li>
+              <li>l: Der Logarithmus Basis 2 von w, bei SHA3 6.</li>
               <li>n<sub>r</sub>: Wie viele Male das Five-Step-Mapping auf einen State angewendet wird, 12 + 2 &times; l, bei SHA3 24.</li>
               <li>Outputlänge: Wie lange das Hashvalue in Bits sein soll, bei SHA3 entweder 224, 256, 384 oder 512.</li>
               <li>Kapazität: Wie viele Bits einer Nachricht in einen State aufgenommen werden, 2 &times; die Outputlänge.</li>
@@ -76,7 +76,7 @@
           <div class="sha3Padding">
             <h3>Padding</h3>
             <p>Beim SHA3-Algorithmus wird der Input mit dem pad10*1-Algorithmus gepaddet.</p>
-            <p>Beim pad10*1-Algorithmus wird zuerst ein Bit mit Wert 1 angehängt, danach so viele Bits mit Wert 0, dass die Länge des Inputs + 1 mod die Rate (b - 2 &times; die Outputlänge) Null entspricht und schlussendlich wird nochmals ein Bit mit Wert 1 angehängt.</p>
+            <p>Beim pad10*1-Algorithmus wird zuerst ein Bit mit Wert 1 angehängt, danach so viele Bits mit Wert 0, dass die Länge des Inputs + 1 Modulo die Rate (b - 2 &times; die Outputlänge) Null entspricht und schlussendlich wird nochmals ein Bit mit Wert 1 angehängt.</p>
           </div>
           <div class="conversionStringToState">
             <h3>Konvertierung von Strings zu State-Arrays</h3>
@@ -228,7 +228,7 @@ def hashSHA(message):
     for chunk in chunks:
         # Der Chunk wird zu einem State modifiziert
         aA = messageBitsToState(chunk)
-        # Falls bereits über ein Chunk iteriert wurde, wird jedes bit von aA ge-XOR-t mit dem Bit des momentanen States
+        # Falls bereits über ein Chunk iteriert wurde, wird jedes Bit von aA ge-XOR-t mit dem Bit des momentanen States
         if len(A) != 0:
             for x in range(5):
                 for y in range(5):
@@ -302,8 +302,8 @@ def bitPadding(arr):
     rate = b - capacity
     # Falls der Array schon rate Bits lange ist, muss die Rate nicht gepaddet werden
     if len(arr) != rate:
-        # Zum Array wird ein Bit mit Wert 1 appendet, danach so viele Bits mit Wert 0, bis die Länge des Arrays der Rate entspricht
-        # danach wird nochmals ein Bit mit Wert 1 appendet
+        # Zum Array wird ein Bit mit Wert 1 angehängt, danach so viele Bits mit Wert 0, bis die Länge des Arrays der Rate entspricht
+        # danach wird nochmals ein Bit mit Wert 1angehängt
         zeros = (-len(arr) - 2) % rate
         arr.append(1)
         arr += zeros * [0]
@@ -408,7 +408,7 @@ public static String hashSHA(String message) {
   System.arraycopy(new boolean[] {false, true}, 0, inputBits, messageBits.length, 2);
   // Der momentane State
   boolean[][][] A = new boolean[5][5][w];
-  // Der Array inputBits wird in (b - 2 * outputLength) grosse Chunks geteilt und zum Array Chunks appendet
+  // Der Array inputBits wird in (b - 2 * outputLength) grosse Chunks geteilt und zum Array Chunks angehängt
   String[] chunks = new String[inputBits.length / (b - 2 * outputLength) + 1];
   for (int i = 0; i &lt; inputBits.length / (b - 2 * outputLength) + 1; i++) {
     // Der i-te Teil des Arrays inputBits mit Länge (b - 2 * outputLength) wird in chunks[i] kopiert
@@ -522,8 +522,8 @@ public static boolean[] bitPadding(boolean[] arr) {
   int rate = b - capacity;
   // Falls der Array schon rate Bits lange ist, muss die Rate nicht gepaddet werden
   if (arr.length != rate) {
-    // Zum Array wird ein Bit mit Wert 1 appendet, danach so viele Bits mit Wert 0, bis die Länge des Arrays der Rate entspricht
-    // danach wird nochmals ein Bit mit Wert 1 appendet
+    // Zum Array wird ein Bit mit Wert 1 angehängt, danach so viele Bits mit Wert 0, bis die Länge des Arrays der Rate entspricht
+    // danach wird nochmals ein Bit mit Wert 1 angehängt
     int zeros = (-arr.length - 2) % rate;
     paddedArr[arr.length] = true;
     for (int i = arr.length + 2; i &lt; b - 1; i++) paddedArr[i] = false;

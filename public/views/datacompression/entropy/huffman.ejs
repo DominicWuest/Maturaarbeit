@@ -2,13 +2,13 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
+    <meta charset="utf-8"/>
     <title>Huffman</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <script src=<%= "/js/" + path + ".js" %>></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <meta charset="utf-8"/>
     <script src = "/js/codeHighlighting.js"></script>
     <script>
       const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
@@ -30,29 +30,19 @@
       </div>
       <div id = "general">
         <h2>Allgemein</h2>
-        <p>
-          Die Huffman-Kodierung ist eine Entropiekodierung, die von David Huffman im Jahr 1952 entwickelt wurde. Durch diese Kodierung werden einer festen Anzahl Zeichen unterschiedlich lange Codes zugeordent, Zeichen die häufig vorkommen erhalten kurze Codes und Zeichen, die selten vorkommen erhalten lange Codes. Da aus der komprimierten Datei über eine Dekodierung wieder die Originaldatei erstellt werden kann handelt es sich um eine verlustfreie Datenkompression.
-          <br>
-          Die Huffman-Kodierung wird aufgrund ihrer Schnelligkeit und da sie nicht durch ein Patent geschützt wurde sehr viel verwendet, obwohl es Entropiekodierungen gibt, die bessere Resultate erbringen, wie beispielsweise die <a href = "/datacompression/entropy/arithmetic">Arithmetische Kodierung</a>. Die Huffman-Kodierung wird bei JPG und bei MP3 eingesetzt.
-        </p>
+        <p>Die Huffman-Kodierung ist eine Entropiekodierung, die von David Huffman im Jahr 1952 entwickelt wurde. Durch diese Kodierung werden einer festen Anzahl Zeichen unterschiedlich lange Codes zugeordnet, Zeichen die häufig vorkommen erhalten kurze Codes und Zeichen, die selten vorkommen erhalten lange Codes. Da aus der komprimierten Datei über eine Dekodierung wieder die Originaldatei erstellt werden kann handelt es sich um eine verlustfreie Datenkompression.<br>Die Huffman-Kodierung wird aufgrund ihrer Schnelligkeit und da sie nicht durch ein Patent geschützt wurde sehr viel verwendet, obwohl es Entropiekodierungen gibt, die bessere Resultate erbringen, wie beispielsweise die <a href = "/datacompression/entropy/arithmetic">Arithmetische Kodierung</a>. Die Huffman-Kodierung wird bei JPG und bei MP3 eingesetzt.</p>
       </div>
       <div id = "Tree">
         <h2>Huffman Baum</h2>
-        <p>
-          Die Huffman-Kodierung basiert auf einem Baum. Dieser Baum besteht aus Ästen und Blättern. Die Blätter sind dabei die Zeichen, die Codiert werden und die Äste sind der Weg (also der Code), der zu den Blättern führt. In diesem Teil schauen wir uns an, wie ein solcher Baum aufgebaut wird und wie er schlussendluch im Code umgesetzt wird.
-        </p>
+        <p>Die Huffman-Kodierung basiert auf einem Baum. Dieser Baum besteht aus Ästen und Blättern. Die Blätter sind dabei die Zeichen, die Codiert werden und die Äste sind der Weg (also der Code), der zu den Blättern führt. In diesem Teil schauen wir uns an, wie ein solcher Baum aufgebaut wird und wie er schlussendlich für die Kodierung benutzt wird.</p>
         <div>
           <h3>Aufbau des Baumes</h3>
-          <p>
-            Um den Baum aufzubauen muss zuerst die Wahrscheinlichkeit der einzelenen Zeichen bestimmt werden. Dies kann sehr einfach gemacht werden, indem die Anzahl der Vorkommnisse durch die Gesamtanzahl an Zeichen geteilt wird. Wenn also ein Satz, der aus den Zeichen Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>} besteht können die jeweiligen Wahrscheinlichkeiten durch folgende Formel berechnet werden, wobei m die gesamte Anzahl an Zeichen ist und z<sub>i</sub> 1 beträgt, wenn das betrachtete Zeichen z<sub>i</sub> ist und 0, wenn nicht.
-          </p>
+          <p>Um den Baum aufzubauen muss zuerst die Wahrscheinlichkeit der einzelnen Zeichen bestimmt werden. Dies kann sehr einfach gemacht werden, indem die Anzahl der Vorkommnisse durch die Gesamtanzahl an Zeichen geteilt wird. Wenn also ein Satz, der aus den Zeichen Z = {z<sub>1</sub>, z<sub>2</sub>, z<sub>3</sub>, ..., z<sub>m</sub>} besteht können die jeweiligen Wahrscheinlichkeiten durch folgende Formel berechnet werden, wobei m die gesamte Anzahl an Zeichen ist und z<sub>i</sub> 1 beträgt, wenn das betrachtete Zeichen z<sub>i</sub> ist und 0, wenn nicht.</p>
           <figure class = "equation">
             p<sub>z<sub>i</sub></sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">m</span></figure> * <figure class = "sum"><span class = "end">m</span>&sum;<span class = "start">i = 1</span></figure> z<sub>i</sub>
           </figure>
           <br>
-          <p>
-            Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.
-          </p>
+          <p>Nun müssen die Zeichen mit absteigender Wahrscheinlichkeit von links nach rechts in eine Tabelle eingetragen werden. In diesem Beispiel werden alle Häufigkeiten als verschieden betrachtet, wenn aber nun mehrere Zeichen gleich viel vorkommen würden, könnten sie willkürlich angeordnet werden.</p>
           <table class = "buildTree">
             <tr>
               <th>Ebene</th>
@@ -96,7 +86,7 @@
               <td><figure class = "circle">z<sub>9</sub></figure>p<sub>z<sub>9</sub></sub></td>
             </tr>
           </table>
-          <p>Danach wird die Tabelle wieder neu angeordnet, sodass die Elemente mit absteidender Wahrscheinlichkeit von links nach rechts geordnet werden. Das Bedeutet, dass jetzt die folgenden Vergleiche durchgeführt werden müssen.</p>
+          <p>Danach wird die Tabelle wieder neu angeordnet, sodass die Elemente mit absteigender Wahrscheinlichkeit von links nach rechts geordnet werden. Das Bedeutet, dass jetzt die folgenden Vergleiche durchgeführt werden müssen.</p>
           <figure class = "equation">
             p<sub>z<sub>1</sub></sub> + p<sub>z<sub>2</sub></sub> &gt; p<sub>z<sub>3</sub></sub>
             <br>
@@ -116,9 +106,7 @@
         </div>
         <div>
           <h3>Konkretes Beispiel</h3>
-          <p>
-            In diesem Beispiel wollen wir den Satz: "ein-kleines-beispiel" kodieren. Zuerst müssen wir die Wahrscheinlichkeiten der einzelnen Buchstaben berechnen.
-          </p>
+          <p>In diesem Beispiel wollen wir den Satz: "ein-kleines-beispiel" kodieren. Zuerst müssen wir die Wahrscheinlichkeiten der einzelnen Buchstaben berechnen.</p>
           <figure class = "equation">
             p<sub>e</sub> = <figure class = "fraction"><span class = "upper">5</span><span class = "lower">20</span></figure> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">4</span></figure>,
           </figure>
@@ -281,7 +269,7 @@
               <td colspan = "2"></td>
             </tr>
           </table>
-          <p>Jetzt werden die Zeichen wieder ihrer Wahrscheinlichkeit entsprechend neu angeordnet und auf eine Ebene angehoben. Danach werden wieder diejenigen mit den kleinsten Wahrscheinlichkeiten zusammegefasst.</p>
+          <p>Jetzt werden die Zeichen wieder ihrer Wahrscheinlichkeit entsprechend neu angeordnet und auf eine Ebene angehoben. Danach werden wieder diejenigen mit den kleinsten Wahrscheinlichkeiten zusammengefasst.</p>
           <table>
             <tr>
               <th>Ebene</th>
@@ -498,7 +486,7 @@ Tree(base(a))</code>
         </div>
         <div>
           <h3>Beispielaufgaben</h3>
-          <p>Nun kannst du Aufgaben zu Huffman-Bäumen lösen. Dabei wird dir entweder ein Huffman-Baum als Input gegeben und du musst den zugehörigen String herausfinden, oder es wird ein String gegeben und du musst den zugehörigen Huffman-Baum herausfinden. Der String wird zufällig generiert, es werden also höchstwahrscheinlich keine sinnvollen Wörter erscheinen.<br>Fülle das Feld mit dem Baum so aus, dass du immer zuerst das Zeichen und danach die zugehörige Wahrscheinlichkeit, durch Komma abgetrennt hinschreibst. Für die höheren Ebenen füge jeweils, analso zu den Wahrscheinlichkeiten die Zeichen zusammen. Schreibe den Baum so, dass du für jedes Zusammenfassen eines Elementes eine neue Ebene anfängst. Falls das Format nicht genau stimmt kann deine Lösung nicht erkannt werden. Falls dir die Vorgaben nicht klar sind kannst du die erste Aufgabe als gelöstes Beispiel benutzen, indem du auf "Lösung anzeigen" drückst. Wenn der Baum nicht ganz in das Textfeld hineinpasst kannst es mit der Maus verändern, indem du an der Ecke unten links ziehst.</p><br><p>Am besten zeichnest du dir den Huffman-Baum auf Papier aus und füllst ihn danach in das vorgegebene Textfeld ein, da es nicht so einfach ist, ihn direkt hineinzuschreiben.</p>
+          <p>Nun kannst du Aufgaben zu Huffman-Bäumen lösen. Dabei wird dir entweder ein Huffman-Baum als Input gegeben und du musst den zugehörigen String herausfinden, oder es wird ein String gegeben und du musst den zugehörigen Huffman-Baum herausfinden. Der String wird zufällig generiert, es werden also höchstwahrscheinlich keine sinnvollen Wörter erscheinen.<br>Fülle das Feld mit dem Baum so aus, dass du immer zuerst das Zeichen und danach die zugehörige Wahrscheinlichkeit, durch Komma abgetrennt hinschreibst. Für die höheren Ebenen füge jeweils, analog zu den Wahrscheinlichkeiten die Zeichen zusammen. Schreibe den Baum so, dass du für jedes Zusammenfassen eines Elementes eine neue Ebene anfängst. Falls das Format nicht genau stimmt kann deine Lösung nicht erkannt werden. Falls dir die Vorgaben nicht klar sind kannst du die erste Aufgabe als gelöstes Beispiel benutzen, indem du auf "Lösung anzeigen" drückst. Wenn der Baum nicht ganz in das Textfeld hineinpasst kannst es mit der Maus verändern, indem du an der Ecke unten links ziehst.</p><br><p>Am besten zeichnest du dir den Huffman-Baum auf Papier aus und füllst ihn danach in das vorgegebene Textfeld ein, da es nicht so einfach ist, ihn direkt hineinzuschreiben.</p>
           <input type = "button" value = "Neue Aufgaben" onclick = "resetTree();">
           <table>
             <tr>
@@ -506,20 +494,20 @@ Tree(base(a))</code>
               <th>String</th>
             </tr>
             <tr>
-              <td id = "Treeextable0"><textarea rows = "10" cols = "70" id = "inputTree0" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(0);"></td>
-              <td id = "Treeextable1"><input type = "text" id = "inputTree1" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 1);"></td>
+              <td id = "Treeextable0"><textarea id = "inputTree0" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(0);"></td>
+              <td id = "Treeextable1"><input id = "inputTree1" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 1);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable2"><textarea rows = "10" cols = "70" id = "inputTree2" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(2);"></td>
-              <td id = "Treeextable3"><input type = "text" id = "inputTree3" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 3);"></td>
+              <td id = "Treeextable2"><textarea id = "inputTree2" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 2);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(2);"></td>
+              <td id = "Treeextable3"><input id = "inputTree3" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 3);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable4"><textarea rows = "10" cols = "70" id = "inputTree4" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(4);"></td>
-              <td id = "Treeextable5"><input type = "text" id = "inputTree5" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 5);"></td>
+              <td id = "Treeextable4"><textarea id = "inputTree4" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(4);"></td>
+              <td id = "Treeextable5"><input id = "inputTree5" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 5);"></td>
             </tr>
             <tr>
-              <td id = "Treeextable6"><textarea rows = "10" cols = "70" id = "inputTree6" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(6);"></td>
-              <td id = "Treeextable7"><input type = "text" id = "inputTree7" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 7);"></td>
+              <td id = "Treeextable6"><textarea id = "inputTree6" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionTree(6);"></td>
+              <td id = "Treeextable7"><input id = "inputTree7" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkTree(this.value, 7);"></td>
             </tr>
           </table>
         </div>
@@ -528,11 +516,11 @@ Tree(base(a))</code>
         <h2>Kodierung der Zeichen</h2>
         <div>
           <h3>Allgemein</h3>
-          <p>Bis jetzt haben wir gelernt, wie man einen Huffman-Baum aufgbaut. Nun geht es noch darum, wie man diesen einsetzen kann um Zeichen zu kodieren.<br>Um die Zeichen zu kodieren müssen wir sie in binärer Form darstellen. Dafür kann sehr einfach der vorher aufgebaute Huffman-Baum gebraucht werden. Dabei wird immer beim Stamm (ganz oben, dort wo die Wahrscheinlichkeit 1 beträgt) angefangen und wenn eine Abzweigung nach links genommen wird eine 0 geschrieben, ansonsten eine 1. So bekommen die Zeichen also genau so lange Codes, wie Ebenen durchquert werden müssen, bis die Zeichen erreicht werden.<br>Die Dekodierung eines Code kann erst schwierig erscheinen, da die Codes jeweils unterschiedliche Längen haben, abhängig vom Informationsgehalt des Zeichens. Es ist aber schnell erkennbar, wenn man ein Code dekodiert, denn wenn man das erste Zeichen hat, dann wäre es sinnlos, dass der Code dort noch weiter geht, da der Baum nicht mehr weiter geht.</p>
+          <p>Bis jetzt haben wir gelernt, wie man einen Huffman-Baum aufgebaut. Nun geht es noch darum, wie man diesen einsetzen kann um Zeichen zu kodieren.<br>Um die Zeichen zu kodieren müssen wir sie in binärer Form darstellen. Dafür kann sehr einfach der vorher aufgebaute Huffman-Baum gebraucht werden. Dabei wird immer beim Stamm (ganz oben, dort wo die Wahrscheinlichkeit 1 beträgt) angefangen und wenn eine Abzweigung nach links genommen wird eine 0 geschrieben, ansonsten eine 1. So bekommen die Zeichen also genau so lange Codes, wie Ebenen durchquert werden müssen, bis die Zeichen erreicht werden.<br>Die Dekodierung eines Code kann erst schwierig erscheinen, da die Codes jeweils unterschiedliche Längen haben, abhängig vom Informationsgehalt des Zeichens. Es ist aber schnell erkennbar, wenn man ein Code dekodiert, denn wenn man das erste Zeichen hat, dann wäre es sinnlos, dass der Code dort noch weiter geht, da der Baum nicht mehr weiter geht.</p>
         </div>
         <div>
           <h3>Konkretes Beispiel</h3>
-          <p>Nun wollen wir uns die Huffman-Kodierung an einem konkreten Beispiel anschauen. Dafür nehmen wir das selbe Beispiel, das auch schon für den Aufbau des Huffman-Baumes benutzt wurde, da wir so den Baum bereits erstellt haben. Wir haben also den String: "ein-kleines-beispiel" mit dem Huffman-Baum.</p>
+          <p>Nun wollen wir uns die Huffman-Kodierung an einem konkreten Beispiel anschauen. Dafür nehmen wir dasselbe Beispiel, das auch schon für den Aufbau des Huffman-Baumes benutzt wurde, da wir so den Baum bereits erstellt haben. Wir haben also den String: "ein-kleines-beispiel" mit dem Huffman-Baum.</p>
           <table>
             <tr>
               <th>Ebene</th>
@@ -785,11 +773,11 @@ Tree(base(a))</code>
               <td>0.1</td>
             </tr>
           </table>
-          <p>Der String: "ein-kleines-beispiel" kann also mit dem 60 Bit langen Code: 011011000100011111011011001000000100001001100000000111001111 kodiert werden. Wenn wir den String aber mit einer Kodierung kodieren würden, die keine Rücksicht auf den Informationsgehalt der Zeichen nimmt bräuchten wir mindestens 4 Bit pro Zeichen, damit die 9 verschiedenen Zeichen dargestellt werden können. Somit wären mindestens 20 Zeichen * 4 Bit pro Zeichen = 80 Bit nötig um den String zu kodieren. Somit haben wir 20 Bit redundante Daten eingespart mit der Huffman-Kodierung.</p>
+          <p>Der String: "ein-kleines-beispiel" kann also mit dem 60 Bit langen Code: 011011000100011111011011001000000100001001100000000111001111 kodiert werden. Wenn wir den String aber mit einer Kodierung kodieren würden, die keine Rücksicht auf den Informationsgehalt der Zeichen nimmt, bräuchten wir mindestens 4 Bit pro Zeichen, damit die 9 verschiedenen Zeichen dargestellt werden können. Somit wären mindestens 20 Zeichen * 4 Bit pro Zeichen = 80 Bit nötig, um den String zu kodieren. Somit haben wir 20 Bit redundante Daten eingespart mit der Huffman-Kodierung.</p>
         </div>
         <div>
           <h3>Beispielaufgaben</h3>
-          <p>Jetzt da du gelernt hast, wie man einen Huffman-Baum aufbauen kann und wie dieser danach benutzt wird um eine Zeichenkette zu kodieren ist es an der Zeit dieses Wissen in Aufgaben anzuwenden. Du hast entweder einen String gegeben, zu dem du einen Huffman-Baum erstellen musst, womit du ihn gleich noch kodieren kannst oder einen Code und den dazugehöenden Huffman-Baum zum dekodieren.</p><br><p>Der Baum muss die gleichen formalen Eigenschaften einhalten wie in der letzten Aufgabe. Der Baum wird immernoch so gelesen, dass eine Abzweigung nach links eine 0 bedeutet und eine Abzweigung nach rechts eine 1 bedeutet. Der Baum ist nun aber auf dem Kopf, er muss also von unten nach oben gelesen werden.</p>
+          <p>Jetzt da du gelernt hast, wie man einen Huffman-Baum aufbauen kann und wie dieser danach benutzt wird, um eine Zeichenkette zu kodieren ist es an der Zeit dieses Wissen in Aufgaben anzuwenden. Du hast entweder einen String gegeben, zu dem du einen Huffman-Baum erstellen musst, womit du ihn gleich noch kodieren kannst oder einen Code und den dazugehörenden Huffman-Baum zum dekodieren.</p><br><p>Der Baum muss die gleichen formalen Eigenschaften einhalten wie in der letzten Aufgabe. Der Baum wird immer noch so gelesen, dass eine Abzweigung nach links eine 0 bedeutet und eine Abzweigung nach rechts eine 1 bedeutet. Der Baum ist nun aber auf dem Kopf, er muss also von unten nach oben gelesen werden.</p>
           <input type = "button" value = "Neue Aufgaben" onclick = "resetHuffman();">
           <table>
             <tr>
@@ -798,24 +786,24 @@ Tree(base(a))</code>
               <th>String</th>
             </tr>
             <tr>
-              <td id = "Huffmanextable0"><textarea rows = "10" cols = "70" id = "inputHuffman0" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 0);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(0);"></td>
-              <td id = "Huffmanextable1"><textarea rows = "3" cols = "20" id = "inputHuffman1" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 1);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(1);"></td>
-              <td id = "Huffmanextable2"><input type = "text" id = "inputHuffman2" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(2);"></td>
+              <td id = "Huffmanextable0"><textarea id = "inputHuffman0" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 0);"></textarea><br><input id = "solButton0" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(0);"></td>
+              <td id = "Huffmanextable1"><textarea id = "inputHuffman1" rows = "3" cols = "20" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 1);"></textarea><br><input id = "solButton1" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(1);"></td>
+              <td id = "Huffmanextable2"><input id = "inputHuffman2" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 2);"><br><input id = "solButton2" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(2);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable3"><textarea rows = "10" cols = "70" id = "inputHuffman3" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 3);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(3);"></td>
-              <td id = "Huffmanextable4"><textarea rows = "3" cols = "20" id = "inputHuffman4" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 4);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(4);"></td>
-              <td id = "Huffmanextable5"><input type = "text" id = "inputHuffman5" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(5);"></td>
+              <td id = "Huffmanextable3"><textarea id = "inputHuffman3" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 3);"></textarea><br><input id = "solButton3" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(3);"></td>
+              <td id = "Huffmanextable4"><textarea id = "inputHuffman4" rows = "3" cols = "20" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 4);"></textarea><br><input id = "solButton4" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(4);"></td>
+              <td id = "Huffmanextable5"><input id = "inputHuffman5" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 5);"><br><input id = "solButton5" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(5);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable6"><textarea rows = "10" cols = "70" id = "inputHuffman6" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 6);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(6);"></td>
-              <td id = "Huffmanextable7"><textarea rows = "3" cols = "20" id = "inputHuffman7" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 7);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(7);"></td>
-              <td id = "Huffmanextable8"><input type = "text" id = "inputHuffman8" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 8);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(8);"></td>
+              <td id = "Huffmanextable6"><textarea id = "inputHuffman6" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 6);"></textarea><br><input id = "solButton6" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(6);"></td>
+              <td id = "Huffmanextable7"><textarea id = "inputHuffman7" rows = "3" cols = "20" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 7);"></textarea><br><input id = "solButton7" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(7);"></td>
+              <td id = "Huffmanextable8"><input id = "inputHuffman8" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 8);"><br><input id = "solButton8" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(8);"></td>
             </tr>
             <tr>
-              <td id = "Huffmanextable9"><textarea rows = "10" cols = "70" id = "inputHuffman9" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 9);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(9);"></td>
-              <td id = "Huffmanextable10"><textarea rows = "3" cols = "20" id = "inputHuffman10" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 10);"></textarea><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(10);"></td>
-              <td id = "Huffmanextable11"><input type = "text" id = "inputHuffman11" name = "message" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 11);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(11);"></td>
+              <td id = "Huffmanextable9"><textarea id = "inputHuffman9" rows = "10" cols = "70" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 9);"></textarea><br><input id = "solButton9" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(9);"></td>
+              <td id = "Huffmanextable10"><textarea id = "inputHuffman10" rows = "3" cols = "20" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 10);"></textarea><br><input id = "solButton10" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(10);"></td>
+              <td id = "Huffmanextable11"><input id = "inputHuffman11" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkHuffman(this.value, 11);"><br><input id = "solButton11" type = "button" value = "Lösung anzeigen" onclick = "solutionHuffman(11);"></td>
             </tr>
           </table>
         </div>

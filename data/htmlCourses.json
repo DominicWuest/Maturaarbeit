@@ -32,7 +32,7 @@
   "description" : "Für Überschriften gibt es in HTML einen eigenen Tag. Nämlich den h-Tag, diese gehen von &lth1&gt bis zu &lth6&gt. Je kleiner die Zahl, desto grösser ist die Priorität und somit auch die Schriftgrösse der Überschrift.",
   "subexercises" : [{
       "index" : 0,
-      "description" : "Füge die zweitgrösste Überschrift, mit einem Text deiner Wahl dem HTML-Dokument hinzu. Darunter schreibst du einen Paragraph, mit dem Text \"Das ist meine erste Überschrift.\"",
+      "description" : "Füge die zweitgrösste Überschrift, mit einem Text deiner Wahl dem HTML-Dokument hinzu. Darunter schreibst du einen Paragraph mit dem Text \"Das ist meine erste Überschrift.\"",
       "startingCode" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
       "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\t\t<h2>Eigene Überschrift</h2>\n\t\t<p>Das ist meine erste Überschrift.</p>\n\t</body>\n</html>",
       "solutionCheck" : "let el = output.getElementsByTagName('h2')[0]; let el1 = output.getElementsByTagName('p')[0]; return el && el1 && el1.innerHTML === 'Das ist meine erste Überschrift.';"

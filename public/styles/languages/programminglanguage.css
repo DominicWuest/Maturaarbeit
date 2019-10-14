@@ -178,7 +178,7 @@ main {
   overflow: hidden;
   color: #666;
   font-family: sans-serif;
-  padding-left: 3.2vw;
+  padding-left: 2.5vw;
   height: 1vh;
   width: 1vw;
   padding-top: 0.5vw;
@@ -191,7 +191,6 @@ main {
 
 #lineNumbers li {
   width: 0;
-  height: 2vh;
   padding: 0;
   margin: 0;
   list-style-type: none;

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <title>Sprachen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Sortierungs-Algorithmen</h1>
+      </div>
+      <div>
+        <p></p>
+      </div>
+      <div class = "sortingalgorithms">
+        <div id = "quick">
+          <a href = "/algorithms/sorting/quick">
+            <h2>Quicksort</h2>
+            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+          </a>
+        </div>
+        <div id = "bubble">
+          <a href = "/algorithms/sorting/bubble">
+            <h2>Bubblesort</h2>
+            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+          </a>
+        </div>
+        <div id = "insertion">
+          <a href = "/algorithms/sorting/insertion">
+            <h2>Insertionsort</h2>
+            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+          </a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

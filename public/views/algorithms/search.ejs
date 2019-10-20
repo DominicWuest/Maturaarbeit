@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <title>Sprachen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Such-Algorithmen</h1>
+      </div>
+      <div>
+        <p></p>
+      </div>
+      <div class = "searchingalgorithms">
+        <div id = "binary">
+          <a href = "/algorithms/search/binary">
+            <h2>Binary Search</h2>
+            <img src = "/imgs/algorithms/search/" alt = "" id = ""/>
+          </a>
+        </div>
+        <div id = "linear">
+          <a href = "/algorithms/search/linear">
+            <h2>Linear Search</h2>
+            <img src = "/imgs/algorithms/search/" alt = "" id = ""/>
+          </a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

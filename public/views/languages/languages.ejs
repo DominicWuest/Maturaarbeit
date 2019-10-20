@@ -1,39 +1,39 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-    <head>
-        <title>Sprachen</title>
-        <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-        <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-        <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-		<link rel="stylesheet" href="/styles/course.css">
-        <meta charset="utf-8"/>
-    </head>
-    <body>
-        <%- include(partialsPath + 'header.ejs') %>
-        <main>
-            <div class = "title">
-                <h1>Sprachen</h1>
-            </div>
-            <div>
-                <p>In diesem Teil der Website geht es darum das Programmieren zu erlernen. Wir haben hier die drei unserer Meinung nach wichtigsten Programmiersprachen aufgeführt. Diese drei Sprachen finden in der Praxis verschiedene Anwendungen. Viel Spass beim Lernen und Üben!</p>
-            </div>
-            <div class = "languages">
-                <div id = "python">
-                    <a href = "/languages/python">
-                        <h2>Python</h2>
-                        <img src="/imgs/languages/pythonlogo.png" alt="Pythonlogo" id = "pythonlogo"/>
-                    </a>
-                </div>
-                <div id = "html">
-                    <a href = "/languages/html">
-                        <h2>HTML</h2>
-                        <img src = "/imgs/languages/htmllogo.png" alt = "HTML-logo" id = "htmllogo"/>
-                    </a>
-                    <a href="http://www.w3.org/html/logo/index.html">W3C</a>, <a href="https://commons.wikimedia.org/wiki/File:HTML5_logo_and_wordmark.svg">HTML5 logo and wordmark</a>, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
-                </div>
-            </div>
-        </main>
-		<%- include(partialsPath + 'footer1.ejs') %>
-    </body>
+  <head>
+    <title>Sprachen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <meta charset="utf-8"/>
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Sprachen</h1>
+      </div>
+      <div>
+        <p>In diesem Teil der Website geht es darum das Programmieren zu erlernen. Wir haben hier zwei unserer Meinung nach wichtige und gut verständliche Programmiersprachen aufgeführt. Diese zwei Sprachen finden in der Praxis verschiedene Anwendungen. Viel Spass beim Lernen und Üben!</p>
+      </div>
+      <div class = "languages">
+        <div id = "python">
+          <a href = "/languages/python">
+            <h2>Python</h2>
+            <img src="/imgs/languages/pythonlogo.png" alt="Pythonlogo" id = "pythonlogo"/>
+          </a>
+        </div>
+        <div id = "html">
+          <a href = "/languages/html">
+            <h2>HTML</h2>
+            <img src = "/imgs/languages/htmllogo.png" alt = "HTML-logo" id = "htmllogo"/>
+          </a>
+          <a href="http://www.w3.org/html/logo/index.html">W3C</a>, <a href="https://commons.wikimedia.org/wiki/File:HTML5_logo_and_wordmark.svg">HTML5 logo and wordmark</a>, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
 </html>

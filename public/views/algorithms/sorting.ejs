@@ -2,12 +2,12 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
-    <title>Sprachen</title>
+    <meta charset="utf-8"/>
+    <title>Sortieren</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
-    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/algorithms/navigation.css">
   </head>
   <body>
     <%- include(partialsPath + 'header.ejs') %>
@@ -16,25 +16,27 @@
         <h1>Sortierungs-Algorithmen</h1>
       </div>
       <div>
-        <p></p>
+        <p>Sortierungsalgorithmen werden verwendet, um eine ungeordnete Liste zu sortieren. Dies wird häufig auch als Vorbereitung für einen Suchalgorithmus gebraucht, da viele von diesen nur einen sortierten Array als Input annehmen.</p>
       </div>
       <div class = "sortingalgorithms">
         <div id = "quick">
           <a href = "/algorithms/sorting/quick">
             <h2>Quicksort</h2>
-            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+            <img src = "/imgs/algorithms/quick.jpg" alt = "QuickSort-Algorithm" class = "pics"/>
           </a>
+          <a href="https://commons.wikimedia.org/wiki/User:Mhombach">Mhombach</a>, <a href="https://commons.wikimedia.org/wiki/File:QuickSort_Algorithm.jpg">QuickSort Algorithm</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
         </div>
         <div id = "bubble">
           <a href = "/algorithms/sorting/bubble">
             <h2>Bubblesort</h2>
-            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+            <img src = "/imgs/algorithms/bubble.png" alt = "BubbleSort-Algorithm" class = "pics"/>
           </a>
+          <a href="https://en.wikipedia.org/wiki/User:Oskar_Sigvardsson">Oskar Sigvardsson</a> at <a href="https://en.wikipedia.org/wiki/">English Wikipedia</a>, <a href="https://commons.wikimedia.org/wiki/File:SimpleSortingNetwork2.svg">SimpleSortingNetwork2</a>, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
         </div>
         <div id = "insertion">
           <a href = "/algorithms/sorting/insertion">
             <h2>Insertionsort</h2>
-            <img src = "/imgs/algorithms/sorting/" alt = "" id = ""/>
+            <img src = "/imgs/algorithms/insertion.jpg" alt = "InertionSort-Algorithm" class = "pics"/>
           </a>
         </div>
       </div>

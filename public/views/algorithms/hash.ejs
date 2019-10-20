@@ -2,12 +2,12 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
-    <title>Sprachen</title>
+    <meta charset="utf-8"/>
+    <title>Hashen</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
-    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/algorithms/navigation.css">
   </head>
   <body>
     <%- include(partialsPath + 'header.ejs') %>
@@ -16,20 +16,22 @@
         <h1>Hash-Algorithmen</h1>
       </div>
       <div>
-        <p></p>
+        <p>Mit den Hash-Algorithmen kann eine grosse Eingabemenge auf eine kleine Zielmenge abgebildet werden. Sie wird dabei also zerhackt. Auch wenn die Eingabemenge unterschiedlich lange Elemente enthält, so hat enthält die Ausgabemenge nur Elemente mit ähnlicher Länge. Gute Hash-Algorithmen liefern zu jedem Eingabewert einen anderen Ausgabewert, sodass dieser eindeutig identifiziert werden kann. Deswegen finden Hash-Algorithmen eine gute Anwendung in der Abspeicherung und Überprüfung von Passwörtern, da diese nicht einfach in ihrer Originalform abgespeichert werden können.<br>Hier werden ein nicht sehr sicher, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierter Hash-Algorithmus (SHA) aufgeführt.</p>
       </div>
       <div class = "hashingalgorithms">
         <div id = "sha">
           <a href = "/algorithms/hash/sha">
-            <h2><span class="st-icon-sharethis:hover"></span></h2>
-            <img src = "/imgs/algorithms/hash/" alt = "" id = ""/>
+            <h2>SHA</h2>
+            <img src = "/imgs/algorithms/sha.png" alt = "SHA-1-Algorithm" class = "pics"/>
           </a>
+          anonym, <a href="https://commons.wikimedia.org/wiki/File:SHA-1.svg">SHA-1</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5/legalcode" rel="license">CC BY-SA 2.5</a>
         </div>
         <div id = "md">
           <a href = "/algorithms/hash/md">
             <h2>MD</h2>
-            <img src = "/imgs/algorithms/hash/" alt = "" id = ""/>
+            <img src = "/imgs/algorithms/md.png" alt = "Message Digest algorithm" class = "pics"/>
           </a>
+          <a href="https://commons.wikimedia.org/wiki/User:Surachit">Surachit</a>, <a href="https://commons.wikimedia.org/wiki/File:MD5_algorithm.svg">MD5 algorithm</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
         </div>
       </div>
     </main>

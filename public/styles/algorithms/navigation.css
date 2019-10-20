@@ -1,0 +1,22 @@
+.hashingalgorithms, .searchingalgorithms {
+  display: grid;
+  grid-template-columns: repeat(2, 37.5vw);
+  grid-gap: 6vw;
+}
+
+.sortingalgorithms {
+  display: grid;
+  grid-template-columns: repeat(3, 25vw);
+  grid-gap: 3vw;
+}
+
+#sha, #md, #quick, #bubble, #insertion, #binary, #linear {
+  margin-top: 10px;
+  height: 36vh;
+}
+
+.pics {
+  max-height: 25vh;
+  display: block;
+  margin: 0px auto;
+}

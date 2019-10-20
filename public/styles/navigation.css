@@ -1,4 +1,4 @@
-.hashingalgorithms, .searchingalgorithms {
+.hashingalgorithms, .searchingalgorithms, .ports, .languages {
   display: grid;
   grid-template-columns: repeat(2, 37.5vw);
   grid-gap: 6vw;
@@ -10,13 +10,13 @@
   grid-gap: 3vw;
 }
 
-.cryptographic {
+.cryptographic, .usb, .video {
   display: grid;
   grid-template-columns: repeat(4, 19vw);
   grid-gap: 2vw;
 }
 
-#sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa {
+#usb, #video, #usb1, #usb2, #usb3, #usbc, #display, #vga, #hdmi, #dvi, #sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa, #python, #html {
   margin-top: 10px;
   max-height: 36vh;
   word-wrap: break-word;
@@ -29,6 +29,6 @@
   margin: 0px auto;
 }
 
-.cryptographic .pics {
-  max-width: 15vw;
+.cryptographic .pics, .usb .pics, .video .pics {
+  max-width: 14.5vw;
 }

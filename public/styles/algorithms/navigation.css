@@ -17,6 +17,7 @@
 
 .pics {
   max-height: 25vh;
+  max-width: 22vw;
   display: block;
   margin: 0px auto;
 }

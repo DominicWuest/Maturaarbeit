@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  background : linear-gradient(#2441B4, #31128B) fixed;
+  background: linear-gradient(#2441B4, #31128B) fixed;
+  background: #99B9D0;
   background-repeat: repeat-x;
 }
 
@@ -30,12 +31,11 @@ main h2 {
 
 a {
   text-decoration: none;
-  color: #009;
+  color: #007;
 }
 
 a:hover {
   text-decoration: underline;
-  color: #005;
 }
 
 .error p {

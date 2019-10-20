@@ -10,6 +10,7 @@ body {
 main {
   height: 93vh;
   background : linear-gradient(#2441B4, #31128B) fixed;
+  background: #99B9D0;
   background-repeat: repeat-x;
   display: grid;
   grid-template-columns: 20vw 60vw 20vw;
@@ -26,8 +27,7 @@ a:hover {
 .title {
   font-family: 'Righteous', cursive;
   font-size: 3.5vh;
-  color: #FFF;
-  text-shadow: 1px 1px 3px #000;
+  color: black;
 }
 
 ul ul {
@@ -137,7 +137,7 @@ ul ul {
 }
 
 .courses a {
-  color: white;
+  color: black;
   text-decoration: none;
 }
 
@@ -159,7 +159,7 @@ ul ul {
   display: flex;
   height: 50vh;
   width: 100%;
-  color: white;
+  color: black;
   font-family: 'Press Start 2P', cursive;
   text-align: center;
   justify-content: center;
@@ -169,7 +169,7 @@ ul ul {
 }
 
 .domainname span {
-  text-shadow: 0 0 8vh black;
+  text-shadow: 0 0 8vh white;
   box-sizing: border-box;
   background-image: url(/imgs/circuit.png);
   padding: 4%;
@@ -198,7 +198,7 @@ ul ul {
   width: 100%;
   padding: 0;
   margin: 0;
-  color: white;
+  color: black;
   display: block;
   padding-bottom: 1%;
 }
@@ -229,7 +229,7 @@ ul ul {
 .mostPopular a, .newestCourses a {
   white-space: nowrap;
   display: block;
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 1.7vh;
 }

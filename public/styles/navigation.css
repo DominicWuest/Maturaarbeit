@@ -1,0 +1,34 @@
+.hashingalgorithms, .searchingalgorithms {
+  display: grid;
+  grid-template-columns: repeat(2, 37.5vw);
+  grid-gap: 6vw;
+}
+
+.sortingalgorithms, .keyexchange {
+  display: grid;
+  grid-template-columns: repeat(3, 25vw);
+  grid-gap: 3vw;
+}
+
+.cryptographic {
+  display: grid;
+  grid-template-columns: repeat(4, 19vw);
+  grid-gap: 2vw;
+}
+
+#sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa {
+  margin-top: 10px;
+  max-height: 36vh;
+  word-wrap: break-word;
+}
+
+.pics {
+  max-height: 25vh;
+  max-width: 20vw;
+  display: block;
+  margin: 0px auto;
+}
+
+.cryptographic .pics {
+  max-width: 15vw;
+}

@@ -173,6 +173,11 @@ for (let i = 0; i < courses[0].length; i++) {
   });
 }
 
+app.get('/yeet', function(req, res) {
+  res.set('Content-Type', 'text/html');
+  res.send(new Buffer('<style>body{margin:0;}iframe{width:100vw;height:100vh;margin:0;box-sizing:border-box;}</style><iframe src="http://www.staggeringbeauty.com/" style="border: 1px inset #ddd"></iframe>'));
+});
+
 // Render 404.ejs if the page doesn't exist
 app.use(function(req, res, next) {
   res.status(404);

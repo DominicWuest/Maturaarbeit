@@ -35,6 +35,18 @@ let pathsToCourses = courses[1].map(function(path) {
   else return path.substring(1) + '/' + path.substring(1);
 });
 
+// Create new array indicating whether the course is available or not
+let availabilityArr = []
+
+// Check availablity of courses
+for (coursePath of pathsToCourses) {
+  if (fs.existsSync('public/views/' + coursePath + '.ejs') || coursePath.includes('#')) availabilityArr.push(true);
+  else availabilityArr.push(false);
+}
+
+// Push the array indicating  the availability to the courses array
+courses.push(availabilityArr);
+
 // Organize the keywords since it is easier to interpret them all when they're arrays
 courses[2] = courses[2].map(function (element) {
   // Return the string splitted on spaces. Creates an array even if there is no space in the word
@@ -154,8 +166,8 @@ app.get('/languages/html', function(req, res) {
 // All the routing for the courses inside data/courses.csv
 for (let i = 0; i < courses[0].length; i++) {
   app.get(courses[1][i], function(req, res) {
-    // If the .ejs file for the site exists, render it and update stats
-    if (fs.existsSync('public/views/' + pathsToCourses[i] + '.ejs')) {
+    // If the course is available
+    if (courses[4][i]) {
       // Increment stats for course or else create new entry
       stats[courses[0][i]] = stats[courses[0][i]] + 1 || 1;
       // Render the site

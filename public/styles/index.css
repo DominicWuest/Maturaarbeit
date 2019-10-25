@@ -57,6 +57,10 @@ ul ul {
   font-size: 1.7vh;
 }
 
+.courses .unavailable {
+  text-decoration: line-through !important;
+}
+
 .dropdown {
   display: inline-block;
   width: 1.5vh;

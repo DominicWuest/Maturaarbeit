@@ -2,12 +2,12 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
+    <meta charset="utf-8"/>
     <title>Video</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
-    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/navigation.css">
   </head>
   <body>
     <%- include(partialsPath + 'header.ejs') %>
@@ -22,33 +22,25 @@
         <div id = "display">
           <a href = "/ports/video/dp">
             <h2>DisplayPort</h2>
-            <div>
-              <img src="/imgs/ports/video/displayportlogo.png" alt="Logo of the DisplayPort"/>
-            </div>
+            <img src = "/imgs/ports/video/displayportlogo.png" alt = "Logo of the DisplayPort" class = "pics"/>
           </a>
         </div>
         <div id = "vga">
           <a href = "/ports/video/vga">
             <h2>VGA</h2>
-            <div>
-              <img src = "/imgs/ports/video/vga.jpg" alt = "VGA port"/>
-            </div>
+            <img src = "/imgs/ports/video/vga.jpg" alt = "VGA port" class = "pics"/>
           </a>
         </div>
         <div id = "hdmi">
           <a href = "/ports/video/hdmi">
             <h2>HDMI</h2>
-            <div>
-              <img src = "/imgs/ports/video/hdmi.png" alt = "HDMI socket"/>
-            </div>
+            <img src = "/imgs/ports/video/hdmi.png" alt = "HDMI socket" class = "pics"/>
           </a>
         </div>
         <div id = "dvi">
           <a href = "/ports/video/dvi">
             <h2>DVI</h2>
-            <div>
-              <img src = "/imgs/ports/video/dvi.png" alt = "DVI logo"/>
-            </div>
+            <img src = "/imgs/ports/video/dvi.png" alt = "DVI logo" class = "pics"/>
           </a>
         </div>
       </div>

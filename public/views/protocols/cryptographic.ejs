@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Verschlüsselungsprotokolle</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Verschlüsselungs-Protokolle</h1>
+      </div>
+      <div>
+        <p>Verschlüsselungsprotokolle garantieren eine verschlüsselte Datenübertragung in einem Rechennetz.</p>
+      </div>
+      <div class = "cryptographic">
+        <div id = "tls">
+          <a href = "/protocols/cryptographic/tls">
+            <h2>TLS / SSL</h2>
+            <img src = "/imgs/protocols/cryptographic/tls.png" alt = "TLS / SSL" class = "pics"/>
+          </a>
+        </div>
+        <div id = "wpa">
+          <a href = "/protocols/cryptographic/wpa">
+            <h2>WPA</h2>
+            <img src = "/imgs/protocols/cryptographic/wpa.png" alt = "WPA" class = "pics"/>
+          </a>
+          <a href="https://commons.wikimedia.org/wiki/User:RRZEicons">RRZEicons</a>, <a href="https://commons.wikimedia.org/wiki/File:Wifi.svg">Wifi</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
+        </div>
+        <div id = "ssh">
+          <a href = "/protocols/cryptographic/ssh">
+            <h2>SSH</h2>
+            <img src = "/imgs/protocols/cryptographic/ssh.svg" alt = "SSH" class = "pics"/>
+          </a>
+        </div>
+        <div id = "keyexchange">
+          <a href = "/protocols/cryptographic/keyexchange">
+            <h2>Schlüsselübergabeprotokolle</h2>
+            <img src = "/imgs/protocols/cryptographic/keyexchange.png" alt = "KEYEXCHANGE" class = "pics"/>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

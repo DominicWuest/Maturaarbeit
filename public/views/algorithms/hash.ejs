@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Hash-Algorithmen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class = "title">
+        <h1>Hash-Algorithmen</h1>
+      </div>
+      <div>
+        <p>Ein Hash-Algorithmus weist einer Eingabe eine Zahl zu. Die maximale Grösse der Zahl hängt vom Algorithmus ab. Von dieser Zahl, oder auch Hash-Value genannt, sollte man nicht zur originalen Eingabe zurückführen können. Ausserdem sollten unterschiedliche Eingaben nicht den gleichen Hash-Value ausgeben. Dies ist zwar unmöglich, da die maximale Grösse des Hash-Values festgelegt ist, jedoch ist es sehr schwer, bei vor allem neueren Algorithmen solche sogenannte Kollisionen zu finden, da dessen Hash-Value riesen Werte annehmen können.</p>
+        <p>Hash-Algorithmen werden gebraucht, um Passwörter abzuspeichern, da man vom Hash-Value nicht auf das originale Passwort zurückführen kann. Somit kann ein Hacker, falls dieser Zugriff erhält zu der Datenbank eines Services, nicht direkt alle Passwöter der Benutzer ansehen, sondern nur dessen Hash-Values. Das Passwort des Benutzers wird jeweils direkt beim Absenden der Eingabe gehasht und mit dem Hash-Value des auf dem Server abgespeicherten gehashten Passworts verglichen.<br>Auch werden Hash-Algorithmen gebraucht, um sogenannte digital Fingerprints zu erstellen. Diese werden gebraucht, um zu überprüfen, dass alle Bits korrekt überliefert wurden bei einer Datenübertragung. So bietet eine Seite beispielsweise ihr Programm zum Download an und veröffentlicht den Hash-Value des Programms. Nachdem das Programm heruntergeladen wurde, kann der Benutzer den Hash-Value des heruntergeladenen Programmes generieren und diesen Vergleichen mit dem, welcher von der Webseite veröffentlicht wurde. Da nur schon ein kleiner Unterschied des Inputs zu einem komplett anderen Hash-Value führt, wäre im Falle von Datenverlust während der Übertragung der Hash-Value des heruntergeladenen Programms nicht identisch mit dem, welcher auf der Website ersichtlich wäre.</p>
+        <p>Hier werden ein nicht sehr sicherer, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierteren (SHA) Hash-Algorithmus aufgeführt.</p>
+      </div>
+      <div class = "hashingalgorithms">
+        <div id = "sha">
+          <a href = "/algorithms/hash/sha">
+            <h2>SHA</h2>
+            <img src = "/imgs/algorithms/sha.png" alt = "SHA-1-Algorithm" class = "pics"/>
+          </a>
+          anonym, <a href="https://commons.wikimedia.org/wiki/File:SHA-1.svg">SHA-1</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5/legalcode" rel="license">CC BY-SA 2.5</a>
+        </div>
+        <div id = "md">
+          <a href = "/algorithms/hash/md">
+            <h2>MD</h2>
+            <img src = "/imgs/algorithms/md.png" alt = "Message Digest algorithm" class = "pics"/>
+          </a>
+          <a href="https://commons.wikimedia.org/wiki/User:Surachit">Surachit</a>, <a href="https://commons.wikimedia.org/wiki/File:MD5_algorithm.svg">MD5 algorithm</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

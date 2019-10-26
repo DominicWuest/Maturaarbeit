@@ -2,12 +2,12 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
+    <meta charset="utf-8"/>
     <title>Anschlüsse</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
-    <meta charset="utf-8"/>
+    <link rel="stylesheet" href="/styles/navigation.css">
   </head>
   <body>
     <%- include(partialsPath + 'header.ejs') %>
@@ -20,15 +20,15 @@
       </div>
       <div class = "ports">
         <div id = "usb">
-          <a href = "/ports/usb" id = "describeportUSB">
+          <a href = "/ports/usb">
             <h2>Verschiedene USB Anschlüsse</h2>
-            <img src="/imgs/ports/usb/usba.jpg" alt="USB A Port" id = "USBAPort"/>
+            <img src="/imgs/ports/usb/usba.jpg" alt="USB A Port" class = "pics"/>
           </a>
         </div>
         <div id = "video">
-          <a href = "/ports/video" id = "describeportVIDEO">
+          <a href = "/ports/video">
             <h2>Verschiedene Videoanschlüsse</h2>
-            <img src = "/imgs/ports/videoports.jpg" alt = "Video port general" id = "videoports"/>
+            <img src = "/imgs/ports/videoports.jpg" alt = "Video port general" class = "pics"/>
           </a>
         </div>
       </div>

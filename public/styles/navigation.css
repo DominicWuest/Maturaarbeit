@@ -1,0 +1,37 @@
+.hashingalgorithms, .searchingalgorithms, .ports, .languages {
+  display: grid;
+  grid-template-columns: repeat(2, 37.5vw);
+  grid-gap: 6vw;
+}
+
+.sortingalgorithms, .keyexchange {
+  display: grid;
+  grid-template-columns: repeat(3, 25vw);
+  grid-gap: 3vw;
+}
+
+.cryptographic, .usb, .video {
+  display: grid;
+  grid-template-columns: repeat(4, 19vw);
+  grid-gap: 2vw;
+}
+
+p {
+  font-family: sans-serif;
+}
+
+#usb, #video, #usb1, #usb2, #usb3, #usbc, #display, #vga, #hdmi, #dvi, #sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa, #python, #html {
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+
+.pics {
+  max-height: 25vh;
+  max-width: 20vw;
+  display: block;
+  margin: 0px auto;
+}
+
+.cryptographic .pics, .usb .pics, .video .pics {
+  max-width: 14.5vw;
+}

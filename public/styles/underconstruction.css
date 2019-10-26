@@ -3,7 +3,7 @@ html {
 }
 
 body {
-	background: linear-gradient(#2441B4, #31128B) fixed;
+	background: #99B9D0;
 	margin: 0;
 	text-align: center;
 }
@@ -15,8 +15,9 @@ main {
 }
 
 main a {
+	background-color: #555;
+	color: lightgrey;
 	text-decoration: none;
-	background: linear-gradient(#2221B4, #31127A) fixed;
-	padding: 0.1% 0.5%;
-	color: aqua;
+	padding: 6px 10px;
+	border-radius: 50px;
 }

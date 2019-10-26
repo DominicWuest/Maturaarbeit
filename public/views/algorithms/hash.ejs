@@ -3,7 +3,7 @@
 <html lang = "de">
   <head>
     <meta charset="utf-8"/>
-    <title>Hashen</title>
+    <title>Hash-Algorithmen</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
@@ -16,7 +16,9 @@
         <h1>Hash-Algorithmen</h1>
       </div>
       <div>
-        <p>Mit den Hash-Algorithmen kann eine grosse Eingabemenge auf eine kleine Zielmenge abgebildet werden. Sie wird dabei also zerhackt. Auch wenn die Eingabemenge unterschiedlich lange Elemente enthält, so hat enthält die Ausgabemenge nur Elemente mit ähnlicher Länge. Gute Hash-Algorithmen liefern zu jedem Eingabewert einen anderen Ausgabewert, sodass dieser eindeutig identifiziert werden kann. Deswegen finden Hash-Algorithmen eine gute Anwendung in der Abspeicherung und Überprüfung von Passwörtern, da diese nicht einfach in ihrer Originalform abgespeichert werden können.<br>Hier werden ein nicht sehr sicher, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierter Hash-Algorithmus (SHA) aufgeführt.</p>
+        <p>Ein Hash-Algorithmus weist einer Eingabe eine Zahl zu. Die maximale Grösse der Zahl hängt vom Algorithmus ab. Von dieser Zahl, oder auch Hash-Value genannt, sollte man nicht zur originalen Eingabe zurückführen können. Ausserdem sollten unterschiedliche Eingaben nicht den gleichen Hash-Value ausgeben. Dies ist zwar unmöglich, da die maximale Grösse des Hash-Values festgelegt ist, jedoch ist es sehr schwer, bei vor allem neueren Algorithmen solche sogenannte Kollisionen zu finden, da dessen Hash-Value riesen Werte annehmen können.</p>
+        <p>Hash-Algorithmen werden gebraucht, um Passwörter abzuspeichern, da man vom Hash-Value nicht auf das originale Passwort zurückführen kann. Somit kann ein Hacker, falls dieser Zugriff erhält zu der Datenbank eines Services, nicht direkt alle Passwöter der Benutzer ansehen, sondern nur dessen Hash-Values. Das Passwort des Benutzers wird jeweils direkt beim Absenden der Eingabe gehasht und mit dem Hash-Value des auf dem Server abgespeicherten gehashten Passworts verglichen.<br>Auch werden Hash-Algorithmen gebraucht, um sogenannte digital Fingerprints zu erstellen. Diese werden gebraucht, um zu überprüfen, dass alle Bits korrekt überliefert wurden bei einer Datenübertragung. So bietet eine Seite beispielsweise ihr Programm zum Download an und veröffentlicht den Hash-Value des Programms. Nachdem das Programm heruntergeladen wurde, kann der Benutzer den Hash-Value des heruntergeladenen Programmes generieren und diesen Vergleichen mit dem, welcher von der Webseite veröffentlicht wurde. Da nur schon ein kleiner Unterschied des Inputs zu einem komplett anderen Hash-Value führt, wäre im Falle von Datenverlust während der Übertragung der Hash-Value des heruntergeladenen Programms nicht identisch mit dem, welcher auf der Website ersichtlich wäre.</p>
+        <p>Hier werden ein nicht sehr sicherer, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierteren (SHA) Hash-Algorithmus aufgeführt.</p>
       </div>
       <div class = "hashingalgorithms">
         <div id = "sha">

@@ -16,6 +16,10 @@
   grid-gap: 2vw;
 }
 
+p {
+  font-family: sans-serif;
+}
+
 #usb, #video, #usb1, #usb2, #usb3, #usbc, #display, #vga, #hdmi, #dvi, #sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa, #python, #html {
   margin-top: 10px;
   word-wrap: break-word;

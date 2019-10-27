@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href="/styles/navigation.css">
+    <script src="/js/navigation.js"></script>
   </head>
-  <body>
+  <body onload = "checkAvailability('tls'); checkAvailability('wpa'); checkAvailability('ssh'); checkAvailability('keyexchange')">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class = "title">
@@ -20,26 +21,26 @@
       </div>
       <div class = "cryptographic">
         <div id = "tls">
-          <a href = "/protocols/cryptographic/tls">
+          <a href = "/protocols/cryptographic/tls" id = "tlslink">
             <h2>TLS / SSL</h2>
             <img src = "/imgs/protocols/cryptographic/tls.png" alt = "TLS / SSL" class = "pics"/>
           </a>
         </div>
         <div id = "wpa">
-          <a href = "/protocols/cryptographic/wpa">
+          <a href = "/protocols/cryptographic/wpa" id = "wpalink">
             <h2>WPA</h2>
             <img src = "/imgs/protocols/cryptographic/wpa.png" alt = "WPA" class = "pics"/>
           </a>
           <a href="https://commons.wikimedia.org/wiki/User:RRZEicons">RRZEicons</a>, <a href="https://commons.wikimedia.org/wiki/File:Wifi.svg">Wifi</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
         </div>
         <div id = "ssh">
-          <a href = "/protocols/cryptographic/ssh">
+          <a href = "/protocols/cryptographic/ssh" id = "sshlink">
             <h2>SSH</h2>
             <img src = "/imgs/protocols/cryptographic/ssh.svg" alt = "SSH" class = "pics"/>
           </a>
         </div>
         <div id = "keyexchange">
-          <a href = "/protocols/cryptographic/keyexchange">
+          <a href = "/protocols/cryptographic/keyexchange" id = "keyexchangelink">
             <h2>Schlüsselübergabeprotokolle</h2>
             <img src = "/imgs/protocols/cryptographic/keyexchange.png" alt = "KEYEXCHANGE" class = "pics"/>
         </div>

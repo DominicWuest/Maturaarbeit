@@ -8,8 +8,9 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href="/styles/navigation.css">
+    <script src="/js/navigation.js"></script>
   </head>
-  <body>
+  <body onload = "checkAvailability('dh'); checkAvailability('ecdh'); checkAvailability('rsa')">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class = "title">
@@ -20,21 +21,21 @@
       </div>
       <div class = "keyexchange">
         <div id = "dh">
-          <a href = "/protocols/cryptographic/keyexchange/dh">
+          <a href = "/protocols/cryptographic/keyexchange/dh" id = "dhlink">
             <h2>DH</h2>
             <img src = "/imgs/protocols/cryptographic/keyexchange/dh.png" alt = "Diffie Hellman" class = "pics"/>
           </a>
           <a href="https://commons.wikimedia.org/wiki/User:Dav-FL-IN-AZ-id">Dav-FL-IN-AZ-id</a>, <a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.png">Diffie-Hellman Key Exchange</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
         </div>
         <div id = "ecdh">
-          <a href = "/protocols/cryptographic/keyexchange/ecdh">
+          <a href = "/protocols/cryptographic/keyexchange/ecdh" id = "ecdhlink">
             <h2>ECDH</h2>
             <img src = "/imgs/protocols/cryptographic/keyexchange/ecdh.jpg" alt = "ECDH" class = "pics"/>
           </a>
           <a href="https://commons.wikimedia.org/wiki/User:Petr_Chud%C3%A1%C4%8Dek">Petr Chudáček</a>, <a href="https://commons.wikimedia.org/wiki/File:ECDH.gif">ECDH</a>, zugeschnitten von D. Isler, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
         </div>
         <div id = "rsa">
-          <a href = "/protocols/cryptographic/keyexchange/rsa">
+          <a href = "/protocols/cryptographic/keyexchange/rsa" id = "rsalink">
             <h2>RSA</h2>
             <img src = "/imgs/protocols/cryptographic/keyexchange/rsa.png" alt = "RSA" class = "pics"/>
           </a>

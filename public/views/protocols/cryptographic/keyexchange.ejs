@@ -8,9 +8,8 @@
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
     <link rel="stylesheet" href="/styles/navigation.css">
-    <script src="/js/navigation.js"></script>
   </head>
-  <body onload = "checkAvailability('dh'); checkAvailability('ecdh'); checkAvailability('rsa')">
+  <body>
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class = "title">
@@ -20,26 +19,13 @@
         <p>Ein Schlüsselübergabeprotokoll erlaubt es zwei Parteien über eine öffentliche, abhörbare Leitung zu kommunizieren. Dabei wird ein gemeinsamer Schlüssel abgemacht, wobei jeweils nur ein Schlüssel veröffentlicht wird, aber beide Schlüssel gebraucht werden, um die Nachricht lesen zu können.</p>
       </div>
       <div class = "keyexchange">
-        <div id = "dh">
-          <a href = "/protocols/cryptographic/keyexchange/dh" id = "dhlink">
-            <h2>DH</h2>
-            <img src = "/imgs/protocols/cryptographic/keyexchange/dh.png" alt = "Diffie Hellman" class = "pics"/>
-          </a>
-          <a href="https://commons.wikimedia.org/wiki/User:Dav-FL-IN-AZ-id">Dav-FL-IN-AZ-id</a>, <a href="https://commons.wikimedia.org/wiki/File:Diffie-Hellman_Key_Exchange.png">Diffie-Hellman Key Exchange</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
-        </div>
-        <div id = "ecdh">
-          <a href = "/protocols/cryptographic/keyexchange/ecdh" id = "ecdhlink">
-            <h2>ECDH</h2>
-            <img src = "/imgs/protocols/cryptographic/keyexchange/ecdh.jpg" alt = "ECDH" class = "pics"/>
-          </a>
-          <a href="https://commons.wikimedia.org/wiki/User:Petr_Chud%C3%A1%C4%8Dek">Petr Chudáček</a>, <a href="https://commons.wikimedia.org/wiki/File:ECDH.gif">ECDH</a>, zugeschnitten von D. Isler, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
-        </div>
-        <div id = "rsa">
-          <a href = "/protocols/cryptographic/keyexchange/rsa" id = "rsalink">
-            <h2>RSA</h2>
-            <img src = "/imgs/protocols/cryptographic/keyexchange/rsa.png" alt = "RSA" class = "pics"/>
+        <% for (let index = courses[0].indexOf('Schlüsselübergabeprotokolle') + 1; index < 48; index++) { %>
+        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
+          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
+            <img src = "/imgs/protocols/cryptographic/keyexchange/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
+        <% } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

@@ -31,3 +31,7 @@
 .cryptographic .pics, .usb .pics, .video .pics {
   max-width: 14.5vw;
 }
+
+.unavailable {
+  text-decoration: line-through;
+}

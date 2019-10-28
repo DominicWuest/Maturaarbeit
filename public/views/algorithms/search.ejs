@@ -19,18 +19,13 @@
         <p>Suchalgorithmen werden dazu verwendet, um den Index eines Elementes mit dem gesuchten Wert aus einer sortierten Liste herauszufinden. Es wird also ein gewisser Wert aus einer Liste herausgesucht. Eine Anwendung für einen Suchalgorithmus ist zum Beispiel in einem Telefonbuch einen Namen herauszusuchen.</p>
       </div>
       <div class = "searchingalgorithms">
-        <div id = "binary">
-          <a href = "/algorithms/search/binary">
-            <h2>Binary Search</h2>
-            <img src = "/imgs/algorithms/binary.png" alt = "BinarySearch-Algorithm" class = "pics"/>
+        <% for (let index = courses[0].indexOf('Suchalgorithmen') + 1; index < courses[3].indexOf(courses[3][courses[0].indexOf('Suchalgorithmen')], courses[0].indexOf('Suchalgorithmen') + 1); index++) { %>
+        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
+          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
+            <img src = "/imgs/algorithms/search/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
-        <div id = "linear">
-          <a href = "/algorithms/search/linear">
-            <h2>Linear Search</h2>
-            <img src = "/imgs/algorithms/linear.png" alt = "LinearSearch-Algorithm" class = "pics"/>
-          </a>
-        </div>
+        <% } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

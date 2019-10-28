@@ -19,26 +19,13 @@
         <p>Sortierungsalgorithmen werden verwendet, um eine ungeordnete Liste zu sortieren. Dies wird häufig auch als Vorbereitung für einen Suchalgorithmus gebraucht, da viele von diesen nur einen sortierten Array als Input annehmen.</p>
       </div>
       <div class = "sortingalgorithms">
-        <div id = "quick">
-          <a href = "/algorithms/sorting/quick">
-            <h2>Quicksort</h2>
-            <img src = "/imgs/algorithms/quick.jpg" alt = "QuickSort-Algorithm" class = "pics"/>
-          </a>
-          <a href="https://commons.wikimedia.org/wiki/User:Mhombach">Mhombach</a>, <a href="https://commons.wikimedia.org/wiki/File:QuickSort_Algorithm.jpg">QuickSort Algorithm</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
-        </div>
-        <div id = "bubble">
-          <a href = "/algorithms/sorting/bubble">
-            <h2>Bubblesort</h2>
-            <img src = "/imgs/algorithms/bubble.png" alt = "BubbleSort-Algorithm" class = "pics"/>
-          </a>
-          <a href="https://en.wikipedia.org/wiki/User:Oskar_Sigvardsson">Oskar Sigvardsson</a> at <a href="https://en.wikipedia.org/wiki/">English Wikipedia</a>, <a href="https://commons.wikimedia.org/wiki/File:SimpleSortingNetwork2.svg">SimpleSortingNetwork2</a>, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
-        </div>
-        <div id = "insertion">
-          <a href = "/algorithms/sorting/insertion">
-            <h2>Insertionsort</h2>
-            <img src = "/imgs/algorithms/insertion.jpg" alt = "InertionSort-Algorithm" class = "pics"/>
+        <% for (let index = courses[0].indexOf('Sortierungsalgorithmen') + 1; index < courses[3].indexOf(courses[3][courses[0].indexOf('Sortierungsalgorithmen')], courses[0].indexOf('Sortierungsalgorithmen') + 1); index++) { %>
+        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
+          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
+            <img src = "/imgs/algorithms/sorting/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
+        <% } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

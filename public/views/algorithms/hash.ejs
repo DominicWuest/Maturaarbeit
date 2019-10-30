@@ -19,13 +19,15 @@
         <p>Mit den Hash-Algorithmen kann eine grosse Eingabemenge auf eine kleine Zielmenge abgebildet werden. Sie wird dabei also zerhackt. Auch wenn die Eingabemenge unterschiedlich lange Elemente enthält, so hat enthält die Ausgabemenge nur Elemente mit ähnlicher Länge. Gute Hash-Algorithmen liefern zu jedem Eingabewert einen anderen Ausgabewert, sodass dieser eindeutig identifiziert werden kann. Deswegen finden Hash-Algorithmen eine gute Anwendung in der Abspeicherung und Überprüfung von Passwörtern, da diese nicht einfach in ihrer Originalform abgespeichert werden können.<br>Hier werden ein nicht sehr sicher, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierter Hash-Algorithmus (SHA) aufgeführt.</p>
       </div>
       <div class = "hashingalgorithms">
-        <% for (let index = courses[0].indexOf('Hash-Algorithmen') + 1; index < courses[3].indexOf(courses[3][courses[0].indexOf('Hash-Algorithmen')], courses[0].indexOf('Hash-Algorithmen') + 1) - 1; index++) { %>
-        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
-          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
-            <img src = "/imgs/algorithms/hash/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+        <% let index = courses[0].indexOf('Hash-Algorithmen') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Hash-Algorithmen')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Hash-Algorithmen') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/algorithms/hash/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
         <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

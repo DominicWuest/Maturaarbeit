@@ -19,13 +19,15 @@
         <p>Ein Schlüsselübergabeprotokoll erlaubt es zwei Parteien über eine öffentliche, abhörbare Leitung zu kommunizieren. Dabei wird ein gemeinsamer Schlüssel abgemacht, wobei jeweils nur ein Schlüssel veröffentlicht wird, aber beide Schlüssel gebraucht werden, um die Nachricht lesen zu können.</p>
       </div>
       <div class = "keyexchange">
-        <% for (let index = courses[0].indexOf('Schlüsselübergabeprotokolle') + 1; index < 48; index++) { %>
-        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
-          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
-            <img src = "/imgs/protocols/cryptographic/keyexchange/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+        <% let index = courses[0].indexOf('Schlüsselübergabeprotokolle') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Schlüsselübergabeprotokolle')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Schlüsselübergabeprotokolle') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/protocols/cryptographic/keyexchange/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
         <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

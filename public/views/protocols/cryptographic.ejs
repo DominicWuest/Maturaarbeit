@@ -19,13 +19,15 @@
         <p>Verschlüsselungsprotokolle garantieren eine verschlüsselte Datenübertragung in einem Rechennetz. Mit einem Schlüsselübergabeprotokoll und symmetrischen Verfahren wird die Integrität (Richtigkeit, Originalität) und die Vertraulichkeit der übertragenen Nachrichten sichergestellt.</p>
       </div>
       <div class = "cryptographic">
-        <% for (let index = courses[0].indexOf('Verschlüsselungsprotokolle') + 1; index < 45; index++) { %>
-        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
-          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
-            <img src = "/imgs/protocols/cryptographic/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+        <% let index = courses[0].indexOf('Verschlüsselungsprotokolle') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Verschlüsselungsprotokolle')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Verschlüsselungsprotokolle') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/protocols/cryptographic/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
         <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

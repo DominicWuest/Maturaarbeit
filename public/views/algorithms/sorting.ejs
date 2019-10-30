@@ -19,13 +19,15 @@
         <p>Sortierungsalgorithmen werden verwendet, um eine ungeordnete Liste zu sortieren. Dies wird häufig auch als Vorbereitung für einen Suchalgorithmus gebraucht, da viele von diesen nur einen sortierten Array als Input annehmen.</p>
       </div>
       <div class = "sortingalgorithms">
-        <% for (let index = courses[0].indexOf('Sortierungsalgorithmen') + 1; index < courses[3].indexOf(courses[3][courses[0].indexOf('Sortierungsalgorithmen')], courses[0].indexOf('Sortierungsalgorithmen') + 1); index++) { %>
-        <div id = "<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>">
-          <h2><a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <%= courses[0][index] %></h2>
-            <img src = "/imgs/algorithms/sorting/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1]%>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+        <% let index = courses[0].indexOf('Sortierungsalgorithmen') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Sortierungsalgorithmen')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Sortierungsalgorithmen') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/algorithms/sorting/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
         <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

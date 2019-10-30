@@ -19,30 +19,15 @@
         <p>Videoanschlüsse werden dazu verwendet, um Bild und häufig auch Ton von einem Gerät auf ein anderes Gerät zu übertragen. Beispielsweise kann das Bild von der Grafikkarte von einem Computer über einen Videoanschluss auf einen Projektor übertragen werden. Die verschiedenen Videoanschlüsse haben unterschiedliche Eigenschaften und sind damit auch für verschiedene Zwecke besser, respektive weniger gut geeignet. Hier haben wir die wichtigsten Videoanschlüsse aufgeführt.</p>
       </div>
       <div class = "video">
-        <div id = "display">
-          <a href = "/ports/video/dp">
-            <h2>DisplayPort</h2>
-            <img src = "/imgs/ports/video/displayportlogo.png" alt = "Logo of the DisplayPort" class = "pics"/>
+        <% let index = courses[0].indexOf('Videoanschlüsse') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Videoanschlüsse')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Videoanschlüsse') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/ports/video/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
-        <div id = "vga">
-          <a href = "/ports/video/vga">
-            <h2>VGA</h2>
-            <img src = "/imgs/ports/video/vga.jpg" alt = "VGA port" class = "pics"/>
-          </a>
-        </div>
-        <div id = "hdmi">
-          <a href = "/ports/video/hdmi">
-            <h2>HDMI</h2>
-            <img src = "/imgs/ports/video/hdmi.png" alt = "HDMI socket" class = "pics"/>
-          </a>
-        </div>
-        <div id = "dvi">
-          <a href = "/ports/video/dvi">
-            <h2>DVI</h2>
-            <img src = "/imgs/ports/video/dvi.png" alt = "DVI logo" class = "pics"/>
-          </a>
-        </div>
+        <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

@@ -19,31 +19,15 @@
         <p>Verschlüsselungsprotokolle garantieren eine verschlüsselte Datenübertragung in einem Rechennetz.</p>
       </div>
       <div class = "cryptographic">
-        <div id = "tls">
-          <a href = "/protocols/cryptographic/tls">
-            <h2>TLS / SSL</h2>
-            <img src = "/imgs/protocols/cryptographic/tls.png" alt = "TLS / SSL" class = "pics"/>
+        <% let index = courses[0].indexOf('Verschlüsselungsprotokolle') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Verschlüsselungsprotokolle')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Verschlüsselungsprotokolle') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/protocols/cryptographic/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
-        <div id = "wpa">
-          <a href = "/protocols/cryptographic/wpa">
-            <h2>WPA</h2>
-            <img src = "/imgs/protocols/cryptographic/wpa.png" alt = "WPA" class = "pics"/>
-          </a>
-          <a href="https://commons.wikimedia.org/wiki/User:RRZEicons">RRZEicons</a>, <a href="https://commons.wikimedia.org/wiki/File:Wifi.svg">Wifi</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
-        </div>
-        <div id = "ssh">
-          <a href = "/protocols/cryptographic/ssh">
-            <h2>SSH</h2>
-            <img src = "/imgs/protocols/cryptographic/ssh.svg" alt = "SSH" class = "pics"/>
-          </a>
-        </div>
-        <div id = "keyexchange">
-          <a href = "/protocols/cryptographic/keyexchange">
-            <h2>Schlüsselübergabeprotokolle</h2>
-            <img src = "/imgs/protocols/cryptographic/keyexchange.png" alt = "KEYEXCHANGE" class = "pics"/>
-          </a>
-        </div>
+        <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

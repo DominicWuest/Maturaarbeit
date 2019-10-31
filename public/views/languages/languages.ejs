@@ -19,19 +19,15 @@
         <p>In diesem Teil der Website geht es darum das Programmieren zu erlernen. Wir haben hier zwei unserer Meinung nach wichtige und gut verständliche Programmiersprachen aufgeführt. Diese zwei Sprachen finden in der Praxis verschiedene Anwendungen. Viel Spass beim Lernen und Üben!</p>
       </div>
       <div class = "languages">
-        <div id = "python">
-          <a href = "/languages/python">
-            <h2>Python</h2>
-            <img src = "/imgs/languages/pythonlogo.png" alt = "Pythonlogo" class = "pics"/>
+        <% let index = courses[0].indexOf('Sprachen') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Sprachen')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Sprachen') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/languages/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
-        <div id = "html">
-          <a href = "/languages/html">
-            <h2>HTML</h2>
-            <img src = "/imgs/languages/htmllogo.png" alt = "HTML-logo" class = "pics"/>
-          </a>
-          <a href="http://www.w3.org/html/logo/index.html">W3C</a>, <a href="https://commons.wikimedia.org/wiki/File:HTML5_logo_and_wordmark.svg">HTML5 logo and wordmark</a>, <a href="https://creativecommons.org/licenses/by/3.0/legalcode" rel="license">CC BY 3.0</a>
-        </div>
+        <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

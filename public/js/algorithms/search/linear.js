@@ -52,18 +52,21 @@ function draw() {
       rect(i * width / (elementsLength + 1) + 1, 0, width / elementsLength - 4, height - 1);
     }
   }
-  // If 60 / fps frames have been desplayed and the animation is running
-  if (playing && frames++ % (60 / fps) === 0) {
-    // The value was found
-    if (focus === value) {
-      // Gray out all elements
-      min = elementsLength;
-      playing = false;
-      focus--;
-    }
-    min++;
-    focus++;
+  // If 60 / fps frames have been displayed and the animation is running
+  if (playing && frames++ % (60 / fps) === 0) nextFrame();
+}
+
+// Animates the next frame of the animation
+function nextFrame() {
+  // The value was found
+  if (focus === value) {
+    // Gray out all elements
+    min = elementsLength;
+    playing = false;
+    focus--;
   }
+  min++;
+  focus++;
 }
 
 // Draws the rectangle when the focused value equals the value to be found

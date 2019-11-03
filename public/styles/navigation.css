@@ -1,10 +1,10 @@
-.hashingalgorithms, .searchingalgorithms, .ports, .languages {
+.searchingalgorithms, .ports, .languages {
   display: grid;
   grid-template-columns: repeat(2, 37.5vw);
   grid-gap: 6vw;
 }
 
-.sortingalgorithms, .keyexchange {
+.sortingalgorithms, .hashingalgorithms, .keyexchange {
   display: grid;
   grid-template-columns: repeat(3, 25vw);
   grid-gap: 3vw;
@@ -16,12 +16,8 @@
   grid-gap: 2vw;
 }
 
-p {
-  font-family: sans-serif;
-}
-
-#usb, #video, #usb1, #usb2, #usb3, #usbc, #display, #vga, #hdmi, #dvi, #sha, #md, #quick, #bubble, #insertion, #binary, #linear, #tls, #wpa, #ssh, #keyexchange, #dh, #ecdh, #rsa, #python, #html {
-  margin-top: 10px;
+.courseLink {
+  margin-top: 25px;
   word-wrap: break-word;
 }
 
@@ -34,4 +30,8 @@ p {
 
 .cryptographic .pics, .usb .pics, .video .pics {
   max-width: 14.5vw;
+}
+
+.unavailable {
+  text-decoration: line-through !important;
 }

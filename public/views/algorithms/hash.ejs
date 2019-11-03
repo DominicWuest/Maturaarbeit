@@ -21,20 +21,15 @@
         <p>Hier werden ein nicht sehr sicherer, aber noch einigermassen simpler (MD) und ein sehr sicherer, aber damit auch komplizierteren (SHA) Hash-Algorithmus aufgeführt.</p>
       </div>
       <div class = "hashingalgorithms">
-        <div id = "sha">
-          <a href = "/algorithms/hash/sha">
-            <h2>SHA</h2>
-            <img src = "/imgs/algorithms/sha.png" alt = "SHA-1-Algorithm" class = "pics"/>
+        <% let index = courses[0].indexOf('Hash-Algorithmen') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Hash-Algorithmen')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Hash-Algorithmen') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/algorithms/hash/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
-          anonym, <a href="https://commons.wikimedia.org/wiki/File:SHA-1.svg">SHA-1</a>, <a href="https://creativecommons.org/licenses/by-sa/2.5/legalcode" rel="license">CC BY-SA 2.5</a>
         </div>
-        <div id = "md">
-          <a href = "/algorithms/hash/md">
-            <h2>MD</h2>
-            <img src = "/imgs/algorithms/md.png" alt = "Message Digest algorithm" class = "pics"/>
-          </a>
-          <a href="https://commons.wikimedia.org/wiki/User:Surachit">Surachit</a>, <a href="https://commons.wikimedia.org/wiki/File:MD5_algorithm.svg">MD5 algorithm</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0/legalcode" rel="license">CC BY-SA 3.0</a>
-        </div>
+        <% } %>
+        <% index += 1 } %>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

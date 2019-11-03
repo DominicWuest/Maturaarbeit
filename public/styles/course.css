@@ -5,8 +5,7 @@ html {
 
 body {
   margin: 0;
-  background: linear-gradient(#2441B4, #31128B) no-repeat fixed;
-  background: #99B9D0;/*#AECEE5;*/
+  background: #99B9D0;
   overflow-y: hidden;
 }
 
@@ -79,6 +78,7 @@ a:hover {
   white-space: pre;
   display: block;
   font-family: monospace;
+  max-height: 500px;
   width: 95%;
   box-sizing: border-box;
   padding: 10px;

@@ -6,8 +6,7 @@ html, body {
 }
 
 body {
-  background : linear-gradient(#2441B4, #31128b) fixed;
-  background-repeat: repeat-x;
+  background: #99B9D0;
 }
 
 main {

@@ -47,7 +47,8 @@ function runit() {
   }, timeoutBounds);
   // The onmessage event gets triggered by the worker and it sends back the output of the code
   worker.onmessage = function(message) {
-    myPre.textContent = message["data"];
+    myPre.textContent = message.data.output;
+    if (message.data.error) myPre.innerHTML = message.data.output;
     finished = true;
     running = false;
     clearTimeout(timeout);

@@ -10,6 +10,15 @@ importScripts('./skulpt.min.js', './skulpt-stdlib.js');
 let textContent = '';
 
 // The onmessage event gets triggered by python.js and sends the code written by the user (message["data"])
+/*
+
+  The message is in the following format:
+  {
+    output : *The output of the program*
+    error : *A boolean indicating whether the program returned an error*
+  }
+
+*/
 onmessage = function(message) {
   // If there is no code, send back an empty string
   if (message["data"] === '') postMessage('');
@@ -22,12 +31,12 @@ onmessage = function(message) {
   // Code succesfully run
   myPromise.then(function(suc) {
     // Send back the output
-    postMessage(textContent);
+    postMessage({output : textContent, error : false});
   })
   // There is an error in the code
   .catch(function(err) {
     // Send back the error message
-    postMessage('<span class="error">' + err.toString() + '</span>');
+    postMessage({output : '<span class="error">' + err.toString() + '</span>', error : true});
   });
 }
 

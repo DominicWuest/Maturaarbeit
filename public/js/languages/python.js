@@ -32,6 +32,7 @@ function runit() {
   // Create the worker and send it data
   let worker = new Worker('/js/languages/pythonWorker.js');
   let code = document.getElementById('textarea').value;
+  code = code.replace(/raise/g, 'riase');
   worker.postMessage(code);
   let myPre = document.getElementById('output');
   myPre.innerHTML = 'Compiling...';

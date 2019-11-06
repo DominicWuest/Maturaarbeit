@@ -7,7 +7,7 @@
     }, {
       "index" : 1,
       "title" : "Grundlagen im Rechnen mit Variablen",
-      "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus. Jeder Befehl, der dem Programm gegeben wird, steht dabei in einer neuen Zeile. Im Code sieht dies folgendermassen aus.<code class=\"python\">x = 3\nprint(x)</code>",
+      "description" : "In diesem Kapitel befassen wir uns damit Variablen zu definieren und auszugeben. Eine Variable wird in Python mit x = 3 definiert und mit print(x) ausgegeben. Dabei ist x die Variable, an dessen Stelle ein beliebiges Zeichen stehen könnte, die dem Wert 3 zugeordnet wird. Die Ausgabe print(x) gibt dabei den Wert der Variable x aus. Jeder Befehl, der dem Programm gegeben wird, steht dabei in einer neuen Zeile. Im Code sieht dies folgendermassen aus.<code class=\"python\">x = 3\nprint(x)</code>",
       "subexercises" : [{
             "index" : 0,
             "description" : "Definiere eine Variable a mit dem Wert 7 und gib diese aus.",
@@ -16,7 +16,7 @@
             "output" : "7"
           }, {
             "index" : 1,
-            "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n also eine beliebige Zahl sein kann und a mit dem Wert a + n neu definiert wird. Definiere eine Variable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Variable aus.",
+            "description" : "Mit a = a + n wird eine Zahl n zu der Variable a addiert, wobei n eine beliebige Zahl sein kann und a mit dem Wert a + n neu definiert wird. Definiere eine Variable c mit dem Wert 3. Addiere danach 4 und gibt den Wert der Variable aus.",
             "startingCode" : "",
             "solution" : "a = 3\na = a + 4\nprint(a)",
             "output" : "7"

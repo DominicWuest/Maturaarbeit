@@ -1,21 +1,7 @@
 <!DOCTYPE html>
 <!-- Daniel Isler -->
 <html lang = "de">
-  <head>
-    <meta charset="utf-8"/>
-    <title>Entropiekodierung</title>
-    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
-    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
-    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <script src = "/js/codeHighlighting.js"></script>
-    <script src = "https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.5.6/p5.js"></script>
-    <link rel="stylesheet" href="/styles/course.css">
-    <script>
-      const codeHighlighting = <%- JSON.stringify(codeHighlighting) %>;
-    </script>
-  </head>
-  <body onload = "addHighlighting();" onresize = "setup();">
-    <%- include(partialsPath + 'header.ejs') %>
+
     <main>
       <div class="title">
         <h1>Entropiekodierung</h1>

@@ -1,15 +1,15 @@
 {
   "python" : {
     "syntax" : {
-      "def" : "#0C6AF9",
-      "class" : "#0C6AF9",
-      "while" : "#C66CAC",
-      "for" : "#C66CAC",
-      "elif" : "#C66CAC",
-      "if" : "#C66CAC",
-      "else" : "#C66CAC",
-      "return" : "#C66CAC",
-      "in" : "#C66CAC",
+      "def" : "#1C7AFF",
+      "class" : "#1C7AFF",
+      "while" : "#F47CD2",
+      "for" : "#FF55A7",
+      "elif" : "#F667FC",
+      "if" : "#F667FC",
+      "else" : "#F667FC",
+      "return" : "#FFA500",
+      "in" : "#FF55A7",
       "True" : "#FFA500",
       "False" : "#FFA500",
       "not" : "#00A5FF",
@@ -17,16 +17,16 @@
       "or" : "#00A5FF",
       "and" : "#00A5FF",
       "xor" : "#00A5FF",
-      "break" : "#C66CAC",
-      "continue" : "#C66CAC",
-      "pass" : "#C66CAC",
-      "import" : "#C66CAC",
-      "from" : "#C66CAC",
+      "break" : "#EF6FEC",
+      "continue" : "#EF6FEC",
+      "pass" : "#EF6FEC",
+      "import" : "#EF6FEC",
+      "from" : "#EF6FEC",
       "lambda" : "#FFA500"
     },
     "comments" : {
       "character" : "#",
-      "color" : "#888"
+      "color" : "#AAA"
     },
     "strings" : {
       "character" : ["\"", "'"],
@@ -75,23 +75,23 @@
   },
   "html" : {
     "syntax" : {
-      "html" : "#C00",
-      "head" : "#C00",
-      "title" : "#C00",
-      "body" : "#C00",
-      "meta" : "#C00",
-      "input" : "#C00",
-      "p" : "#C00",
-      "h1" : "#C00",
-      "h2" : "#C00",
-      "h3" : "#C00",
-      "h4" : "#C00",
-      "h5" : "#C00",
-      "h6" : "#C00"
+      "html" : "#E00",
+      "head" : "#E00",
+      "title" : "#E00",
+      "body" : "#E00",
+      "meta" : "#E00",
+      "input" : "#E00",
+      "p" : "#E00",
+      "h1" : "#E00",
+      "h2" : "#E00",
+      "h3" : "#E00",
+      "h4" : "#E00",
+      "h5" : "#E00",
+      "h6" : "#E00"
     },
     "comments" : {
-      "character" : "<!--",
-      "color" : "#888"
+      "character" : "!--",
+      "color" : "#AAA"
     },
     "strings" : {
       "character" : ["\""],

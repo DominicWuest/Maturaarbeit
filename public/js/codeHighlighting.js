@@ -1,6 +1,5 @@
 // Adds code highlighting to code displayed on site. The highlighting is applied to every code element whose class contains a programming language present inside codeHighlighting.json
 function addHighlighting() {
-
   // All languages of codeHighlighting.json / i.e. its keys
   let languages = Object.keys(codeHighlighting);
   let codeSnippets = document.getElementsByTagName('CODE');
@@ -51,13 +50,13 @@ function addHighlighting() {
       // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored or line start/end with the syntax element encapsulated in a span element and the ignored characters
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
         // Replace syntax element two times as otherwise every other occurence would be skipped
-        line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|.?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
-        line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|.?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
+        line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|[&nbsp]?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
+        line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|[&nbsp]?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
       }
       // Colour functions
       line = line.replace(new RegExp('([[ ()\\.\t;]{1}|^)([^\\W\\d]\\w*)(?=(\\(){1})', 'g'), '$1<span style="color: ' + codeHighlighting[language]["functions"] + ';">$2</span>');
       // Colour fields
-      line = line.replace(new RegExp('\\.([^\\W\\d]\\w*)(?=(' + ignoredCharacters + '|\\.|.?$){1})', 'g'), '.<span style="color: ' + codeHighlighting[language]["fields"] + ';">$1</span>');
+      line = line.replace(new RegExp('\\.([^\\W\\d]\\w*)(?=(' + ignoredCharacters + '|\\.|[&nbsp]?$){1})', 'g'), '.<span style="color: ' + codeHighlighting[language]["fields"] + ';">$1</span>');
       // Colour Comments
       line = line.split(codeHighlighting[language]["comments"]["character"]);
       // If the length of the split line is greater than one, there is a comment character included in the line

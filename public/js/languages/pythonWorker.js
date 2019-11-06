@@ -36,7 +36,7 @@ onmessage = function(message) {
   // There is an error in the code
   .catch(function(err) {
     // Send back the error message
-    postMessage({output : '<span class="error">' + err.toString() + '</span>', error : true});
+    postMessage({output : err.toString(), error : true});
   });
 }
 

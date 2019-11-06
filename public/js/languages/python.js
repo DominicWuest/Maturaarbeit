@@ -32,7 +32,6 @@ function runit() {
   // Create the worker and send it data
   let worker = new Worker('/js/languages/pythonWorker.js');
   let code = document.getElementById('textarea').value;
-  code = code.replace(/raise/g, 'riase');
   worker.postMessage(code);
   let myPre = document.getElementById('output');
   myPre.innerHTML = 'Compiling...';
@@ -48,8 +47,13 @@ function runit() {
   }, timeoutBounds);
   // The onmessage event gets triggered by the worker and it sends back the output of the code
   worker.onmessage = function(message) {
-    myPre.textContent = message.data.output;
-    if (message.data.error) myPre.innerHTML = message.data.output;
+    if (message.data.error) {
+      myPre.innerHTML = '';
+      let error = document.createElement('SPAN');
+      error.textContent = message.data.output;
+      error.classList.add('error');
+      myPre.appendChild(error);
+    } else myPre.textContent = message.data.output;
     finished = true;
     running = false;
     clearTimeout(timeout);

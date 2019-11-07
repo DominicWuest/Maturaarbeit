@@ -14,7 +14,7 @@
         "startingCode" : "<DOCTYPE html>\n<html>\n\t</head>\n\n\t<head>\n\t<body>\n\n\t</html>\n</body>",
         "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\n\t</head>\n\t<body>\n\n\t</body>\n</html>",
         "solutionCheck" : "let el = output.getElementsByTagName('html')[0]; return el;"
-        }]
+      }]
     }, {
       "index" : 2,
       "title" : "Paragraph",
@@ -54,5 +54,5 @@
         "solution" : "<!DOCTYPE html>\n<html>\n\t<head>\n\t\t<title>Inputs</title>\n\t</head>\n\t<body>\n\t\t<input type=\"button\" value=\"Input\">\n\t</body>\n</html>",
         "solutionCheck" : "let el = output.getElementsByTagName('input')[0]; return el && el.type === 'button' && el.value.toLowerCase() === 'input';"
       }]
-    }]  
+    }]
 }

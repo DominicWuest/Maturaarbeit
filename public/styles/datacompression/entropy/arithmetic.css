@@ -1,0 +1,24 @@
+.equation {
+	display: inline-block;
+	font-size: 150%;
+	font-weight: bold;
+}
+
+.fraction {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0;
+  text-align: center;
+}
+
+.fraction span {
+  display: block;
+}
+
+.fraction span.lower {
+	border-top: thick solid black;
+}
+
+.fraction span.upper {
+	display: inline-block;
+}

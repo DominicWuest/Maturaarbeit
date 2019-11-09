@@ -2,11 +2,13 @@
 <!-- Daniel Isler -->
 <html lang = "de">
   <head>
+    <meta charset="utf-8"/>
     <title>Arithemtische Kodierung</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <script src=<%= "/js/" + path + ".js" %>></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
-    <meta charset="utf-8"/>
   </head>
   <body>
     <%- include(partialsPath + 'header.ejs') %>
@@ -18,15 +20,32 @@
         <h2>Shortlinks</h2>
         <ul>
           <li><a href="#general">Allgemein</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
+          <li><a href="#encodeConcept">Konzept Kodierer</a></li>
+          <li><a href="#decodeConcept">Konzept Dekodierer</a></li>
+          <li><a href="#exercises">Aufgaben</a></li>
         </ul>
       </div>
       <div>
         <div id = "general">
           <h2>Allgemein</h2>
-          <p>Die arithmetische Kodierung ist ein Verfahren der Entropiekodierung, das Kompressionsraten erziehlt, die sehr nahe am theoretischen Limit liegt. Die arithmetische Kodierung unterscheidet sich in einem wesentlichen Punkt von herkömmlichen Kodierungen, wie zum Beispiel im ASCII-Code oder der Huffman-Kodierung wo Zeichen mit Bitfolgen gespeichert werden. In der arithmetischen Kodierung hingegen wird die gesamte Quellinformation in Form einer rationalen Zahl dargestellt und nicht in einzelne Komponenten (Zeichen) aufgeteilt. Der Nachteil der arithmetischen Kodierung ist, dass sie generell rechenintensiver ist als die herkömmlichen Verfahren.</p>
+          <p>Die arithmetische Kodierung ist ein Verfahren der Entropiekodierung, das Kompressionsraten erziehlt, die sehr nahe am theoretischen Limit liegt. Die arithmetische Kodierung unterscheidet sich in einem wesentlichen Punkt von herkömmlichen Kodierungen, wie zum Beispiel im ASCII-Code oder der Huffman-Kodierung wo Zeichen mit Bitfolgen gespeichert werden. In der arithmetischen Kodierung hingegen wird die gesamte Quellinformation in Form einer rationalen Zahl dargestellt und nicht in einzelne Komponenten (Zeichen) aufgeteilt. Der Nachteil der arithmetischen Kodierung ist, dass sie generell rechenintensiver ist als die herkömmlichen Verfahren.<br>Die Quellinformation wird nach der arithmetischen Kodierung als Zahl 0.0 &le; q &lt; 1.0 abgespeichert, wobei so wenige Nachkommastellen wie möglich verwendet werden.</p>
+        </div>
+        <div id = "encodeConcept">
+          <h2>Konzept Kodierer</h2>
+          <h3>Intervalle</h3>
+          <p>Meistens für die arithmetische Kodierung das Intervall &#123;q &isin; &#8477; &vert; 0 &le; x &lt; 1&#125; benutzt. Das Intervall wird in Subintervalle unterteilt, wobei jeweils ein Subintervall einem Zeichen zugeordnet ist und die Grösse des Subintervalles von der Auftrittswahrscheinlichkeit des Zeichens abhängt.<br>Die Subintervalle können dabei beliebig angeordnet werden, da dies für die Qualität des Algorithmus keine Rolle spielt. Deswegen wird auf dieser Seite eine alphabetische Reihenfolge gewählt.<br>Dies wird am Beispiel AABBACAA veranschaulicht. Die Auftrittswahrscheinlichkeiten betragen dabei.</p>
+          <figure class = "equation">p<sub>A</sub> = <figure class = "fraction"><span class = "upper">5</span><span class = "lower">8</span></figure> = 0.625, p<sub>B</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">8</span></figure> = 0.25, p<sub>C</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">8</span></figure> = 0.125</figure>
+          <h3></h3>
+          <ol>
+            <li>Das aktuelle Intervall wird mit dem vereinbarten Startintervall (meist &lsqb;0,1&lsqb;) initialisiert.</li>
+            <li></li>
+          </ol>
+        </div>
+        <div id = "decodeConcept">
+          <h2>Konzept Dekodierer</h2>
+        </div>
+        <div id = "exercises">
+          <h2>Aufgaben</h2>
         </div>
       </div>
     </main>

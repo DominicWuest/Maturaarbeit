@@ -10,7 +10,7 @@
     <script src=<%= "/js/" + path + ".js" %>></script>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
   </head>
-  <body>
+  <body onload = "displayExercise(4);">
     <%- include(partialsPath + 'header.ejs') %>
     <main>
       <div class="title">
@@ -90,6 +90,31 @@
             <span class = "intervalC"><span class = "start">0.319179</span>C<span class = "end">0.319272</span></span>
           </figure>
           <p>Gespeichert wird nun eine beliebige, möglichst kurze Zahl aus dem letzten Subintervall. Diese Zahl ist jetzt der Code für die ganze Zeichenkette AABBACAA, es wurden also keine einzelnen Zeichen kodiert, sondern direkt die Gesamtinformation.</p>
+          <h3>Aufgaben zur Kodierung</h3>
+          <p>Kodiere die folgenden Strings mit der arithmetischen Kodierung.</p>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetEncode();">
+          <table id = "exercieseEncode">
+            <tr>
+              <th>String</th>
+              <th>Code</th>
+            </tr>
+            <tr>
+              <td id = "exerciseEncode0"><input id = "inputEncode0" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
+              <td id = "exerciseEncode1"><input id = "inputEncode1" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(1);"></td>
+            </tr>
+            <tr>
+              <td id = "exerciseEncode2"><input id = "inputEncode2" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
+              <td id = "exerciseEncode3"><input id = "inputEncode3" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(3);"></td>
+            </tr>
+            <tr>
+              <td id = "exerciseEncode4"><input id = "inputEncode4" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
+              <td id = "exerciseEncode5"><input id = "inputEncode5" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(5);"></td>
+            </tr>
+            <tr>
+              <td id = "exerciseEncode6"><input id = "inputEncode6" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
+              <td id = "exerciseEncode7"><input id = "inputEncode7" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(7);"></td>
+            </tr>
+          </table>
         </div>
         <div id = "decodeConcept">
           <h2>Konzept Dekodierer</h2>

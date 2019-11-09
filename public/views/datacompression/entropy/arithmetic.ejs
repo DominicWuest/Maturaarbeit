@@ -35,11 +35,61 @@
           <h3>Intervalle</h3>
           <p>Meistens für die arithmetische Kodierung das Intervall &#123;q &isin; &#8477; &vert; 0 &le; x &lt; 1&#125; benutzt. Das Intervall wird in Subintervalle unterteilt, wobei jeweils ein Subintervall einem Zeichen zugeordnet ist und die Grösse des Subintervalles von der Auftrittswahrscheinlichkeit des Zeichens abhängt.<br>Die Subintervalle können dabei beliebig angeordnet werden, da dies für die Qualität des Algorithmus keine Rolle spielt. Deswegen wird auf dieser Seite eine alphabetische Reihenfolge gewählt.<br>Dies wird am Beispiel AABBACAA veranschaulicht. Die Auftrittswahrscheinlichkeiten betragen dabei.</p>
           <figure class = "equation">p<sub>A</sub> = <figure class = "fraction"><span class = "upper">5</span><span class = "lower">8</span></figure> = 0.625, p<sub>B</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">8</span></figure> = 0.25, p<sub>C</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">8</span></figure> = 0.125</figure>
-          <h3></h3>
-          <ol>
-            <li>Das aktuelle Intervall wird mit dem vereinbarten Startintervall (meist &lsqb;0,1&lsqb;) initialisiert.</li>
-            <li></li>
-          </ol>
+          <p>Nun wird das Startintervall &lsqb;0,1&lsqb; in drei Subintervalle unterteilt, deren Grösse jeweils der Auftrittswahrscheinlichkeit des Zeichens entsprechen.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.625000</span></span>
+            <span class = "intervalB"><span class = "start">0.625000</span>B<span class = "end">0.875000</span></span>
+            <span class = "intervalC"><span class = "start">0.875000</span>C<span class = "end">1.000000</span></span>
+          </figure>
+          <p>Der erste Buchstabe der Zeichenkette AABBACAA, die hier kodiert wird ist ein A. Deswegen wird das Gesamtinvervall nun in das vorherige Subintervall des Zeichens A gesetzt (das Intervall &lsqb;0,0.625&lsqb;). Das Intervall wird wieder in die drei Subintervalle unterteilt, wobei deren Grösse gleich der Auftrittswahrscheinlichkeit multipliziert mit 0.625 (der Länge des Gesamtintervalls) ist.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.390625</span></span>
+            <span class = "intervalB"><span class = "start">0.390625</span>B<span class = "end">0.546875</span></span>
+            <span class = "intervalC"><span class = "start">0.546875</span>C<span class = "end">0.625000</span></span>
+          </figure>
+          <p>Das nächste Zeichen ist wieder ein A, womit das ganze wieder in das vorgerige Subintervall von A gesetzt. Das Gesamtintervall, das wieder in drei Subintervalle unterteilt wird ist also nun &lsqb;0,0.390625&lsqb;.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.244141</span></span>
+            <span class = "intervalB"><span class = "start">0.244141</span>B<span class = "end">0.341797</span></span>
+            <span class = "intervalC"><span class = "start">0.341797</span>C<span class = "end">0.390625</span></span>
+          </figure>
+          <p>Nun folgt ein B, womit das nächste Gesamtintervall dem vorherigen Gesamtintervall vom Zeichen B entspricht. Das neue Gesamtintervall ist also &lsqb;0.244141,0.341797&lsqb;.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.244141</span>A<span class = "end">0.305176</span></span>
+            <span class = "intervalB"><span class = "start">0.305176</span>B<span class = "end">0.329590</span></span>
+            <span class = "intervalC"><span class = "start">0.329590</span>C<span class = "end">0.341797</span></span>
+          </figure>
+          <p>Es kommt wieder ein B, das aufzuteilende Gesamtintervall ist also &lsqb;0.305176,0.329590&lsqb;.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.305176</span>A<span class = "end">0.320435</span></span>
+            <span class = "intervalB"><span class = "start">0.320435</span>B<span class = "end">0.326538</span></span>
+            <span class = "intervalC"><span class = "start">0.326538</span>C<span class = "end">0.329590</span></span>
+          </figure>
+          <p>In der Zeichenkette AABBACAA wurde jetzt bereits der Teil AABB umgesetzt. Der nächste Buchstabe ist also wieder ein A, womit das neue Gesamtintervall &lsqb;0.305176,0.320435&lsqb; ist.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.305176</span>A<span class = "end">0.314713</span></span>
+            <span class = "intervalB"><span class = "start">0.314713</span>B<span class = "end">0.318527</span></span>
+            <span class = "intervalC"><span class = "start">0.318527</span>C<span class = "end">0.320435</span></span>
+          </figure>
+          <p>Weil als nächstes ein C vorkommt erhalten wir das wesentlich kleinere Gesamtintervall &lsqb;0.318527,0.320435&lsqb;.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.318527</span>A<span class = "end">0.319719</span></span>
+            <span class = "intervalB"><span class = "start">0.319719</span>B<span class = "end">0.320196</span></span>
+            <span class = "intervalC"><span class = "start">0.320196</span>C<span class = "end">0.320435</span></span>
+          </figure>
+          <p>Das nächste Gesamtintervall ist das letzte Subintervall von A: &lsqb;0.318527,0.319719&lsqb;.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.318527</span>A<span class = "end">0.319272</span></span>
+            <span class = "intervalB"><span class = "start">0.319272</span>B<span class = "end">0.319570</span></span>
+            <span class = "intervalC"><span class = "start">0.319570</span>C<span class = "end">0.319719</span></span>
+          </figure>
+          <p>Das letzte Zeichen ist wieder ein A, womit das letzte Gesamtintervall &lsqb;0.318527,0.318993&lsqb; wird.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.318527</span>A<span class = "end">0.318993</span></span>
+            <span class = "intervalB"><span class = "start">0.318993</span>B<span class = "end">0.319179</span></span>
+            <span class = "intervalC"><span class = "start">0.319179</span>C<span class = "end">0.319272</span></span>
+          </figure>
+          <p>Gespeichert wird nun eine beliebige, möglichst kurze Zahl aus dem letzten Subintervall. Diese Zahl ist jetzt der Code für die ganze Zeichenkette AABBACAA, es wurden also keine einzelnen Zeichen kodiert, sondern direkt die Gesamtinformation.</p>
         </div>
         <div id = "decodeConcept">
           <h2>Konzept Dekodierer</h2>

@@ -22,3 +22,31 @@
 .fraction span.upper {
 	display: inline-block;
 }
+
+.interval {
+	display: grid;
+  grid-template-columns: 46.875vw 18.75vw 9.375vw;
+}
+
+.intervalA {
+	background-color: #FAA;
+	text-align: center;
+}
+
+.intervalB {
+	background-color: #AFA;
+	text-align: center;
+}
+
+.intervalC {
+	background-color: #AAF;
+	text-align: center;
+}
+
+.start {
+	float: left;
+}
+
+.end {
+	float: right;
+}

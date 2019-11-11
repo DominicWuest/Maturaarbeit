@@ -4,9 +4,8 @@ let characters = [];
 // List with all string-character sublists
 let string = [];
 
-// List with the indexes of the string character in sublists
-let stringIndex = [];
-
+// Array containing all the solutions for the exercises
+let solution = [];
 
 // Setup all exercises
 function displayExercise(n) {
@@ -44,6 +43,13 @@ function displayExercise(n) {
 
 function displayEncode(startingIndex) {
   inputString = GenString(startingIndex / 2);
+  let uniqueChar = inputString.filter(function(item, pos) {
+    return inputString.indexOf(item) == pos;
+  })
+  cloneString = inputString.slice();
+  let startInterval = probabillity(cloneString, uniqueChar).slice();
+  subInterval(startInterval, startInterval, 1);
+  console.log(startInterval);
   document.getElementById('inputEncode' + startingIndex).value = inputString.join('');
   document.getElementById('inputEncode' + startingIndex).disabled = true;
   document.getElementById('exerciseEncode' + startingIndex).style.backgroundColor = "blue";
@@ -53,13 +59,65 @@ function displayEncode(startingIndex) {
 function GenString(startingIndex) {
   for (let i = 0; i < Math.random() * 20 + 5; i++) {
     if (i === 0) {
-      stringIndex.push([Math.floor(Math.random() * characters.length)]);
-      string.push([characters[stringIndex[startingIndex][i]]]);
+      string.push([characters[Math.floor(Math.random() * characters.length)]]);
     }
     else {
-      stringIndex[startingIndex].push(Math.floor(Math.random() * characters.length));
-      string[startingIndex].push(characters[stringIndex[startingIndex][i]]);
+      string[startingIndex].push(characters[Math.floor(Math.random() * characters.length)]);
     }
   }
   return string[startingIndex];
+}
+
+// Calculates the probabillity for a letter
+function probabillity(workingString, fixedString) {
+  let probabillities = [];
+  for (let i = 0; i < fixedString.length; i++) probabillities.push([fixedString[i]]);
+  var divider = workingString.length;
+  // Put the probabillity values into the subarray with the sign
+  for (let i = 0; i < fixedString.length; i++) {
+    probabillities[i].push(workingString.filter((v) => (v === workingString[0])).length / divider);
+    // Remove characters that were already used
+    var value = workingString[0];
+    for (let q = 0; q < probabillities[i][1] * divider; q++) {
+      var index = workingString.indexOf(value);
+      if (index !== -1) var a = workingString.splice(index, 1);
+    }
+  }
+  // Sort the array in alphabetical order
+  probabillities.sort(function(a,b){return characters.indexOf(a[0]) - characters.indexOf(b[0])});
+  return probabillities;
+}
+
+// Generates the next subinterval, depending on the last interval and the next letter
+function subInterval(probabillities, interval, index) {
+}
+
+// Check whether the given input matches the solution
+function checkEncode(message, index) {
+  // If the input matches the solution display a green background
+  if (message === solution[index / 2]) {
+    document.getElementById('exerciseEncode' + index).style.backgroundColor = "green";
+  }
+  // If the input is wrong display a red background
+  else {
+    document.getElementById('exerciseEncode' + index).style.backgroundColor = "red";
+  }
+}
+
+// Reset the starting and solution values and background colors
+function resetEncode() {
+  for (let index = 0; index < 8; index++) {
+    document.getElementById('inputEncode' + index).value = '';
+    document.getElementById('inputEncode' + index).disabled = false;
+    document.getElementById('exerciseEncode' + index).style.backgroundColor = "white";
+  }
+  string = [];
+  solution = [];
+  for (let i = 0; i < 4; i++) displayEncode(i * 2);
+}
+
+// Display the solution value
+function solutionEncode(index) {
+  document.getElementById('inputTree' + index).value = solution[index / 2];
+  document.getElementById('Treeextable' + index).style.backgroundColor = "green";
 }

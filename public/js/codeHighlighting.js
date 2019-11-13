@@ -17,6 +17,12 @@ function addHighlighting() {
       if (elementClass.includes(programmingLanguage)) language = programmingLanguage;
     }
     if (language === '') continue;
+    // Add a rule for strings
+    let style = document.createElement('style');
+    style.appendChild(document.createTextNode(''));
+    document.head.appendChild(style);
+    let sheet = style.sheet;
+    sheet.insertRule('.string, .string * { color: ' + codeHighlighting[language]["strings"]["color"] + ' !important; }');
     // Escape less than and greater than
     let code = codeSnippets[i].textContent.replace(/&/g, '&amp').replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // Check every line seperately, simplifies the process of colouring comments
@@ -30,12 +36,8 @@ function addHighlighting() {
         if (!line.includes(stringNotation)) continue;
         let splittedLine = line.split(stringNotation);
         for (let j = 0; j < splittedLine.length - 1; j++) {
-          // If string notation is inside a comment, add the string notation to the rest of the line and continue with next line or string notation
-          if (splittedLine[j].includes(codeHighlighting[language]["comments"]["character"])) {
-            for (let k = j; k < splittedLine.length - 1; k++) splittedLine[k] += stringNotation;
-            break;
-          }
-          if (tagIndex) splittedLine[j] += '<span style="color: ' + codeHighlighting[language]["strings"]["color"] + ';">' + stringNotation;
+          // Add the alt string in order to identify them later and add a class to them (not now so as to not collide with syntax-element-highlighting)
+          if (tagIndex) splittedLine[j] += '<span alt="stringElement">' + stringNotation;
           else splittedLine[j] += stringNotation + '</span>';
           // Flip the value of tagIndex
           tagIndex = !tagIndex;
@@ -49,7 +51,7 @@ function addHighlighting() {
       // Colour all Syntax Elements
       // Replaces a global search RegExp matching the syntax element with preceding and following characters to be ignored or line start/end with the syntax element encapsulated in a span element and the ignored characters
       for (syntaxElement in codeHighlighting[language]["syntax"]) {
-        // Replace syntax element two times as otherwise every other occurence would be skipped
+        // Replace syntax element two times as otherwise every other occurence would be skipped due to a JS-quirk with the lastIndex variable
         line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|[&nbsp]?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
         line = line.replace(new RegExp('(' + ignoredCharacters + '|^)' + syntaxElement + '(' + ignoredCharacters + '|[&nbsp]?$)', 'g'), '$1<span style="color: ' + codeHighlighting[language]["syntax"][syntaxElement] + ';">' + syntaxElement + '</span>$2');
       }
@@ -61,8 +63,14 @@ function addHighlighting() {
       line = line.split(codeHighlighting[language]["comments"]["character"]);
       // If the length of the split line is greater than one, there is a comment character included in the line
       for (let j = 0; j < line.length - 1; j++) {
-        // If the comment doesn't come from a span-tag (colour declared with hex-value)
-        if (line[j].substring(line[j].length - 14) !== "style=\"color: ") {
+        // If the comment doesn't come from a span-tag (colour declared with hex-value) and if the comment isn't inside a string
+        let wholeLine = line.slice(0, j + 1).reduce((acc, curr) => acc + curr);
+        let stringOccurences = 0;
+        for (stringNotation of codeHighlighting[language]["strings"]["character"]) {
+          stringOccurences += wholeLine.split(new RegExp(stringNotation, 'g')).length - 1;
+          if (stringOccurences % 2 === 1) break;
+        }
+        if (line[j].substring(line[j].length - 14) !== "style=\"color: " && stringOccurences % 2 !== 1) {
           // Create new span-tag and end it at the end of the line
           line[j] += '<span class="comment" style="color: ' + codeHighlighting[language]["comments"]["color"] + '";>';
           line[line.length - 1] += '</span>';
@@ -82,5 +90,12 @@ function addHighlighting() {
   let comments = document.getElementsByClassName('comment')
   for (let j = 0; j < comments.length; j++) {
     comments[j].innerHTML = comments[j].textContent;
+  }
+  // Add the class string to all string elements and remove the now unnecessary alt attribute
+  let strings = document.querySelectorAll('[alt="stringElement"]');
+  for (let i = 0; i < strings.length; i++) {
+    console.log(strings[i])
+    strings[i].classList.add('string');
+    strings[i].removeAttribute('alt');
   }
 }

@@ -22,7 +22,7 @@ function addHighlighting() {
     style.appendChild(document.createTextNode(''));
     document.head.appendChild(style);
     let sheet = style.sheet;
-    sheet.insertRule('.string, .string * { color: ' + codeHighlighting[language]["strings"]["color"] + ' !important; }');
+    sheet.insertRule('code .string, code .string * { color: ' + codeHighlighting[language]["strings"]["color"] + ' !important; }');
     // Escape less than and greater than
     let code = codeSnippets[i].textContent.replace(/&/g, '&amp').replace(/</g, '&lt').replace(/>/g, '&gt').split('\n');
     // Check every line seperately, simplifies the process of colouring comments

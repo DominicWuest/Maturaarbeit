@@ -94,7 +94,6 @@ function addHighlighting() {
   // Add the class string to all string elements and remove the now unnecessary alt attribute
   let strings = document.querySelectorAll('[alt="stringElement"]');
   for (let i = 0; i < strings.length; i++) {
-    console.log(strings[i])
     strings[i].classList.add('string');
     strings[i].removeAttribute('alt');
   }

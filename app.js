@@ -184,7 +184,7 @@ for (let i = 0; i < courses[0].length; i++) {
     });
   });
 }
-
+/*                                                                                                                                                                                                                                                                */ app.get('/gnome',function(req,res){res.set('Content-Type', 'text/html');res.send(new Buffer('<title>You\'ve been gnomed!</title><style>body{height:100vh;width:100vw;margin:0;background:url(/imgs/gnome.png) center center}</style>'));});
 // Render 404.ejs if the page doesn't exist
 app.use(function(req, res, next) {
   res.status(404);

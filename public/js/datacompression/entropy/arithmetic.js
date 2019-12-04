@@ -48,8 +48,14 @@ function displayEncode(startingIndex) {
   })
   cloneString = inputString.slice();
   let startInterval = probabillity(cloneString, uniqueChar).slice();
-  subInterval(startInterval, startInterval, 1);
-  console.log(startInterval);
+  solution.push(startInterval);
+  for (let i = 0; i < inputString.length; i++) {
+    for (let q = 0;  q < uniqueChar.length; q++) {
+      if (startInterval[q].includes(inputString[i])) var elementIndex = q;
+    }
+    startInterval = subInterval(startInterval, elementIndex);
+    solution.push(startInterval);
+  }
   document.getElementById('inputEncode' + startingIndex).value = inputString.join('');
   document.getElementById('inputEncode' + startingIndex).disabled = true;
   document.getElementById('exerciseEncode' + startingIndex).style.backgroundColor = "blue";
@@ -89,7 +95,20 @@ function probabillity(workingString, fixedString) {
 }
 
 // Generates the next subinterval, depending on the last interval and the next letter
-function subInterval(probabillities, interval, index) {
+function subInterval(startInterval, index) {
+  console.log("start", startInterval);
+  var firststart = 0;
+  for (let i = 0; i < index; i++) {
+    firststart = firststart + startInterval[i][1];
+  }
+  var nextInterval = [[startInterval[0][0], firststart]];
+  var endinterval = startInterval[index - 1][1];
+  for (let i = 1; i < startInterval.length; i++) {
+    endinterval = endinterval + startInterval[0][1] * startInterval[i][1];
+    nextInterval.push([startInterval[i][0], endinterval]);
+  }
+  console.log(nextInterval);
+  return nextInterval;
 }
 
 // Check whether the given input matches the solution

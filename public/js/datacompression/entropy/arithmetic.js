@@ -105,7 +105,6 @@ function displayDecode(startingIndex) {
 
 // Generate a random string
 function GenString(startingIndex) {
-  console.log(startingIndex, string);
   for (let i = 0; i < Math.random() * 7 + 5; i++) {
     if (string[startingIndex] == undefined) {
       string.push([characters[Math.floor(Math.random() * characters.length)]]);

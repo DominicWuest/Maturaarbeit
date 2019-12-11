@@ -7,6 +7,10 @@
   font-weight: 800;
 }
 
+.demonstrationTitle {
+  border-bottom: 1px solid #FFF;
+}
+
 #demonstration button {
   display: block;
   margin: 0 auto;

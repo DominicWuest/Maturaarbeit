@@ -52,13 +52,13 @@ function keyExchange() {
 function displayText(id, num, alice, public, bob) {
   let span = document.getElementById('alice' + id);
   span.innerHTML = alice ? num.toFixed() : '-';
-  span.style.color = 'rgba(0, 0, 0, 1)';
+  span.style.color = alice ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)';
 
   span = document.getElementById('public' + id);
   span.innerHTML = public ? num.toFixed() : '-';
-  span.style.color = 'rgba(0, 0, 0, 1)';
+  span.style.color = public ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)';
 
   span = document.getElementById('bob' + id);
   span.innerHTML = bob ? num.toFixed() : '-';
-  span.style.color = 'rgba(0, 0, 0, 1)';
+  span.style.color = bob ? 'rgba(0, 0, 0, 1)' : 'rgba(0, 0, 0, 0)';
 }

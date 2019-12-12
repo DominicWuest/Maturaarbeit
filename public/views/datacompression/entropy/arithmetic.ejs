@@ -22,7 +22,6 @@
           <li><a href="#general">Allgemein</a></li>
           <li><a href="#encodeConcept">Konzept Kodierer</a></li>
           <li><a href="#decodeConcept">Konzept Dekodierer</a></li>
-          <li><a href="#exercises">Aufgaben</a></li>
         </ul>
       </div>
       <div>
@@ -89,9 +88,9 @@
             <span class = "intervalB"><span class = "start">0.318993</span>B<span class = "end">0.319179</span></span>
             <span class = "intervalC"><span class = "start">0.319179</span>C<span class = "end">0.319272</span></span>
           </figure>
-          <p>Gespeichert wird nun eine beliebige, möglichst kurze Zahl aus dem letzten Subintervall. Diese Zahl ist jetzt der Code für die ganze Zeichenkette AABBACAA, es wurden also keine einzelnen Zeichen kodiert, sondern direkt die Gesamtinformation.</p>
+          <p>Gespeichert wird nun eine beliebige, möglichst kurze Zahl aus dem letzten Subintervall: [0.318527, 0.318993]. Diese Zahl ist jetzt der Code für die ganze Zeichenkette AABBACAA, es wurden also keine einzelnen Zeichen kodiert, sondern direkt die Gesamtinformation. Hier kann also beispielsweise die Zahl 0.3186 abgespeichert werden.</p>
           <h3>Aufgaben zur Kodierung</h3>
-          <p>Kodiere die folgenden Strings mit der arithmetischen Kodierung.</p>
+          <p>Kodiere die folgenden Strings mit der arithmetischen Kodierung. Gib jeweils den Anfang und das Ende des letzten Intervalls gerundet auf sechs Stellen nach dem Komma an.</p>
           <input type = "button" value = "Neue Aufgaben" onclick = "resetEncode();">
           <table id = "exercieseEncode">
             <tr>
@@ -99,28 +98,102 @@
               <th>Code</th>
             </tr>
             <tr>
-              <td id = "exerciseEncode0"><input id = "inputEncode0" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
-              <td id = "exerciseEncode1"><input id = "inputEncode1" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(1);"></td>
+              <td id = "exerciseEncode0"><input id = "inputEncode0" type = "text" spellcheck = "false"></td>
+              <td id = "exerciseEncode1"><input id = "inputEncode1" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(0);"></td>
             </tr>
             <tr>
-              <td id = "exerciseEncode2"><input id = "inputEncode2" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
-              <td id = "exerciseEncode3"><input id = "inputEncode3" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(3);"></td>
+              <td id = "exerciseEncode2"><input id = "inputEncode2" type = "text" spellcheck = "false"></td>
+              <td id = "exerciseEncode3"><input id = "inputEncode3" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(1);"></td>
             </tr>
             <tr>
-              <td id = "exerciseEncode4"><input id = "inputEncode4" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
-              <td id = "exerciseEncode5"><input id = "inputEncode5" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 5);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(5);"></td>
+              <td id = "exerciseEncode4"><input id = "inputEncode4" type = "text" spellcheck = "false"></td>
+              <td id = "exerciseEncode5"><input id = "inputEncode5" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(2);"></td>
             </tr>
             <tr>
-              <td id = "exerciseEncode6"><input id = "inputEncode6" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 0);"></td>
-              <td id = "exerciseEncode7"><input id = "inputEncode7" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 7);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(7);"></td>
+              <td id = "exerciseEncode6"><input id = "inputEncode6" type = "text" spellcheck = "false"></td>
+              <td id = "exerciseEncode7"><input id = "inputEncode7" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkEncode(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionEncode(3);"></td>
             </tr>
           </table>
         </div>
         <div id = "decodeConcept">
           <h2>Konzept Dekodierer</h2>
-        </div>
-        <div id = "exercises">
-          <h2>Aufgaben</h2>
+          <p>Der Dekodierer erhält als Inputs die Auftrittswahrscheinlichkeiten der einzelnen Zeichen, sowie eine Zahl aus dem letzten Subintervall (die, die vom Kodierer abgespeichert wurde). Gleich wie beim Kodierer legt der Dekodierer das Startintervall [0, 1[ fest und teilt es an die Zeichen mit den zugehörigen Zeichen in alphabetischer Ordnung auf. Danach wird getestet, in welchem Subintervall die Inputzahl liegt. Das diesem Subintervall zugeordnete Zeichen ist also das nächste Zeichen der Information. Danach wird das nächste Intervall initialiesiert und es geht so weiter, bis die Information vollständig dekodiert wurde.</p>
+          <p>Hier werden wir das oben kodierte Beispiel wieder dekodieren, wir erhalten also folgende Inputs.</p>
+          <figure class = "equation">p<sub>A</sub> = <figure class = "fraction"><span class = "upper">5</span><span class = "lower">8</span></figure> = 0.625, p<sub>B</sub> = <figure class = "fraction"><span class = "upper">2</span><span class = "lower">8</span></figure> = 0.25, p<sub>C</sub> = <figure class = "fraction"><span class = "upper">1</span><span class = "lower">8</span></figure> = 0.125, Schlussintervall = 0.3186</figure>
+          <p>Wenn wir die Zeichen also wieder wie vorhin nach ihrer Auftrittswahrscheinlichkeit in alphapetischer Ordnung im Intervall [0, 1[ darstellen erhalten wir.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.625000</span></span>
+            <span class = "intervalB"><span class = "start">0.625000</span>B<span class = "end">0.875000</span></span>
+            <span class = "intervalC"><span class = "start">0.875000</span>C<span class = "end">1.000000</span></span>
+          </figure>
+          <p>Die Zahl, die wir als Input erhalten haben: 0.3186 liegt im Subintervall [0, 0.625[. Demnach ist das erste Zeichen ein A. Nun wird das Intervall im Subintervall von A wieder erstellt.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.390625</span></span>
+            <span class = "intervalB"><span class = "start">0.390625</span>B<span class = "end">0.546875</span></span>
+            <span class = "intervalC"><span class = "start">0.546875</span>C<span class = "end">0.625000</span></span>
+          </figure>
+          <p>Der Input liegt wieder im Subintervall des Zeichens A, womit auch das zweite Zeichen ein A ist. Das nächste Intervall ist nun.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.000000</span>A<span class = "end">0.244141</span></span>
+            <span class = "intervalB"><span class = "start">0.244141</span>B<span class = "end">0.341797</span></span>
+            <span class = "intervalC"><span class = "start">0.341797</span>C<span class = "end">0.390625</span></span>
+          </figure>
+          <p>Jetzt liegt der Input 0.3186 im Subintervall [0.2441, 0.3417[. Damit ist das dritte Zeichen ein B und das nächste Intervall wird im Subintervall von B initialisiert.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.244141</span>A<span class = "end">0.305176</span></span>
+            <span class = "intervalB"><span class = "start">0.305176</span>B<span class = "end">0.329590</span></span>
+            <span class = "intervalC"><span class = "start">0.329590</span>C<span class = "end">0.341797</span></span>
+          </figure>
+          <p>Das vierte Zeichen ist wieder ein B und das Intervall wird wieder neu initialisiert.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.305176</span>A<span class = "end">0.320435</span></span>
+            <span class = "intervalB"><span class = "start">0.320435</span>B<span class = "end">0.326538</span></span>
+            <span class = "intervalC"><span class = "start">0.326538</span>C<span class = "end">0.329590</span></span>
+          </figure>
+          <p>Beim fünften Zeichen handelt es sich wieder um ein A. Das nächste Intervall wird also wieder im Subintervall von A initialisiert.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.305176</span>A<span class = "end">0.314713</span></span>
+            <span class = "intervalB"><span class = "start">0.314713</span>B<span class = "end">0.318527</span></span>
+            <span class = "intervalC"><span class = "start">0.318527</span>C<span class = "end">0.320435</span></span>
+          </figure>
+          <p>Es folgt ein C und das Intervall wird wieder neu initialisiert.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.318527</span>A<span class = "end">0.319719</span></span>
+            <span class = "intervalB"><span class = "start">0.319719</span>B<span class = "end">0.320196</span></span>
+            <span class = "intervalC"><span class = "start">0.320196</span>C<span class = "end">0.320435</span></span>
+          </figure>
+          <p>Als siebtes Zeichen folgt ein A und das Intervall wird wieder neu initialisiert.</p>
+          <figure class = "interval">
+            <span class = "intervalA"><span class = "start">0.318527</span>A<span class = "end">0.319272</span></span>
+            <span class = "intervalB"><span class = "start">0.319272</span>B<span class = "end">0.319570</span></span>
+            <span class = "intervalC"><span class = "start">0.319570</span>C<span class = "end">0.319719</span></span>
+          </figure>
+          <p>Das letzte Zeichen ist auch wieder ein A und damit erhalten wir insgesamt die Information AABBACAA.</p>
+          <h3>Aufgaben zur Dekodierung</h3>
+          <p>In diesen Aufgaben werden dir das erste Intervall, damit du daraus die Wahrscheinlichkeiten berechnen kannst und das letzte Subintervall, woraus du die Inputzahl herauslesen kannst gegeben. Finde damit den String heraus, der Kodiert wurde.</p>
+          <input type = "button" value = "Neue Aufgaben" onclick = "resetDecode();">
+          <table id = "exercieseDecode">
+            <tr>
+              <th>String</th>
+              <th>Code</th>
+            </tr>
+            <tr>
+              <td id = "exerciseDecode0"><input id = "inputDecode0" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkDecode(this.value, 0);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionDecode(0);"></td>
+              <td id = "exerciseDecode1"><textarea id = "inputDecode1" type = "text" spellcheck = "false" rows = "15" cols = "42"></textarea></td>
+            </tr>
+            <tr>
+              <td id = "exerciseDecode2"><input id = "inputDecode2" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkDecode(this.value, 1);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionDecode(1);"></td>
+              <td id = "exerciseDecode3"><textarea id = "inputDecode3" type = "text" spellcheck = "false" rows = "15" cols = "42"></textarea></td>
+            </tr>
+            <tr>
+              <td id = "exerciseDecode4"><input id = "inputDecode4" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkDecode(this.value, 2);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionDecode(2);"></td>
+              <td id = "exerciseDecode5"><textarea id = "inputDecode5" type = "text" spellcheck = "false" rows = "15" cols = "42"></textarea></td>
+            </tr>
+            <tr>
+              <td id = "exerciseDecode6"><input id = "inputDecode6" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkDecode(this.value, 3);"><br><input type = "button" value = "Lösung anzeigen" onclick = "solutionDecode(3);"></td>
+              <td id = "exerciseDecode7"><textarea id = "inputDecode7" type = "text" spellcheck = "false" rows = "15" cols = "42"></textarea></td>
+            </tr>
+          </table>
         </div>
       </div>
     </main>

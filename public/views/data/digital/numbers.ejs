@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Zahlen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <script src=<%= "/js/" + path + ".js" %>></script>
+  </head>
+  <body onload = "displayExercise(4);">
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Zahlen</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#decimal">Dezimalsystem</a></li>
+          <li><a href="#binary">Binärsystem</a></li>
+          <li><a href="#hex">Hexadezimalsystem</a></li>
+          <li><a href="#convert">Umwandlungsaufgaben</a></li>
+          <li><a href="#twoscomplement">Negative Zahlen: Das Zweierkomplement</a></li>
+          <li><a href="#floatingpoint">Reelle Zahlen: Fliesskomma</a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+          <li><a href="#"></a></li>
+        </ul>
+      </div>
+      <div id = "decimal">
+        <h2>Dezimalsystem</h2>
+        <p></p>
+      </div>
+      <div id = "binary">
+        <h2>Binärsystem</h2>
+        <p></p>
+      </div>
+      <div id = "hex">
+        <h2>Hexadezimalsystem</h2>
+        <p></p>
+      </div>
+      <div id = "convert">
+        <h2>Umwandlungsaufgaben</h2>
+        <p>Wandle die vorgegeben Zahlen in das jeweilige System um und fülle damit die leeren Felder aus. Schreibe dabei nur so viele Stellen wie benötigt werden.</p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetConvert();">
+        <table>
+          <tr>
+            <th>Dezimal</th>
+            <th>Hexadezimal</th>
+            <th>Binär</th>
+          </tr>
+          <tr>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 0);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(0);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 1);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(1);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 2);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(2);"></td>
+          </tr>
+          <tr>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 3);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(3);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 4);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(4);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 5);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(5);"></td>
+          </tr>
+          <tr>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 6);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(6);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 7);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(7);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 8);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(8);"></td>
+          </tr>
+          <tr>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 9);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(9);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 10);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(10);"></td>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, 11);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(11);"></td>
+          </tr>
+        </table>
+      </div>
+      <div id = "twoscomplement">
+        <h2>Negative Zahlen: Das Zweierkomplement</h2>
+        <p></p>
+      </div>
+      <div id = "floatingpoint">
+        <h2>Reelle Zahlen: Fliesskomma</h2>
+        <p></p>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

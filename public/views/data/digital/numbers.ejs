@@ -33,7 +33,7 @@
       </div>
       <div id = "decimal">
         <h2>Dezimalsystem</h2>
-        <p></p>
+        <p>Das Dezimalsystem ist das normalerweise in der heutigen Zeit verwendete Zahlensystem.</p>
       </div>
       <div id = "binary">
         <h2>Binärsystem</h2>
@@ -78,6 +78,36 @@
       <div id = "twoscomplement">
         <h2>Negative Zahlen: Das Zweierkomplement</h2>
         <p></p>
+        <h3>Aufgaben</h3>
+        <p>Wandle die folgenden Zahlen in die verschiedenen Systeme um. Gib für die Dezimalzahlen und die Beträge binär so viele Stellen wie nötig an und die Binärzahlen auf 15 Stellen an.</p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetComplement();">
+        <table>
+          <tr>
+            <th>Dezimal</th>
+            <th>Betrag binär</th>
+            <th>Binär</th>
+          </tr>
+          <tr>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 0);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(0);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 1);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(1);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 2);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(2);"></td>
+          </tr>
+          <tr>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 3);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(3);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 4);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(4);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 5);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(5);"></td>
+          </tr>
+          <tr>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 6);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(6);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 7);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(7);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 8);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(8);"></td>
+          </tr>
+          <tr>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 9);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(9);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 10);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(10);"></td>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, 11);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(11);"></td>
+          </tr>
+        </table>
       </div>
       <div id = "floatingpoint">
         <h2>Reelle Zahlen: Fliesskomma</h2>

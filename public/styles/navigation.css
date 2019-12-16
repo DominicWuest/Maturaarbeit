@@ -1,16 +1,16 @@
-.searchingalgorithms, .ports, .languages {
+.two {
   display: grid;
   grid-template-columns: repeat(2, 37.5vw);
   grid-gap: 6vw;
 }
 
-.sortingalgorithms, .hashingalgorithms, .keyexchange {
+.three {
   display: grid;
   grid-template-columns: repeat(3, 25vw);
   grid-gap: 3vw;
 }
 
-.cryptographic, .usb, .video {
+.four {
   display: grid;
   grid-template-columns: repeat(4, 19vw);
   grid-gap: 2vw;
@@ -28,7 +28,7 @@
   margin: 0px auto;
 }
 
-.cryptographic .pics, .usb .pics, .video .pics {
+.four .pics {
   max-width: 14.5vw;
 }
 

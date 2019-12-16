@@ -3,7 +3,7 @@
 <html lang = "de">
   <head>
     <meta charset="utf-8"/>
-    <title>Verschlüsselungsprotokolle</title>
+    <title>Daten</title>
     <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
     <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
     <link rel="stylesheet" href="/styles/course.css">
@@ -12,18 +12,18 @@
   <body>
     <%- include(partialsPath + 'header.ejs') %>
     <main>
-      <div class = "title">
-        <h1>Verschlüsselungs-Protokolle</h1>
+      <div class="title">
+        <h1>Daten</h1>
       </div>
       <div>
-        <p>Verschlüsselungsprotokolle garantieren eine verschlüsselte Datenübertragung in einem Rechennetz.</p>
+        <p>Eine Welt ohne Daten wäre unvorstellbar. Daten bezeichnen jegliche Informationen, die irgenwo existieren. Hier wird zwischen analogen und digitalen Daten unterschieden.</p>
       </div>
       <div class = "four">
-        <% let index = courses[0].indexOf('Verschlüsselungsprotokolle') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Verschlüsselungsprotokolle')]) { %>
-        <% if (courses[3][index] == courses[3][courses[0].indexOf('Verschlüsselungsprotokolle') + 1]) { %>
+        <% let index = courses[0].indexOf('Daten') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Daten')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Daten') + 1]) { %>
         <div class = "courseLink">
           <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
-            <img src = "/imgs/protocols/cryptographic/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+            <img src = "/imgs/data/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
           </a>
         </div>
         <% } %>

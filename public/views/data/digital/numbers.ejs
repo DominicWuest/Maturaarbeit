@@ -33,15 +33,54 @@
       </div>
       <div id = "decimal">
         <h2>Dezimalsystem</h2>
-        <p>Das Dezimalsystem ist das normalerweise in der heutigen Zeit verwendete Zahlensystem.</p>
+        <p>Das Dezimalsystem ist das heutzutage normalerweise verwendete System. Dem System liegen die zehn Ziffern: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} zugrunde. Wenn diese Ziffern aneinander gereiht werden ergeben sie eine Zahl, die wie folgt gelesen werden muss. Die Zahl ist die Summe aus den Zehnerpotenzen {10<sup>n</sup>, 10<sup>n - 1</sup>, ..., 10<sup>1</sup>, 10<sup>0</sup>} mit den Ziffern als koeffizienten. Die Ziffer ganz links ist dabei der Koeffizient der höchsten Zehnerpotenz 10<sup>n</sup> bei einer n-stelligen Zahl und die Ziffer ganz links diejenige mit die tiefsten Zehnerpotenz 10<sup>0</sup> = 0.<br>Der Zahl 5131 wird also die Summe 5 * 10<sup>3</sup> + 1 * 10<sup>2</sup> + 3 * 10<sup>1</sup> + 1 * 10<sup>0</sup> = 5000 + 100 + 30 + 1 zugeordnet.</p>
       </div>
       <div id = "binary">
         <h2>Binärsystem</h2>
-        <p></p>
+        <p>In Computern wird das Binärsystem verwendet, da es dort sinnvoller ist nur zwischen zwei verschiedenen Zuständen unterscheiden zu müssen als zwischen zehn. Das Binärsystem ist auf den zwei Ziffern {0, 1} aufgebaut. Eine Binärzahl besteht also lediglich auch Nullen und Einsen. Die Zahl hat dabei den Wert der Summe aus den Zweierpotenzen {2<sup>n</sup>, 2<sup>n - 1</sup>, ... , 2<sup>1</sup>, 2<sup>0</sup>} mit den Ziffern als Koeffizienten. Wie beim Dezimalsystem wird wieder die erste Ziffer mit der höchsten Potenz multipliziert, die zweithöchste mit der zweithöchsten Potenz multipliziert bis zum letzten, der mit der niedrigsten Potenz 2<sup>0</sup> = 1 multipliziert wird. Die Anzahl stellen wird bei einer Binärzahl mit der Anzahl Bits (Ziffern) bezeichnet. <br>Die Zahl 10101101010 hat also den Wert 1 * 2<sup>10</sup> + 0 * 2<sup>9</sup> + 1 * 2<sup>8</sup> + 0 * 2<sup>7</sup> + 1 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 0 * 2<sup>4</sup> + 1 * 2<sup>3</sup> + 0 * 2<sup>2</sup> + 1 * 2<sup>1</sup> + 0 * 2<sup>0</sup> = 1024 + 256 + 64 + 32 + 8 + 2 = 1386.</p>
       </div>
       <div id = "hex">
         <h2>Hexadezimalsystem</h2>
-        <p></p>
+        <p>Dem Hexadezimalsystem liegen die 16 Ziffern {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F} zugrunde. Dabei haben die Buchstaben {A, B, C, D, E, F} die dezimalen Werte {10, 11, 12, 13, 14, 15}. In einer Hexadezimalzahl sind die Ziffern die Koeffizienten von Sechzehnerpotenzen{16<sup>n</sup>, 16<sup>n - 1</sup>, ..., 16<sup>1</sup>, 16<sup>0</sup>}, wie wir es auch bereits aus den anderen Zahlensystemen kennen.<br>Die Zahl 15F hat also den Wert 1 * 16<sup>2</sup> + 5 * 16<sup>1</sup> + F * 16<sup>0</sup> = 1 * 256 + 5 * 16 + 15 * 1 = 256 + 80 + 15 = 251.</p>
+        <h3>Umwandlung Hexadezimal - Binär</h3>
+        <p>Hexadezimalzahlen und Binärzahlen lassen sich besonders gut ineinander umwandeln. Dabei muss erkannt werden, dass jede Ziffer einer Hexadezimalzahl mit vier Binärziffern dargestellt werden kann. Falls es nicht aufgeht muss die Binärzahl noch linksseitig mit Nullenaufgefüllt werden.</p>
+        <table>
+          <tr>
+            <th>Binärzahl (4 Bits)</th>
+            <th>Hexadezimal</th>
+            <th>Erklärung</th>
+          </tr>
+          <tr>
+            <td>0000</td>
+            <td>0</td>
+            <td>Vier Nullen im Binärsystem bedeuten eine 0 im Hexadezimalsystem.</td>
+          </tr>
+          <tr>
+            <td>1100</td>
+            <td>C</td>
+            <td>Diese Binärzahl 8 + 4 = 12 wird im Hexadezimalsystem als C dargestellt.</td>
+          </tr>
+          <tr>
+            <td>1111101</td>
+            <td>7D</td>
+            <td>Wenn die Zahl aufgefüllt wird, sodass die Anzahl Stellen durch vier teilbar wird erhalten wir 0111'1101. Die ersten vier Bits stellen dann die Zahl 7 dar und die restlichen Bits die 13, die mit D dargestellt wird.</td>
+          </tr>
+          <tr>
+            <td>00101011</td>
+            <td>2B</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1110101101</td>
+            <td>3CD</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>101'1101'0101'1010'1000'1010'1110</td>
+            <td>5D5'C8CE</td>
+            <td>Die ' dienen hier lediglich der Übersichtlichkeit.</td>
+          </tr>
+        </table>
       </div>
       <div id = "convert">
         <h2>Umwandlungsaufgaben</h2>
@@ -77,7 +116,39 @@
       </div>
       <div id = "twoscomplement">
         <h2>Negative Zahlen: Das Zweierkomplement</h2>
-        <p></p>
+        <p>Bis jetzt wissen wir lediglich wie wir natürliche Zahlen darstellen können. Um den darstellbaren Bereich auf die ganzen Zahlen zu erweitern brauchen wir aber auch noch die negativen Zahlen. Diese werden mit dem Zweierkomplement dargestellt. Dabei wird mindestens ein Bit mehr benötig, als in den natürlichen Zahlen benötigt werden würde um die Zahlen bis zu einer gewissen Zahl darstellen zu können (beispielsweise werden für die Zahlen von 0 bis 256 sieben Bits benötigt, hingegen von -255 bis 256 acht Bits). Das Zweierkomplement wird in zwei Schritten gebildet: Falls die Zahl negativ ist muss als erstes 1 subtrahiert werden. Als zweites werden alle Bits umgedreht(aus jeder 0 wird eine 1 und aus jeder 1 eine 0).</p>
+        <table>
+          <tr>
+            <th>Dezimalzahl</th>
+            <th>Betrag Binärzahl</th>
+            <th>Betrag Binärzahl - 1 (10 Bit)</th>
+            <th>Binärzahl (10 Bit)</th>
+          </tr>
+          <tr>
+            <td>-25</td>
+            <td>11001</td>
+            <td>0000011000</td>
+            <td>1111100111</td>
+          </tr>
+          <tr>
+            <td>-19</td>
+            <td>10011</td>
+            <td>0000010010</td>
+            <td>1111101101</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>1100</td>
+            <td>0000001100</td>
+            <td>0000001100</td>
+          <tr>
+            <td>-40</td>
+            <td>101000</td>
+            <td>0000100111</td>
+            <td>1111011000</td>
+          </tr>
+        </table>
+        <p>Wie in der Tabelle zu erkennen ist wird mit einer positiven Zahl nichts gemacht. Dadurch können negative Zahlen daran erkannt werden, dass das erste Bit eine 1 ist.</p>
         <h3>Aufgaben</h3>
         <p>Wandle die folgenden Zahlen in die verschiedenen Systeme um. Gib für die Dezimalzahlen und die Beträge binär so viele Stellen wie nötig an und die Binärzahlen auf 15 Stellen an.</p>
         <input type = "button" value = "Neue Aufgaben" onclick = "resetComplement();">

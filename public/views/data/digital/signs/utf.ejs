@@ -708,7 +708,7 @@
           <div id = "BMP">
             <h3>BMP - Basic Multilingual Plane - Plane 0</h3>
             <p>In der Ebene 0, der BMP sind die Unicodes von U+0000<sub>16</sub> bis U+FFFF<sub>16</sub> = 0<sub>10</sub> bis 65535<sub>10</sub> enthalten. Diese Zeichen sind die heute gebräuchlichen Schriftzeichen von fast allen modernen Sprachen (auch Symbolschriften, wie in Chinesisch oder Japanisch). Die sogenannten Surrogates, die noch vorkommen werden besetzt um den Wechsel in eine andere Ebene zu ermöglichen.<br>Die Unicode-Nummern der Zeichen aus der BMP bestehen aus 16 Nullen und 16 restlichen Bits. Deswegen können sie ganz einfach als 16 Bit Code kodiert werden. Von den 65535 möglichen Codes aus der BMP sind nur noch 64 Codes unbesetzt: von 0870<sub>16</sub> bis 089F<sub>16</sub> = von 2'160<sub>10</sub> bis 2'207<sub>10</sub> und von 2FE0<sub>16</sub> bis 2FEF<sub>16</sub> = von 12'256<sub>10</sub> bis 12'271<sub>10</sub>. In der untenstehenden Grafik wird gezeigt, welche Bereiche Zeichen wo in der BMP liegen.</p>
-            <img src = "/imgs/datacompression/entropy/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
+            <img src = "/imgs/data/digital/signs/utf/bmpmap.png" id = "bmpmap" alt = "BMP-Karte"/>
           </div>
           <div id = "SMP">
             <h3>SMP - Supplementary Multilingual Plane - Plane 1</h3>
@@ -742,18 +742,18 @@
             <br>
             <p>In der untenstehenden Grafik wird angezeigt, wo sich welche Zeichen befinden.</p>
             <br>
-            <img src = "/imgs/datacompression/entropy/utf/smpmap.png" id = "smpmap" alt = "SMP-Karte"/>
+            <img src = "/imgs/data/digital/signs/utf/smpmap.png" id = "smpmap" alt = "SMP-Karte"/>
           </div>
           <div id = "SIP">
             <h3>SIP - Supplemantary Ideographic Plane - Plane 2</h3>
             <p>Die zweite Ebene ausserhalb der BMP ist die SIP, die Supplementary Ideographic Plane. Diese Ebene wird dazu verwendet, um japanische, chinesische, koreanische und vietnamesische Zeichen darzustellen. Daran, dass diese Zeichen selbst schon eine Zusatzebene brauchen, kann man erkennen, wieso sie nicht in der BMP stehen. Da sie ausserhalb der BMP stehen lohnt sich die UTF-16 Kodierung nicht mehr, sie ist sogar schlechter als UTF-32, da sie mehr Rechenaufwand verursacht, aber dennoch gleich viel Daten verbraucht. In der untenstehenden Grafik ist die SIP genauer aufgeführt.</p>
-            <img src = "/imgs/datacompression/entropy/utf/sipmap.png" id = "sipmap" alt = "SIP-Karte"/>
+            <img src = "/imgs/data/digital/signs/utf/sipmap.png" id = "sipmap" alt = "SIP-Karte"/>
             <a href="https://en.wikipedia.org/wiki/en:User:Drmccreedy">Drmccreedy</a>, <a href="https://commons.wikimedia.org/wiki/File:Roadmap_to_Unicode_SIP.svg">Roadmap to Unicode SIP</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-SA 4.0</a>
           </div>
           <div id = "SSP">
             <h3>SSP - Supplementary Special-purpose Plane - Plane 14</h3>
             <p>Die dritte Ebene ausserhalb der BMP ist die SSP, die Supplementary Special-purpose Plane. Diese Ebene wurde extra von den anderen Ebenen abgegrenzt, damit Zeichen, die zum Beispiel in der SMP kein Platz mehr haben nicht in diese Ebene gelegt werden. In dieser Ebene werden nicht grafische Zeichen, wie Kontrollzeichen zur Sprachmarkierung abgespeichert. Die Zeichen haben, wie man auch in der folgenden Grafik erkennen kann, nicht ihre eigene Ebene erhalten, da sie in der BMP keinen Platz gefunden haben, sondern da sie sich von den anderen Zeichen abgrenzen sollte.</p>
-            <img src = "/imgs/datacompression/entropy/utf/sspmap.png" id = "sspmap" alt = "SSP-Karte"/>
+            <img src = "/imgs/data/digital/signs/utf/sspmap.png" id = "sspmap" alt = "SSP-Karte"/>
             <a href="https://en.wikipedia.org/wiki/en:User:Drmccreedy">Drmccreedy</a>, <a href="https://commons.wikimedia.org/wiki/File:Roadmap_to_Unicode_SSP.svg">Roadmap to Unicode SSP</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/legalcode" rel="license">CC BY-SA 4.0</a>
           </div>
           <div id = "PUAB">

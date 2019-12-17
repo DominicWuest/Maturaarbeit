@@ -9,6 +9,9 @@ function displayExercise(n) {
   for (let i = 0; i < n; i++) {
     displayComplement(i);
   }
+  for (let i = 0; i < n; i++) {
+    displayFloat(i);
+  }
 }
 
 // Displays the format conversion exercise
@@ -48,6 +51,48 @@ function displayComplement(index) {
   buttonList[randSlot + 3 * index].style.visibility = 'hidden';
 }
 
+// Displays the format floatexercise
+function displayFloat(index) {
+  solution.push([(Math.random() - 0.5) * Math.random() * 150 * ((index / 25) ** 5)]);
+  solution[index + 8].push(Math.sign(Math.sign(solution[index + 8][0]) + 1), exponent(solution[index + 8][0]), mantissa(Math.abs(solution[index + 8][0])));
+  randSlot = Math.floor(Math.random() * 4);
+  var fieldList = document.getElementsByClassName("floatexercise");
+  var inputList = document.getElementsByClassName("inputFloat");
+  var buttonList = document.getElementsByClassName("floatSolution");
+  inputList[randSlot + 4 * index].value = solution[index + 8][randSlot];
+  inputList[randSlot + 4 * index].disabled = true;
+  fieldList[randSlot + 4 * index].style.backgroundColor = "blue";
+  buttonList[randSlot + 4 * index].style.visibility = 'hidden';
+}
+
+// Calculates the fp exponent of a number
+function exponent(n) {
+  var exp = 127;
+  while (Math.abs(n) > 2) {
+    exp++;
+    n = n / 2;
+  }
+  exp = (exp >>> 0).toString(2);
+  while (exp.length < 0) exp = '0'.concat(exp);
+  return exp;
+}
+
+// Caltulates the mantissa of a number
+function mantissa(n) {
+  while (n > 2) n = n / 2;
+  if (n > 1) n = n - 1;
+  var mant = [];
+  for (let i = 1; i < 24; i++) {
+    if (n > 2 ** (-i)) {
+      n = n - 2 ** (-i);
+      mant.push(1);
+    }
+    else mant.push(0);
+  }
+  mant = mant.join('');
+  return mant;
+}
+
 // Checks the input value
 function checkConvert(message, index) {
   if (message == solution[Math.floor(index / 3)][index % 3]) {
@@ -68,6 +113,16 @@ function checkComplement(message, index) {
   }
 }
 
+// Checks the input value
+function checkFloat(message, index) {
+  if (message == solution[Math.floor(index / 4) + 8][index % 4]) {
+    document.getElementsByClassName("floatexercise")[index].style.backgroundColor = "green";
+  }
+  else {
+    document.getElementsByClassName("floatexercise")[index].style.backgroundColor = "red";
+  }
+}
+
 // Displays the solution to the user
 function solutionConvert(index) {
   document.getElementsByClassName("inputConvert")[index].value = solution[Math.floor(index / 3)][index % 3];
@@ -78,6 +133,12 @@ function solutionConvert(index) {
 function solutionComplement(index) {
   document.getElementsByClassName("inputComplement")[index].value = solution[Math.floor(index / 3) + 4][index % 3];
   document.getElementsByClassName("complementexercise")[index].style.backgroundColor = "green";
+}
+
+// Displays the solution to the user
+function solutionFloat(index) {
+  document.getElementsByClassName("inputFloat")[index].value = solution[Math.floor(index / 4) + 8][index % 4];
+  document.getElementsByClassName("floatexercise")[index].style.backgroundColor = "green";
 }
 
 // Displays new exercises
@@ -102,4 +163,16 @@ function resetComplement() {
   }
   for (let i = 0; i < 4; i++) solution.pop();
   for (let i = 0; i < 4; i++) displayComplement(i);
+}
+
+// Displays new exercises
+function resetFloat() {
+  for (let i = 0; i < 16; i++) {
+    document.getElementsByClassName("inputFloat")[i].value = '';
+    document.getElementsByClassName("inputFloat")[i].disabled = false;
+    document.getElementsByClassName("floatexercise")[i].style.backgroundColor = "white";
+    document.getElementsByClassName("floatSolution")[i].style.visibility = 'visible';
+  }
+  for (let i = 0; i < 4; i++) solution.pop();
+  for (let i = 0; i < 4; i++) displayFloat(i);
 }

@@ -183,6 +183,39 @@
       <div id = "floatingpoint">
         <h2>Reelle Zahlen: Fliesskomma</h2>
         <p></p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetFloat();">
+        <table>
+          <tr>
+            <th>Dezimalzahl</th>
+            <th>Vorzeichen</th>
+            <th>Exponentbits</th>
+            <th>Mantisse</th>
+          </tr>
+          <tr>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 0);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(0);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 1);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(1);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 2);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(2);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 3);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(3);"></td>
+          </tr>
+          <tr>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 4);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(4);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 5);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(5);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 6);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(6);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 7);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(7);"></td>
+          </tr>
+          <tr>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 8);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(8);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 9);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(9);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 10);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(10);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 11);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(11);"></td>
+          </tr>
+          <tr>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 12);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(12);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 13);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(13);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 14);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(14);"></td>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, 15);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(15);"></td>
+          </tr>
+        </table>
       </div>
     </main>
     <%- include(partialsPath + 'footer1.ejs') %>

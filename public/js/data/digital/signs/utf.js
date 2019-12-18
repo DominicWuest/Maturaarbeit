@@ -56,10 +56,10 @@ function displayASCII(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randSignListASCII.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('inputASCII-' + (startingIndex + randSlot)).value = inputsASCII[randSign][randSlot];
-  document.getElementById('inputASCII-' + (startingIndex + randSlot)).disabled = true;
-  document.getElementById('ASCIIextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
-  document.getElementById('buttonASCII' + (startingIndex + randSlot)).style.visibility = 'hidden';
+  document.getElementsByClassName('inputASCII')[startingIndex + randSlot].value = inputsASCII[randSign][randSlot];
+  document.getElementsByClassName('inputASCII')[startingIndex + randSlot].disabled = true;
+  document.getElementsByClassName('ASCIIextable')[startingIndex + randSlot].style.backgroundColor = "blue";
+  document.getElementsByClassName('buttonASCII')[startingIndex + randSlot].style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of ISOIEC
@@ -68,10 +68,10 @@ function displayISOIEC(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randSignListISOIEC.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('inputISOIEC-' + (startingIndex + randSlot)).value = inputsISOIEC[randSign][randSlot];
-  document.getElementById('inputISOIEC-' + (startingIndex + randSlot)).disabled = true;
-  document.getElementById('ISOIECextable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
-  document.getElementById('buttonISOIEC' + (startingIndex + randSlot)).style.visibility = 'hidden';
+  document.getElementsByClassName('inputISOIEC')[startingIndex + randSlot].value = inputsISOIEC[randSign][randSlot];
+  document.getElementsByClassName('inputISOIEC')[startingIndex + randSlot].disabled = true;
+  document.getElementsByClassName('ISOIECextable')[startingIndex + randSlot].style.backgroundColor = "blue";
+  document.getElementsByClassName('buttonISOIEC')[startingIndex + randSlot].style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of UTF8
@@ -80,10 +80,10 @@ function displayUTF8(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randNumListUTF8.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('inputUTF8-' + (startingIndex + randSlot)).value = inputsUTF8[randSign][randSlot];
-  document.getElementById('inputUTF8-' + (startingIndex + randSlot)).disabled = true;
-  document.getElementById('UTF8extable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
-  document.getElementById('buttonUTF8-' + (startingIndex + randSlot)).style.visibility = 'hidden';
+  document.getElementsByClassName('inputUTF8')[startingIndex + randSlot].value = inputsUTF8[randSign][randSlot];
+  document.getElementsByClassName('inputUTF8')[startingIndex + randSlot].disabled = true;
+  document.getElementsByClassName('UTF8extable')[startingIndex + randSlot].style.backgroundColor = "blue";
+  document.getElementsByClassName('buttonUTF8')[startingIndex + randSlot].style.visibility = 'hidden';
 }
 
 // Display the given content in the exercise of UTF16
@@ -92,10 +92,10 @@ function displayUTF16(startingIndex) {
   // Save the indexes ot the signs to use them later to correct
   randNumListUTF16.push(randSign);
   randSlot = Math.floor(Math.random() * 4);
-  document.getElementById('inputUTF16-' + (startingIndex + randSlot)).value = inputsUTF16[randSign][randSlot];
-  document.getElementById('inputUTF16-' + (startingIndex + randSlot)).disabled = true;
-  document.getElementById('UTF16extable' + (startingIndex + randSlot)).style.backgroundColor = "blue";
-  document.getElementById('buttonUTF16-' + (startingIndex + randSlot)).style.visibility = 'hidden';
+  document.getElementsByClassName('inputUTF16')[startingIndex + randSlot].value = inputsUTF16[randSign][randSlot];
+  document.getElementsByClassName('inputUTF16')[startingIndex + randSlot].disabled = true;
+  document.getElementsByClassName('UTF16extable')[startingIndex + randSlot].style.backgroundColor = "blue";
+  document.getElementsByClassName('buttonUTF16')[startingIndex + randSlot].style.visibility = 'hidden';
 }
 
 
@@ -248,11 +248,11 @@ function GenUTF16(inputDecimals) {
 function checkASCII(message, index) {
   // If the input matches the solution display a green background
   if (message === inputsASCII[randSignListASCII[Math.floor(index * 0.25)]][index % 4]) {
-    document.getElementById('ASCIIextable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('ASCIIextable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('ASCIIextable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('ASCIIextable')[index].style.backgroundColor = "red";
   }
 }
 
@@ -260,11 +260,11 @@ function checkASCII(message, index) {
 function checkISOIEC(message, index) {
   // If the input matches the solution display a green background
   if (message === inputsISOIEC[randSignListISOIEC[Math.floor(index * 0.25)]][index % 4]) {
-    document.getElementById('ISOIECextable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('ISOIECextable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('ISOIECextable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('ISOIECextable')[index].style.backgroundColor = "red";
   }
 }
 
@@ -272,11 +272,11 @@ function checkISOIEC(message, index) {
 function checkUTF8(message, index) {
   // If the input matches the solution display a green background
   if (message === inputsUTF8[randNumListUTF8[Math.floor(index * 0.25)]][index % 4]) {
-    document.getElementById('UTF8extable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('UTF8extable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('UTF8extable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('UTF8extable')[index].style.backgroundColor = "red";
   }
 }
 
@@ -284,21 +284,21 @@ function checkUTF8(message, index) {
 function checkUTF16(message, index) {
   // If the input matches the solution display a green background
   if (message === inputsUTF16[randNumListUTF16[Math.floor(index * 0.25)]][index % 4]) {
-    document.getElementById('UTF16extable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('UTF16extable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('UTF16extable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('UTF16extable')[index].style.backgroundColor = "red";
   }
 }
 
 // Reset the starting and solution values and background colors
 function resetASCII() {
   for (let index = 0; index < 16; index++) {
-    document.getElementById('inputASCII-' + index).value = '';
-    document.getElementById('inputASCII-' + index).disabled = false;
-    document.getElementById('ASCIIextable' + index).style.backgroundColor = "white";
-    document.getElementById('buttonASCII' + index).style.visibility = 'visible';
+    document.getElementsByClassName('inputASCII')[index].value = '';
+    document.getElementsByClassName('inputASCII')[index].disabled = false;
+    document.getElementsByClassName('ASCIIextable')[index].style.backgroundColor = "white";
+    document.getElementsByClassName('buttonASCII')[index].style.visibility = 'visible';
   }
   randSignListASCII = [];
   for (let i = 0; i < 4; i++) displayASCII(i * 4);
@@ -307,10 +307,10 @@ function resetASCII() {
 // Reset the starting and solution values and background colors
 function resetISOIEC() {
   for (let index = 0; index < 16; index++) {
-    document.getElementById('inputISOIEC-' + index).value = '';
-    document.getElementById('inputISOIEC-' + index).disabled = false;
-    document.getElementById('ISOIECextable' + index).style.backgroundColor = "white";
-    document.getElementById('buttonISOIEC' + index).style.visibility = 'visible';
+    document.getElementsByClassName('inputISOIEC')[index].value = '';
+    document.getElementsByClassName('inputISOIEC')[index].disabled = false;
+    document.getElementsByClassName('ISOIECextable')[index].style.backgroundColor = "white";
+    document.getElementsByClassName('buttonISOIEC')[index].style.visibility = 'visible';
   }
   randSignListISOIEC = [];
   for (let i = 0; i < 4; i++) displayISOIEC(i * 4);
@@ -319,10 +319,10 @@ function resetISOIEC() {
 // Reset the starting and solution values and background colors
 function resetUTF8() {
   for (let index = 0; index < 16; index++) {
-    document.getElementById('inputUTF8-' + index).value = '';
-    document.getElementById('inputUTF8-' + index).disabled = false;
-    document.getElementById('UTF8extable' + index).style.backgroundColor = "white";
-    document.getElementById('buttonUTF8-' + index).style.visibility = 'visible';
+    document.getElementsByClassName('inputUTF8')[index].value = '';
+    document.getElementsByClassName('inputUTF8')[index].disabled = false;
+    document.getElementsByClassName('UTF8extable')[index].style.backgroundColor = "white";
+    document.getElementsByClassName('buttonUTF8')[index].style.visibility = 'visible';
   }
   randNumListUTF8 = [];
   for (let i = 0; i < 4; i++) displayUTF8(i * 4);
@@ -331,10 +331,10 @@ function resetUTF8() {
 // Reset the starting and solution values and background colors
 function resetUTF16() {
   for (let index = 0; index < 16; index++) {
-    document.getElementById('inputUTF16-' + index).value = '';
-    document.getElementById('inputUTF16-' + index).disabled = false;
-    document.getElementById('UTF16extable' + index).style.backgroundColor = "white";
-    document.getElementById('buttonUTF16-' + index).style.visibility = 'visible';
+    document.getElementsByClassName('inputUTF16')[index].value = '';
+    document.getElementsByClassName('inputUTF16')[index].disabled = false;
+    document.getElementsByClassName('UTF16extable')[index].style.backgroundColor = "white";
+    document.getElementsByClassName('buttonUTF16')[index].style.visibility = 'visible';
   }
   randNumListUTF16 = [];
   for (let i = 0; i < 4; i++) displayUTF16(i * 4);
@@ -342,24 +342,24 @@ function resetUTF16() {
 
 // Display the solution value
 function solutionASCII(index) {
-  document.getElementById('inputASCII-' + index).value = inputsASCII[randSignListASCII[Math.floor(index * 0.25)]][index % 4];
-  document.getElementById('ASCIIextable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputASCII')[index].value = inputsASCII[randSignListASCII[Math.floor(index * 0.25)]][index % 4];
+  document.getElementsByClassName('ASCIIextable')[index].style.backgroundColor = "green";
 }
 
 // Display the solution value
 function solutionISOIEC(index) {
-  document.getElementById('inputISOIEC-' + index).value = inputsISOIEC[randSignListISOIEC[Math.floor(index * 0.25)]][index % 4];
-  document.getElementById('ISOIECextable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputISOIEC')[index].value = inputsISOIEC[randSignListISOIEC[Math.floor(index * 0.25)]][index % 4];
+  document.getElementsByClassName('ISOIECextable')[index].style.backgroundColor = "green";
 }
 
 // Display the solution value
 function solutionUTF8(index) {
-  document.getElementById('inputUTF8-' + index).value = inputsUTF8[randNumListUTF8[Math.floor(index * 0.25)]][index % 4];
-  document.getElementById('UTF8extable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputUTF8')[index].value = inputsUTF8[randNumListUTF8[Math.floor(index * 0.25)]][index % 4];
+  document.getElementsByClassName('UTF8extable')[index].style.backgroundColor = "green";
 }
 
 // Display the solution value
 function solutionUTF16(index) {
-  document.getElementById('inputUTF16-' + index).value = inputsUTF16[randNumListUTF16[Math.floor(index * 0.25)]][index % 4];
-  document.getElementById('UTF16extable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputUTF16')[index].value = inputsUTF16[randNumListUTF16[Math.floor(index * 0.25)]][index % 4];
+  document.getElementsByClassName('UTF16extable')[index].style.backgroundColor = "green";
 }

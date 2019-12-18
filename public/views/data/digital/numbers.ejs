@@ -26,9 +26,6 @@
           <li><a href="#convert">Umwandlungsaufgaben</a></li>
           <li><a href="#twoscomplement">Negative Zahlen: Das Zweierkomplement</a></li>
           <li><a href="#floatingpoint">Reelle Zahlen: Fliesskomma</a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
-          <li><a href="#"></a></li>
         </ul>
       </div>
       <div id = "decimal">
@@ -148,7 +145,7 @@
             <td>1111011000</td>
           </tr>
         </table>
-        <p>Wie in der Tabelle zu erkennen ist wird mit einer positiven Zahl nichts gemacht. Dadurch können negative Zahlen daran erkannt werden, dass das erste Bit eine 1 ist.</p>
+        <p>Wie in der Tabelle zu erkennen ist wird mit einer positiven Zahl nichts gemacht. Dadurch können negative Zahlen daran erkannt werden, dass das erste Bit eine 1 ist. Um eine negative Binärzahl zu lesen kann das Zweierkomplement einfach erneut gebildet. Also zuerst 1 addieren und danach invertieren ergibt den Betrag der Zahl.</p>
         <h3>Aufgaben</h3>
         <p>Wandle die folgenden Zahlen in die verschiedenen Systeme um. Gib für die Dezimalzahlen und die Beträge binär so viele Stellen wie nötig an und die Binärzahlen auf 15 Stellen an.</p>
         <input type = "button" value = "Neue Aufgaben" onclick = "resetComplement();">
@@ -182,7 +179,41 @@
       </div>
       <div id = "floatingpoint">
         <h2>Reelle Zahlen: Fliesskomma</h2>
-        <p></p>
+        <p>Reelle Zahlen werden völlig anders realisiert als Integer. Dafür wird die sogenannte Fliesskommazahl verwendet. Hier werden die Fliesskommazahlen im Format IEEE754 mit 32 Bits betrachtet.<br>Eine Fliesskommazahl besteht aus drei Teilen: Dem Vorzeichen (s für sign), dem Exponenten (e für exponent) und der Mantisse (m für mantissa). Von den 32 zur verfügung stehenden Bits werden eins für das Vorzeichen, acht für den Exponenten und 23 für die Mantisse verwendet.</p>
+        <h4>Das Vorzeichen</h4>
+        <p>Das erste Bit einer Fliesskommazahl ist das Vorzeichen. Ist es eine 0 so ist die Zahl positiv, ist es eine 1 so ist die Zahl negativ.</p>
+        <h4>Der Exponent</h4>
+        <p>Die Bits zwei bis neun stellen den Exponenten dar. Eine Fliesskommazahl muss immer zuerst in die Form s * 2<sup>e-B</sup> * 1.m gebracht werden. Dabei stellt B den sogenannten Exponent-Bias dar. Dieser wird gebraucht, sodass negative Exponenten dargestellt werden können ohne dass negative Zahlen codiert werden müssen. In unserem Format beträgt der Exponenten-Bias B = 127. Der zweite Teil 1.m zeigt uns an, dass die Zahl zwischen 1 und 2 liegen muss. Wir müssen sie also so lange mit zwei multiplizieren, respektive dividieren, bis sie im Intervall [1, 2] liegt. 127 + die Anzahl Multiplikationen, respektive minus die Anzahl Divisionen gibt dann den Exponenten an, der mit 8 Bits als natürliche Zahl kodiert wird.</p>
+        <h4>Die Mantisse</h4>
+        <p>Die Mantisse gibt die Nachkommastellen der Zahl s * 2<sup>e-B</sup> * 1.m an. Das 1.m bedeutet dabei, dass die Mantisse lediglich die Nachkommastellen nach der 1, also eine Zahl im Intervall [0, 1] darstellt. Sie besteht aus 23 Bits, die jeweils die Koeffizienten der Potenzen {2<sup>-1</sup>, 2<sup>-2</sup>, ..., 2<sup>-23</sup>} darstellen. 1001 in der Mantisse würde also 1 * 0.5 + 0 * 0.25 + 0 * 0.125 + 1 * 0.0675 = 0.5675 lauten. Zu dieser Zahl wird nun noch eine 1 addiert und sie wird mit dem Vorzeichen und der Zweierpotenz 2<sup>e-B</sup> multipliziert.</p>
+        <h4>Ein Beispiel</h4>
+        <p>In diesem Beispiel wird die Zahl -18.18525 als Fliesskommazahl dargestellt.</p>
+        <table>
+          <tr>
+            <th>Operation</th>
+            <th>Auswirkung</th>
+            <th>Erklärung</th>
+          </tr>
+          <tr>
+            <td>-18.18525 = -1 * 18.18525</td>
+            <td>s = 1</td>
+            <td>Die Zahl ist negativ also beträgt das Vorzeichen 1</td>
+          </tr>
+          <tr>
+            <td>18.18525 = 1.17828125 * 2<sup>4</sup></td>
+            <td>e = 127 + 4 = 131<sub>10</sub> = 10000011<sub>2</sub></td>
+            <td>Der Exponent ergibt sich aus dem Exponenten, den 2 erhält um unsere Zahl multipliziert mit einer Zahl in [1, 2] darzustellen addiert zu den Exponent-Bias = 127.</td>
+          </tr>
+          <tr>
+            <td>1.17828125 - 1= 0.17828125 &cong; 0 * 2<sup>-1</sup> + 0 * 2<sup>-2</sup> + 1 * 2<sup>-3</sup> + 0 * 2<sup>-4</sup> + 1 * 2<sup>-5</sup></td>
+            <td>m = 00101</td>
+            <td>Die Mantisse setzt sich aus den Koeffizienten der Zweierpotenzen zusammen.</td>
+          </tr>
+        </table>
+        <h4>Denormalisierte Zahlen</h4>
+        <p>Dank der oben aufgeführten Darstellung von reellen Zahlen werden betragsmässig kleine Zahlen genauer dargestellt als betragsmässig grosse Zahlen (auf mehr Nachkommastellen genau, deswegen auch Fliesskomma). Das Problem ist jedoch, dass keine Zahlen mit Betrag unter 2<sup>-126</sup> dargestellt werden können. Deswegen werden die denormalisierten Zahlen definiert: Wenn der Exponent 255<sub>10</sub> = 1111'1111<sub>2</sub> beträgt bedeutet dies NaN (not a nunber, z.B. unendlich) und die Mantissenbits können weitere Informationen enthalten. Wenn der Exponent 0<sub>10</sub> = 0000'0000<sub>2</sub> beträgt dann wird die Zahl nicht mehr als s * 2<sup>e-B</sup> * 1.m, sondern als s * 2<sup>e-B</sup> * 0.m interpretiert. Wenn die Mantisse nun nur aus Nullen besteht wird die Zahl 0 dargestellt.</p>
+        <h3>Aufgaben zu den Fliesskommazahlen</h3>
+        <p>Fülle die leeren Felder aus. Gib für den Exponenten jeweils 8 Bits und für die Mantisse die ersten 15 Bits an.</p>
         <input type = "button" value = "Neue Aufgaben" onclick = "resetFloat();">
         <table>
           <tr>

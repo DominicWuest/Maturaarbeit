@@ -41,28 +41,50 @@ function displayComplement(index) {
     for (let i = 0; i < zeros; i++) bin = '0'.concat(bin);
   }
   solution[index + 4].push((Math.abs(a) >>> 0).toString(2), bin);
-  randSlot = Math.floor(Math.random() * 3);
   var fieldList = document.getElementsByClassName("complementexercise");
   var inputList = document.getElementsByClassName("inputComplement");
   var buttonList = document.getElementsByClassName("complementSolution");
-  inputList[randSlot + 3 * index].value = solution[index + 4][randSlot];
-  inputList[randSlot + 3 * index].disabled = true;
-  fieldList[randSlot + 3 * index].style.backgroundColor = "blue";
-  buttonList[randSlot + 3 * index].style.visibility = 'hidden';
+  if (Math.random() < 0.5) {
+    inputList[0 + 3 * index].value = solution[index + 4][0];
+    inputList[0 + 3 * index].disabled = true;
+    fieldList[0 + 3 * index].style.backgroundColor = "blue";
+    buttonList[0 + 3 * index].style.visibility = 'hidden';
+  }
+  else {
+    inputList[2 + 3 * index].value = solution[index + 4][2];
+    inputList[2 + 3 * index].disabled = true;
+    fieldList[2 + 3 * index].style.backgroundColor = "blue";
+    buttonList[2 + 3 * index].style.visibility = 'hidden';
+  }
 }
 
 // Displays the format floatexercise
 function displayFloat(index) {
-  solution.push([(Math.random() - 0.5) * Math.random() * 150 * ((index / 25) ** 5)]);
-  solution[index + 8].push(Math.sign(Math.sign(solution[index + 8][0]) + 1), exponent(solution[index + 8][0]), mantissa(Math.abs(solution[index + 8][0])));
-  randSlot = Math.floor(Math.random() * 4);
+  solution.push([(Math.random() - 0.5) * Math.random() * 150 * (((index + 1) / 3) ** 13)]);
+  solution[index + 8].push(Math.sign(Math.sign(solution[index + 8][0]) + 1) - Math.sign(solution[index + 8][0]), exponent(solution[index + 8][0]), mantissa(Math.abs(solution[index + 8][0])));
   var fieldList = document.getElementsByClassName("floatexercise");
   var inputList = document.getElementsByClassName("inputFloat");
   var buttonList = document.getElementsByClassName("floatSolution");
-  inputList[randSlot + 4 * index].value = solution[index + 8][randSlot];
-  inputList[randSlot + 4 * index].disabled = true;
-  fieldList[randSlot + 4 * index].style.backgroundColor = "blue";
-  buttonList[randSlot + 4 * index].style.visibility = 'hidden';
+  if (Math.random() < 0.5) {
+    inputList[0 + 4 * index].value = solution[index + 8][0];
+    inputList[0 + 4 * index].disabled = true;
+    fieldList[0 + 4 * index].style.backgroundColor = "blue";
+    buttonList[0 + 4 * index].style.visibility = 'hidden';
+  }
+  else {
+    inputList[1 + 4 * index].value = solution[index + 8][1];
+    inputList[1 + 4 * index].disabled = true;
+    fieldList[1 + 4 * index].style.backgroundColor = "blue";
+    buttonList[1 + 4 * index].style.visibility = 'hidden';
+    inputList[2 + 4 * index].value = solution[index + 8][2];
+    inputList[2 + 4 * index].disabled = true;
+    fieldList[2 + 4 * index].style.backgroundColor = "blue";
+    buttonList[2 + 4 * index].style.visibility = 'hidden';
+    inputList[3 + 4 * index].value = solution[index + 8][3];
+    inputList[3 + 4 * index].disabled = true;
+    fieldList[3 + 4 * index].style.backgroundColor = "blue";
+    buttonList[3 + 4 * index].style.visibility = 'hidden';
+  }
 }
 
 // Calculates the fp exponent of a number
@@ -72,17 +94,23 @@ function exponent(n) {
     exp++;
     n = n / 2;
   }
+  while (Math.abs(n) < 1 && n != 0) {
+    exp--;
+    n = n * 2;
+  }
+  if (n == 0) exp = 0;
   exp = (exp >>> 0).toString(2);
-  while (exp.length < 0) exp = '0'.concat(exp);
+  while (exp.length < 8) exp = '0'.concat(exp);
   return exp;
 }
 
 // Caltulates the mantissa of a number
 function mantissa(n) {
   while (n > 2) n = n / 2;
+  while (n < 1 && n != 0) n = n * 2;
   if (n > 1) n = n - 1;
   var mant = [];
-  for (let i = 1; i < 24; i++) {
+  for (let i = 1; i < 15; i++) {
     if (n > 2 ** (-i)) {
       n = n - 2 ** (-i);
       mant.push(1);

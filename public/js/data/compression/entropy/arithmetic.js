@@ -68,9 +68,9 @@ function displayEncode(startingIndex) {
     startInterval = subInterval(startInterval, elementIndex, i + 1);
   }
   solution.push([Math.round(startInterval[uniqueChar.sort().indexOf(inputString[inputString.length - 1])][0] * 1000000) / 1000000, Math.round(startInterval[uniqueChar.sort().indexOf(inputString[inputString.length - 1])][2] * 1000000) / 1000000]);
-  document.getElementById('inputEncode' + startingIndex).value = inputString.join('');
-  document.getElementById('inputEncode' + startingIndex).disabled = true;
-  document.getElementById('exerciseEncode' + startingIndex).style.backgroundColor = "blue";
+  document.getElementsByClassName('inputEncode')[startingIndex].value = inputString.join('');
+  document.getElementsByClassName('inputEncode')[startingIndex].disabled = true;
+  document.getElementsByClassName('exerciseEncode')[startingIndex].style.backgroundColor = "blue";
 }
 
 function displayDecode(startingIndex) {
@@ -98,9 +98,9 @@ function displayDecode(startingIndex) {
   for (let i = 1; i < uniqueChar.length; i++) {
     userprobs.push([Math.round(probabillities[i][0] * 1000000) / 1000000, probabillities[i][1], Math.round(probabillities[i][2] * 1000000) / 1000000]);
   }
-  document.getElementById('inputDecode' + (startingIndex - 5)).value = userprobs.join('\n') + '\n' + startInterval[uniqueChar.sort().indexOf(inputString[inputString.length - 1])];
-  document.getElementById('inputDecode' + (startingIndex - 5)).disabled = true;
-  document.getElementById('exerciseDecode' + (startingIndex - 5)).style.backgroundColor = "blue";
+  document.getElementsByClassName('inputDecode')[startingIndex - 5].value = userprobs.join('\n') + '\n' + startInterval[uniqueChar.sort().indexOf(inputString[inputString.length - 1])];
+  document.getElementsByClassName('inputDecode')[startingIndex - 5].disabled = true;
+  document.getElementsByClassName('exerciseDecode')[startingIndex - 5].style.backgroundColor = "blue";
 }
 
 // Generate a random string
@@ -151,11 +151,11 @@ function subInterval(startInterval, index, round) {
 function checkEncode(message, index) {
   // If the input matches the solution display a green background
   if (message == solution[index]) {
-    document.getElementById('exerciseEncode' + (index * 2 + 1)).style.backgroundColor = "green";
+    document.getElementsByClassName('exerciseEncode')[index * 2 + 1].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('exerciseEncode' + (index * 2 + 1)).style.backgroundColor = "red";
+    document.getElementsByClassName('exerciseEncode')[index * 2 + 1].style.backgroundColor = "red";
   }
 }
 
@@ -163,20 +163,20 @@ function checkEncode(message, index) {
 function checkDecode(message, index) {
   // If the input matches the solution display a green background
   if (message == solution[index + 4]) {
-    document.getElementById('exerciseDecode' + (index * 2)).style.backgroundColor = "green";
+    document.getElementsByClassName('exerciseDecode')[index * 2].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('exerciseDecode' + (index * 2)).style.backgroundColor = "red";
+    document.getElementsByClassName('exerciseDecode')[index * 2].style.backgroundColor = "red";
   }
 }
 
 // Reset the starting and solution values and background colors
 function resetEncode() {
   for (let index = 0; index < 8; index++) {
-    document.getElementById('inputEncode' + index).value = '';
-    document.getElementById('inputEncode' + index).disabled = false;
-    document.getElementById('exerciseEncode' + index).style.backgroundColor = "white";
+    document.getElementsByClassName('inputEncode')[index].value = '';
+    document.getElementsByClassName('inputEncode')[index].disabled = false;
+    document.getElementsByClassName('exerciseEncode')[index].style.backgroundColor = "white";
   }
   for (let i = 0; i < 4; i++) {
     string.shift();
@@ -188,9 +188,9 @@ function resetEncode() {
 // Reset the starting and solution values and background colors
 function resetDecode() {
   for (let index = 0; index < 8; index++) {
-    document.getElementById('inputDecode' + index).value = '';
-    document.getElementById('inputDecode' + index).disabled = false;
-    document.getElementById('exerciseDecode' + index).style.backgroundColor = "white";
+    document.getElementsByClassName('inputDecode')[index].value = '';
+    document.getElementsByClassName('inputDecode')[index].disabled = false;
+    document.getElementsByClassName('exerciseDecode')[index].style.backgroundColor = "white";
   }
   for (let i = 0; i < 4; i++) {
     string.pop();
@@ -201,12 +201,12 @@ function resetDecode() {
 
 // Display the solution value
 function solutionEncode(index) {
-  document.getElementById('inputEncode' + (index * 2 + 1)).value = solution[index];
-  document.getElementById('exerciseEncode' + (index * 2 + 1)).style.backgroundColor = "green";
+  document.getElementsByClassName('inputEncode')[index * 2 + 1].value = solution[index];
+  document.getElementsByClassName('exerciseEncode')[index * 2 + 1].style.backgroundColor = "green";
 }
 
 // Display the solution value
 function solutionDecode(index) {
-  document.getElementById('inputDecode' + (index * 2)).value = solution[index + 4];
-  document.getElementById('exerciseDecode' + (index * 2)).style.backgroundColor = "green";
+  document.getElementsByClassName('inputDecode')[index * 2].value = solution[index + 4];
+  document.getElementsByClassName('exerciseDecode')[index * 2].style.backgroundColor = "green";
 }

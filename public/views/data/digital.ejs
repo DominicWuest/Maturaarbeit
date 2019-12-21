@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Digitale Daten</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Digitale Daten</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#general">Allgemein</a></li>
+          <li><a href="#examples">Digitalisierung von Daten</a></li>
+        </ul>
+      </div>
+      <div>
+        <div id = "general">
+          <h2>Allgemein</h2>
+          <p>Bei digitalen Daten unterscheidet man zwischen festen Zuständen. Es gibt also nicht mehr, wie bei den analogen Daten unendlich viele Werte, sondern nur noch eine gewisse (festgelegte) Anzahl. Gut unterscheiden lässt sich dies anhand des Beispieles der analogen und der digitalen Uhren. Auf einer analogen Uhr kann eine beliebige Zeit, ohne genaue Abstufung abgelesen werden (zum Beispiel wenn der Zeiger in der Mitte zwischen zwei Minuten ist). Auf einer digitalen Uhr hingegen kann die Zeit nur auf eine Minute, repektive eine Sekunde genau abgelesen werden. Somit würde die analoge Uhr einen linearen Funktionsgraphen ergeben, die dititale Uhr aber würde nur Abstufungen aufweisen. Diese beiden Funktionsgraphen werden in den Bildern dargestellt.</p>
+          <img src = "/imgs/data/digital/analogsignal.png" alt = "Analog signal" width = "350vw"/>
+          <img src = "/imgs/data/digital/digitalsignal.png" alt = "Digital signal" width = "350vw"/>
+        </div>
+        <div id = "examples">
+          <h2>Digitalisierung von Daten</h2>
+          <p>Nun gilt es alle möglichen Arten von Daten digital darzustellen.</p>
+          <h3>Zahlen</h3>
+          <p>Zuerst müssen die Natürlichen Zahlen digitalisiert werden. Diese sind zwar eigentlich bereits digital, jedoch haben wir hier die Einschränkung, dass der darstellbare Bereich eingeschränkt ist, also nicht beliebig grosse Zahlen dargestellt werden können. Für die Ganzen Zahlen braucht man ein Vorzeichen. Dies wird mit dem Zweierkomplement gemacht. Auch hier ist die Endlichkeit des darstellbaren Bereiches das einzige Problem. Bei den Reellen Zahlen kommt zusätzlich zum nur endlich darstellbaren Bereich noch die endlich darstellbare Genauigkeit hinzu. Genaueren, wie die Zahlen in einem Computer realisiert werden findest du unter <a href = "/data/digital/numbers">Zahlen</a>.</p>
+          <h3>Schriftsymbole</h3>
+          <p>Jedes einzelne Schriftzeichen erhält eine Nummer. Dabei können also auch nur endlich viele Schriftzeichen Codiert werden. Diese Nummer wird als Zahl codiert. Genaueres dazu erfährst du unter <a href = "/data/digital/signs">Schriftzeichen</a> und <a href = "/data/digital/signs/utf">UTF</a>.</p>
+          <h3>Grafik</h3>
+          <p>Um eine Grafik (oder ein Bild) digital darzustellen muss sie mit einem Raster in endlich viele kleine Fächen (Pixel) unterteilt werden. Diese Pixel erhalten endlich viele Farbabstufungen, die normalerweise mit RGB vorgenommen werden. Diese Daten werden noch verlustfrei (bzw. PNG,BMP) oder verlustbehaftet (bzw. JPG) kodiert oder in einer Objektorientierter Grafik wie PDF beschrieben (dort werden die Formen abgespeichert).</p>
+          <h3>Ton/Musik</h3>
+          <p>Um Musik, respektive Tone digital darzustellen muss das analoge Signal abgetastet werden. Die Abtastungen messen die Frequenz (Tonhöhe) und die Amplitude zu diesem Zeitpunkt. Danach muss noch das Rauschen, also nicht hörbare Frequenzen herausgefiltert werden.</p>
+          <h3>Video</h3>
+          <p>Ein Video besteht auch einer Abtastung von Bildern mit einer gewissen Samplingrate (bzw. 60 Bilder pro Sekunde). Die Bilder werden dabei wie oben abgespeichert. Dazu gibt es auch noch Ton inklusive einer Synchronisierungsinfo, damit beides gleichzeitig abläuft.</p>
+          <h3>Bewegung</h3>
+          <p>Bewegung kann digital dargestellt werden, indem die Orts- und Geschwindigkeitsdaten endlich vieler Punkte festgehalten werden.</p>
+          <h3>Tastsinn</h3>
+          <p>Auch der Tastsinn besteht digital aus endlich vielen Punkten, die abgestufte Werte für den Druck (die Intensität) aufweisen können.</p>
+          <h3>Geschmack</h3>
+          <p>Die vier Basisgeschmäcker sind: Süss, Bitter, Salzig und Umami. Der Geschmack ist die Summe dieser Geschmäcker, wobei noch die jeweilige Intensität als Koeffizient gebraucht wird.</p>
+          <h3>Geruch</h3>
+          <p>Der Geruch kann nicht digital erfasst werden, da es keine Basisdüfte gibt, aus denen man alle möglichen Gerüche aufbauen kann.</p>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

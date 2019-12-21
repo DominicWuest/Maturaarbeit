@@ -60,9 +60,9 @@ function displayExercise(n) {
 function displayTree(startingIndex) {
   solution.push(['']);
   inputString = GenString(startingIndex / 2);
-  document.getElementById('inputTree' + (startingIndex + 1)).value = inputString.join('');
-  document.getElementById('inputTree' + (startingIndex + 1)).disabled = true;
-  document.getElementById('Treeextable' + (startingIndex + 1)).style.backgroundColor = "blue";
+  document.getElementsByClassName('inputTree')[startingIndex + 1].value = inputString.join('');
+  document.getElementsByClassName('inputTree')[startingIndex + 1].disabled = true;
+  document.getElementsByClassName('Treeextable')[startingIndex + 1].style.backgroundColor = "blue";
   // Calculate the solution
   uniqueChar = inputString.filter(function(item, pos) {
     return inputString.indexOf(item) == pos;
@@ -86,21 +86,21 @@ function displayHuffman(startingIndex) {
   solHuffman.push(temp.join(''));
   // If the third slot is chosen display just the string
   if (randSlot === 1) {
-    document.getElementById('inputHuffman' + (startingIndex + 2)).value = temp.join('');
-    document.getElementById('inputHuffman' + (startingIndex + 2)).disabled = true;
-    document.getElementById('Huffmanextable' + (startingIndex + 2)).style.backgroundColor = "blue";
-    document.getElementById('solButton' + (startingIndex + 2)).style.visibility = 'hidden';
+    document.getElementsByClassName('inputHuffman')[startingIndex + 2].value = temp.join('');
+    document.getElementsByClassName('inputHuffman')[startingIndex + 2].disabled = true;
+    document.getElementsByClassName('Huffmanextable')[startingIndex + 2].style.backgroundColor = "blue";
+    document.getElementsByClassName('solButton')[startingIndex + 2].style.visibility = 'hidden';
   }
   // Otherwise display the code and the string together
   if (randSlot === 0) {
-    document.getElementById('inputHuffman' + (startingIndex)).value = solHuffman[startingIndex];
-    document.getElementById('inputHuffman' + (startingIndex + 1)).value = solHuffman[startingIndex + 1];
-    document.getElementById('inputHuffman' + (startingIndex)).disabled = true;
-    document.getElementById('inputHuffman' + (startingIndex + 1)).disabled = true;
-    document.getElementById('Huffmanextable' + (startingIndex)).style.backgroundColor = "blue";
-    document.getElementById('Huffmanextable' + (startingIndex + 1)).style.backgroundColor = "blue";
-    document.getElementById('solButton' + (startingIndex)).style.visibility = 'hidden';
-    document.getElementById('solButton' + (startingIndex + 1)).style.visibility = 'hidden';
+    document.getElementsByClassName('inputHuffman')[startingIndex].value = solHuffman[startingIndex];
+    document.getElementsByClassName('inputHuffman')[startingIndex + 1].value = solHuffman[startingIndex + 1];
+    document.getElementsByClassName('inputHuffman')[startingIndex].disabled = true;
+    document.getElementsByClassName('inputHuffman')[startingIndex + 1].disabled = true;
+    document.getElementsByClassName('Huffmanextable')[startingIndex].style.backgroundColor = "blue";
+    document.getElementsByClassName('Huffmanextable')[startingIndex + 1].style.backgroundColor = "blue";
+    document.getElementsByClassName('solButton')[startingIndex].style.visibility = 'hidden';
+    document.getElementsByClassName('solButton')[startingIndex + 1].style.visibility = 'hidden';
   }
 }
 
@@ -217,11 +217,11 @@ function HuffmanCode(startingIndex, string, uniqueString) {
 function checkTree(message, index) {
   // If the input matches the solution display a green background
   if (message === solution[index / 2]) {
-    document.getElementById('Treeextable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('Treeextable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('Treeextable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('Treeextable')[index].style.backgroundColor = "red";
   }
 }
 
@@ -229,20 +229,20 @@ function checkTree(message, index) {
 function checkHuffman(message, index) {
   // If the input matches the solution display a green background
   if (message === solHuffman[index]) {
-    document.getElementById('Huffmanextable' + index).style.backgroundColor = "green";
+    document.getElementsByClassName('Huffmanextable')[index].style.backgroundColor = "green";
   }
   // If the input is wrong display a red background
   else {
-    document.getElementById('Huffmanextable' + index).style.backgroundColor = "red";
+    document.getElementsByClassName('Huffmanextable')[index].style.backgroundColor = "red";
   }
 }
 
 // Reset the starting and solution values and background colors
 function resetTree() {
   for (let index = 0; index < 8; index++) {
-    document.getElementById('inputTree' + index).value = '';
-    document.getElementById('inputTree' + index).disabled = false;
-    document.getElementById('Treeextable' + index).style.backgroundColor = "white";
+    document.getElementsByClassName('inputTree')[index].value = '';
+    document.getElementsByClassName('inputTree')[index].disabled = false;
+    document.getElementsByClassName('Treeextable')[index].style.backgroundColor = "white";
   }
   string = [];
   stringIndex = [];
@@ -253,10 +253,10 @@ function resetTree() {
 // Reset the starting and solution values and background colors
 function resetHuffman() {
   for (let index = 0; index < 12; index++) {
-    document.getElementById('inputHuffman' + index).value = '';
-    document.getElementById('inputHuffman' + index).disabled = false;
-    document.getElementById('Huffmanextable' + index).style.backgroundColor = "white";
-    document.getElementById('solButton' + index).style.visibility = 'visible';
+    document.getElementsByClassName('inputHuffman')[index].value = '';
+    document.getElementsByClassName('inputHuffman')[index].disabled = false;
+    document.getElementsByClassName('Huffmanextable')[index].style.backgroundColor = "white";
+    document.getElementsByClassName('solButton')[index].style.visibility = 'visible';
   }
   stringHuff = [];
   stringIndexHuff = [];
@@ -267,12 +267,12 @@ function resetHuffman() {
 
 // Display the solution value
 function solutionTree(index) {
-  document.getElementById('inputTree' + index).value = solution[index / 2];
-  document.getElementById('Treeextable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputTree')[index].value = solution[index / 2];
+  document.getElementsByClassName('Treeextable')[index].style.backgroundColor = "green";
 }
 
 // Display the solution value for the second exercise
 function solutionHuffman(index) {
-  document.getElementById('inputHuffman' + index).value = solHuffman[index];
-  document.getElementById('Huffmanextable' + index).style.backgroundColor = "green";
+  document.getElementsByClassName('inputHuffman')[index].value = solHuffman[index];
+  document.getElementsByClassName('Huffmanextable')[index].style.backgroundColor = "green";
 }

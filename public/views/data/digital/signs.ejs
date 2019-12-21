@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Zeichen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href="/styles/navigation.css">
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Zeichen</h1>
+      </div>
+      <div id = "general">
+        <h2>Allgemein</h2>
+        <p>Mit Zeichen werden Buchstaben (Schriftzeichen/-symbole), aber auch die Symbole der Ziffern bezeichnet. Den Zeichen wird eine Glyphe (grafische Darstellung des Zeichens) zugeordnet. In der Elektronik werden die Zeichen kodiert und jedes Zeichen erhält eine Zahlenwert zur Zuordnung. Diese Nummer kann auch noch weiter kodiert werden, um weniger Daten für ein häufig vorkommendes Zeichen zu verbrauchen, aber immer noch in der Lage zu sein viele verschiedene Zeichen darszustellen</p>
+      </div>
+      <div class = "two">
+        <% let index = courses[0].indexOf('Zeichen') + 1; while (courses[3][index] > courses[3][courses[0].indexOf('Zeichen')]) { %>
+        <% if (courses[3][index] == courses[3][courses[0].indexOf('Zeichen') + 1]) { %>
+        <div class = "courseLink">
+          <a <% if (!courses[4][index]) { %> class="unavailable" <% } %> href="<%= courses[1][index] %>"> <h2><%= courses[0][index] %></h2>
+            <img src = "/imgs/data/digital/<%= courses[1][index].split('/')[courses[1][index].split('/').length - 1] %>.png" alt = "<%= courses[0][index] %>" class = "pics"/>
+          </a>
+        </div>
+        <% } %>
+        <% index += 1 } %>
+      </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

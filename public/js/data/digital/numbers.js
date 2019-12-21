@@ -4,19 +4,21 @@ let solution = [];
 // Displays all the exercises
 function displayExercise(n) {
   for (let i = 0; i < n; i++) {
-    displayConvert(i);
+    displayConvert(i, true);
   }
   for (let i = 0; i < n; i++) {
-    displayComplement(i);
+    displayComplement(i, true);
   }
   for (let i = 0; i < n; i++) {
-    displayFloat(i);
+    displayFloat(i, true);
   }
 }
 
 // Displays the format conversion exercise
-function displayConvert(index) {
-  solution.push([Math.floor(Math.random() * 100 * (index + 1))]);
+function displayConvert(index, first) {
+  console.log(solution);
+  if (first) solution.push([Math.floor(Math.random() * 100 * (index + 1))]);
+  else solution.splice(index, 1, [Math.floor(Math.random() * 100 * (index + 1))]);
   solution[index].push((solution[index][0] >>> 0).toString(16).toUpperCase(), (solution[index][0] >>> 0).toString(2));
   randSlot = Math.floor(Math.random() * 3);
   var fieldList = document.getElementsByClassName("convertexercise");
@@ -29,8 +31,9 @@ function displayConvert(index) {
 }
 
 // Displays the format complementexercise
-function displayComplement(index) {
-  solution.push([Math.floor((Math.random() - 0.5) * Math.random() * 150 * (index + 1))]);
+function displayComplement(index, first) {
+  if (first) solution.push([Math.floor((Math.random() - 0.5) * Math.random() * 150 * (index + 1))]);
+  else solution.splice(index + 4, 1, [Math.floor((Math.random() - 0.5) * Math.random() * 150 * (index + 1))]);
   let a = solution[index + 4][0];
   if (a < 0) {
     var bin = (solution[index + 4][0] >>> 0).toString(2).substring(17);
@@ -59,8 +62,9 @@ function displayComplement(index) {
 }
 
 // Displays the format floatexercise
-function displayFloat(index) {
-  solution.push([(Math.random() - 0.5) * Math.random() * 150 * (((index + 1) / 3) ** 13)]);
+function displayFloat(index, first) {
+  if (first) solution.push([(Math.random() - 0.5) * Math.random() * 150 * (((index + 1) / 3) ** 13)]);
+  else solution.splice(index + 8, 1, [(Math.random() - 0.5) * Math.random() * 150 * (((index + 1) / 3) ** 13)])
   solution[index + 8].push(Math.sign(Math.sign(solution[index + 8][0]) + 1) - Math.sign(solution[index + 8][0]), exponent(solution[index + 8][0]), mantissa(Math.abs(solution[index + 8][0])));
   var fieldList = document.getElementsByClassName("floatexercise");
   var inputList = document.getElementsByClassName("inputFloat");
@@ -177,8 +181,7 @@ function resetConvert() {
     document.getElementsByClassName("convertexercise")[i].style.backgroundColor = "white";
     document.getElementsByClassName("convertSolution")[i].style.visibility = 'visible';
   }
-  for (let i = 0; i < 4; i++) solution.shift();
-  for (let i = 0; i < 4; i++) displayConvert(i);
+  for (let i = 0; i < 4; i++) displayConvert(i, false);
 }
 
 // Displays new exercises
@@ -189,7 +192,6 @@ function resetComplement() {
     document.getElementsByClassName("complementexercise")[i].style.backgroundColor = "white";
     document.getElementsByClassName("complementSolution")[i].style.visibility = 'visible';
   }
-  for (let i = 0; i < 4; i++) solution.pop();
   for (let i = 0; i < 4; i++) displayComplement(i);
 }
 
@@ -201,6 +203,5 @@ function resetFloat() {
     document.getElementsByClassName("floatexercise")[i].style.backgroundColor = "white";
     document.getElementsByClassName("floatSolution")[i].style.visibility = 'visible';
   }
-  for (let i = 0; i < 4; i++) solution.pop();
   for (let i = 0; i < 4; i++) displayFloat(i);
 }

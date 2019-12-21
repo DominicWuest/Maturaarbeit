@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Analoge Daten</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+  </head>
+  <body>
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Analoge Daten</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#general">Allgemein</a></li>
+          <li><a href="#electric">In der Elektronik</a></li>
+          <li><a href="#examples">Beispiele zu analogen Daten</a></li>
+        </ul>
+      </div>
+      <div>
+        <div id = "general">
+          <h2>Allgemein</h2>
+          <p>Analoge Daten sind die Daten, wie sie in der realen Welt vorkommen. Man kann sie nicht genau abstufen, sie können eine beliebige Werte aufweisen. Analoge Daten können also auch nicht exakt gemessen werden, sondern sie können lediglich über Abtastwerte angenähert werden. Dabei wird die Annäherung immer besser, je mehr Abtastwerte gebraucht werden. Jedoch sind Messwerte immer digital und nicht mehr Analog, da sie immer Abstufungen enthalten.</p>
+        </div>
+        <div id = "electric">
+          <h2>In der Elektronik</h2>
+          <img src = "/imgs/data/analog/signal.png" alt = "Analog signal"/>
+          <p>In elektrischen Geräten können analoge Daten mit unterschiedlicher Spannung realisiert werden. Ein Beispiel für einen analogen Anschluss ist der VGA-Videoanschluss. Das analoge Signal kann dann als Kurve Wahrgenommen werden, wie im Bild dargestellt wird.</p>
+        </div>
+        <div id = "examples">
+          <h2>Beispiele zu analogen Daten</h2>
+          <h3>Temperaturverlauf</h3>
+          <p>Ein Beispiel für analoge Daten sind ein genauer Temperaturverlauf. Dabei kann dieser beispielsweise das Abkühlen einer Tasse Tee beschreiben. Diese Abkühlung wird durch eine Exponentialfunktion beschrieben, welche analoge Daten bezüglich der momentanen Temperatur zu einer bestimmten Zeit liefert.</p>
+          <h3>Bild</h3>
+          <p>Auch ein Bild kann mit analogen Daten dargestellt werden. Dabei wird das Bild als eine Fläche aufgefasst, auf ein Farbverlauf liegt. Unser Auge kann diese analogen Daten dann erkennen und als Bild interpretieren.</p>
+        </div>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

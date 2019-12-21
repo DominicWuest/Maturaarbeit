@@ -95,10 +95,6 @@ table, th, td {
   width: 75vw;
 }
 
-#inputUTF8-3, #inputUTF8-7, #inputUTF8-11, #inputUTF8-15 {
-  width: 18vw;
-}
-
 main input[type = "text"]:focus, textarea:focus {
   box-shadow: inset;
 }
@@ -157,22 +153,6 @@ main input[type = "text"]:disabled, main textarea:disabled {
     grid-template-columns: 2vw repeat(16, 3.5vw);
     grid-template-rows: 2vh repeat(16, 3.5vh);
     grid-gap: 0.5vh;
-  }
-
-  #inputASCII-0, #inputASCII-4, #inputASCII-8, #inputASCII-12 {
-    max-width: 10vw;
-  }
-
-  #inputISOIEC-0, #inputISOIEC-4, #inputISOIEC-8, #inputISOIEC-12 {
-    max-width: 10vw;
-  }
-
-  #inputUTF8-0, #inputUTF8-2, #inputUTF8-4, #inputUTF8-6, #inputUTF8-8, #inputUTF8-10, #inputUTF8-12, #inputUTF8-14 {
-    max-width: 10vw;
-  }
-
-  #inputUTF16-0, #inputUTF16-4, #inputUTF16-8, #inputUTF16-12 {
-    max-width: 10vw;
   }
 
 }

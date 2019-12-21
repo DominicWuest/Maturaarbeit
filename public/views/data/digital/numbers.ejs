@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<!-- Daniel Isler -->
+<html lang = "de">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Zahlen</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/imgs/favicon.ico"/>
+    <link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+    <link rel="stylesheet" href="/styles/course.css">
+    <link rel="stylesheet" href=<%= "/styles/" + path + ".css" %>>
+    <script src=<%= "/js/" + path + ".js" %>></script>
+  </head>
+  <body onload = "displayExercise(4);">
+    <%- include(partialsPath + 'header.ejs') %>
+    <main>
+      <div class="title">
+        <h1>Zahlen</h1>
+      </div>
+      <div class="shortlink">
+        <h2>Shortlinks</h2>
+        <ul>
+          <li><a href="#decimal">Dezimalsystem</a></li>
+          <li><a href="#binary">Binärsystem</a></li>
+          <li><a href="#hex">Hexadezimalsystem</a></li>
+          <li><a href="#convert">Umwandlungsaufgaben</a></li>
+          <li><a href="#twoscomplement">Negative Zahlen: Das Zweierkomplement</a></li>
+          <li><a href="#floatingpoint">Reelle Zahlen: Fliesskomma</a></li>
+        </ul>
+      </div>
+      <div id = "decimal">
+        <h2>Dezimalsystem</h2>
+        <p>Das Dezimalsystem ist das heutzutage normalerweise verwendete System. Dem System liegen die zehn Ziffern: {0, 1, 2, 3, 4, 5, 6, 7, 8, 9} zugrunde. Wenn diese Ziffern aneinander gereiht werden ergeben sie eine Zahl, die wie folgt gelesen werden muss. Die Zahl ist die Summe aus den Zehnerpotenzen {10<sup>n</sup>, 10<sup>n - 1</sup>, ..., 10<sup>1</sup>, 10<sup>0</sup>} mit den Ziffern als koeffizienten. Die Ziffer ganz links ist dabei der Koeffizient der höchsten Zehnerpotenz 10<sup>n</sup> bei einer n-stelligen Zahl und die Ziffer ganz links diejenige mit die tiefsten Zehnerpotenz 10<sup>0</sup> = 0.<br>Der Zahl 5131 wird also die Summe 5 * 10<sup>3</sup> + 1 * 10<sup>2</sup> + 3 * 10<sup>1</sup> + 1 * 10<sup>0</sup> = 5000 + 100 + 30 + 1 zugeordnet.</p>
+      </div>
+      <div id = "binary">
+        <h2>Binärsystem</h2>
+        <p>In Computern wird das Binärsystem verwendet, da es dort sinnvoller ist nur zwischen zwei verschiedenen Zuständen unterscheiden zu müssen als zwischen zehn. Das Binärsystem ist auf den zwei Ziffern {0, 1} aufgebaut. Eine Binärzahl besteht also lediglich auch Nullen und Einsen. Die Zahl hat dabei den Wert der Summe aus den Zweierpotenzen {2<sup>n</sup>, 2<sup>n - 1</sup>, ... , 2<sup>1</sup>, 2<sup>0</sup>} mit den Ziffern als Koeffizienten. Wie beim Dezimalsystem wird wieder die erste Ziffer mit der höchsten Potenz multipliziert, die zweithöchste mit der zweithöchsten Potenz multipliziert bis zum letzten, der mit der niedrigsten Potenz 2<sup>0</sup> = 1 multipliziert wird. Die Anzahl stellen wird bei einer Binärzahl mit der Anzahl Bits (Ziffern) bezeichnet. <br>Die Zahl 10101101010 hat also den Wert 1 * 2<sup>10</sup> + 0 * 2<sup>9</sup> + 1 * 2<sup>8</sup> + 0 * 2<sup>7</sup> + 1 * 2<sup>6</sup> + 1 * 2<sup>5</sup> + 0 * 2<sup>4</sup> + 1 * 2<sup>3</sup> + 0 * 2<sup>2</sup> + 1 * 2<sup>1</sup> + 0 * 2<sup>0</sup> = 1024 + 256 + 64 + 32 + 8 + 2 = 1386.</p>
+      </div>
+      <div id = "hex">
+        <h2>Hexadezimalsystem</h2>
+        <p>Dem Hexadezimalsystem liegen die 16 Ziffern {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F} zugrunde. Dabei haben die Buchstaben {A, B, C, D, E, F} die dezimalen Werte {10, 11, 12, 13, 14, 15}. In einer Hexadezimalzahl sind die Ziffern die Koeffizienten von Sechzehnerpotenzen{16<sup>n</sup>, 16<sup>n - 1</sup>, ..., 16<sup>1</sup>, 16<sup>0</sup>}, wie wir es auch bereits aus den anderen Zahlensystemen kennen.<br>Die Zahl 15F hat also den Wert 1 * 16<sup>2</sup> + 5 * 16<sup>1</sup> + F * 16<sup>0</sup> = 1 * 256 + 5 * 16 + 15 * 1 = 256 + 80 + 15 = 251.</p>
+        <h3>Umwandlung Hexadezimal - Binär</h3>
+        <p>Hexadezimalzahlen und Binärzahlen lassen sich besonders gut ineinander umwandeln. Dabei muss erkannt werden, dass jede Ziffer einer Hexadezimalzahl mit vier Binärziffern dargestellt werden kann. Falls es nicht aufgeht muss die Binärzahl noch linksseitig mit Nullenaufgefüllt werden.</p>
+        <table>
+          <tr>
+            <th>Binärzahl (4 Bits)</th>
+            <th>Hexadezimal</th>
+            <th>Erklärung</th>
+          </tr>
+          <tr>
+            <td>0000</td>
+            <td>0</td>
+            <td>Vier Nullen im Binärsystem bedeuten eine 0 im Hexadezimalsystem.</td>
+          </tr>
+          <tr>
+            <td>1100</td>
+            <td>C</td>
+            <td>Diese Binärzahl 8 + 4 = 12 wird im Hexadezimalsystem als C dargestellt.</td>
+          </tr>
+          <tr>
+            <td>1111101</td>
+            <td>7D</td>
+            <td>Wenn die Zahl aufgefüllt wird, sodass die Anzahl Stellen durch vier teilbar wird erhalten wir 0111'1101. Die ersten vier Bits stellen dann die Zahl 7 dar und die restlichen Bits die 13, die mit D dargestellt wird.</td>
+          </tr>
+          <tr>
+            <td>00101011</td>
+            <td>2B</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>1110101101</td>
+            <td>3CD</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>101'1101'0101'1010'1000'1010'1110</td>
+            <td>5D5'C8CE</td>
+            <td>Die ' dienen hier lediglich der Übersichtlichkeit.</td>
+          </tr>
+        </table>
+      </div>
+      <div id = "convert">
+        <h2>Umwandlungsaufgaben</h2>
+        <p>Wandle die vorgegeben Zahlen in das jeweilige System um und fülle damit die leeren Felder aus. Schreibe dabei nur so viele Stellen wie benötigt werden.</p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetConvert();">
+        <table>
+          <tr>
+            <th>Dezimal</th>
+            <th>Hexadezimal</th>
+            <th>Binär</th>
+          </tr>
+          <% for (let i = 0; i < 4; i++) { %>
+          <tr>
+            <% for (let q = i * 3; q < 3 * (i + 1); q++) { %>
+            <td class = "convertexercise"><input class = "inputConvert" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkConvert(this.value, <%= q %>);"><br><input class = "convertSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionConvert(<%= q %>);"></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <div id = "twoscomplement">
+        <h2>Negative Zahlen: Das Zweierkomplement</h2>
+        <p>Bis jetzt wissen wir lediglich wie wir natürliche Zahlen darstellen können. Um den darstellbaren Bereich auf die ganzen Zahlen zu erweitern brauchen wir aber auch noch die negativen Zahlen. Diese werden mit dem Zweierkomplement dargestellt. Dabei wird mindestens ein Bit mehr benötig, als in den natürlichen Zahlen benötigt werden würde um die Zahlen bis zu einer gewissen Zahl darstellen zu können (beispielsweise werden für die Zahlen von 0 bis 256 sieben Bits benötigt, hingegen von -255 bis 256 acht Bits). Das Zweierkomplement wird in zwei Schritten gebildet: Falls die Zahl negativ ist muss als erstes 1 subtrahiert werden. Als zweites werden alle Bits umgedreht(aus jeder 0 wird eine 1 und aus jeder 1 eine 0).</p>
+        <table>
+          <tr>
+            <th>Dezimalzahl</th>
+            <th>Betrag Binärzahl</th>
+            <th>Betrag Binärzahl - 1 (10 Bit)</th>
+            <th>Binärzahl (10 Bit)</th>
+          </tr>
+          <tr>
+            <td>-25</td>
+            <td>11001</td>
+            <td>0000011000</td>
+            <td>1111100111</td>
+          </tr>
+          <tr>
+            <td>-19</td>
+            <td>10011</td>
+            <td>0000010010</td>
+            <td>1111101101</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>1100</td>
+            <td>0000001100</td>
+            <td>0000001100</td>
+          <tr>
+            <td>-40</td>
+            <td>101000</td>
+            <td>0000100111</td>
+            <td>1111011000</td>
+          </tr>
+        </table>
+        <p>Wie in der Tabelle zu erkennen ist wird mit einer positiven Zahl nichts gemacht. Dadurch können negative Zahlen daran erkannt werden, dass das erste Bit eine 1 ist. Um eine negative Binärzahl zu lesen kann das Zweierkomplement einfach erneut gebildet. Also zuerst 1 addieren und danach invertieren ergibt den Betrag der Zahl.</p>
+        <h3>Aufgaben</h3>
+        <p>Wandle die folgenden Zahlen in die verschiedenen Systeme um. Gib für die Dezimalzahlen und die Beträge binär so viele Stellen wie nötig an und die Binärzahlen auf 15 Stellen an.</p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetComplement();">
+        <table>
+          <tr>
+            <th>Dezimal</th>
+            <th>Betrag binär</th>
+            <th>Binär</th>
+          </tr>
+          <% for (let i = 0; i < 4; i++) { %>
+          <tr>
+            <% for (let q = i * 3; q < 3 * (i + 1); q++) { %>
+            <td class = "complementexercise"><input class = "inputComplement" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkComplement(this.value, <%= q %>);"><br><input class = "complementSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionComplement(<%= q %>);"></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+      <div id = "floatingpoint">
+        <h2>Reelle Zahlen: Fliesskomma</h2>
+        <p>Reelle Zahlen werden völlig anders realisiert als Integer. Dafür wird die sogenannte Fliesskommazahl verwendet. Hier werden die Fliesskommazahlen im Format IEEE754 mit 32 Bits betrachtet.<br>Eine Fliesskommazahl besteht aus drei Teilen: Dem Vorzeichen (s für sign), dem Exponenten (e für exponent) und der Mantisse (m für mantissa). Von den 32 zur verfügung stehenden Bits werden eins für das Vorzeichen, acht für den Exponenten und 23 für die Mantisse verwendet.</p>
+        <h4>Das Vorzeichen</h4>
+        <p>Das erste Bit einer Fliesskommazahl ist das Vorzeichen. Ist es eine 0 so ist die Zahl positiv, ist es eine 1 so ist die Zahl negativ.</p>
+        <h4>Der Exponent</h4>
+        <p>Die Bits zwei bis neun stellen den Exponenten dar. Eine Fliesskommazahl muss immer zuerst in die Form s * 2<sup>e-B</sup> * 1.m gebracht werden. Dabei stellt B den sogenannten Exponent-Bias dar. Dieser wird gebraucht, sodass negative Exponenten dargestellt werden können ohne dass negative Zahlen codiert werden müssen. In unserem Format beträgt der Exponenten-Bias B = 127. Der zweite Teil 1.m zeigt uns an, dass die Zahl zwischen 1 und 2 liegen muss. Wir müssen sie also so lange mit zwei multiplizieren, respektive dividieren, bis sie im Intervall [1, 2] liegt. 127 + die Anzahl Multiplikationen, respektive minus die Anzahl Divisionen gibt dann den Exponenten an, der mit 8 Bits als natürliche Zahl kodiert wird.</p>
+        <h4>Die Mantisse</h4>
+        <p>Die Mantisse gibt die Nachkommastellen der Zahl s * 2<sup>e-B</sup> * 1.m an. Das 1.m bedeutet dabei, dass die Mantisse lediglich die Nachkommastellen nach der 1, also eine Zahl im Intervall [0, 1] darstellt. Sie besteht aus 23 Bits, die jeweils die Koeffizienten der Potenzen {2<sup>-1</sup>, 2<sup>-2</sup>, ..., 2<sup>-23</sup>} darstellen. 1001 in der Mantisse würde also 1 * 0.5 + 0 * 0.25 + 0 * 0.125 + 1 * 0.0675 = 0.5675 lauten. Zu dieser Zahl wird nun noch eine 1 addiert und sie wird mit dem Vorzeichen und der Zweierpotenz 2<sup>e-B</sup> multipliziert.</p>
+        <h4>Ein Beispiel</h4>
+        <p>In diesem Beispiel wird die Zahl -18.18525 als Fliesskommazahl dargestellt.</p>
+        <table>
+          <tr>
+            <th>Operation</th>
+            <th>Auswirkung</th>
+            <th>Erklärung</th>
+          </tr>
+          <tr>
+            <td>-18.18525 = -1 * 18.18525</td>
+            <td>s = 1</td>
+            <td>Die Zahl ist negativ also beträgt das Vorzeichen 1</td>
+          </tr>
+          <tr>
+            <td>18.18525 = 1.17828125 * 2<sup>4</sup></td>
+            <td>e = 127 + 4 = 131<sub>10</sub> = 10000011<sub>2</sub></td>
+            <td>Der Exponent ergibt sich aus dem Exponenten, den 2 erhält um unsere Zahl multipliziert mit einer Zahl in [1, 2] darzustellen addiert zu den Exponent-Bias = 127.</td>
+          </tr>
+          <tr>
+            <td>1.17828125 - 1= 0.17828125 &cong; 0 * 2<sup>-1</sup> + 0 * 2<sup>-2</sup> + 1 * 2<sup>-3</sup> + 0 * 2<sup>-4</sup> + 1 * 2<sup>-5</sup></td>
+            <td>m = 00101</td>
+            <td>Die Mantisse setzt sich aus den Koeffizienten der Zweierpotenzen zusammen.</td>
+          </tr>
+        </table>
+        <h4>Denormalisierte Zahlen</h4>
+        <p>Dank der oben aufgeführten Darstellung von reellen Zahlen werden betragsmässig kleine Zahlen genauer dargestellt als betragsmässig grosse Zahlen (auf mehr Nachkommastellen genau, deswegen auch Fliesskomma). Das Problem ist jedoch, dass keine Zahlen mit Betrag unter 2<sup>-126</sup> dargestellt werden können. Deswegen werden die denormalisierten Zahlen definiert: Wenn der Exponent 255<sub>10</sub> = 1111'1111<sub>2</sub> beträgt bedeutet dies NaN (not a nunber, z.B. unendlich) und die Mantissenbits können weitere Informationen enthalten. Wenn der Exponent 0<sub>10</sub> = 0000'0000<sub>2</sub> beträgt dann wird die Zahl nicht mehr als s * 2<sup>e-B</sup> * 1.m, sondern als s * 2<sup>e-B</sup> * 0.m interpretiert. Wenn die Mantisse nun nur aus Nullen besteht wird die Zahl 0 dargestellt.</p>
+        <h3>Aufgaben zu den Fliesskommazahlen</h3>
+        <p>Fülle die leeren Felder aus. Gib für den Exponenten jeweils 8 Bits und für die Mantisse die ersten 15 Bits an.</p>
+        <input type = "button" value = "Neue Aufgaben" onclick = "resetFloat();">
+        <table>
+          <tr>
+            <th>Dezimalzahl</th>
+            <th>Vorzeichen</th>
+            <th>Exponentbits</th>
+            <th>Mantisse</th>
+          </tr>
+          <% for (let i = 0; i < 4; i++) { %>
+          <tr>
+            <% for (let q = i * 4; q < 4 * (i + 1); q++) { %>
+            <td class = "floatexercise"><input class = "inputFloat" type = "text" spellcheck = "false" placeholder = "Gib hier deine Lösung ein" oninput = "checkFloat(this.value, <%= q %>);"><br><input class = "floatSolution" type = "button" value = "Lösung anzeigen" onclick = "solutionFloat(<%= q %>);"></td>
+            <% } %>
+          </tr>
+          <% } %>
+        </table>
+      </div>
+    </main>
+    <%- include(partialsPath + 'footer1.ejs') %>
+  </body>
+</html>

@@ -202,5 +202,9 @@ function updateMostPopular() {
   mostPopularCourses = clicksArr.map((a) => a[0]).slice(0, 5);
 }
 
-// Listen on port 3000
-app.listen(3000);
+// Get port from env variable, default to 3000
+let port = process.env.PORT || 3000;
+app.listen(port, function (err) {
+	if (err) console.log("Startup errored: ", err);
+	else console.log ("Server listening on port ", port);
+});
